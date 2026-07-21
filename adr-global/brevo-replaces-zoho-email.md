@@ -1,4 +1,4 @@
-# 01 — Brevo Replaces All Zoho Products
+#  Brevo Replaces All Zoho Products
 Date: 2026-03-21
 Status: Accepted
 Source: Devlog #34 — plan-email-architecture-brevo-and-session-cleanup

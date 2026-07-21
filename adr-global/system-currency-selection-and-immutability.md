@@ -1,4 +1,4 @@
-# 16 — System Currency, Display Currency, and Immutability
+# System Currency, Display Currency, and Immutability
 Date: 2026-05-29
 Status: Accepted
 Source: Consolidated from `013-system-currency-setting.md` and `016-system-currency-selection-and-immutability.md`

@@ -1,4 +1,4 @@
-# 04 — Lead Capture: Simultaneous leads + contacts Creation
+# Lead Capture: Simultaneous leads + contacts Creation
 Date: 2026-03-21
 Status: Accepted
 Source: Devlog #34 — cs-architectural-specification-D.md §13

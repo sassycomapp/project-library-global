@@ -1,4 +1,4 @@
-# 10 — Single Contacts Table Replaces Dual contacts/customers
+# Single Contacts Table Replaces Dual contacts/customers
 **Consolidated Contact Model for CRM**
 
 Date: 2026-05-03

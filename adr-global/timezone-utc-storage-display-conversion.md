@@ -1,4 +1,4 @@
-# 05 — Client Timezone: IANA String, UTC Storage, Display-Time Conversion
+# Client Timezone: IANA String, UTC Storage, Display-Time Conversion
 Date: 2026-03-17
 Status: Accepted
 Source: cs-architectural-specification-D.md §13

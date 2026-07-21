@@ -1,4 +1,4 @@
-# 26 — Onboarding Finality
+# Onboarding Finality
 Date: 2026-05-31
 Status: Accepted
 Source: Plan-tune cross-reference audit — formalising onboarding design decision

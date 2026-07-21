@@ -1,4 +1,4 @@
-# 20 — Onboarding Data Schema Alignment
+# Onboarding Data Schema Alignment
 Date: 2026-05-29
 Status: Accepted
 Source: User request - ADR creation for architectural enforcement

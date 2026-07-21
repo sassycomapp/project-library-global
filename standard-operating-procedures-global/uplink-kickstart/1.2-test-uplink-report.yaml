@@ -1,0 +1,53 @@
+---
+name: "Stage 1.2 — Authentication — Uplink Test Report"
+version: "1.5"
+stage: "1.2"
+phase: "TEST_UPLINK_REPORT"
+generated_by: "gpt-5.2-codex"
+run_timestamp: "2026-03-06T12:36:00Z"
+verdict: "PASSED"               # PASSED | FAILED | PASSED_WITH_ACTIONS
+cleanup_confirmed: true
+
+# =============================================================================
+# CURRENT STATE — reflects state of code RIGHT NOW after testing and remediation
+# =============================================================================
+
+summary:
+  total_tests: 15
+  passed: 15
+  failed: 0
+  skipped: 0
+  auto_remediated: 0
+
+passing:
+  - id: "UPLINK-AUTH-001"
+  - id: "UPLINK-AUTH-002"
+  - id: "UPLINK-AUTH-003"
+  - id: "UPLINK-AUTH-004"
+  - id: "UPLINK-AUTH-005"
+  - id: "UPLINK-AUTH-006"
+  - id: "UPLINK-CREATE-001"
+  - id: "UPLINK-CREATE-002"
+  - id: "UPLINK-CREATE-003"
+  - id: "UPLINK-CREATE-004"
+  - id: "UPLINK-CREATE-005"
+  - id: "UPLINK-RESET-001"
+  - id: "UPLINK-RESET-002"
+  - id: "UPLINK-RESET-003"
+  - id: "UPLINK-RESET-004"
+
+failing: []
+
+# =============================================================================
+# REMEDIATION NOTES
+# =============================================================================
+
+remediations: []
+
+# =============================================================================
+# DEVELOPER ACTIONS
+# Populated only if something requires human input.
+# Empty = no action required, code is integration-tested and clean.
+# =============================================================================
+
+developer_actions: []

@@ -1,4 +1,4 @@
-# 19 — Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed
+# Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed
 Date: 2026-05-29
 Status: Accepted
 Source: User request - ADR creation for architectural enforcement

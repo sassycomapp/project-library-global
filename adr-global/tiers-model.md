@@ -1,4 +1,4 @@
-# 22 — Tiers Model
+# Tiers Model
 Date: 2026-05-29
 Status: Accepted
 Source: User request - ADR creation for architectural enforcement

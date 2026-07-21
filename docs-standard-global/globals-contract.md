@@ -1,21 +1,29 @@
-# Mybizz CS — globals.py Contract
+# {Project Name} — globals.py Contract
 
-**Authority:** `form-architecture-and-state` ADR (Form Architecture and State Management)
-**Status:** Living document — update as new shared state is added during implementation
+**Authority:** **[PROJECT]** cite this project's form-architecture/state-management ADR.
+**Status:** Living document — update as new shared state is added during implementation.
 
 ---
 
 ## Purpose
 
-This document defines every shared state variable in `globals.py`. Each entry specifies the variable name, type, which form sets it, which forms read it, and what happens when it's `None`.
+This document defines every shared state variable in `globals.py`. Each entry specifies
+the variable name, type, which form sets it, which forms read it, and what happens when
+it's `None`.
 
-**Rule:** Every form that reads from `globals.py` must use `getattr(globals, 'var_name', None)` and handle the `None` case defensively. Never assume a globals variable is set.
+**Rule:** Every form that reads from `globals.py` must use `getattr(globals, 'var_name', None)`
+and handle the `None` case defensively. Never assume a globals variable is set.
 
 ---
 
 ## State Variables
 
-### current_contact
+**[PROJECT]** — replace the entries below with this project's actual shared state. The
+example (project `mb0test`) shows the expected shape: a simple selected-record variable,
+and a multi-step flow-state variable with per-key tracking. Neither is this project's
+real state — do not carry `mb0test`'s variable names forward.
+
+### Example — `current_contact` (mb0test)
 
 | Field | Value |
 |-------|-------|
@@ -24,23 +32,14 @@ This document defines every shared state variable in `globals.py`. Each entry sp
 | **Read by** | `ContactViewerForm`, `ContactEditorForm`, `BookingEditorForm` |
 | **When None** | Redirect to `ContactListForm` |
 
-### current_booking
-
-| Field | Value |
-|-------|-------|
-| **Type** | `app_tables.bookings` row or `None` |
-| **Set by** | `BookingListForm` (on booking selection), `BookingEditorForm` (on booking creation) |
-| **Read by** | `BookingViewerForm`, `InvoiceEditorForm` |
-| **When None** | Redirect to `BookingListForm` |
-
-### booking_flow_state
+### Example — `booking_flow_state` (mb0test)
 
 | Field | Value |
 |-------|-------|
 | **Type** | `dict` with keys below |
 | **Set by** | `BookingEditorForm` (during multi-step booking flow) |
 | **Read by** | `BookingEditorForm` (each step reads prior selections) |
-| **When None** | Initialize empty dict at booking flow start |
+| **When None** | Initialize empty dict at flow start |
 
 **Keys:**
 
@@ -50,20 +49,10 @@ This document defines every shared state variable in `globals.py`. Each entry sp
 | `provider` | `app_tables.users` row | Step 2 (provider selection) | Steps 3-7 |
 | `date` | `str` (ISO date) | Step 3 (date selection) | Steps 4-7 |
 | `time_slot` | `str` (HH:MM) | Step 3 (time selection) | Steps 4-7 |
-| `meeting_type` | `str` | Step 4 (meeting type) | Steps 5-7 |
-| `intake_data` | `dict` or `None` | Step 5 (intake form) | Steps 6-7 |
-| `cached_context` | `dict` or `None` | Call 1 response cache | Steps 2-5 (avoid re-fetch) |
+| `cached_context` | `dict` or `None` | Step 1 response cache | Steps 2-5 (avoid re-fetch) |
 
-**Reset:** Clear `booking_flow_state` to `{}` on booking completion or cancellation.
-
-### current_invoice
-
-| Field | Value |
-|-------|-------|
-| **Type** | `app_tables.invoice` row or `None` |
-| **Set by** | `InvoiceListForm` (on invoice selection), `BookingViewerForm` (on invoice link) |
-| **Read by** | `InvoiceViewerForm`, `InvoiceEditorForm` |
-| **When None** | Redirect to `InvoiceListForm` |
+**Reset:** Clear a multi-step flow-state dict to `{}` on completion or cancellation —
+document this explicitly for every flow-state variable this project actually has.
 
 ---
 
@@ -82,8 +71,11 @@ def __init__(self, **event_args):
     # Continue with form initialization
 ```
 
-**Do not** use `globals.current_contact` directly — it raises `AttributeError` if the variable was never set.
+**Do not** use `globals.current_contact` directly — it raises `AttributeError` if the
+variable was never set.
 
 ---
 
-*End of globals.py Contract*
+*This is the global starter model. Copy into a new project's `docs-local/`, replace the
+`mb0test` example entries with this project's real shared state, and remove this closing
+note. An unfilled `[PROJECT]` marker in a live project's contract is a failure condition.*

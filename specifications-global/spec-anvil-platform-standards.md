@@ -55,6 +55,20 @@ Every server function should:
   (i.e. ~22 seconds against a 30-second limit) must use a background task instead of a normal
   server call.
 
+**Plan-dependent limits:**
+
+| Plan | Timeout | Scheduled Tasks | Notes |
+|---|---|---|---|
+| Free | 30 seconds | None | Core background-task-dependent features non-functional |
+| Personal | Limited | Limited | Insufficient for production use |
+| Business | Unlimited | Available | Required for any production deployment using this pattern |
+
+**[EXAMPLE]** For a multi-instance deployment (e.g. 100 client instances, each running
+several scheduled tasks — health heartbeat, reminders, webhook processing), verify total
+per-account task load against the Business plan's actual limits before scaling further.
+The specific instance count and task list are project data — track them in that project's
+own deployment/authoritative-schema documents, not here.
+
 ## 6. Uplink — Mechanics and Safety
 
 Full testing usage: see `testing-methodology-standards.md`. Platform mechanics:
@@ -278,10 +292,78 @@ Any violation classified as Critical or High that is found during a sanity audit
 15c) blocks the gate. The gate does not pass until all Critical and High violations are
 resolved.
 
----
+## 22. Skulpt Runtime — Known Module Limitations
+
+§17 flags Skulpt as a constraint; this section is the operational detail behind that flag.
+Anvil's client-side Python runs on Skulpt (a Python-to-JavaScript compiler), not CPython —
+not all Python 3 standard library modules behave identically.
+
+| Area | Issue | Workaround |
+|---|---|---|
+| `re` module | Subtle bugs and gaps vs. CPython regex | Use server-side for complex regex |
+| `json` module | Minor differences in edge cases | Use server-side for critical JSON processing |
+| `datetime` | Arithmetic and timezone handling quirks | All date logic lives in server modules |
+| Currency formatting | Client-side formatting unreliable | All money display goes through server functions |
+| Number formatting | Locale-specific formatting gaps | Server-side formatting for all financial display |
+
+**Rule of thumb:** anything touching money or dates lives in server modules only.
+Client-side Skulpt handles UI logic, form handling, and display formatting that involves
+no calculation.
+
+## 23. Git Integration Constraint
+
+Anvil's built-in Git integration is one-way friendly (Anvil ← GitHub). Branching and
+merging within the Anvil IDE are awkward and error-prone.
+
+**Rule:** all branching and merging happens in GitHub. Never merge branches within the
+Anvil IDE.
+
+## 24. Media/File Handling
+
+`BlobMedia` stored directly in Data Tables has row size limits that aren't always
+obvious — large file uploads may silently fail or degrade performance.
+
+**Rule:** store file references (URLs) in Data Tables, not file contents. Use external
+storage for large media.
+
+## 25. Persistent Server Requirement
+
+Anvil's free tier has no persistent server. The Business plan's persistent server
+capability is required for any performance-sensitive operation — do not design a feature
+that assumes persistent-server behavior without confirming the plan tier supports it.
+
+## 26. `app_tables` Resolution Failure
+
+When a server module in a shared template app (the app every client instance depends on)
+calls `app_tables`, Anvil resolves the tables to the *calling client instance's* Data
+Tables. If that instance is corrupted, misconfigured, or missing a required table,
+resolution may fail or return incomplete results.
+
+**Required failure behavior:**
+- The server function must not crash with a raw 500 error
+- Show the user a generic, non-technical message ("Something went wrong. Please try again
+  or contact support.")
+- Log the failure with status `"unhealthy"` and the specific missing-table detail
+- Alert the platform's monitoring/management layer, if one exists
+- Never expose internal error detail to the client user
+
+**Prevention:**
+- The provisioning clone source (see the Five-App pattern in this operation's project
+  templates) must always carry the complete, current table set
+- Schema migrations follow the project's own deployment SOP without exception
+- A periodic health-check task should verify critical table accessibility
 
 ---
 
-*Anvil Platform Standards v1.4 — Removed all `instance_id` references per `dependency-based-not-multi-tenant` ADR. Dependency-based architecture does not use tenant discriminator columns. Vault content (Sections 10–11) moved to `spec-vault-system.md`. Original v1.2 added Sections 15–18 (now 13–16). v1.5 added Platform Constraints Checklist (§17), Timezone Architecture (§18), Globals Contract Pattern (§19), Anvil-First Mandate (§20), Enforcement Severity Classification (§21).*
 
 
+*Anvil Platform Standards v1.6 — merged `anvil-platform-constraints.md` (ADR, misfiled —
+reclassified as spec content, this file, per single-source-of-truth review). Added §22
+Skulpt runtime workarounds (expands §17's existing flag), §23 Git integration constraint,
+§24 media/file handling, §25 persistent server requirement, §26 `app_tables` resolution
+failure. Background-task plan-tier limits merged into existing §5. Project-specific
+figures (client-instance count) stripped or tagged [EXAMPLE]; app names generalized to
+role descriptions. Vault TOTP recovery procedure from the source ADR was NOT merged here
+— flagged as SOP-shaped content, recommended for `standard-operating-procedures-global`
+instead. Prior footer: v1.4 removed `instance_id` references per
+`dependency-based-not-multi-tenant` ADR; v1.5 added §17–21.*

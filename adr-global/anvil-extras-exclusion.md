@@ -1,4 +1,4 @@
-# 14 — Anvil Extras Exclusion
+# Anvil Extras Exclusion
 Date: 2026-05-21
 Status: Accepted
 Source: M3 component mapping alignment task

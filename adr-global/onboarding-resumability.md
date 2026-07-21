@@ -1,4 +1,4 @@
-# 23 — Onboarding Resumability
+# Onboarding Resumability
 Date: 2026-05-29
 Status: Accepted
 Source: User request - ADR creation for architectural enforcement
