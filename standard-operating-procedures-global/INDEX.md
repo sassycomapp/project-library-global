@@ -6,4 +6,8 @@ Standard Operating Procedures that apply to all Anvil.works projects. Each SOP d
 
 | File | Title | Scope |
 |---|---|---|
-| *(none yet)* | — | — |
+| `sop-deployment-procedures.md` | Deployment Procedures | Global deployment procedures |
+| `sop-offboarding.md` | Offboarding | Global offboarding procedures |
+| `sop-vault-totp-recovery.md` | Vault TOTP Recovery | Global vault TOTP recovery procedures |
+| `Agent readiness/` | Agent Readiness | Agent readiness procedures (subdirectory) |
+| `uplink-kickstart/` | Uplink Kickstart | Uplink kickstart procedures (subdirectory) |
