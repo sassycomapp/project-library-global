@@ -2,7 +2,7 @@
 
 Architecture Decision Records that apply to all Anvil.works projects. Check this index before making architecture or technology decisions. Read only the specific ADR relevant to the current decision.
 
-Full index with statuses and dates: `adr-index.md` (95 lines, detailed).
+Full index with statuses and dates: `adr-index.md`.
 
 ## Quick reference — Key ADRs by category
 
