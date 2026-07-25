@@ -2,7 +2,7 @@
 document: Mybizz CS — Nomenclature & Naming Conventions
 doc-id: global-0068
 state: Live
-date-created: 2026-07-25
+date-created: 2026-07-25T150027+0200
 ---
 # Mybizz CS — Nomenclature & Naming Conventions
 

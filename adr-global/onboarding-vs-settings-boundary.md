@@ -2,7 +2,7 @@
 document: Onboarding vs Settings Boundary
 doc-id: global-0026
 state: Live
-date-created: 2026-07-25
+date-created: 2026-07-25T150027+0200
 ---
 # Onboarding vs Settings Boundary
 Date: 2026-05-29

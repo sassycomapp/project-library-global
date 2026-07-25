@@ -2,7 +2,7 @@
 document: Client Data Management Rights and Mybizz Retention Boundary
 doc-id: global-0006
 state: Live
-date-created: 2026-07-25
+date-created: 2026-07-25T150027+0200
 ---
 # Client Data Management Rights and Mybizz Retention Boundary
 Date: 2026-05-29

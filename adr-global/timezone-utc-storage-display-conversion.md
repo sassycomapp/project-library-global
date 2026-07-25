@@ -2,7 +2,7 @@
 document: Client Timezone: IANA String, UTC Storage, Display-Time Conversion
 doc-id: global-0037
 state: Live
-date-created: 2026-07-25T160000+0200
+date-created: 2026-07-25T150027+0200
 ---
 # Client Timezone: IANA String, UTC Storage, Display-Time Conversion
 Date: 2026-03-17

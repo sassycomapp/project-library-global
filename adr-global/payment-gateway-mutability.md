@@ -2,7 +2,7 @@
 document: Payment Gateway Mutability
 doc-id: global-0028
 state: Live
-date-created: 2026-07-25
+date-created: 2026-07-25T150027+0200
 ---
 # Payment Gateway Mutability
 Date: 2026-05-29

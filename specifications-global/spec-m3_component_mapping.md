@@ -2,7 +2,7 @@
 document: m3_component_mapping.md
 doc-id: global-0066
 state: Live
-date-created: 2026-07-25
+date-created: 2026-07-25T150027+0200
 ---
 ***
 

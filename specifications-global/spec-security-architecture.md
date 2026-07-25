@@ -2,7 +2,7 @@
 document: Mybizz — Security & Secrets Architecture
 doc-id: global-0074
 state: Live
-date-created: 2026-07-25
+date-created: 2026-07-25T150027+0200
 ---
 # Mybizz — Security & Secrets Architecture
 

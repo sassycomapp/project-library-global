@@ -2,7 +2,7 @@
 document: Anvil Deprecated Guide
 doc-id: global-0048
 state: Live
-date-created: 2026-07-25
+date-created: 2026-07-25T150027+0200
 ---
 https://docs.continue.dev/reference/deprecated-context-providers
 

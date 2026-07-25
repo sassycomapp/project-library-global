@@ -2,7 +2,7 @@
 document: System Currency, Display Currency, and Immutability
 doc-id: global-0035
 state: Live
-date-created: 2026-07-25
+date-created: 2026-07-25T150027+0200
 ---
 # System Currency, Display Currency, and Immutability
 Date: 2026-05-29

@@ -2,7 +2,7 @@
 document: Agent Readiness Framework
 doc-id: global-0080
 state: Live
-date-created: 2026-07-25
+date-created: 2026-07-25T150027+0200
 ---
 # Agent Readiness Framework
 

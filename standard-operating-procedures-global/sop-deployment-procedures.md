@@ -2,7 +2,7 @@
 document: "{Project Name} — SOP: Deployment Procedures"
 doc-id: global-0083
 state: Live
-date-created: 2026-07-25
+date-created: 2026-07-25T150027+0200
 ---
 # {Project Name} — SOP: Deployment Procedures
 

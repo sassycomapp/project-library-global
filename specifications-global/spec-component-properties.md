@@ -2,7 +2,7 @@
 document: Mybizz CS — Component Properties Specification
 doc-id: global-0061
 state: Live
-date-created: 2026-07-25
+date-created: 2026-07-25T150027+0200
 ---
 # Mybizz CS — Component Properties Specification
 

@@ -2,7 +2,7 @@
 document: `free-trial-abandoned` ADR — 30-Day Free Trial Abandoned
 doc-id: global-0015
 state: Live
-date-created: 2026-07-25
+date-created: 2026-07-25T150027+0200
 ---
 # `free-trial-abandoned` ADR — 30-Day Free Trial Abandoned
 

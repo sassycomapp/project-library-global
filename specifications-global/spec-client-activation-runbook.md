@@ -2,7 +2,7 @@
 document: Client Instance Activation Runbook
 doc-id: global-0060
 state: Live
-date-created: 2026-07-25
+date-created: 2026-07-25T150027+0200
 ---
 # Client Instance Activation Runbook
 

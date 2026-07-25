@@ -2,7 +2,7 @@
 document: Mandatory README in Every Client Instance Documenting the Five-App System
 doc-id: global-0008
 state: Live
-date-created: 2026-07-25
+date-created: 2026-07-25T150027+0200
 ---
 # Mandatory README in Every Client Instance Documenting the Five-App System
 

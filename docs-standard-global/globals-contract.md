@@ -2,7 +2,7 @@
 document: "{Project Name} — globals.py Contract"
 doc-id: global-0045
 state: Live
-date-created: 2026-07-25
+date-created: 2026-07-25T150027+0200
 ---
 # {Project Name} — globals.py Contract
 

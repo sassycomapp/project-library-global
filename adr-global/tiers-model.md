@@ -2,7 +2,7 @@
 document: Tiers Model
 doc-id: global-0036
 state: Live
-date-created: 2026-07-25
+date-created: 2026-07-25T150027+0200
 ---
 # Tiers Model
 Date: 2026-05-29

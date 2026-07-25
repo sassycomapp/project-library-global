@@ -2,7 +2,7 @@
 document: PDLF Standards Library — Anvil Platform Mechanics
 doc-id: global-0057
 state: Live
-date-created: 2026-07-25
+date-created: 2026-07-25T150027+0200
 ---
 # PDLF Standards Library — Anvil Platform Mechanics
 

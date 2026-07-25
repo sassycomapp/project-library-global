@@ -2,7 +2,7 @@
 document: PDLF Standards Library — Observability Requirements
 doc-id: global-0069
 state: Live
-date-created: 2026-07-25
+date-created: 2026-07-25T150027+0200
 ---
 # PDLF Standards Library — Observability Requirements
 

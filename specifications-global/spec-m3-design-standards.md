@@ -2,7 +2,7 @@
 document: PDLF Standards Library — M3 Design & Component Standards
 doc-id: global-0065
 state: Live
-date-created: 2026-07-25
+date-created: 2026-07-25T150027+0200
 ---
 # PDLF Standards Library — M3 Design & Component Standards
 

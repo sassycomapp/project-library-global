@@ -2,7 +2,7 @@
 document: Single Contacts Table Replaces Dual contacts/customers
 doc-id: global-0034
 state: Live
-date-created: 2026-07-25
+date-created: 2026-07-25T150027+0200
 ---
 # Single Contacts Table Replaces Dual contacts/customers
 **Consolidated Contact Model for CRM**
