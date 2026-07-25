@@ -1,3 +1,9 @@
+---
+document: Material 3 Theme Component Scope
+doc-id: global-0019
+state: Live
+date-created: 2026-07-25
+---
 # Material 3 Theme Component Scope
 Date: 2026-05-21
 Status: Accepted

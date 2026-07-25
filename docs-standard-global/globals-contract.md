@@ -1,3 +1,9 @@
+---
+document: "{Project Name} — globals.py Contract"
+doc-id: global-0045
+state: Live
+date-created: 2026-07-25
+---
 # {Project Name} — globals.py Contract
 
 **Authority:** **[PROJECT]** cite this project's form-architecture/state-management ADR.

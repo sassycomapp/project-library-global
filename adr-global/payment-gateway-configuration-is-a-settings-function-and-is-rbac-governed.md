@@ -1,3 +1,9 @@
+---
+document: Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed
+doc-id: global-0027
+state: Live
+date-created: 2026-07-25
+---
 # Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed
 Date: 2026-05-29
 Status: Accepted

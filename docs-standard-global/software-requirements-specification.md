@@ -1,3 +1,9 @@
+---
+document: "{Project Name} — Software Requirements Specification (SRS)"
+doc-id: global-0047
+state: Live
+date-created: 2026-07-25
+---
 # {Project Name} — Software Requirements Specification (SRS)
 
 **Status:** **[PROJECT]** Draft / Approved

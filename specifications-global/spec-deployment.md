@@ -1,3 +1,9 @@
+---
+document: Mybizz — Deployment Specification
+doc-id: global-0062
+state: Live
+date-created: 2026-07-25
+---
 # Mybizz — Deployment Specification
 
 **Scope:** Mybizz-wide. Covers Anvil deployment environments, release workflow, rollback procedures, and schema migration.

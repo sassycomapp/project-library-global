@@ -1,3 +1,9 @@
+---
+document: PDLF Standards Library — Security Specification
+doc-id: global-0075
+state: Live
+date-created: 2026-07-25
+---
 # PDLF Standards Library — Security Specification
 
 **Location:** `specifications/spec-security.md`

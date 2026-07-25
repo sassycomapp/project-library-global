@@ -1,3 +1,9 @@
+---
+document: m3_component_mapping.md
+doc-id: global-0066
+state: Live
+date-created: 2026-07-25
+---
 ***
 
 Material Design 3 (M3) — Dependency ID: 4UK6WHQ6UX7AKE

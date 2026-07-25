@@ -1,3 +1,9 @@
+---
+document: `form-architecture-and-state` ADR — Form Architecture and State Management
+doc-id: global-0014
+state: Live
+date-created: 2026-07-25
+---
 # `form-architecture-and-state` ADR — Form Architecture and State Management
 
 **Status:** Approved  

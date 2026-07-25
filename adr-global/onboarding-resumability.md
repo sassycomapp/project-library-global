@@ -1,3 +1,9 @@
+---
+document: Onboarding Resumability
+doc-id: global-0025
+state: Live
+date-created: 2026-07-25
+---
 # Onboarding Resumability
 Date: 2026-05-29
 Status: Accepted

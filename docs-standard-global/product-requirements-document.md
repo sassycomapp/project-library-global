@@ -1,3 +1,9 @@
+---
+document: "{Project Name} — Product Requirements Document (PRD)"
+doc-id: global-0046
+state: Live
+date-created: 2026-07-25
+---
 # {Project Name} — Product Requirements Document (PRD)
 
 **Status:** **[PROJECT]** Draft / Approved

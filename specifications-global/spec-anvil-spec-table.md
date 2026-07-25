@@ -1,3 +1,9 @@
+---
+document: Mybizz CS — Anvil Specification Table
+doc-id: global-0058
+state: Live
+date-created: 2026-07-25
+---
 # Mybizz CS — Anvil Specification Table
 
 **Purpose:** Consolidated specification and methods reference for Mybizz Anvil development

@@ -1,3 +1,9 @@
+---
+document: Policy — Security and Data Governance
+doc-id: global-0053
+state: Live
+date-created: 2026-07-25
+---
 # Policy — Security and Data Governance
 
 **Binding.** All development work on any Anvil.works project under this operation must

@@ -1,3 +1,9 @@
+---
+document: Global SOP Index
+doc-id: global-0082
+state: Live
+date-created: 2026-07-25
+---
 # Global SOP Index
 
 Standard Operating Procedures that apply to all Anvil.works projects. Each SOP defines the standard method for executing a specific task — one task per file. Prefix: `sop-`.

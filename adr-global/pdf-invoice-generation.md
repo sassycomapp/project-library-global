@@ -1,3 +1,9 @@
+---
+document: `pdf-invoice-generation` ADR — PDF Invoice Generation
+doc-id: global-0030
+state: Live
+date-created: 2026-07-25
+---
 # `pdf-invoice-generation` ADR — PDF Invoice Generation
 
 **Status:** Approved  

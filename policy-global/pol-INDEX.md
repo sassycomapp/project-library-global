@@ -1,3 +1,9 @@
+---
+document: Global Policy Index
+doc-id: global-0050
+state: Live
+date-created: 2026-07-25
+---
 # Global Policy Index
 
 Binding policies governing how this operation builds Anvil.works applications. Not

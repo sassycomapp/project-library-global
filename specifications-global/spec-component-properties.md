@@ -1,3 +1,9 @@
+---
+document: Mybizz CS — Component Properties Specification
+doc-id: global-0061
+state: Live
+date-created: 2026-07-25
+---
 # Mybizz CS — Component Properties Specification
 
 **Vertical:** Consulting & Services  

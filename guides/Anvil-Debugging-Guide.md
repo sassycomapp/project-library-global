@@ -1,3 +1,9 @@
+---
+document: Anvil Debugging Guide
+doc-id: global-0049
+state: Live
+date-created: 2026-07-25
+---
 Anvil Debugging Guide
 
 ## Introduction

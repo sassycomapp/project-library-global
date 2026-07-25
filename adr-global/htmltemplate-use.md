@@ -1,3 +1,9 @@
+---
+document: `htmltemplate-use` ADR: HTMLTemplate Use
+doc-id: global-0016
+state: Live
+date-created: 2026-07-25
+---
 # `htmltemplate-use` ADR: HTMLTemplate Use
 
 ## Status

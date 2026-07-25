@@ -1,3 +1,9 @@
+---
+document: Policy — Documentation and Decisions
+doc-id: global-0052
+state: Live
+date-created: 2026-07-25
+---
 # Policy — Documentation and Decisions
 
 **Binding.** All development work on any Anvil.works project under this operation must

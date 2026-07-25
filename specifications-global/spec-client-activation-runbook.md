@@ -1,3 +1,9 @@
+---
+document: Client Instance Activation Runbook
+doc-id: global-0060
+state: Live
+date-created: 2026-07-25
+---
 # Client Instance Activation Runbook
 
 **Authority:** `client-instance-architecture` ADR, `dependency-update-model` ADR, `blank-client-template` ADR, `mybizz-management-visibility` ADR  

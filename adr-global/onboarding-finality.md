@@ -1,3 +1,9 @@
+---
+document: Onboarding Finality
+doc-id: global-0024
+state: Live
+date-created: 2026-07-25
+---
 # Onboarding Finality
 Date: 2026-05-31
 Status: Accepted

@@ -1,3 +1,9 @@
+---
+document: Compliance Checklist — screen-analytics-DashboardAnalyticsForm
+doc-id: global-0042
+state: Live
+date-created: 2026-07-25
+---
 # Compliance Checklist — screen-analytics-DashboardAnalyticsForm
 
 **Screen:** `/mnt/c/mybizz/project-library/screens/analytics/DashboardAnalyticsForm/screen-analytics-DashboardAnalyticsForm.html`

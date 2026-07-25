@@ -1,3 +1,9 @@
+---
+document: "{Project Name} — SOP: Vault TOTP Recovery"
+doc-id: global-0085
+state: Live
+date-created: 2026-07-25
+---
 # {Project Name} — SOP: Vault TOTP Recovery
 
 **Authority:** **[PROJECT]** cite this project's Vault/security ADR (TOTP step-up

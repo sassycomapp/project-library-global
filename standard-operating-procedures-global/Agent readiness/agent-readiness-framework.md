@@ -1,3 +1,9 @@
+---
+document: Agent Readiness Framework
+doc-id: global-0080
+state: Live
+date-created: 2026-07-25
+---
 # Agent Readiness Framework
 
 **For:** Development team leads, architects, and prompt engineers  

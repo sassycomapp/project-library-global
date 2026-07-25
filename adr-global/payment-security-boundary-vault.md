@@ -1,3 +1,9 @@
+---
+document: Payment Security Boundary: Secret Keys Deferred to the Vault
+doc-id: global-0029
+state: Live
+date-created: 2026-07-25
+---
 # Payment Security Boundary: Secret Keys Deferred to the Vault
 Date: 2026-03-15
 Status: Accepted

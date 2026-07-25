@@ -1,3 +1,9 @@
+---
+document: Global Specifications Index
+doc-id: global-0056
+state: Live
+date-created: 2026-07-25
+---
 # Global Specifications Index
 
 Binding specifications that apply across all Anvil.works projects. Check this index before implementing features, designing UI, or making architecture decisions. Read only the specific specification relevant to the current task.

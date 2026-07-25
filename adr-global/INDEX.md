@@ -1,3 +1,9 @@
+---
+document: Global ADR Index
+doc-id: global-0001
+state: Live
+date-created: 2026-07-25
+---
 # Global ADR Index
 
 Architecture Decision Records that apply to all Anvil.works projects. Check this index before making architecture or technology decisions. Read only the specific ADR relevant to the current decision.

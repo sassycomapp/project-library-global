@@ -1,3 +1,9 @@
+---
+document: AGENTS.md — Project Library Global Standards
+doc-id: global-0043
+state: Live
+date-created: 2026-07-25
+---
 # AGENTS.md — Project Library Global Standards
 
 **Purpose:** Standard document templates and global agent behavior rules shared across all Mybizz projects. This file lives in `C:\dev\project-library-global\docs-standard-global\` and applies to every project that references it.

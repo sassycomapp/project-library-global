@@ -1,3 +1,9 @@
+---
+document: Anvil Extras Exclusion
+doc-id: global-0003
+state: Live
+date-created: 2026-07-25
+---
 # Anvil Extras Exclusion
 Date: 2026-05-21
 Status: Accepted

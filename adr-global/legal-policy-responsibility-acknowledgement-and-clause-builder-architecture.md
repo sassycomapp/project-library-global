@@ -1,3 +1,9 @@
+---
+document: Legal Policy Responsibility Acknowledgement and Clause-Builder Architecture
+doc-id: global-0018
+state: Live
+date-created: 2026-07-25
+---
 # Legal Policy Responsibility Acknowledgement and Clause-Builder Architecture
 Date: 2026-05-29
 Status: Accepted

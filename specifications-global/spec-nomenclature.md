@@ -1,3 +1,9 @@
+---
+document: Mybizz CS — Nomenclature & Naming Conventions
+doc-id: global-0068
+state: Live
+date-created: 2026-07-25
+---
 # Mybizz CS — Nomenclature & Naming Conventions
 
 **Authority:** Mandatory — all code, files, forms, and databases must follow

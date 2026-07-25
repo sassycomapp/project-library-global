@@ -1,3 +1,9 @@
+---
+document: "Mybizz CS — Test Specification (Canonical)"
+doc-id: global-0077
+state: Live
+date-created: 2026-07-25
+---
 # Mybizz CS — Test Specification (Canonical)
 
 **Date:** 2026-06-16

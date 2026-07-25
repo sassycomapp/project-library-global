@@ -1,3 +1,9 @@
+---
+document: "{Project Name} — Business Requirements Document (BRD)"
+doc-id: global-0044
+state: Live
+date-created: 2026-07-25
+---
 # {Project Name} — Business Requirements Document (BRD)
 
 **Status:** **[PROJECT]** Draft / Approved

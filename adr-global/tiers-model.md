@@ -1,3 +1,9 @@
+---
+document: Tiers Model
+doc-id: global-0036
+state: Live
+date-created: 2026-07-25
+---
 # Tiers Model
 Date: 2026-05-29
 Status: Accepted

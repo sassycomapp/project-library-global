@@ -1,3 +1,9 @@
+---
+document: `real-time-and-background-tasks` ADR — Real-Time Updates and Background Task Architecture
+doc-id: global-0031
+state: Live
+date-created: 2026-07-25
+---
 # `real-time-and-background-tasks` ADR — Real-Time Updates and Background Task Architecture
 
 **Status:** Approved  

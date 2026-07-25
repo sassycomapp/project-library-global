@@ -1,3 +1,9 @@
+---
+document: `dependency-update-model` ADR — Dependency Update Model
+doc-id: global-0012
+state: Live
+date-created: 2026-07-25
+---
 # `dependency-update-model` ADR — Dependency Update Model
 
 **Status:** Confirmed  

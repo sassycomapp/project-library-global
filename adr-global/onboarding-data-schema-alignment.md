@@ -1,3 +1,9 @@
+---
+document: Onboarding Data Schema Alignment
+doc-id: global-0023
+state: Live
+date-created: 2026-07-25
+---
 # Onboarding Data Schema Alignment
 Date: 2026-05-29
 Status: Accepted

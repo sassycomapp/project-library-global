@@ -1,3 +1,9 @@
+---
+document: PDLF Standards Library — M3 Design & Component Standards
+doc-id: global-0065
+state: Live
+date-created: 2026-07-25
+---
 # PDLF Standards Library — M3 Design & Component Standards
 
 **Location:** `C:\pdlf\standards-library\m3-design-standards.md`
@@ -296,4 +302,3 @@ is genuinely needed, propose addition via ADR.
 ---
 
 *M3 Design Standards v1.3 — Added Two-Use Minimum Threshold (§19), Empty State Mandatory Pattern (§20), MUI Aesthetic Overlay Fixed Variable Set (§21), Approved/Restricted Component Model (§22). Extracted from mb-3-cs custom-component-requirements-matrix.md and internal-standards-anvil-wireframe-conversion.md.*
-

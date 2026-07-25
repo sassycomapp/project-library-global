@@ -1,3 +1,9 @@
+---
+document: PDLF Standards Library — Screen & Wireframe Production Standards
+doc-id: global-0072
+state: Live
+date-created: 2026-07-25
+---
 # PDLF Standards Library — Screen & Wireframe Production Standards
 
 **Location:** `C:\pdlf\standards-library\screen-and-wireframe-production-standards.md`

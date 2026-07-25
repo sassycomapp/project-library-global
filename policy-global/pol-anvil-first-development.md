@@ -1,3 +1,9 @@
+---
+document: Policy — Anvil-First Development
+doc-id: global-0051
+state: Live
+date-created: 2026-07-25
+---
 # Policy — Anvil-First Development
 
 **Binding.** All development work on any Anvil.works project under this operation must

@@ -1,3 +1,9 @@
+---
+document: "Mybizz — Five-App Architecture Model (Specification)"
+doc-id: global-0063
+state: Live
+date-created: 2026-07-25
+---
 # Mybizz — Five-App Architecture Model (Specification)
 
 **Scope:** Mybizz-wide. Applies to every Mybizz product, not just this app. The specific app

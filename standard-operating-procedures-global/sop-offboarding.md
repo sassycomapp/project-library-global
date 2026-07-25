@@ -1,3 +1,9 @@
+---
+document: "{Project Name} — SOP: Client Offboarding"
+doc-id: global-0084
+state: Live
+date-created: 2026-07-25
+---
 # {Project Name} — SOP: Client Offboarding
 
 **Authority:** **[PROJECT]** — cite this project's data-rights/retention ADR.

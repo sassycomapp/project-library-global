@@ -1,3 +1,9 @@
+---
+document: Mybizz — ADR Index
+doc-id: global-0002
+state: Live
+date-created: 2026-07-25
+---
 # Mybizz — ADR Index
 
 **Last Updated:** 2026-07-06

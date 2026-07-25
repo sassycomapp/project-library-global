@@ -1,3 +1,9 @@
+---
+document: PDLF Standards Library — Anvil Platform Mechanics
+doc-id: global-0057
+state: Live
+date-created: 2026-07-25
+---
 # PDLF Standards Library — Anvil Platform Mechanics
 
 **Location:** `C:\pdlf\standards-library\anvil-platform-standards.md`

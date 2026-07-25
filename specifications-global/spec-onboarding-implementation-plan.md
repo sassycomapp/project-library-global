@@ -1,3 +1,9 @@
+---
+document: Mybizz CS Onboarding System - Engineering Plan
+doc-id: global-0070
+state: Live
+date-created: 2026-07-25
+---
 # Mybizz CS Onboarding System - Engineering Plan
 
 > **Document status:** Rewritten 2026-06-01 per plan-tune adjustments. Key design decisions:

@@ -1,3 +1,9 @@
+---
+document: PDLF Standards Library — Observability Requirements
+doc-id: global-0069
+state: Live
+date-created: 2026-07-25
+---
 # PDLF Standards Library — Observability Requirements
 
 **Location:** `C:\dev\project-library-global\specifications-global\spec-observability.md`

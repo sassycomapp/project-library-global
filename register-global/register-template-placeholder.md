@@ -1,4 +1,10 @@
 ---
+document: "Register — {PROJECT-NAME or project-library-global}"
+doc-id: global-0055
+state: Live
+date-created: 2026-07-25
+---
+---
 document: Register Template
 version: V1
 status: template

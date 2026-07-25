@@ -1,3 +1,9 @@
+---
+document: "Mybizz — API Specification (HTTP Endpoints)"
+doc-id: global-0059
+state: Live
+date-created: 2026-07-25
+---
 # Mybizz — API Specification (HTTP Endpoints)
 
 **Scope:** Mybizz-wide. Covers all HTTP endpoints exposed by client instances — webhook handlers and management endpoints.

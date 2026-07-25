@@ -1,3 +1,9 @@
+---
+document: Mybizz — Security & Secrets Architecture
+doc-id: global-0074
+state: Live
+date-created: 2026-07-25
+---
 # Mybizz — Security & Secrets Architecture
 
 **Related ADRs:** `payment-security-boundary-vault` (Vault), `client-instance-architecture`, `mybizz-management-visibility`

@@ -1,3 +1,9 @@
+---
+document: `webhook-architecture` ADR — Webhook Architecture
+doc-id: global-0039
+state: Live
+date-created: 2026-07-25
+---
 # `webhook-architecture` ADR — Webhook Architecture
 
 **Status:** Approved  

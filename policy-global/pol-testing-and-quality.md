@@ -1,3 +1,9 @@
+---
+document: Policy — Testing and Quality
+doc-id: global-0054
+state: Live
+date-created: 2026-07-25
+---
 # Policy — Testing and Quality
 
 **Binding.** All feature development on any Anvil.works project under this operation must

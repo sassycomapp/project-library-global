@@ -1,3 +1,9 @@
+---
+document: Mybizz CS — UI Standards
+doc-id: global-0078
+state: Live
+date-created: 2026-07-25
+---
 # Mybizz CS — UI Standards
 
 **UI Framework:** Material Design 3 (M3) — Dependency ID: 4UK6WHQ6UX7AKELK

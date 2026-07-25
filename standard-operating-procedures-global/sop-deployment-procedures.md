@@ -1,3 +1,9 @@
+---
+document: "{Project Name} — SOP: Deployment Procedures"
+doc-id: global-0083
+state: Live
+date-created: 2026-07-25
+---
 # {Project Name} — SOP: Deployment Procedures
 
 **Authority:** **[PROJECT]** — this project's ADRs governing deployment model,

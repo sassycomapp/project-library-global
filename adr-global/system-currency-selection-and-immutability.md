@@ -1,3 +1,9 @@
+---
+document: System Currency, Display Currency, and Immutability
+doc-id: global-0035
+state: Live
+date-created: 2026-07-25
+---
 # System Currency, Display Currency, and Immutability
 Date: 2026-05-29
 Status: Accepted

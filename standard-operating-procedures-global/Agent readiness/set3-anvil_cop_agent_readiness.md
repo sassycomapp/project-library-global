@@ -1,3 +1,9 @@
+---
+document: Agent Readiness CoP preparation
+doc-id: global-0081
+state: Live
+date-created: 2026-07-25
+---
 # Agent Readiness CoP preparation
 
 A framework for measuring and improving how well your codebase supports autonomous development. Evaluate repositories across eight technical pillars and five maturity levels.
@@ -372,4 +378,3 @@ Aspirational for most
 * Agent readiness improvements are not platform-specific.
 * Any AI-assisted development workflow benefits from the same environmental investments.
 * Returns persist regardless of agent or vendor choice.
-

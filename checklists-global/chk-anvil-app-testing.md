@@ -1,3 +1,9 @@
+---
+document: Checklist — Anvil App Testing Suite
+doc-id: global-0041
+state: Live
+date-created: 2026-07-25
+---
 # Checklist — Anvil App Testing Suite
 
 **Location:** `specifications-global\checklists-global\chk-anvil-app-testing.md`

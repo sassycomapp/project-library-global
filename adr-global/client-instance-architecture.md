@@ -1,3 +1,9 @@
+---
+document: `client-instance-architecture` ADR — Client Instance Architecture
+doc-id: global-0007
+state: Live
+date-created: 2026-07-25
+---
 # `client-instance-architecture` ADR — Client Instance Architecture
 
 **Status:** Confirmed — architecturally tested (Tests A and B)  

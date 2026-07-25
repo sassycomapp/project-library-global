@@ -1,3 +1,9 @@
+---
+document: Mybizz — Integration Specification
+doc-id: global-0064
+state: Live
+date-created: 2026-07-25
+---
 # Mybizz — Integration Specification
 
 **Scope:** Mybizz-wide. Covers all external service integrations — Brevo (email + CRM), Stripe (payments), Paystack (payments).

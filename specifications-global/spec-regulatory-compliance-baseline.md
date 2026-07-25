@@ -1,3 +1,9 @@
+---
+document: "Mybizz — Regulatory Compliance Baseline (Specification)"
+doc-id: global-0071
+state: Live
+date-created: 2026-07-25
+---
 # Mybizz — Regulatory Compliance Baseline (Specification)
 
 **Scope:** Mybizz-wide. This posture applies because Mybizz-the-company is based in South Africa

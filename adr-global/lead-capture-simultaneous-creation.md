@@ -1,3 +1,9 @@
+---
+document: Lead Capture: Simultaneous leads + contacts Creation
+doc-id: global-0017
+state: Live
+date-created: 2026-07-25
+---
 # Lead Capture: Simultaneous leads + contacts Creation
 Date: 2026-03-21
 Status: Accepted

@@ -1,3 +1,9 @@
+---
+document: Mybizz — The Vault System
+doc-id: global-0079
+state: Live
+date-created: 2026-07-25
+---
 # Mybizz — The Vault System
 
 **Scope:** Mybizz-wide. This is the single authoritative document on the Vault system — its architecture, pattern, enforcement rules, and implementation. All other documents reference this one; none duplicate or restate its content.

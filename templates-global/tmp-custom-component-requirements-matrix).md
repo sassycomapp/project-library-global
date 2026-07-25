@@ -1,3 +1,9 @@
+---
+document: "{Project Name} — Custom Component Requirements Matrix"
+doc-id: global-0087
+state: Live
+date-created: 2026-07-25
+---
 # {Project Name} — Custom Component Requirements Matrix
 
 **Date:** **[PROJECT]**
