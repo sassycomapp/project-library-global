@@ -80,6 +80,26 @@ Example: `2026-07-25T143045+0200`
 - Seconds are included even where minute-level precision would usually suffice, so
   that two artefacts created close together never collide on an identical timestamp.
 
+### Required conversion mechanism
+
+Any tool or agent generating this timestamp must use timezone-aware conversion —
+never generate a UTC time and then append the literal string `+0200` onto it. That
+produces a timestamp mislabeled by two hours: the value inside is UTC, the label
+claims UTC+2, and the two disagree.
+
+**This is the only permitted method. There is no fallback or alternative.**
+```
+TZ="Africa/Johannesburg" date -d "@<unix-timestamp>" '+%Y-%m-%dT%H%M%S%z'
+```
+`TZ="Africa/Johannesburg"` shifts the actual clock value to local time; `%z` then
+computes and prints the real offset for that shifted value. Both the digits and the
+offset label come from the same conversion — they cannot disagree.
+
+If a tool or environment is ever encountered where this exact method cannot be used,
+that is not a judgment call for the agent to resolve on its own — stop and ask the
+developer for an approved method before generating any timestamp. Do not invent or
+select an alternative conversion approach.
+
 ### Rules files affected
 
 | File | Required content |
