@@ -71,3 +71,15 @@ Each directory has an `INDEX.md` — read it to discover available documents.
 ## Document location
 
 This template lives at `C:\dev\project-library-global\docs-standard-global\AGENTS.md`. Individual projects inherit from `~/.config/opencode/AGENTS.md` (global agent rules) and may add project-specific rules in their own `AGENTS.md`.
+
+---
+
+## Timestamp Standard
+
+Every date or timestamp this agent generates for a build artefact — front matter, register entries, alignment logs, learnings entries, backup folder names, devlog entries, or any other system-internal record — must follow the format and conversion method defined in:
+
+`C:\dev\project-library-global\adr-global\timezone-utc-storage-display-conversion.md`
+
+This ADR specifies one mandatory method for generating the timestamp, with no fallback and no alternative. Read that document before generating any such timestamp. If anything about the required method is unclear, stop and ask the developer — do not improvise or substitute a different method.
+
+This does not apply to client-facing data (bookings, invoices, activity logs, etc.), which follows the IANA-timezone-based rule in the same ADR's main Decision section, not this build-artefact standard.
