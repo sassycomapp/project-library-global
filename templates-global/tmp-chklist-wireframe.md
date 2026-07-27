@@ -1,9 +1,3 @@
----
-document: Checklist — DashboardAnalyticsForm
-doc-id: global-0040
-state: Live
-date-created: 2026-07-25T150027+0200
----
 # Checklist — DashboardAnalyticsForm
 
 **Wireframe:** `wireframes/analytics/DashboardAnalyticsForm/wireframe-analytics-DashboardAnalyticsForm.html`

@@ -52,9 +52,9 @@ All other fields are permanent from first registration.
 | global-0037 | adr-global/timezone-utc-storage-display-conversion.md | adr-global | adr | Live | 2026-07-27T124852+0200 | 2026-07-27T124852+0200 | | |
 | global-0038 | adr-global/ui-customization-approach.md | adr-global | adr | Live | 2026-07-27T124852+0200 | 2026-07-27T124852+0200 | | |
 | global-0039 | adr-global/webhook-architecture.md | adr-global | adr | Live | 2026-07-27T124852+0200 | 2026-07-27T124852+0200 | | |
-| global-0040 | checklists-global/chk-analytics-DashboardAnalyticsForm.md | checklists-global | checklist | Live | 2026-07-27T124852+0200 | 2026-07-27T124852+0200 | | |
-| global-0041 | checklists-global/chk-anvil-app-testing.md | checklists-global | checklist | Live | 2026-07-27T124852+0200 | 2026-07-27T124852+0200 | | |
-| global-0042 | checklists-global/chk-screen-analytics-DashboardAnalyticsForm.md | checklists-global | checklist | Live | 2026-07-27T124852+0200 | 2026-07-27T124852+0200 | | |
+| global-0040 | checklists-global/chk-analytics-DashboardAnalyticsForm.md | checklists-global | checklist | Retired | 2026-07-27T124852+0200 | 2026-07-27T230000+0200 | | Retired: checklists-global discontinued; content migrated to templates-global as untracked template, no longer register-tracked. |
+| global-0041 | checklists-global/chk-anvil-app-testing.md | checklists-global | checklist | Retired | 2026-07-27T124852+0200 | 2026-07-27T230000+0200 | | Retired: checklists-global discontinued; content migrated to templates-global as untracked template, no longer register-tracked. |
+| global-0042 | checklists-global/chk-screen-analytics-DashboardAnalyticsForm.md | checklists-global | checklist | Retired | 2026-07-27T124852+0200 | 2026-07-27T230000+0200 | | Retired: checklists-global discontinued; content migrated to templates-global as untracked template, no longer register-tracked. |
 | global-0043 | docs-standard-global/AGENTS.md | docs-standard-global | guide | Live | 2026-07-27T124852+0200 | 2026-07-27T124852+0200 | | |
 | global-0044 | docs-standard-global/business-requirements-document.md | docs-standard-global | guide | Live | 2026-07-27T124852+0200 | 2026-07-27T124852+0200 | | |
 | global-0045 | docs-standard-global/globals-contract.md | docs-standard-global | guide | Live | 2026-07-27T124852+0200 | 2026-07-27T124852+0200 | | |
@@ -97,8 +97,8 @@ All other fields are permanent from first registration.
 | global-0083 | standard-operating-procedures-global/sop-deployment-procedures.md | standard-operating-procedures-global | sop | Live | 2026-07-27T124852+0200 | 2026-07-27T124852+0200 | | |
 | global-0084 | standard-operating-procedures-global/sop-offboarding.md | standard-operating-procedures-global | sop | Live | 2026-07-27T124852+0200 | 2026-07-27T124852+0200 | | |
 | global-0085 | standard-operating-procedures-global/sop-vault-totp-recovery.md | standard-operating-procedures-global | sop | Live | 2026-07-27T124852+0200 | 2026-07-27T124852+0200 | | |
-| global-0086 | templates-global/tmp-authoritative-schema.md | templates-global | template | Live | 2026-07-27T124852+0200 | 2026-07-27T124852+0200 | | |
-| global-0087 | templates-global/tmp-custom-component-requirements-matrix).md | templates-global | template | Live | 2026-07-27T124852+0200 | 2026-07-27T124852+0200 | | |
+| global-0086 | templates-global/tmp-authoritative-schema.md | templates-global | template | Retired | 2026-07-27T124852+0200 | 2026-07-27T230000+0200 | | Retired: templates are not register-tracked documents; corrected per templates-vs-documents ruling. |
+| global-0087 | templates-global/tmp-custom-component-requirements-matrix).md | templates-global | template | Retired | 2026-07-27T124852+0200 | 2026-07-27T230000+0200 | | Retired: templates are not register-tracked documents; corrected per templates-vs-documents ruling. |
 
 ## Field definitions
 

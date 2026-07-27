@@ -1,9 +1,3 @@
----
-document: "{Project Name} — Authoritative Database Schema"
-doc-id: global-0086
-state: Live
-date-created: 2026-07-25T150027+0200
----
 # {Project Name} — Authoritative Database Schema
 
 **Date:** **[PROJECT]**
