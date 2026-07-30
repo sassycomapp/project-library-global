@@ -57,6 +57,7 @@ Each directory has an `INDEX.md` — read it to discover available documents.
 - Do not create, edit, move, or delete files unless the user asks and project config allows.
 - Never run destructive operations without explicit confirmation.
 - Never read, log, print, or write credentials, API keys, or tokens.
+- Never write to `anvil.yaml`. Anvil.yaml is always READ ONLY.
 
 ---
 
