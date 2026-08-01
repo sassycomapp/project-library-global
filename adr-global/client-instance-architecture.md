@@ -1,5 +1,5 @@
 ---
-document: `client-instance-architecture` ADR — Client Instance Architecture
+document: "`client-instance-architecture` ADR — Client Instance Architecture"
 doc-id: global-0007
 state: Live
 date-created: 2026-07-25T150027+0200

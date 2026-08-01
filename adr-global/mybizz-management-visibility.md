@@ -1,5 +1,5 @@
 ---
-document: `mybizz-management-visibility` ADR — Mybizz_management Visibility and Control
+document: "`mybizz-management-visibility` ADR — Mybizz_management Visibility and Control"
 doc-id: global-0020
 state: Live
 date-created: 2026-07-25T150027+0200

@@ -1,5 +1,5 @@
 ---
-document: `dark-mode-v1` ADR: Dark Mode — V1 Inclusion
+document: "`dark-mode-v1` ADR: Dark Mode — V1 Inclusion"
 doc-id: global-0009
 state: Live
 date-created: 2026-07-25T150027+0200

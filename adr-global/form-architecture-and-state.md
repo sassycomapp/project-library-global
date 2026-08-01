@@ -1,5 +1,5 @@
 ---
-document: `form-architecture-and-state` ADR — Form Architecture and State Management
+document: "`form-architecture-and-state` ADR — Form Architecture and State Management"
 doc-id: global-0014
 state: Live
 date-created: 2026-07-25T150027+0200

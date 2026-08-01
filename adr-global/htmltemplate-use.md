@@ -1,5 +1,5 @@
 ---
-document: `htmltemplate-use` ADR: HTMLTemplate Use
+document: "`htmltemplate-use` ADR: HTMLTemplate Use"
 doc-id: global-0016
 state: Live
 date-created: 2026-07-25T150027+0200

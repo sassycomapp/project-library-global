@@ -1,5 +1,5 @@
 ---
-document: `data-access-patterns` ADR — Data Access Patterns and Query Limitations
+document: "`data-access-patterns` ADR — Data Access Patterns and Query Limitations"
 doc-id: global-0010
 state: Live
 date-created: 2026-07-25T150027+0200

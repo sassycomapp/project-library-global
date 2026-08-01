@@ -1,5 +1,5 @@
 ---
-document: `dependency-update-model` ADR — Dependency Update Model
+document: "`dependency-update-model` ADR — Dependency Update Model"
 doc-id: global-0012
 state: Live
 date-created: 2026-07-25T150027+0200
