@@ -7,7 +7,7 @@ date-created: 2026-07-25T150027+0200
 # Mybizz — API Specification (HTTP Endpoints)
 
 **Scope:** Mybizz-wide. Covers all HTTP endpoints exposed by client instances — webhook handlers and management endpoints.
-**Authority:** `webhook-architecture` ADR, `mybizz-management-visibility` ADR, `anvil-platform-constraints` ADR
+**Authority:** [[webhook-architecture|Webhook Architecture]] ADR, [[mybizz-management-visibility|Mybizz Management Visibility]] ADR, [[anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR
 
 ---
 
@@ -173,7 +173,7 @@ All server functions (not just HTTP endpoints) follow the response envelope patt
 {'success': False, 'error': msg}
 ```
 
-See `anvil-platform-standards.md` §2.
+See [[spec-anvil-platform-standards|Anvil Platform Standards]] §2.
 
 ---
 
@@ -186,7 +186,7 @@ HTTP endpoints are subject to the same rate limits as all server functions:
 | Unauthenticated | 10 requests/minute/IP |
 | Authenticated | 100 requests/minute/user |
 
-Rate limits enforced via `rate_limits` Data Table. See `spec-security.md`.
+Rate limits enforced via `rate_limits` Data Table. See [[spec-security|Security Specification]].
 
 ---
 

@@ -83,7 +83,7 @@ guideline — more than one filled button on a screen is a compliance failure, n
 
 ## 7. Navigation Patterns
 
-**Layout shell:** Use the native M3 Layouts — `NavigationRailLayout` or `NavigationDrawerLayout` — for the admin and customer portal shells. `HTMLTemplate` is banned per the `htmltemplate-use` ADR.
+**Layout shell:** Use the native M3 Layouts — `NavigationRailLayout` or `NavigationDrawerLayout` — for the admin and customer portal shells. `HTMLTemplate` is banned per the [[htmltemplate-use|HTMLTemplate Use]] ADR.
 
 **Authenticated (internal) navigation:**
 - Plain `Link` components in the sidebar, not `NavigationLink`.
@@ -190,8 +190,7 @@ breakpoints:
 
 ## 16. Layout Patterns by Screen Type — Single Source of Truth
 
-**This table is the one authoritative source for these values** — `screen-and-wireframe-
-production-standards.md` and any project's own design document should reference this table
+**This table is the one authoritative source for these values** — [[spec-screen-and-wireframe-production-standards|Screen and Wireframe Production Standards]] and any project's own design document should reference this table
 rather than restate it, to avoid the two independently-drifting copies found during audit.
 
 | Screen Type | Max Width | Container Pattern |
@@ -286,7 +285,7 @@ Every component in the project falls into one of two tiers:
 
 | Tier | Definition | Rule |
 |---|---|---|
-| **Approved** | Components permitted for use in any form | Listed in `spec-m3_component_mapping.md` |
+| **Approved** | Components permitted for use in any form | Listed in [[spec-m3_component_mapping|M3 Component Mapping]] |
 | **Restricted** | Components that must not be used | Explicitly banned with documented reason |
 
 **Restricted components (banned):**

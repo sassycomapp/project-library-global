@@ -164,10 +164,10 @@ one of two tiers, and the naming convention reflects which camp it belongs to:
 
 | Tier | Rule |
 |---|---|
-| **Approved** | Component listed in `spec-m3_component_mapping.md` with its assigned prefix |
+| **Approved** | Component listed in [[spec-m3_component_mapping|M3 Component Mapping]] with its assigned prefix |
 | **Restricted** | Legacy `Label` component — banned. Any component not in the approved list — treated as restricted by default |
 
-Additions to the approved list require an ADR and an update to `spec-m3_component_mapping.md`.
+Additions to the approved list require an ADR and an update to [[spec-m3_component_mapping|M3 Component Mapping]].
 The `drp_` prefix (DataRowPanel) is the documented example of a component prefix that was
 identified as a gap and later codified — the process for closing a prefix gap is: flag it,
 ADR it, add it.

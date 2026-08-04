@@ -41,7 +41,7 @@ Every server function should:
 2. **Client Modules** — UI coordination, input validation, server-call orchestration.
 3. **Server Modules** — business rules, persistence, security enforcement, external API calls.
 4. **Pure Logic Modules** — zero Anvil imports, no side effects, deterministic. This is what
-   makes Level 1 testing possible (see `testing-methodology-standards.md`) — not a style
+   makes Level 1 testing possible (see [[spec-testing-methodology-standards|Testing Methodology Standards]]) — not a style
    preference.
 
 ## 4. Data Binding Pattern
@@ -77,7 +77,7 @@ own deployment/authoritative-schema documents, not here.
 
 ## 6. Uplink — Mechanics and Safety
 
-Full testing usage: see `testing-methodology-standards.md`. Platform mechanics:
+Full testing usage: see [[spec-testing-methodology-standards|Testing Methodology Standards]]. Platform mechanics:
 
 ```python
 import anvil.server, os
@@ -125,12 +125,12 @@ finally:
 
 Anvil AI can build a competent Designer UI, but needs three specific inputs, not one:
 1. Wireframe HTML
-2. Screen HTML (see `screen-and-wireframe-production-standards.md`)
+2. Screen HTML (see [[spec-screen-and-wireframe-production-standards|Screen and Wireframe Production Standards]])
 3. A screen PNG (rendered from the screen HTML via an external tool)
 
 Given all three, it also wires components to their code-behind functions as part of the build.
 
-**Vault System:** For the two-level secrets model, enforcement/masking pattern, implementation, and TOTP recovery — see `spec-vault-system.md`. This document does not duplicate that content.
+**Vault System:** For the two-level secrets model, enforcement/masking pattern, implementation, and TOTP recovery — see [[spec-vault-system|Vault System Specification]]. This document does not duplicate that content.
 
 ## 10. RBAC and Data Access Pattern
 
@@ -173,7 +173,7 @@ override and the reason — never silently diverge.
   auto-increment columns.
 - **Table linking:** store Row objects directly in link columns, not integer IDs. Each client
   instance has its own isolated database — no tenant discriminator columns or tenant-filtered
-  queries are needed. See `dependency-based-not-multi-tenant` ADR.
+  queries are needed. See [[dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]] ADR.
 - **Mandatory columns:** `created_at` (datetime) and `updated_at` (datetime, if the row is
   mutable) on every table.
 - **Query patterns:** `get()` for a single record (returns `None` if not found); `search()` for
@@ -185,7 +185,7 @@ override and the reason — never silently diverge.
 ## 14. Constants
 
 No hardcoded URLs, API keys, or magic strings in code. Use a dedicated `constants.py` module.
-Sensitive values go in Anvil Secrets or the Vault (see `spec-vault-system.md`), never in `constants.py` itself.
+Sensitive values go in Anvil Secrets or the Vault (see [[spec-vault-system|Vault System Specification]]), never in `constants.py` itself.
 
 ## 15. Global Client-Side Error Handler
 
@@ -363,7 +363,7 @@ resolution may fail or return incomplete results.
 
 
 
-*Anvil Platform Standards v1.6 — merged `anvil-platform-constraints.md` (ADR, misfiled —
+*Anvil Platform Standards v1.6 — merged [[anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] (ADR, misfiled —
 reclassified as spec content, this file, per single-source-of-truth review). Added §22
 Skulpt runtime workarounds (expands §17's existing flag), §23 Git integration constraint,
 §24 media/file handling, §25 persistent server requirement, §26 `app_tables` resolution
@@ -372,4 +372,4 @@ figures (client-instance count) stripped or tagged [EXAMPLE]; app names generali
 role descriptions. Vault TOTP recovery procedure from the source ADR was NOT merged here
 — flagged as SOP-shaped content, recommended for `standard-operating-procedures-global`
 instead. Prior footer: v1.4 removed `instance_id` references per
-`dependency-based-not-multi-tenant` ADR; v1.5 added §17–21.*
+[[dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]] ADR; v1.5 added §17–21.*

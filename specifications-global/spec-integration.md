@@ -7,7 +7,7 @@ date-created: 2026-07-25T150027+0200
 # Mybizz — Integration Specification
 
 **Scope:** Mybizz-wide. Covers all external service integrations — Brevo (email + CRM), Stripe (payments), Paystack (payments).
-**Authority:** `brevo-replaces-zoho-email` ADR, `payment-security-boundary-vault` ADR, `webhook-architecture` ADR
+**Authority:** [[brevo-replaces-zoho-email|Brevo Replaces All Zoho Products]] ADR, [[payment-security-boundary-vault|Payment Security Boundary Vault]] ADR, [[webhook-architecture|Webhook Architecture]] ADR
 
 ---
 
@@ -120,7 +120,7 @@ Brevo's built-in CRM stores contacts. Mybizz syncs contacts from the client inst
 | `payment_intent.payment_failed` | Mark booking failed, notify customer |
 
 **Webhook URL:** `[base_url]/api/webhooks/stripe`
-**Signature verification:** Required on every webhook. See `webhook-architecture` ADR.
+**Signature verification:** Required on every webhook. See [[webhook-architecture|Webhook Architecture]] ADR.
 
 ### 3.4 Error Handling
 
@@ -177,14 +177,13 @@ Switching gateways later does not require reconfiguring services or bookings. Th
 
 ## 6. Secret Management
 
-All integration secrets follow the two-level model defined in `spec-vault-system.md`:
-
+All integration secrets follow the two-level model defined in [[spec-vault-system|Vault System Specification]]:
 1. **Anvil Secrets** holds exactly one item: `encryption_key`
 2. **Vault** holds all integration credentials (Brevo, Stripe, Paystack)
 3. **`payment_config`** holds only publishable keys (safe for client-side)
 4. **`email_config`** holds only sender name and email (not credentials)
 
-**Enforcement:** Any server function that saves payment config must assert that secret key columns are not present. See `spec-vault-system.md` §2.
+**Enforcement:** Any server function that saves payment config must assert that secret key columns are not present. See [[spec-vault-system|Vault System Specification]] §2.
 
 ---
 

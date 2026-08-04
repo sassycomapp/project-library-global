@@ -9,7 +9,7 @@ date-created: 2026-07-25T150027+0200
 **Scope:** Mybizz-wide. This posture applies because Mybizz-the-company is based in South Africa
 and operates a multi-tenant SaaS model — it does not depend on what any individual app does.
 App-specific facts (e.g., whether a given app actually processes payments, and therefore whether
-PCI DSS applies to it) are recorded in `spec-security-architecture.md`, which
+PCI DSS applies to it) are recorded in [[spec-security-architecture|Security Architecture Specification]], which
 should reference this baseline rather than restate it.
 
 ---

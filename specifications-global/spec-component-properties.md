@@ -312,9 +312,9 @@ date-created: 2026-07-25T150027+0200
 
 ## HTMLTemplate Components
 
-### HTMLTemplate — BANNED (`htmltemplate-use` ADR)
+### HTMLTemplate — BANNED ([[htmltemplate-use|HTMLTemplate Use]] ADR)
 
-**HTMLTemplate is banned.** Use stock Anvil M3 components and the two native M3 Layouts (NavigationRailLayout, NavigationDrawerLayout) in all cases. See ``adr/adr-global/htmltemplate-use.md`` for the full decision.
+**HTMLTemplate is banned.** Use stock Anvil M3 components and the two native M3 Layouts (NavigationRailLayout, NavigationDrawerLayout) in all cases. See [[htmltemplate-use|HTMLTemplate Use]] for the full decision.
 
 | Property | Classification | Default | Description |
 |----------|---------------|---------|-------------|

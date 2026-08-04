@@ -25,7 +25,7 @@ All user interface work uses Material Design 3 exclusively. The M3 theme depende
 **Partially supported M3 components** (use custom composition):
 - Chips, Snackbar, Bottom Sheet, Tabs, Date Picker
 
-These require custom composition via Panels, Cards, and Buttons. See `m3_component_mapping.md` for implementation guidance.
+These require custom composition via Panels, Cards, and Buttons. See [[spec-m3_component_mapping|M3 Component Mapping]] for implementation guidance.
 
 When a component appears absent, compose from available M3 primitives — do not import from outside the M3 system.
 

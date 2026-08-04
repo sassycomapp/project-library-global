@@ -35,13 +35,13 @@ date-created: 2026-07-25T150027+0200
 
 | Topic | Specification |
 |---|---|
-| ADR | `navigation-lambda-link-open-form.md` (navigation pattern), `htmltemplate-use.md` (layout shell) |
+| ADR | [[navigation-lambda-link-open-form|Navigation Standard: Lambda/Link/open_form]] (navigation pattern), [[htmltemplate-use|HTMLTemplate Use]] (layout shell) |
 | Layout type | Native M3 Layouts (`NavigationRailLayout` for admin, `NavigationDrawerLayout` for customer portal) |
 | Sidebar nav component | Plain `Link` components |
 | Sidebar nav creation | Built programmatically in `build_navigation()` |
 | Navigation action | `open_form(string)` via lambda click handler |
 | Variable capture | **MANDATORY**: `lambda e, fn=form_name, a=attr_name: self._nav_click(fn, a)` |
-| NEVER use | `navigate_to`, `HTMLTemplate` (banned per `htmltemplate-use` ADR) |
+| NEVER use | `navigate_to`, `HTMLTemplate` (banned per [[htmltemplate-use|HTMLTemplate Use]] ADR) |
 | Reason | `navigate_to` requires instantiated Forms; `HTMLTemplate` banned — native M3 Layouts and components only |
 
 ```python
@@ -212,15 +212,15 @@ def btn_next_click(self, **event_args):
 
 | Component / Pattern | Rule |
 |---|---|
-| Anvil Extras | Excluded — see `14-anvil-extras-exclusion.md` |
-| `NavigationLink` for sidebar | Not used in current architecture — see `2-navigation-lambda-link-open-form.md` |
-| `NavigationDrawerLayoutTemplate` | Not used in current architecture — see `2-navigation-lambda-link-open-form.md` |
-| `navigate_to` for internal nav | Not used — see `2-navigation-lambda-link-open-form.md` |
+| Anvil Extras | Excluded — see [[anvil-extras-exclusion|Anvil Extras Exclusion]] |
+| `NavigationLink` for sidebar | Not used in current architecture — see [[navigation-lambda-link-open-form|Navigation Standard: Lambda/Link/open_form]] |
+| `NavigationDrawerLayoutTemplate` | Not used in current architecture — see [[navigation-lambda-link-open-form|Navigation Standard: Lambda/Link/open_form]] |
+| `navigate_to` for internal nav | Not used — see [[navigation-lambda-link-open-form|Navigation Standard: Lambda/Link/open_form]] |
 | RichText | Use sparingly; not core M3 |
 | Legacy multi-vertical components | Removed under `9-multi-vertical-to-single-vertical-conversion.md` |
-| Material Web Components | Excluded — see `14-anvil-extras-exclusion.md` |
-| Material Web Components | Excluded — see `14-anvil-extras-exclusion.md` |
-| Material Web Components | Excluded — see `14-anvil-extras-exclusion.md` |
+| Material Web Components | Excluded — see [[anvil-extras-exclusion|Anvil Extras Exclusion]] |
+| Material Web Components | Excluded — see [[anvil-extras-exclusion|Anvil Extras Exclusion]] |
+| Material Web Components | Excluded — see [[anvil-extras-exclusion|Anvil Extras Exclusion]] |
 
 ---
 
@@ -298,7 +298,7 @@ booking = app_tables.bookings.add_row(contact=contact)
 
 ### 4.4 Data Access (Dependency-Based Architecture)
 
-Each client instance is a separate Anvil app with its own isolated database. No tenant discriminator columns or tenant-filtered queries are needed — see `dependency-based-not-multi-tenant` ADR:
+Each client instance is a separate Anvil app with its own isolated database. No tenant discriminator columns or tenant-filtered queries are needed — see [[dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]] ADR:
 
 ```python
 @anvil.server.callable
@@ -847,4 +847,4 @@ def process_email_campaigns():
 
 ---
 
-**Status:** Consolidated specification and methods reference aligned to active Mybizz Anvil methods, M3 standards, `2-navigation-lambda-link-open-form.md` navigation, `9-multi-vertical-to-single-vertical-conversion.md` single-vertical scope, testing code of practice, startup pattern, packages/namespaces, Designer gotchas, uplink patterns, and background tasks.
+**Status:** Consolidated specification and methods reference aligned to active Mybizz Anvil methods, M3 standards, [[navigation-lambda-link-open-form|Navigation Standard: Lambda/Link/open_form]] navigation, `9-multi-vertical-to-single-vertical-conversion.md` single-vertical scope, testing code of practice, startup pattern, packages/namespaces, Designer gotchas, uplink patterns, and background tasks.

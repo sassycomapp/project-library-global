@@ -32,7 +32,7 @@ careful" — it's the mandatory two-stage checklist in Section 3.
   grep, not by eye — a single hardcoded value can hide in one line of CSS and pass a visual check.
 - **Background:** the token system's own surface color — never a generic grey "documentation"
   background.
-- **Layout patterns by form type**: see `m3-design-standards.md` Section 16 for the authoritative
+- **Layout patterns by form type**: see [[spec-m3-design-standards|M3 Design Standards]] Section 16 for the authoritative
   max-width/container table — do not restate these values here or in any project's own document.
 - **Panel separation**: functional areas separated by consistent bordered panels, not ad-hoc
   spacing.
@@ -97,7 +97,7 @@ the failure mode Section 1 describes.
 
 *Screen & Wireframe Production Standards v1.0. The rules and the checklist method are the
 reusable part — a project's exact token values and specific banned-pattern history stay in that
-project's own screen-production-standard.md.
+project's own [[spec-screen-production-standard|Screen Production Standard]].
 
 ---
 
@@ -112,9 +112,9 @@ quality gate — the second this list drifts from reality, screen production qua
 2. The project's DESIGN.md
 3. The project's DESIGN_palette_section.md
 4. `theme_patched.css` and `theme_mui_patch.css`
-5. `spec-m3_component_mapping.md`
-6. `spec-ui-standards.md`
-7. `spec-material-3-theme.md`
+5. [[spec-m3_component_mapping|M3 Component Mapping]]
+6. [[spec-ui-standards|UI Standards]]
+7. [[spec-material-3-theme|Material 3 Theme]]
 8. The project's UI customization ADR
 9. The project's component scope ADR
 10. The project's design rules ADR

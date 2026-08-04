@@ -8,11 +8,11 @@ date-created: 2026-07-25T150027+0200
 
 **Date:** 2026-06-16
 **Source:** CEO review 2026-06-15 Section 6, Engineering review 2026-06-16
-**Authority:** Build plan test framework, `anvil-platform-constraints` ADR, `form-architecture-and-state` ADR, `webhook-architecture` ADR, `dependency-based-not-multi-tenant` ADR
+**Authority:** Build plan test framework, [[anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR, [[form-architecture-and-state|Form Architecture and State Management]] ADR, [[webhook-architecture|Webhook Architecture]] ADR, [[dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]] ADR
 
 **Note:** General testing methodology (the Level 1/2/3 model, pure-function characteristics, the
 Uplink safety protocol, generic test structure/naming, common test patterns) lives in
-`spec-testing-methodology-standards.md` and is not repeated here. This document contains only this
+[[spec-testing-methodology-standards|Testing Methodology Standards]] and is not repeated here. This document contains only this
 project's specific flows, roles, and data — the actual test plan.
 
 ---
