@@ -79,7 +79,7 @@ This template lives at `C:\dev\project-library-global\docs-standard-global\AGENT
 
 Every date or timestamp this agent generates for a build artefact — front matter, register entries, alignment logs, learnings entries, backup folder names, devlog entries, or any other system-internal record — must follow the format and conversion method defined in:
 
-`C:\dev\project-library-global\adr-global\timezone-utc-storage-display-conversion.md`
+[[timezone-utc-storage-display-conversion|Client Timezone: UTC Storage, Display Conversion]]
 
 This ADR specifies one mandatory method for generating the timestamp, with no fallback and no alternative. Read that document before generating any such timestamp. If anything about the required method is unclear, stop and ask the developer — do not improvise or substitute a different method.
 

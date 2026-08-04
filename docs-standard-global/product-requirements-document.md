@@ -99,7 +99,7 @@ doesn't apply — don't leave a row blank without saying why.
 | Access control (RBAC) | **[PROJECT]** — does this project have roles? If yes, every server function needs an auth decorator per `chk-anvil-app-testing.md` §5 | |
 | Timezone handling | **[PROJECT]** — default assumption: UTC storage, display-time conversion, per-instance IANA timezone. State if this project deviates. | |
 | Currency handling | **[PROJECT]** — default assumption: single system currency, immutable after first transaction. State if this project deviates. | |
-| Color/theming compliance | **[PROJECT]** — M3 theme + approved overlay, no hardcoded colors (`AGENTS.md` Hard Rule 2) — confirm no project-specific exception needed |
+| Color/theming compliance | **[PROJECT]** — M3 theme + approved overlay, no hardcoded colors ([[AGENTS|AGENTS.md]] Hard Rule 2) — confirm no project-specific exception needed |
 
 ---
 
