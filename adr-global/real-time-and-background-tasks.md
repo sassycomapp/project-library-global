@@ -8,7 +8,7 @@ date-created: 2026-07-25T150027+0200
 
 **Status:** Approved  
 **Date:** 2026-06-14  
-**Authority:** Derived from platform-overview.md, `observability-architecture` ADR, `anvil-platform-constraints` ADR, integration-architecture.md
+**Authority:** Derived from platform-overview.md, [[observability-architecture|Observability Architecture]] ADR, [[anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR, integration-architecture.md
 
 ---
 
@@ -203,9 +203,9 @@ def process_webhook(event_id):
 
 | Document | Relationship |
 |---|---|
-| ``adr/adr-global/observability-architecture.md`` | Health heartbeat task feeds observability metrics |
-| ``adr/adr-global/anvil-platform-constraints.md`` | Background task limits and server call latency constraints |
-| ``adr/adr-global/webhook-architecture.md`` | Detailed webhook handling pattern |
+| [[observability-architecture|Observability Architecture]] | Health heartbeat task feeds observability metrics |
+| [[anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] | Background task limits and server call latency constraints |
+| [[webhook-architecture|Webhook Architecture]] | Detailed webhook handling pattern |
 | `integration-architecture.md` | Section 4: Background Tasks (existing task inventory) |
 | `docs/platform-overview.md` | Section 5.7: Email & Campaigns (campaign enrollment task) |
 | `docs/deployment-procedures.md` | Operational procedures for task failure recovery |

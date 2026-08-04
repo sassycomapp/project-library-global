@@ -107,7 +107,7 @@ From platform documentation:
 
 ## Related Documents
 
-- ``adr/adr-global/payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed.md`` — Gateway configuration in Settings
+- [[payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed|Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed]] — Gateway configuration in Settings
 - Platform overview documentation — Current gateway description
 - Payment processing architecture
 

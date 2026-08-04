@@ -14,9 +14,9 @@ date-created: 2026-07-25T150027+0200
 
 ## Context
 
-The Mybizz applications use layout shells for authenticated navigation. This ADR established the navigation pattern. Since then, the `htmltemplate-use` ADR has banned `HTMLTemplate` and mandated native M3 Layouts (`NavigationRailLayout`, `NavigationDrawerLayout`) for all layout-shell cases.
+The Mybizz applications use layout shells for authenticated navigation. This ADR established the navigation pattern. Since then, the [[htmltemplate-use|HTMLTemplate Use]] ADR has banned `HTMLTemplate` and mandated native M3 Layouts (`NavigationRailLayout`, `NavigationDrawerLayout`) for all layout-shell cases.
 
-This ADR remains authoritative for the **navigation pattern** (lambda click handlers, Link components, open_form). The **layout shell decision** (custom HtmlTemplate vs native M3 Layouts) is governed by the `htmltemplate-use` ADR.
+This ADR remains authoritative for the **navigation pattern** (lambda click handlers, Link components, open_form). The **layout shell decision** (custom HtmlTemplate vs native M3 Layouts) is governed by the [[htmltemplate-use|HTMLTemplate Use]] ADR.
 
 ---
 
@@ -46,14 +46,14 @@ open_form('BookingViewerForm', booking_id=row['booking_id'])
 **`NavigationLink` is not used for sidebar navigation.** The `nav_` prefix in component naming
 refers to Link components styled for sidebar use — not NavigationLink components.
 
-### Superseded by `htmltemplate-use` ADR
+### Superseded by [[htmltemplate-use|HTMLTemplate Use]] ADR
 
 The following parts of the original decision are superseded:
 
 | Original decision | Superseded by |
 |---|---|
-| Custom `HtmlTemplate` layouts for layout shells | `htmltemplate-use` ADR — HTMLTemplate banned, native M3 Layouts required |
-| `NavigationDrawerLayoutTemplate` is not used | `htmltemplate-use` ADR — NavigationRailLayout/NavigationDrawerLayout are now standard |
+| Custom `HtmlTemplate` layouts for layout shells | [[htmltemplate-use|HTMLTemplate Use]] ADR — HTMLTemplate banned, native M3 Layouts required |
+| `NavigationDrawerLayoutTemplate` is not used | [[htmltemplate-use|HTMLTemplate Use]] ADR — NavigationRailLayout/NavigationDrawerLayout are now standard |
 
 The lambda/Link/open_form navigation pattern remains unchanged and binding.
 
@@ -78,4 +78,4 @@ correctly applied. Do not blindly reapply — verify first, then correct only wh
 
 ---
 
-*Navigation Standard v2.0 — Layout shell decision superseded by `htmltemplate-use` ADR. Navigation pattern (lambda/Link/open_form) unchanged and binding.*
+*Navigation Standard v2.0 — Layout shell decision superseded by [[htmltemplate-use|HTMLTemplate Use]] ADR. Navigation pattern (lambda/Link/open_form) unchanged and binding.*

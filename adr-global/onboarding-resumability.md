@@ -104,7 +104,7 @@ The onboarding flow captures substantial business information but may not suppor
 
 ## Related Documents
 
-- ``adr/adr-global/onboarding-vs-settings-boundary.md`` — Onboarding scope definition
+- [[onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]] — Onboarding scope definition
 - User experience documentation
 - Onboarding flow documentation
 

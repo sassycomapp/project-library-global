@@ -8,7 +8,7 @@ date-created: 2026-07-25T150027+0200
 
 **Status:** Confirmed  
 **Date:** 2026-06-13  
-**Authority:** Derived from platform-overview.md, `observability-architecture` ADR
+**Authority:** Derived from platform-overview.md, [[observability-architecture|Observability Architecture]] ADR
 
 ---
 
@@ -161,8 +161,8 @@ The following steps are added to the provisioning process:
 
 | Document | Relationship |
 |---|---|
-| ``adr/adr-global/observability-architecture.md`` | Defines what metrics are written and queried |
-| ``adr/adr-global/client-instance-architecture.md`` | Confirms server modules (including management endpoints) live in master_template |
+| [[observability-architecture|Observability Architecture]] | Defines what metrics are written and queried |
+| [[client-instance-architecture|Client Instance Architecture]] | Confirms server modules (including management endpoints) live in master_template |
 | `implementation/client-activation-runbook.md` | Token generation and registry steps |
 | `docs/platform-overview.md` | Section 3: Application Structure |
 

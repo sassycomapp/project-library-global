@@ -29,7 +29,7 @@ All data access goes through Anvil's `app_tables` API, which provides `.search()
 
 ### Data Access Rules
 
-1. **All data access is server-side.** Client code never reads Data Tables directly. All queries go through server functions (`client-instance-architecture` ADR).
+1. **All data access is server-side.** Client code never reads Data Tables directly. All queries go through server functions ([[client-instance-architecture|Client Instance Architecture]] ADR).
 
 2. **Use `.search()` with filters, not iteration.** Never iterate over all rows. Always use `.search()` with keyword arguments to filter, or `.limit_to()` to bound the result set.
 
@@ -127,7 +127,7 @@ For reporting and analytics, pre-computed summary tables store aggregated data:
 | `provider_performance` | Revenue and booking count per provider | Daily background task |
 | `campaign_metrics` | Open rates, click rates, conversions per campaign | Hourly background task |
 
-These tables are populated by background tasks (`real-time-and-background-tasks` ADR) and read directly by dashboard and reporting forms.
+These tables are populated by background tasks ([[real-time-and-background-tasks|Real-Time and Background Tasks]] ADR) and read directly by dashboard and reporting forms.
 
 ---
 
@@ -138,7 +138,7 @@ These tables are populated by background tasks (`real-time-and-background-tasks`
 - ✅ Pre-computed aggregations enable fast dashboard loading
 - ✅ Bounded pagination prevents timeout on large result sets
 - ⚠️ Denormalization introduces data consistency risk — denormalized fields must be updated when source data changes
-- ⚠️ Summary tables require background task scheduling — adds to per-client task load (`real-time-and-background-tasks` ADR)
+- ⚠️ Summary tables require background task scheduling — adds to per-client task load ([[real-time-and-background-tasks|Real-Time and Background Tasks]] ADR)
 - ⚠️ Complex ad-hoc queries are not possible — reporting is limited to pre-computed summaries
 
 ---
@@ -147,9 +147,9 @@ These tables are populated by background tasks (`real-time-and-background-tasks`
 
 | Document | Relationship |
 |---|---|
-| ``adr/adr-global/anvil-platform-constraints.md`` | Data Table limitations and lazy-load behavior |
-| ``adr/adr-global/client-instance-architecture.md`` | All data access is server-side |
-| ``adr/adr-global/real-time-and-background-tasks.md`` | Background tasks compute summary tables |
+| [[anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] | Data Table limitations and lazy-load behavior |
+| [[client-instance-architecture|Client Instance Architecture]] | All data access is server-side |
+| [[real-time-and-background-tasks|Real-Time and Background Tasks]] | Background tasks compute summary tables |
 | `docs/authoritative-schema.md` | 36-table schema definition |
 | `docs/platform-overview.md` | Section 13: Data Architecture |
 

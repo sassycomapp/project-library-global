@@ -58,7 +58,7 @@ The question arose of what happens after onboarding is completed, whether the Ow
    - Changes made in the client instance are synced to Mybizz_management via server functions
 
 5. **System Currency exception:**
-   - System Currency is immutable after the first transaction (per `16-system-currency-selection-and-immutability.md`)
+   - System Currency is immutable after the first transaction (per [[system-currency-selection-and-immutability|System Currency Selection and Immutability]])
    - This is the only field that cannot be changed after a specific event
    - All other credentials remain changeable at any time
 
@@ -87,10 +87,10 @@ The question arose of what happens after onboarding is completed, whether the Ow
 
 ## Related Documents
 
-- `17-onboarding-vs-settings-boundary.md` — Settings as the single configuration surface
-- `16-system-currency-selection-and-immutability.md` — Currency immutability after first transaction
-- `24-payment-gateway-mutability.md` — Gateway change rules
-- `23-onboarding-resumability.md` — Progress preservation during onboarding
+- [[onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]] — Settings as the single configuration surface
+- [[system-currency-selection-and-immutability|System Currency Selection and Immutability]] — Currency immutability after first transaction
+- [[payment-gateway-mutability|Payment Gateway Mutability]] — Gateway change rules
+- [[onboarding-resumability|Onboarding Resumability]] — Progress preservation during onboarding
 - `implementation/onboarding-implementation-plan.md` — Settings-based onboarding implementation
 - `docs/platform-overview.md` — Mybizz_management data architecture intention
 

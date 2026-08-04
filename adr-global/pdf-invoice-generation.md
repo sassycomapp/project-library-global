@@ -91,7 +91,7 @@ def generate_invoice_pdf(invoice_id):
 | Email delivery | Sent via Brevo SMTP as email attachment |
 | Admin download | Downloaded from admin panel via server call |
 
-**Note:** `BlobMedia` has row size limits (`anvil-platform-constraints` ADR). For invoices with many line items, consider storing the PDF externally (S3 or similar) and keeping only the URL in the Data Table. This is a V2 consideration if invoice complexity grows.
+**Note:** `BlobMedia` has row size limits ([[anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR). For invoices with many line items, consider storing the PDF externally (S3 or similar) and keeping only the URL in the Data Table. This is a V2 consideration if invoice complexity grows.
 
 ---
 
@@ -110,7 +110,7 @@ def generate_invoice_pdf(invoice_id):
 
 | Document | Relationship |
 |---|---|
-| ``adr/adr-global/anvil-platform-constraints.md`` | Server-side only constraint; BlobMedia limits |
+| [[anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] | Server-side only constraint; BlobMedia limits |
 | `integration-architecture.md` | Section 1: Payment Gateway Architecture (invoice trigger) |
 | `docs/user-flows.md` | §3: Admin Daily Operations (invoice viewing) |
 | `docs/platform-overview.md` | Section 5.5: Payments & Invoicing |

@@ -183,7 +183,7 @@ INVOICE: transaction currency + system_currency_amount (for reporting)
 ## Related Documents
 
 - `authoritative-schema.md` — Database schema with currency fields
-- `5-timezone-utc-storage-display-conversion.md` — Timezone/UTC storage pattern (similar approach)
+- [[timezone-utc-storage-display-conversion|Client Timezone: UTC Storage, Display Conversion]] — Timezone/UTC storage pattern (similar approach)
 - `implementation/onboarding-implementation-plan.md` — System currency selection in onboarding
 
 ---

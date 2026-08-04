@@ -8,13 +8,13 @@ date-created: 2026-07-25T150027+0200
 
 **Status:** Approved  
 **Date:** 2026-06-14  
-**Authority:** Derived from platform-overview.md, `navigation-lambda-link-open-form` ADR, `client-instance-architecture` ADR, `anvil-platform-constraints` ADR
+**Authority:** Derived from platform-overview.md, [[navigation-lambda-link-open-form|Navigation Lambda/Link/open_form]] ADR, [[client-instance-architecture|Client Instance Architecture]] ADR, [[anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR
 
 ---
 
 ## Context
 
-The Mybizz CS admin and customer portal uses Anvil's form-based UI model. Navigation uses lambda click handlers with `open_form()` (`navigation-lambda-link-open-form` ADR). Each `open_form()` call instantiates a fresh form — state does not carry across automatically.
+The Mybizz CS admin and customer portal uses Anvil's form-based UI model. Navigation uses lambda click handlers with `open_form()` ([[navigation-lambda-link-open-form|Navigation Lambda/Link/open_form]] ADR). Each `open_form()` call instantiates a fresh form — state does not carry across automatically.
 
 Three problems must be solved:
 
@@ -99,7 +99,7 @@ The booking flow has 6+ steps, each potentially requiring a server call. To avoi
 |---|---|
 | Single form with toggle visibility | Form becomes bloated; hard to maintain |
 | Multiple open_form() calls | Layout re-renders on every navigation; state loss |
-| NavigationDrawerLayoutTemplate | M3 native component; not compatible with custom layout approach (`navigation-lambda-link-open-form` ADR) |
+| NavigationDrawerLayoutTemplate | M3 native component; not compatible with custom layout approach ([[navigation-lambda-link-open-form|Navigation Lambda/Link/open_form]] ADR) |
 
 ### State Management Alternatives
 
@@ -127,10 +127,10 @@ The booking flow has 6+ steps, each potentially requiring a server call. To avoi
 
 | Document | Relationship |
 |---|---|
-| ``adr/adr-global/navigation-lambda-link-open-form.md`` | Navigation pattern that form architecture builds on |
-| ``adr/adr-global/client-instance-architecture.md`` | Forms live in client instances; server calls resolve to master_template |
-| ``adr/adr-global/anvil-platform-constraints.md`` | Server call latency constraint driving batch design |
-| ``adr/adr-global/data-access-patterns.md`` | Data access patterns used in form data loading |
+| [[navigation-lambda-link-open-form|Navigation Lambda/Link/open_form]] | Navigation pattern that form architecture builds on |
+| [[client-instance-architecture|Client Instance Architecture]] | Forms live in client instances; server calls resolve to master_template |
+| [[anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] | Server call latency constraint driving batch design |
+| [[data-access-patterns|Data Access Patterns and Query Limitations]] | Data access patterns used in form data loading |
 | `docs/architecture.md` | Section 5: Three-Tier Module Pattern; Section 6: Navigation Architecture |
 | `docs/user-flows.md` | §2: Services Appointment Booking; §3: Admin Daily Operations |
 

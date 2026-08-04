@@ -22,7 +22,7 @@ Accepted
 
 In all three cases, a native alternative exists:
 
-- The ServicesForm case needs only basic CSS positioning, achievable via a plain ColumnPanel with a role-driven CSS class (per `role-property-assignment-mechanism` ADR, roles are a real, working mechanism). No HTML escape hatch is needed.
+- The ServicesForm case needs only basic CSS positioning, achievable via a plain ColumnPanel with a role-driven CSS class (per [[role-property-assignment-mechanism|Role Property Assignment Mechanism]] ADR, roles are a real, working mechanism). No HTML escape hatch is needed.
 - M3 already ships two native, complete Layouts: `NavigationRailLayout` and `NavigationDrawerLayout`. Building a custom HTML-based shell duplicates what these already provide.
 
 ## Decision
@@ -45,11 +45,11 @@ In all three cases, a native alternative exists:
 | Document | Relationship |
 |---|---|
 | `docs/spec-component-properties.md` | Documents `HTMLTemplate` and its properties; superseded for this component |
-| ``adr/adr-global/anvil-extras-exclusion.md`` | Excludes third-party packages; this ADR extends the exclusion principle to `HTMLTemplate` |
-| ``adr/adr-global/material-3-theme-component-scope.md`` | Defines permitted M3 components; `HTMLTemplate` is not among them |
-| ``adr/adr-global/design-rules.md`` | Wireframe design rules; wireframes must not use `HTMLTemplate` |
-| ``adr/adr-global/ui-customization-approach.md`` | Broader UI customization approach; this ADR is a specific component exclusion |
-| ``adr/adr-global/role-property-assignment-mechanism.md`` | Role-driven CSS classes provide the native alternative for the ServicesForm case |
+| [[anvil-extras-exclusion|Anvil Extras Exclusion]] | Excludes third-party packages; this ADR extends the exclusion principle to `HTMLTemplate` |
+| [[material-3-theme-component-scope|Material 3 Theme Component Scope]] | Defines permitted M3 components; `HTMLTemplate` is not among them |
+| [[design-rules|Design Rules]] | Wireframe design rules; wireframes must not use `HTMLTemplate` |
+| [[ui-customization-approach|UI Customization Approach]] | Broader UI customization approach; this ADR is a specific component exclusion |
+| [[role-property-assignment-mechanism|Role Property Assignment Mechanism]] | Role-driven CSS classes provide the native alternative for the ServicesForm case |
 
 ---
 

@@ -105,7 +105,7 @@ The platform needs to support policy creation and publication while maintaining 
 
 ## Related Documents
 
-- ``adr/adr-global/onboarding-vs-settings-boundary.md`` — Onboarding vs settings boundary
+- [[onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]] — Onboarding vs settings boundary
 - Legal documentation requirements
 - Platform terms of service
 

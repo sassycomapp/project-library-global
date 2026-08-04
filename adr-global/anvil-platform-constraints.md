@@ -50,7 +50,7 @@ Anvil does not provide built-in URL routing. Client-side navigation uses the com
 
 **Dependency ID:** `3PIDO5P3H4VPEMPL`
 
-**Scope:** Public website pages only. Admin and customer portal navigation uses the lambda/Link/open_form pattern (`navigation-lambda-link-open-form` ADR).
+**Scope:** Public website pages only. Admin and customer portal navigation uses the lambda/Link/open_form pattern ([[navigation-lambda-link-open-form|Navigation Lambda/Link/open_form]] ADR).
 
 ### 3. Data Table Row Access
 
@@ -62,7 +62,7 @@ Anvil Data Table rows are lazy-loaded. Iterating over a large table without `.se
 
 Every `anvil.server.call()` is an HTTP round-trip. Over-reliance on server calls degrades UX — each call adds 100-500ms depending on server warm-up and network conditions.
 
-**Rule:** Minimize server calls in user-facing flows. Batch operations where possible. See `form-architecture-and-state` ADR (Form Architecture and State Management).
+**Rule:** Minimize server calls in user-facing flows. Batch operations where possible. See [[form-architecture-and-state|Form Architecture and State Management]] ADR.
 
 ### 5. Background Task Limits
 
@@ -76,7 +76,7 @@ Anvil's background task system has plan-dependent limits:
 
 With 100 client instances each running multiple background tasks (health heartbeat, campaign enrollment, reminders, webhook processing), the per-account task load must be verified against Anvil Business plan limits.
 
-**See:** `real-time-and-background-tasks` ADR (Real-Time and Background Tasks)
+**See:** [[real-time-and-background-tasks|Real-Time and Background Tasks]] ADR
 
 ### 6. Git Integration Quirks
 
@@ -86,7 +86,7 @@ Anvil's built-in Git integration is one-way friendly (Anvil ← GitHub). Branchi
 
 ### 7. Secrets Management
 
-`anvil.secrets` works but has size limits and no rotation tooling. The platform uses Anvil Secrets for exactly one item: `encryption_key`. All other secrets are managed through the custom Vault system (`payment-security-boundary-vault` ADR).
+`anvil.secrets` works but has size limits and no rotation tooling. The platform uses Anvil Secrets for exactly one item: `encryption_key`. All other secrets are managed through the custom Vault system ([[payment-security-boundary-vault|Payment Security Boundary Vault]] ADR).
 
 ### 8. Media/File Handling
 
@@ -118,7 +118,7 @@ When a server module in `master_template` calls `app_tables`, Anvil resolves the
 
 ### 11. Vault TOTP Recovery
 
-Vault access requires TOTP step-up on every open (`payment-security-boundary-vault` ADR). If the Owner loses their TOTP device, the following recovery path applies:
+Vault access requires TOTP step-up on every open ([[payment-security-boundary-vault|Payment Security Boundary Vault]] ADR). If the Owner loses their TOTP device, the following recovery path applies:
 
 **Recovery process:**
 1. Owner contacts Mybizz support (Mybizz_management)
@@ -151,12 +151,12 @@ Vault access requires TOTP step-up on every open (`payment-security-boundary-vau
 
 | Document | Relationship |
 |---|---|
-| ``adr/adr-global/navigation-lambda-link-open-form.md`` | Navigation pattern that works within Anvil's constraints |
-| ``adr/adr-global/payment-security-boundary-vault.md`` | Vault system replaces Anvil Secrets |
-| ``adr/adr-global/client-instance-architecture.md`` | Dependency model — the core architectural pattern |
-| ``adr/adr-global/form-architecture-and-state.md`` | How forms work within Anvil's form model |
-| ``adr/adr-global/real-time-and-background-tasks.md`` | Background task patterns within Anvil's limits |
-| ``adr/adr-global/data-access-patterns.md`` | Data Table query patterns within Anvil's model |
+| [[navigation-lambda-link-open-form|Navigation Lambda/Link/open_form]] | Navigation pattern that works within Anvil's constraints |
+| [[payment-security-boundary-vault|Payment Security Boundary Vault]] | Vault system replaces Anvil Secrets |
+| [[client-instance-architecture|Client Instance Architecture]] | Dependency model — the core architectural pattern |
+| [[form-architecture-and-state|Form Architecture and State Management]] | How forms work within Anvil's form model |
+| [[real-time-and-background-tasks|Real-Time and Background Tasks]] | Background task patterns within Anvil's limits |
+| [[data-access-patterns|Data Access Patterns and Query Limitations]] | Data Table query patterns within Anvil's model |
 | `docs/platform-overview.md` | Section 6: Technical Stack |
 | `docs/deployment-procedures.md` | Anvil account-level failure scenarios and recovery |
 

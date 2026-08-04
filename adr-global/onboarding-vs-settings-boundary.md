@@ -100,7 +100,7 @@ The platform currently has some operational controls (like palette selection, se
 
 ## Related Documents
 
-- ``adr/adr-global/system-currency-selection-and-immutability.md`` — System currency as onboarding concern
+- [[system-currency-selection-and-immutability|System Currency Selection and Immutability]] — System currency as onboarding concern
 - `docs/phased-implementation/phase-0-implementation.md` — Implementation phases
 - Platform overview documentation — Current configuration patterns
 

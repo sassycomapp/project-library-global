@@ -8,7 +8,7 @@ date-created: 2026-07-25T150027+0200
 
 **Status:** Approved  
 **Date:** 2026-06-14  
-**Authority:** Derived from platform-overview.md, `real-time-and-background-tasks` ADR, integration-architecture.md
+**Authority:** Derived from platform-overview.md, [[real-time-and-background-tasks|Real-Time and Background Tasks]] ADR, integration-architecture.md
 
 ---
 
@@ -253,8 +253,8 @@ This ensures webhooks are never silently lost due to dispatch failures.
 
 | Document | Relationship |
 |---|---|
-| ``adr/adr-global/real-time-and-background-tasks.md`` | Background task architecture and limits |
-| ``adr/adr-global/mybizz-management-visibility.md`` | Error events pushed to Mybizz_management |
+| [[real-time-and-background-tasks|Real-Time and Background Tasks]] | Background task architecture and limits |
+| [[mybizz-management-visibility|Mybizz Management Visibility]] | Error events pushed to Mybizz_management |
 | `integration-architecture.md` | Section 1: Payment Gateway Architecture; Section 3: Brevo CRM Integration |
 | `docs/client-activation-runbook.md` | §4.9: Webhook URL registration during provisioning |
 

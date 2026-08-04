@@ -51,8 +51,8 @@ No breakpoint-pixel table is used. Navigation collapse remains separately automa
 | Document | Relationship |
 |---|---|
 | `docs/design-direction.md` | Source of the contradicting breakpoint models this ADR supersedes |
-| ``adr/adr-global/design-rules.md`` | Wireframe design rules; wireframes must annotate `wrap_on` where applicable |
-| ``adr/adr-global/ui-customization-approach.md`` | Broader UI customization approach; this ADR is a specific responsive instance |
+| [[design-rules|Design Rules]] | Wireframe design rules; wireframes must annotate `wrap_on` where applicable |
+| [[ui-customization-approach|UI Customization Approach]] | Broader UI customization approach; this ADR is a specific responsive instance |
 
 ---
 
