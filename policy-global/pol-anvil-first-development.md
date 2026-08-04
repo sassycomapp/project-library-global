@@ -29,7 +29,7 @@ inadequate.
 
 **Approved standing exception:** the Vault. Client API keys cannot go in Anvil Secrets
 because doing so would require giving clients IDE access. The Vault is an
-application-level encrypted secrets store — see `spec-anvil-platform-standards.md` for the
+application-level encrypted secrets store — see [[spec-anvil-platform-standards|Anvil Platform Standards]] for the
 technical pattern. Any further exception beyond the Vault requires the same
 documented-justification standard as any other custom implementation, not a blanket
 extension of this one.
@@ -45,7 +45,7 @@ Branching: `master` (production), `dev` (development integration), `feature/{nam
 ### Backup Protocol
 
 Two backup points per feature, both mandatory — see
-`spec-testing-methodology-standards.md` §4 for the full discipline. Never back up a red
+[[spec-testing-methodology-standards|Testing Methodology Standards]] §4 for the full discipline. Never back up a red
 or failing state.
 
 ### Development Tooling
