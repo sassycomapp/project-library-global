@@ -1,6 +1,6 @@
 ---
 document: System Currency, Display Currency, and Immutability
-doc-id: global-0035
+doc-id: system-currency-selection-and-immutability
 state: Live
 date-created: 2026-07-25T150027+0200
 ---

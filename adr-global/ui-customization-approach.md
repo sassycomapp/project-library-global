@@ -1,6 +1,6 @@
 ---
 document: "`ui-customization-approach` ADR — UI Customization Approach"
-doc-id: global-0038
+doc-id: ui-customization-approach
 state: Live
 date-created: 2026-07-25T150027+0200
 ---

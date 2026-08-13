@@ -1,6 +1,6 @@
 ---
 document: Legal Policy Responsibility Acknowledgement and Clause-Builder Architecture
-doc-id: global-0018
+doc-id: legal-policy-responsibility-acknowledgement-and-clause-builder-architecture
 state: Live
 date-created: 2026-07-25T150027+0200
 ---

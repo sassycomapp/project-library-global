@@ -1,6 +1,6 @@
 ---
 document: Brevo Replaces All Zoho Products
-doc-id: global-0005
+doc-id: brevo-replaces-zoho-email
 state: Live
 date-created: 2026-07-25T150027+0200
 ---

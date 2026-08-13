@@ -1,6 +1,6 @@
 ---
 document: "`observability-architecture` ADR — Observability Architecture"
-doc-id: global-0022
+doc-id: observability-architecture
 state: Live
 date-created: 2026-07-25T150027+0200
 ---

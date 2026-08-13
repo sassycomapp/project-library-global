@@ -1,6 +1,6 @@
 ---
 document: Onboarding Finality
-doc-id: global-0024
+doc-id: onboarding-finality
 state: Live
 date-created: 2026-07-25T150027+0200
 ---

@@ -1,6 +1,6 @@
 ---
 document: "`responsive-behaviour-mechanism` ADR: Responsive Behaviour Mechanism"
-doc-id: global-0032
+doc-id: responsive-behaviour-mechanism
 state: Live
 date-created: 2026-07-25T150027+0200
 ---

@@ -1,6 +1,6 @@
 ---
 document: Global ADR Index
-doc-id: global-0001
+doc-id: INDEX
 state: Live
 date-created: 2026-07-25T150027+0200
 ---
@@ -48,3 +48,6 @@ Full index with statuses and dates: `adr-index.md`.
 - [[onboarding-resumability|Onboarding Resumability]] — Resumability mechanism
 - [[onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]] — Onboarding vs settings boundary
 - [[onboarding-data-schema-alignment|Onboarding Data Schema Alignment]] — Data schema alignment
+
+### Dev Tooling & Source Control
+- [[dev-tooling-source-repos-must-be-github-backed|All Dev-Tooling Source Repositories Must Be GitHub-Backed]] — Every PDLF/dev-makepdlf source repo must have a GitHub remote; template repos for scaffolds, normal repos for live tools

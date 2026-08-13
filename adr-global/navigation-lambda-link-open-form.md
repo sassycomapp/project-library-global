@@ -1,6 +1,6 @@
 ---
 document: "Navigation Standard: Lambda/Link/open_form"
-doc-id: global-0021
+doc-id: navigation-lambda-link-open-form
 state: Live
 date-created: 2026-07-25T150027+0200
 ---

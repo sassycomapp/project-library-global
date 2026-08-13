@@ -1,13 +1,13 @@
 ---
 document: Mybizz — ADR Index
-doc-id: global-0002
+doc-id: adr-index
 state: Live
 date-created: 2026-07-25T150027+0200
 ---
 # Mybizz — ADR Index
 
-**Last Updated:** 2026-07-06
-**Total ADRs:** 40 (39 global, 1 local) — 25 Accepted, 7 Confirmed, 1 Superseded, 7 Approved
+**Last Updated:** 2026-08-05
+**Total ADRs:** 41 (40 global, 1 local) — 25 Accepted, 8 Confirmed, 1 Superseded, 7 Approved
 
 ---
 
@@ -56,6 +56,7 @@ Company-wide architecture, technology, and standards decisions — apply to all 
 | [[responsive-behaviour-mechanism|Responsive Behaviour Mechanism]] | Responsive Behaviour Mechanism | Accepted | 2026-06-27 |
 | [[htmltemplate-use|HTMLTemplate Use]] | HTMLTemplate Use | Accepted | 2026-06-27 |
 | [[dark-mode-v1|Dark Mode V1]] | Dark Mode — V1 Inclusion | Accepted | 2026-07-03 |
+| [[dev-tooling-source-repos-must-be-github-backed|All Dev-Tooling Source Repositories Must Be GitHub-Backed]] | All Dev-Tooling Source Repositories Must Be GitHub-Backed | Confirmed | 2026-08-05 |
 
 ---
 
@@ -95,6 +96,7 @@ App-specific decisions — apply to mb-3-cs (Consulting & Services) only.
 - **[[htmltemplate-use|HTMLTemplate Use]]:** `HTMLTemplate` is banned. All current use cases have native M3 alternatives. Wireframes using it require reworking.
 - **[[dark-mode-v1|Dark Mode V1]]:** Dark mode incorporated into V1. No longer deferred to V2. All screens require `@media (prefers-color-scheme: dark)` blocks.
 - **[[ui-customization-approach|UI Customization Approach]]:** Partially superseded by [[htmltemplate-use|HTMLTemplate Use]] on layout components (native M3 Layouts are standard). M3+CSS customization approach for styling remains valid.
+- **[[dev-tooling-source-repos-must-be-github-backed|All Dev-Tooling Source Repositories Must Be GitHub-Backed]]:** Grew out of a 2026-08-05 `gbrain doctor` root-cause investigation that found two PDLF-ecosystem sources (`pdlf`, `template-project-library`) as local-only working trees with no GitHub remote — the actual cause of a persistent `sync_freshness` failure and an unmanaged data-loss risk. Requires every dev-tooling source to be GitHub-backed: normal private repos for live tools, GitHub template repos for copy-to-start scaffolds.
 
 ---
 

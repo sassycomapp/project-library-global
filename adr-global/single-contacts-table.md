@@ -1,6 +1,6 @@
 ---
 document: Single Contacts Table Replaces Dual contacts/customers
-doc-id: global-0034
+doc-id: single-contacts-table
 state: Live
 date-created: 2026-07-25T150027+0200
 ---

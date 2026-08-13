@@ -1,6 +1,6 @@
 ---
 document: "`design-rules` ADR — Wireframe Design Rules"
-doc-id: global-0013
+doc-id: design-rules
 state: Live
 date-created: 2026-07-25T150027+0200
 ---
