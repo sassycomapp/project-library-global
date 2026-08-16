@@ -1,0 +1,63 @@
+---
+project: project-library-global
+status: active
+verified: 2026-08-13
+---
+
+local_path: /mnt/c/dev/project-library-global
+github_remote: https://github.com/sassycomapp/project-library-global.git
+github_branch: main
+note: shared standards library referenced by every project — not a code+docs project pair
+
+opencode_config:
+  exists: false
+
+agents_file:
+  exists: false
+  note: >
+    docs-standard-global/AGENTS.md existed as a template document, not
+    a live inherited file — deleted 2026-08-13 by explicit developer
+    decision, since its real content already lives in the tested,
+    live global AGENTS.md. Recoverable from git history (commit
+    77d37b2) if ever needed again.
+
+agent_role_files:
+  exists: false
+
+gbrain:
+  source_id: default
+  pages: 189
+  note: >
+    registered under the source ID "default", not "project-library-global"
+    — confirmed via .gbrain-source file, worth knowing since it's not
+    the obvious name to search for
+
+graphify:
+  installed: false
+  note: no code here to analyze
+
+register_local:
+  path: register-global/register-global.md
+  exists: true
+
+folders:
+  - adr-global/
+  - docs-standard-global/
+  - guides/
+  - policy-global/
+  - specifications-global/
+  - standard-operating-procedures-global/
+  - templates-global/
+  - quarantine/ (confirmed empty)
+
+cleanup_notes:
+  - >
+    _capability_check_32564.md — GBrain write-capability test debris
+    (front matter confirmed ingested_via: put_page, content "ping"),
+    moved to C:\dev\obsolete\project-library-global\ 2026-08-13.
+
+skill_exclusions:
+  - none_checked
+
+opencode_default:
+  is_current_default: false
