@@ -1,6 +1,6 @@
 ---
 document: PDLF Standards Library — M3 Design & Component Standards
-doc-id: global-0065
+doc-id: spec-m3-design-standards
 state: Live
 date-created: 2026-07-25T150027+0200
 ---
@@ -83,7 +83,7 @@ guideline — more than one filled button on a screen is a compliance failure, n
 
 ## 7. Navigation Patterns
 
-**Layout shell:** Use the native M3 Layouts — `NavigationRailLayout` or `NavigationDrawerLayout` — for the admin and customer portal shells. `HTMLTemplate` is banned per the [[htmltemplate-use|HTMLTemplate Use]] ADR.
+**Layout shell:** Use the native M3 Layouts — `NavigationRailLayout` or `NavigationDrawerLayout` — for the admin and customer portal shells. `HTMLTemplate` is banned per the [[adr-htmltemplate-use|HTMLTemplate Use]] ADR.
 
 **Authenticated (internal) navigation:**
 - Plain `Link` components in the sidebar, not `NavigationLink`.

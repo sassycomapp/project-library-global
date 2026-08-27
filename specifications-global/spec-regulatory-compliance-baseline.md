@@ -1,6 +1,6 @@
 ---
 document: "Mybizz — Regulatory Compliance Baseline (Specification)"
-doc-id: global-0071
+doc-id: spec-regulatory-compliance-baseline
 state: Live
 date-created: 2026-07-25T150027+0200
 ---

@@ -1,6 +1,6 @@
 ---
 document: "{Project Name} — SOP: Vault TOTP Recovery"
-doc-id: global-0085
+doc-id: sop-vault-totp-recovery
 state: Live
 date-created: 2026-07-25T150027+0200
 ---

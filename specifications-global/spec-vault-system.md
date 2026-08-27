@@ -1,6 +1,6 @@
 ---
 document: Mybizz — The Vault System
-doc-id: global-0079
+doc-id: spec-vault-system
 state: Live
 date-created: 2026-07-25T150027+0200
 ---
@@ -8,7 +8,7 @@ date-created: 2026-07-25T150027+0200
 
 **Scope:** Mybizz-wide. This is the single authoritative document on the Vault system — its architecture, pattern, enforcement rules, and implementation. All other documents reference this one; none duplicate or restate its content.
 
-**Authority:** [[payment-security-boundary-vault|Payment Security Boundary Vault]] ADR (`payment-security-boundary-vault.md`)
+**Authority:** [[adr-payment-security-boundary-vault|Payment Security Boundary Vault]] ADR (`payment-security-boundary-vault.md`)
 
 **Source:** Consolidated from [[spec-security|Security Specification]] (the generic security pattern) and the original `docs/vault-system.md` (the CS-specific implementation), merged into one authoritative document.
 
@@ -101,17 +101,17 @@ If the Owner loses their TOTP device, the following recovery path applies:
 - Only Mybizz_management can reset TOTP — no self-service recovery
 - The reset event is permanently logged for audit
 
-**Source:** [[anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR, CEO review 2026-06-15 Section 3
+**Source:** [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR, CEO review 2026-06-15 Section 3
 
 ## Related Documents
 
 | Document | Relationship |
 |---|---|
-| [[payment-security-boundary-vault|Payment Security Boundary Vault]] | Architectural decision — accepted 2026-03-15 |
-| [[anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] | Anvil secrets limits, Vault TOTP recovery |
-| [[brevo-replaces-zoho-email|Brevo Replaces All Zoho Products]] | Vault credentials for Brevo |
-| [[observability-architecture|Observability Architecture]] | Vault access audit logging |
-| [[mybizz-management-visibility|Mybizz Management Visibility]] | Vault access event forwarding |
+| [[adr-payment-security-boundary-vault|Payment Security Boundary Vault]] | Architectural decision — accepted 2026-03-15 |
+| [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] | Anvil secrets limits, Vault TOTP recovery |
+| [[adr-brevo-replaces-zoho-email|Brevo Replaces All Zoho Products]] | Vault credentials for Brevo |
+| [[adr-observability-architecture|Observability Architecture]] | Vault access audit logging |
+| [[adr-mybizz-management-visibility|Mybizz Management Visibility]] | Vault access event forwarding |
 | [[spec-security-architecture|Security Architecture Specification]] | RBAC role limits, token security, regulatory posture |
 | `docs/DESIGN.md` | VaultForm design specification |
 | `docs/build-plan.md` | Stage 1.5: The Vault |

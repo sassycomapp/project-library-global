@@ -1,6 +1,6 @@
 ---
 document: Mybizz CS — Nomenclature & Naming Conventions
-doc-id: global-0068
+doc-id: spec-nomenclature
 state: Live
 date-created: 2026-07-25T150027+0200
 ---

@@ -1,6 +1,6 @@
 ---
 document: Policy — Documentation and Decisions
-doc-id: global-0052
+doc-id: pol-documentation-and-decisions
 state: Live
 date-created: 2026-07-25T150027+0200
 ---

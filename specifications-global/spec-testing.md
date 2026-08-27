@@ -1,6 +1,6 @@
 ---
 document: "Mybizz CS — Test Specification (Canonical)"
-doc-id: global-0077
+doc-id: spec-testing
 state: Live
 date-created: 2026-07-25T150027+0200
 ---
@@ -8,7 +8,7 @@ date-created: 2026-07-25T150027+0200
 
 **Date:** 2026-06-16
 **Source:** CEO review 2026-06-15 Section 6, Engineering review 2026-06-16
-**Authority:** Build plan test framework, [[anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR, [[form-architecture-and-state|Form Architecture and State Management]] ADR, [[webhook-architecture|Webhook Architecture]] ADR, [[dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]] ADR
+**Authority:** Build plan test framework, [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR, [[adr-form-architecture-and-state|Form Architecture and State Management]] ADR, [[adr-webhook-architecture|Webhook Architecture]] ADR, [[adr-dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]] ADR
 
 **Note:** General testing methodology (the Level 1/2/3 model, pure-function characteristics, the
 Uplink safety protocol, generic test structure/naming, common test patterns) lives in

@@ -1,6 +1,6 @@
 ---
 document: Instructions.md — Per-Folder Purpose File
-doc-id: instructions-md-per-folder-purpose-file
+doc-id: adr-instructions-md-per-folder
 state: Live
 date-created: 2026-08-12T000000+0200
 ---

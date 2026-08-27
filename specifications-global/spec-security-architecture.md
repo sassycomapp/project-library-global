@@ -1,12 +1,12 @@
 ---
 document: Mybizz — Security & Secrets Architecture
-doc-id: global-0074
+doc-id: spec-security-architecture
 state: Live
 date-created: 2026-07-25T150027+0200
 ---
 # Mybizz — Security & Secrets Architecture
 
-**Related ADRs:** [[payment-security-boundary-vault|Payment Security Boundary Vault]] (Vault), [[client-instance-architecture|Client Instance Architecture]], [[mybizz-management-visibility|Mybizz Management Visibility]]
+**Related ADRs:** [[adr-payment-security-boundary-vault|Payment Security Boundary Vault]] (Vault), [[adr-client-instance-architecture|Client Instance Architecture]], [[adr-mybizz-management-visibility|Mybizz Management Visibility]]
 
 **Note:** Reusable security patterns (the two-level secrets model, secret enforcement/masking,
 RBAC/data access pattern, rate limiting) live in [[spec-security|Security Specification]]. The
@@ -75,4 +75,4 @@ The regulatory baseline (POPIA, GDPR, PCI DSS, standard retention periods) is My
 
 ---
 
-*Security & Secrets Architecture v3.1 — Elevated from app-specific to Mybizz-wide. Multi-tenant language corrected per [[dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]] ADR. Regulatory content references [[spec-regulatory-compliance-baseline|Regulatory Compliance Baseline]].*
+*Security & Secrets Architecture v3.1 — Elevated from app-specific to Mybizz-wide. Multi-tenant language corrected per [[adr-dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]] ADR. Regulatory content references [[spec-regulatory-compliance-baseline|Regulatory Compliance Baseline]].*

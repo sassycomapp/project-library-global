@@ -1,6 +1,6 @@
 ---
 document: "{Project Name} — SOP: Client Offboarding"
-doc-id: global-0084
+doc-id: sop-offboarding
 state: Live
 date-created: 2026-07-25T150027+0200
 ---

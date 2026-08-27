@@ -1,13 +1,13 @@
 ---
 document: Mybizz — Integration Specification
-doc-id: global-0064
+doc-id: spec-integration
 state: Live
 date-created: 2026-07-25T150027+0200
 ---
 # Mybizz — Integration Specification
 
 **Scope:** Mybizz-wide. Covers all external service integrations — Brevo (email + CRM), Stripe (payments), Paystack (payments).
-**Authority:** [[brevo-replaces-zoho-email|Brevo Replaces All Zoho Products]] ADR, [[payment-security-boundary-vault|Payment Security Boundary Vault]] ADR, [[webhook-architecture|Webhook Architecture]] ADR
+**Authority:** [[adr-brevo-replaces-zoho-email|Brevo Replaces All Zoho Products]] ADR, [[adr-payment-security-boundary-vault|Payment Security Boundary Vault]] ADR, [[adr-webhook-architecture|Webhook Architecture]] ADR
 
 ---
 
@@ -120,7 +120,7 @@ Brevo's built-in CRM stores contacts. Mybizz syncs contacts from the client inst
 | `payment_intent.payment_failed` | Mark booking failed, notify customer |
 
 **Webhook URL:** `[base_url]/api/webhooks/stripe`
-**Signature verification:** Required on every webhook. See [[webhook-architecture|Webhook Architecture]] ADR.
+**Signature verification:** Required on every webhook. See [[adr-webhook-architecture|Webhook Architecture]] ADR.
 
 ### 3.4 Error Handling
 

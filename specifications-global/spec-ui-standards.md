@@ -1,6 +1,6 @@
 ---
 document: Mybizz CS — UI Standards
-doc-id: global-0078
+doc-id: spec-ui-standards
 state: Live
 date-created: 2026-07-25T150027+0200
 ---

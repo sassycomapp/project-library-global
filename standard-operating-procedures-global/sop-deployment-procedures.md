@@ -1,6 +1,6 @@
 ---
 document: "{Project Name} — SOP: Deployment Procedures"
-doc-id: global-0083
+doc-id: sop-deployment-procedures
 state: Live
 date-created: 2026-07-25T150027+0200
 ---

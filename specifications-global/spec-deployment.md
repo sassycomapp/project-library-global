@@ -1,13 +1,13 @@
 ---
 document: Mybizz — Deployment Specification
-doc-id: global-0062
+doc-id: spec-deployment
 state: Live
 date-created: 2026-07-25T150027+0200
 ---
 # Mybizz — Deployment Specification
 
 **Scope:** Mybizz-wide. Covers Anvil deployment environments, release workflow, rollback procedures, and schema migration.
-**Authority:** [[dependency-update-model|Dependency Update Model]] ADR, `blank-client-template` ADR, [[anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR §7
+**Authority:** [[adr-dependency-update-model|Dependency Update Model]] ADR, `blank-client-template` ADR, [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR §7
 
 ---
 

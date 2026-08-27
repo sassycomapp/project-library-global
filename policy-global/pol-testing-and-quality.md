@@ -1,6 +1,6 @@
 ---
 document: Policy — Testing and Quality
-doc-id: global-0054
+doc-id: pol-testing-and-quality
 state: Live
 date-created: 2026-07-25T150027+0200
 ---

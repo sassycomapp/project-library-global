@@ -1,6 +1,6 @@
 ---
 document: PDLF Standards Library — Security Specification
-doc-id: global-0075
+doc-id: spec-security
 state: Live
 date-created: 2026-07-25T150027+0200
 ---

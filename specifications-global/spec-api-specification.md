@@ -1,13 +1,13 @@
 ---
 document: "Mybizz — API Specification (HTTP Endpoints)"
-doc-id: global-0059
+doc-id: spec-api-specification
 state: Live
 date-created: 2026-07-25T150027+0200
 ---
 # Mybizz — API Specification (HTTP Endpoints)
 
 **Scope:** Mybizz-wide. Covers all HTTP endpoints exposed by client instances — webhook handlers and management endpoints.
-**Authority:** [[webhook-architecture|Webhook Architecture]] ADR, [[mybizz-management-visibility|Mybizz Management Visibility]] ADR, [[anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR
+**Authority:** [[adr-webhook-architecture|Webhook Architecture]] ADR, [[adr-mybizz-management-visibility|Mybizz Management Visibility]] ADR, [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR
 
 ---
 

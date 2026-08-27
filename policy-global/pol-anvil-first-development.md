@@ -1,6 +1,6 @@
 ---
 document: Policy — Anvil-First Development
-doc-id: global-0051
+doc-id: pol-anvil-first-development
 state: Live
 date-created: 2026-07-25T150027+0200
 ---

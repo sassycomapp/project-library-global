@@ -1,6 +1,6 @@
 ---
 document: PDLF Standards Library — Anvil Platform Mechanics
-doc-id: global-0057
+doc-id: spec-anvil-platform-standards
 state: Live
 date-created: 2026-07-25T150027+0200
 ---
@@ -173,7 +173,7 @@ override and the reason — never silently diverge.
   auto-increment columns.
 - **Table linking:** store Row objects directly in link columns, not integer IDs. Each client
   instance has its own isolated database — no tenant discriminator columns or tenant-filtered
-  queries are needed. See [[dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]] ADR.
+  queries are needed. See [[adr-dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]] ADR.
 - **Mandatory columns:** `created_at` (datetime) and `updated_at` (datetime, if the row is
   mutable) on every table.
 - **Query patterns:** `get()` for a single record (returns `None` if not found); `search()` for
@@ -363,7 +363,7 @@ resolution may fail or return incomplete results.
 
 
 
-*Anvil Platform Standards v1.6 — merged [[anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] (ADR, misfiled —
+*Anvil Platform Standards v1.6 — merged [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] (ADR, misfiled —
 reclassified as spec content, this file, per single-source-of-truth review). Added §22
 Skulpt runtime workarounds (expands §17's existing flag), §23 Git integration constraint,
 §24 media/file handling, §25 persistent server requirement, §26 `app_tables` resolution
@@ -372,4 +372,4 @@ figures (client-instance count) stripped or tagged [EXAMPLE]; app names generali
 role descriptions. Vault TOTP recovery procedure from the source ADR was NOT merged here
 — flagged as SOP-shaped content, recommended for `standard-operating-procedures-global`
 instead. Prior footer: v1.4 removed `instance_id` references per
-[[dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]] ADR; v1.5 added §17–21.*
+[[adr-dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]] ADR; v1.5 added §17–21.*
