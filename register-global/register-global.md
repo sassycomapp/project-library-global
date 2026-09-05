@@ -9,7 +9,9 @@ date-created: 2026-07-25T150027+0200
 
 One row per real corpus document. `doc-id` is the filename without its `.md`
 extension. No sequence-number identifier is used. Regenerated from the live file
-tree on 2026-08-27 (post rename + de-index).
+tree on 2026-08-27 (post rename + de-index). Corrected 2026-09-01: `rules-cupcake-global`
+(19 documents) and `security-global` (54 documents) were present on disk but missing
+from this register entirely — added below.
 
 | doc-id | filename | folder | type | state | notes |
 |---|---|---|---|---|---|
@@ -97,6 +99,79 @@ tree on 2026-08-27 (post rename + de-index).
 | tmp-chklist-screen | templates-global/tmp-chklist-screen.md | templates-global | template | — |  |
 | tmp-chklist-wireframe | templates-global/tmp-chklist-wireframe.md | templates-global | template | — |  |
 | tmp-custom-component-requirements-matrix | templates-global/tmp-custom-component-requirements-matrix.md | templates-global | template | — |  |
+| cup-block-anvil-yaml-writes | rules-cupcake-global/cup-block-anvil-yaml-writes.md | rules-cupcake-global | cupcake-rule | Live |  |
+| cup-block-task-tool | rules-cupcake-global/cup-block-task-tool.md | rules-cupcake-global | cupcake-rule | Live |  |
+| no_access_to_secrets_unless_explicitly_required | rules-cupcake-global/no_access_to_secrets_unless_explicitly_required.md | rules-cupcake-global | cupcake-rule | Live |  |
+| no_autonomous_commits_pushes_merges_releases_or_deployments | rules-cupcake-global/no_autonomous_commits_pushes_merges_releases_or_deployments.md | rules-cupcake-global | cupcake-rule | Live |  |
+| no_autonomous_installation_or_connection_of_tools | rules-cupcake-global/no_autonomous_installation_or_connection_of_tools.md | rules-cupcake-global | cupcake-rule | Live |  |
+| no_cross_project_filesystem_access_by_default | rules-cupcake-global/no_cross_project_filesystem_access_by_default.md | rules-cupcake-global | cupcake-rule | Live |  |
+| no_dependency_or_lockfile_changes_without_explicit_approval | rules-cupcake-global/no_dependency_or_lockfile_changes_without_explicit_approval.md | rules-cupcake-global | cupcake-rule | Live |  |
+| no_destructive_database_operations | rules-cupcake-global/no_destructive_database_operations.md | rules-cupcake-global | cupcake-rule | Live |  |
+| no_disabling_security_tooling | rules-cupcake-global/no_disabling_security_tooling.md | rules-cupcake-global | cupcake-rule | Live |  |
+| no_rewriting_or_destroying_development_history | rules-cupcake-global/no_rewriting_or_destroying_development_history.md | rules-cupcake-global | cupcake-rule | Live |  |
+| no_suppression_directives_without_approval | rules-cupcake-global/no_suppression_directives_without_approval.md | rules-cupcake-global | cupcake-rule | Live |  |
+| no_test_tampering | rules-cupcake-global/no_test_tampering.md | rules-cupcake-global | cupcake-rule | Live |  |
+| no_unapproved_executable_or_build_path_changes | rules-cupcake-global/no_unapproved_executable_or_build_path_changes.md | rules-cupcake-global | cupcake-rule | Live |  |
+| no_unverified_dependencies | rules-cupcake-global/no_unverified_dependencies.md | rules-cupcake-global | cupcake-rule | Live |  |
+| no_verification_tampering | rules-cupcake-global/no_verification_tampering.md | rules-cupcake-global | cupcake-rule | Live |  |
+| outbound_network_access_is_allowlist_only | rules-cupcake-global/outbound_network_access_is_allowlist_only.md | rules-cupcake-global | cupcake-rule | Live |  |
+| protected_ai_governance_files_may_not_be_modified | rules-cupcake-global/protected_ai_governance_files_may_not_be_modified.md | rules-cupcake-global | cupcake-rule | Live |  |
+| the_ai_may_never_weaken_the_controls_governing_itself | rules-cupcake-global/the_ai_may_never_weaken_the_controls_governing_itself.md | rules-cupcake-global | cupcake-rule | Live |  |
+| unexpected_instruction_shaped_files_must_be_treated_as_suspicious | rules-cupcake-global/unexpected_instruction_shaped_files_must_be_treated_as_suspicious.md | rules-cupcake-global | cupcake-rule | Live |  |
+| sec-anvil-platform-responsibility-boundary | security-global/cloud/sec-anvil-platform-responsibility-boundary.md | security-global/cloud | security | Live |  |
+| sec-client-provisioning-security | security-global/cloud/sec-client-provisioning-security.md | security-global/cloud | security | Live |  |
+| sec-email-service-trust-boundary | security-global/cloud/sec-email-service-trust-boundary.md | security-global/cloud | security | Live |  |
+| sec-github-repository-access-control | security-global/cloud/sec-github-repository-access-control.md | security-global/cloud | security | Live |  |
+| sec-management-service-authentication | security-global/cloud/sec-management-service-authentication.md | security-global/cloud | security | Live |  |
+| sec-payment-gateway-trust-boundary | security-global/cloud/sec-payment-gateway-trust-boundary.md | security-global/cloud | security | Live |  |
+| sec-regulatory-compliance-cloud-processors | security-global/cloud/sec-regulatory-compliance-cloud-processors.md | security-global/cloud | security | Live |  |
+| sec-ai-agent-execution-sandbox | security-global/infrastructure/sec-ai-agent-execution-sandbox.md | security-global/infrastructure | security | Live |  |
+| sec-audit-log-integrity | security-global/infrastructure/sec-audit-log-integrity.md | security-global/infrastructure | security | Live |  |
+| sec-backup-recovery-integrity | security-global/infrastructure/sec-backup-recovery-integrity.md | security-global/infrastructure | security | Live |  |
+| sec-database-access-control | security-global/infrastructure/sec-database-access-control.md | security-global/infrastructure | security | Live |  |
+| sec-dependency-skill-supply-chain | security-global/infrastructure/sec-dependency-skill-supply-chain.md | security-global/infrastructure | security | Live |  |
+| sec-dependency-version-currency | security-global/infrastructure/sec-dependency-version-currency.md | security-global/infrastructure | security | Live |  |
+| sec-development-environment-credential-hygiene | security-global/infrastructure/sec-development-environment-credential-hygiene.md | security-global/infrastructure | security | Live |  |
+| sec-local-filesystem-access-boundary | security-global/infrastructure/sec-local-filesystem-access-boundary.md | security-global/infrastructure | security | Live |  |
+| sec-local-network-exposure | security-global/infrastructure/sec-local-network-exposure.md | security-global/infrastructure | security | Live |  |
+| sec-service-lifecycle-management | security-global/infrastructure/sec-service-lifecycle-management.md | security-global/infrastructure | security | Live |  |
+| sec-defense-in-depth | security-global/principles/sec-defense-in-depth.md | security-global/principles | security | Live |  |
+| sec-detective-vs-preventive-controls | security-global/principles/sec-detective-vs-preventive-controls.md | security-global/principles | security | Live |  |
+| sec-explicit-responsibility-assignment | security-global/principles/sec-explicit-responsibility-assignment.md | security-global/principles | security | Live |  |
+| sec-fail-closed | security-global/principles/sec-fail-closed.md | security-global/principles | security | Live |  |
+| sec-least-privilege | security-global/principles/sec-least-privilege.md | security-global/principles | security | Live |  |
+| sec-review-before-trust | security-global/principles/sec-review-before-trust.md | security-global/principles | security | Live |  |
+| sec-server-side-authority | security-global/principles/sec-server-side-authority.md | security-global/principles | security | Live |  |
+| sec-simplicity-as-security-property | security-global/principles/sec-simplicity-as-security-property.md | security-global/principles | security | Live |  |
+| sec-verify-dont-trust-claims | security-global/principles/sec-verify-dont-trust-claims.md | security-global/principles | security | Live |  |
+| sec-requirements-architecture-review | security-global/requirements/sec-requirements-architecture-review.md | security-global/requirements | security | Live |  |
+| sec-requirements-data-table-creation | security-global/requirements/sec-requirements-data-table-creation.md | security-global/requirements | security | Live |  |
+| sec-requirements-pre-merge-master-template | security-global/requirements/sec-requirements-pre-merge-master-template.md | security-global/requirements | security | Live |  |
+| sec-requirements-release-readiness | security-global/requirements/sec-requirements-release-readiness.md | security-global/requirements | security | Live |  |
+| sec-requirements-server-function | security-global/requirements/sec-requirements-server-function.md | security-global/requirements | security | Live |  |
+| sec-requirements-third-party-integration | security-global/requirements/sec-requirements-third-party-integration.md | security-global/requirements | security | Live |  |
+| sec-ai-agent-secret-visibility | security-global/secrets/sec-ai-agent-secret-visibility.md | security-global/secrets | security | Live |  |
+| sec-development-tooling-credentials | security-global/secrets/sec-development-tooling-credentials.md | security-global/secrets | security | Live |  |
+| sec-master-encryption-key-protection | security-global/secrets/sec-master-encryption-key-protection.md | security-global/secrets | security | Live |  |
+| sec-secret-access-audit | security-global/secrets/sec-secret-access-audit.md | security-global/secrets | security | Live |  |
+| sec-secret-exposure-response | security-global/secrets/sec-secret-exposure-response.md | security-global/secrets | security | Live |  |
+| sec-secret-rotation-policy | security-global/secrets/sec-secret-rotation-policy.md | security-global/secrets | security | Live |  |
+| sec-testing-adversarial-verification | security-global/testing/sec-testing-adversarial-verification.md | security-global/testing | security | Live |  |
+| sec-testing-coverage-minimum | security-global/testing/sec-testing-coverage-minimum.md | security-global/testing | security | Live |  |
+| sec-testing-independent-review | security-global/testing/sec-testing-independent-review.md | security-global/testing | security | Live |  |
+| sec-testing-live-verification-standard | security-global/testing/sec-testing-live-verification-standard.md | security-global/testing | security | Live |  |
+| sec-testing-regression-prevention | security-global/testing/sec-testing-regression-prevention.md | security-global/testing | security | Live |  |
+| sec-ai-agent-introduced-vulnerabilities | security-global/threat-models/sec-ai-agent-introduced-vulnerabilities.md | security-global/threat-models | security | Live |  |
+| sec-authentication-session | security-global/threat-models/sec-authentication-session.md | security-global/threat-models | security | Live |  |
+| sec-broken-access-control-within-instance | security-global/threat-models/sec-broken-access-control-within-instance.md | security-global/threat-models | security | Live |  |
+| sec-business-logic-race-conditions | security-global/threat-models/sec-business-logic-race-conditions.md | security-global/threat-models | security | Live |  |
+| sec-data-exfiltration-bulk-export | security-global/threat-models/sec-data-exfiltration-bulk-export.md | security-global/threat-models | security | Live |  |
+| sec-denial-of-service-resource-exhaustion | security-global/threat-models/sec-denial-of-service-resource-exhaustion.md | security-global/threat-models | security | Live |  |
+| sec-injection-unsafe-input | security-global/threat-models/sec-injection-unsafe-input.md | security-global/threat-models | security | Live |  |
+| sec-insecure-direct-object-reference | security-global/threat-models/sec-insecure-direct-object-reference.md | security-global/threat-models | security | Live |  |
+| sec-multi-tenant-assumption-leakage | security-global/threat-models/sec-multi-tenant-assumption-leakage.md | security-global/threat-models | security | Live |  |
+| sec-payment-manipulation | security-global/threat-models/sec-payment-manipulation.md | security-global/threat-models | security | Live |  |
+| sec-privilege-escalation | security-global/threat-models/sec-privilege-escalation.md | security-global/threat-models | security | Live |  |
 
 ## Field definitions
 
