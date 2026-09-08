@@ -1,0 +1,452 @@
+// data.ts: Store the actual app YAML.
+import type {
+    Component,
+    CustomComponentToolboxItem,
+    CustomLayoutYaml,
+    DesignerHint,
+    ToolboxSection,
+} from "@runtime/components/Component";
+import type { pyFunc, pyObject } from "../@Sk";
+
+export interface DataBindingYaml {
+    code: string;
+    property: string;
+    writeback?: boolean;
+}
+
+export type EventBindingYaml = { [eventName: string]: string };
+export type EventBinding = { [eventName: string]: string | pyFunc };
+
+export interface ComponentYaml {
+    type: string;
+    name: string;
+    properties: { [prop: string]: any };
+    layout_properties?: { [prop: string]: any };
+    components?: ComponentYaml[]; // containers only
+    event_bindings?: EventBindingYaml;
+    data_bindings?: DataBindingYaml[];
+}
+
+export interface FormContainerYaml {
+    type: string;
+    properties?: { [prop: string]: any };
+    event_bindings?: EventBindingYaml;
+    data_bindings?: DataBindingYaml[];
+    layout_properties?: { [prop: string]: any };
+}
+
+export interface FormLayoutYaml {
+    type: string;
+    properties?: { [prop: string]: any };
+    event_bindings?: EventBindingYaml;
+    form_event_bindings?: EventBindingYaml;
+    data_bindings?: DataBindingYaml[];
+}
+
+export type SlotTargetType = "container" | "slot";
+export interface SlotTarget {
+    type: SlotTargetType;
+    name: string;
+}
+
+export interface SlotDefYaml {
+    target: SlotTarget;
+    set_layout_properties?: { [prop: string]: any };
+    one_component?: boolean;
+    placeholder_text?: string;
+    template?: ComponentYaml; // TODO: Not actually true. Templates don't have names.
+    index: number;
+}
+
+export type SlotDefsYaml = { [slotName: string]: SlotDefYaml };
+
+export interface CustomComponentEvents {
+    name: string;
+    parameters?: { name: string; description?: string }[];
+    description?: string;
+    default_event?: boolean;
+    important?: boolean;
+}
+
+export interface LayoutMetadata {
+    title?: string;
+    description?: string;
+    thumbnail?: string;
+    internal?: boolean; // Should this layout only be offered as an option when creating forms in this app
+}
+
+export interface FormYaml {
+    class_name: string;
+    is_package?: boolean;
+    save_as_html?: boolean; // Whether to save as .html file (vs .yaml)
+    code: string;
+    // If this is a classic form (inherits from a container type)
+    container?: FormContainerYaml;
+    components?: ComponentYaml[];
+
+    // Else, if this form uses a layout
+    layout?: FormLayoutYaml;
+    components_by_slot?: { [slotName: string]: ComponentYaml[] };
+    serialized_html?: string;
+
+    // If this form *provides* slots
+    slots?: SlotDefsYaml;
+
+    // If this is a custom component:
+    custom_component?: boolean;
+    custom_component_container?: boolean; // TODO is this the right place to put this?
+    properties?: {
+        name: string;
+        type: string;
+        default_value?: any;
+        default_binding_prop?: boolean;
+        description?: string;
+        important?: boolean;
+        group?: string;
+        options?: string[];
+        allow_binding_writeback?: boolean;
+        binding_writeback_events?: string[];
+        priority?: number;
+        multiline?: boolean;
+        accept?: string;
+        designer_hint?: DesignerHint;
+        include_none_option?: boolean;
+        none_option_label?: string;
+        iconsets?: string[];
+        show_in_designer_when?: string;
+    }[];
+    events?: CustomComponentEvents[];
+    toolbox_item?: CustomComponentToolboxItem;
+    layout_metadata?: LayoutMetadata;
+
+    item_type?: { table_id: number };
+}
+
+export interface ModuleYaml {
+    name: string;
+    is_package?: boolean;
+    code: string;
+}
+
+export interface AssetYaml {
+    name: string;
+    content: string;
+}
+
+export interface DependencyCode {
+    [depId: string]: DependencyTreeMapContent;
+}
+
+interface ThemeColors {
+    [color: string]: string;
+}
+
+interface ThemeVars {
+    [varName: string]: string;
+}
+
+export interface LegacyFeatures {
+    class_names?: boolean;
+    bootstrap3?: boolean;
+    __dict__?: boolean;
+    root_container?: boolean;
+}
+
+export interface RuntimeOptions {
+    client_version?: string;
+    version: number;
+    preview_v3?: boolean;
+    legacy_features?: LegacyFeatures;
+}
+
+export type DependencyConfigType = "string" | "number" | "boolean" | "text[]" | "enum";
+
+export interface DependencyPropBase {
+    default_value?: any;
+    description?: string;
+    title?: string;
+    hidden?: boolean;
+    [arbitraryKeys: string]: any;
+}
+
+interface DependencyPropString extends DependencyPropBase {
+    type: "string";
+}
+
+interface DependencyPropNumber extends DependencyPropBase {
+    type: "number";
+}
+
+interface DependencyPropBoolean extends DependencyPropBase {
+    type: "boolean";
+}
+
+interface DependencyPropTextArray extends DependencyPropBase {
+    type: "text[]";
+}
+
+interface DependencyPropEnum extends DependencyPropBase {
+    type: "enum";
+    options: string[];
+}
+
+export type DependencyPropConfig =
+    | DependencyPropString
+    | DependencyPropNumber
+    | DependencyPropBoolean
+    | DependencyPropTextArray
+    | DependencyPropEnum;
+
+export interface DepConfigSchemaDef {
+    // the app yaml defines default_value and type
+    // the dep yaml defines value
+    [key: string]: DependencyPropConfig;
+}
+
+export interface DepConfigSchema {
+    client?: DepConfigSchemaDef;
+    server?: DepConfigSchemaDef;
+}
+
+// todo: this really should be somehow inside DepConfigResolved so you know the keys will be just these
+export type DepConfigKeys = "client" | "server";
+export interface DepConfigResolved {
+    client: { [key: string]: any };
+    server: { [key: string]: any };
+}
+
+export interface ThemeRole {
+    name: string;
+    title?: string;
+    components?: string[];
+}
+
+export interface AppTheme {
+    color_scheme: ThemeColors;
+    vars: ThemeVars;
+    html?: { [filename: string]: string };
+    parameters?: {
+        roles: ThemeRole[];
+    };
+}
+
+/** Base fields from anvil.yaml, shared by both the main app and dependencies. */
+export interface AnvilYaml {
+    name: string;
+    package_name?: string; // some old apps are missing packages and we need to cope
+    services?: { source: string; client_config: any }[];
+    runtime_options: RuntimeOptions;
+    toolbox_sections?: ToolboxSection[]; // Legacy. Use toolbox.sections instead.
+    toolbox?: {
+        sections?: ToolboxSection[];
+        hide_classic_components?: boolean;
+    };
+    layouts?: CustomLayoutYaml[];
+    config_schema?: DepConfigSchema;
+    client_init_module?: string;
+}
+
+/**
+ * Result of `tree-map-to-yaml` in `read_app_storage.clj`.
+ * Adds forms, modules, theme, and resolved config to the base anvil.yaml fields.
+ */
+export interface TreeMapContent extends AnvilYaml {
+    forms: FormYaml[];
+    modules: ModuleYaml[];
+    theme: AppTheme;
+    config: DepConfigResolved;
+}
+
+/** TreeMapContent for a dependency app. */
+export interface DependencyTreeMapContent extends TreeMapContent {}
+
+/**
+ * Result of `get-app-content-with-dependencies` in `app_data.clj`.
+ * Extends TreeMapContent with resolved dependency information.
+ */
+export interface AppContentWithDeps extends TreeMapContent {
+    dependency_ids: { [logicalDepId: string]: string };
+    // Temporary, while we're fixing some broken apps that worked by accident
+    correct_dependency_ids: { [logicalDepId: string]: string };
+    dependency_code: DependencyCode; // client version
+    dependency_order: string[];
+}
+
+interface ServerParams {
+    consoleMessage?: string;
+    ideOrigin?: string;
+    runtimeVersion: number;
+    achievements?: Record<string, any>;
+    [param: string]: any;
+}
+
+interface Data {
+    app: AppContentWithDeps;
+    appId: string;
+    appPackage: string;
+    dependencyPackages: { [depId: string]: string };
+    depAppIdByPackageName: { [packageName: string]: string };
+    logicalDepIds: { [logicalDepId: string]: string };
+    logicalDepIdByDepAppId: { [depAppId: string]: string };
+    appLocalFormNamesByDepAppId: { local: Set<string>; [depAppId: string]: Set<string> };
+    appOrigin: string;
+    appStartupData?: any;
+    deserializedFormArgs?: any[];
+    deserializedFormKwargs?: any;
+    serverParams: ServerParams;
+}
+
+export let data: Data;
+
+declare global {
+    interface Window {
+        anvilCDNOrigin: string;
+        anvilAppDependencies: DependencyCode;
+        anvilAppDependencyIds: { [depId: string]: string };
+        debugAnvilData: Data;
+        anvilAppMainPackage: string;
+        anvilAppMainModule: string;
+        anvilParams: ServerParams & { appId: string; appOrigin: string };
+        anvilAppOrigin: string;
+        anvilEnvironmentOrigin: string;
+        anvilServiceClientConfig: any;
+        anvilCustomComponentProperties: any;
+        anvilThemeColors: ThemeColors;
+        anvilThemeVars: ThemeVars;
+        anvilCurrentlyConstructingForms: { name: string; pyForm: pyObject }[];
+        anvilSkulptLib: string;
+        anvilFormTemplates: any[];
+        anvilSessionToken: string;
+        anvilVersion: number;
+        anvilRuntimeVersion: number;
+    }
+}
+
+window.anvilRuntimeVersion = 3; // At some point we may need to load this from the app.
+
+export type SetDataParams = Pick<Data, "app" | "appId" | "appOrigin" | "appStartupData"> & ServerParams;
+
+const derivedAppContentData = (
+    app: Pick<AppContentWithDeps, "forms" | "dependency_code" | "dependency_ids" | "package_name">,
+    logicalDepIdsOverride?: Data["logicalDepIds"]
+) => {
+    const appPackage = app.package_name || "main_package";
+    const dependencyPackages = Object.fromEntries(
+        Object.entries(app.dependency_code ?? {})
+            .map(([depAppId, { package_name }]) => [depAppId, package_name])
+            .filter(([_depAppId, package_name]) => package_name !== undefined)
+    );
+
+    const depAppIdByPackageName = Object.fromEntries(
+        Object.entries(dependencyPackages).map(([depAppId, packageName]) => [packageName, depAppId])
+    );
+    const logicalDepIds = logicalDepIdsOverride ?? app.dependency_ids ?? {};
+    const logicalDepIdByDepAppId = Object.fromEntries(
+        Object.entries(logicalDepIds).map(([logicalDepId, depAppId]) => [depAppId, logicalDepId])
+    );
+    const appLocalFormNamesByDepAppId: Data["appLocalFormNamesByDepAppId"] = {
+        local: new Set((app.forms ?? []).map(({ class_name }) => class_name)),
+    };
+    for (const [depAppId, depApp] of Object.entries(app.dependency_code ?? {})) {
+        appLocalFormNamesByDepAppId[depAppId] = new Set((depApp.forms ?? []).map(({ class_name }) => class_name));
+    }
+
+    return { appPackage, dependencyPackages, depAppIdByPackageName, logicalDepIds, logicalDepIdByDepAppId, appLocalFormNamesByDepAppId };
+};
+
+export function temporaryHackSetupData(d: Partial<Data>) {
+    const derivedData = d.app ? derivedAppContentData(d.app, d.logicalDepIds) : {};
+    data = { ...derivedData, ...d } as Data;
+    window.debugAnvilData = data;
+    window.anvilAppMainPackage = data.appPackage;
+}
+
+export function setData({ app, appId, appOrigin, ...serverParams }: SetDataParams) {
+    const derivedData = derivedAppContentData(app);
+
+    data = {
+        app,
+        appId,
+        appOrigin,
+        serverParams,
+        ...derivedData,
+    };
+
+    //used by RepeatingPanel
+    window.anvilAppDependencies = data.app.dependency_code;
+    window.anvilAppDependencyIds = data.app.dependency_ids;
+
+    //for debug purposes
+    window.debugAnvilData = data;
+
+    //used by openForm(), RepeatingPanel & others
+    window.anvilAppMainPackage = data.appPackage;
+
+    window.anvilParams = { appId, appOrigin, ...serverParams };
+
+    // {path => config}
+    window.anvilServiceClientConfig = Object.fromEntries(
+        (app.services ?? []).map(({ source, client_config }) => [source, client_config])
+    );
+
+    const customComponentProperties: any = {};
+
+    const updateCustomProperties = (depAppId: string | null, { forms }: TreeMapContent) => {
+        if (!forms) return; // can this be null?
+        for (const { custom_component, class_name, properties } of forms) {
+            if (!custom_component) continue;
+            customComponentProperties[depAppId + ":" + class_name] = properties;
+        }
+    };
+
+    updateCustomProperties(null, app);
+
+    for (const [depAppId, depYaml] of Object.entries(app.dependency_code)) {
+        updateCustomProperties(depAppId, depYaml);
+    }
+
+    window.anvilCustomComponentProperties = customComponentProperties;
+
+    // We convert to a python dict in app.theme_colors
+    // parallels designer.html and also anvil-extras uses this in the designer for dynamic colors.
+    window.anvilThemeColors = data.app.theme?.color_scheme ?? {};
+    window.anvilThemeVars = data.app.theme?.vars ?? {};
+}
+
+export const topLevelForms = {
+    openForm: null as null | Component,
+    alertForms: new Set<Component>(),
+    has(c: Component) {
+        return topLevelForms.openForm === c || topLevelForms.alertForms.has(c);
+    },
+};
+
+const EmptyObject = {};
+
+export const getClientConfig = (packageName?: string | null) => {
+    // we're calling this too early from javascript - return undefined and the js can handle it how it likes
+    if (!data) return;
+    if (packageName == null || packageName === data.appPackage) {
+        return data.app.config?.client ?? EmptyObject;
+    } else {
+        for (const dep of Object.values(data.app?.dependency_code ?? {})) {
+            if (packageName === dep.package_name) {
+                return dep.config?.client ?? EmptyObject;
+            }
+        }
+        throw new Error(`Package '${packageName}' is not part of this app.`);
+    }
+};
+
+export let hooks: {
+    beforeLoadApp?: () => void | Promise<void>;
+    onLoadedApp?: () => void;
+    onOpenedForm?: () => void;
+    onUpdatedDataBinding?: () => void;
+    onWroteBackDataBinding?: () => void;
+    getSkulptOptions?: () => any;
+} = {};
+
+export function setHooks(h: typeof hooks) {
+    hooks = h;
+}

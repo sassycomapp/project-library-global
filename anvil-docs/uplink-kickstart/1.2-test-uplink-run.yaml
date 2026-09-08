@@ -1,0 +1,282 @@
+---
+name: "Stage 1.2 — Authentication — Uplink Test Run"
+version: "1.5"
+stage: "1.2"
+phase: "TEST_UPLINK_RUN"
+generated_by: "gpt-5.2-codex"
+run_timestamp: "2026-03-06T12:35:00Z"
+status: "COMPLETED"
+backup_confirmed: true
+sentinel_prefix: "TEST_"
+
+# =============================================================================
+# INTEGRATION TESTS — Anvil Uplink
+# Live app, real tables, real data.
+# Safety: backup confirmed, sentinel values on all test data, cleanup after each.
+# =============================================================================
+
+schema_verification:
+  users_table:
+    exists: true
+    required_columns_present: true
+    columns_checked: [role, account_status, permissions, last_login, created_at]
+  rate_limits_table:
+    exists: true
+    table_name: "rate_limits"
+  audit_log_table:
+    exists: false
+    note: "Not required for Stage 1.2; check skipped."
+
+notes:
+  - "Rate limit tests pass (count reached 10; 11th blocked)."
+  - "Re-ran UPLINK-CREATE-001 after deployment; now passes."
+
+
+tests:
+  - id: "UPLINK-AUTH-001"
+    function: "authenticate_user"
+    category: "happy_path"
+    description: "Valid credentials return success and role"
+    preconditions:
+      - "Backup confirmed"
+      - "Test user created via signup_with_email"
+    steps:
+      - "Call authenticate_user(TEST_auth_valid_<ts>@example.com, StrongPass1)"
+    expected: "success=true, data.role present, data.email matches"
+    status: "FAILED"
+    actual: "This app does not have a URL, so we can't send a confirmation email."
+    remediated: false
+    cleanup_confirmed: true
+    cleanup_steps:
+      - "Delete TEST_auth_valid_<ts>@example.com from users table"
+      - "Delete rate_limits row for test identifier"
+
+  - id: "UPLINK-AUTH-002"
+    function: "authenticate_user"
+    category: "adversarial"
+    description: "Wrong password returns generic failure"
+    preconditions:
+      - "Backup confirmed"
+      - "Test user created via signup_with_email"
+    steps:
+      - "Call authenticate_user(TEST_auth_wrongpw_<ts>@example.com, WrongPass1)"
+    expected: "success=false, error='Invalid email or password'"
+    status: "FAILED"
+    actual: "This app does not have a URL, so we can't send a confirmation email."
+    remediated: false
+    cleanup_confirmed: true
+    cleanup_steps:
+      - "Delete TEST_auth_wrongpw_<ts>@example.com from users table"
+      - "Delete rate_limits row for test identifier"
+
+  - id: "UPLINK-AUTH-003"
+    function: "authenticate_user"
+    category: "adversarial"
+    description: "Non-existent email returns same error as wrong password"
+    preconditions:
+      - "Backup confirmed"
+    steps:
+      - "Call authenticate_user(TEST_auth_missing_<ts>@example.com, WrongPass1)"
+    expected: "success=false, error='Invalid email or password'"
+    status: "PASSED"
+    actual: "success=false, error='Invalid email or password'"
+    remediated: false
+    cleanup_confirmed: true
+    cleanup_steps:
+      - "Delete rate_limits row for test identifier"
+
+  - id: "UPLINK-AUTH-004"
+    function: "authenticate_user"
+    category: "adversarial"
+    description: "Rate limit blocks 11th failed attempt"
+    preconditions:
+      - "Backup confirmed"
+      - "rate_limits table exists"
+    steps:
+      - "Call authenticate_user(TEST_auth_rl_<ts>@example.com, WrongPass1) x11"
+    expected: "11th attempt returns rate limit error"
+    status: "PASSED"
+    actual: "success=false, error='Too many login attempts. Please try again in a minute.'"
+    remediated: false
+    cleanup_confirmed: true
+    cleanup_steps:
+      - "Delete rate_limits row for test identifier"
+
+  - id: "UPLINK-AUTH-005"
+    function: "authenticate_user"
+    category: "edge_case"
+    description: "Rate limit reset after success"
+    preconditions:
+      - "Backup confirmed"
+      - "Test user created via signup_with_email"
+    steps:
+      - "Fail login 3 times"
+      - "Login with correct password"
+      - "Confirm rate limit count reset"
+    expected: "Successful login resets rate limit counter"
+    status: "FAILED"
+    actual: "This app does not have a URL, so we can't send a confirmation email."
+    remediated: false
+    cleanup_confirmed: true
+    cleanup_steps:
+      - "Delete TEST_auth_rlreset_<ts>@example.com from users table"
+      - "Delete rate_limits row for test identifier"
+
+  - id: "UPLINK-AUTH-006"
+    function: "authenticate_user"
+    category: "boundary"
+    description: "Empty email/password rejected before Anvil login"
+    preconditions:
+      - "Backup confirmed"
+    steps:
+      - "Call authenticate_user('', '')"
+    expected: "success=false, error='Email and password are required'"
+    status: "PASSED"
+    actual: "success=false, error='Email and password are required'"
+    remediated: false
+    cleanup_confirmed: true
+    cleanup_steps: []
+
+  - id: "UPLINK-CREATE-001"
+    function: "create_user"
+    category: "happy_path"
+    description: "Valid new user created with role=owner"
+    preconditions:
+      - "Backup confirmed"
+    steps:
+      - "Call create_user(TEST_create_ok_<ts>@example.com, StrongPass1, 'Test Biz')"
+      - "Fetch user row and verify role/fields"
+    expected: "success=true, role=owner, account_status=active"
+    status: "PASSED"
+    actual: "success=true, role=owner, account_status=active"
+    remediated: false
+    cleanup_confirmed: true
+    cleanup_steps:
+      - "Delete TEST_create_ok_<ts>@example.com from users table"
+
+  - id: "UPLINK-CREATE-002"
+    function: "create_user"
+    category: "adversarial"
+    description: "Duplicate email rejected"
+    preconditions:
+      - "Backup confirmed"
+      - "Test user created via signup_with_email"
+    steps:
+      - "Call create_user(TEST_create_dup_<ts>@example.com, StrongPass1, 'Test Biz')"
+    expected: "success=false, error='An account with this email already exists'"
+    status: "FAILED"
+    actual: "This app does not have a URL, so we can't send a confirmation email."
+    remediated: false
+    cleanup_confirmed: true
+    cleanup_steps:
+      - "Delete TEST_create_dup_<ts>@example.com from users table"
+
+  - id: "UPLINK-CREATE-003"
+    function: "create_user"
+    category: "adversarial"
+    description: "Weak password rejected server-side"
+    preconditions:
+      - "Backup confirmed"
+    steps:
+      - "Call create_user(TEST_create_weak_<ts>@example.com, 'weak', 'Test Biz')"
+    expected: "success=false, error mentions password strength"
+    status: "PASSED"
+    actual: "success=false, error='Password must be at least 8 characters'"
+    remediated: false
+    cleanup_confirmed: true
+    cleanup_steps: []
+
+  - id: "UPLINK-CREATE-004"
+    function: "create_user"
+    category: "boundary"
+    description: "Empty business name rejected"
+    preconditions:
+      - "Backup confirmed"
+    steps:
+      - "Call create_user(TEST_create_noname_<ts>@example.com, StrongPass1, '')"
+    expected: "success=false, error='Business name is required'"
+    status: "PASSED"
+    actual: "success=false, error='Business name is required'"
+    remediated: false
+    cleanup_confirmed: true
+    cleanup_steps: []
+
+  - id: "UPLINK-CREATE-005"
+    function: "create_user"
+    category: "adversarial"
+    description: "SQL injection attempt in email rejected"
+    preconditions:
+      - "Backup confirmed"
+    steps:
+      - "Call create_user(""TEST_create_inj_<ts>@example.com' OR '1'='1"", StrongPass1, 'Test Biz')"
+    expected: "success=false, error='Invalid email format'"
+    status: "PASSED"
+    actual: "success=false, error='Invalid email format'"
+    remediated: false
+    cleanup_confirmed: true
+    cleanup_steps: []
+
+  - id: "UPLINK-RESET-001"
+    function: "reset_password"
+    category: "happy_path"
+    description: "Registered email returns success message"
+    preconditions:
+      - "Backup confirmed"
+      - "Test user created via signup_with_email"
+    steps:
+      - "Call reset_password(TEST_reset_ok_<ts>@example.com)"
+    expected: "success=true, message='If that email is registered, a reset link has been sent.'"
+    status: "FAILED"
+    actual: "This app does not have a URL, so we can't send a confirmation email."
+    remediated: false
+    cleanup_confirmed: true
+    cleanup_steps:
+      - "Delete TEST_reset_ok_<ts>@example.com from users table"
+
+  - id: "UPLINK-RESET-002"
+    function: "reset_password"
+    category: "adversarial"
+    description: "Unregistered email returns identical success message"
+    preconditions:
+      - "Backup confirmed"
+    steps:
+      - "Call reset_password(TEST_reset_missing_<ts>@example.com)"
+    expected: "success=true, identical message as registered"
+    status: "PASSED"
+    actual: "success=true, identical message as registered"
+    remediated: false
+    cleanup_confirmed: true
+    cleanup_steps: []
+
+  - id: "UPLINK-RESET-003"
+    function: "reset_password"
+    category: "edge_case"
+    description: "Invalid email format returns identical success message"
+    preconditions:
+      - "Backup confirmed"
+    steps:
+      - "Call reset_password('not-an-email')"
+    expected: "success=true, identical message as registered"
+    status: "PASSED"
+    actual: "success=true, identical message as registered"
+    remediated: false
+    cleanup_confirmed: true
+    cleanup_steps: []
+
+  - id: "UPLINK-RESET-004"
+    function: "reset_password"
+    category: "adversarial"
+    description: "Timing: registered vs unregistered response time similar"
+    preconditions:
+      - "Backup confirmed"
+      - "Test user created via signup_with_email"
+    steps:
+      - "Measure response time for registered email"
+      - "Measure response time for unregistered email"
+    expected: "No significant timing difference (>250ms)"
+    status: "FAILED"
+    actual: "This app does not have a URL, so we can't send a confirmation email."
+    remediated: false
+    cleanup_confirmed: true
+    cleanup_steps:
+      - "Delete TEST_reset_timing_<ts>@example.com from users table"
