@@ -20,6 +20,8 @@ needed, regardless of the current working directory):
 - /mnt/c/mybizz/mybizz-config-docs
 - /mnt/c/mybizz/mybizz-os-docs
 - /mnt/c/mybizz/logs
+- /mnt/c/mybizz/memory-audit-reports (memory audit reports, written by the
+  memory-functionality audit from any project)
 - /tmp (scratch space; existing exemption)
 - /home/dev-p/.config/cupcake and /home/dev-p/.config/opencode (the
   system's own control plane; existing exemptions)
