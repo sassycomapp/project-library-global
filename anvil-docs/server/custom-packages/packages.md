@@ -1,6 +1,9 @@
 ---
 title: "Legacy Full Python Packages"
 url: "/docs/server/custom-packages/packages"
+doc-id: packages
+state: Live
+date-created: 2026-09-08
 ---
 
 # [Legacy Full Python Packages](#legacy-full-python-packages)

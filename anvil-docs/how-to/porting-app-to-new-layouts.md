@@ -1,6 +1,9 @@
 ---
 title: "Port an app to new Layouts"
 url: "/docs/how-to/porting-app-to-new-layouts"
+doc-id: porting-app-to-new-layouts
+state: Live
+date-created: 2026-09-08
 ---
 
 

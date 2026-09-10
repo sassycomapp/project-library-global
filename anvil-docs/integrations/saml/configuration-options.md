@@ -1,6 +1,9 @@
 ---
 title: "Configuration options for SAML Authentication"
 url: "/docs/integrations/saml/configuration-options"
+doc-id: configuration-options
+state: Live
+date-created: 2026-09-08
 ---
 
 

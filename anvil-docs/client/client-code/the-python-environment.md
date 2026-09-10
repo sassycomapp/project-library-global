@@ -1,6 +1,9 @@
 ---
 title: "The Python Environment"
 url: "/docs/client/client-code/the-python-environment"
+doc-id: the-python-environment
+state: Live
+date-created: 2026-09-08
 ---
 
 

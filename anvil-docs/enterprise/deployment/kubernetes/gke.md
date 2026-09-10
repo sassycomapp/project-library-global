@@ -1,6 +1,9 @@
 ---
 title: "Google GKE"
 url: "/docs/enterprise/deployment/kubernetes/gke"
+doc-id: gke
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Transactions"
 url: "/docs/data-tables/transactions"
+doc-id: transactions
+state: Live
+date-created: 2026-09-08
 ---
 
 

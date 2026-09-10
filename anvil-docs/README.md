@@ -1,3 +1,10 @@
+---
+document: "Anvil Docs"
+doc-id: anvil-docs-README
+state: Live
+date-created: 2026-09-08
+---
+
 # Anvil Docs
 
 The complete, canonical reference corpus for building Anvil applications —

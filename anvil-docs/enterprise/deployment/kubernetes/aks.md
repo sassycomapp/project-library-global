@@ -1,6 +1,9 @@
 ---
 title: "Azure AKS"
 url: "/docs/enterprise/deployment/kubernetes/aks"
+doc-id: aks
+state: Live
+date-created: 2026-09-08
 ---
 
 

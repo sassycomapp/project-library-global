@@ -1,6 +1,9 @@
 ---
 title: "Expand and collapse sections of pages"
 url: "/docs/how-to/expand-collapse"
+doc-id: expand-collapse
+state: Live
+date-created: 2026-09-08
 ---
 
 

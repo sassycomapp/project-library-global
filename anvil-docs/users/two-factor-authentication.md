@@ -1,6 +1,9 @@
 ---
 title: "Two-Factor Authentication"
 url: "/docs/users/two-factor-authentication"
+doc-id: two-factor-authentication
+state: Live
+date-created: 2026-09-08
 ---
 
 

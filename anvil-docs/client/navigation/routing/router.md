@@ -1,6 +1,9 @@
 ---
 title: "Router"
 url: "/docs/client/navigation/routing/router"
+doc-id: router
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "K3s"
 url: "/docs/enterprise/deployment/kubernetes/k3s"
+doc-id: k3s
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Data Grids"
 url: "/docs/components/standard-components/data-grids"
+doc-id: data-grids
+state: Live
+date-created: 2026-09-08
 ---
 
 

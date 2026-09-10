@@ -1,6 +1,9 @@
 ---
 title: "URL Routing"
 url: "/docs/client/navigation/routing"
+doc-id: routing-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

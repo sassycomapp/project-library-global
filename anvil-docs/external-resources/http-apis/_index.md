@@ -1,6 +1,9 @@
 ---
 title: "HTTP APIs"
 url: "/docs/external-resources/http-apis"
+doc-id: http-apis-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Oracle OKE"
 url: "/docs/enterprise/deployment/kubernetes/oke"
+doc-id: oke
+state: Live
+date-created: 2026-09-08
 ---
 
 

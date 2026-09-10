@@ -1,6 +1,9 @@
 ---
 title: "Containers"
 url: "/docs/client/adding-ui-elements/containers"
+doc-id: adding-ui-elements-containers
+state: Live
+date-created: 2026-09-08
 ---
 
 

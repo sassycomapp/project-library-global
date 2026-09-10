@@ -1,6 +1,9 @@
 ---
 title: "segment.client"
 url: "/docs/api/segment.client"
+doc-id: segment.client
+state: Live
+date-created: 2026-09-08
 ---
 
 

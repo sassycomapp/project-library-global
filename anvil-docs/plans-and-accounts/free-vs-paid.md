@@ -1,6 +1,9 @@
 ---
 title: "Pricing plans"
 url: "/docs/plans-and-accounts/free-vs-paid"
+doc-id: free-vs-paid
+state: Live
+date-created: 2026-09-08
 ---
 
 

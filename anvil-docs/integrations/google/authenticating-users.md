@@ -1,6 +1,9 @@
 ---
 title: "Authenticating Users"
 url: "/docs/integrations/google/authenticating-users"
+doc-id: authenticating-users
+state: Live
+date-created: 2026-09-08
 ---
 
 

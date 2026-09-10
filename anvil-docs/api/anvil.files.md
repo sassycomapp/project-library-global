@@ -1,6 +1,9 @@
 ---
 title: "anvil.files"
 url: "/docs/api/anvil.files"
+doc-id: anvil.files
+state: Live
+date-created: 2026-09-08
 ---
 
 

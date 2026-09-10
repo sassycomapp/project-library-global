@@ -1,6 +1,9 @@
 ---
 title: "anvil.server (uplink)"
 url: "/docs/api/anvil.server-uplink"
+doc-id: anvil.server-uplink
+state: Live
+date-created: 2026-09-08
 ---
 
 

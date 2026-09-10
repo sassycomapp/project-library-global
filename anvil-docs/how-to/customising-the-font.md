@@ -1,6 +1,9 @@
 ---
 title: "Customising your app's font"
 url: "/docs/how-to/customising-the-font"
+doc-id: customising-the-font
+state: Live
+date-created: 2026-09-08
 ---
 
 

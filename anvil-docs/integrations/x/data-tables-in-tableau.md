@@ -1,6 +1,9 @@
 ---
 title: "Using Data Tables from Tableau"
 url: "/docs/integrations/x/data-tables-in-tableau"
+doc-id: data-tables-in-tableau
+state: Live
+date-created: 2026-09-08
 ---
 
 

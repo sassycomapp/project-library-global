@@ -1,6 +1,9 @@
 ---
 title: "The Users Table"
 url: "/docs/users/the-users-table"
+doc-id: the-users-table
+state: Live
+date-created: 2026-09-08
 ---
 
 

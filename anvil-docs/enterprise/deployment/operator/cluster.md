@@ -1,6 +1,9 @@
 ---
 title: "Cluster Configuration"
 url: "/docs/enterprise/deployment/operator/cluster"
+doc-id: cluster
+state: Live
+date-created: 2026-09-08
 ---
 
 # [Cluster Configuration](#cluster-configuration)

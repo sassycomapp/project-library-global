@@ -1,6 +1,9 @@
 ---
 title: "TLS Certificates"
 url: "/docs/enterprise/deployment/prerequisites/tls-certificates"
+doc-id: tls-certificates
+state: Live
+date-created: 2026-09-08
 ---
 
 

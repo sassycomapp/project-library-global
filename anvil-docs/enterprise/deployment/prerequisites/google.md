@@ -1,6 +1,9 @@
 ---
 title: "Google SSO"
 url: "/docs/enterprise/deployment/prerequisites/google"
+doc-id: google
+state: Live
+date-created: 2026-09-08
 ---
 
 

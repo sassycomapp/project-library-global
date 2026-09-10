@@ -1,6 +1,9 @@
 ---
 title: "Navigation"
 url: "/docs/client/navigation/routing/navigation"
+doc-id: navigation
+state: Live
+date-created: 2026-09-08
 ---
 
 

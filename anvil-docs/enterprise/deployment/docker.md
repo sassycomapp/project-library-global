@@ -1,6 +1,9 @@
 ---
 title: "Docker"
 url: "/docs/enterprise/deployment/docker"
+doc-id: docker
+state: Live
+date-created: 2026-09-08
 ---
 
 

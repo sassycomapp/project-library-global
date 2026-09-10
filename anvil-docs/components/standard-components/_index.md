@@ -1,6 +1,9 @@
 ---
 title: "Standard Anvil Components"
 url: "/docs/components/standard-components"
+doc-id: standard-components-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

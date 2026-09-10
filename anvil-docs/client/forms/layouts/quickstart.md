@@ -1,6 +1,9 @@
 ---
 title: "Quickstart"
 url: "/docs/client/forms/layouts/quickstart"
+doc-id: layouts-quickstart
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Facebook"
 url: "/docs/integrations/facebook"
+doc-id: facebook-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

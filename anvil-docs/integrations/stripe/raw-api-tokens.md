@@ -1,6 +1,9 @@
 ---
 title: "Using Stripe's Python API"
 url: "/docs/integrations/stripe/raw-api-tokens"
+doc-id: raw-api-tokens
+state: Live
+date-created: 2026-09-08
 ---
 
 

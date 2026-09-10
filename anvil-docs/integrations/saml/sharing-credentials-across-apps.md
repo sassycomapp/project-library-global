@@ -1,6 +1,9 @@
 ---
 title: "Sharing SAML Credentials across Anvil apps"
 url: "/docs/integrations/saml/sharing-credentials-across-apps"
+doc-id: sharing-credentials-across-apps
+state: Live
+date-created: 2026-09-08
 ---
 
 

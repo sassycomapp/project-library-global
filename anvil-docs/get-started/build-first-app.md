@@ -1,6 +1,9 @@
 ---
 title: "Build your first app"
 url: "/docs/get-started/build-first-app"
+doc-id: build-first-app
+state: Live
+date-created: 2026-09-08
 ---
 
 

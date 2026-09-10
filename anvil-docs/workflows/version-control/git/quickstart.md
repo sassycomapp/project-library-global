@@ -1,6 +1,9 @@
 ---
 title: "Quickstart"
 url: "/docs/workflows/version-control/git/quickstart"
+doc-id: git-quickstart
+state: Live
+date-created: 2026-09-08
 ---
 
 

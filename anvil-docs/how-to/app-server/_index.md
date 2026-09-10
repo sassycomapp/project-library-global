@@ -1,6 +1,9 @@
 ---
 title: "Host apps on your own server"
 url: "/docs/how-to/app-server"
+doc-id: app-server-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

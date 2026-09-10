@@ -1,6 +1,9 @@
 ---
 title: "anvil.microsoft.auth"
 url: "/docs/api/anvil.microsoft.auth"
+doc-id: anvil.microsoft.auth
+state: Live
+date-created: 2026-09-08
 ---
 
 

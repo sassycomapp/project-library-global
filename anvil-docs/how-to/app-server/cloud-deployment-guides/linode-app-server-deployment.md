@@ -1,6 +1,9 @@
 ---
 title: "Linode"
 url: "/docs/how-to/app-server/cloud-deployment-guides/linode-app-server-deployment"
+doc-id: linode-app-server-deployment
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Depending On Other Apps"
 url: "/docs/deployment/dependencies"
+doc-id: deployment-dependencies
+state: Live
+date-created: 2026-09-08
 ---
 
 

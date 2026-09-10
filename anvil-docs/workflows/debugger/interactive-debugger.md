@@ -1,6 +1,9 @@
 ---
 title: "The Interactive Debugger"
 url: "/docs/workflows/debugger/interactive-debugger"
+doc-id: interactive-debugger
+state: Live
+date-created: 2026-09-08
 ---
 
 

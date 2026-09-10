@@ -1,6 +1,9 @@
 ---
 title: "Files, Media and Binary Data"
 url: "/docs/other-concepts/working-with-files"
+doc-id: working-with-files-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Cloning and Collaboration"
 url: "/docs/editor/app-settings/cloning-and-collaboration"
+doc-id: cloning-and-collaboration
+state: Live
+date-created: 2026-09-08
 ---
 
 

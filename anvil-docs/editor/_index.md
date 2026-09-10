@@ -1,6 +1,9 @@
 ---
 title: "The Anvil Editor"
 url: "/docs/editor"
+doc-id: editor-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

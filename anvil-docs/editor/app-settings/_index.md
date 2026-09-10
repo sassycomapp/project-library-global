@@ -1,6 +1,9 @@
 ---
 title: "App Settings"
 url: "/docs/editor/app-settings"
+doc-id: app-settings-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

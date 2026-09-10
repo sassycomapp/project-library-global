@@ -1,6 +1,9 @@
 ---
 title: "Connecting Google to Anvil"
 url: "/docs/integrations/google/linking-google-and-anvil"
+doc-id: linking-google-and-anvil
+state: Live
+date-created: 2026-09-08
 ---
 
 

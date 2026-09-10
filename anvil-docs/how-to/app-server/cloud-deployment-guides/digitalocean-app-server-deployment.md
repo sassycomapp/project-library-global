@@ -1,6 +1,9 @@
 ---
 title: "DigitalOcean Droplet"
 url: "/docs/how-to/app-server/cloud-deployment-guides/digitalocean-app-server-deployment"
+doc-id: digitalocean-app-server-deployment
+state: Live
+date-created: 2026-09-08
 ---
 
 

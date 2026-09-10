@@ -1,6 +1,9 @@
 ---
 title: "Gmail"
 url: "/docs/integrations/google/gmail"
+doc-id: gmail
+state: Live
+date-created: 2026-09-08
 ---
 
 

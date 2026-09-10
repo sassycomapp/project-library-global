@@ -1,6 +1,9 @@
 ---
 title: "Quickstart"
 url: "/docs/using-another-ide/quickstart"
+doc-id: using-another-ide-quickstart
+state: Live
+date-created: 2026-09-08
 ---
 
 

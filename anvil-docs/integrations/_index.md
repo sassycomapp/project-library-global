@@ -1,6 +1,9 @@
 ---
 title: "Built-in Integrations"
 url: "/docs/integrations"
+doc-id: integrations-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

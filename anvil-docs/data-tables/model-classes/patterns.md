@@ -1,6 +1,9 @@
 ---
 title: "Best Practices"
 url: "/docs/data-tables/model-classes/patterns"
+doc-id: patterns
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Embed a Webpage in an Anvil App"
 url: "/docs/how-to/embedding-webpage-iframe"
+doc-id: embedding-webpage-iframe
+state: Live
+date-created: 2026-09-08
 ---
 
 

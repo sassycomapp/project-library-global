@@ -1,6 +1,9 @@
 ---
 title: "Anvil Enterprise"
 url: "/docs/plans-and-accounts/enterprise"
+doc-id: enterprise
+state: Live
+date-created: 2026-09-08
 ---
 
 

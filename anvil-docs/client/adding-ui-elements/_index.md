@@ -1,6 +1,9 @@
 ---
 title: "Adding UI Elements"
 url: "/docs/client/adding-ui-elements"
+doc-id: adding-ui-elements-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Kubernetes Operator"
 url: "/docs/enterprise/deployment/operator"
+doc-id: operator-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

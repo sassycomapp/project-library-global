@@ -1,6 +1,9 @@
 ---
 title: "Checks and Validation"
 url: "/docs/data-tables/model-classes/validation"
+doc-id: validation
+state: Live
+date-created: 2026-09-08
 ---
 
 

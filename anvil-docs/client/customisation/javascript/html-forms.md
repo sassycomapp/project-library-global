@@ -1,6 +1,9 @@
 ---
 title: "HTML Forms"
 url: "/docs/client/customisation/javascript/html-forms"
+doc-id: html-forms
+state: Live
+date-created: 2026-09-08
 ---
 
 

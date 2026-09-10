@@ -1,6 +1,9 @@
 ---
 title: "Quickstart: Data Files"
 url: "/docs/data-tables/data-files/quickstart"
+doc-id: data-files-quickstart
+state: Live
+date-created: 2026-09-08
 ---
 
 

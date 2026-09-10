@@ -1,6 +1,9 @@
 ---
 title: "Other Anvil Concepts"
 url: "/docs/other-concepts"
+doc-id: other-concepts-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Indexes"
 url: "/docs/data-tables/indexes"
+doc-id: indexes
+state: Live
+date-created: 2026-09-08
 ---
 
 

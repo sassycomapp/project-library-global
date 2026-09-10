@@ -1,6 +1,9 @@
 ---
 title: "Using Multiple Databases"
 url: "/docs/data-tables/multiple-databases"
+doc-id: multiple-databases
+state: Live
+date-created: 2026-09-08
 ---
 
 

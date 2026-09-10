@@ -1,6 +1,9 @@
 ---
 title: "Roles"
 url: "/docs/client/customisation/using-css/roles"
+doc-id: roles
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "General Settings"
 url: "/docs/editor/app-settings/titles-and-logos"
+doc-id: titles-and-logos
+state: Live
+date-created: 2026-09-08
 ---
 
 

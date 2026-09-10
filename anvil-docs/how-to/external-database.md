@@ -1,6 +1,9 @@
 ---
 title: "External database"
 url: "/docs/how-to/external-database"
+doc-id: how-to-external-database
+state: Live
+date-created: 2026-09-08
 ---
 
 

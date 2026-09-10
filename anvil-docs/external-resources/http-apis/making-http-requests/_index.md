@@ -1,6 +1,9 @@
 ---
 title: "Making HTTP requests"
 url: "/docs/external-resources/http-apis/making-http-requests"
+doc-id: making-http-requests-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

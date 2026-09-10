@@ -1,6 +1,9 @@
 ---
 title: "Version Control and Collaboration"
 url: "/docs/workflows/version-control"
+doc-id: version-control-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

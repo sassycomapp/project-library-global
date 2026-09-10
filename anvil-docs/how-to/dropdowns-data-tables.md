@@ -1,6 +1,9 @@
 ---
 title: "DropDowns and Data Tables"
 url: "/docs/how-to/dropdowns-data-tables"
+doc-id: dropdowns-data-tables
+state: Live
+date-created: 2026-09-08
 ---
 
 

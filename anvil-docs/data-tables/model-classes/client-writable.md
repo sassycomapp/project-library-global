@@ -1,6 +1,9 @@
 ---
 title: "Client-Writable Models"
 url: "/docs/data-tables/model-classes/client-writable"
+doc-id: client-writable
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Commands"
 url: "/docs/using-another-ide/commands"
+doc-id: commands
+state: Live
+date-created: 2026-09-08
 ---
 
 

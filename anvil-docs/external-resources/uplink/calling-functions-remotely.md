@@ -1,6 +1,9 @@
 ---
 title: "Calling functions remotely"
 url: "/docs/external-resources/uplink/calling-functions-remotely"
+doc-id: calling-functions-remotely
+state: Live
+date-created: 2026-09-08
 ---
 
 

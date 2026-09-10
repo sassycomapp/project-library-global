@@ -1,6 +1,9 @@
 ---
 title: "Custom Domains"
 url: "/docs/deployment/custom-domains"
+doc-id: custom-domains
+state: Live
+date-created: 2026-09-08
 ---
 
 

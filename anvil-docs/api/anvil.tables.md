@@ -1,6 +1,9 @@
 ---
 title: "anvil.tables"
 url: "/docs/api/anvil.tables"
+doc-id: anvil.tables
+state: Live
+date-created: 2026-09-08
 ---
 
 

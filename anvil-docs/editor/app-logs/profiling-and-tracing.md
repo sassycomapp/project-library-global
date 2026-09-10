@@ -1,6 +1,9 @@
 ---
 title: "Profiling and Tracing"
 url: "/docs/editor/app-logs/profiling-and-tracing"
+doc-id: profiling-and-tracing
+state: Live
+date-created: 2026-09-08
 ---
 
 

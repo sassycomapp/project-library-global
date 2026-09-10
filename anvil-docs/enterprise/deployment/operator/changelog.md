@@ -1,6 +1,9 @@
 ---
 title: "Changelog"
 url: "/docs/enterprise/deployment/operator/changelog"
+doc-id: changelog
+state: Live
+date-created: 2026-09-08
 ---
 
 

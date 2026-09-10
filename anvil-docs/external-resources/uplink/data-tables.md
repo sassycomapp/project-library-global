@@ -1,6 +1,9 @@
 ---
 title: "Connecting to Data Tables"
 url: "/docs/external-resources/uplink/data-tables"
+doc-id: uplink-data-tables
+state: Live
+date-created: 2026-09-08
 ---
 
 

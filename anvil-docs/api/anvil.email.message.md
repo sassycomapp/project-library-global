@@ -1,6 +1,9 @@
 ---
 title: "anvil.email.Message"
 url: "/docs/api/anvil.email.message"
+doc-id: anvil.email.message
+state: Live
+date-created: 2026-09-08
 ---
 
 

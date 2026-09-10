@@ -1,6 +1,9 @@
 ---
 title: "Portable Classes"
 url: "/docs/other-concepts/portable-classes"
+doc-id: portable-classes-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

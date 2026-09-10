@@ -1,6 +1,9 @@
 ---
 title: "Quickstart: Permissions"
 url: "/docs/users/quickstart-permissions"
+doc-id: quickstart-permissions
+state: Live
+date-created: 2026-09-08
 ---
 
 

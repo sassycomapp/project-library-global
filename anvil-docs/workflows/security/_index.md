@@ -1,6 +1,9 @@
 ---
 title: "Building Secure Apps"
 url: "/docs/workflows/security"
+doc-id: security-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

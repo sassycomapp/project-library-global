@@ -1,6 +1,9 @@
 ---
 title: "Clone your app locally"
 url: "/docs/workflows/version-control/git/direct-checkout"
+doc-id: direct-checkout
+state: Live
+date-created: 2026-09-08
 ---
 
 

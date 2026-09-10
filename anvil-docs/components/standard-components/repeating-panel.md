@@ -1,6 +1,9 @@
 ---
 title: "RepeatingPanels"
 url: "/docs/components/standard-components/repeating-panel"
+doc-id: repeating-panel
+state: Live
+date-created: 2026-09-08
 ---
 
 

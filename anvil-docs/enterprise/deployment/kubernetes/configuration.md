@@ -1,6 +1,9 @@
 ---
 title: "Configuration Guide"
 url: "/docs/enterprise/deployment/kubernetes/configuration"
+doc-id: configuration
+state: Live
+date-created: 2026-09-08
 ---
 
 

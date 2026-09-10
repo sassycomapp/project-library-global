@@ -1,6 +1,9 @@
 ---
 title: "Deploying your App"
 url: "/docs/deployment"
+doc-id: deployment-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

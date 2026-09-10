@@ -1,6 +1,9 @@
 ---
 title: "Billing and Metering"
 url: "/docs/integrations/x/buying"
+doc-id: buying
+state: Live
+date-created: 2026-09-08
 ---
 
 

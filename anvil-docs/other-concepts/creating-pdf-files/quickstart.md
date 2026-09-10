@@ -1,6 +1,9 @@
 ---
 title: "Quickstart"
 url: "/docs/other-concepts/creating-pdf-files/quickstart"
+doc-id: creating-pdf-files-quickstart
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "CSV and Excel import"
 url: "/docs/data-tables/csv-and-excel"
+doc-id: csv-and-excel
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Email"
 url: "/docs/server/email"
+doc-id: email-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

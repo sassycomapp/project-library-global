@@ -1,6 +1,9 @@
 ---
 title: "Accessing Azure APIs"
 url: "/docs/integrations/microsoft/accessing-microsoft-apis"
+doc-id: accessing-microsoft-apis
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Server Modules"
 url: "/docs/server/server-modules"
+doc-id: server-modules-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

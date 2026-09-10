@@ -1,6 +1,9 @@
 ---
 title: "Adding Collaborators"
 url: "/docs/workflows/version-control/collaborators"
+doc-id: collaborators
+state: Live
+date-created: 2026-09-08
 ---
 
 

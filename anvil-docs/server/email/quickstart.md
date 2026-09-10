@@ -1,6 +1,9 @@
 ---
 title: "Quickstart"
 url: "/docs/server/email/quickstart"
+doc-id: email-quickstart
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Quickstart"
 url: "/docs/integrations/stripe/quickstart"
+doc-id: stripe-quickstart
+state: Live
+date-created: 2026-09-08
 ---
 
 

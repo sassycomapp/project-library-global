@@ -1,6 +1,9 @@
 ---
 title: "Attachments"
 url: "/docs/server/email/attachments"
+doc-id: attachments
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Sessions and Cookies"
 url: "/docs/server/sessions-and-cookies"
+doc-id: sessions-and-cookies
+state: Live
+date-created: 2026-09-08
 ---
 
 

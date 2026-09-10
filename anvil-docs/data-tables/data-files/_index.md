@@ -1,6 +1,9 @@
 ---
 title: "Static Data Files"
 url: "/docs/data-tables/data-files"
+doc-id: data-files-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

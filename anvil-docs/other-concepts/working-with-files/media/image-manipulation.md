@@ -1,6 +1,9 @@
 ---
 title: "Image Manipulation"
 url: "/docs/other-concepts/working-with-files/media/image-manipulation"
+doc-id: image-manipulation
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Custom user authentication"
 url: "/docs/how-to/custom-user-auth"
+doc-id: custom-user-auth
+state: Live
+date-created: 2026-09-08
 ---
 
 

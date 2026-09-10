@@ -1,6 +1,9 @@
 ---
 title: "Quickstart"
 url: "/docs/client/navigation/routing/quickstart"
+doc-id: routing-quickstart
+state: Live
+date-created: 2026-09-08
 ---
 
 

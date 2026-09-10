@@ -1,6 +1,9 @@
 ---
 title: "Anvil Enterprise"
 url: "/docs/enterprise"
+doc-id: enterprise-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

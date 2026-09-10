@@ -1,6 +1,9 @@
 ---
 title: "Adding Assets"
 url: "/docs/client/customisation/assets"
+doc-id: assets
+state: Live
+date-created: 2026-09-08
 ---
 
 

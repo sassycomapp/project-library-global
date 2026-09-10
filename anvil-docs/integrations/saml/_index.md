@@ -1,6 +1,9 @@
 ---
 title: "SAML Authentication"
 url: "/docs/integrations/saml"
+doc-id: saml-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

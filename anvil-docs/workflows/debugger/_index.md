@@ -1,6 +1,9 @@
 ---
 title: "Debugging Your App"
 url: "/docs/workflows/debugger"
+doc-id: debugger-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

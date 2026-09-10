@@ -1,6 +1,9 @@
 ---
 title: "Offline Apps"
 url: "/docs/server/offline-apps"
+doc-id: offline-apps
+state: Live
+date-created: 2026-09-08
 ---
 
 

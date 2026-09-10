@@ -1,6 +1,9 @@
 ---
 title: "Cloud Deployment Guides"
 url: "/docs/how-to/app-server/cloud-deployment-guides"
+doc-id: cloud-deployment-guides-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

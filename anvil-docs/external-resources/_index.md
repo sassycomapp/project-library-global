@@ -1,6 +1,9 @@
 ---
 title: "Connecting to External Resources"
 url: "/docs/external-resources"
+doc-id: external-resources-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

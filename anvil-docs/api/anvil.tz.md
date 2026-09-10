@@ -1,6 +1,9 @@
 ---
 title: "anvil.tz"
 url: "/docs/api/anvil.tz"
+doc-id: anvil.tz
+state: Live
+date-created: 2026-09-08
 ---
 
 

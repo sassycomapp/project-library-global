@@ -1,6 +1,9 @@
 ---
 title: "anvil.google.mail"
 url: "/docs/api/anvil.google.mail"
+doc-id: anvil.google.mail
+state: Live
+date-created: 2026-09-08
 ---
 
 

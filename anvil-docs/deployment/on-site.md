@@ -1,6 +1,9 @@
 ---
 title: "On-Site Deployment"
 url: "/docs/deployment/on-site"
+doc-id: on-site
+state: Live
+date-created: 2026-09-08
 ---
 
 

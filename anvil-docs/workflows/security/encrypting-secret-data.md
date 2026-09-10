@@ -1,6 +1,9 @@
 ---
 title: "Encrypting Secret Data"
 url: "/docs/workflows/security/encrypting-secret-data"
+doc-id: encrypting-secret-data
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Quickstart"
 url: "/docs/integrations/google/quickstart"
+doc-id: google-quickstart
+state: Live
+date-created: 2026-09-08
 ---
 
 

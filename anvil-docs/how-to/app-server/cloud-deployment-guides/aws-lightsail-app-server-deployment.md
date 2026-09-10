@@ -1,6 +1,9 @@
 ---
 title: "AWS Lightsail"
 url: "/docs/how-to/app-server/cloud-deployment-guides/aws-lightsail-app-server-deployment"
+doc-id: aws-lightsail-app-server-deployment
+state: Live
+date-created: 2026-09-08
 ---
 
 

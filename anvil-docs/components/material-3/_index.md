@@ -1,6 +1,9 @@
 ---
 title: "Material 3"
 url: "/docs/components/material-3"
+doc-id: material-3-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

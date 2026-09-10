@@ -1,6 +1,9 @@
 ---
 title: "Sharing Uplinks"
 url: "/docs/external-resources/uplink/dependencies"
+doc-id: uplink-dependencies
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Forms"
 url: "/docs/client/forms"
+doc-id: forms-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

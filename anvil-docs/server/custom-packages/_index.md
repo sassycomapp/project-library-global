@@ -1,6 +1,9 @@
 ---
 title: "Installing Packages"
 url: "/docs/server/custom-packages"
+doc-id: custom-packages-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

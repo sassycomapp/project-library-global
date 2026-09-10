@@ -1,6 +1,9 @@
 ---
 title: "Basic Components"
 url: "/docs/components/standard-components/basic"
+doc-id: basic
+state: Live
+date-created: 2026-09-08
 ---
 
 

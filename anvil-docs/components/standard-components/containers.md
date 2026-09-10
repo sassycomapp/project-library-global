@@ -1,6 +1,9 @@
 ---
 title: "Containers"
 url: "/docs/components/standard-components/containers"
+doc-id: standard-components-containers
+state: Live
+date-created: 2026-09-08
 ---
 
 

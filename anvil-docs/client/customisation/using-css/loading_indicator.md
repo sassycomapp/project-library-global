@@ -1,6 +1,9 @@
 ---
 title: "Customising the Loading Indicator"
 url: "/docs/client/customisation/using-css/loading_indicator"
+doc-id: loading_indicator
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Server Methods"
 url: "/docs/other-concepts/portable-classes/server-methods"
+doc-id: server-methods
+state: Live
+date-created: 2026-09-08
 ---
 
 

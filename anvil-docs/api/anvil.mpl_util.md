@@ -1,6 +1,9 @@
 ---
 title: "anvil.mpl_util"
 url: "/docs/api/anvil.mpl_util"
+doc-id: anvil.mpl_util
+state: Live
+date-created: 2026-09-08
 ---
 
 

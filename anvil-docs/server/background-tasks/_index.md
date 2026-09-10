@@ -1,6 +1,9 @@
 ---
 title: "Background Tasks"
 url: "/docs/server/background-tasks"
+doc-id: background-tasks-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

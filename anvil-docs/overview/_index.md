@@ -1,6 +1,9 @@
 ---
 title: "Overview"
 url: "/docs/overview"
+doc-id: overview-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 # [Welcome to Anvil.](#welcome-to-anvil)

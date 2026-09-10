@@ -1,6 +1,9 @@
 ---
 title: "Component Lifecycle"
 url: "/docs/client/events/component-lifecycle"
+doc-id: component-lifecycle
+state: Live
+date-created: 2026-09-08
 ---
 
 

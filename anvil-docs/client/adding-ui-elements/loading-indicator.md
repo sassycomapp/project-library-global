@@ -1,6 +1,9 @@
 ---
 title: "Loading Indicator"
 url: "/docs/client/adding-ui-elements/loading-indicator"
+doc-id: loading-indicator
+state: Live
+date-created: 2026-09-08
 ---
 
 

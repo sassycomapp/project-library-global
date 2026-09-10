@@ -1,6 +1,9 @@
 ---
 title: "Links Between Tables"
 url: "/docs/data-tables/links-between-tables"
+doc-id: links-between-tables
+state: Live
+date-created: 2026-09-08
 ---
 
 

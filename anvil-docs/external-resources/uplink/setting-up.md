@@ -1,6 +1,9 @@
 ---
 title: "Setting up"
 url: "/docs/external-resources/uplink/setting-up"
+doc-id: setting-up
+state: Live
+date-created: 2026-09-08
 ---
 
 

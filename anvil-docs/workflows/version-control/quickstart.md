@@ -1,6 +1,9 @@
 ---
 title: "Quickstart"
 url: "/docs/workflows/version-control/quickstart"
+doc-id: version-control-quickstart
+state: Live
+date-created: 2026-09-08
 ---
 
 

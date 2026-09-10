@@ -1,6 +1,9 @@
 ---
 title: "Quickstart"
 url: "/docs/data-tables/quickstart"
+doc-id: data-tables-quickstart
+state: Live
+date-created: 2026-09-08
 ---
 
 

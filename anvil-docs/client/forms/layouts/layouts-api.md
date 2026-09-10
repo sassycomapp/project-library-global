@@ -1,6 +1,9 @@
 ---
 title: "Layouts API"
 url: "/docs/client/forms/layouts/layouts-api"
+doc-id: layouts-api
+state: Live
+date-created: 2026-09-08
 ---
 
 

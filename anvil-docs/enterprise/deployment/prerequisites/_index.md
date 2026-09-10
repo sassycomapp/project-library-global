@@ -1,6 +1,9 @@
 ---
 title: "Prerequisites"
 url: "/docs/enterprise/deployment/prerequisites"
+doc-id: prerequisites-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

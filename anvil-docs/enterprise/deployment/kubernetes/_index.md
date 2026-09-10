@@ -1,6 +1,9 @@
 ---
 title: "Kubernetes"
 url: "/docs/enterprise/deployment/kubernetes"
+doc-id: kubernetes-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

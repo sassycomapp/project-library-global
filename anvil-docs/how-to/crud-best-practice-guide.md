@@ -1,6 +1,9 @@
 ---
 title: "Building clean database apps"
 url: "/docs/how-to/crud-best-practice-guide"
+doc-id: crud-best-practice-guide
+state: Live
+date-created: 2026-09-08
 ---
 
 

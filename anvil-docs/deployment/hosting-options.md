@@ -1,6 +1,9 @@
 ---
 title: "Hosting options"
 url: "/docs/deployment/hosting-options"
+doc-id: hosting-options
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Forms as Python Classes"
 url: "/docs/client/forms/forms-as-python-classes"
+doc-id: forms-as-python-classes
+state: Live
+date-created: 2026-09-08
 ---
 
 

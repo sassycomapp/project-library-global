@@ -1,6 +1,9 @@
 ---
 title: "Environments and Code"
 url: "/docs/deployment/environments/environments-and-code"
+doc-id: environments-and-code
+state: Live
+date-created: 2026-09-08
 ---
 
 

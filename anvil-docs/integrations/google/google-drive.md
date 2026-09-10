@@ -1,6 +1,9 @@
 ---
 title: "Google Drive"
 url: "/docs/integrations/google/google-drive"
+doc-id: google-drive
+state: Live
+date-created: 2026-09-08
 ---
 
 

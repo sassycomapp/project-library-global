@@ -1,6 +1,9 @@
 ---
 title: "Managing Users"
 url: "/docs/users"
+doc-id: users-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

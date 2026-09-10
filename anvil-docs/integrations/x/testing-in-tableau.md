@@ -1,6 +1,9 @@
 ---
 title: "Testing your extension"
 url: "/docs/integrations/x/testing-in-tableau"
+doc-id: testing-in-tableau
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "AWS EKS"
 url: "/docs/enterprise/deployment/kubernetes/eks"
+doc-id: eks
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Microsoft Single Sign-On"
 url: "/docs/integrations/microsoft/microsoft-single-sign-on"
+doc-id: microsoft-single-sign-on
+state: Live
+date-created: 2026-09-08
 ---
 
 

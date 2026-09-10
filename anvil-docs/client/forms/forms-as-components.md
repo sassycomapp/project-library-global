@@ -1,6 +1,9 @@
 ---
 title: "Forms as Components"
 url: "/docs/client/forms/forms-as-components"
+doc-id: forms-as-components
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "GitHub SSO"
 url: "/docs/enterprise/deployment/prerequisites/github"
+doc-id: github
+state: Live
+date-created: 2026-09-08
 ---
 
 

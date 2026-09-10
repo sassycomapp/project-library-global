@@ -1,6 +1,9 @@
 ---
 title: "Using JavaScript"
 url: "/docs/client/customisation/javascript"
+doc-id: javascript-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Google REST APIs"
 url: "/docs/integrations/google/google-rest-apis"
+doc-id: google-rest-apis
+state: Live
+date-created: 2026-09-08
 ---
 
 

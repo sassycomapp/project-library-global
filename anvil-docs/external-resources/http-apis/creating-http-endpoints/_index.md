@@ -1,6 +1,9 @@
 ---
 title: "Creating HTTP APIs"
 url: "/docs/external-resources/http-apis/creating-http-endpoints"
+doc-id: creating-http-endpoints-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

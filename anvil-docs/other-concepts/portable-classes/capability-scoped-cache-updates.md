@@ -1,6 +1,9 @@
 ---
 title: "Cache Updates"
 url: "/docs/other-concepts/portable-classes/capability-scoped-cache-updates"
+doc-id: capability-scoped-cache-updates
+state: Live
+date-created: 2026-09-08
 ---
 
 

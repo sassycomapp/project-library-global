@@ -1,6 +1,9 @@
 ---
 title: "Components from HTML"
 url: "/docs/client/customisation/custom-components/html-components"
+doc-id: html-components
+state: Live
+date-created: 2026-09-08
 ---
 
 

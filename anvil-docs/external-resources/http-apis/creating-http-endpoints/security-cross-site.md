@@ -1,6 +1,9 @@
 ---
 title: "Cross-site Security"
 url: "/docs/external-resources/http-apis/creating-http-endpoints/security-cross-site"
+doc-id: security-cross-site
+state: Live
+date-created: 2026-09-08
 ---
 
 

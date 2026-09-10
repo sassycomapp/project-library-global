@@ -1,3 +1,10 @@
+---
+document: "1 represents the data is cached, 0 otherwise"
+doc-id: types
+state: Live
+date-created: 2026-09-08
+---
+
 Types:
 (a weird mixture of Python and TypeScript typing)
 ======

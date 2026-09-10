@@ -1,6 +1,9 @@
 ---
 title: "Storing Data in Data Tables"
 url: "/docs/data-tables"
+doc-id: data-tables-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 # [Storing Data in Data Tables](#storing-data-in-data-tables)

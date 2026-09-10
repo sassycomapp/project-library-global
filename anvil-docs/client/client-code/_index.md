@@ -1,6 +1,9 @@
 ---
 title: "Client Code"
 url: "/docs/client/client-code"
+doc-id: client-code-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

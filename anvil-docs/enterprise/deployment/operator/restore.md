@@ -1,6 +1,9 @@
 ---
 title: "Cluster Restore"
 url: "/docs/enterprise/deployment/operator/restore"
+doc-id: restore
+state: Live
+date-created: 2026-09-08
 ---
 
 

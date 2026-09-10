@@ -1,6 +1,9 @@
 ---
 title: "anvil.http"
 url: "/docs/api/anvil.http"
+doc-id: anvil.http
+state: Live
+date-created: 2026-09-08
 ---
 
 

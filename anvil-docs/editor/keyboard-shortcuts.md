@@ -1,6 +1,9 @@
 ---
 title: "Keyboard Shortcuts"
 url: "/docs/editor/keyboard-shortcuts"
+doc-id: keyboard-shortcuts
+state: Live
+date-created: 2026-09-08
 ---
 
 

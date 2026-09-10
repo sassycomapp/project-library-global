@@ -1,6 +1,9 @@
 ---
 title: "Additional Debugging Tools"
 url: "/docs/workflows/debugger/additional-debugging-tools"
+doc-id: additional-debugging-tools
+state: Live
+date-created: 2026-09-08
 ---
 
 

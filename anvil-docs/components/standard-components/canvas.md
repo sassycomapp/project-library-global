@@ -1,6 +1,9 @@
 ---
 title: "Canvas"
 url: "/docs/components/standard-components/canvas"
+doc-id: canvas
+state: Live
+date-created: 2026-09-08
 ---
 
 

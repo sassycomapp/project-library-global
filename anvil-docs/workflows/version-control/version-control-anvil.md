@@ -1,6 +1,9 @@
 ---
 title: "Using Version Control in Anvil"
 url: "/docs/workflows/version-control/version-control-anvil"
+doc-id: version-control-anvil
+state: Live
+date-created: 2026-09-08
 ---
 
 

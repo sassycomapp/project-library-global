@@ -1,6 +1,9 @@
 ---
 title: "Managed Enterprise"
 url: "/docs/enterprise/managed-enterprise"
+doc-id: managed-enterprise
+state: Live
+date-created: 2026-09-08
 ---
 
 

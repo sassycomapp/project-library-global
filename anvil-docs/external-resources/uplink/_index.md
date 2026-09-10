@@ -1,6 +1,9 @@
 ---
 title: "Uplink: Code outside Anvil"
 url: "/docs/external-resources/uplink"
+doc-id: uplink-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

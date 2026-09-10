@@ -1,6 +1,9 @@
 ---
 title: "Logging in Using Code"
 url: "/docs/users/logging-in-using-code"
+doc-id: logging-in-using-code
+state: Live
+date-created: 2026-09-08
 ---
 
 

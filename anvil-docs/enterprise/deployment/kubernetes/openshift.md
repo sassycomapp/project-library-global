@@ -1,6 +1,9 @@
 ---
 title: "OpenShift"
 url: "/docs/enterprise/deployment/kubernetes/openshift"
+doc-id: openshift
+state: Live
+date-created: 2026-09-08
 ---
 
 

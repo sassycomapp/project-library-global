@@ -1,6 +1,9 @@
 ---
 title: "Making plots"
 url: "/docs/how-to/plot"
+doc-id: plot
+state: Live
+date-created: 2026-09-08
 ---
 
 

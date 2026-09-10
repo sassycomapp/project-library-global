@@ -1,6 +1,9 @@
 ---
 title: "How to Import Things"
 url: "/docs/workflows/app-architecture/how-to-import-things"
+doc-id: how-to-import-things
+state: Live
+date-created: 2026-09-08
 ---
 
 

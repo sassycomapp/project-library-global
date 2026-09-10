@@ -1,6 +1,9 @@
 ---
 title: "Stripe"
 url: "/docs/integrations/stripe"
+doc-id: stripe-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

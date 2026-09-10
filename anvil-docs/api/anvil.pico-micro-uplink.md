@@ -1,6 +1,9 @@
 ---
 title: "anvil.pico (micro-uplink)"
 url: "/docs/api/anvil.pico-micro-uplink"
+doc-id: anvil.pico-micro-uplink
+state: Live
+date-created: 2026-09-08
 ---
 
 

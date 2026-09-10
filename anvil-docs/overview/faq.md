@@ -1,6 +1,9 @@
 ---
 title: "FAQ"
 url: "/docs/overview/faq"
+doc-id: faq
+state: Live
+date-created: 2026-09-08
 ---
 
 # [FAQ](#faq)

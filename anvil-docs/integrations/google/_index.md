@@ -1,6 +1,9 @@
 ---
 title: "Google"
 url: "/docs/integrations/google"
+doc-id: google-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "User Permissions"
 url: "/docs/users/permissions"
+doc-id: permissions
+state: Live
+date-created: 2026-09-08
 ---
 
 

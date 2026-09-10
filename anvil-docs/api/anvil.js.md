@@ -1,6 +1,9 @@
 ---
 title: "anvil.js"
 url: "/docs/api/anvil.js"
+doc-id: anvil.js
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Configuring Emails"
 url: "/docs/users/configuring-emails"
+doc-id: configuring-emails
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "anvil.plotly_templates"
 url: "/docs/api/anvil.plotly_templates"
+doc-id: anvil.plotly_templates
+state: Live
+date-created: 2026-09-08
 ---
 
 

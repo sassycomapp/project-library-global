@@ -1,6 +1,9 @@
 ---
 title: "Faster Storage"
 url: "/docs/data-tables/faster-storage"
+doc-id: faster-storage
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Custom M3 colour schemes"
 url: "/docs/how-to/creating-material-3-colour-scheme"
+doc-id: creating-material-3-colour-scheme
+state: Live
+date-created: 2026-09-08
 ---
 
 

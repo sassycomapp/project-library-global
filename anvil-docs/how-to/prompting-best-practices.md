@@ -1,6 +1,9 @@
 ---
 title: "Prompting best practices"
 url: "/docs/how-to/prompting-best-practices"
+doc-id: prompting-best-practices
+state: Live
+date-created: 2026-09-08
 ---
 
 

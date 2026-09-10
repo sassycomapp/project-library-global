@@ -1,6 +1,9 @@
 ---
 title: "Legacy Tables"
 url: "/docs/data-tables/legacy-tables"
+doc-id: legacy-tables
+state: Live
+date-created: 2026-09-08
 ---
 
 

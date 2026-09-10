@@ -1,6 +1,9 @@
 ---
 title: "Files, Media Objects and Binary Data"
 url: "/docs/other-concepts/working-with-files/media"
+doc-id: media-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

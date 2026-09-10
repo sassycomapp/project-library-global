@@ -1,6 +1,9 @@
 ---
 title: "Using Trexjacket"
 url: "/docs/integrations/x/trexjacket"
+doc-id: trexjacket
+state: Live
+date-created: 2026-09-08
 ---
 
 

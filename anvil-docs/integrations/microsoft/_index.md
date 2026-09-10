@@ -1,6 +1,9 @@
 ---
 title: "Microsoft"
 url: "/docs/integrations/microsoft"
+doc-id: microsoft-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

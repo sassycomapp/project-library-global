@@ -1,6 +1,9 @@
 ---
 title: "Microsoft SSO"
 url: "/docs/enterprise/deployment/prerequisites/microsoft"
+doc-id: microsoft
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "What is Version Control?"
 url: "/docs/workflows/version-control/what-is-version-control"
+doc-id: what-is-version-control
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Security and DKIM"
 url: "/docs/server/email/security-and-dkim"
+doc-id: security-and-dkim
+state: Live
+date-created: 2026-09-08
 ---
 
 

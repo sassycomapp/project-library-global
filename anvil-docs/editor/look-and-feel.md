@@ -1,6 +1,9 @@
 ---
 title: "Editor Look and Feel"
 url: "/docs/editor/look-and-feel"
+doc-id: look-and-feel
+state: Live
+date-created: 2026-09-08
 ---
 
 

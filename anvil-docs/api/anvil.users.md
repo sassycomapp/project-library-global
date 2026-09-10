@@ -1,6 +1,9 @@
 ---
 title: "anvil.users"
 url: "/docs/api/anvil.users"
+doc-id: anvil.users
+state: Live
+date-created: 2026-09-08
 ---
 
 

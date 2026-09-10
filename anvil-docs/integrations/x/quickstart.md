@@ -1,6 +1,9 @@
 ---
 title: "Quickstart"
 url: "/docs/integrations/x/quickstart"
+doc-id: x-quickstart
+state: Live
+date-created: 2026-09-08
 ---
 
 

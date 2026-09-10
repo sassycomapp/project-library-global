@@ -1,6 +1,9 @@
 ---
 title: "Workflows and Best Practices"
 url: "/docs/workflows"
+doc-id: workflows-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Scripts"
 url: "/docs/server/scripts"
+doc-id: scripts
+state: Live
+date-created: 2026-09-08
 ---
 
 

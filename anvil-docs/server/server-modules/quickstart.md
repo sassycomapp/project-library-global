@@ -1,6 +1,9 @@
 ---
 title: "Quickstart"
 url: "/docs/server/server-modules/quickstart"
+doc-id: server-modules-quickstart
+state: Live
+date-created: 2026-09-08
 ---
 
 

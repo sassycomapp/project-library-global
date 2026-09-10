@@ -1,6 +1,9 @@
 ---
 title: "Quickstart"
 url: "/docs/client/customisation/javascript/quickstart"
+doc-id: javascript-quickstart
+state: Live
+date-created: 2026-09-08
 ---
 
 

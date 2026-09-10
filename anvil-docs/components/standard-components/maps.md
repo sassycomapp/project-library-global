@@ -1,6 +1,9 @@
 ---
 title: "Maps"
 url: "/docs/components/standard-components/maps"
+doc-id: maps
+state: Live
+date-created: 2026-09-08
 ---
 
 

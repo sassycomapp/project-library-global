@@ -1,6 +1,9 @@
 ---
 title: "Deployment Environments"
 url: "/docs/deployment/environments"
+doc-id: environments-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

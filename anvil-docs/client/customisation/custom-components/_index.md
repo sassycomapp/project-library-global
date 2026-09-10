@@ -1,6 +1,9 @@
 ---
 title: "Custom Components"
 url: "/docs/client/customisation/custom-components"
+doc-id: custom-components-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

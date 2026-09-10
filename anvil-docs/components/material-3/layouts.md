@@ -1,6 +1,9 @@
 ---
 title: "Layouts"
 url: "/docs/components/material-3/layouts"
+doc-id: layouts
+state: Live
+date-created: 2026-09-08
 ---
 
 

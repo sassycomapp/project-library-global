@@ -1,6 +1,9 @@
 ---
 title: "Components"
 url: "/docs/components"
+doc-id: components-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

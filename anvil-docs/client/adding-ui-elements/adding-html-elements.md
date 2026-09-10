@@ -1,6 +1,9 @@
 ---
 title: "Adding HTML Elements"
 url: "/docs/client/adding-ui-elements/adding-html-elements"
+doc-id: adding-html-elements
+state: Live
+date-created: 2026-09-08
 ---
 
 

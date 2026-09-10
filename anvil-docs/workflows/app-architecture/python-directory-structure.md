@@ -1,6 +1,9 @@
 ---
 title: "Python Directory Structure"
 url: "/docs/workflows/app-architecture/python-directory-structure"
+doc-id: python-directory-structure
+state: Live
+date-created: 2026-09-08
 ---
 
 

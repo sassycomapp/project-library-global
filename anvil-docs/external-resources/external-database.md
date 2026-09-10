@@ -1,6 +1,9 @@
 ---
 title: "Accessing an External Database"
 url: "/docs/external-resources/external-database"
+doc-id: external-resources-external-database
+state: Live
+date-created: 2026-09-08
 ---
 
 

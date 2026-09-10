@@ -1,6 +1,9 @@
 ---
 title: "Events"
 url: "/docs/client/events"
+doc-id: events-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

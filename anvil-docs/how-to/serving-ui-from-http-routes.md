@@ -1,6 +1,9 @@
 ---
 title: "Serve your UI from HTTP routes"
 url: "/docs/how-to/serving-ui-from-http-routes"
+doc-id: serving-ui-from-http-routes
+state: Live
+date-created: 2026-09-08
 ---
 
 

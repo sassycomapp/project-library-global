@@ -1,6 +1,9 @@
 ---
 title: "HTMLComponent"
 url: "/docs/components/standard-components/html-component"
+doc-id: html-component
+state: Live
+date-created: 2026-09-08
 ---
 
 

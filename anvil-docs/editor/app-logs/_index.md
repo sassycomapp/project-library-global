@@ -1,6 +1,9 @@
 ---
 title: "App Logs"
 url: "/docs/editor/app-logs"
+doc-id: app-logs-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

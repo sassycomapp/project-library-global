@@ -1,6 +1,9 @@
 ---
 title: "Embedding Your App"
 url: "/docs/deployment/embedding-your-app"
+doc-id: embedding-your-app
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Using Plotly Express in Anvil"
 url: "/docs/how-to/plotly-express"
+doc-id: plotly-express
+state: Live
+date-created: 2026-09-08
 ---
 
 

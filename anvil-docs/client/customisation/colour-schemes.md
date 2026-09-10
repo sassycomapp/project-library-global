@@ -1,6 +1,9 @@
 ---
 title: "Colour Schemes"
 url: "/docs/client/customisation/colour-schemes"
+doc-id: colour-schemes
+state: Live
+date-created: 2026-09-08
 ---
 
 

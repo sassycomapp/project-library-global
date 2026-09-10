@@ -1,6 +1,9 @@
 ---
 title: "Buffering Changes"
 url: "/docs/data-tables/buffering"
+doc-id: buffering
+state: Live
+date-created: 2026-09-08
 ---
 
 

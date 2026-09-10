@@ -1,6 +1,9 @@
 ---
 title: "Quickstart"
 url: "/docs/external-resources/uplink/quickstart"
+doc-id: uplink-quickstart
+state: Live
+date-created: 2026-09-08
 ---
 
 

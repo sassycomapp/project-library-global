@@ -1,6 +1,9 @@
 ---
 title: "Modules"
 url: "/docs/client/client-code/modules"
+doc-id: modules
+state: Live
+date-created: 2026-09-08
 ---
 
 

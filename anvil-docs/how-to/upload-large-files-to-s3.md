@@ -1,6 +1,9 @@
 ---
 title: "Upload a large file directly to S3"
 url: "/docs/how-to/upload-large-files-to-s3"
+doc-id: upload-large-files-to-s3
+state: Live
+date-created: 2026-09-08
 ---
 
 

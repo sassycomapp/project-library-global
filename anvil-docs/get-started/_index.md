@@ -1,6 +1,9 @@
 ---
 title: "Get Started"
 url: "/docs/get-started"
+doc-id: get-started-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Coming from Scripts"
 url: "/docs/get-started/coming-from-scripting"
+doc-id: coming-from-scripting
+state: Live
+date-created: 2026-09-08
 ---
 
 

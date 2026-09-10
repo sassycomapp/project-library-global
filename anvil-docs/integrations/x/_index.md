@@ -1,6 +1,9 @@
 ---
 title: "Tableau Extensions with Anvil X"
 url: "/docs/integrations/x"
+doc-id: x-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

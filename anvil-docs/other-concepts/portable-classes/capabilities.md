@@ -1,6 +1,9 @@
 ---
 title: "Capabilities"
 url: "/docs/other-concepts/portable-classes/capabilities"
+doc-id: capabilities
+state: Live
+date-created: 2026-09-08
 ---
 
 

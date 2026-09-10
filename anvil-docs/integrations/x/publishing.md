@@ -1,6 +1,9 @@
 ---
 title: "Publishing your extension"
 url: "/docs/integrations/x/publishing"
+doc-id: publishing
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "K8s Prerequisites"
 url: "/docs/enterprise/deployment/kubernetes/k8s-prerequisites"
+doc-id: k8s-prerequisites
+state: Live
+date-created: 2026-09-08
 ---
 
 

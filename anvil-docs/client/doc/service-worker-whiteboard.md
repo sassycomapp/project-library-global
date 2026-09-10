@@ -1,3 +1,10 @@
+---
+document: "service-worker-whiteboard"
+doc-id: service-worker-whiteboard
+state: Live
+date-created: 2026-09-08
+---
+
 
 
 

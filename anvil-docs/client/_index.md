@@ -1,6 +1,9 @@
 ---
 title: "Building the Front-End"
 url: "/docs/client"
+doc-id: client-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

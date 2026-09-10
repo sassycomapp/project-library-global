@@ -1,3 +1,10 @@
+---
+document: "server_funcs"
+doc-id: server_funcs
+state: Live
+date-created: 2026-09-08
+---
+
 Server Calls
 ============
 get_app_tables:

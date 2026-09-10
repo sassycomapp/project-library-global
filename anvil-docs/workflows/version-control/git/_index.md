@@ -1,6 +1,9 @@
 ---
 title: "Connecting to GitHub and Git Remotes"
 url: "/docs/workflows/version-control/git"
+doc-id: git-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

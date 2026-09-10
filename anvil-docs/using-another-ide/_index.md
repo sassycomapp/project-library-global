@@ -1,6 +1,9 @@
 ---
 title: "Using Anvil in a Local IDE"
 url: "/docs/using-another-ide"
+doc-id: using-another-ide-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 # [Using Anvil from a Local IDE](#using-anvil-from-a-local-ide)

@@ -1,6 +1,9 @@
 ---
 title: "Quickstart"
 url: "/docs/integrations/saml/quickstart"
+doc-id: saml-quickstart
+state: Live
+date-created: 2026-09-08
 ---
 
 

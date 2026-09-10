@@ -1,6 +1,9 @@
 ---
 title: "Layouts"
 url: "/docs/client/forms/layouts"
+doc-id: layouts-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

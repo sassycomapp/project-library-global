@@ -1,6 +1,9 @@
 ---
 title: "anvil.media"
 url: "/docs/api/anvil.media"
+doc-id: anvil.media
+state: Live
+date-created: 2026-09-08
 ---
 
 

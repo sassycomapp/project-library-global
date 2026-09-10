@@ -1,6 +1,9 @@
 ---
 title: "Layouts from HTML"
 url: "/docs/client/forms/layouts/html-layouts"
+doc-id: html-layouts
+state: Live
+date-created: 2026-09-08
 ---
 
 

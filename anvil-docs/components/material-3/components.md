@@ -1,6 +1,9 @@
 ---
 title: "Components"
 url: "/docs/components/material-3/components"
+doc-id: components
+state: Live
+date-created: 2026-09-08
 ---
 
 

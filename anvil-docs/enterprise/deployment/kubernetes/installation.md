@@ -1,6 +1,9 @@
 ---
 title: "Installation"
 url: "/docs/enterprise/deployment/kubernetes/installation"
+doc-id: installation
+state: Live
+date-created: 2026-09-08
 ---
 
 

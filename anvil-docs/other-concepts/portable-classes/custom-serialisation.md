@@ -1,6 +1,9 @@
 ---
 title: "Custom Serialisation"
 url: "/docs/other-concepts/portable-classes/custom-serialisation"
+doc-id: custom-serialisation
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Quickstart: Login"
 url: "/docs/users/quickstart-login"
+doc-id: quickstart-login
+state: Live
+date-created: 2026-09-08
 ---
 
 

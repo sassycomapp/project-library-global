@@ -1,6 +1,9 @@
 ---
 title: "Sending and Receiving"
 url: "/docs/server/email/sending-and-receiving"
+doc-id: sending-and-receiving
+state: Live
+date-created: 2026-09-08
 ---
 
 

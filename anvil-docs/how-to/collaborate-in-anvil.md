@@ -1,6 +1,9 @@
 ---
 title: "Collaborate as a team in Anvil"
 url: "/docs/how-to/collaborate-in-anvil"
+doc-id: collaborate-in-anvil
+state: Live
+date-created: 2026-09-08
 ---
 
 

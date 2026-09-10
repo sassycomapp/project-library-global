@@ -1,6 +1,9 @@
 ---
 title: "Quickstart"
 url: "/docs/integrations/microsoft/quickstart"
+doc-id: microsoft-quickstart
+state: Live
+date-created: 2026-09-08
 ---
 
 

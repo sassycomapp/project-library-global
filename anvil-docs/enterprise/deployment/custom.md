@@ -1,6 +1,9 @@
 ---
 title: "Custom Deployment"
 url: "/docs/enterprise/deployment/custom"
+doc-id: custom
+state: Live
+date-created: 2026-09-08
 ---
 
 

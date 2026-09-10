@@ -1,6 +1,9 @@
 ---
 title: "anvil.facebook.auth"
 url: "/docs/api/anvil.facebook.auth"
+doc-id: anvil.facebook.auth
+state: Live
+date-created: 2026-09-08
 ---
 
 

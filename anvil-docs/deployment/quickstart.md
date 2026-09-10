@@ -1,6 +1,9 @@
 ---
 title: "Quickstart"
 url: "/docs/deployment/quickstart"
+doc-id: deployment-quickstart
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Deployment"
 url: "/docs/enterprise/deployment"
+doc-id: enterprise-deployment-index
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Managing your Anvil account"
 url: "/docs/plans-and-accounts/account-management"
+doc-id: account-management
+state: Live
+date-created: 2026-09-08
 ---
 
 

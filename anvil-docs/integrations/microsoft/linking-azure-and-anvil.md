@@ -1,6 +1,9 @@
 ---
 title: "Connecting Entra ID to Anvil"
 url: "/docs/integrations/microsoft/linking-azure-and-anvil"
+doc-id: linking-azure-and-anvil
+state: Live
+date-created: 2026-09-08
 ---
 
 

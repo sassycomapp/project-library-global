@@ -1,6 +1,9 @@
 ---
 title: "SQL Access"
 url: "/docs/data-tables/sql-access"
+doc-id: sql-access
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Workflows"
 url: "/docs/workflows/version-control/workflows"
+doc-id: workflows
+state: Live
+date-created: 2026-09-08
 ---
 
 

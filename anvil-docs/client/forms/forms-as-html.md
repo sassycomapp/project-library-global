@@ -1,6 +1,9 @@
 ---
 title: "Forms as HTML"
 url: "/docs/client/forms/forms-as-html"
+doc-id: forms-as-html
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "The Form Editor"
 url: "/docs/editor/form-editor"
+doc-id: form-editor
+state: Live
+date-created: 2026-09-08
 ---
 
 

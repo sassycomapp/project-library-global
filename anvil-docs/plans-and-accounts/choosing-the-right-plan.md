@@ -1,6 +1,9 @@
 ---
 title: "Choosing The Right Plan"
 url: "/docs/plans-and-accounts/choosing-the-right-plan"
+doc-id: choosing-the-right-plan
+state: Live
+date-created: 2026-09-08
 ---
 
 

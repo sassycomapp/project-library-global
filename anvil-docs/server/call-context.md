@@ -1,6 +1,9 @@
 ---
 title: "Call Context"
 url: "/docs/server/call-context"
+doc-id: call-context
+state: Live
+date-created: 2026-09-08
 ---
 
 

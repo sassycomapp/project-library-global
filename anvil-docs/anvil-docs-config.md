@@ -1,3 +1,10 @@
+---
+document: "anvil-docs — Configuration"
+doc-id: anvil-docs-config
+state: Live
+date-created: 2026-09-08
+---
+
 # anvil-docs — Configuration
 
 Canonical current-state configuration record for the anvil-docs corpus.

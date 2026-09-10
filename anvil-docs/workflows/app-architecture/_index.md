@@ -1,6 +1,9 @@
 ---
 title: "Anvil App Architecture"
 url: "/docs/workflows/app-architecture"
+doc-id: app-architecture-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "App Secrets across Repos"
 url: "/docs/workflows/version-control/git/secrets-across-repos"
+doc-id: secrets-across-repos
+state: Live
+date-created: 2026-09-08
 ---
 
 

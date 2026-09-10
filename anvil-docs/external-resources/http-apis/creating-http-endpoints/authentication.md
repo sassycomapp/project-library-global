@@ -1,6 +1,9 @@
 ---
 title: "Authentication"
 url: "/docs/external-resources/http-apis/creating-http-endpoints/authentication"
+doc-id: authentication
+state: Live
+date-created: 2026-09-08
 ---
 
 

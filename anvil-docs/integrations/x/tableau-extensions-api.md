@@ -1,6 +1,9 @@
 ---
 title: "Using the Extensions API"
 url: "/docs/integrations/x/tableau-extensions-api"
+doc-id: tableau-extensions-api
+state: Live
+date-created: 2026-09-08
 ---
 
 

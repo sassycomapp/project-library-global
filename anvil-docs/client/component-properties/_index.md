@@ -1,6 +1,9 @@
 ---
 title: "Component Properties"
 url: "/docs/client/component-properties"
+doc-id: component-properties-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

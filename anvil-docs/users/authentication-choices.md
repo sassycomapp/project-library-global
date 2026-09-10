@@ -1,6 +1,9 @@
 ---
 title: "Authentication Choices"
 url: "/docs/users/authentication-choices"
+doc-id: authentication-choices
+state: Live
+date-created: 2026-09-08
 ---
 
 

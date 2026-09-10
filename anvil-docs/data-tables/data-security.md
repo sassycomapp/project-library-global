@@ -1,6 +1,9 @@
 ---
 title: "Data Security"
 url: "/docs/data-tables/data-security"
+doc-id: data-security
+state: Live
+date-created: 2026-09-08
 ---
 
 

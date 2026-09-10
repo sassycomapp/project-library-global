@@ -1,6 +1,9 @@
 ---
 title: "Forms in the Editor"
 url: "/docs/client/forms/forms-in-the-editor"
+doc-id: forms-in-the-editor
+state: Live
+date-created: 2026-09-08
 ---
 
 

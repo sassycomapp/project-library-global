@@ -1,6 +1,9 @@
 ---
 title: "Communicating with Background Tasks"
 url: "/docs/server/background-tasks/communicating-back"
+doc-id: communicating-back
+state: Live
+date-created: 2026-09-08
 ---
 
 

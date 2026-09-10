@@ -1,6 +1,9 @@
 ---
 title: "Plans and Accounts"
 url: "/docs/plans-and-accounts"
+doc-id: plans-and-accounts-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

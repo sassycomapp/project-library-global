@@ -1,6 +1,9 @@
 ---
 title: "anvil.GoogleMap"
 url: "/docs/api/anvil.googlemap"
+doc-id: anvil.googlemap
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Accessing JavaScript"
 url: "/docs/client/customisation/javascript/accessing-javascript"
+doc-id: accessing-javascript
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Alerts and Notifications"
 url: "/docs/client/adding-ui-elements/alerts-and-notifications"
+doc-id: alerts-and-notifications
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Connecting Your Account"
 url: "/docs/ai/connecting-your-account"
+doc-id: connecting-your-account
+state: Live
+date-created: 2026-09-08
 ---
 
 

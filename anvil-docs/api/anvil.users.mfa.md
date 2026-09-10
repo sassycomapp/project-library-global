@@ -1,6 +1,9 @@
 ---
 title: "anvil.users.mfa"
 url: "/docs/api/anvil.users.mfa"
+doc-id: anvil.users.mfa
+state: Live
+date-created: 2026-09-08
 ---
 
 

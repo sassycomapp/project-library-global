@@ -1,6 +1,9 @@
 ---
 title: "Google Cloud"
 url: "/docs/how-to/app-server/cloud-deployment-guides/google-cloud-app-server-deployment"
+doc-id: google-cloud-app-server-deployment
+state: Live
+date-created: 2026-09-08
 ---
 
 

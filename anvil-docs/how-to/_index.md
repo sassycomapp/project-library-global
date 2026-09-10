@@ -1,6 +1,9 @@
 ---
 title: "How-to Guides"
 url: "/docs/how-to"
+doc-id: how-to-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

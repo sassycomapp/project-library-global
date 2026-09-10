@@ -1,6 +1,9 @@
 ---
 title: "Building the Backend"
 url: "/docs/server"
+doc-id: server-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

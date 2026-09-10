@@ -1,3 +1,10 @@
+---
+document: "Creating Anvil apps locally"
+doc-id: creating-and-editing-apps
+state: Live
+date-created: 2026-09-08
+---
+
 # Creating Anvil apps locally
 
 You can create and edit Anvil apps locally using your favourite Text Editor. Follow this how-to guide to create and run a template Anvil app on your own machine.

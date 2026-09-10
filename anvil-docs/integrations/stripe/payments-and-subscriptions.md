@@ -1,6 +1,9 @@
 ---
 title: "Payments and Subscriptions"
 url: "/docs/integrations/stripe/payments-and-subscriptions"
+doc-id: payments-and-subscriptions
+state: Live
+date-created: 2026-09-08
 ---
 
 

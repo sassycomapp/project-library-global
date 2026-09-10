@@ -1,6 +1,9 @@
 ---
 title: "anvil.email"
 url: "/docs/api/anvil.email"
+doc-id: anvil.email
+state: Live
+date-created: 2026-09-08
 ---
 
 

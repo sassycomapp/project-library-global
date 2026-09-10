@@ -1,6 +1,9 @@
 ---
 title: "AI Agents in Anvil"
 url: "/docs/ai"
+doc-id: ai-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

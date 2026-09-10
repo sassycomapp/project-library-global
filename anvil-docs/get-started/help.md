@@ -1,6 +1,9 @@
 ---
 title: "How to get help"
 url: "/docs/get-started/help"
+doc-id: help
+state: Live
+date-created: 2026-09-08
 ---
 
 

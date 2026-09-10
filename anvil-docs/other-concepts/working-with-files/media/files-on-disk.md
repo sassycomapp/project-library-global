@@ -1,6 +1,9 @@
 ---
 title: "Files on Disk"
 url: "/docs/other-concepts/working-with-files/media/files-on-disk"
+doc-id: files-on-disk
+state: Live
+date-created: 2026-09-08
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 title: "Coming from Streamlit"
 url: "/docs/get-started/coming-from-streamlit"
+doc-id: coming-from-streamlit
+state: Live
+date-created: 2026-09-08
 ---
 
 

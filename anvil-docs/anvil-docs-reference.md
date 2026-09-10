@@ -1,3 +1,10 @@
+---
+document: "anvil-docs — Reference: Navigation, Verification, Maintenance"
+doc-id: anvil-docs-reference
+state: Live
+date-created: 2026-09-08
+---
+
 # anvil-docs — Reference: Navigation, Verification, Maintenance
 
 Companion to `anvil-docs-config.md` (current state, open items) and

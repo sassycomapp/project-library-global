@@ -1,6 +1,9 @@
 ---
 title: "Form Templates"
 url: "/docs/client/forms/form-templates"
+doc-id: form-templates
+state: Live
+date-created: 2026-09-08
 ---
 
 

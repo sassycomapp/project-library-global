@@ -1,6 +1,9 @@
 ---
 title: "Uplink for Pico W"
 url: "/docs/external-resources/uplink/pico"
+doc-id: pico
+state: Live
+date-created: 2026-09-08
 ---
 
 

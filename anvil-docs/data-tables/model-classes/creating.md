@@ -1,6 +1,9 @@
 ---
 title: "Creating Model Classes"
 url: "/docs/data-tables/model-classes/creating"
+doc-id: creating
+state: Live
+date-created: 2026-09-08
 ---
 
 

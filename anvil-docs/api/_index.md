@@ -1,6 +1,9 @@
 ---
 title: "API Reference"
 url: "/docs/api"
+doc-id: api-_index
+state: Live
+date-created: 2026-09-08
 ---
 
 

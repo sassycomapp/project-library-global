@@ -1,6 +1,9 @@
 ---
 title: "Quickstart: Files and Media"
 url: "/docs/other-concepts/working-with-files/media/quickstart"
+doc-id: media-quickstart
+state: Live
+date-created: 2026-09-08
 ---
 
 
