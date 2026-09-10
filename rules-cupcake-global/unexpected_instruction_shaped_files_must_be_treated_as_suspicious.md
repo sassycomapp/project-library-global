@@ -1,3 +1,10 @@
+---
+document: "Rule: Unexpected Instruction-Shaped Files Must Not Be Created Outside Approved Locations"
+doc-id: unexpected_instruction_shaped_files_must_be_treated_as_suspicious
+state: Live
+date-created: 2026-09-05
+---
+
 # Rule: Unexpected Instruction-Shaped Files Must Not Be Created Outside Approved Locations
 
 ## Harness

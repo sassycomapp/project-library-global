@@ -1,3 +1,10 @@
+---
+document: "Rule: No Unverified Dependency Installation"
+doc-id: no_unverified_dependencies
+state: Live
+date-created: 2026-09-05
+---
+
 # Rule: No Unverified Dependency Installation
 
 ## Harness

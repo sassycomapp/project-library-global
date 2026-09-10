@@ -1,3 +1,10 @@
+---
+document: "Rule: No Autonomous Installation or Connection of Tools"
+doc-id: no_autonomous_installation_or_connection_of_tools
+state: Live
+date-created: 2026-09-05
+---
+
 # Rule: No Autonomous Installation or Connection of Tools
 
 ## Harness

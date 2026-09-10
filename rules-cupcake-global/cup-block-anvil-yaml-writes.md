@@ -1,3 +1,10 @@
+---
+document: "Rule: Block Writes to anvil.yaml"
+doc-id: cup-block-anvil-yaml-writes
+state: Live
+date-created: 2026-09-05
+---
+
 # Rule: Block Writes to anvil.yaml
 
 ## Harness

@@ -1,3 +1,10 @@
+---
+document: "Rule: No Autonomous Commits, Pushes, Merges, Releases, or Deployments"
+doc-id: no_autonomous_commits_pushes_merges_releases_or_deployments
+state: Live
+date-created: 2026-09-05
+---
+
 # Rule: No Autonomous Commits, Pushes, Merges, Releases, or Deployments
 
 ## Harness

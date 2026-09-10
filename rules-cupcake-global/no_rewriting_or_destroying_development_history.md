@@ -1,3 +1,10 @@
+---
+document: "Rule: No Rewriting or Destroying Development History"
+doc-id: no_rewriting_or_destroying_development_history
+state: Live
+date-created: 2026-09-05
+---
+
 # Rule: No Rewriting or Destroying Development History
 
 ## Harness

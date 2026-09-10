@@ -1,3 +1,10 @@
+---
+document: "Rule: No Cross-Project Filesystem Access by Default"
+doc-id: no_cross_project_filesystem_access_by_default
+state: Live
+date-created: 2026-09-05
+---
+
 # Rule: No Cross-Project Filesystem Access by Default
 
 ## Harness

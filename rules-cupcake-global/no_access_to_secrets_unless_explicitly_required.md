@@ -1,3 +1,10 @@
+---
+document: "Rule: No Access to Known Secret Files Unless Explicitly Required"
+doc-id: no_access_to_secrets_unless_explicitly_required
+state: Live
+date-created: 2026-09-05
+---
+
 # Rule: No Access to Known Secret Files Unless Explicitly Required
 
 ## Harness

@@ -1,3 +1,10 @@
+---
+document: "Rule: No Destructive Database Operations"
+doc-id: no_destructive_database_operations
+state: Live
+date-created: 2026-09-05
+---
+
 # Rule: No Destructive Database Operations
 
 ## Harness

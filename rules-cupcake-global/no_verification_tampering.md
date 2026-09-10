@@ -1,3 +1,10 @@
+---
+document: "Rule: No Verification Tampering"
+doc-id: no_verification_tampering
+state: Live
+date-created: 2026-09-05
+---
+
 # Rule: No Verification Tampering
 
 ## Harness

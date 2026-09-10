@@ -1,3 +1,10 @@
+---
+document: "Rule: Outbound Network Access Is Allowlist-Only"
+doc-id: outbound_network_access_is_allowlist_only
+state: Live
+date-created: 2026-09-05
+---
+
 # Rule: Outbound Network Access Is Allowlist-Only
 
 ## Harness
