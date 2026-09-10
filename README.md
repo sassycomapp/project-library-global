@@ -1,3 +1,10 @@
+---
+document: "project-library-global"
+doc-id: README
+state: Live
+date-created: 2026-08-16
+---
+
 # project-library-global
 
 Shared standards library, referenced by every Mybizz project — global ADRs, policies,
