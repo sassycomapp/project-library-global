@@ -19,8 +19,38 @@ date-created: 2026-07-25T150027+0200
 | ADR files | `{adr}-{kebab-case-name}.md` | `adr-brevo-replaces-zoho-email.md` |
 | ADR files (superseded) | `{adr}-{kebab-case-name}.md` with `[Superseded]` on line 2 | `13-system-currency-setting.md` |
 | ADR files (cancelled) | `{adr}-cancelled-{kebab-case-name}.md` | `025-cancelled-onboarding-finality.md` |
-| Wireframe files | `wireframe-{package}-{FormName}.html` | `wireframe-settings-SettingsForm.html` |
 | Custom component wireframes | `wireframe-custom-component-{ComponentName}.html` | `wireframe-custom-component-ClauseBuilder.html` |
+
+### UI Form Folder Nomenclature (formalized 2026-09-10)
+
+Every form folder under `{slug}-project-library\ui\{package}\{FormName}\` carries exactly six
+files — three authored documents and three derived renderings — named by the locked UI
+convention below. This convention is the single standard for the UI tree, applied
+consistently; folder-prefixed variants (`checklist-{package}-{FormName}.md`,
+`wireframe-{package}-{FormName}.html`) are retired.
+
+**Authored documents (markdown, carry front matter):**
+
+| Element | Pattern | Example |
+|---|---|---|
+| Wireframe definition | `{FormName}-wireframe-definition.md` | `LoginForm-wireframe-definition.md` |
+| Wireframe checklist | `{FormName}-wireframe-chklist.md` | `LoginForm-wireframe-chklist.md` |
+| Screen checklist | `{FormName}-screen-chklist.md` | `LoginForm-screen-chklist.md` |
+
+**Derived renderings (no front matter — register row is their identity):**
+
+| Element | Pattern | Example |
+|---|---|---|
+| Wireframe rendering | `{FormName}-wireframe.html` | `LoginForm-wireframe.html` |
+| Screen rendering | `{FormName}-screen.html` | `LoginForm-screen.html` |
+| Screen capture | `{FormName}-screen.png` | `LoginForm-screen.png` |
+
+**Sub-forms / row templates** nest one folder deeper and repeat the same patterns with the
+full qualified stem: `{FormName}{SubForm}-{kind}` (e.g.
+`RevenueReportForm-RowTemplate-screen-chklist.md`). The stem is always the form name first;
+kind prefixes (`checklist-`, `wireframe-` before the form name) are retired by this
+specification. Register rows carry the same identity; html/png identity lives in the register
+(a format cannot carry front matter).
 
 ---
 
