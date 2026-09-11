@@ -68,7 +68,7 @@ Visual references: `wireframes/wireframe-settings-VaultForm.html`, `screens/scre
 
 ## 5. Build Sequence (mb-3-cs)
 
-Built in Phase 1, Stage 1.5 of `docs/build-plan.md`, after authentication and settings (Stages 1.0–1.4). Phase 2 (payments, bookings, services) depends on the Vault being functional first.
+Built in Phase 1, Stage 1.5 of `[[build-plan]]`, after authentication and settings (Stages 1.0–1.4). Phase 2 (payments, bookings, services) depends on the Vault being functional first.
 
 ### Deliverables
 - `vault` Data Table with encrypted secrets storage
@@ -114,9 +114,9 @@ If the Owner loses their TOTP device, the following recovery path applies:
 | [[adr-mybizz-management-visibility|Mybizz Management Visibility]] | Vault access event forwarding |
 | [[spec-security-architecture|Security Architecture Specification]] | RBAC role limits, token security, regulatory posture |
 | `docs/DESIGN.md` | VaultForm design specification |
-| `docs/build-plan.md` | Stage 1.5: The Vault |
-| `docs/scaffold-spec.md` | File/folder structure for vault components |
-| `docs/authoritative-schema.md` | `vault` Data Table schema |
+| `[[build-plan]]` | Stage 1.5: The Vault |
+| `[[scaffold-spec]]` | File/folder structure for vault components |
+| `[[authoritative-schema]]` | `vault` Data Table schema |
 | [[spec-testing|Testing Specification]] | Vault test scenarios |
 | [[spec-client-activation-runbook|Client Activation Runbook]] | Client provisioning — Vault setup steps |
 

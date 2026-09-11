@@ -57,7 +57,7 @@ Onboarding is **resumable and revisitable**. The Owner may return to the onboard
 7. **System Currency is immutable after first transaction** — selected in onboarding, locked after first transaction **[[adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]]**
 8. **Payment gateway is configured in Settings** — RBAC-governed, not part of onboarding **[[adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed|Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed]]**
 9. **Palette selection is in Settings** — Onboarding has a button to jump to Settings → Palette tab **[[adr-onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]]**
-10. **Table and field names match `authoritative-schema.md`** — `business_profile` (with underscore) **[[adr-onboarding-data-schema-alignment|Onboarding Data Schema Alignment]]**
+10. **Table and field names match `[[authoritative-schema]]`** — `business_profile` (with underscore) **[[adr-onboarding-data-schema-alignment|Onboarding Data Schema Alignment]]**
 
 ---
 
@@ -316,7 +316,7 @@ business_profile:
 
 ## 7. Data Table Changes Required
 
-> **Note:** All table and field names match `authoritative-schema.md`. `business_profile` (with underscore) is used throughout. **[[adr-onboarding-data-schema-alignment|Onboarding Data Schema Alignment]]**
+> **Note:** All table and field names match `[[authoritative-schema]]`. `business_profile` (with underscore) is used throughout. **[[adr-onboarding-data-schema-alignment|Onboarding Data Schema Alignment]]**
 
 ### 7.1 business_profile Table Additions
 

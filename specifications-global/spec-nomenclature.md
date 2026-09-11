@@ -16,7 +16,7 @@ date-created: 2026-07-25T150027+0200
 |---|---|---|
 | Folders | PascalCase | `ServerAuth`, `ContactListForm` |
 | Files | lowercase_with_underscores.ext | `backup_strategy_analysis.md` |
-| ADR files | `{adr}-{kebab-case-name}.md` | `adr-brevo-replaces-zoho-email.md` |
+| ADR files | `{adr}-{kebab-case-name}.md` | `[[adr-brevo-replaces-zoho-email]]` |
 | ADR files (superseded) | `{adr}-{kebab-case-name}.md` with `[Superseded]` on line 2 | `13-system-currency-setting.md` |
 | ADR files (cancelled) | `{adr}-cancelled-{kebab-case-name}.md` | `025-cancelled-onboarding-finality.md` |
 | Custom component wireframes | `wireframe-custom-component-{ComponentName}.html` | `wireframe-custom-component-ClauseBuilder.html` |

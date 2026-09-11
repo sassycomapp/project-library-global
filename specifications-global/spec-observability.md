@@ -10,7 +10,7 @@ date-created: 2026-07-25T150027+0200
 **Scope:** Project-agnostic. Applies to any Anvil.works project requiring structured observability
 using strictly Anvil-native facilities — no external monitoring infrastructure (Prometheus,
 Grafana, Datadog).
-**Source:** Extracted from mb-3-cs `observability-requirements.md`. Patterns validated against
+**Source:** Extracted from mb-3-cs `[[observability-requirements]]`. Patterns validated against
 Anvil.works platform constraints.
 
 ---

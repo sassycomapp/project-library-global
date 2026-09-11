@@ -6,7 +6,7 @@ date-created: 2026-07-25T150027+0200
 ---
 # Client Instance Activation Runbook
 
-**Authority:** [[adr-client-instance-architecture|Client Instance Architecture]] ADR, [[adr-dependency-update-model|Dependency Update Model]] ADR, `blank-client-template` ADR, [[adr-mybizz-management-visibility|Mybizz Management Visibility]] ADR  
+**Authority:** [[adr-client-instance-architecture|Client Instance Architecture]] ADR, [[adr-dependency-update-model|Dependency Update Model]] ADR, `[[blank-client-template]]` ADR, [[adr-mybizz-management-visibility|Mybizz Management Visibility]] ADR  
 **Version:** 1.1 — 2026-06-13 (updated following Test B — startup module and form architecture confirmed)  
 **Applies to:** Every new client onboarding. No exceptions. Complete all steps in order.
 

@@ -8,7 +8,7 @@ date-created: 2026-07-25T150027+0200
 
 **Scope:** Mybizz-wide. Applies to every Mybizz product, not just this app. The specific app
 names/slugs below are placeholders — a given app's actual instance names live in that app's own
-`docs/platform-architecture.md`.
+`[[platform-architecture]]`.
 
 ---
 
