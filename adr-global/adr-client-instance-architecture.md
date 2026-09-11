@@ -106,7 +106,7 @@ open_form(MainForm())
 |---|---|
 | `platform-overview.md` | Section 7.4: Dependency app_tables Resolution — Verified |
 | [[adr-dependency-update-model|Dependency Update Model]] | How updates flow from mb-3-cs to client instances |
-| ``adr/adr-global/blank-client-template.md`` | The provisioning source for new client instances |
+| ``[[blank-client-templ]]`` | The provisioning source for new client instances |
 | `implementation/client-activation-runbook.md` | Step-by-step provisioning process |
 
 ---

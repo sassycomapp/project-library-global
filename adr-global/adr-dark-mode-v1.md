@@ -45,7 +45,7 @@ The following references to dark mode deferral are superseded by this ADR:
 |---|---|---|---|
 | `docs/DESIGN.md` | 87 | "Dark mode as the primary design target. (Dark mode is deferred to V2, not rejected.)" | **Superseded** |
 | `wip/anvil-ui-build-standard.md` | §8 | "Dark mode: Deferred from V1 to V2" | **Superseded** |
-| `docs/internal-standards-anvil-wireframe-conversion` | §4.2 | "Dark mode deferred from V1 design direction" | **Superseded** |
+| `[[internal-standards-anvil-wireframe-convers]]` | §4.2 | "Dark mode deferred from V1 design direction" | **Superseded** |
 
 ## Consequences
 

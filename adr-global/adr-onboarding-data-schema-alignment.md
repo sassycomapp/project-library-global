@@ -29,22 +29,22 @@ Without strict alignment:
 
 ### Current State
 
-The authoritative schema (`authoritative-schema.md`) defines the database structure. Onboarding must align with this schema.
+The authoritative schema (`[[authoritative-sch]]`) defines the database structure. Onboarding must align with this schema.
 
 ---
 
 ## Decision
 
-**All onboarding-related schema must align strictly with `authoritative-schema.md`.**
+**All onboarding-related schema must align strictly with `[[authoritative-sch]]`.**
 
-**`authoritative-schema.md` remains the sole source of truth for table and field structure.**
+**`[[authoritative-sch]]` remains the sole source of truth for table and field structure.**
 
 **No onboarding plan may invent substitute table names or client-side fields that conflict with the authoritative schema.**
 
 ### Architectural Rules
 
 1. **Schema Authority:**
-   - `authoritative-schema.md` is the sole source of truth
+   - `[[authoritative-sch]]` is the sole source of truth
    - All database structures must match this schema
    - No exceptions for onboarding or any other process
 
@@ -104,7 +104,7 @@ The authoritative schema (`authoritative-schema.md`) defines the database struct
 
 ## Related Documents
 
-- `authoritative-schema.md` — Sole source of truth for database schema
+- `[[authoritative-sch]]` — Sole source of truth for database schema
 - [[adr-onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]] — Onboarding scope definition
 - Database architecture documentation
 

@@ -131,8 +131,8 @@ The booking flow has 6+ steps, each potentially requiring a server call. To avoi
 | [[adr-client-instance-architecture|Client Instance Architecture]] | Forms live in client instances; server calls resolve to master_template |
 | [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] | Server call latency constraint driving batch design |
 | [[adr-data-access-patterns|Data Access Patterns and Query Limitations]] | Data access patterns used in form data loading |
-| `docs/architecture.md` | Section 5: Three-Tier Module Pattern; Section 6: Navigation Architecture |
-| `docs/user-flows.md` | §2: Services Appointment Booking; §3: Admin Daily Operations |
+| `[[architect]]` | Section 5: Three-Tier Module Pattern; Section 6: Navigation Architecture |
+| `[[user-fl]]` | §2: Services Appointment Booking; §3: Admin Daily Operations |
 
 ---
 

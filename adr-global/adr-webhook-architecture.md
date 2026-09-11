@@ -255,7 +255,7 @@ This ensures webhooks are never silently lost due to dispatch failures.
 |---|---|
 | [[adr-real-time-and-background-tasks|Real-Time and Background Tasks]] | Background task architecture and limits |
 | [[adr-mybizz-management-visibility|Mybizz Management Visibility]] | Error events pushed to Mybizz_management |
-| `integration-architecture.md` | Section 1: Payment Gateway Architecture; Section 3: Brevo CRM Integration |
+| `[[integration-architect]]` | Section 1: Payment Gateway Architecture; Section 3: Brevo CRM Integration |
 | `docs/client-activation-runbook.md` | §4.9: Webhook URL registration during provisioning |
 
 ---

@@ -12,7 +12,7 @@ Accepted
 
 ## Context
 
-`spec-component-properties.md` documents `HTMLTemplate` with a Designer-only `anvil_slot_repeat` property, implying sanctioned use. The wireframe research report found it in three actual wireframes:
+`[[spec-component-propert]]` documents `HTMLTemplate` with a Designer-only `anvil_slot_repeat` property, implying sanctioned use. The wireframe research report found it in three actual wireframes:
 
 1. `ServicesForm` — wrapping the TimeLapseCarouselComponent, for `position: relative, overflow: hidden`.
 2. `AdminLayout` — building an entire Layout shell from scratch.
@@ -44,7 +44,7 @@ In all three cases, a native alternative exists:
 
 | Document | Relationship |
 |---|---|
-| `docs/spec-component-properties.md` | Documents `HTMLTemplate` and its properties; superseded for this component |
+| `[[spec-component-propert]]` | Documents `HTMLTemplate` and its properties; superseded for this component |
 | [[adr-anvil-extras-exclusion|Anvil Extras Exclusion]] | Excludes third-party packages; this ADR extends the exclusion principle to `HTMLTemplate` |
 | [[adr-material-3-theme-component-scope|Material 3 Theme Component Scope]] | Defines permitted M3 components; `HTMLTemplate` is not among them |
 | [[adr-design-rules|Design Rules]] | Wireframe design rules; wireframes must not use `HTMLTemplate` |
