@@ -7,7 +7,7 @@ category: requirements
 ---
 # Requirement — New Data Table Creation
 
-Maps to Sentinel's own step-intensity table (`sentinel-security-system-plan.md` Section 9), Step 17 — High scrutiny: "What data exists? Who can access it? What isolation is required?"
+Maps to Sentinel's own step-intensity table (`the retired sentinel-security-system-plan.md` Section 9), Step 17 — High scrutiny: "What data exists? Who can access it? What isolation is required?"
 
 ## Applicable Threat
 
@@ -40,7 +40,7 @@ For each new Data Table, confirm items 1–4 above are each explicitly answered,
 
 ## Authoritative Sources
 
-- `sentinel-security-system-plan.md` Section 9 — Step 17
+- `the retired sentinel-security-system-plan.md` Section 9 — Step 17
 - `[[spec-security-architecture]]` §1, `[[spec-vault-system]]`, `[[sec-broken-access-control-within-instance]]`
 
 ## Known Exceptions

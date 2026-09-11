@@ -96,7 +96,7 @@ These are pricing/business-model constructs. They are separate from setup-servic
 
 ## Related Documents
 
-- `docs/platform-overview.md` — Current tier framing
+- `docs/the retired platform-overview.md` (retired) — Current tier framing
 - `[[positioning-strategy]]` — Pricing and business model
 - `implementation/onboarding-implementation-plan.md` — Onboarding flow
 

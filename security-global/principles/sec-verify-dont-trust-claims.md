@@ -13,7 +13,7 @@ A claim that something was checked, secured, or verified is not itself proof tha
 
 ## Real Precedent in This Project
 
-- `structural-compliance-enforcement-architecture-v3.md`'s own threat model names this directly: an agent can fabricate or assert compliance without it being true.
+- the retired `the retired structural-compliance-enforcement-architecture-v3.md`'s own threat model names this directly: an agent can fabricate or assert compliance without it being true.
 - `[[sec-ai-agent-introduced-vulnerabilities]]` — this exact failure mode named as the central reason Sentinel exists.
 - This session's own recurring practice: every real claim (a schema change, a successful push, a service being up) was checked directly — `git ls-remote`, `ss -tlnp`, a real query — not accepted from a success message alone.
 

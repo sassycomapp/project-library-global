@@ -217,7 +217,6 @@ def btn_next_click(self, **event_args):
 | `NavigationDrawerLayoutTemplate` | Not used in current architecture — see [[adr-navigation-lambda-link-open-form|Navigation Standard: Lambda/Link/open_form]] |
 | `navigate_to` for internal nav | Not used — see [[adr-navigation-lambda-link-open-form|Navigation Standard: Lambda/Link/open_form]] |
 | RichText | Use sparingly; not core M3 |
-| Legacy multi-vertical components | Removed under `9-multi-vertical-to-single-vertical-conversion.md` |
 | Material Web Components | Excluded — see [[adr-anvil-extras-exclusion|Anvil Extras Exclusion]] |
 | Material Web Components | Excluded — see [[adr-anvil-extras-exclusion|Anvil Extras Exclusion]] |
 | Material Web Components | Excluded — see [[adr-anvil-extras-exclusion|Anvil Extras Exclusion]] |
@@ -755,7 +754,6 @@ def process_email_campaigns():
 
 | Topic | Specification |
 |---|---|
-| ADR | `9-multi-vertical-to-single-vertical-conversion.md` |
 | Platform focus | Consulting & Services only |
 | Removed | E-commerce, Hospitality, Membership |
 
@@ -847,4 +845,4 @@ def process_email_campaigns():
 
 ---
 
-**Status:** Consolidated specification and methods reference aligned to active Mybizz Anvil methods, M3 standards, [[adr-navigation-lambda-link-open-form|Navigation Standard: Lambda/Link/open_form]] navigation, `9-multi-vertical-to-single-vertical-conversion.md` single-vertical scope, testing code of practice, startup pattern, packages/namespaces, Designer gotchas, uplink patterns, and background tasks.
+**Status:** Consolidated specification and methods reference aligned to active Mybizz Anvil methods, M3 standards, [[adr-navigation-lambda-link-open-form|Navigation Standard: Lambda/Link/open_form]] navigation, testing code of practice, startup pattern, packages/namespaces, Designer gotchas, uplink patterns, and background tasks.

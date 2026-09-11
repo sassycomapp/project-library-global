@@ -25,7 +25,7 @@ Treating the implementing agent's own stated confidence in its work as equivalen
 
 ## Implementation Guidance
 
-`/review`'s security specialist, already present at PDLF Step 37 per `sentinel-security-system-plan.md` Section 3, is confirmed under-used — actually invoking it for security-relevant changes is the concrete action this requirement calls for, not new infrastructure.
+`/review`'s security specialist, already present at PDLF Step 37 per `the retired sentinel-security-system-plan.md` Section 3, is confirmed under-used — actually invoking it for security-relevant changes is the concrete action this requirement calls for, not new infrastructure.
 
 ## Verification Requirements
 
@@ -33,7 +33,7 @@ For security-relevant changes, confirm a genuinely separate review (a different 
 
 ## Authoritative Sources
 
-- `sentinel-security-system-plan.md` Section 3 — `/review`'s security specialist, confirmed under-used
+- `the retired sentinel-security-system-plan.md` Section 3 — `/review`'s security specialist, confirmed under-used
 - Matt Pocock's `code-review` skill — the parallel-isolated-reviewer pattern
 
 ## Known Exceptions

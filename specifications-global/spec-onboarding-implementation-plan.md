@@ -98,7 +98,7 @@ Mybizz_management maintains three data tables for client records:
    - Never overwritten — always holds the latest values plus the full history
    - Outside the client instance scope but a system-level behaviour
 
-> **Note:** Mybizz_management is outside the scope of this project. The data architecture intention is recorded in `docs/platform-overview.md`.
+> **Note:** Mybizz_management is outside the scope of this project. The data architecture intention is recorded in `docs/the retired platform-overview.md`.
 
 ---
 

@@ -8,7 +8,7 @@ date-created: 2026-07-25T150027+0200
 
 **Status:** Confirmed  
 **Date:** 2026-06-13  
-**Authority:** Derived from platform-overview.md, [[adr-mybizz-management-visibility|Mybizz Management Visibility]] ADR, Anvil monitoring feature analysis
+**Authority:** Derived from the retired platform-overview.md, [[adr-mybizz-management-visibility|Mybizz Management Visibility]] ADR, Anvil monitoring feature analysis
 
 ---
 
@@ -106,7 +106,6 @@ Anvil's built-in observability tools are not replaced — they are complementary
 |---|---|
 | [[adr-payment-security-boundary-vault|Payment Security Boundary Vault]] | Audit log pattern (existing) extended by this ADR |
 | [[adr-mybizz-management-visibility|Mybizz Management Visibility]] | HTTP endpoint mechanism by which management queries client metrics |
-| `docs/platform-overview.md` | Section 9: The Vault; audit log referenced |
 
 ---
 

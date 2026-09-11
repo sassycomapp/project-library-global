@@ -53,7 +53,7 @@ primary need.
 **Anvil-specific prompt:** if this project has more than one user type, does it need
 role-based access control? If yes, that's a Non-Functional Requirement (Section 6) and an
 RBAC access matrix belongs in this project's own test plan, per
-`chk-anvil-app-testing.md` §5.
+the retired `the retired chk-anvil-app-testing.md` §5.
 
 ---
 
@@ -96,7 +96,6 @@ doesn't apply — don't leave a row blank without saying why.
 | Security | **[PROJECT]** — at minimum: does this project use Vault for credentials? TOTP step-up? | |
 | Accessibility | **[PROJECT]** | |
 | Availability | **[PROJECT]** — single Anvil account is a single point of failure; state if this is an accepted risk (see deployment-procedures SOP) | |
-| Access control (RBAC) | **[PROJECT]** — does this project have roles? If yes, every server function needs an auth decorator per `chk-anvil-app-testing.md` §5 | |
 | Timezone handling | **[PROJECT]** — default assumption: UTC storage, display-time conversion, per-instance IANA timezone. State if this project deviates. | |
 | Currency handling | **[PROJECT]** — default assumption: single system currency, immutable after first transaction. State if this project deviates. | |
 | Color/theming compliance | **[PROJECT]** — M3 theme + approved overlay, no hardcoded colors ([[AGENTS|AGENTS.md]] Hard Rule 2) — confirm no project-specific exception needed |

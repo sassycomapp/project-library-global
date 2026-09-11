@@ -25,7 +25,7 @@ No security-relevant code (anything touching auth, RBAC, payment, secrets, or cr
 ## Prohibited Pattern
 
 - Treating "the code runs and does the intended thing in the happy path" as equivalent to "the code is secure."
-- An agent asserting a security check was performed without a real, verifiable action behind that claim — this is a documented, real failure mode (see `structural-compliance-enforcement-architecture-v2.md`, Scope and Threat Model), not a hypothetical.
+- An agent asserting a security check was performed without a real, verifiable action behind that claim — this is a documented, real failure mode (see the retired `the retired structural-compliance-enforcement-architecture-v2.md`, Scope and Threat Model), not a hypothetical.
 
 ## Implementation Guidance
 
@@ -39,8 +39,8 @@ No security-relevant code (anything touching auth, RBAC, payment, secrets, or cr
 
 ## Authoritative Sources
 
-- `sentinel-security-system-plan.md` — Sentinel's own design and trigger model
-- `structural-compliance-enforcement-architecture-v2.md` — the broader problem of AI actions and claims not being independently verifiable by default
+- `the retired sentinel-security-system-plan.md` — Sentinel's own design and trigger model
+- the retired `the retired structural-compliance-enforcement-architecture-v2.md` — the broader problem of AI actions and claims not being independently verifiable by default
 
 ## Known Exceptions
 

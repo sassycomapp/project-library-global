@@ -16,19 +16,16 @@ from this register entirely — added below.
 | doc-id | filename | folder | type | state | notes |
 |---|---|---|---|---|---|
 | adr-anvil-extras-exclusion | adr-global/adr-anvil-extras-exclusion.md | adr-global | adr | Live |  |
-| adr-anvil-platform-constraints | adr-global/adr-anvil-platform-constraints.md | adr-global | adr | Live | Created 2026-06-14. Consolidated decisions from the "Issues to be resolved" section of platform-overview.md. |
 | adr-brevo-replaces-zoho-email | adr-global/adr-brevo-replaces-zoho-email.md | adr-global | adr | Live |  |
 | adr-client-data-management-rights-and-mybizz-retention-boundary | adr-global/adr-client-data-management-rights-and-mybizz-retention-boundary.md | adr-global | adr | Live |  |
 | adr-client-instance-architecture | adr-global/adr-client-instance-architecture.md | adr-global | adr | Live | Defines the dependency-based architecture. Confirmed by live testing (Test A: app_tables resolution, Test B: forms from dependency). Foundation for all data access patterns. |
 | adr-client-instance-readme-five-app-system | adr-global/adr-client-instance-readme-five-app-system.md | adr-global | adr | Live | Every client instance must contain a standardized README documenting the five-app architecture and the constraint against adding forms or modules directly to client instances. |
 | adr-dark-mode-v1 | adr-global/adr-dark-mode-v1.md | adr-global | adr | Live | Dark mode incorporated into V1. No longer deferred to V2. All screens require `@media (prefers-color-scheme: dark)` blocks. |
-| adr-data-access-patterns | adr-global/adr-data-access-patterns.md | adr-global | adr | Live | Created 2026-06-14. Consolidated decisions from the "Issues to be resolved" section of platform-overview.md. |
 | adr-dependency-based-not-multi-tenant | adr-global/adr-dependency-based-not-multi-tenant.md | adr-global | adr | Live | Definitive statement that Mybizz CS is a dependency-based SaaS platform, not a multi-tenant application. Prohibits tenant discriminator columns and tenant-filtered queries. |
 | adr-dependency-update-model | adr-global/adr-dependency-update-model.md | adr-global | adr | Live | Four-app update flow (mb-3-cs → master_template → client instances). Branch propagation confirmed. |
 | adr-filename-and-frontmatter-numbering-policy | adr-global/adr-filename-and-frontmatter-numbering-policy.md | adr-global | adr | Live | Files are not numbered anywhere in the scaffold (filenames or front matter); identity is the descriptive filename; references cite by filename. Exceptions: stepwise (inherently ordinal steps), quarantine/retired/archived historical material. |
 | adr-design-rules | adr-global/adr-design-rules.md | adr-global | adr | Live |  |
 | adr-dev-tooling-source-repos-must-be-github-backed | adr-global/adr-dev-tooling-source-repos-must-be-github-backed.md | adr-global | adr | Live | Grew out of a 2026-08-05 `gbrain doctor` root-cause investigation that found two PDLF-ecosystem sources (`pdlf`, `template-project-library`) as local-only working trees with no GitHub remote — the actual cause of a persistent `sync_freshness` failure and an unmanaged data-loss risk. Requires every dev-tooling source to be GitHub-backed: normal private repos for live tools, GitHub template repos for copy-to-start scaffolds. |
-| adr-form-architecture-and-state | adr-global/adr-form-architecture-and-state.md | adr-global | adr | Live | Created 2026-06-14. Consolidated decisions from the "Issues to be resolved" section of platform-overview.md. |
 | adr-free-trial-abandoned | adr-global/adr-free-trial-abandoned.md | adr-global | adr | Live |  |
 | adr-frontmatter-exemption-transient-files | adr-global/adr-frontmatter-exemption-transient-files.md | adr-global | adr | Live |  |
 | adr-htmltemplate-use | adr-global/adr-htmltemplate-use.md | adr-global | adr | Live | `HTMLTemplate` is banned. All current use cases have native M3 alternatives. Wireframes using it require reworking. |
@@ -47,16 +44,12 @@ from this register entirely — added below.
 | adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed | adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed.md | adr-global | adr | Live |  |
 | adr-payment-gateway-mutability | adr-global/adr-payment-gateway-mutability.md | adr-global | adr | Live |  |
 | adr-payment-security-boundary-vault | adr-global/adr-payment-security-boundary-vault.md | adr-global | adr | Live |  |
-| adr-pdf-invoice-generation | adr-global/adr-pdf-invoice-generation.md | adr-global | adr | Live | Created 2026-06-14. Consolidated decisions from the "Issues to be resolved" section of platform-overview.md. |
-| adr-real-time-and-background-tasks | adr-global/adr-real-time-and-background-tasks.md | adr-global | adr | Live | Created 2026-06-14. Consolidated decisions from the "Issues to be resolved" section of platform-overview.md. |
 | adr-responsive-behaviour-mechanism | adr-global/adr-responsive-behaviour-mechanism.md | adr-global | adr | Live | Resolves contradicting breakpoint models in design-direction.md. Responsive behaviour uses `wrap_on` per-container, not CSS breakpoint tables. Nav collapse is automatic and separate. |
 | adr-role-property-assignment-mechanism | adr-global/adr-role-property-assignment-mechanism.md | adr-global | adr | Live | Superseded. Original decision: set `role` via Designer Properties Panel. Reversed by project-wide property-setting rule: if a property can be set programmatically, it must be set programmatically. Current decision: set `role` in code (`self.component.role = "role-name"`). |
 | adr-single-contacts-table | adr-global/adr-single-contacts-table.md | adr-global | adr | Live |  |
 | adr-system-currency-selection-and-immutability | adr-global/adr-system-currency-selection-and-immutability.md | adr-global | adr | Live | Consolidated from original ADR-13 and ADR-16. Covers system currency, display currency, immutability enforcement, and currency conversion strategy. |
 | adr-tiers-model | adr-global/adr-tiers-model.md | adr-global | adr | Live |  |
 | adr-timezone-utc-storage-display-conversion | adr-global/adr-timezone-utc-storage-display-conversion.md | adr-global | adr | Live |  |
-| adr-ui-customization-approach | adr-global/adr-ui-customization-approach.md | adr-global | adr | Live | Created 2026-06-14. Consolidated decisions from the "Issues to be resolved" section of platform-overview.md. Partially superseded by [[adr-htmltemplate-use]] on layout components (native M3 Layouts are standard). M3+CSS customization approach for styling remains valid. |
-| adr-webhook-architecture | adr-global/adr-webhook-architecture.md | adr-global | adr | Live | Created 2026-06-14. Consolidated decisions from the "Issues to be resolved" section of platform-overview.md. |
 | docstd-business-requirements-document | docs-standard-global/docstd-business-requirements-document.md | docs-standard-global | guide | Live |  |
 | docstd-globals-contract | docs-standard-global/docstd-globals-contract.md | docs-standard-global | guide | Live |  |
 | docstd-product-requirements-document | docs-standard-global/docstd-product-requirements-document.md | docs-standard-global | guide | Live |  |

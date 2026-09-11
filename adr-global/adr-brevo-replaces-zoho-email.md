@@ -198,11 +198,10 @@ Zoho CRM without exception.
 
 ### Devref files
 
-- `@devref/brevo-email-reference.md` — to be updated to cover full Brevo scope
   including CRM, not just email. Full implementation detail, tier comparison, sender
   identity options, Vault credential structure, CRM API pattern, DKIM guidance,
   graceful degradation, and onboarding flow.
-- `@devref/zoho-crm-reference.md` — **retired and deleted**. This file was created
+- `@devref/the retired zoho-crm-reference.md` — **retired and deleted**. This file was created
   during the same session as this decision and was written before the full scope of
   the Zoho replacement was settled. It is incorrect and must not be used.
 

@@ -13,7 +13,7 @@ This environment spans two real, distinct filesystems — WSL's native Linux fil
 
 ## Security Requirement
 
-Per the native OpenCode permission system (`structural-compliance-enforcement-architecture-v3.md` Section 6.3): `external_directory` scoping is correctly configured and verified, not assumed, for every project.
+Per the native OpenCode permission system (the retired `the retired structural-compliance-enforcement-architecture-v3.md` Section 6.3): `external_directory` scoping is correctly configured and verified, not assumed, for every project.
 
 ## Approved Pattern
 
@@ -33,7 +33,7 @@ Attempt a file operation outside the intended project boundary; confirm it is bl
 
 ## Authoritative Sources
 
-- `structural-compliance-enforcement-architecture-v3.md` Section 6.3, Implementation Status — the real, already-performed live test
+- the retired `the retired structural-compliance-enforcement-architecture-v3.md` Section 6.3, Implementation Status — the real, already-performed live test
 
 ## Known Exceptions
 

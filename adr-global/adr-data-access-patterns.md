@@ -8,7 +8,7 @@ date-created: 2026-07-25T150027+0200
 
 **Status:** Approved  
 **Date:** 2026-06-14  
-**Authority:** Derived from platform-overview.md, `anvil-platform-constraints` ADR, authoritative-schema.md
+**Authority:** Derived from the retired platform-overview.md, `anvil-platform-constraints` ADR, authoritative-schema.md
 
 ---
 
@@ -151,7 +151,6 @@ These tables are populated by background tasks ([[adr-real-time-and-background-t
 | [[adr-client-instance-architecture|Client Instance Architecture]] | All data access is server-side |
 | [[adr-real-time-and-background-tasks|Real-Time and Background Tasks]] | Background tasks compute summary tables |
 | `[[authoritative-schema]]` | 36-table schema definition |
-| `docs/platform-overview.md` | Section 13: Data Architecture |
 
 ---
 

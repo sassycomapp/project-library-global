@@ -8,10 +8,10 @@ date-created: 2026-07-25T150027+0200
 
 **Location:** `C:\pdlf\standards-library\testing-methodology-standards.md`
 **Scope:** Project-agnostic testing method. Any project's specific test *plan* (which flows,
-which roles) is that project's own document (see `pdlf-testing-policy.md` Section 6 for the
+which roles) is that project's own document (see `the retired pdlf-testing-policy.md` Section 6 for the
 shape such a plan should take).
 **Source:** Extracted from `mb-3-cs` (testing-standards.md, test-specifications.md), generalized.
-**Relationship to `pdlf-testing-policy.md`:** that file is PDLF's own process reference, written
+**Relationship to `the retired pdlf-testing-policy.md`:** that file is PDLF's own process reference, written
 for the build loop (Step 16). This file is the underlying standard it's built on — kept separate
 so the standard itself is reusable outside PDLF's specific step numbering too.
 

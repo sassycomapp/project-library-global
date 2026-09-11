@@ -74,7 +74,6 @@ One row per requirement, each traceable to the PRD.
 
 | # | Requirement | Traces to PRD | Verification Method | Certainty |
 |---|---|---|---|---|
-| SR-1 | *Booking creation writes a row to the bookings table with status='confirmed' and triggers a confirmation email.* | FR-1 | *Level 2 Uplink test — see `chk-anvil-app-testing.md` §1* | [CLEAR] |
 | SR-2 | **[PROJECT]** | | | |
 
 **Enforcement, not just format:** every PRD functional requirement this SRS is meant to

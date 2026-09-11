@@ -8,7 +8,7 @@ date-created: 2026-07-25T150027+0200
 
 **Status:** Confirmed  
 **Date:** 2026-06-13  
-**Authority:** Derived from platform-overview.md, pricing model, Anvil free tier analysis
+**Authority:** Derived from the retired platform-overview.md, pricing model, Anvil free tier analysis
 
 ---
 
@@ -64,8 +64,7 @@ All paying clients receive a properly provisioned instance on the Anvil Business
 
 | Document | Relationship |
 |---|---|
-| `platform-overview.md` | Pricing and onboarding model |
-| `implementation/client-activation-runbook.md` | Provisioning process applies to all clients from day one |
+| `implementation/spec-client-activation-runbook.md` | Provisioning process applies to all clients from day one |
 
 ---
 

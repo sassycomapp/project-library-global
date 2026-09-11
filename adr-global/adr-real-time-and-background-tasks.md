@@ -8,7 +8,7 @@ date-created: 2026-07-25T150027+0200
 
 **Status:** Approved  
 **Date:** 2026-06-14  
-**Authority:** Derived from platform-overview.md, [[adr-observability-architecture|Observability Architecture]] ADR, [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR, integration-architecture.md
+**Authority:** Derived from the retired platform-overview.md, [[adr-observability-architecture|Observability Architecture]] ADR, [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR, integration-architecture.md
 
 ---
 
@@ -207,8 +207,7 @@ def process_webhook(event_id):
 | [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] | Background task limits and server call latency constraints |
 | [[adr-webhook-architecture|Webhook Architecture]] | Detailed webhook handling pattern |
 | `[[integration-architecture]]` | Section 4: Background Tasks (existing task inventory) |
-| `docs/platform-overview.md` | Section 5.7: Email & Campaigns (campaign enrollment task) |
-| `[[deployment-procedu]]` | Operational procedures for task failure recovery |
+| `[[deployment-procedures]]` | Operational procedures for task failure recovery |
 
 ---
 

@@ -40,7 +40,7 @@ For each new server function touching application data, confirm items 1–4 expl
 
 ## Authoritative Sources
 
-- `sentinel-security-system-plan.md` Section 9 — Step 35
+- `the retired sentinel-security-system-plan.md` Section 9 — Step 35
 - `[[sec-server-side-authority]]`, `[[sec-broken-access-control-within-instance]]`, `[[spec-vault-system]]`, `[[sec-secret-exposure-response]]`
 
 ## Known Exceptions

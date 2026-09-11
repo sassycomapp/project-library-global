@@ -8,7 +8,7 @@ date-created: 2026-07-25T150027+0200
 
 **Status:** Approved  
 **Date:** 2026-06-14  
-**Authority:** Derived from platform-overview.md, [[adr-navigation-lambda-link-open-form|Navigation Lambda/Link/open_form]] ADR, [[adr-client-instance-architecture|Client Instance Architecture]] ADR, [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR
+**Authority:** Derived from the retired platform-overview.md, [[adr-navigation-lambda-link-open-form|Navigation Lambda/Link/open_form]] ADR, [[adr-client-instance-architecture|Client Instance Architecture]] ADR, [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR
 
 ---
 

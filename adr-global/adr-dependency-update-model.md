@@ -8,7 +8,7 @@ date-created: 2026-07-25T150027+0200
 
 **Status:** Confirmed  
 **Date:** 2026-06-13  
-**Authority:** Derived from platform-overview.md, [[adr-client-instance-architecture|Client Instance Architecture]] ADR, Anvil documentation
+**Authority:** Derived from the retired platform-overview.md, [[adr-client-instance-architecture|Client Instance Architecture]] ADR, Anvil documentation
 
 ---
 
@@ -124,7 +124,7 @@ Branch-based update propagation has not yet been verified by live test. The foll
 | [[adr-client-instance-architecture|Client Instance Architecture]] | Defines what lives in client instance vs master_template |
 | ``[[blank-client-template]]`` | Provisioning clone source |
 | [[adr-free-trial-abandoned|30-Day Free Trial Abandoned]] | Trial model replaced; all clients on stable from day one |
-| `implementation/client-activation-runbook.md` | Includes dependency configuration step at provisioning |
+| `implementation/spec-client-activation-runbook.md` | Includes dependency configuration step at provisioning |
 
 ---
 

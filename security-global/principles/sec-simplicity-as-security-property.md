@@ -13,8 +13,8 @@ A simpler control that is correctly understood and consistently applied is more 
 
 ## Real Precedent in This Project
 
-- `sentinel-security-system-plan.md` Section 4: "five controls that genuinely work beats fifteen that don't" — the explicit, stated design principle behind the whole compliance architecture.
-- The sub-agent delegation resolution: eliminating the capability entirely, rather than attempting a more complex, only-partially-reliable monitoring scheme, per `structural-compliance-enforcement-architecture-v3.md` Section 6.1.
+- `the retired sentinel-security-system-plan.md` Section 4: "five controls that genuinely work beats fifteen that don't" — the explicit, stated design principle behind the whole compliance architecture.
+- The sub-agent delegation resolution: eliminating the capability entirely, rather than attempting a more complex, only-partially-reliable monitoring scheme, per the retired `the retired structural-compliance-enforcement-architecture-v3.md` Section 6.1.
 
 ## Why This Matters
 

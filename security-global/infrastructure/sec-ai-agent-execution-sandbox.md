@@ -13,7 +13,7 @@ The AI agent's own actions — which tools it can call, which sub-agents it can 
 
 ## Security Requirement
 
-Per `structural-compliance-enforcement-architecture-v3.md` Section 6.1: the `task` tool (the sole real mechanism for sub-agent creation) is denied globally, at three independent layers — native config, Cupcake policy hook, and a standing review habit for any new tool discovered to have the same capability.
+Per the retired `the retired structural-compliance-enforcement-architecture-v3.md` Section 6.1: the `task` tool (the sole real mechanism for sub-agent creation) is denied globally, at three independent layers — native config, Cupcake policy hook, and a standing review habit for any new tool discovered to have the same capability.
 
 ## Approved Pattern
 
@@ -33,7 +33,7 @@ Confirm `task` does not appear in the agent's visible tool set. Confirm any know
 
 ## Authoritative Sources
 
-- `structural-compliance-enforcement-architecture-v3.md` Section 6.1 — full three-layer design and its real, confirmed limitation (an unrecognized third-party spawn-tool name)
+- the retired `the retired structural-compliance-enforcement-architecture-v3.md` Section 6.1 — full three-layer design and its real, confirmed limitation (an unrecognized third-party spawn-tool name)
 
 ## Known Exceptions
 

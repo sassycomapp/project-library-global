@@ -8,7 +8,7 @@ date-created: 2026-07-25T150027+0200
 
 **Status:** Approved  
 **Date:** 2026-06-14  
-**Authority:** Derived from platform-overview.md, [[adr-real-time-and-background-tasks|Real-Time and Background Tasks]] ADR, integration-architecture.md
+**Authority:** Derived from the retired platform-overview.md, [[adr-real-time-and-background-tasks|Real-Time and Background Tasks]] ADR, integration-architecture.md
 
 ---
 

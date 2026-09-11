@@ -39,7 +39,7 @@ Confirm the architecture's own deliverable contains an explicit trust-boundary l
 
 ## Authoritative Sources
 
-- `sentinel-security-system-plan.md` Section 9 — Step 34
+- `the retired sentinel-security-system-plan.md` Section 9 — Step 34
 - `[[sec-explicit-responsibility-assignment]]`
 
 ## Known Exceptions

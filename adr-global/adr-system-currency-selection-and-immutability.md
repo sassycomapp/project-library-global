@@ -7,9 +7,9 @@ date-created: 2026-07-25T150027+0200
 # System Currency, Display Currency, and Immutability
 Date: 2026-05-29
 Status: Accepted
-Source: Consolidated from `013-system-currency-setting.md` and `016-system-currency-selection-and-immutability.md`
+Source: Consolidated from the retired numbered-era documents `013-system-currency-setting.md` and `016-system-currency-selection-and-immutability.md` (both superseded by this ADR)
 Updated: 2026-06-01 — Merged `system-currency-setting` ADR (deleted) (currency architecture, conversion strategy, schema changes) with `system-currency-selection-and-immutability` ADR (immutability enforcement, display currency separation)
-Supersedes: `013-system-currency-setting.md`
+Supersedes: the retired `013-system-currency-setting.md`
 
 ---
 

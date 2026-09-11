@@ -92,7 +92,7 @@ The question arose of what happens after onboarding is completed, whether the Ow
 - [[adr-payment-gateway-mutability|Payment Gateway Mutability]] — Gateway change rules
 - [[adr-onboarding-resumability|Onboarding Resumability]] — Progress preservation during onboarding
 - `implementation/onboarding-implementation-plan.md` — Settings-based onboarding implementation
-- `docs/platform-overview.md` — Mybizz_management data architecture intention
+- `docs/the retired platform-overview.md` (retired) — Mybizz_management data architecture intention
 
 ---
 

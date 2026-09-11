@@ -267,7 +267,6 @@ If you find an existing function that includes a `client_id`, `tenant_id`, or eq
 | [[adr-client-instance-architecture|Client Instance Architecture]] | Defines client instance structure and app_tables test |
 | [[adr-dependency-update-model|Dependency Update Model]] | How master_template updates reach all client instances |
 | ``[[blank-client-template]]`` | Provisioning — how client instances are created |
-| `docs/platform-establishment-report-2026-06-13.md` | Full architectural narrative and rationale |
 | `HANDOVER-opencode-2026-06-13.md` | Technical handover for OpenCode |
 
 ---

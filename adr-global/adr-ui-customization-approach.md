@@ -9,7 +9,7 @@ date-created: 2026-07-25T150027+0200
 **Status:** Superseded by [[adr-htmltemplate-use|HTMLTemplate Use]] ADR  
 **Date:** 2026-06-14  
 **Superseded:** 2026-06-28 — NavigationRailLayout/NavigationDrawerLayout are now used per [[adr-htmltemplate-use|HTMLTemplate Use]] ADR. The project policy is Anvil Material 3 Theme compliance; native M3 Layouts are the standard for layout shells.  
-**Authority:** Derived from platform-overview.md, [[adr-material-3-theme-component-scope|Material 3 Theme Component Scope]] ADR, [[adr-design-rules|Design Rules]] ADR
+**Authority:** Derived from the retired platform-overview.md, [[adr-material-3-theme-component-scope|Material 3 Theme Component Scope]] ADR, [[adr-design-rules|Design Rules]] ADR
 
 ---
 

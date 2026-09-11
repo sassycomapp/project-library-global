@@ -14,7 +14,7 @@ A preventive control stops a bad action before it happens. A detective control n
 ## Real Precedent in This Project
 
 - Cupcake policy and native permission config are preventive — they block a matching action before it executes.
-- `gbrain doctor`, Cupcake's Observability logging, and the compliance ledger are detective — they record or check after the fact, per `structural-compliance-enforcement-architecture-v3.md` Section 5's own classification table.
+- `gbrain doctor`, Cupcake's Observability logging, and the compliance ledger are detective — they record or check after the fact, per the retired `the retired structural-compliance-enforcement-architecture-v3.md` Section 5's own classification table.
 - `[[sec-audit-log-integrity]]` — logs are evidence for human review, never self-proving authorization.
 
 ## Why This Matters

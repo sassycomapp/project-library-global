@@ -8,7 +8,7 @@ date-created: 2026-07-25T150027+0200
 
 **Status:** Approved  
 **Date:** 2026-06-14  
-**Authority:** Derived from platform-overview.md, integration-architecture.md
+**Authority:** Derived from the retired platform-overview.md, integration-architecture.md
 
 ---
 
@@ -113,7 +113,6 @@ def generate_invoice_pdf(invoice_id):
 | [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] | Server-side only constraint; BlobMedia limits |
 | `[[integration-architecture]]` | Section 1: Payment Gateway Architecture (invoice trigger) |
 | `[[user-flows]]` | §3: Admin Daily Operations (invoice viewing) |
-| `docs/platform-overview.md` | Section 5.5: Payments & Invoicing |
 
 ---
 

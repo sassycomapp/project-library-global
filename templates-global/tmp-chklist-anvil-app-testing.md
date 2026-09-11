@@ -1,6 +1,6 @@
 # Checklist — Anvil App Testing Suite
 
-**Location:** `specifications-global\checklists-global\chk-anvil-app-testing.md`
+**Location:** `specifications-global\checklists-global\the retired chk-anvil-app-testing.md`
 
 **Scope:** Tests an Anvil.works application that `C:\pdlf` builds — any project (`mb3cons`,
 future projects), not PDLF itself. For testing PDLF's own orchestration, see
@@ -95,7 +95,7 @@ Per project with roles, at QA time.
 
 ---
 
-*chk-anvil-app-testing.md v1.0. Created 2026-07-18 as part of the testing-strategy
+*the retired chk-anvil-app-testing.md v1.0. Created 2026-07-18 as part of the testing-strategy
 housekeeping pass. Operationalizes `spec-testing-methodology-standards.md` §1–7 into a
 runnable checklist. Companion document: `chk-pdlf-self-test.md` (local,
 `dev-pdlf\checklists-local\`). Integration into Steps 35A/36–39 deferred to Phase D.*

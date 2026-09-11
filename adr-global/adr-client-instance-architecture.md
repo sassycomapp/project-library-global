@@ -9,7 +9,7 @@ date-created: 2026-07-25T150027+0200
 **Status:** Confirmed — architecturally tested (Tests A and B)  
 **Date:** 2026-06-13  
 **Last updated:** 2026-06-13 — revised following Test B (startup form from dependency)  
-**Authority:** Derived from platform-overview.md, `payment-security-boundary-vault` ADR, and live testing conducted 2026-06-13
+**Authority:** Derived from the retired platform-overview.md, `payment-security-boundary-vault` ADR, and live testing conducted 2026-06-13
 
 ---
 
@@ -104,10 +104,9 @@ open_form(MainForm())
 
 | Document | Relationship |
 |---|---|
-| `platform-overview.md` | Section 7.4: Dependency app_tables Resolution — Verified |
 | [[adr-dependency-update-model|Dependency Update Model]] | How updates flow from mb-3-cs to client instances |
 | ``[[blank-client-template]]`` | The provisioning source for new client instances |
-| `implementation/client-activation-runbook.md` | Step-by-step provisioning process |
+| `implementation/spec-client-activation-runbook.md` | Step-by-step provisioning process |
 
 ---
 
