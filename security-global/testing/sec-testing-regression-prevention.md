@@ -34,7 +34,7 @@ For a sample of resolved `triage_findings` rows, confirm a corresponding permane
 ## Authoritative Sources
 
 - `step-15-plan-eng-review.md` Section 9 — REGRESSION RULE (mandatory, no `AskUserQuestion` required)
-- `spec-postgres-ledger.md` — `triage_findings` schema
+- `[[spec-postgres-ledger]]` — `triage_findings` schema
 
 ## Known Exceptions
 

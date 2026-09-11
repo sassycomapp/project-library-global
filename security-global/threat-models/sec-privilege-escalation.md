@@ -7,7 +7,7 @@ category: threat-models
 ---
 # Threat Model — Privilege Escalation
 
-**Scope note:** distinct from `sec-broken-access-control-within-instance.md`, which covers one user seeing *another user at the same role level's* own data (horizontal). This document covers a role gaining capabilities *above* its own level (vertical) — a Staff account acting as Admin, an Admin acting as Owner.
+**Scope note:** distinct from `[[sec-broken-access-control-within-instance]]`, which covers one user seeing *another user at the same role level's* own data (horizontal). This document covers a role gaining capabilities *above* its own level (vertical) — a Staff account acting as Admin, an Admin acting as Owner.
 
 ## Applicable Threat
 
@@ -15,7 +15,7 @@ A server function's role check is written to require "any logged-in user" or a b
 
 ## Security Requirement
 
-Every server function's role decorator matches the specific role(s) intended, per `spec-security-architecture.md` §1's role table — never a broader check "for convenience" during development that's left in place.
+Every server function's role decorator matches the specific role(s) intended, per `[[spec-security-architecture]]` §1's role table — never a broader check "for convenience" during development that's left in place.
 
 ## Approved Pattern
 
@@ -41,7 +41,7 @@ A role check broader than the RBAC table actually specifies for this action.
 
 ## Implementation Guidance
 
-When a role check is written, cross-reference it directly against `spec-security-architecture.md` §1's role table for the specific action — never assume "logged in" is sufficient for anything beyond a role's own self-scoped data.
+When a role check is written, cross-reference it directly against `[[spec-security-architecture]]` §1's role table for the specific action — never assume "logged in" is sufficient for anything beyond a role's own self-scoped data.
 
 ## Verification Requirements
 
@@ -49,7 +49,7 @@ Log in as each lower-privileged role in turn; attempt every higher-privileged ac
 
 ## Authoritative Sources
 
-- `spec-security-architecture.md` §1 — RBAC role limits
+- `[[spec-security-architecture]]` §1 — RBAC role limits
 
 ## Known Exceptions
 

@@ -17,10 +17,10 @@ A new Data Table is created without its access pattern being deliberately decide
 
 Before a new Data Table is considered complete, all of the following are explicitly true:
 
-1. Which roles (per `spec-security-architecture.md` §1) can read it, and which can write it, is explicitly decided — not left to whatever the first function happens to implement.
-2. If it holds role-scoped data (each user should only see their own rows), the ownership-filtering requirement in `sec-broken-access-control-within-instance.md` is confirmed to apply.
-3. No column intended to hold a secret (API key, credential) is a plain column — it goes through the Vault, per `spec-vault-system.md`.
-4. Table-level access is set to "No access" for client code, per `spec-security.md` §1 — all access goes through server functions.
+1. Which roles (per `[[spec-security-architecture]]` §1) can read it, and which can write it, is explicitly decided — not left to whatever the first function happens to implement.
+2. If it holds role-scoped data (each user should only see their own rows), the ownership-filtering requirement in `[[sec-broken-access-control-within-instance]]` is confirmed to apply.
+3. No column intended to hold a secret (API key, credential) is a plain column — it goes through the Vault, per `[[spec-vault-system]]`.
+4. Table-level access is set to "No access" for client code, per `[[spec-security]]` §1 — all access goes through server functions.
 
 ## Approved Pattern
 
@@ -41,7 +41,7 @@ For each new Data Table, confirm items 1–4 above are each explicitly answered,
 ## Authoritative Sources
 
 - `sentinel-security-system-plan.md` Section 9 — Step 17
-- `spec-security-architecture.md` §1, `spec-vault-system.md`, `sec-broken-access-control-within-instance.md`
+- `[[spec-security-architecture]]` §1, `[[spec-vault-system]]`, `[[sec-broken-access-control-within-instance]]`
 
 ## Known Exceptions
 

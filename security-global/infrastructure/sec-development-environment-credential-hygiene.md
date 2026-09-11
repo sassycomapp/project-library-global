@@ -33,7 +33,7 @@ For each repository containing a `.env` file, run `git status` and confirm the f
 
 ## Authoritative Sources
 
-- This session's own direct read of `spec-postgres-ledger.md`'s Connection table, confirming `.env`-based credential storage as the current, real pattern
+- This session's own direct read of `[[spec-postgres-ledger]]`'s Connection table, confirming `.env`-based credential storage as the current, real pattern
 
 ## Known Exceptions
 

@@ -7,7 +7,7 @@ category: secrets
 ---
 # Development Tooling Credentials
 
-**Scope note:** `spec-vault-system.md` governs secrets belonging to the *application* (e.g. mb-3-cs's own Stripe key). This document covers a distinct, real set: credentials belonging to the *development tooling itself* — `PGPASSWORD`, the memory governor's writer credentials (`manual_submission`, `pdlf_step_sync`, `self_healing`), GitHub push credentials. None of these live in any application's Vault; none should.
+**Scope note:** `[[spec-vault-system]]` governs secrets belonging to the *application* (e.g. mb-3-cs's own Stripe key). This document covers a distinct, real set: credentials belonging to the *development tooling itself* — `PGPASSWORD`, the memory governor's writer credentials (`manual_submission`, `pdlf_step_sync`, `self_healing`), GitHub push credentials. None of these live in any application's Vault; none should.
 
 ## Applicable Threat
 
@@ -19,7 +19,7 @@ Every real development-tooling credential in this environment is identified, its
 
 ## Approved Pattern
 
-`.env`-based storage, excluded from git per `sec-development-environment-credential-hygiene.md`, read only by the specific process that needs it.
+`.env`-based storage, excluded from git per `[[sec-development-environment-credential-hygiene]]`, read only by the specific process that needs it.
 
 ## Prohibited Pattern
 
@@ -35,7 +35,7 @@ For each real development-tooling credential, confirm its storage location and c
 
 ## Authoritative Sources
 
-- This session's own real credential handling: `spec-postgres-ledger.md`'s `.env`-based `PGPASSWORD`, the governor's own `.env`-based writer credentials
+- This session's own real credential handling: `[[spec-postgres-ledger]]`'s `.env`-based `PGPASSWORD`, the governor's own `.env`-based writer credentials
 
 ## Known Exceptions
 

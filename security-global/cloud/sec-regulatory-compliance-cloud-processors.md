@@ -9,11 +9,11 @@ category: cloud
 
 ## Applicable Threat
 
-Each third-party cloud service this project depends on (Stripe, Paystack, Brevo, Anvil itself) carries its own regulatory implication, per `spec-security-architecture.md` §3. Treating this as a single, generic "compliance" concern rather than naming each processor's specific obligation risks missing one.
+Each third-party cloud service this project depends on (Stripe, Paystack, Brevo, Anvil itself) carries its own regulatory implication, per `[[spec-security-architecture]]` §3. Treating this as a single, generic "compliance" concern rather than naming each processor's specific obligation risks missing one.
 
 ## Security Requirement
 
-Per `spec-security-architecture.md` §3: PCI DSS applies (SAQ A scope) via Stripe/Paystack. GDPR applies conditionally, determined by actual client base, not fixed at build time — meaning this must be re-checked as real clients are onboarded, not assumed settled once.
+Per `[[spec-security-architecture]]` §3: PCI DSS applies (SAQ A scope) via Stripe/Paystack. GDPR applies conditionally, determined by actual client base, not fixed at build time — meaning this must be re-checked as real clients are onboarded, not assumed settled once.
 
 ## Approved Pattern
 
@@ -33,8 +33,8 @@ For each active client instance, confirm its regulatory scope (GDPR applicabilit
 
 ## Authoritative Sources
 
-- `spec-security-architecture.md` §3 — regulatory compliance
-- `spec-regulatory-compliance-baseline.md` (referenced, not yet reviewed directly)
+- `[[spec-security-architecture]]` §3 — regulatory compliance
+- `[[spec-regulatory-compliance-baseline]]` (referenced, not yet reviewed directly)
 
 ## Known Exceptions
 

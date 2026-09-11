@@ -17,10 +17,10 @@ A new server function is written without the baseline security checks any functi
 
 Before a new server function handling application data is considered complete, all of the following are explicitly true:
 
-1. It carries the RBAC decorator appropriate to the roles allowed to call it, per `spec-security.md` §1.
-2. If it returns or modifies role-scoped data, its scope is derived server-side, per `sec-server-side-authority.md` and `sec-broken-access-control-within-instance.md` — never from a client-supplied identifier, unless the calling role is explicitly permitted broader access.
-3. If it reads a secret, it reads it via `get_vault_secret()`, never hardcoded, per `spec-vault-system.md`.
-4. Any exception handler within it does not log the raw exception if the function touches a secret, per `sec-secret-exposure-response.md`.
+1. It carries the RBAC decorator appropriate to the roles allowed to call it, per `[[spec-security]]` §1.
+2. If it returns or modifies role-scoped data, its scope is derived server-side, per `[[sec-server-side-authority]]` and `[[sec-broken-access-control-within-instance]]` — never from a client-supplied identifier, unless the calling role is explicitly permitted broader access.
+3. If it reads a secret, it reads it via `get_vault_secret()`, never hardcoded, per `[[spec-vault-system]]`.
+4. Any exception handler within it does not log the raw exception if the function touches a secret, per `[[sec-secret-exposure-response]]`.
 
 ## Approved Pattern
 
@@ -32,7 +32,7 @@ Marking a server function complete because it runs correctly in the happy-path c
 
 ## Implementation Guidance
 
-This requirement is the concrete, checkable form of `sec-ai-agent-introduced-vulnerabilities.md`'s own general warning — a specific checklist, not just an abstract caution.
+This requirement is the concrete, checkable form of `[[sec-ai-agent-introduced-vulnerabilities]]`'s own general warning — a specific checklist, not just an abstract caution.
 
 ## Verification Requirements
 
@@ -41,7 +41,7 @@ For each new server function touching application data, confirm items 1–4 expl
 ## Authoritative Sources
 
 - `sentinel-security-system-plan.md` Section 9 — Step 35
-- `sec-server-side-authority.md`, `sec-broken-access-control-within-instance.md`, `spec-vault-system.md`, `sec-secret-exposure-response.md`
+- `[[sec-server-side-authority]]`, `[[sec-broken-access-control-within-instance]]`, `[[spec-vault-system]]`, `[[sec-secret-exposure-response]]`
 
 ## Known Exceptions
 

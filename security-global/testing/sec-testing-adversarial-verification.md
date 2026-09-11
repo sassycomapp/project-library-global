@@ -17,7 +17,7 @@ Every threat-model document in this library defines a Prohibited Pattern. For ev
 
 ## Approved Pattern
 
-Each threat-model document's own Verification Requirements section, executed for real: log in as the lower-privileged role, attempt the exact prohibited action, confirm rejection — the same discipline already specified in `sec-broken-access-control-within-instance.md`, `sec-privilege-escalation.md`, and every other threat-model document in this library.
+Each threat-model document's own Verification Requirements section, executed for real: log in as the lower-privileged role, attempt the exact prohibited action, confirm rejection — the same discipline already specified in `[[sec-broken-access-control-within-instance]]`, `[[sec-privilege-escalation]]`, and every other threat-model document in this library.
 
 ## Prohibited Pattern
 

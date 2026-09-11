@@ -7,7 +7,7 @@ category: testing
 ---
 # Live Verification Standard
 
-**Scope note:** the testing-specific application of `sec-verify-dont-trust-claims.md` — that principle stated generally; this document states what it means specifically for security testing.
+**Scope note:** the testing-specific application of `[[sec-verify-dont-trust-claims]]` — that principle stated generally; this document states what it means specifically for security testing.
 
 ## Applicable Threat
 
@@ -35,7 +35,7 @@ For any claimed security test, confirm real, observed output exists — a real e
 
 ## Authoritative Sources
 
-- `sec-verify-dont-trust-claims.md` — the general principle this document specializes
+- `[[sec-verify-dont-trust-claims]]` — the general principle this document specializes
 
 ## Known Exceptions
 

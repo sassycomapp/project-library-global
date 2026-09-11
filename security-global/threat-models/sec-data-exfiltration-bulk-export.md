@@ -33,7 +33,7 @@ Perform a real bulk export; confirm a distinct log entry exists recording it, se
 
 ## Authoritative Sources
 
-- `spec-security-architecture.md` §1 — RBAC role limits (Manager/Owner have broader access, which is exactly what makes this risk real for those roles specifically)
+- `[[spec-security-architecture]]` §1 — RBAC role limits (Manager/Owner have broader access, which is exactly what makes this risk real for those roles specifically)
 
 ## Known Exceptions
 

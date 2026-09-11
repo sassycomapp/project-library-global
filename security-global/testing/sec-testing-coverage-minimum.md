@@ -13,7 +13,7 @@ A feature is considered complete without any explicit decision about which secur
 
 ## Security Requirement
 
-Every new server function or Data Table is checked against the relevant `requirements/` documents (`sec-requirements-server-function.md`, `sec-requirements-data-table-creation.md`) and, where it touches a documented threat class, has at least one real test corresponding to that threat-model document's own Verification Requirements.
+Every new server function or Data Table is checked against the relevant `requirements/` documents (`[[sec-requirements-server-function]]`, `[[sec-requirements-data-table-creation]]`) and, where it touches a documented threat class, has at least one real test corresponding to that threat-model document's own Verification Requirements.
 
 ## Approved Pattern
 
@@ -25,7 +25,7 @@ Writing functional tests only, with no explicit consideration of which security 
 
 ## Implementation Guidance
 
-This is the concrete coverage check underneath `sec-requirements-release-readiness.md` — confirming, before release, that every relevant document's testing requirement was actually addressed, not just that no `triage_findings` row happens to be open.
+This is the concrete coverage check underneath `[[sec-requirements-release-readiness]]` — confirming, before release, that every relevant document's testing requirement was actually addressed, not just that no `triage_findings` row happens to be open.
 
 ## Verification Requirements
 
@@ -33,7 +33,7 @@ For a sample of recently completed features, confirm an explicit record exists o
 
 ## Authoritative Sources
 
-- `sec-requirements-server-function.md`, `sec-requirements-data-table-creation.md`, `sec-requirements-release-readiness.md`
+- `[[sec-requirements-server-function]]`, `[[sec-requirements-data-table-creation]]`, `[[sec-requirements-release-readiness]]`
 
 ## Known Exceptions
 

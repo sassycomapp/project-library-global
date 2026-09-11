@@ -7,7 +7,7 @@ category: threat-models
 ---
 # Threat Model — Insecure Direct Object Reference
 
-**Scope note:** related to, but distinct from, `sec-broken-access-control-within-instance.md`, which covers a query returning too much data. This document covers a single, specific object (an invoice PDF, an uploaded file) being reachable directly by guessing or incrementing its identifier.
+**Scope note:** related to, but distinct from, `[[sec-broken-access-control-within-instance]]`, which covers a query returning too much data. This document covers a single, specific object (an invoice PDF, an uploaded file) being reachable directly by guessing or incrementing its identifier.
 
 ## Applicable Threat
 
@@ -15,7 +15,7 @@ An invoice, generated per the `pdf-invoice-generation` ADR, or any uploaded file
 
 ## Security Requirement
 
-Any server function that retrieves a specific object by ID (not a search/list) verifies the requesting user actually owns or is permitted to access that specific object — the same ownership check required generally in `sec-broken-access-control-within-instance.md`, applied specifically to single-object retrieval by ID.
+Any server function that retrieves a specific object by ID (not a search/list) verifies the requesting user actually owns or is permitted to access that specific object — the same ownership check required generally in `[[sec-broken-access-control-within-instance]]`, applied specifically to single-object retrieval by ID.
 
 ## Approved Pattern
 
@@ -50,11 +50,11 @@ For each get-by-ID function, log in as a user with no relationship to a specific
 ## Authoritative Sources
 
 - `pdf-invoice-generation` ADR (referenced; specific document not yet reviewed directly)
-- `sec-broken-access-control-within-instance.md`
+- `[[sec-broken-access-control-within-instance]]`
 
 ## Known Exceptions
 
-Roles explicitly permitted broader access (Owner, Manager) per the RBAC table are exempt, same as `sec-broken-access-control-within-instance.md`.
+Roles explicitly permitted broader access (Owner, Manager) per the RBAC table are exempt, same as `[[sec-broken-access-control-within-instance]]`.
 
 ## Lessons Learned
 

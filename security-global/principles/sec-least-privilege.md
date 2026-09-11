@@ -13,9 +13,9 @@ Every role, credential, and process is granted the minimum access it needs to do
 
 ## Real Precedent in This Project
 
-- RBAC: Owner (full access), Manager (operational, no Vault/financial config), Admin (bookings/customers only), Staff (own calendar only) — each role's access is explicitly bounded, per `spec-security-architecture.md` §1.
-- Vault access restricted to Owner role only, with step-up authentication, per `spec-vault-system.md` §1.
-- Database roles scoped per-instance, per-writer, per `sec-database-access-control.md` — confirmed live, `ledger_writer` correctly blocked from an operation outside its scope.
+- RBAC: Owner (full access), Manager (operational, no Vault/financial config), Admin (bookings/customers only), Staff (own calendar only) — each role's access is explicitly bounded, per `[[spec-security-architecture]]` §1.
+- Vault access restricted to Owner role only, with step-up authentication, per `[[spec-vault-system]]` §1.
+- Database roles scoped per-instance, per-writer, per `[[sec-database-access-control]]` — confirmed live, `ledger_writer` correctly blocked from an operation outside its scope.
 
 ## Why This Matters
 

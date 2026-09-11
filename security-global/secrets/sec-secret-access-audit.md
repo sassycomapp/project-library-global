@@ -9,11 +9,11 @@ category: secrets
 
 ## Applicable Threat
 
-`spec-vault-system.md` §1 requires a notification on every Vault access, but a single notification per event is not the same as an ongoing review of the access pattern over time — a slow, low-and-slow pattern of access by a compromised account could still go unnoticed if nobody reviews the accumulated history.
+`[[spec-vault-system]]` §1 requires a notification on every Vault access, but a single notification per event is not the same as an ongoing review of the access pattern over time — a slow, low-and-slow pattern of access by a compromised account could still go unnoticed if nobody reviews the accumulated history.
 
 ## Security Requirement
 
-Vault access notifications (already required, per `spec-vault-system.md` §1) are periodically reviewed as an aggregate pattern, not only reacted to individually as they arrive.
+Vault access notifications (already required, per `[[spec-vault-system]]` §1) are periodically reviewed as an aggregate pattern, not only reacted to individually as they arrive.
 
 ## Approved Pattern
 
@@ -25,7 +25,7 @@ Treating each Vault access notification as fully handled once read, with no aggr
 
 ## Implementation Guidance
 
-This is a genuinely open gap, not yet resolved by anything in this project — no periodic review process currently exists beyond the individual, real-time notification already required by `spec-vault-system.md`.
+This is a genuinely open gap, not yet resolved by anything in this project — no periodic review process currently exists beyond the individual, real-time notification already required by `[[spec-vault-system]]`.
 
 ## Verification Requirements
 
@@ -33,7 +33,7 @@ Confirm a real, periodic review of Vault access history actually occurs, not jus
 
 ## Authoritative Sources
 
-- `spec-vault-system.md` §1 — access control, per-access notification requirement
+- `[[spec-vault-system]]` §1 — access control, per-access notification requirement
 
 ## Known Exceptions
 

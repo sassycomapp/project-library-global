@@ -19,7 +19,7 @@ Before architecture is locked, all of the following are explicitly documented:
 
 1. Every point where data crosses from one trust level to another (client to server, this application to an external service, one role's data to another's) is named explicitly.
 2. For each named boundary, which document in this library governs it is identified — or, if none exists yet, that gap is flagged for a new document.
-3. Responsibility for each boundary is assigned per `sec-explicit-responsibility-assignment.md` — platform, or application code, never left implicit.
+3. Responsibility for each boundary is assigned per `[[sec-explicit-responsibility-assignment]]` — platform, or application code, never left implicit.
 
 ## Approved Pattern
 
@@ -40,7 +40,7 @@ Confirm the architecture's own deliverable contains an explicit trust-boundary l
 ## Authoritative Sources
 
 - `sentinel-security-system-plan.md` Section 9 — Step 34
-- `sec-explicit-responsibility-assignment.md`
+- `[[sec-explicit-responsibility-assignment]]`
 
 ## Known Exceptions
 

@@ -9,11 +9,11 @@ category: cloud
 
 ## Applicable Threat
 
-`Mybizz_management` communicates with every client instance via bearer-token-authenticated HTTP endpoints (`spec-api-specification.md` §3). A leaked or guessable token would let an attacker suspend a client instance, push false notifications, or query its health/status data.
+`Mybizz_management` communicates with every client instance via bearer-token-authenticated HTTP endpoints (`[[spec-api-specification]]` §3). A leaked or guessable token would let an attacker suspend a client instance, push false notifications, or query its health/status data.
 
 ## Security Requirement
 
-Per `spec-security-architecture.md` §2: a unique bearer token per client instance, stored encrypted in the `Mybizz_management` registry, validated server-side on every management endpoint call, with invalid tokens rejected at HTTP 403.
+Per `[[spec-security-architecture]]` §2: a unique bearer token per client instance, stored encrypted in the `Mybizz_management` registry, validated server-side on every management endpoint call, with invalid tokens rejected at HTTP 403.
 
 ## Approved Pattern
 
@@ -25,7 +25,7 @@ A shared token across multiple client instances, or a management endpoint that t
 
 ## Implementation Guidance
 
-Token rotation is manual in V1, via re-provisioning, per `spec-security-architecture.md` §2. This is a real, current limitation, not an oversight — confirm any suspected compromise triggers manual rotation promptly, since no automated rotation exists to fall back on.
+Token rotation is manual in V1, via re-provisioning, per `[[spec-security-architecture]]` §2. This is a real, current limitation, not an oversight — confirm any suspected compromise triggers manual rotation promptly, since no automated rotation exists to fall back on.
 
 ## Verification Requirements
 
@@ -33,8 +33,8 @@ Attempt a management endpoint call with an invalid or missing token; confirm HTT
 
 ## Authoritative Sources
 
-- `spec-api-specification.md` §3 — management endpoints
-- `spec-security-architecture.md` §2 — token security, lifecycle
+- `[[spec-api-specification]]` §3 — management endpoints
+- `[[spec-security-architecture]]` §2 — token security, lifecycle
 
 ## Known Exceptions
 

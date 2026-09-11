@@ -13,8 +13,8 @@ Every security control is explicitly assigned to a specific layer or party — t
 
 ## Real Precedent in This Project
 
-- `sec-anvil-platform-responsibility-boundary.md` — built specifically because this exact ambiguity is a real risk: a control assumed to be Anvil's that was actually the application's responsibility, or the reverse.
-- `sec-broken-access-control-within-instance.md`'s own scope note — explicitly distinguishing cross-client isolation (Anvil's responsibility, structural) from within-instance role separation (the application's responsibility, not automatic) — precisely to prevent this kind of unassigned gap.
+- `[[sec-anvil-platform-responsibility-boundary]]` — built specifically because this exact ambiguity is a real risk: a control assumed to be Anvil's that was actually the application's responsibility, or the reverse.
+- `[[sec-broken-access-control-within-instance]]`'s own scope note — explicitly distinguishing cross-client isolation (Anvil's responsibility, structural) from within-instance role separation (the application's responsibility, not automatic) — precisely to prevent this kind of unassigned gap.
 
 ## Why This Matters
 

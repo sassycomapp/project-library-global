@@ -29,7 +29,7 @@ Installing a skill or package because it appears to solve an immediate problem, 
 
 ## Verification Requirements
 
-For any new dependency or skill under consideration, confirm: real publisher/maintainer identity, real license, real evidence of active maintenance, and a check against the spawn-tool list per `sec-ai-agent-execution-sandbox`.
+For any new dependency or skill under consideration, confirm: real publisher/maintainer identity, real license, real evidence of active maintenance, and a check against the spawn-tool list per `[[sec-ai-agent-execution-sandbox]]`.
 
 ## Authoritative Sources
 

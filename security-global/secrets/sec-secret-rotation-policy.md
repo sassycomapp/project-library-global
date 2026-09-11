@@ -7,7 +7,7 @@ category: secrets
 ---
 # Secret Rotation Policy
 
-**Scope note:** `sec-secret-exposure-response.md` covers rotation triggered by a confirmed exposure. This document covers rotation as a routine practice, independent of any known incident.
+**Scope note:** `[[sec-secret-exposure-response]]` covers rotation triggered by a confirmed exposure. This document covers rotation as a routine practice, independent of any known incident.
 
 ## Applicable Threat
 
@@ -15,7 +15,7 @@ A secret that has never been rotated remains valid indefinitely. If it was ever 
 
 ## Security Requirement
 
-Every secret has a defined maximum age before rotation is required, even with no known incident. Management service tokens are explicitly documented as manual-rotation-only in V1, per `spec-security-architecture.md` §2 — a real, current limitation, not silently assumed to be handled.
+Every secret has a defined maximum age before rotation is required, even with no known incident. Management service tokens are explicitly documented as manual-rotation-only in V1, per `[[spec-security-architecture]]` §2 — a real, current limitation, not silently assumed to be handled.
 
 ## Approved Pattern
 
@@ -27,7 +27,7 @@ Treating "no known compromise" as equivalent to "no need to rotate" — the two 
 
 ## Implementation Guidance
 
-For each secret type in the Vault (`spec-vault-system.md` §3) and each dev-tooling credential (`sec-development-tooling-credentials.md`), assign a real maximum age. Management tokens, currently manual-only, need this tracked explicitly until automated rotation exists.
+For each secret type in the Vault (`[[spec-vault-system]]` §3) and each dev-tooling credential (`[[sec-development-tooling-credentials]]`), assign a real maximum age. Management tokens, currently manual-only, need this tracked explicitly until automated rotation exists.
 
 ## Verification Requirements
 
@@ -35,12 +35,12 @@ For each secret, confirm its actual age against its defined maximum; confirm any
 
 ## Authoritative Sources
 
-- `spec-security-architecture.md` §2 — token lifecycle, manual rotation in V1
-- `spec-vault-system.md` §3 — Vault contents
+- `[[spec-security-architecture]]` §2 — token lifecycle, manual rotation in V1
+- `[[spec-vault-system]]` §3 — Vault contents
 
 ## Known Exceptions
 
-The master encryption key in Anvil Secrets is explicitly never rotated, per `spec-vault-system.md` §1 — this is a deliberate design decision, not an oversight; see `sec-master-encryption-key-protection.md` for why.
+The master encryption key in Anvil Secrets is explicitly never rotated, per `[[spec-vault-system]]` §1 — this is a deliberate design decision, not an oversight; see `[[sec-master-encryption-key-protection]]` for why.
 
 ## Lessons Learned
 

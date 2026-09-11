@@ -13,7 +13,7 @@ User-supplied text (a booking note, a customer name, a search field) is used uns
 
 ## Security Requirement
 
-All Data Table access goes through Anvil's own Data Tables API, per `spec-security.md` §1 — never raw SQL string-building. Any user-supplied text rendered back to a page must be treated as text, never as HTML/executable content, unless explicitly and deliberately sanitized for a specific, approved rich-text use case.
+All Data Table access goes through Anvil's own Data Tables API, per `[[spec-security]]` §1 — never raw SQL string-building. Any user-supplied text rendered back to a page must be treated as text, never as HTML/executable content, unless explicitly and deliberately sanitized for a specific, approved rich-text use case.
 
 ## Approved Pattern
 
@@ -34,7 +34,7 @@ Any code path that builds a query, command, or file path by directly concatenati
 ## Implementation Guidance
 
 - Anvil's Data Tables API is parameterized by default — the main real risk is a future integration (an external database, a shell command, a generated report) that doesn't use it. Any such integration needs its own explicit review against this document.
-- User-supplied text displayed in a form must use Anvil's own text-display components, not `HTMLTemplate` with raw user content injected — `HTMLTemplate` is already banned platform-wide per the `adr-htmltemplate-use` ADR, for unrelated reasons, but this is a second, independent reason it stays banned.
+- User-supplied text displayed in a form must use Anvil's own text-display components, not `HTMLTemplate` with raw user content injected — `HTMLTemplate` is already banned platform-wide per the `[[adr-htmltemplate-use]]` ADR, for unrelated reasons, but this is a second, independent reason it stays banned.
 
 ## Verification Requirements
 
@@ -43,8 +43,8 @@ Any code path that builds a query, command, or file path by directly concatenati
 
 ## Authoritative Sources
 
-- `spec-security.md` §1 — RBAC and Data Access
-- `adr-htmltemplate-use` — HTMLTemplate ban (independent reason, same practical effect)
+- `[[spec-security]]` §1 — RBAC and Data Access
+- `[[adr-htmltemplate-use]]` — HTMLTemplate ban (independent reason, same practical effect)
 
 ## Known Exceptions
 

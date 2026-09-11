@@ -7,7 +7,7 @@ category: secrets
 ---
 # AI Agent Secret Visibility
 
-**Scope note:** distinct from `sec-secret-exposure-response.md`, which covers secrets leaking through logs, git, or errors. This document covers the AI agent's own direct visibility to real secret values during ordinary operation.
+**Scope note:** distinct from `[[sec-secret-exposure-response]]`, which covers secrets leaking through logs, git, or errors. This document covers the AI agent's own direct visibility to real secret values during ordinary operation.
 
 ## Applicable Threat
 

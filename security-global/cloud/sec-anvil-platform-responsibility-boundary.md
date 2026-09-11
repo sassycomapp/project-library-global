@@ -17,9 +17,9 @@ Every security control in this library must be explicitly assigned to either Anv
 
 ## Approved Pattern
 
-Anvil's responsibility, confirmed structural per `spec-five-app-architecture-model.md`: cross-client data isolation (separate app, separate database per client instance — architecturally impossible to breach from application code); Data Table access control at the "no client access" level (`spec-security.md` §1); hosting, TLS, infrastructure uptime.
+Anvil's responsibility, confirmed structural per `[[spec-five-app-architecture-model]]`: cross-client data isolation (separate app, separate database per client instance — architecturally impossible to breach from application code); Data Table access control at the "no client access" level (`[[spec-security]]` §1); hosting, TLS, infrastructure uptime.
 
-Application code's responsibility: everything documented elsewhere in this library — within-instance RBAC (`sec-broken-access-control-within-instance`), payment logic (`sec-payment-manipulation`), session validation (`sec-authentication-session`), secret handling (`spec-vault-system.md`, `sec-secret-exposure-response`).
+Application code's responsibility: everything documented elsewhere in this library — within-instance RBAC (`[[sec-broken-access-control-within-instance]]`), payment logic (`[[sec-payment-manipulation]]`), session validation (`[[sec-authentication-session]]`), secret handling (`[[spec-vault-system]]`, `[[sec-secret-exposure-response]]`).
 
 ## Prohibited Pattern
 
@@ -35,8 +35,8 @@ For any new feature, confirm its security controls are explicitly listed as eith
 
 ## Authoritative Sources
 
-- `spec-five-app-architecture-model.md` — structural data isolation
-- `spec-security.md` §1 — RBAC and Data Access
+- `[[spec-five-app-architecture-model]]` — structural data isolation
+- `[[spec-security]]` §1 — RBAC and Data Access
 
 ## Known Exceptions
 

@@ -9,7 +9,7 @@ category: threat-models
 
 ## Applicable Threat
 
-A user or an external actor alters a price, quantity, currency, or payment amount client-side before it reaches the payment gateway, or replays/forges a webhook event to falsely mark a payment as successful. Real attack surface: `spec-api-specification.md` confirms webhook handlers (Stripe, Paystack) update booking status and generate invoices directly from incoming webhook data.
+A user or an external actor alters a price, quantity, currency, or payment amount client-side before it reaches the payment gateway, or replays/forges a webhook event to falsely mark a payment as successful. Real attack surface: `[[spec-api-specification]]` confirms webhook handlers (Stripe, Paystack) update booking status and generate invoices directly from incoming webhook data.
 
 ## Security Requirement
 
@@ -25,7 +25,7 @@ def create_checkout_session(booking_id):
     return gateway.create_session(amount=amount, booking_id=booking_id)
 ```
 
-Webhook handling per `spec-api-specification.md` §2.4: validate signature → check `webhook_log` for idempotency → log → dispatch to background task → return HTTP 200. Signature validation happens before any data from the payload is used.
+Webhook handling per `[[spec-api-specification]]` §2.4: validate signature → check `webhook_log` for idempotency → log → dispatch to background task → return HTTP 200. Signature validation happens before any data from the payload is used.
 
 ## Prohibited Pattern
 
@@ -40,7 +40,7 @@ Accepting `amount` as a client-supplied argument. A user can call this function 
 ## Implementation Guidance
 
 - Any server function that creates a charge, session, or invoice must compute the amount itself, from the relevant Data Table, never accept it as a parameter.
-- Webhook handlers must reject a request with an invalid or missing signature before touching the payload, per `spec-api-specification.md` §2.4.
+- Webhook handlers must reject a request with an invalid or missing signature before touching the payload, per `[[spec-api-specification]]` §2.4.
 - `webhook_log` must be checked before processing every webhook event, per the same section.
 
 ## Verification Requirements
@@ -51,8 +51,8 @@ Accepting `amount` as a client-supplied argument. A user can call this function 
 
 ## Authoritative Sources
 
-- `spec-api-specification.md` §2, §2.4 — webhook endpoints, handler requirements
-- `spec-vault-system.md` — gateway secret key handling
+- `[[spec-api-specification]]` §2, §2.4 — webhook endpoints, handler requirements
+- `[[spec-vault-system]]` — gateway secret key handling
 
 ## Known Exceptions
 

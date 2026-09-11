@@ -9,7 +9,7 @@ category: cloud
 
 ## Applicable Threat
 
-`master_template` and `blank_client_template` are trusted, compiled dependencies — per `spec-five-app-architecture-model.md`, every client instance inherits code and logic from `master_template` automatically. Unauthorized or unreviewed write access to either repository would propagate malicious or broken code to every live client instance at once, without any per-client review step.
+`master_template` and `blank_client_template` are trusted, compiled dependencies — per `[[spec-five-app-architecture-model]]`, every client instance inherits code and logic from `master_template` automatically. Unauthorized or unreviewed write access to either repository would propagate malicious or broken code to every live client instance at once, without any per-client review step.
 
 ## Security Requirement
 
@@ -17,7 +17,7 @@ Write access to `master_template` and `blank_client_template` is restricted to t
 
 ## Approved Pattern
 
-Development happens on `develop`; merge to `stable` is a deliberate, manual, reviewed action, per `spec-five-app-architecture-model.md`'s Update Deployment Model. High-risk releases use version tags for staged rollout — a subset of clients updated first.
+Development happens on `develop`; merge to `stable` is a deliberate, manual, reviewed action, per `[[spec-five-app-architecture-model]]`'s Update Deployment Model. High-risk releases use version tags for staged rollout — a subset of clients updated first.
 
 ## Prohibited Pattern
 
@@ -33,7 +33,7 @@ Attempt a direct push to `stable`; confirm it's rejected at the GitHub level, no
 
 ## Authoritative Sources
 
-- `spec-five-app-architecture-model.md` — Update Deployment Model
+- `[[spec-five-app-architecture-model]]` — Update Deployment Model
 - `dev-tooling-source-repos-must-be-github-backed.md`
 
 ## Known Exceptions

@@ -13,11 +13,11 @@ A user or attacker sends a high volume of requests, or a single expensive reques
 
 ## Security Requirement
 
-Rate limits already defined in `spec-security.md` §3 (10/minute/IP unauthenticated, 100/minute/user authenticated) are enforced on every endpoint, including background-task-triggering ones, not only on obviously public-facing forms.
+Rate limits already defined in `[[spec-security]]` §3 (10/minute/IP unauthenticated, 100/minute/user authenticated) are enforced on every endpoint, including background-task-triggering ones, not only on obviously public-facing forms.
 
 ## Approved Pattern
 
-Rate limiting enforced via a Data Table, per `spec-security.md` §2, so limits survive server restarts and work across a multi-server environment — already the documented approach.
+Rate limiting enforced via a Data Table, per `[[spec-security]]` §2, so limits survive server restarts and work across a multi-server environment — already the documented approach.
 
 ## Prohibited Pattern
 
@@ -33,8 +33,8 @@ For each new endpoint or server function, confirm it falls under rate limiting; 
 
 ## Authoritative Sources
 
-- `spec-security.md` §2, §3 — rate limiting, shared numeric standards
-- `spec-api-specification.md` §5 — rate limiting on HTTP endpoints
+- `[[spec-security]]` §2, §3 — rate limiting, shared numeric standards
+- `[[spec-api-specification]]` §5 — rate limiting on HTTP endpoints
 
 ## Known Exceptions
 

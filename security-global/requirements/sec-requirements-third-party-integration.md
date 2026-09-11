@@ -15,11 +15,11 @@ A new external service integration (a new payment gateway, a new email provider,
 
 Before a new third-party integration is considered complete, all of the following are explicitly true:
 
-1. Its credentials are stored in the Vault, per `spec-vault-system.md` — never hardcoded, never in `payment_config` or an equivalent plain table.
-2. Any inbound webhook validates its signature before processing, per `spec-api-specification.md` §2.4's shared handler requirements.
+1. Its credentials are stored in the Vault, per `[[spec-vault-system]]` — never hardcoded, never in `payment_config` or an equivalent plain table.
+2. Any inbound webhook validates its signature before processing, per `[[spec-api-specification]]` §2.4's shared handler requirements.
 3. Idempotency is checked before processing an inbound event, per the same section.
-4. The service and its dependency reviewed per `sec-review-before-trust.md` and `sec-dependency-skill-supply-chain.md` before being trusted.
-5. If it's a payment or data processor, its regulatory scope is checked per `sec-regulatory-compliance-cloud-processors.md`.
+4. The service and its dependency reviewed per `[[sec-review-before-trust]]` and `[[sec-dependency-skill-supply-chain]]` before being trusted.
+5. If it's a payment or data processor, its regulatory scope is checked per `[[sec-regulatory-compliance-cloud-processors]]`.
 
 ## Approved Pattern
 
@@ -39,7 +39,7 @@ For each new integration, confirm items 1–5 explicitly before considering it c
 
 ## Authoritative Sources
 
-- `spec-api-specification.md` §2.4, `spec-vault-system.md`, `sec-review-before-trust.md`, `sec-dependency-skill-supply-chain.md`, `sec-regulatory-compliance-cloud-processors.md`
+- `[[spec-api-specification]]` §2.4, `[[spec-vault-system]]`, `[[sec-review-before-trust]]`, `[[sec-dependency-skill-supply-chain]]`, `[[sec-regulatory-compliance-cloud-processors]]`
 
 ## Known Exceptions
 

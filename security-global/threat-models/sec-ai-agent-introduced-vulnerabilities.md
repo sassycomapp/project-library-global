@@ -19,7 +19,7 @@ No security-relevant code (anything touching auth, RBAC, payment, secrets, or cr
 
 ## Approved Pattern
 
-- New code implementing a pattern already documented in this library (e.g. `sec-broken-access-control-within-instance`, `sec-payment-manipulation`) is checked directly against that document's Approved/Prohibited pattern pair before being considered done.
+- New code implementing a pattern already documented in this library (e.g. `[[sec-broken-access-control-within-instance]]`, `[[sec-payment-manipulation]]`) is checked directly against that document's Approved/Prohibited pattern pair before being considered done.
 - Sentinel's own step-triggered review (per the Sentinel plan, Section 9) runs at the step where this kind of code is introduced — not left to a general, unscoped "review everything" pass.
 
 ## Prohibited Pattern
@@ -35,7 +35,7 @@ No security-relevant code (anything touching auth, RBAC, payment, secrets, or cr
 ## Verification Requirements
 
 - For any feature touching a documented threat class, confirm the relevant threat-model document was actually consulted — not inferred from the code happening to look correct.
-- Confirm every Sentinel finding in `triage_findings` for a given feature has either `triage_label = 'wontfix'` (an explicit, recorded decision) or `resolved_at IS NOT NULL` (a verified resolution) before that feature is considered complete — this is already the real, enforced condition on PDLF's own `build-verified` gate, per `spec-postgres-ledger.md`.
+- Confirm every Sentinel finding in `triage_findings` for a given feature has either `triage_label = 'wontfix'` (an explicit, recorded decision) or `resolved_at IS NOT NULL` (a verified resolution) before that feature is considered complete — this is already the real, enforced condition on PDLF's own `build-verified` gate, per `[[spec-postgres-ledger]]`.
 
 ## Authoritative Sources
 

@@ -17,7 +17,7 @@ A release proceeds while a real, known security finding remains genuinely unreso
 
 Before a release proceeds, all of the following are explicitly true:
 
-1. `sec-requirements-pre-merge-master-template.md` was satisfied for everything included in this release.
+1. `[[sec-requirements-pre-merge-master-template]]` was satisfied for everything included in this release.
 2. No `triage_findings` row tied to this release has a severity of `High` or `Critical` with no `resolved_at` and no `wontfix` label.
 3. Monitoring for the release (per `sentinel-security-system-plan.md` Section 9, Step 45) is confirmed active before traffic reaches the new release.
 
@@ -31,7 +31,7 @@ Releasing because no new problems were reported recently, without a real, direct
 
 ## Implementation Guidance
 
-This is the last real checkpoint before real users are affected — treat it with the same rigor as `sec-requirements-pre-merge-master-template.md`, not as a formality once that step has already passed.
+This is the last real checkpoint before real users are affected — treat it with the same rigor as `[[sec-requirements-pre-merge-master-template]]`, not as a formality once that step has already passed.
 
 ## Verification Requirements
 
@@ -40,8 +40,8 @@ Run a real query against `triage_findings` before every release; confirm the res
 ## Authoritative Sources
 
 - `sentinel-security-system-plan.md` Section 9 — Step 45
-- `spec-postgres-ledger.md` — `triage_findings` schema
-- `sec-requirements-pre-merge-master-template.md`
+- `[[spec-postgres-ledger]]` — `triage_findings` schema
+- `[[sec-requirements-pre-merge-master-template]]`
 
 ## Known Exceptions
 

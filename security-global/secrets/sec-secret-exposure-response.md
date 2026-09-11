@@ -7,7 +7,7 @@ category: secrets
 ---
 # Secret Exposure Response
 
-**Scope note:** `spec-vault-system.md` is the authoritative document for how secrets are correctly stored and enforced. This document covers a different question: what happens when a secret is exposed anyway, despite correct storage — logged accidentally, committed to git, printed in an error message, or read out by a manipulated AI action.
+**Scope note:** `[[spec-vault-system]]` is the authoritative document for how secrets are correctly stored and enforced. This document covers a different question: what happens when a secret is exposed anyway, despite correct storage — logged accidentally, committed to git, printed in an error message, or read out by a manipulated AI action.
 
 ## Applicable Threat
 
@@ -15,7 +15,7 @@ A secret that was correctly stored in the Vault is exposed through a different c
 
 ## Security Requirement
 
-No code path may log, print, or include a Vault secret in any output — error message, log line, or API response — under any circumstance, including exception handling. This extends the existing masking rule in `spec-vault-system.md` §2 to cover error paths specifically, which that document does not explicitly address.
+No code path may log, print, or include a Vault secret in any output — error message, log line, or API response — under any circumstance, including exception handling. This extends the existing masking rule in `[[spec-vault-system]]` §2 to cover error paths specifically, which that document does not explicitly address.
 
 ## Approved Pattern
 
@@ -51,7 +51,7 @@ A broad exception handler logging the full exception object, which may include t
 
 ## Authoritative Sources
 
-- `spec-vault-system.md` §2 — secret enforcement and masking (storage-side; this document covers the exposure-response gap it doesn't address)
+- `[[spec-vault-system]]` §2 — secret enforcement and masking (storage-side; this document covers the exposure-response gap it doesn't address)
 
 ## Known Exceptions
 

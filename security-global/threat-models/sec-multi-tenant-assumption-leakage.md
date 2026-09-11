@@ -38,7 +38,7 @@ Grep the codebase for `tenant`, `tenant_id`, or similar terms; confirm zero real
 ## Authoritative Sources
 
 - `dependency-based-not-multi-tenant.md` — the definitive, binding ADR
-- `spec-five-app-architecture-model.md` — structural basis for why this isn't needed
+- `[[spec-five-app-architecture-model]]` — structural basis for why this isn't needed
 
 ## Known Exceptions
 

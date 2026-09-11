@@ -9,15 +9,15 @@ category: secrets
 
 ## Applicable Threat
 
-Per `spec-vault-system.md` §1, exactly one item lives in Anvil Secrets: the master encryption key, used exclusively to encrypt and decrypt everything else in the Vault. Its compromise is categorically worse than any single Vault secret's compromise — it exposes every secret the Vault holds, at once, retroactively, for as long as those encrypted values have existed.
+Per `[[spec-vault-system]]` §1, exactly one item lives in Anvil Secrets: the master encryption key, used exclusively to encrypt and decrypt everything else in the Vault. Its compromise is categorically worse than any single Vault secret's compromise — it exposes every secret the Vault holds, at once, retroactively, for as long as those encrypted values have existed.
 
 ## Security Requirement
 
-The master key is never rotated, per `spec-vault-system.md` §1 — this is intentional, since rotating it would require re-encrypting every Vault secret. Its protection instead relies entirely on Anvil Secrets' own platform-level guarantee (`sec-anvil-platform-responsibility-boundary.md`) and on no application code ever calling `anvil.secrets.get_secret()` directly outside the one dedicated vault-service module.
+The master key is never rotated, per `[[spec-vault-system]]` §1 — this is intentional, since rotating it would require re-encrypting every Vault secret. Its protection instead relies entirely on Anvil Secrets' own platform-level guarantee (`[[sec-anvil-platform-responsibility-boundary]]`) and on no application code ever calling `anvil.secrets.get_secret()` directly outside the one dedicated vault-service module.
 
 ## Approved Pattern
 
-Exactly one module in the entire codebase calls `anvil.secrets.get_secret()` for this key, per `spec-vault-system.md` §1 — no other code path touches it at all.
+Exactly one module in the entire codebase calls `anvil.secrets.get_secret()` for this key, per `[[spec-vault-system]]` §1 — no other code path touches it at all.
 
 ## Prohibited Pattern
 
@@ -33,7 +33,7 @@ Grep the full codebase for `anvil.secrets.get_secret()`; confirm exactly one rea
 
 ## Authoritative Sources
 
-- `spec-vault-system.md` §1 — two-level secrets model
+- `[[spec-vault-system]]` §1 — two-level secrets model
 
 ## Known Exceptions
 

@@ -13,7 +13,7 @@ Weak password policy, session tokens that never expire, or a login/session mecha
 
 ## Security Requirement
 
-Real, existing numeric standards already apply and are binding, per `spec-security.md` §3: password minimum length 8 characters, at least one uppercase/lowercase/number, session inactivity timeout 30 minutes. Every server function requiring a logged-in user must verify this server-side, never trust a client-side "is logged in" flag alone.
+Real, existing numeric standards already apply and are binding, per `[[spec-security]]` §3: password minimum length 8 characters, at least one uppercase/lowercase/number, session inactivity timeout 30 minutes. Every server function requiring a logged-in user must verify this server-side, never trust a client-side "is logged in" flag alone.
 
 ## Approved Pattern
 
@@ -53,7 +53,7 @@ Trusting a client-supplied flag or identifier for authentication state, instead 
 
 ## Authoritative Sources
 
-- `spec-security.md` §1, §3 — RBAC/data access, shared numeric security standards
+- `[[spec-security]]` §1, §3 — RBAC/data access, shared numeric security standards
 
 ## Known Exceptions
 

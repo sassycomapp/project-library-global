@@ -13,10 +13,10 @@ Client-supplied data is never trusted as the basis for a security decision. The 
 
 ## Real Precedent in This Project
 
-- `sec-broken-access-control-within-instance.md` — scope derived from `anvil.users.get_user()`, never a client-supplied identifier.
-- `sec-payment-manipulation.md` — amount computed server-side from the real record, never accepted as a client-supplied argument.
-- `sec-authentication-session.md` — session validity checked server-side every call, never trusted from a client-side flag.
-- `spec-security.md` §1 — role enforcement is always server-side; client-side navigation visibility is a UX convenience only.
+- `[[sec-broken-access-control-within-instance]]` — scope derived from `anvil.users.get_user()`, never a client-supplied identifier.
+- `[[sec-payment-manipulation]]` — amount computed server-side from the real record, never accepted as a client-supplied argument.
+- `[[sec-authentication-session]]` — session validity checked server-side every call, never trusted from a client-side flag.
+- `[[spec-security]]` §1 — role enforcement is always server-side; client-side navigation visibility is a UX convenience only.
 
 ## Why This Matters
 
