@@ -1,4 +1,5 @@
 ---
+document: "anvil.microsoft.auth"
 title: "anvil.microsoft.auth"
 url: "/docs/api/anvil.microsoft.auth"
 doc-id: anvil.microsoft.auth

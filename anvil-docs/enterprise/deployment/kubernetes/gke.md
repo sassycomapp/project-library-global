@@ -1,4 +1,5 @@
 ---
+document: "Google GKE"
 title: "Google GKE"
 url: "/docs/enterprise/deployment/kubernetes/gke"
 doc-id: gke

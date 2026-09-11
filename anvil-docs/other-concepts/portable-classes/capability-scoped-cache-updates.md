@@ -1,4 +1,5 @@
 ---
+document: "Cache Updates"
 title: "Cache Updates"
 url: "/docs/other-concepts/portable-classes/capability-scoped-cache-updates"
 doc-id: capability-scoped-cache-updates

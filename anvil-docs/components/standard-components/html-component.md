@@ -1,4 +1,5 @@
 ---
+document: "HTMLComponent"
 title: "HTMLComponent"
 url: "/docs/components/standard-components/html-component"
 doc-id: html-component

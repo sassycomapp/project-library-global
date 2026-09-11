@@ -1,4 +1,5 @@
 ---
+document: "Quickstart"
 title: "Quickstart"
 url: "/docs/workflows/version-control/quickstart"
 doc-id: version-control-quickstart

@@ -1,4 +1,5 @@
 ---
+document: "Portable Classes"
 title: "Portable Classes"
 url: "/docs/other-concepts/portable-classes"
 doc-id: portable-classes-_index

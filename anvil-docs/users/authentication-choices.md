@@ -1,4 +1,5 @@
 ---
+document: "Authentication Choices"
 title: "Authentication Choices"
 url: "/docs/users/authentication-choices"
 doc-id: authentication-choices

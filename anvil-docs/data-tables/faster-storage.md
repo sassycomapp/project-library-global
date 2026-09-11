@@ -1,4 +1,5 @@
 ---
+document: "Faster Storage"
 title: "Faster Storage"
 url: "/docs/data-tables/faster-storage"
 doc-id: faster-storage

@@ -1,4 +1,5 @@
 ---
+document: "Connecting to GitHub and Git Remotes"
 title: "Connecting to GitHub and Git Remotes"
 url: "/docs/workflows/version-control/git"
 doc-id: git-_index

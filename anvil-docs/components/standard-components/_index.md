@@ -1,4 +1,5 @@
 ---
+document: "Standard Anvil Components"
 title: "Standard Anvil Components"
 url: "/docs/components/standard-components"
 doc-id: standard-components-_index

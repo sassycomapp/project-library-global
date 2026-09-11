@@ -1,4 +1,5 @@
 ---
+document: "Scripts"
 title: "Scripts"
 url: "/docs/server/scripts"
 doc-id: scripts

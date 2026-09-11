@@ -1,4 +1,5 @@
 ---
+document: "Embedding Your App"
 title: "Embedding Your App"
 url: "/docs/deployment/embedding-your-app"
 doc-id: embedding-your-app

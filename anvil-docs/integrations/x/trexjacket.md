@@ -1,4 +1,5 @@
 ---
+document: "Using Trexjacket"
 title: "Using Trexjacket"
 url: "/docs/integrations/x/trexjacket"
 doc-id: trexjacket

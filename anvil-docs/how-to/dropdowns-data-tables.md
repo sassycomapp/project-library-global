@@ -1,4 +1,5 @@
 ---
+document: "DropDowns and Data Tables"
 title: "DropDowns and Data Tables"
 url: "/docs/how-to/dropdowns-data-tables"
 doc-id: dropdowns-data-tables

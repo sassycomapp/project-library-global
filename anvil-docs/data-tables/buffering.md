@@ -1,4 +1,5 @@
 ---
+document: "Buffering Changes"
 title: "Buffering Changes"
 url: "/docs/data-tables/buffering"
 doc-id: buffering

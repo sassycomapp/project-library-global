@@ -1,4 +1,5 @@
 ---
+document: "Calling functions remotely"
 title: "Calling functions remotely"
 url: "/docs/external-resources/uplink/calling-functions-remotely"
 doc-id: calling-functions-remotely

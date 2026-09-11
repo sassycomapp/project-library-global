@@ -1,4 +1,5 @@
 ---
+document: "Workflows"
 title: "Workflows"
 url: "/docs/workflows/version-control/workflows"
 doc-id: workflows

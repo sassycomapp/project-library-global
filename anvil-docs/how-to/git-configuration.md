@@ -1,4 +1,5 @@
 ---
+document: "Usable configuration with Git"
 title: "Usable configuration with Git"
 url: "/docs/how-to/git-configuration"
 doc-id: git-configuration

@@ -1,4 +1,5 @@
 ---
+document: "Canvas"
 title: "Canvas"
 url: "/docs/components/standard-components/canvas"
 doc-id: canvas

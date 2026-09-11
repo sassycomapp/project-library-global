@@ -1,4 +1,5 @@
 ---
+document: "Quickstart"
 title: "Quickstart"
 url: "/docs/deployment/quickstart"
 doc-id: deployment-quickstart

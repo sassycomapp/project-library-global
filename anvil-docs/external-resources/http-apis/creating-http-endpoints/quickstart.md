@@ -1,4 +1,5 @@
 ---
+document: "Quickstart"
 title: "Quickstart"
 url: "/docs/external-resources/http-apis/creating-http-endpoints/quickstart"
 doc-id: creating-http-endpoints-quickstart

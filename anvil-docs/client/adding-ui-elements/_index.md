@@ -1,4 +1,5 @@
 ---
+document: "Adding UI Elements"
 title: "Adding UI Elements"
 url: "/docs/client/adding-ui-elements"
 doc-id: adding-ui-elements-_index

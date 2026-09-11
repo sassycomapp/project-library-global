@@ -1,4 +1,5 @@
 ---
+document: "Data Bindings"
 title: "Data Bindings"
 url: "/docs/client/component-properties/data-bindings"
 doc-id: data-bindings

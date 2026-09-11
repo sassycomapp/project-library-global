@@ -1,4 +1,5 @@
 ---
+document: "Google SSO"
 title: "Google SSO"
 url: "/docs/enterprise/deployment/prerequisites/google"
 doc-id: google

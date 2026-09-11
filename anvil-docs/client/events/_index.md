@@ -1,4 +1,5 @@
 ---
+document: "Events"
 title: "Events"
 url: "/docs/client/events"
 doc-id: events-_index

@@ -1,4 +1,5 @@
 ---
+document: "Quickstart"
 title: "Quickstart"
 url: "/docs/integrations/x/quickstart"
 doc-id: x-quickstart

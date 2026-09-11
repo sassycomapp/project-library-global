@@ -1,4 +1,5 @@
 ---
+document: "Installing Packages"
 title: "Installing Packages"
 url: "/docs/server/custom-packages"
 doc-id: custom-packages-_index

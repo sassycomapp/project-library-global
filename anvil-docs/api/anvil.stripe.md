@@ -1,4 +1,5 @@
 ---
+document: "anvil.stripe"
 title: "anvil.stripe"
 url: "/docs/api/anvil.stripe"
 doc-id: anvil.stripe

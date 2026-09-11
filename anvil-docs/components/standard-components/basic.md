@@ -1,4 +1,5 @@
 ---
+document: "Basic Components"
 title: "Basic Components"
 url: "/docs/components/standard-components/basic"
 doc-id: basic

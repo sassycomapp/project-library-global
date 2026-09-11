@@ -1,4 +1,5 @@
 ---
+document: "Adding HTML Elements"
 title: "Adding HTML Elements"
 url: "/docs/client/adding-ui-elements/adding-html-elements"
 doc-id: adding-html-elements

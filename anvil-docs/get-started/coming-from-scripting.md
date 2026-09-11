@@ -1,4 +1,5 @@
 ---
+document: "Coming from Scripts"
 title: "Coming from Scripts"
 url: "/docs/get-started/coming-from-scripting"
 doc-id: coming-from-scripting

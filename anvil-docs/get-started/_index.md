@@ -1,4 +1,5 @@
 ---
+document: "Get Started"
 title: "Get Started"
 url: "/docs/get-started"
 doc-id: get-started-_index

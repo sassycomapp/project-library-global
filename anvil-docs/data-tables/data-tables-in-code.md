@@ -1,4 +1,5 @@
 ---
+document: "Using Data Tables from Python"
 title: "Using Data Tables from Python"
 url: "/docs/data-tables/data-tables-in-code"
 doc-id: data-tables-in-code

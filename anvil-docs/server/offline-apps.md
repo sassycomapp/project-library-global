@@ -1,4 +1,5 @@
 ---
+document: "Offline Apps"
 title: "Offline Apps"
 url: "/docs/server/offline-apps"
 doc-id: offline-apps

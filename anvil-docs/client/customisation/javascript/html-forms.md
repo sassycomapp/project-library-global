@@ -1,4 +1,5 @@
 ---
+document: "HTML Forms"
 title: "HTML Forms"
 url: "/docs/client/customisation/javascript/html-forms"
 doc-id: html-forms

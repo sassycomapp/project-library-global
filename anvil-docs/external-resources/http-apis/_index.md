@@ -1,4 +1,5 @@
 ---
+document: "HTTP APIs"
 title: "HTTP APIs"
 url: "/docs/external-resources/http-apis"
 doc-id: http-apis-_index

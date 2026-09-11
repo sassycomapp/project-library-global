@@ -1,4 +1,5 @@
 ---
+document: "Static Data Files"
 title: "Static Data Files"
 url: "/docs/data-tables/data-files"
 doc-id: data-files-_index

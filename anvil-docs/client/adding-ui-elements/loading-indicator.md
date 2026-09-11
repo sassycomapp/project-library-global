@@ -1,4 +1,5 @@
 ---
+document: "Loading Indicator"
 title: "Loading Indicator"
 url: "/docs/client/adding-ui-elements/loading-indicator"
 doc-id: loading-indicator

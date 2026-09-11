@@ -1,4 +1,5 @@
 ---
+document: "Build your first app"
 title: "Build your first app"
 url: "/docs/get-started/build-first-app"
 doc-id: build-first-app

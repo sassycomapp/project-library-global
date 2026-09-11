@@ -1,4 +1,5 @@
 ---
+document: "Building clean database apps"
 title: "Building clean database apps"
 url: "/docs/how-to/crud-best-practice-guide"
 doc-id: crud-best-practice-guide

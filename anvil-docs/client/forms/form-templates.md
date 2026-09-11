@@ -1,4 +1,5 @@
 ---
+document: "Form Templates"
 title: "Form Templates"
 url: "/docs/client/forms/form-templates"
 doc-id: form-templates

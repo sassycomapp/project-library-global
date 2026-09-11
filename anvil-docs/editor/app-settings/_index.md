@@ -1,4 +1,5 @@
 ---
+document: "App Settings"
 title: "App Settings"
 url: "/docs/editor/app-settings"
 doc-id: app-settings-_index

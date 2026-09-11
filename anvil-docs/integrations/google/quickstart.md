@@ -1,4 +1,5 @@
 ---
+document: "Quickstart"
 title: "Quickstart"
 url: "/docs/integrations/google/quickstart"
 doc-id: google-quickstart

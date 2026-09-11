@@ -1,4 +1,5 @@
 ---
+document: "Profiling and Tracing"
 title: "Profiling and Tracing"
 url: "/docs/editor/app-logs/profiling-and-tracing"
 doc-id: profiling-and-tracing

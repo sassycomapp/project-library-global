@@ -1,4 +1,5 @@
 ---
+document: "anvil.email.Message"
 title: "anvil.email.Message"
 url: "/docs/api/anvil.email.message"
 doc-id: anvil.email.message

@@ -1,4 +1,5 @@
 ---
+document: "Cross-site Security"
 title: "Cross-site Security"
 url: "/docs/external-resources/http-apis/creating-http-endpoints/security-cross-site"
 doc-id: security-cross-site

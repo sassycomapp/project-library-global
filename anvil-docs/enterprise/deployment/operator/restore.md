@@ -1,4 +1,5 @@
 ---
+document: "Cluster Restore"
 title: "Cluster Restore"
 url: "/docs/enterprise/deployment/operator/restore"
 doc-id: restore

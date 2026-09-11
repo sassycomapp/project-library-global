@@ -1,4 +1,5 @@
 ---
+document: "Forms in the Editor"
 title: "Forms in the Editor"
 url: "/docs/client/forms/forms-in-the-editor"
 doc-id: forms-in-the-editor

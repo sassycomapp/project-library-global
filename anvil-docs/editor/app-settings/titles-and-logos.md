@@ -1,4 +1,5 @@
 ---
+document: "General Settings"
 title: "General Settings"
 url: "/docs/editor/app-settings/titles-and-logos"
 doc-id: titles-and-logos

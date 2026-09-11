@@ -1,4 +1,5 @@
 ---
+document: "Quickstart"
 title: "Quickstart"
 url: "/docs/workflows/version-control/git/quickstart"
 doc-id: git-quickstart

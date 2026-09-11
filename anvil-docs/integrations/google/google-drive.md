@@ -1,4 +1,5 @@
 ---
+document: "Google Drive"
 title: "Google Drive"
 url: "/docs/integrations/google/google-drive"
 doc-id: google-drive

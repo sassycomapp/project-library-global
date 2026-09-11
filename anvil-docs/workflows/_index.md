@@ -1,4 +1,5 @@
 ---
+document: "Workflows and Best Practices"
 title: "Workflows and Best Practices"
 url: "/docs/workflows"
 doc-id: workflows-_index

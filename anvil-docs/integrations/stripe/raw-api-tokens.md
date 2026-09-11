@@ -1,4 +1,5 @@
 ---
+document: "Using Stripe's Python API"
 title: "Using Stripe's Python API"
 url: "/docs/integrations/stripe/raw-api-tokens"
 doc-id: raw-api-tokens

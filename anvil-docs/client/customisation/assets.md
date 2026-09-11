@@ -1,4 +1,5 @@
 ---
+document: "Adding Assets"
 title: "Adding Assets"
 url: "/docs/client/customisation/assets"
 doc-id: assets

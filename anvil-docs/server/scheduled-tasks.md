@@ -1,4 +1,5 @@
 ---
+document: "Scheduled Tasks"
 title: "Scheduled Tasks"
 url: "/docs/server/scheduled-tasks"
 doc-id: scheduled-tasks

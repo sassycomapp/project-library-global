@@ -1,4 +1,5 @@
 ---
+document: "Editor Look and Feel"
 title: "Editor Look and Feel"
 url: "/docs/editor/look-and-feel"
 doc-id: look-and-feel

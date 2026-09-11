@@ -1,4 +1,5 @@
 ---
+document: "Installation"
 title: "Installation"
 url: "/docs/enterprise/deployment/kubernetes/installation"
 doc-id: installation

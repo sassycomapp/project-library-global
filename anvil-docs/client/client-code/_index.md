@@ -1,4 +1,5 @@
 ---
+document: "Client Code"
 title: "Client Code"
 url: "/docs/client/client-code"
 doc-id: client-code-_index

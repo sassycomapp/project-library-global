@@ -1,4 +1,5 @@
 ---
+document: "Configuration options for SAML Authentication"
 title: "Configuration options for SAML Authentication"
 url: "/docs/integrations/saml/configuration-options"
 doc-id: configuration-options

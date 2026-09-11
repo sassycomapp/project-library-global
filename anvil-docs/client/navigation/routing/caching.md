@@ -1,4 +1,5 @@
 ---
+document: "Caching"
 title: "Caching"
 url: "/docs/client/navigation/routing/caching"
 doc-id: caching

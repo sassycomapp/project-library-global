@@ -1,4 +1,5 @@
 ---
+document: "Two-Factor Authentication"
 title: "Two-Factor Authentication"
 url: "/docs/users/two-factor-authentication"
 doc-id: two-factor-authentication

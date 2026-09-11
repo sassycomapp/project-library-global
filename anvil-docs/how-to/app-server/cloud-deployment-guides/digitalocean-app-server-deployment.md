@@ -1,4 +1,5 @@
 ---
+document: "DigitalOcean Droplet"
 title: "DigitalOcean Droplet"
 url: "/docs/how-to/app-server/cloud-deployment-guides/digitalocean-app-server-deployment"
 doc-id: digitalocean-app-server-deployment

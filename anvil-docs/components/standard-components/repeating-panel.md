@@ -1,4 +1,5 @@
 ---
+document: "RepeatingPanels"
 title: "RepeatingPanels"
 url: "/docs/components/standard-components/repeating-panel"
 doc-id: repeating-panel

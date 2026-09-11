@@ -1,4 +1,5 @@
 ---
+document: "Cluster Configuration"
 title: "Cluster Configuration"
 url: "/docs/enterprise/deployment/operator/cluster"
 doc-id: cluster

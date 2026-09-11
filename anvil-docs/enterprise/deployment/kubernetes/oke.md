@@ -1,4 +1,5 @@
 ---
+document: "Oracle OKE"
 title: "Oracle OKE"
 url: "/docs/enterprise/deployment/kubernetes/oke"
 doc-id: oke

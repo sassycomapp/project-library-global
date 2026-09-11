@@ -1,4 +1,5 @@
 ---
+document: "Payments and Subscriptions"
 title: "Payments and Subscriptions"
 url: "/docs/integrations/stripe/payments-and-subscriptions"
 doc-id: payments-and-subscriptions

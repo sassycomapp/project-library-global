@@ -1,4 +1,5 @@
 ---
+document: "anvil.GoogleMap"
 title: "anvil.GoogleMap"
 url: "/docs/api/anvil.googlemap"
 doc-id: anvil.googlemap

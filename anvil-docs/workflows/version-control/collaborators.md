@@ -1,4 +1,5 @@
 ---
+document: "Adding Collaborators"
 title: "Adding Collaborators"
 url: "/docs/workflows/version-control/collaborators"
 doc-id: collaborators

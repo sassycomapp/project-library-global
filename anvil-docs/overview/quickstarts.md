@@ -1,4 +1,5 @@
 ---
+document: "Quickstarts"
 title: "Quickstarts"
 url: "/docs/overview/quickstarts"
 doc-id: quickstarts

@@ -1,4 +1,5 @@
 ---
+document: "Colour Schemes"
 title: "Colour Schemes"
 url: "/docs/client/customisation/colour-schemes"
 doc-id: colour-schemes

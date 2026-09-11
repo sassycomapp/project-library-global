@@ -1,4 +1,5 @@
 ---
+document: "Data Security"
 title: "Data Security"
 url: "/docs/data-tables/data-security"
 doc-id: data-security

@@ -1,4 +1,5 @@
 ---
+document: "User Permissions"
 title: "User Permissions"
 url: "/docs/users/permissions"
 doc-id: permissions

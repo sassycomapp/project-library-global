@@ -1,4 +1,5 @@
 ---
+document: "Data Grids"
 title: "Data Grids"
 url: "/docs/components/standard-components/data-grids"
 doc-id: data-grids

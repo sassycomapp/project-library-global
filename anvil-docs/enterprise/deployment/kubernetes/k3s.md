@@ -1,4 +1,5 @@
 ---
+document: "K3s"
 title: "K3s"
 url: "/docs/enterprise/deployment/kubernetes/k3s"
 doc-id: k3s

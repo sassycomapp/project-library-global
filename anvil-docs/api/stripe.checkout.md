@@ -1,4 +1,5 @@
 ---
+document: "stripe.checkout"
 title: "stripe.checkout"
 url: "/docs/api/stripe.checkout"
 doc-id: stripe.checkout

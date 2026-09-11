@@ -1,4 +1,5 @@
 ---
+document: "Agent chat window"
 title: "Agent chat window"
 url: "/docs/ai/agent-chat-window"
 doc-id: agent-chat-window

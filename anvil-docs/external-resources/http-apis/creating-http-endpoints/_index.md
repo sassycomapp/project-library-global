@@ -1,4 +1,5 @@
 ---
+document: "Creating HTTP APIs"
 title: "Creating HTTP APIs"
 url: "/docs/external-resources/http-apis/creating-http-endpoints"
 doc-id: creating-http-endpoints-_index

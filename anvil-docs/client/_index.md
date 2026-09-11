@@ -1,4 +1,5 @@
 ---
+document: "Building the Front-End"
 title: "Building the Front-End"
 url: "/docs/client"
 doc-id: client-_index

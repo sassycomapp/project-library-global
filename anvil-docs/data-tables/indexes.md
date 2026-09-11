@@ -1,4 +1,5 @@
 ---
+document: "Indexes"
 title: "Indexes"
 url: "/docs/data-tables/indexes"
 doc-id: indexes

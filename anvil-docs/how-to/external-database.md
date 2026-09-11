@@ -1,4 +1,5 @@
 ---
+document: "External database"
 title: "External database"
 url: "/docs/how-to/external-database"
 doc-id: how-to-external-database

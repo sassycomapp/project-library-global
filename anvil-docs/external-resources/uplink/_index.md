@@ -1,4 +1,5 @@
 ---
+document: "Uplink: Code outside Anvil"
 title: "Uplink: Code outside Anvil"
 url: "/docs/external-resources/uplink"
 doc-id: uplink-_index

@@ -1,4 +1,5 @@
 ---
+document: "The Python Environment"
 title: "The Python Environment"
 url: "/docs/client/client-code/the-python-environment"
 doc-id: the-python-environment

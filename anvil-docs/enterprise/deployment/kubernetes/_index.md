@@ -1,4 +1,5 @@
 ---
+document: "Kubernetes"
 title: "Kubernetes"
 url: "/docs/enterprise/deployment/kubernetes"
 doc-id: kubernetes-_index

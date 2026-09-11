@@ -1,4 +1,5 @@
 ---
+document: "anvil.script"
 title: "anvil.script"
 url: "/docs/api/anvil.script"
 doc-id: anvil.script

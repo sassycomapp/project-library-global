@@ -1,4 +1,5 @@
 ---
+document: "Using the Extensions API"
 title: "Using the Extensions API"
 url: "/docs/integrations/x/tableau-extensions-api"
 doc-id: tableau-extensions-api

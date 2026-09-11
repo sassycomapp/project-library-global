@@ -1,4 +1,5 @@
 ---
+document: "Microsoft SSO"
 title: "Microsoft SSO"
 url: "/docs/enterprise/deployment/prerequisites/microsoft"
 doc-id: microsoft

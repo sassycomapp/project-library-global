@@ -1,4 +1,5 @@
 ---
+document: "Encrypting Secret Data"
 title: "Encrypting Secret Data"
 url: "/docs/workflows/security/encrypting-secret-data"
 doc-id: encrypting-secret-data

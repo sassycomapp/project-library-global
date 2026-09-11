@@ -1,4 +1,5 @@
 ---
+document: "App Secrets across Repos"
 title: "App Secrets across Repos"
 url: "/docs/workflows/version-control/git/secrets-across-repos"
 doc-id: secrets-across-repos

@@ -1,4 +1,5 @@
 ---
+document: "Prerequisites"
 title: "Prerequisites"
 url: "/docs/enterprise/deployment/prerequisites"
 doc-id: prerequisites-_index

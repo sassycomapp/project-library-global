@@ -1,4 +1,5 @@
 ---
+document: "Google"
 title: "Google"
 url: "/docs/integrations/google"
 doc-id: google-_index

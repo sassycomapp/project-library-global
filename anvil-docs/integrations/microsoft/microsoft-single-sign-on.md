@@ -1,4 +1,5 @@
 ---
+document: "Microsoft Single Sign-On"
 title: "Microsoft Single Sign-On"
 url: "/docs/integrations/microsoft/microsoft-single-sign-on"
 doc-id: microsoft-single-sign-on

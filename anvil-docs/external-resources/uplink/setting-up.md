@@ -1,4 +1,5 @@
 ---
+document: "Setting up"
 title: "Setting up"
 url: "/docs/external-resources/uplink/setting-up"
 doc-id: setting-up

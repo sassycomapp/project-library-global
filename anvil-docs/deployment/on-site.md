@@ -1,4 +1,5 @@
 ---
+document: "On-Site Deployment"
 title: "On-Site Deployment"
 url: "/docs/deployment/on-site"
 doc-id: on-site

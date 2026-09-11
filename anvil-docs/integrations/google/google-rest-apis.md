@@ -1,4 +1,5 @@
 ---
+document: "Google REST APIs"
 title: "Google REST APIs"
 url: "/docs/integrations/google/google-rest-apis"
 doc-id: google-rest-apis

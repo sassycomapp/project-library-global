@@ -1,4 +1,5 @@
 ---
+document: "Parameters"
 title: "Parameters"
 url: "/docs/client/navigation/routing/parameters"
 doc-id: parameters

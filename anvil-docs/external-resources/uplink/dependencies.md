@@ -1,4 +1,5 @@
 ---
+document: "Sharing Uplinks"
 title: "Sharing Uplinks"
 url: "/docs/external-resources/uplink/dependencies"
 doc-id: uplink-dependencies

@@ -1,4 +1,5 @@
 ---
+document: "Making plots"
 title: "Making plots"
 url: "/docs/how-to/plot"
 doc-id: plot

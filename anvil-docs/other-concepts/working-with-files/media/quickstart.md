@@ -1,4 +1,5 @@
 ---
+document: "Quickstart: Files and Media"
 title: "Quickstart: Files and Media"
 url: "/docs/other-concepts/working-with-files/media/quickstart"
 doc-id: media-quickstart

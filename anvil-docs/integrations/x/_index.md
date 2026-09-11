@@ -1,4 +1,5 @@
 ---
+document: "Tableau Extensions with Anvil X"
 title: "Tableau Extensions with Anvil X"
 url: "/docs/integrations/x"
 doc-id: x-_index

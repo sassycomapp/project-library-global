@@ -1,4 +1,5 @@
 ---
+document: "The Users Table"
 title: "The Users Table"
 url: "/docs/users/the-users-table"
 doc-id: the-users-table

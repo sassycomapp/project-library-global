@@ -1,4 +1,5 @@
 ---
+document: "Plans and Accounts"
 title: "Plans and Accounts"
 url: "/docs/plans-and-accounts"
 doc-id: plans-and-accounts-_index

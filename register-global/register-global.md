@@ -501,6 +501,7 @@ from this register entirely — added below.
 | git-quickstart | anvil-docs/workflows/version-control/git/quickstart.md | anvil-docs/workflows/version-control/git | anvil-docs | Live |  |
 | secrets-across-repos | anvil-docs/workflows/version-control/git/secrets-across-repos.md | anvil-docs/workflows/version-control/git | anvil-docs | Live |  |
 | git-_index | anvil-docs/workflows/version-control/git/_index.md | anvil-docs/workflows/version-control/git | anvil-docs | Live |  |
+| plg-readme | README.md | . | readme | Live | 2026-09-11 | 2026-09-11 | | registered by align-docs re-validation run |
 
 ## Field definitions
 

@@ -1,4 +1,5 @@
 ---
+document: "Set up an SSH key on Linux"
 title: "Set up an SSH key on Linux"
 url: "/docs/how-to/app-server/linux-ssh-key-setup"
 doc-id: linux-ssh-key-setup

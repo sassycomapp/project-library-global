@@ -1,4 +1,5 @@
 ---
+document: "Capabilities"
 title: "Capabilities"
 url: "/docs/other-concepts/portable-classes/capabilities"
 doc-id: capabilities

@@ -1,4 +1,5 @@
 ---
+document: "Sharing SAML Credentials across Anvil apps"
 title: "Sharing SAML Credentials across Anvil apps"
 url: "/docs/integrations/saml/sharing-credentials-across-apps"
 doc-id: sharing-credentials-across-apps

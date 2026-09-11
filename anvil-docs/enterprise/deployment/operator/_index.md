@@ -1,4 +1,5 @@
 ---
+document: "Kubernetes Operator"
 title: "Kubernetes Operator"
 url: "/docs/enterprise/deployment/operator"
 doc-id: operator-_index

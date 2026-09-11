@@ -1,4 +1,5 @@
 ---
+document: "Customising the Loading Indicator"
 title: "Customising the Loading Indicator"
 url: "/docs/client/customisation/using-css/loading_indicator"
 doc-id: loading_indicator

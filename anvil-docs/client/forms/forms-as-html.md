@@ -1,4 +1,5 @@
 ---
+document: "Forms as HTML"
 title: "Forms as HTML"
 url: "/docs/client/forms/forms-as-html"
 doc-id: forms-as-html

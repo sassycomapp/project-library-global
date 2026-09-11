@@ -1,4 +1,5 @@
 ---
+document: "Keyboard Shortcuts"
 title: "Keyboard Shortcuts"
 url: "/docs/editor/keyboard-shortcuts"
 doc-id: keyboard-shortcuts

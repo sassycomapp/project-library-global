@@ -1,4 +1,5 @@
 ---
+document: "Testing your extension"
 title: "Testing your extension"
 url: "/docs/integrations/x/testing-in-tableau"
 doc-id: testing-in-tableau

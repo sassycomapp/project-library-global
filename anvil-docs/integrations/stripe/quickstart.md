@@ -1,4 +1,5 @@
 ---
+document: "Quickstart"
 title: "Quickstart"
 url: "/docs/integrations/stripe/quickstart"
 doc-id: stripe-quickstart

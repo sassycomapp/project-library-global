@@ -1,4 +1,5 @@
 ---
+document: "anvil.server (uplink)"
 title: "anvil.server (uplink)"
 url: "/docs/api/anvil.server-uplink"
 doc-id: anvil.server-uplink

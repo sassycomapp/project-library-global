@@ -1,4 +1,5 @@
 ---
+document: "Connecting Entra ID to Anvil"
 title: "Connecting Entra ID to Anvil"
 url: "/docs/integrations/microsoft/linking-azure-and-anvil"
 doc-id: linking-azure-and-anvil

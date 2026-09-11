@@ -1,4 +1,5 @@
 ---
+document: "Component Properties"
 title: "Component Properties"
 url: "/docs/client/component-properties"
 doc-id: component-properties-_index

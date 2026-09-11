@@ -1,4 +1,5 @@
 ---
+document: "Material 3"
 title: "Material 3"
 url: "/docs/components/material-3"
 doc-id: material-3-_index

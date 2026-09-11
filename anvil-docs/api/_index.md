@@ -1,4 +1,5 @@
 ---
+document: "API Reference"
 title: "API Reference"
 url: "/docs/api"
 doc-id: api-_index

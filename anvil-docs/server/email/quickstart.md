@@ -1,4 +1,5 @@
 ---
+document: "Quickstart"
 title: "Quickstart"
 url: "/docs/server/email/quickstart"
 doc-id: email-quickstart

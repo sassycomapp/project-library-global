@@ -1,4 +1,5 @@
 ---
+document: "SAML Authentication"
 title: "SAML Authentication"
 url: "/docs/integrations/saml"
 doc-id: saml-_index

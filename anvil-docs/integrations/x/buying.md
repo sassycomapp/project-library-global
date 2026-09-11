@@ -1,4 +1,5 @@
 ---
+document: "Billing and Metering"
 title: "Billing and Metering"
 url: "/docs/integrations/x/buying"
 doc-id: buying

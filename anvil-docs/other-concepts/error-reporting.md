@@ -1,4 +1,5 @@
 ---
+document: "Error Reporting"
 title: "Error Reporting"
 url: "/docs/other-concepts/error-reporting"
 doc-id: error-reporting

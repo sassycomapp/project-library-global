@@ -1,4 +1,5 @@
 ---
+document: "Background Tasks"
 title: "Background Tasks"
 url: "/docs/server/background-tasks"
 doc-id: background-tasks-_index

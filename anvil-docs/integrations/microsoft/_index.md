@@ -1,4 +1,5 @@
 ---
+document: "Microsoft"
 title: "Microsoft"
 url: "/docs/integrations/microsoft"
 doc-id: microsoft-_index

@@ -1,4 +1,5 @@
 ---
+document: "anvil.files"
 title: "anvil.files"
 url: "/docs/api/anvil.files"
 doc-id: anvil.files

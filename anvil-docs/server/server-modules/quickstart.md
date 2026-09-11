@@ -1,4 +1,5 @@
 ---
+document: "Quickstart"
 title: "Quickstart"
 url: "/docs/server/server-modules/quickstart"
 doc-id: server-modules-quickstart

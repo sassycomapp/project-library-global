@@ -1,4 +1,5 @@
 ---
+document: "AWS EKS"
 title: "AWS EKS"
 url: "/docs/enterprise/deployment/kubernetes/eks"
 doc-id: eks

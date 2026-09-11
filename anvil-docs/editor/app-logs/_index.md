@@ -1,4 +1,5 @@
 ---
+document: "App Logs"
 title: "App Logs"
 url: "/docs/editor/app-logs"
 doc-id: app-logs-_index

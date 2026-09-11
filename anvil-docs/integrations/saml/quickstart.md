@@ -1,4 +1,5 @@
 ---
+document: "Quickstart"
 title: "Quickstart"
 url: "/docs/integrations/saml/quickstart"
 doc-id: saml-quickstart

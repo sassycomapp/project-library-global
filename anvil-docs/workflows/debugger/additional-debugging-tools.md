@@ -1,4 +1,5 @@
 ---
+document: "Additional Debugging Tools"
 title: "Additional Debugging Tools"
 url: "/docs/workflows/debugger/additional-debugging-tools"
 doc-id: additional-debugging-tools

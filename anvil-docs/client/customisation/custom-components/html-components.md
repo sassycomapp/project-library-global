@@ -1,4 +1,5 @@
 ---
+document: "Components from HTML"
 title: "Components from HTML"
 url: "/docs/client/customisation/custom-components/html-components"
 doc-id: html-components

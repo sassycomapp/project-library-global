@@ -1,4 +1,5 @@
 ---
+document: "How to Import Things"
 title: "How to Import Things"
 url: "/docs/workflows/app-architecture/how-to-import-things"
 doc-id: how-to-import-things

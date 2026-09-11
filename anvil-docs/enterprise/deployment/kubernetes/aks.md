@@ -1,4 +1,5 @@
 ---
+document: "Azure AKS"
 title: "Azure AKS"
 url: "/docs/enterprise/deployment/kubernetes/aks"
 doc-id: aks

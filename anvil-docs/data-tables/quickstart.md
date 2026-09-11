@@ -1,4 +1,5 @@
 ---
+document: "Quickstart"
 title: "Quickstart"
 url: "/docs/data-tables/quickstart"
 doc-id: data-tables-quickstart

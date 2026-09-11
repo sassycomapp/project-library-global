@@ -1,4 +1,5 @@
 ---
+document: "Legacy Tables"
 title: "Legacy Tables"
 url: "/docs/data-tables/legacy-tables"
 doc-id: legacy-tables

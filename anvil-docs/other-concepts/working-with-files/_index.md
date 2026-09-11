@@ -1,4 +1,5 @@
 ---
+document: "Files, Media and Binary Data"
 title: "Files, Media and Binary Data"
 url: "/docs/other-concepts/working-with-files"
 doc-id: working-with-files-_index

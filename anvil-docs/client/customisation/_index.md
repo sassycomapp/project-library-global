@@ -1,4 +1,5 @@
 ---
+document: "Customisation"
 title: "Customisation"
 url: "/docs/client/customisation"
 doc-id: customisation-_index

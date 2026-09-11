@@ -1,4 +1,5 @@
 ---
+document: "Email"
 title: "Email"
 url: "/docs/server/email"
 doc-id: email-_index

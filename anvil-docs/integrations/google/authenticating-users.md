@@ -1,4 +1,5 @@
 ---
+document: "Authenticating Users"
 title: "Authenticating Users"
 url: "/docs/integrations/google/authenticating-users"
 doc-id: authenticating-users

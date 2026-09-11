@@ -1,4 +1,5 @@
 ---
+document: "Layouts from HTML"
 title: "Layouts from HTML"
 url: "/docs/client/forms/layouts/html-layouts"
 doc-id: html-layouts

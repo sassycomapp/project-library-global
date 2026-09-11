@@ -1,4 +1,5 @@
 ---
+document: "Communicating with Background Tasks"
 title: "Communicating with Background Tasks"
 url: "/docs/server/background-tasks/communicating-back"
 doc-id: communicating-back

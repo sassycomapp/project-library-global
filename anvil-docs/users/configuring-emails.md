@@ -1,4 +1,5 @@
 ---
+document: "Configuring Emails"
 title: "Configuring Emails"
 url: "/docs/users/configuring-emails"
 doc-id: configuring-emails

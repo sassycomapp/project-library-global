@@ -1,4 +1,5 @@
 ---
+document: "Authentication"
 title: "Authentication"
 url: "/docs/external-resources/http-apis/creating-http-endpoints/authentication"
 doc-id: authentication

@@ -1,4 +1,5 @@
 ---
+document: "Attachments"
 title: "Attachments"
 url: "/docs/server/email/attachments"
 doc-id: attachments

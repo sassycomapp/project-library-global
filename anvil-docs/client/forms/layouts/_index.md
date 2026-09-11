@@ -1,4 +1,5 @@
 ---
+document: "Layouts"
 title: "Layouts"
 url: "/docs/client/forms/layouts"
 doc-id: layouts-_index

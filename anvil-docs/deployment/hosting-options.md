@@ -1,4 +1,5 @@
 ---
+document: "Hosting options"
 title: "Hosting options"
 url: "/docs/deployment/hosting-options"
 doc-id: hosting-options

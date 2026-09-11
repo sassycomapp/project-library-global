@@ -1,4 +1,5 @@
 ---
+document: "Quickstart"
 title: "Quickstart"
 url: "/docs/external-resources/uplink/quickstart"
 doc-id: uplink-quickstart

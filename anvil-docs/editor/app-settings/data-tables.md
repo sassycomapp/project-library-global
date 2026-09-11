@@ -1,4 +1,5 @@
 ---
+document: "Data Tables Settings"
 title: "Data Tables Settings"
 url: "/docs/editor/app-settings/data-tables"
 doc-id: app-settings-data-tables

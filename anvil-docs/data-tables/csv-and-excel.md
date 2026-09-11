@@ -1,4 +1,5 @@
 ---
+document: "CSV and Excel import"
 title: "CSV and Excel import"
 url: "/docs/data-tables/csv-and-excel"
 doc-id: csv-and-excel

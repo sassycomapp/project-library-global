@@ -1,4 +1,5 @@
 ---
+document: "AI Agents in Anvil"
 title: "AI Agents in Anvil"
 url: "/docs/ai"
 doc-id: ai-_index

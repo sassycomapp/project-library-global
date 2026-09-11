@@ -1,4 +1,5 @@
 ---
+document: "anvil.facebook.auth"
 title: "anvil.facebook.auth"
 url: "/docs/api/anvil.facebook.auth"
 doc-id: anvil.facebook.auth

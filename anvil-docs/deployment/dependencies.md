@@ -1,4 +1,5 @@
 ---
+document: "Depending On Other Apps"
 title: "Depending On Other Apps"
 url: "/docs/deployment/dependencies"
 doc-id: deployment-dependencies

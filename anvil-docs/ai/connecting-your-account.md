@@ -1,4 +1,5 @@
 ---
+document: "Connecting Your Account"
 title: "Connecting Your Account"
 url: "/docs/ai/connecting-your-account"
 doc-id: connecting-your-account

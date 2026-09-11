@@ -1,4 +1,5 @@
 ---
+document: "Anvil App Architecture"
 title: "Anvil App Architecture"
 url: "/docs/workflows/app-architecture"
 doc-id: app-architecture-_index

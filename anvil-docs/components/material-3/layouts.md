@@ -1,4 +1,5 @@
 ---
+document: "Layouts"
 title: "Layouts"
 url: "/docs/components/material-3/layouts"
 doc-id: layouts

@@ -1,4 +1,5 @@
 ---
+document: "Cloud Deployment Guides"
 title: "Cloud Deployment Guides"
 url: "/docs/how-to/app-server/cloud-deployment-guides"
 doc-id: cloud-deployment-guides-_index

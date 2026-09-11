@@ -1,4 +1,5 @@
 ---
+document: "Commands"
 title: "Commands"
 url: "/docs/using-another-ide/commands"
 doc-id: commands

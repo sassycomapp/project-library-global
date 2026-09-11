@@ -1,4 +1,5 @@
 ---
+document: "Pricing plans"
 title: "Pricing plans"
 url: "/docs/plans-and-accounts/free-vs-paid"
 doc-id: free-vs-paid

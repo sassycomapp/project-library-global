@@ -1,4 +1,5 @@
 ---
+document: "Uplink for Pico W"
 title: "Uplink for Pico W"
 url: "/docs/external-resources/uplink/pico"
 doc-id: pico

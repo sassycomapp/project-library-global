@@ -1,4 +1,5 @@
 ---
+document: "Structuring your app"
 title: "Structuring your app"
 url: "/docs/workflows/app-architecture/structuring-your-app"
 doc-id: structuring-your-app

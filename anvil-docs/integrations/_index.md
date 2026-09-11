@@ -1,4 +1,5 @@
 ---
+document: "Built-in Integrations"
 title: "Built-in Integrations"
 url: "/docs/integrations"
 doc-id: integrations-_index

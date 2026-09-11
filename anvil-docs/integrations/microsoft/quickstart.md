@@ -1,4 +1,5 @@
 ---
+document: "Quickstart"
 title: "Quickstart"
 url: "/docs/integrations/microsoft/quickstart"
 doc-id: microsoft-quickstart

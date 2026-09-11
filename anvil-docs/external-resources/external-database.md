@@ -1,4 +1,5 @@
 ---
+document: "Accessing an External Database"
 title: "Accessing an External Database"
 url: "/docs/external-resources/external-database"
 doc-id: external-resources-external-database

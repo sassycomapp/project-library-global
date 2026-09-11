@@ -1,4 +1,5 @@
 ---
+document: "Collaborate as a team in Anvil"
 title: "Collaborate as a team in Anvil"
 url: "/docs/how-to/collaborate-in-anvil"
 doc-id: collaborate-in-anvil

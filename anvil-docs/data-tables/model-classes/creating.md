@@ -1,4 +1,5 @@
 ---
+document: "Creating Model Classes"
 title: "Creating Model Classes"
 url: "/docs/data-tables/model-classes/creating"
 doc-id: creating

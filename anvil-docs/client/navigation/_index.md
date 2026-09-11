@@ -1,4 +1,5 @@
 ---
+document: "Navigation"
 title: "Navigation"
 url: "/docs/client/navigation"
 doc-id: navigation-_index

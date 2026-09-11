@@ -1,4 +1,5 @@
 ---
+document: "OpenShift"
 title: "OpenShift"
 url: "/docs/enterprise/deployment/kubernetes/openshift"
 doc-id: openshift

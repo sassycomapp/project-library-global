@@ -1,4 +1,5 @@
 ---
+document: "Quickstart"
 title: "Quickstart"
 url: "/docs/client/navigation/routing/quickstart"
 doc-id: routing-quickstart

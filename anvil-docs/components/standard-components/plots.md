@@ -1,4 +1,5 @@
 ---
+document: "Plots"
 title: "Plots"
 url: "/docs/components/standard-components/plots"
 doc-id: plots

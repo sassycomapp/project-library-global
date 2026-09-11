@@ -1,4 +1,5 @@
 ---
+document: "Connecting to Data Tables"
 title: "Connecting to Data Tables"
 url: "/docs/external-resources/uplink/data-tables"
 doc-id: uplink-data-tables

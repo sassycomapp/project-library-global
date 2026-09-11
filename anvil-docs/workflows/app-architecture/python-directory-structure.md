@@ -1,4 +1,5 @@
 ---
+document: "Python Directory Structure"
 title: "Python Directory Structure"
 url: "/docs/workflows/app-architecture/python-directory-structure"
 doc-id: python-directory-structure

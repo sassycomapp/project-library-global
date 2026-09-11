@@ -1,4 +1,5 @@
 ---
+document: "How to get help"
 title: "How to get help"
 url: "/docs/get-started/help"
 doc-id: help

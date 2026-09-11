@@ -1,4 +1,5 @@
 ---
+document: "Quickstart"
 title: "Quickstart"
 url: "/docs/integrations/facebook/quickstart"
 doc-id: facebook-quickstart

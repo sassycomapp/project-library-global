@@ -1,4 +1,5 @@
 ---
+document: "Sessions and Cookies"
 title: "Sessions and Cookies"
 url: "/docs/server/sessions-and-cookies"
 doc-id: sessions-and-cookies

@@ -1,4 +1,5 @@
 ---
+document: "Client-Writable Models"
 title: "Client-Writable Models"
 url: "/docs/data-tables/model-classes/client-writable"
 doc-id: client-writable

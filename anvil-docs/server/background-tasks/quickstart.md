@@ -1,4 +1,5 @@
 ---
+document: "Quickstart"
 title: "Quickstart"
 url: "/docs/server/background-tasks/quickstart"
 doc-id: background-tasks-quickstart

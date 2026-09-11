@@ -1,4 +1,5 @@
 ---
+document: "Modules"
 title: "Modules"
 url: "/docs/client/client-code/modules"
 doc-id: modules

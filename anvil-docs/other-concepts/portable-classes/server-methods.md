@@ -1,4 +1,5 @@
 ---
+document: "Server Methods"
 title: "Server Methods"
 url: "/docs/other-concepts/portable-classes/server-methods"
 doc-id: server-methods

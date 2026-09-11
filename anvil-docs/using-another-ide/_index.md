@@ -1,4 +1,5 @@
 ---
+document: "Using Anvil in a Local IDE"
 title: "Using Anvil in a Local IDE"
 url: "/docs/using-another-ide"
 doc-id: using-another-ide-_index

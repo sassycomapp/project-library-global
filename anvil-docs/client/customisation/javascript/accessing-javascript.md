@@ -1,4 +1,5 @@
 ---
+document: "Accessing JavaScript"
 title: "Accessing JavaScript"
 url: "/docs/client/customisation/javascript/accessing-javascript"
 doc-id: accessing-javascript

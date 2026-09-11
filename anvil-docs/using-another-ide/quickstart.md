@@ -1,4 +1,5 @@
 ---
+document: "Quickstart"
 title: "Quickstart"
 url: "/docs/using-another-ide/quickstart"
 doc-id: using-another-ide-quickstart

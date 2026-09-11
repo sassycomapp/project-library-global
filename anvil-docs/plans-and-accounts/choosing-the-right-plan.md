@@ -1,4 +1,5 @@
 ---
+document: "Choosing The Right Plan"
 title: "Choosing The Right Plan"
 url: "/docs/plans-and-accounts/choosing-the-right-plan"
 doc-id: choosing-the-right-plan

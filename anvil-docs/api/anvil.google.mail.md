@@ -1,4 +1,5 @@
 ---
+document: "anvil.google.mail"
 title: "anvil.google.mail"
 url: "/docs/api/anvil.google.mail"
 doc-id: anvil.google.mail

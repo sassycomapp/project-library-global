@@ -1,4 +1,5 @@
 ---
+document: "Legacy Full Python Packages"
 title: "Legacy Full Python Packages"
 url: "/docs/server/custom-packages/packages"
 doc-id: packages

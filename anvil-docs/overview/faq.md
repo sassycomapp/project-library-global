@@ -1,4 +1,5 @@
 ---
+document: "FAQ"
 title: "FAQ"
 url: "/docs/overview/faq"
 doc-id: faq

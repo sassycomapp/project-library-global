@@ -1,4 +1,5 @@
 ---
+document: "Uplink Security"
 title: "Uplink Security"
 url: "/docs/external-resources/uplink/uplink-security"
 doc-id: uplink-security

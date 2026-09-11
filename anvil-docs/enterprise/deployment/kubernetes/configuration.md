@@ -1,4 +1,5 @@
 ---
+document: "Configuration Guide"
 title: "Configuration Guide"
 url: "/docs/enterprise/deployment/kubernetes/configuration"
 doc-id: configuration

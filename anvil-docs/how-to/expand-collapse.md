@@ -1,4 +1,5 @@
 ---
+document: "Expand and collapse sections of pages"
 title: "Expand and collapse sections of pages"
 url: "/docs/how-to/expand-collapse"
 doc-id: expand-collapse

@@ -1,4 +1,5 @@
 ---
+document: "Checks and Validation"
 title: "Checks and Validation"
 url: "/docs/data-tables/model-classes/validation"
 doc-id: validation

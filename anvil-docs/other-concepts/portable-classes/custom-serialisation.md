@@ -1,4 +1,5 @@
 ---
+document: "Custom Serialisation"
 title: "Custom Serialisation"
 url: "/docs/other-concepts/portable-classes/custom-serialisation"
 doc-id: custom-serialisation

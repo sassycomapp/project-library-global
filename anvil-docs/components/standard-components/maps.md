@@ -1,4 +1,5 @@
 ---
+document: "Maps"
 title: "Maps"
 url: "/docs/components/standard-components/maps"
 doc-id: maps

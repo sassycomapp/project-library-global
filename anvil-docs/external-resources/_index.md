@@ -1,4 +1,5 @@
 ---
+document: "Connecting to External Resources"
 title: "Connecting to External Resources"
 url: "/docs/external-resources"
 doc-id: external-resources-_index

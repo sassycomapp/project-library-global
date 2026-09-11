@@ -1,4 +1,5 @@
 ---
+document: "Quickstart"
 title: "Quickstart"
 url: "/docs/client/customisation/javascript/quickstart"
 doc-id: javascript-quickstart

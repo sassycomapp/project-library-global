@@ -1,4 +1,5 @@
 ---
+document: "anvil.secrets"
 title: "anvil.secrets"
 url: "/docs/api/anvil.secrets"
 doc-id: anvil.secrets

@@ -1,4 +1,5 @@
 ---
+document: "Trials and PoCs"
 title: "Trials and PoCs"
 url: "/docs/enterprise/trials"
 doc-id: trials

@@ -1,4 +1,5 @@
 ---
+document: "Custom Domains"
 title: "Custom Domains"
 url: "/docs/deployment/custom-domains"
 doc-id: custom-domains

@@ -1,4 +1,5 @@
 ---
+document: "Accessing Azure APIs"
 title: "Accessing Azure APIs"
 url: "/docs/integrations/microsoft/accessing-microsoft-apis"
 doc-id: accessing-microsoft-apis

@@ -1,4 +1,5 @@
 ---
+document: "Host apps on your own server"
 title: "Host apps on your own server"
 url: "/docs/how-to/app-server"
 doc-id: app-server-_index

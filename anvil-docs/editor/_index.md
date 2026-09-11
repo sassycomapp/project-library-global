@@ -1,4 +1,5 @@
 ---
+document: "The Anvil Editor"
 title: "The Anvil Editor"
 url: "/docs/editor"
 doc-id: editor-_index

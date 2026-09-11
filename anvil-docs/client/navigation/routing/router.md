@@ -1,4 +1,5 @@
 ---
+document: "Router"
 title: "Router"
 url: "/docs/client/navigation/routing/router"
 doc-id: router

@@ -1,4 +1,5 @@
 ---
+document: "Stripe"
 title: "Stripe"
 url: "/docs/integrations/stripe"
 doc-id: stripe-_index

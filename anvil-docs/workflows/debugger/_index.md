@@ -1,4 +1,5 @@
 ---
+document: "Debugging Your App"
 title: "Debugging Your App"
 url: "/docs/workflows/debugger"
 doc-id: debugger-_index

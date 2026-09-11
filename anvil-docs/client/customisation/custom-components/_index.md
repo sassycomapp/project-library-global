@@ -1,4 +1,5 @@
 ---
+document: "Custom Components"
 title: "Custom Components"
 url: "/docs/client/customisation/custom-components"
 doc-id: custom-components-_index

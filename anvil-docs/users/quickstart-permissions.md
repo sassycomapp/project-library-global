@@ -1,4 +1,5 @@
 ---
+document: "Quickstart: Permissions"
 title: "Quickstart: Permissions"
 url: "/docs/users/quickstart-permissions"
 doc-id: quickstart-permissions

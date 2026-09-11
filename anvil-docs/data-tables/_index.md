@@ -1,4 +1,5 @@
 ---
+document: "Storing Data in Data Tables"
 title: "Storing Data in Data Tables"
 url: "/docs/data-tables"
 doc-id: data-tables-_index

@@ -1,4 +1,5 @@
 ---
+document: "GitHub SSO"
 title: "GitHub SSO"
 url: "/docs/enterprise/deployment/prerequisites/github"
 doc-id: github

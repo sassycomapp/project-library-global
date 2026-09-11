@@ -1,4 +1,5 @@
 ---
+document: "Gmail"
 title: "Gmail"
 url: "/docs/integrations/google/gmail"
 doc-id: gmail

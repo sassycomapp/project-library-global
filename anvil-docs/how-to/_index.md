@@ -1,4 +1,5 @@
 ---
+document: "How-to Guides"
 title: "How-to Guides"
 url: "/docs/how-to"
 doc-id: how-to-_index

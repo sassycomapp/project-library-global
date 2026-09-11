@@ -1,4 +1,5 @@
 ---
+document: "Clone your app locally"
 title: "Clone your app locally"
 url: "/docs/workflows/version-control/git/direct-checkout"
 doc-id: direct-checkout

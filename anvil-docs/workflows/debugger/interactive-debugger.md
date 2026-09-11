@@ -1,4 +1,5 @@
 ---
+document: "The Interactive Debugger"
 title: "The Interactive Debugger"
 url: "/docs/workflows/debugger/interactive-debugger"
 doc-id: interactive-debugger

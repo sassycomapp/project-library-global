@@ -1,4 +1,5 @@
 ---
+document: "Facebook"
 title: "Facebook"
 url: "/docs/integrations/facebook"
 doc-id: facebook-_index

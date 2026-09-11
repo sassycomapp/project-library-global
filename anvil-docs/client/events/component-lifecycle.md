@@ -1,4 +1,5 @@
 ---
+document: "Component Lifecycle"
 title: "Component Lifecycle"
 url: "/docs/client/events/component-lifecycle"
 doc-id: component-lifecycle

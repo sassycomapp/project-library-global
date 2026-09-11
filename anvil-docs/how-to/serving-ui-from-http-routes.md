@@ -1,4 +1,5 @@
 ---
+document: "Serve your UI from HTTP routes"
 title: "Serve your UI from HTTP routes"
 url: "/docs/how-to/serving-ui-from-http-routes"
 doc-id: serving-ui-from-http-routes

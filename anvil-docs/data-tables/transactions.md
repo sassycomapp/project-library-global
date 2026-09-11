@@ -1,4 +1,5 @@
 ---
+document: "Transactions"
 title: "Transactions"
 url: "/docs/data-tables/transactions"
 doc-id: transactions

@@ -1,4 +1,5 @@
 ---
+document: "Changelog"
 title: "Changelog"
 url: "/docs/enterprise/deployment/operator/changelog"
 doc-id: changelog

@@ -1,4 +1,5 @@
 ---
+document: "Prompting best practices"
 title: "Prompting best practices"
 url: "/docs/how-to/prompting-best-practices"
 doc-id: prompting-best-practices

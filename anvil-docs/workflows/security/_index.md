@@ -1,4 +1,5 @@
 ---
+document: "Building Secure Apps"
 title: "Building Secure Apps"
 url: "/docs/workflows/security"
 doc-id: security-_index

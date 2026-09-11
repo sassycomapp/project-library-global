@@ -1,4 +1,5 @@
 ---
+document: "Custom M3 colour schemes"
 title: "Custom M3 colour schemes"
 url: "/docs/how-to/creating-material-3-colour-scheme"
 doc-id: creating-material-3-colour-scheme

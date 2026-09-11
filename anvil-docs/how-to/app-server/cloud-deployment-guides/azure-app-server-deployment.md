@@ -1,4 +1,5 @@
 ---
+document: "Microsoft Azure"
 title: "Microsoft Azure"
 url: "/docs/how-to/app-server/cloud-deployment-guides/azure-app-server-deployment"
 doc-id: azure-app-server-deployment

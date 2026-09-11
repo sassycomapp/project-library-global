@@ -1,4 +1,5 @@
 ---
+document: "How does it work?"
 title: "How does it work?"
 url: "/docs/get-started/how-does-it-work"
 doc-id: how-does-it-work

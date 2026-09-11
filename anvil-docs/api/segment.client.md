@@ -1,4 +1,5 @@
 ---
+document: "segment.client"
 title: "segment.client"
 url: "/docs/api/segment.client"
 doc-id: segment.client

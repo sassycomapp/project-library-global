@@ -1,4 +1,5 @@
 ---
+document: "Managed Enterprise"
 title: "Managed Enterprise"
 url: "/docs/enterprise/managed-enterprise"
 doc-id: managed-enterprise

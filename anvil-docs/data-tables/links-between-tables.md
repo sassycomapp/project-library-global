@@ -1,4 +1,5 @@
 ---
+document: "Links Between Tables"
 title: "Links Between Tables"
 url: "/docs/data-tables/links-between-tables"
 doc-id: links-between-tables

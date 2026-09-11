@@ -1,4 +1,5 @@
 ---
+document: "anvil.plotly_templates"
 title: "anvil.plotly_templates"
 url: "/docs/api/anvil.plotly_templates"
 doc-id: anvil.plotly_templates

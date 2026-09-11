@@ -1,4 +1,5 @@
 ---
+document: "Version Control and Collaboration"
 title: "Version Control and Collaboration"
 url: "/docs/workflows/version-control"
 doc-id: version-control-_index

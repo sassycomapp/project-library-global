@@ -1,4 +1,5 @@
 ---
+document: "Cloning and Collaboration"
 title: "Cloning and Collaboration"
 url: "/docs/editor/app-settings/cloning-and-collaboration"
 doc-id: cloning-and-collaboration

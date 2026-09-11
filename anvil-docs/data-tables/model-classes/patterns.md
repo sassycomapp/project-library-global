@@ -1,4 +1,5 @@
 ---
+document: "Best Practices"
 title: "Best Practices"
 url: "/docs/data-tables/model-classes/patterns"
 doc-id: patterns

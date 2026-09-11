@@ -1,4 +1,5 @@
 ---
+document: "Layouts API"
 title: "Layouts API"
 url: "/docs/client/forms/layouts/layouts-api"
 doc-id: layouts-api

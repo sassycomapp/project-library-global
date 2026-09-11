@@ -1,4 +1,5 @@
 ---
+document: "Model Classes"
 title: "Model Classes"
 url: "/docs/data-tables/model-classes"
 doc-id: model-classes-_index
