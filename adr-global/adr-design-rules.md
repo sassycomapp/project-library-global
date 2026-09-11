@@ -21,7 +21,7 @@ Before producing or modifying any wireframe, the agent MUST read the following, 
 1. This ADR (`design-rules` ADR) in full.
 2. `docs/nomenclature.md` — naming conventions for every component type.
 3. `docs/m3_component_mapping.md` — which Material 3 components are supported, partially supported, or unsupported.
-4. `[[scaffold-s]]` — the architectural scaffold the wireframe must conform to.
+4. `[[scaffold-spec]]` — the architectural scaffold the wireframe must conform to.
 5. The relevant existing code under `mb-3-cs/client_code/` for the form being wireframed, if it exists — to confirm component names, structure, and naming already in use.
 6. Any architecture and design documents in `project-library/docs/`, `project-library/adr/`, and `project-library/implementation/` relevant to the specific form, flow, or screen being wireframed.
 7. Any relevant prior outputs in `project-library/gstack-outputs/` (e.g. design review findings, eng review findings) that bear on the form being wireframed.

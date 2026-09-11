@@ -122,7 +122,7 @@ Branch-based update propagation has not yet been verified by live test. The foll
 | Document | Relationship |
 |---|---|
 | [[adr-client-instance-architecture|Client Instance Architecture]] | Defines what lives in client instance vs master_template |
-| ``[[blank-client-templ]]`` | Provisioning clone source |
+| ``[[blank-client-template]]`` | Provisioning clone source |
 | [[adr-free-trial-abandoned|30-Day Free Trial Abandoned]] | Trial model replaced; all clients on stable from day one |
 | `implementation/client-activation-runbook.md` | Includes dependency configuration step at provisioning |
 

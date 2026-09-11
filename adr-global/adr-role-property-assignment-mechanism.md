@@ -40,15 +40,15 @@ Components can have multiple roles (space-separated string or list of strings).
 ## Consequences
 
 - Role assignment is done in Python code, not in the Designer Properties Panel.
-- `[[design-direct]]`, `[[spec-material-3-th]]`, and the Standard all need to reflect code-based role assignment.
+- `[[design-direction]]`, `[[spec-material-3-theme]]`, and the Standard all need to reflect code-based role assignment.
 - The Standard's §6.0 must be updated to show code examples, not Designer instructions.
 
 ## Related Documents
 
 | Document | Relationship |
 |---|---|
-| `[[design-direct]]` | Source of the original contradiction |
-| `[[spec-material-3-th]]` | Contains code examples — now correct per this reversal |
+| `[[design-direction]]` | Source of the original contradiction |
+| `[[spec-material-3-theme]]` | Contains code examples — now correct per this reversal |
 | `ui-build-prep/anvil-ui-build-standard.md` | Standard §6.0 must be updated |
 | Anvil Roles docs | `https://anvil.works/docs/client/customisation/using-css/roles` |
 

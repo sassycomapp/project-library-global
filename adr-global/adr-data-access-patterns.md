@@ -150,7 +150,7 @@ These tables are populated by background tasks ([[adr-real-time-and-background-t
 | [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] | Data Table limitations and lazy-load behavior |
 | [[adr-client-instance-architecture|Client Instance Architecture]] | All data access is server-side |
 | [[adr-real-time-and-background-tasks|Real-Time and Background Tasks]] | Background tasks compute summary tables |
-| `[[authoritative-sch]]` | 36-table schema definition |
+| `[[authoritative-schema]]` | 36-table schema definition |
 | `docs/platform-overview.md` | Section 13: Data Architecture |
 
 ---

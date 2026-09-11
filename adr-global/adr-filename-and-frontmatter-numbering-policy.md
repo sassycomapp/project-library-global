@@ -39,7 +39,7 @@ document id (the last known citation, `global-0037`, was removed 2026-09-10).
 matter.** Numbering is an exception, never the rule. Specifically:
 
 1. **No sequence numbers in filenames.** A document's identity is its descriptive
-   filename (e.g. `[[adr-design-ru]]`), permanent and never reused. Ordering, where
+   filename (e.g. `[[adr-design-rules]]`), permanent and never reused. Ordering, where
    it matters, comes from dates or from content structure — never from a leading
    counter.
 2. **No numeric identifiers in front matter.** `doc-id` is the filename's own slug.

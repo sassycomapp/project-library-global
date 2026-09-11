@@ -12,7 +12,7 @@ Accepted
 
 ## Context
 
-`[[design-direct]]` contains two incompatible breakpoint models in the same document:
+`[[design-direction]]` contains two incompatible breakpoint models in the same document:
 
 1. A binary split at 998px.
 2. A three-tier system (640px/1024px) with column-count and typography-scaling rules per tier.
@@ -37,20 +37,20 @@ No breakpoint-pixel table is used. Navigation collapse remains separately automa
 
 ## Consequences
 
-- `[[design-direct]]`'s breakpoint tables (both of them) are superseded and require correcting.
+- `[[design-direction]]`'s breakpoint tables (both of them) are superseded and require correcting.
 - The UI standards document's responsiveness section must be rewritten around `wrap_on`, not breakpoints.
 - Developers set a single property per container rather than managing CSS media queries or pixel thresholds.
 
 ## Alternatives Considered
 
-- **CSS breakpoint tables (binary or three-tier).** Rejected. Anvil does not expose CSS media query control to the developer in its component model. Breakpoint tables described in `[[design-direct]]` have no corresponding Anvil mechanism and cannot be implemented as specified.
+- **CSS breakpoint tables (binary or three-tier).** Rejected. Anvil does not expose CSS media query control to the developer in its component model. Breakpoint tables described in `[[design-direction]]` have no corresponding Anvil mechanism and cannot be implemented as specified.
 - **No responsive instruction (rely entirely on native auto-collapse).** Rejected. NavigationRailLayout and NavigationDrawerLayout auto-collapse natively, but content containers (ColumnPanel, FlowPanel, DataGrid) do not rearrange without explicit `wrap_on` instruction. Both mechanisms are needed.
 
 ## Related Documents
 
 | Document | Relationship |
 |---|---|
-| `[[design-direct]]` | Source of the contradicting breakpoint models this ADR supersedes |
+| `[[design-direction]]` | Source of the contradicting breakpoint models this ADR supersedes |
 | [[adr-design-rules|Design Rules]] | Wireframe design rules; wireframes must annotate `wrap_on` where applicable |
 | [[adr-ui-customization-approach|UI Customization Approach]] | Broader UI customization approach; this ADR is a specific responsive instance |
 

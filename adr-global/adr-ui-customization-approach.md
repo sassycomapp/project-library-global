@@ -92,7 +92,7 @@ MUI (Material-UI) design patterns were evaluated as a potential source of design
 | [[adr-design-rules|Design Rules]] | Design rules and palette system |
 | [[adr-navigation-lambda-link-open-form|Navigation Lambda/Link/open_form]] | Why M3 navigation components are not used |
 | `docs/ui-standards.md` | UI standards and component usage |
-| `[[spec-material-3-th]]` | M3 theme specification |
+| `[[spec-material-3-theme]]` | M3 theme specification |
 
 ---
 

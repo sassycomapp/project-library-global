@@ -25,7 +25,7 @@ The Mybizz CS platform supports multi-currency operations for global service bus
 
 ### Existing Design
 
-From `[[authoritative-sch]]`:
+From `[[authoritative-schema]]`:
 - `business_profile.system_currency` — set at onboarding, immutable after first transaction
 - `services.price` — price in system currency
 - `services.display_currency` — optional display currency for customer-facing prices
@@ -182,7 +182,7 @@ INVOICE: transaction currency + system_currency_amount (for reporting)
 
 ## Related Documents
 
-- `[[authoritative-sch]]` — Database schema with currency fields
+- `[[authoritative-schema]]` — Database schema with currency fields
 - [[adr-timezone-utc-storage-display-conversion|Client Timezone: UTC Storage, Display Conversion]] — Timezone/UTC storage pattern (similar approach)
 - `implementation/onboarding-implementation-plan.md` — System currency selection in onboarding
 

@@ -8,7 +8,7 @@ date-created: 2026-07-25T150027+0200
 
 **Status:** Confirmed — Sealed  
 **Date:** 2026-06-13  
-**Authority:** Derived from [[adr-client-instance-architecture|Client Instance Architecture]] ADR, [[adr-dependency-update-model|Dependency Update Model]] ADR, `[[blank-client-templ]]` ADR, live testing 2026-06-13  
+**Authority:** Derived from [[adr-client-instance-architecture|Client Instance Architecture]] ADR, [[adr-dependency-update-model|Dependency Update Model]] ADR, `[[blank-client-template]]` ADR, live testing 2026-06-13  
 **Audience:** All developers and AI coding assistants working on this codebase
 
 ---
@@ -266,7 +266,7 @@ If you find an existing function that includes a `client_id`, `tenant_id`, or eq
 |---|---|
 | [[adr-client-instance-architecture|Client Instance Architecture]] | Defines client instance structure and app_tables test |
 | [[adr-dependency-update-model|Dependency Update Model]] | How master_template updates reach all client instances |
-| ``[[blank-client-templ]]`` | Provisioning — how client instances are created |
+| ``[[blank-client-template]]`` | Provisioning — how client instances are created |
 | `docs/platform-establishment-report-2026-06-13.md` | Full architectural narrative and rationale |
 | `HANDOVER-opencode-2026-06-13.md` | Technical handover for OpenCode |
 
