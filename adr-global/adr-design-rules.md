@@ -12,6 +12,38 @@ date-created: 2026-07-25T150027+0200
 
 ---
 
+## Section A — Applicability (Magdoub Wireframe Skill exemption)
+
+**[NEW — amended 2026-09-16 to resolve the previously undocumented reconciliation
+between this ADR and the Magdoub Claude Wireframe Skill (`wireframe`). Not part of
+the original rules; the rest of this document is unchanged.]**
+
+A0. This ADR applies **only to wireframes NOT created by the Magdoub Claude
+Wireframe Skill (`wireframe`)**.
+
+A1. **Magdoub-created wireframes are outside this ADR's scope.** When the
+`wireframe` skill generates a wireframe, it produces an exploratory comparison
+artifact — a fixed five-option B&W structural board (optional Clean/Polished colour
+variants) intended for fast design-direction exploration. That output is a
+**different document genre** from the instructive, three-section construction
+wireframe this ADR governs. Magdoub-created wireframes are governed by the
+`wireframe` skill's own output format, not by the rules in this document.
+
+A2. **Wireframes created by any other skill (or by hand) are fully governed by
+this ADR.** Where another skill or process creates a wireframe document, every rule
+in this ADR applies in full — including Section 0 mandatory pre-wireframe reading,
+Section 2's three-section structure, and Section 7's pre-submission checklist.
+
+A3. **Magdoub output is not an escape hatch for ADR-conforming deliverables.** If
+the intended deliverable is a construction-instruction wireframe per this ADR,
+producing it with the `wireframe` skill does not waive the ADR: the ADR requirements
+still govern the deliverable, and a conformance pass (or a hand-authored
+ADR-conforming document) is required to meet them. The exemption in A1 covers the
+skill's exploratory artifact itself, not a downstream ADR-conforming deliverable it
+may inform.
+
+---
+
 ## Section 0 — Mandatory Pre-Wireframe Reading
 
 **[NEW — added to address recurring compliance failures. Not part of the original 16 rules; flagged separately so nothing original is altered.]**
