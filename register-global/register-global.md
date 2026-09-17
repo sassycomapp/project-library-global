@@ -495,6 +495,16 @@ from this register entirely — added below.
 | secrets-across-repos | anvil-docs/workflows/version-control/git/secrets-across-repos.md | anvil-docs/workflows/version-control/git | anvil-docs | Live |  |
 | git-_index | anvil-docs/workflows/version-control/git/_index.md | anvil-docs/workflows/version-control/git | anvil-docs | Live |  |
 | plg-readme | README.md | . | readme | Live | 2026-09-11 | 2026-09-11 | | registered by align-docs re-validation run |
+| adr-anvil-platform-constraints | adr-global/adr-anvil-platform-constraints.md | adr-global | adr | Live | registered by align-docs 2026-09-17 (was on disk, missing from register) |
+| adr-data-access-patterns | adr-global/adr-data-access-patterns.md | adr-global | adr | Live | registered by align-docs 2026-09-17 (was on disk, missing from register) |
+| adr-form-architecture-and-state | adr-global/adr-form-architecture-and-state.md | adr-global | adr | Live | registered by align-docs 2026-09-17 (was on disk, missing from register) |
+| adr-pdf-invoice-generation | adr-global/adr-pdf-invoice-generation.md | adr-global | adr | Live | registered by align-docs 2026-09-17 (was on disk, missing from register) |
+| adr-real-time-and-background-tasks | adr-global/adr-real-time-and-background-tasks.md | adr-global | adr | Live | registered by align-docs 2026-09-17 (was on disk, missing from register) |
+| adr-ui-customization-approach | adr-global/adr-ui-customization-approach.md | adr-global | adr | Live | registered by align-docs 2026-09-17 (was on disk, missing from register) |
+| adr-webhook-architecture | adr-global/adr-webhook-architecture.md | adr-global | adr | Live | registered by align-docs 2026-09-17 (was on disk, missing from register) |
+| spec-mastertemplate-notification-system | specifications-global/spec-mastertemplate-notification-system.md | specifications-global | spec | Live | registered by align-docs 2026-09-17 (was on disk, missing from register) |
+| spec-mybizz-management-app-notification-system | specifications-global/spec-mybizz-management-app-notification-system.md | specifications-global | spec | Live | registered by align-docs 2026-09-17 (was on disk, missing from register) |
+| no_bash_mediated_file_writes_without_grant | rules-cupcake-global/no_bash_mediated_file_writes_without_grant.md | rules-cupcake-global | rule | Live | registered by align-docs 2026-09-17 (was on disk, missing from register) |
 
 ## Field definitions
 
