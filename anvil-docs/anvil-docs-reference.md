@@ -38,7 +38,7 @@ does not exist in this corpus.
 ## Verifying file counts
 
 ```bash
-find /mnt/c/mybizz/mybizz-config-docs/anvil-docs -type f | wc -l
+find /mnt/c/dev/project-library-global/anvil-docs -type f | wc -l
 ```
 
 Baseline at this suite's rewrite (2026-09-06): **730 files** (326 `.md` + 404
@@ -78,7 +78,9 @@ in the file; there is no automatic resolution mechanism.
 
 ## Using GBrain against this corpus
 
-The corpus is searchable via its host source `mybizz-config-docs`. Precedence
+The corpus is searchable via its host corpus `project-library-global` (default
+federated source — updated from `mybizz-config-docs` after the 2026-09-08
+move). Precedence
 rule: **corpus files are ground truth; GBrain summaries of corpus content are
 secondary** — verify against the file when they disagree (settled policy;
 reasoning in `anvil-docs-explainer.md`). Content reaches GBrain by ordinary

@@ -130,8 +130,10 @@ decided never to use).
 
 ## 7. Where this sits relative to the rest of the system
 
-- **Relative to GBrain:** searchable through its host source
-  (`mybizz-config-docs`), synced the ordinary way. **No Memory Governor bypass**
+- **Relative to GBrain:** searchable through its host corpus
+  (`project-library-global`, default federated source — updated from
+  `mybizz-config-docs` after the 2026-09-08 move), synced the ordinary way.
+  **No Memory Governor bypass**
   — a deliberate, settled distinction: `anvil-agent-references` is pure vendor
   material with nothing to judge, while this corpus embeds real reorganization
   and synthesis decisions, so the "nothing to judge" rationale would be false

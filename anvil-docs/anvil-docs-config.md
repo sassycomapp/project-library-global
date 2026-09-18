@@ -8,7 +8,9 @@ date-created: 2026-09-08
 # anvil-docs — Configuration
 
 Canonical current-state configuration record for the anvil-docs corpus.
-Agent-facing. Reflects the live-verified state as of 2026-09-06. States facts
+Agent-facing. Reflects the live-verified state as of 2026-09-06; the
+location and host-source rows corrected 2026-09-18 after the 2026-09-08
+corpus move (align-docs run 2026-09-18T105010+0200). States facts
 about this specific corpus, not general Anvil knowledge — where the reasoning
 matters, see `anvil-docs-explainer.md`; for operational commands and rules,
 see `anvil-docs-reference.md`.
@@ -20,9 +22,9 @@ see `anvil-docs-reference.md`.
 | Item | Value |
 |---|---|
 | Name | `anvil-docs` (prior name `anvil-synthesized-reference`, still referenced in `site-map.md`'s own header) |
-| Real location | `C:\mybizz\mybizz-config-docs\anvil-docs\` |
+| Real location | `C:\dev\project-library-global\anvil-docs\` (moved from `C:\mybizz\mybizz-config-docs\anvil-docs\` 2026-09-08, commit 7eb7145, byte-verified) |
 | Nature | Developer-synthesized hybrid reference corpus — scraped official documentation + absorbed runtime source, reorganized by subject. Documentary reference material, never executed |
-| Host GBrain source | `mybizz-config-docs` (registered, federated) — the corpus is searchable through it today |
+| Host GBrain source | `project-library-global` (default, federated) — the corpus syncs and is searchable as part of the global corpus since the 2026-09-08 move |
 | Scale (verified 2026-09-06) | 730 files total: 326 `.md` → 321 corpus pages (excl. the 3 canonical files, README, site-map) + 404 runtime-source files (110 `.ts`, 98 `.py`, 58 `.clj`, 39 `.tsx`, 13 `.scss`, 12 `.yml`, 12 `.js`, 10 `.html`, remainder misc) |
 | Composition | (1) scraped `anvil.works/docs` — the original scrape record counts 298 pages across 19 site areas; (2) absorbed runtime source from `github.com/anvil-works/anvil-runtime` |
 | Status | Complete — scrape and absorption finished; the original `anvil-runtime-reference` clone fully absorbed and removed |
@@ -71,7 +73,7 @@ Current Operational Status for the live state.
 
 | Policy | Detail |
 |---|---|
-| Memory Governor treatment | **No special bypass exemption.** Ordinary sync via the host source (`mybizz-config-docs`), same as any other content there. Developer decision 2026-09-06: unlike `anvil-agent-references`, this corpus is not pure vendor material with no judgment to make about it — it is a developer-synthesized hybrid (scraped docs + absorbed runtime source + real reorganization decisions), so a "nothing to judge" bypass would not be true. This lines up with the corpus's own stated design principle (developer-stated): GBrain can be wrong, the file wins, always — corpus files are ground truth, not competing governed facts. |
+| Memory Governor treatment | **No special bypass exemption.** Ordinary sync via the host corpus (`project-library-global`, default federated source — updated from `mybizz-config-docs` after the 2026-09-08 move), same as any other content there. Developer decision 2026-09-06: unlike `anvil-agent-references`, this corpus is not pure vendor material with no judgment to make about it — it is a developer-synthesized hybrid (scraped docs + absorbed runtime source + real reorganization decisions), so a "nothing to judge" bypass would not be true. This lines up with the corpus's own stated design principle (developer-stated): GBrain can be wrong, the file wins, always — corpus files are ground truth, not competing governed facts. |
 | Corpus changes | Deliberate construction events only — single-page re-scrapes via `step1b-strip-write.py`; runtime re-absorption only if upstream moves past the absorbed commit (currently HEAD == absorbed commit). |
 | Cupcake grants | No cross-project grants currently exist (grants data file verified empty, 2026-09-06). The corpus sits inside the current project, so ordinary in-project work needs none. The prior suite's "cross-project whitelisted + `.clj` exemption" claim did not match the verified-empty grants file and is retired. |
 
