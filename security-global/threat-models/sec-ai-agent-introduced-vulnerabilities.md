@@ -35,7 +35,7 @@ No security-relevant code (anything touching auth, RBAC, payment, secrets, or cr
 ## Verification Requirements
 
 - For any feature touching a documented threat class, confirm the relevant threat-model document was actually consulted — not inferred from the code happening to look correct.
-- Confirm every Sentinel finding in `triage_findings` for a given feature has either `triage_label = 'wontfix'` (an explicit, recorded decision) or `resolved_at IS NOT NULL` (a verified resolution) before that feature is considered complete — this is already the real, enforced condition on PDLF's own `build-verified` gate, per `[[spec-postgres-ledger]]`.
+- Confirm every Sentinel finding in `triage_findings` for a given feature has either `triage_label = 'wontfix'` (an explicit, recorded decision) or `resolved_at IS NOT NULL` (a verified resolution) before that feature is considered complete — this is already the real, enforced condition on PDLF's own `build-verified` gate, per `spec-postgres-ledger.md` (makePDLF project library).
 
 ## Authoritative Sources
 

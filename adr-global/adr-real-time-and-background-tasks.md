@@ -206,8 +206,8 @@ def process_webhook(event_id):
 | [[adr-observability-architecture|Observability Architecture]] | Health heartbeat task feeds observability metrics |
 | [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] | Background task limits and server call latency constraints |
 | [[adr-webhook-architecture|Webhook Architecture]] | Detailed webhook handling pattern |
-| `[[integration-architecture]]` | Section 4: Background Tasks (existing task inventory) |
-| `[[deployment-procedures]]` | Operational procedures for task failure recovery |
+| `integration-architecture.md` (mb-3-cs project library) | Section 4: Background Tasks (existing task inventory) |
+| `deployment-procedures.md` (mb-3-cs project library) | Operational procedures for task failure recovery |
 
 ---
 

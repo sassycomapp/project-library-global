@@ -6,7 +6,7 @@ date-created: 2026-07-25T150027+0200
 ---
 # PDLF Standards Library — M3 Design & Component Standards
 
-**Location:** `C:\pdlf\standards-library\m3-design-standards.md`
+**Location:** `C:\dev\project-library-global\specifications-global\spec-m3-design-standards.md`
 **Scope:** Project-agnostic component and navigation patterns. Specific token *values* (colors,
 exact spacing scale) are project-specific and belong in that project's own DESIGN.md.
 **Source:** Extracted from `mb-3-cs` (anvil-spec-table.md, architecture.md,

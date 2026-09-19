@@ -105,7 +105,7 @@ open_form(MainForm())
 | Document | Relationship |
 |---|---|
 | [[adr-dependency-update-model|Dependency Update Model]] | How updates flow from mb-3-cs to client instances |
-| ``[[blank-client-template]]`` | The provisioning source for new client instances |
+| `blank-client-template.md` (mb-3-cs project library) | The provisioning source for new client instances |
 | `implementation/spec-client-activation-runbook.md` | Step-by-step provisioning process |
 
 ---

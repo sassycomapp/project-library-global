@@ -6,10 +6,10 @@ date-created: 2026-07-25T150027+0200
 ---
 # PDLF Standards Library — Testing Methodology
 
-**Location:** `C:\pdlf\standards-library\testing-methodology-standards.md`
+**Location:** `C:\dev\project-library-global\specifications-global\spec-testing-methodology-standards.md`
 **Scope:** Project-agnostic testing method. Any project's specific test *plan* (which flows,
-which roles) is that project's own document (see `the retired pdlf-testing-policy.md` Section 6 for the
-shape such a plan should take).
+which roles) is that project's own document. (PDLF's own former process reference for this
+shape of plan — the retired `pdlf-testing-policy.md` — was removed; verified gone 2026-09-19.)
 **Source:** Extracted from `mb-3-cs` (testing-standards.md, test-specifications.md), generalized.
 **Relationship to `the retired pdlf-testing-policy.md`:** that file is PDLF's own process reference, written
 for the build loop (Step 16). This file is the underlying standard it's built on — kept separate

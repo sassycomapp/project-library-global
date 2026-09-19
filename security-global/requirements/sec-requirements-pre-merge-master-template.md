@@ -17,7 +17,7 @@ Before merging to `stable`, all of the following are explicitly true:
 
 1. Every new or modified server function meets `[[sec-requirements-server-function]]` in full.
 2. Every new Data Table meets `[[sec-requirements-data-table-creation]]` in full.
-3. Every open Sentinel finding (`triage_findings`) tied to this change has `triage_label = 'wontfix'` or `resolved_at IS NOT NULL` — the same real condition PDLF's own `build-verified` gate already enforces, per `[[spec-postgres-ledger]]`.
+3. Every open Sentinel finding (`triage_findings`) tied to this change has `triage_label = 'wontfix'` or `resolved_at IS NOT NULL` — the same real condition PDLF's own `build-verified` gate already enforces, per `spec-postgres-ledger.md` (makePDLF project library).
 4. High-risk releases use the staged-rollout, version-tagged path described in `[[spec-five-app-architecture-model]]`, not a direct full rollout.
 
 ## Approved Pattern
@@ -39,7 +39,7 @@ Before any merge to `stable`, confirm items 1–4 directly, not from memory of h
 ## Authoritative Sources
 
 - `[[spec-five-app-architecture-model]]` — Update Deployment Model
-- `[[spec-postgres-ledger]]` — `build-verified` gate condition
+- `spec-postgres-ledger.md` (makePDLF project library) — `build-verified` gate condition
 - `[[sec-requirements-server-function]]`, `[[sec-requirements-data-table-creation]]`
 
 ## Known Exceptions

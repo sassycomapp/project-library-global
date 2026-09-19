@@ -6,7 +6,7 @@ date-created: 2026-07-25T150027+0200
 ---
 # PDLF Standards Library — Security Specification
 
-**Location:** `specifications/spec-security.md`
+**Location:** `C:\dev\project-library-global\specifications-global\spec-security.md`
 **Vault System:** [[spec-vault-system|Vault System Specification]] — the single authoritative Vault document.
 **Scope:** Project-agnostic security patterns. A project's specific role limits, regulatory
 posture, and implementation details belong in that project's own canonical security document.

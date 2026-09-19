@@ -33,7 +33,7 @@ For each real database role, confirm it can perform only its intended operations
 
 ## Authoritative Sources
 
-- `[[spec-postgres-ledger]]` — PDLF ledger connection and schema
+- PDLF ledger connection and schema — specified in the makePDLF project library (`spec-postgres-ledger.md` there)
 - Memory governor's own live RLS test (this session)
 
 ## Known Exceptions

@@ -40,7 +40,7 @@ Run a real query against `triage_findings` before every release; confirm the res
 ## Authoritative Sources
 
 - `the retired sentinel-security-system-plan.md` Section 9 — Step 45
-- `[[spec-postgres-ledger]]` — `triage_findings` schema
+- `spec-postgres-ledger.md` (makePDLF project library) — `triage_findings` schema
 - `[[sec-requirements-pre-merge-master-template]]`
 
 ## Known Exceptions

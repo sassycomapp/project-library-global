@@ -111,7 +111,7 @@ When a server module in `master_template` calls `app_tables`, Anvil resolves the
 
 **Prevention:**
 - `blank_client_template` must always have the complete table set
-- Schema migrations must follow the checklist in `[[deployment-procedures]]`
+- Schema migrations must follow the checklist in `deployment-procedures.md` (mb-3-cs project library)
 - Health heartbeat task verifies critical table accessibility every 15 minutes
 
 **Source:** CEO review 2026-06-15 Section 2
@@ -157,7 +157,7 @@ Vault access requires TOTP step-up on every open ([[adr-payment-security-boundar
 | [[adr-form-architecture-and-state|Form Architecture and State Management]] | How forms work within Anvil's form model |
 | [[adr-real-time-and-background-tasks|Real-Time and Background Tasks]] | Background task patterns within Anvil's limits |
 | [[adr-data-access-patterns|Data Access Patterns and Query Limitations]] | Data Table query patterns within Anvil's model |
-| `[[deployment-procedures]]` | Anvil account-level failure scenarios and recovery |
+| `deployment-procedures.md` (mb-3-cs project library) | Anvil account-level failure scenarios and recovery |
 
 ---
 

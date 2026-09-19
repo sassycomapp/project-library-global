@@ -111,8 +111,8 @@ def generate_invoice_pdf(invoice_id):
 | Document | Relationship |
 |---|---|
 | [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] | Server-side only constraint; BlobMedia limits |
-| `[[integration-architecture]]` | Section 1: Payment Gateway Architecture (invoice trigger) |
-| `[[user-flows]]` | §3: Admin Daily Operations (invoice viewing) |
+| `integration-architecture.md` (mb-3-cs project library) | Section 1: Payment Gateway Architecture (invoice trigger) |
+| `user-flows.md` (mb-3-cs project library) | §3: Admin Daily Operations (invoice viewing) |
 
 ---
 

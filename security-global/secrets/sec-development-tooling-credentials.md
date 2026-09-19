@@ -35,7 +35,7 @@ For each real development-tooling credential, confirm its storage location and c
 
 ## Authoritative Sources
 
-- This session's own real credential handling: `[[spec-postgres-ledger]]`'s `.env`-based `PGPASSWORD`, the governor's own `.env`-based writer credentials
+- This session's own real credential handling: the `.env`-based `PGPASSWORD` recorded in `spec-postgres-ledger.md` (makePDLF project library), the governor's own `.env`-based writer credentials
 
 ## Known Exceptions
 

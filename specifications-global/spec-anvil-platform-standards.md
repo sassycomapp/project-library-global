@@ -6,7 +6,7 @@ date-created: 2026-07-25T150027+0200
 ---
 # PDLF Standards Library — Anvil Platform Mechanics
 
-**Location:** `C:\pdlf\standards-library\anvil-platform-standards.md`
+**Location:** `C:\dev\project-library-global\specifications-global\spec-anvil-platform-standards.md`
 **Scope:** Project-agnostic. Extracted patterns and rules — not any single project's specific
 values, keys, or data.
 **Source:** Extracted from `mb-3-cs` project documentation (anvil-spec-table.md, architecture.md,
