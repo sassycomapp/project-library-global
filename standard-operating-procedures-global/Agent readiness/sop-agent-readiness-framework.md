@@ -356,3 +356,11 @@ Returns persist regardless of agent or vendor choice.
 ---
 
 **Questions?** Refer to the corresponding `rules-set4/` files for implementation details.
+
+## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+
+Material referenced by this document but not present in the current corpus, with developer-provided locations:
+- policy_development.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/policy_development.md
+- ref_anvil_testing.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/ref_anvil_testing.md
+- ref_anvil_coding.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/ref_anvil_coding.md
+- policy_security.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/policy_security.md
