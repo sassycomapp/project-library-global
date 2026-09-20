@@ -58,4 +58,12 @@ lead creation — it is never null for a successfully captured lead.
 
 ---
 
+## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+
+Material referenced by this document but not present in the current corpus, with developer-provided locations:
+- spec_crm.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/spec_crm.md
+- spec_crm_contacts.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/spec_crm_contacts.md
+- spec_website.md — no backup located; confirmed does not exist (developer, 2026-09-20)
+- spec_database.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/spec_database.md
+- spec_database_schema.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/spec_database_schema.md
 *End of `lead-capture-simultaneous-creation` ADR*

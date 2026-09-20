@@ -36,7 +36,7 @@ A per-folder purpose file makes local context discoverable at the point of use, 
 
 - The standing freeze on creating further `Instructions.md` files (Master Task List Task 2.2) remains in effect — this ADR establishes the concept, not the finalized format. Do not create additional `Instructions.md` files based on this ADR alone.
 - Format, scope (which folders require one), and final naming remain open, to be resolved separately.
-- This ADR does not address the separate frontmatter exemption question — see `frontmatter-exemption-transient-files` ADR.
+- This ADR does not address the separate frontmatter exemption question — see [[adr-frontmatter-exemption-transient-files|Frontmatter Exemption for Transient Files]] ADR.
 
 ---
 

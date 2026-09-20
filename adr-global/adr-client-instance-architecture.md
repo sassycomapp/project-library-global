@@ -9,7 +9,7 @@ date-created: 2026-07-25T150027+0200
 **Status:** Confirmed — architecturally tested (Tests A and B)  
 **Date:** 2026-06-13  
 **Last updated:** 2026-06-13 — revised following Test B (startup form from dependency)  
-**Authority:** Derived from the retired platform-overview.md, `payment-security-boundary-vault` ADR, and live testing conducted 2026-06-13
+**Authority:** Derived from the retired platform-overview.md, [[adr-payment-security-boundary-vault|Payment Security Boundary: Secret Keys Deferred to the Vault]] ADR, and live testing conducted 2026-06-13
 
 ---
 
@@ -106,7 +106,7 @@ open_form(MainForm())
 |---|---|
 | [[adr-dependency-update-model|Dependency Update Model]] | How updates flow from mb-3-cs to client instances |
 | `blank-client-template.md` (mb-3-cs project library) | The provisioning source for new client instances |
-| `implementation/spec-client-activation-runbook.md` | Step-by-step provisioning process |
+| [[spec-client-activation-runbook|Client Instance Activation Runbook]] | Step-by-step provisioning process |
 
 ---
 

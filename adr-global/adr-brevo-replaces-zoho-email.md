@@ -215,4 +215,14 @@ corrected immediately.
 
 ---
 
+## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+
+Material referenced by this document but not present in the current corpus, with developer-provided locations:
+- spec_integrations.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/spec_integrations.md — live successor: /mnt/c/dev/project-library-global/specifications-global/spec-integration.md
+- spec_domain_email_offboarding.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/spec_domain_email_offboarding.md — live successor: /mnt/c/dev/project-library-global/standard-operating-procedures-global/sop-offboarding.md
+- spec_database_schema.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/spec_database_schema.md
+- spec_architecture.md — old-iteration backups: /mnt/c/mybizz/backup-before/project-library/rules-library-old/spec_architecture.md and /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/spec_architecture.md
+- platform_overview.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/platform_overview.md
+- spec_crm_campaigns.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/spec_crm_campaigns.md
+- spec_crm.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/spec_crm.md
 *End of `brevo-replaces-zoho-email` ADR*

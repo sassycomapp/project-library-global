@@ -79,3 +79,14 @@ correctly applied. Do not blindly reapply — verify first, then correct only wh
 ---
 
 *Navigation Standard v2.0 — Layout shell decision superseded by [[adr-htmltemplate-use|HTMLTemplate Use]] ADR. Navigation pattern (lambda/Link/open_form) unchanged and binding.*
+
+## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+
+Material referenced by this document but not present in the current corpus, with developer-provided locations:
+- spec_ui_standards.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/spec_ui_standards.md
+- spec_ui_standards_forms.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/spec_ui_standards_forms.md
+- ref_anvil_navigation.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/ref_anvil_navigation.md
+- policy_development.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/policy_development.md
+- platform_overview.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/platform_overview.md
+- spec_architecture.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/spec_architecture.md
+- platform_docmap.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/platform_docmap.md

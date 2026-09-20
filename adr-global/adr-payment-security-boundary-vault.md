@@ -82,4 +82,11 @@ from the outbound dict entirely.
 
 ---
 
+## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+
+Material referenced by this document but not present in the current corpus, with developer-provided locations:
+- spec_vault.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/spec_vault.md
+- policy_security.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/policy_security.md
+- ref_anvil_coding.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/ref_anvil_coding.md
+- spec_architecture.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/spec_architecture.md
 *End of `payment-security-boundary-vault` ADR*

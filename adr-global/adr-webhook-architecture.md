@@ -104,7 +104,7 @@ def process_stripe_webhook(event_row_id):
         
     except Exception as e:
         event_row.error_message = str(e)
-        # Push error event to Mybizz_management (`mybizz-management-visibility` ADR)
+        # Push error event to Mybizz_management ([[adr-mybizz-management-visibility|Mybizz_management Visibility and Control]] ADR)
         push_management_event('webhook_processing_error', {
             'source': 'stripe',
             'event_id': event_row_id,
@@ -256,7 +256,7 @@ This ensures webhooks are never silently lost due to dispatch failures.
 | [[adr-real-time-and-background-tasks|Real-Time and Background Tasks]] | Background task architecture and limits |
 | [[adr-mybizz-management-visibility|Mybizz Management Visibility]] | Error events pushed to Mybizz_management |
 | `integration-architecture.md` (mb-3-cs project library) | Section 1: Payment Gateway Architecture; Section 3: Brevo CRM Integration |
-| `docs/client-activation-runbook.md` | §4.9: Webhook URL registration during provisioning |
+| [[spec-client-activation-runbook|Client Instance Activation Runbook]] | §4.9: Webhook URL registration during provisioning |
 
 ---
 

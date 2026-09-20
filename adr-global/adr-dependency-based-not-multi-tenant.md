@@ -271,4 +271,8 @@ If you find an existing function that includes a `client_id`, `tenant_id`, or eq
 
 ---
 
+## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+
+Material referenced by this document but not present in the current corpus, with developer-provided locations:
+- HANDOVER-opencode-2026-06-13.md — no backup located; confirmed does not exist (developer, 2026-09-20)
 *End of `dependency-based-not-multi-tenant` ADR*

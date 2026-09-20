@@ -8,7 +8,7 @@ date-created: 2026-07-25T150027+0200
 
 **Status:** Approved  
 **Date:** 2026-06-14  
-**Authority:** Derived from the retired platform-overview.md, `anvil-platform-constraints` ADR, authoritative-schema.md
+**Authority:** Derived from the retired platform-overview.md, [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR, authoritative-schema.md
 
 ---
 

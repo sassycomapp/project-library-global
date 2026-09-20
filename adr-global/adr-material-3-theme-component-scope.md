@@ -53,7 +53,7 @@ Components not natively provided by M3 must be composed from permitted primitive
 
 1. **Prefer native M3**: Always use native M3 components when available
 2. **Document composition**: When composing custom components, document which M3 primitives are used
-3. **Reference mapping**: Use `m3_component_mapping.md` as the authoritative reference for component availability
+3. **Reference mapping**: Use [[spec-m3_component_mapping|M3 Component Mapping]] as the authoritative reference for component availability
 4. **No external imports**: Do not import UI components from external packages without ADR approval
 
 ---

@@ -184,7 +184,7 @@ INVOICE: transaction currency + system_currency_amount (for reporting)
 
 - `authoritative-schema.md` (mb-3-cs project library) — Database schema with currency fields
 - [[adr-timezone-utc-storage-display-conversion|Client Timezone: UTC Storage, Display Conversion]] — Timezone/UTC storage pattern (similar approach)
-- `implementation/onboarding-implementation-plan.md` — System currency selection in onboarding
+- [[spec-onboarding-implementation-plan|Mybizz CS Onboarding System - Engineering Plan]] — System currency selection in onboarding
 
 ---
 

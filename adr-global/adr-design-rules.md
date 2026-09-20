@@ -52,7 +52,7 @@ Before producing or modifying any wireframe, the agent MUST read the following, 
 
 1. This ADR (`design-rules` ADR) in full.
 2. `docs/nomenclature.md` — naming conventions for every component type.
-3. `docs/m3_component_mapping.md` — which Material 3 components are supported, partially supported, or unsupported.
+3. [[spec-m3_component_mapping|M3 Component Mapping]] — which Material 3 components are supported, partially supported, or unsupported.
 4. `scaffold-spec.md` (mb-3-cs project library) — the architectural scaffold the wireframe must conform to.
 5. The relevant existing code under `mb-3-cs/client_code/` for the form being wireframed, if it exists — to confirm component names, structure, and naming already in use.
 6. Any architecture and design documents in `project-library/docs/`, `project-library/adr/`, and `project-library/implementation/` relevant to the specific form, flow, or screen being wireframed.
@@ -135,7 +135,7 @@ txt_password | TextBox | writeback = W, hide_text = True
 
 ## Section 3 — Component Selection and Usage Rules
 
-3.1. **Approved components only.** All components used MUST be approved Anvil Material 3 Theme components, from the authoritative dependency: **Anvil Material 3 theme and components** (dependency ID `4UK6WHQ6UX7AKELK`). Refer to the official component reference — [Anvil M3 components](https://anvil.works/docs/components/material-3/components) — and to `docs/m3_component_mapping.md`.
+3.1. **Approved components only.** All components used MUST be approved Anvil Material 3 Theme components, from the authoritative dependency: **Anvil Material 3 theme and components** (dependency ID `4UK6WHQ6UX7AKELK`). Refer to the official component reference — [Anvil M3 components](https://anvil.works/docs/components/material-3/components) — and to [[spec-m3_component_mapping|M3 Component Mapping]].
 
 3.2. **No legacy Label.** Do not use the legacy `Label` (`lbl_`) component in Material 3 wireframes. Use only approved Material 3 text components. For subtitles specifically, use either `Heading` or `Text` — never `Label`.
 
@@ -186,7 +186,7 @@ Before submitting any wireframe, confirm ALL of the following are true:
 - [ ] Document contains exactly three sections, in the correct order (Section 2.1–2.3)
 - [ ] Document is NOT formatted as a "Screen" type document
 - [ ] No legacy `Label` (`lbl_`) component is used anywhere
-- [ ] Every component is an approved M3 component or approved custom component (cross-checked against `m3_component_mapping.md`)
+- [ ] Every component is an approved M3 component or approved custom component (cross-checked against [[spec-m3_component_mapping|M3 Component Mapping]])
 - [ ] Every visible text element has its own explicit component — none implied
 - [ ] No sample data appears anywhere in the wireframe
 - [ ] No behaviour, data, layout logic, or explanatory text appears in the wireframe diagram or its annotations
@@ -209,3 +209,8 @@ Before submitting any wireframe, confirm ALL of the following are true:
 - Reviews can reject non-compliant wireframes against a single accepted project decision.
 - The mandatory pre-reading requirement (Section 0) and compliance checklist (Section 7) directly target the recurring failure modes of ADR non-compliance, architectural unfamiliarity, and unread specification/scaffold documents.
 - Future changes to these rules must be made by updating or superseding this ADR.
+
+## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+
+Material referenced by this document but not present in the current corpus, with developer-provided locations:
+- docs/nomenclature.md — resolves to the live specification (developer-confirmed, 2026-09-20): /mnt/c/dev/project-library-global/specifications-global/spec-nomenclature.md

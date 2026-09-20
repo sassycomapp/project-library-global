@@ -91,9 +91,13 @@ The question arose of what happens after onboarding is completed, whether the Ow
 - [[adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]] — Currency immutability after first transaction
 - [[adr-payment-gateway-mutability|Payment Gateway Mutability]] — Gateway change rules
 - [[adr-onboarding-resumability|Onboarding Resumability]] — Progress preservation during onboarding
-- `implementation/onboarding-implementation-plan.md` — Settings-based onboarding implementation
+- [[spec-onboarding-implementation-plan|Mybizz CS Onboarding System - Engineering Plan]] — Settings-based onboarding implementation
 - `docs/the retired platform-overview.md` (retired) — Mybizz_management data architecture intention
 
 ---
 
+## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+
+Material referenced by this document but not present in the current corpus, with developer-provided locations:
+- platform-overview.md (the retired platform-overview) — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/platform_overview.md
 *End of `onboarding-finality` ADR (deleted)*

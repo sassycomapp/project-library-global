@@ -123,4 +123,10 @@ select an alternative conversion approach.
 
 ---
 
+## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+
+Material referenced by this document but not present in the current corpus, with developer-provided locations:
+- spec_architecture.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/spec_architecture.md
+- spec_database.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/spec_database.md
+- ref_anvil_coding.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/ref_anvil_coding.md
 *End of `timezone-utc-storage-display-conversion` ADR*

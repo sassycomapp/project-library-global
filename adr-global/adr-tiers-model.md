@@ -98,8 +98,12 @@ These are pricing/business-model constructs. They are separate from setup-servic
 
 - `docs/the retired platform-overview.md` (retired) — Current tier framing
 - `[[positioning-strategy]]` — Pricing and business model
-- `implementation/onboarding-implementation-plan.md` — Onboarding flow
+- [[spec-onboarding-implementation-plan|Mybizz CS Onboarding System - Engineering Plan]] — Onboarding flow
 
 ---
 
+## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+
+Material referenced by this document but not present in the current corpus, with developer-provided locations:
+- platform-overview.md (the retired platform-overview) — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/platform_overview.md
 *End of `tiers-model` ADR*

@@ -64,7 +64,7 @@ All paying clients receive a properly provisioned instance on the Anvil Business
 
 | Document | Relationship |
 |---|---|
-| `implementation/spec-client-activation-runbook.md` | Provisioning process applies to all clients from day one |
+| [[spec-client-activation-runbook|Client Instance Activation Runbook]] | Provisioning process applies to all clients from day one |
 
 ---
 

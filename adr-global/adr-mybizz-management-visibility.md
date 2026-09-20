@@ -91,7 +91,7 @@ Mybizz_management runs a scheduled background task that periodically calls each 
 | Mybizz → Client | Per-client Bearer token (unique per instance) | Mybizz_management client registry (encrypted) |
 | Client → Mybizz | Shared event push token | Each client instance Vault |
 
-Per-client tokens ensure that compromise of one client instance does not affect any other. Token generation is part of the client activation process (see `client-activation-runbook.md`).
+Per-client tokens ensure that compromise of one client instance does not affect any other. Token generation is part of the client activation process (see [[spec-client-activation-runbook|Client Instance Activation Runbook]]).
 
 ---
 
@@ -163,7 +163,7 @@ The following steps are added to the provisioning process:
 |---|---|
 | [[adr-observability-architecture|Observability Architecture]] | Defines what metrics are written and queried |
 | [[adr-client-instance-architecture|Client Instance Architecture]] | Confirms server modules (including management endpoints) live in master_template |
-| `implementation/client-activation-runbook.md` | Token generation and registry steps |
+| [[spec-client-activation-runbook|Client Instance Activation Runbook]] | Token generation and registry steps |
 
 ---
 
