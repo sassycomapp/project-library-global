@@ -9,11 +9,11 @@ category: threat-models
 
 ## Applicable Threat
 
-An AI agent, trained on far more common multi-tenant SaaS patterns than this project's own dependency-based architecture, introduces a tenant-discriminator column, a `tenant_id`-filtered query, or other multi-tenant-style code — directly prohibited by `dependency-based-not-multi-tenant.md`, but a pattern the agent may reach for by default, since it's the far more common industry pattern.
+An AI agent, trained on far more common multi-tenant SaaS patterns than this project's own dependency-based architecture, introduces a tenant-discriminator column, a `tenant_id`-filtered query, or other multi-tenant-style code — directly prohibited by [[adr-dependency-based-not-multi-tenant|Mybizz CS is a Dependency-Based Architecture, Not a Multi-Tenant Architecture]], but a pattern the agent may reach for by default, since it's the far more common industry pattern.
 
 ## Security Requirement
 
-No code introduces a tenant discriminator column or tenant-filtered query of any kind, per `dependency-based-not-multi-tenant.md`. Data isolation is structural — separate app, separate database, per client instance — never enforced by a filter within shared code.
+No code introduces a tenant discriminator column or tenant-filtered query of any kind, per [[adr-dependency-based-not-multi-tenant|Mybizz CS is a Dependency-Based Architecture, Not a Multi-Tenant Architecture]]. Data isolation is structural — separate app, separate database, per client instance — never enforced by a filter within shared code.
 
 ## Approved Pattern
 
@@ -29,7 +29,7 @@ Any query, column, or check referencing a "tenant" concept — this architecture
 
 ## Implementation Guidance
 
-If an AI agent's proposed implementation includes any tenant-style filtering, this is an automatic, high-confidence Sentinel finding — the ADR is unambiguous and the risk of an agent defaulting to a more common pattern is real and named directly in `dependency-based-not-multi-tenant.md` itself.
+If an AI agent's proposed implementation includes any tenant-style filtering, this is an automatic, high-confidence Sentinel finding — the ADR is unambiguous and the risk of an agent defaulting to a more common pattern is real and named directly in [[adr-dependency-based-not-multi-tenant|Mybizz CS is a Dependency-Based Architecture, Not a Multi-Tenant Architecture]] itself.
 
 ## Verification Requirements
 
@@ -37,7 +37,7 @@ Grep the codebase for `tenant`, `tenant_id`, or similar terms; confirm zero real
 
 ## Authoritative Sources
 
-- `dependency-based-not-multi-tenant.md` — the definitive, binding ADR
+- [[adr-dependency-based-not-multi-tenant|Mybizz CS is a Dependency-Based Architecture, Not a Multi-Tenant Architecture]] — the definitive, binding ADR
 - `[[spec-five-app-architecture-model]]` — structural basis for why this isn't needed
 
 ## Known Exceptions

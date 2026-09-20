@@ -11,7 +11,7 @@ category: threat-models
 
 ## Applicable Threat
 
-An invoice, generated per the `pdf-invoice-generation` ADR, or any uploaded file, is reachable via a predictable or sequential identifier, letting a user access another user's specific document by changing an ID in a URL or request, without going through any search function's own filtering.
+An invoice, generated per the [[adr-pdf-invoice-generation|PDF Invoice Generation]] ADR, or any uploaded file, is reachable via a predictable or sequential identifier, letting a user access another user's specific document by changing an ID in a URL or request, without going through any search function's own filtering.
 
 ## Security Requirement
 
@@ -49,7 +49,7 @@ For each get-by-ID function, log in as a user with no relationship to a specific
 
 ## Authoritative Sources
 
-- `pdf-invoice-generation` ADR (referenced; specific document not yet reviewed directly)
+- [[adr-pdf-invoice-generation|PDF Invoice Generation]] ADR (referenced; specific document not yet reviewed directly)
 - `[[sec-broken-access-control-within-instance]]`
 
 ## Known Exceptions
