@@ -9,7 +9,7 @@ date-created: 2026-09-15
 
 **Status:** Draft — for review
 **Lives in:** `Mybizz_management` (App 5 — deferred, post-launch per the five-app architecture)
-**Depends on:** `spec-mastertemplate-notification-system.md` (the receiving engine this console calls into)
+**Depends on:** [[spec-mastertemplate-notification-system|Notification Engine for Client Instances]] (the receiving engine this console calls into)
 
 ---
 
@@ -21,11 +21,11 @@ Draft. Not buildable until App 5 exists. This spec should be treated as a forwar
 
 ## 2. Context
 
-You, as platform operator, need to communicate with your paying clients — billing notices, platform announcements, incident notifications, onboarding nudges. This is structurally distinct from a client's own outbound notifications to their members/customers (covered by `spec-mastertemplate-notification-system.md`): it must originate from a single point with visibility across all clients, which `Mybizz_management` is the only app positioned to have.
+You, as platform operator, need to communicate with your paying clients — billing notices, platform announcements, incident notifications, onboarding nudges. This is structurally distinct from a client's own outbound notifications to their members/customers (covered by [[spec-mastertemplate-notification-system|Notification Engine for Client Instances]]): it must originate from a single point with visibility across all clients, which `Mybizz_management` is the only app positioned to have.
 
 `Mybizz_management` is **not** a dependency of client instances and client instances are **not** dependencies of it — there is no `app_tables` resolution path between them, unlike the `master_template` → client-instance relationship. Reaching a specific client instance's data from `Mybizz_management` therefore requires an explicit, authenticated network call, not an in-process function call. This spec treats that as a deliberate, structural boundary to be crossed narrowly and auditable — not a gap to be papered over.
 
-Rather than build a second, separate notification-rendering system inside each client instance for platform messages, this design reuses the client's own in-app notification feed, bell, and preferences UI (already specified in `spec-mastertemplate-notification-system.md`) as the display layer. `Mybizz_management`'s job is narrower than the source `Notification-System-Design.md` implies: it is a **producer and sender**, not a renderer. It composes a message, decides who receives it, and pushes it across the boundary — the client instance's own inherited engine takes it from there.
+Rather than build a second, separate notification-rendering system inside each client instance for platform messages, this design reuses the client's own in-app notification feed, bell, and preferences UI (already specified in [[spec-mastertemplate-notification-system|Notification Engine for Client Instances]]) as the display layer. `Mybizz_management`'s job is narrower than the source `Notification-System-Design.md` implies: it is a **producer and sender**, not a renderer. It composes a message, decides who receives it, and pushes it across the boundary — the client instance's own inherited engine takes it from there.
 
 ---
 
@@ -41,7 +41,7 @@ Rather than build a second, separate notification-rendering system inside each c
 **Out of scope (v1):**
 - Any UI or logic for rendering the notification — that is `master_template`'s job, inherited by the client instance, not duplicated here
 - Two-way messaging (clients replying to the platform through this system) — a distinct feature, not specced here
-- SMS/push to the platform operator's own clients — email + in-app only, matching `spec-mastertemplate-notification-system.md`'s scope
+- SMS/push to the platform operator's own clients — email + in-app only, matching [[spec-mastertemplate-notification-system|Notification Engine for Client Instances]]'s scope
 
 ---
 
@@ -175,14 +175,14 @@ def get_delivery_status(batch_id):
 
 ## 8. What Was Deliberately Not Built
 
-Consistent with `spec-mastertemplate-notification-system.md` §5.4: no Kafka, no Redis, no multi-region, no fan-out strategy. The additional simplification specific to this tier: **no shared rendering system between the two apps.** `Mybizz_management` only sends; it never renders a notification for an end user to see. This avoids duplicating the bell/feed/preferences UI work done in `master_template`, and keeps the isolation boundary narrow — one authenticated HTTP call per client, nothing else crosses it.
+Consistent with [[spec-mastertemplate-notification-system|Notification Engine for Client Instances]] §5.4: no Kafka, no Redis, no multi-region, no fan-out strategy. The additional simplification specific to this tier: **no shared rendering system between the two apps.** `Mybizz_management` only sends; it never renders a notification for an end user to see. This avoids duplicating the bell/feed/preferences UI work done in `master_template`, and keeps the isolation boundary narrow — one authenticated HTTP call per client, nothing else crosses it.
 
 ---
 
 ## 9. Open Questions / Dependencies
 
 1. **App 5 sequencing.** This entire spec is inert until `Mybizz_management` is built. No action required now beyond keeping this document current.
-2. **Provisioning addendum.** `client_registry` rows and each client instance's matching stored secret must be created together at provisioning time. This should be added to `spec-client-activation-runbook.md` when App 5's build begins — not before, to avoid maintaining a provisioning step for infrastructure that does not yet exist.
+2. **Provisioning addendum.** `client_registry` rows and each client instance's matching stored secret must be created together at provisioning time. This should be added to [[spec-client-activation-runbook|Client Instance Activation Runbook]] when App 5's build begins — not before, to avoid maintaining a provisioning step for infrastructure that does not yet exist.
 3. **Auth token storage.** Confirm whether Anvil's App Secrets service (encryption at rest) is available at the relevant plan tier for both `Mybizz_management` and each client instance, or whether a plain encrypted-column approach is required instead.
 4. **Broadcast volume.** At what client count does a `broadcast` send meaningfully strain the Background Task model (one task per client, each under the 30-second cap)? Not a concern at current or near-term client counts; worth revisiting only if client count grows by an order of magnitude.
 
@@ -192,9 +192,9 @@ Consistent with `spec-mastertemplate-notification-system.md` §5.4: no Kafka, no
 
 | Document | Relationship |
 |---|---|
-| `spec-mastertemplate-notification-system.md` | The receiving engine and shared UI this console pushes into |
-| `adr-client-instance-architecture` | Basis for why this app cannot use `app_tables` to reach client data directly |
-| `adr-client-instance-readme-five-app-system` | Confirms App 5's deferred status and the five-app boundary this spec respects |
+| [[spec-mastertemplate-notification-system|Notification Engine for Client Instances]] | The receiving engine and shared UI this console pushes into |
+| [[adr-client-instance-architecture|Client Instance Architecture]] | Basis for why this app cannot use `app_tables` to reach client data directly |
+| [[adr-client-instance-readme-five-app-system|Client Instance Readme Five App System]] | Confirms App 5's deferred status and the five-app boundary this spec respects |
 | `Notification-System-Design.md` | Source design; §8 of this document records what was deliberately not carried over |
 
 ---

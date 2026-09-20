@@ -108,7 +108,7 @@ In the client instance:
 2. Assign the `Owner` role
 3. Confirm only one Owner account exists in the instance
 
-> The Owner role is the only role with access to the Vault and Settings. See vault-system.md.
+> The Owner role is the only role with access to the Vault and Settings. See [[spec-vault-system|Mybizz — The Vault System]].
 
 ---
 

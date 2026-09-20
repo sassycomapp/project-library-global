@@ -27,7 +27,7 @@ Five roles, per the standard RBAC pattern (see [[spec-security|Security Specific
 | Staff | Own calendar and bookings only | 0–20 per instance |
 | Customer | Own bookings, invoices, account in the customer portal | Unlimited |
 
-## 2. Mybizz_management Token Security (per `mybizz-management-visibility` ADR)
+## 2. Mybizz_management Token Security (per [[adr-mybizz-management-visibility|Mybizz_management Visibility and Control]] ADR)
 
 Mybizz_management communicates with client instances via bidirectional HTTP endpoints secured
 with per-client Bearer tokens. This is the standard Mybizz service-to-service authentication

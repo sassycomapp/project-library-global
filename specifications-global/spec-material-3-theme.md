@@ -151,7 +151,7 @@ Material 3 in Anvil is **NOT** installed via:
 ```python
 # Material 3 button configuration
 self.save_button.appearance = "filled"
-# role is set via Designer Properties Panel per `role-property-assignment-mechanism` ADR
+# role is set via Designer Properties Panel per [[adr-role-property-assignment-mechanism|Role Property Assignment Mechanism (Designer vs. Code)]] ADR
 ```
 
 #### 5.2 TextBox and DropdownMenu

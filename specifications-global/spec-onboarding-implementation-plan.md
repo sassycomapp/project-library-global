@@ -488,4 +488,8 @@ This plan defines an updated, implementation-ready onboarding system for Mybizz 
 
 ---
 
+## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+
+Material referenced by this document but not present in the current corpus, with developer-provided locations:
+- platform-overview.md (the retired platform-overview) — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/platform_overview.md
 *End of file — onboarding-implementation-plan.md*

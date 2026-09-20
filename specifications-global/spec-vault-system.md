@@ -8,7 +8,7 @@ date-created: 2026-07-25T150027+0200
 
 **Scope:** Mybizz-wide. This is the single authoritative document on the Vault system — its architecture, pattern, enforcement rules, and implementation. All other documents reference this one; none duplicate or restate its content.
 
-**Authority:** [[adr-payment-security-boundary-vault|Payment Security Boundary Vault]] ADR (`payment-security-boundary-vault.md`)
+**Authority:** [[adr-payment-security-boundary-vault|Payment Security Boundary Vault]] ADR ([[adr-payment-security-boundary-vault|Payment Security Boundary: Secret Keys Deferred to the Vault]])
 
 **Source:** Consolidated from [[spec-security|Security Specification]] (the generic security pattern) and the original `docs/vault-system.md` (the CS-specific implementation), merged into one authoritative document.
 

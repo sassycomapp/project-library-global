@@ -9,8 +9,8 @@ date-created: 2026-09-15
 
 **Status:** Draft — for review
 **Lives in:** `master_template`, inherited by every `[client-name]-cs` instance via the standing dependency
-**Depends on:** `client-instance-architecture` ADR (Data Tables resolve per-instance; server modules and forms live only in `master_template`)
-**Companion document:** `spec-mybizz-management-app-notification-system.md` (the platform-tier producer that calls into this engine — see §7)
+**Depends on:** [[adr-client-instance-architecture|Client Instance Architecture]] ADR (Data Tables resolve per-instance; server modules and forms live only in `master_template`)
+**Companion document:** [[spec-mybizz-management-app-notification-system|Platform-to-Client Notification Console]] (the platform-tier producer that calls into this engine — see §7)
 
 ---
 
@@ -22,7 +22,7 @@ Draft. Not yet built. This spec is independently buildable now — it does not r
 
 ## 2. Context
 
-Every client instance needs a way to send notifications to its own members/customers — order updates, account alerts, announcements, transactional messages. Because of the five-app architecture, this cannot be built per-client: client instances contain no server modules or forms of their own (`client-instance-architecture` ADR). The entire notification system — schema, dispatch logic, and UI — must therefore live in `master_template` and be inherited automatically by every client instance, exactly like all other server logic and UI.
+Every client instance needs a way to send notifications to its own members/customers — order updates, account alerts, announcements, transactional messages. Because of the five-app architecture, this cannot be built per-client: client instances contain no server modules or forms of their own ([[adr-client-instance-architecture|Client Instance Architecture]] ADR). The entire notification system — schema, dispatch logic, and UI — must therefore live in `master_template` and be inherited automatically by every client instance, exactly like all other server logic and UI.
 
 `app_tables` calls inside `master_template` server modules resolve to the calling client instance's own Data Tables (confirmed, Test A). This means one shared notification engine, written once, produces fully data-isolated results per client with no per-client code and no per-client deployment step.
 
@@ -83,7 +83,7 @@ Both producers — a client's own server code, and an inbound platform push — 
 
 ## 5. Data Schema
 
-All tables are Anvil Data Tables, created once in `blank_client_template` (App 3) so every newly provisioned client instance has them from day one. Per the `client-instance-architecture` ADR, **schema changes do not propagate automatically** — any future column change must be applied manually to `blank_client_template` and to every existing client instance.
+All tables are Anvil Data Tables, created once in `blank_client_template` (App 3) so every newly provisioned client instance has them from day one. Per the [[adr-client-instance-architecture|Client Instance Architecture]] ADR, **schema changes do not propagate automatically** — any future column change must be applied manually to `blank_client_template` and to every existing client instance.
 
 ### 5.1 `notifications`
 
@@ -239,7 +239,7 @@ Anvil components map onto the source design's five frontend components closely e
 ## 9. Open Questions / Dependencies
 
 1. **Free Plan runtime caps.** `dispatch_notification` and `process_scheduled_notifications` both depend on Background/Scheduled Tasks running longer than the Free Plan's 30-second cap for anything beyond trivial volume. This spec assumes at least the Hobby Plan for Background Tasks and a Business-tier-or-above plan for Scheduled Tasks. Needs confirmation against current plan before build.
-2. **Provisioning of the platform auth token.** `receive_platform_notification` requires a per-client shared secret to validate inbound calls. This must be generated and stored at provisioning time — an addition to `blank_client_template`'s provisioning process, and to the existing README ADR's scope. Not yet specced — should be a short addendum to `spec-client-activation-runbook.md`, not a new document.
+2. **Provisioning of the platform auth token.** `receive_platform_notification` requires a per-client shared secret to validate inbound calls. This must be generated and stored at provisioning time — an addition to `blank_client_template`'s provisioning process, and to the existing README ADR's scope. Not yet specced — should be a short addendum to [[spec-client-activation-runbook|Client Instance Activation Runbook]], not a new document.
 3. **Email provider.** Not yet decided — Anvil's built-in Email Service is the default assumption; confirm whether a third-party provider (SendGrid etc.) is required for deliverability/volume reasons before build.
 
 ---
@@ -248,9 +248,9 @@ Anvil components map onto the source design's five frontend components closely e
 
 | Document | Relationship |
 |---|---|
-| `spec-mybizz-management-app-notification-system.md` | The platform-tier producer that calls `receive_platform_notification` |
-| `adr-client-instance-architecture` | Basis for the app_tables-resolves-per-instance guarantee this design depends on |
-| `adr-client-instance-readme-five-app-system` | Governs where this code may and may not live |
+| [[spec-mybizz-management-app-notification-system|Platform-to-Client Notification Console]] | The platform-tier producer that calls `receive_platform_notification` |
+| [[adr-client-instance-architecture|Client Instance Architecture]] | Basis for the app_tables-resolves-per-instance guarantee this design depends on |
+| [[adr-client-instance-readme-five-app-system|Client Instance Readme Five App System]] | Governs where this code may and may not live |
 | `Notification-System-Design.md` | Source design this spec derives from; §5.4 documents deviations |
 
 ---
