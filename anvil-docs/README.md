@@ -15,7 +15,7 @@ by subject.
 
 - **Scraped official documentation** — the real content of every page
   under anvil.works/docs, organized to mirror the site's own structure.
-  See `site-map.md` for the authoritative URL → path reference.
+  See [[site-map|Confirmed Site Map (Step 1a)]] for the authoritative URL → path reference.
 - **Absorbed runtime source code** — real Python and Clojure source from
   the official Anvil Runtime, moved in and organized by subject
   alongside the matching documentation (e.g. real Stripe integration

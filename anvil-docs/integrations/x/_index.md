@@ -24,7 +24,7 @@ To get started, follow the [Quickstart Guide](x/quickstart) to build a simple Ta
 
 ## [Tutorials](#tutorials)
 
-The `trexjacket` project also provides step-by-step tutorials for building real-world Tableau extensions with Anvil X and the high-level `trexjacket` API:
+The [[trexjacket|Using Trexjacket]] project also provides step-by-step tutorials for building real-world Tableau extensions with Anvil X and the high-level [[trexjacket|Using Trexjacket]] API:
 
 ### Annotate your data
 

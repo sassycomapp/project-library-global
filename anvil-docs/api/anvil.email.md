@@ -175,6 +175,6 @@ Send an email
 
 -   `html` - The HTML content for this email. You must specify at least one of 'text' and 'html'.
 
--   `attachments` - A list of Media objects to send as attachments with this email.
+-   [[attachments|Attachments]] - A list of Media objects to send as attachments with this email.
 
 -   `inline_attachments` - Inline that can be used in this email's HTML, for example in <img> tags. Must be a dictionary whose keys are IDs and values are Media objects. IDs can then be used in a message's HTML with 'cid:xxx' URIs.

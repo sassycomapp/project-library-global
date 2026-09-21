@@ -90,4 +90,4 @@ Anvil apps are written in the [Python](http://www.python.org) programming langua
 -   [learnpython.org](https://www.learnpython.org/) has a good step-by-step tutorial with an interactive prompt.
 -   The [Python Library reference](https://docs.python.org/3/library/index.html) is very well-written and great if you want to know how to do something specific.
 -   The python.org wiki has a long list of tutorials [for programmers](https://wiki.python.org/moin/BeginnersGuide/Programmers) and for [non-programmers](https://wiki.python.org/moin/BeginnersGuide/NonProgrammers).
--   Or just [install Python](https://realpython.com/installing-python), type `python` in a terminal window, and start trying commands! Try typing `help()` at the Python prompt to get some interactive help.
+-   Or just [install Python](https://realpython.com/installing-python), type [[python|Python]] in a terminal window, and start trying commands! Try typing `help()` at the Python prompt to get some interactive help.

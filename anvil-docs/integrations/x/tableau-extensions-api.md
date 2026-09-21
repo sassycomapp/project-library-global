@@ -14,7 +14,7 @@ Tableau Extensions can access data and components within a Tableau dashboard, us
 
 This gives you access to all the objects in the Extensions API from Python, as described in Tableau’s [API documentation](https://tableau.github.io/extensions-api/docs/index.html).
 
-## [Using `trexjacket`](#using-trexjacket)
+## [Using [[trexjacket|Using Trexjacket]]](#using-trexjacket)
 
 While it is entirely possible to create extensions with only the Tableau Extensions API, it is a fairly low-level API. Instead, you might want to consider the higher-level [Trexjacket](trexjacket) library, which is designed to make extension development easier.
 

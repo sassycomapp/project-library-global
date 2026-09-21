@@ -12,8 +12,8 @@ Agent-facing. Reflects the live-verified state as of 2026-09-06; the
 location and host-source rows corrected 2026-09-18 after the 2026-09-08
 corpus move (align-docs run 2026-09-18T105010+0200). States facts
 about this specific corpus, not general Anvil knowledge — where the reasoning
-matters, see `anvil-docs-explainer.md`; for operational commands and rules,
-see `anvil-docs-reference.md`.
+matters, see [[anvil-docs-explainer|Explainer]]; for operational commands and rules,
+see [[anvil-docs-reference|Reference: Navigation, Verification, Maintenance]].
 
 ---
 
@@ -21,7 +21,7 @@ see `anvil-docs-reference.md`.
 
 | Item | Value |
 |---|---|
-| Name | `anvil-docs` (prior name `anvil-synthesized-reference`, still referenced in `site-map.md`'s own header) |
+| Name | `anvil-docs` (prior name `anvil-synthesized-reference`, still referenced in [[site-map|Confirmed Site Map (Step 1a)]]'s own header) |
 | Real location | `C:\dev\project-library-global\anvil-docs\` (moved from `C:\mybizz\mybizz-config-docs\anvil-docs\` 2026-09-08, commit 7eb7145, byte-verified) |
 | Nature | Developer-synthesized hybrid reference corpus — scraped official documentation + absorbed runtime source, reorganized by subject. Documentary reference material, never executed |
 | Host GBrain source | `project-library-global` (default, federated) — the corpus syncs and is searchable as part of the global corpus since the 2026-09-08 move |
@@ -38,11 +38,11 @@ see `anvil-docs-reference.md`.
 | Runtime repo | `github.com/anvil-works/anvil-runtime` — "The runtime engine for hosting Anvil web apps"; ~1k stars, 133 forks |
 | Licence | Upstream runtime is **AGPL** (with an explicit app-hosting exception). **No LICENSE file was absorbed** — none exists anywhere in the corpus. Absorbed source is reference-only, never executed or hosted (see explainer) |
 | Docs scrape window | 2026-09-02 → 2026-09-04 (file mtimes) |
-| Docs-side drift | Possible since the snapshot — the live site may change; pages are re-scrapeable (see `anvil-docs-reference.md`) |
+| Docs-side drift | Possible since the snapshot — the live site may change; pages are re-scrapeable (see [[anvil-docs-reference|Reference: Navigation, Verification, Maintenance]]) |
 
 ## Structure (verified 2026-09-06)
 
-23 top-level directories = **19 scraped site areas + 4 non-site folders**, reconciled exactly against `site-map.md`'s 19 `##` area headings.
+23 top-level directories = **19 scraped site areas + 4 non-site folders**, reconciled exactly against [[site-map|Confirmed Site Map (Step 1a)]]'s 19 `##` area headings.
 
 | Group | Members |
 |---|---|
@@ -68,7 +68,7 @@ see `anvil-docs-reference.md`.
 
 Cupcake-based statements in this suite describe standing policy and what
 enforcement blocks when active — enforcement status is not fixed and is not
-restated as current anywhere in this suite; check `cupcake-config.md`'s
+restated as current anywhere in this suite; check [[cupcake-config|Cupcake Configuration]]'s
 Current Operational Status for the live state.
 
 | Policy | Detail |
@@ -81,7 +81,7 @@ Current Operational Status for the live state.
 
 | Gap | Status |
 |---|---|
-| 91 files deliberately excluded from `server/` | Platform operations, deep SSO protocol internals, the runtime's own build/test tooling, `app-server/` packaging/self-hosting code. Deliberate exclusion, not an oversight — reasoning per category in `anvil-docs-explainer.md` |
+| 91 files deliberately excluded from `server/` | Platform operations, deep SSO protocol internals, the runtime's own build/test tooling, `app-server/` packaging/self-hosting code. Deliberate exclusion, not an oversight — reasoning per category in [[anvil-docs-explainer|Explainer]] |
 | 33 of the original 49 real filesystem symlinks | Converted to plain-text reference notes during absorption; the remaining 16 were confirmed byte-identical duplicates and deleted — see the entry below |
 | 16 "Group C" duplicate files deleted | Confirmed byte-identical to counterparts absorbed via `services/`/`client/`; deleted as genuine duplicates |
 | `_components.py` orphan | The prior suite described two plain-text notes referencing a nonexistent source. A name-based search (`find -name "_components.py*"`) found **no such files** in the corpus — the orphan claim's artifacts are unverified as of this rewrite |
@@ -90,7 +90,7 @@ Current Operational Status for the live state.
 
 | # | Item | Status |
 |---|---|---|
-| 1 | No adoption-time review record for the corpus construction, per `sec-dependency-skill-supply-chain` / `sec-review-before-trust`. Axes at verification: publishers ✓ (Anvil docs; anvil-works runtime), maintenance ✓ (absorbed commit == upstream HEAD), spawn capability ✓ (none — corpus, not a skill), licence = AGPL, documented but not formally judged. | Open |
-| 2 | Docs-side drift vs. the live site since the Sep 2–4 snapshot — re-scrapeable per `anvil-docs-reference.md`. | Open |
-| 3 | No standing backup exists for this corpus — bulk operations require the before/after count discipline in `anvil-docs-reference.md`. | Open |
+| 1 | No adoption-time review record for the corpus construction, per [[sec-dependency-skill-supply-chain|Dependency and Skill Supply Chain]] / [[sec-review-before-trust|Review Before Trust]]. Axes at verification: publishers ✓ (Anvil docs; anvil-works runtime), maintenance ✓ (absorbed commit == upstream HEAD), spawn capability ✓ (none — corpus, not a skill), licence = AGPL, documented but not formally judged. | Open |
+| 2 | Docs-side drift vs. the live site since the Sep 2–4 snapshot — re-scrapeable per [[anvil-docs-reference|Reference: Navigation, Verification, Maintenance]]. | Open |
+| 3 | No standing backup exists for this corpus — bulk operations require the before/after count discipline in [[anvil-docs-reference|Reference: Navigation, Verification, Maintenance]]. | Open |
 | 4 | `_components.py` orphan artifacts unverified (see content gaps). | Open |

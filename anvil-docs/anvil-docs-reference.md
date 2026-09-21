@@ -7,21 +7,21 @@ date-created: 2026-09-08
 
 # anvil-docs — Reference: Navigation, Verification, Maintenance
 
-Companion to `anvil-docs-config.md` (current state, open items) and
-`anvil-docs-explainer.md` (what this is and why, incident history).
+Companion to [[anvil-docs-config|Configuration]] (current state, open items) and
+[[anvil-docs-explainer|Explainer]] (what this is and why, incident history).
 Agent-facing — exact commands, exact rules.
 
 ---
 
 ## Finding documentation content
 
-`site-map.md` is the authoritative URL → path lookup for every scraped
+[[site-map|Confirmed Site Map (Step 1a)]] is the authoritative URL → path lookup for every scraped
 documentation page. Given a real `anvil.works/docs/...` URL, the exact local
 file path is directly derivable from it — URL-slug naming, no separate lookup
-beyond `site-map.md` for confirming a page's location.
+beyond [[site-map|Confirmed Site Map (Step 1a)]] for confirming a page's location.
 
 Example: `anvil.works/docs/users` → `users/_index.md`.
-`anvil.works/docs/users/presenting-a-login-form` → `users/presenting-a-login-form.md`.
+`anvil.works/docs/users/presenting-a-login-form` → [[presenting-a-login-form|Presenting a Login Form]].
 
 ## Finding absorbed runtime source
 
@@ -54,7 +54,7 @@ expected before/after delta.
 python3 step1b-strip-write.py TARGET_RELPATH < RAW_MARKDOWN_FILE
 ```
 
-- `TARGET_RELPATH` — the file's real path relative to the corpus root (e.g. `overview/faq.md`).
+- `TARGET_RELPATH` — the file's real path relative to the corpus root (e.g. [[faq|FAQ]]).
 - `RAW_MARKDOWN_FILE` — a real `webfetch` markdown capture of the live page, piped via stdin.
 - The script preserves the target file's existing frontmatter byte-for-byte and replaces only the body.
 - Validated strip rule (proven on the original scrape): article body starts at the page's own first `# ` heading, ends at `### Do you still have questions?` or a `TM[](` footer-logo marker.
@@ -83,7 +83,7 @@ federated source — updated from `mybizz-config-docs` after the 2026-09-08
 move). Precedence
 rule: **corpus files are ground truth; GBrain summaries of corpus content are
 secondary** — verify against the file when they disagree (settled policy;
-reasoning in `anvil-docs-explainer.md`). Content reaches GBrain by ordinary
+reasoning in [[anvil-docs-explainer|Explainer]]). Content reaches GBrain by ordinary
 host-source sync only — never through Memory Governor's API (settled policy:
 no bypass exemption for this corpus).
 
@@ -91,16 +91,16 @@ no bypass exemption for this corpus).
 
 Absorbed runtime source is AGPL-licensed upstream. This corpus is
 reference-only: read, diff, and cite the source — never execute, serve, or
-distribute it as part of an application (reasoning in `anvil-docs-explainer.md`).
+distribute it as part of an application (reasoning in [[anvil-docs-explainer|Explainer]]).
 
 ## Do not
 
 - Do not perform a bulk operation against this corpus without a real, independent file-count check before and after — there is no backup to fall back on.
-- Do not re-run scaffold-generation against the populated corpus — it really did wipe every scraped page once (see `anvil-docs-explainer.md` §5, incident 3A).
+- Do not re-run scaffold-generation against the populated corpus — it really did wipe every scraped page once (see [[anvil-docs-explainer|Explainer]] §5, incident 3A).
 - Do not assume a wikilink (`[[name]]`) will resolve anything in this corpus — none exist here by design.
 - Do not search for runtime source by the runtime's own internal folder names — search by subject.
 - Do not attempt to resolve `_components.py` — confirmed upstream as having no real source; its claimed orphan notes in the corpus are themselves unverified (config.md, content gaps).
-- Do not execute, serve, or distribute the absorbed runtime source — reference-only material (AGPL upstream; see `anvil-docs-explainer.md`).
-- Do not treat the 91 excluded `server/` files as missing by accident — deliberately excluded, per category, in `anvil-docs-explainer.md`.
+- Do not execute, serve, or distribute the absorbed runtime source — reference-only material (AGPL upstream; see [[anvil-docs-explainer|Explainer]]).
+- Do not treat the 91 excluded `server/` files as missing by accident — deliberately excluded, per category, in [[anvil-docs-explainer|Explainer]].
 - Do not submit corpus content through Memory Governor — ordinary host-source sync only (settled policy, config.md).
 - Do not treat GBrain summaries of corpus content as authoritative over the files themselves — the file wins (settled policy).
