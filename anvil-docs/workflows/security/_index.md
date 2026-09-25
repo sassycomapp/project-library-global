@@ -1,13 +1,7 @@
 ---
-document: "Building Secure Apps"
-title: "Building Secure Apps"
-url: "/docs/workflows/security"
-doc-id: security-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Building Secure Apps](#building-secure-apps)
 
 Anvil intends to provide an intuitive security model. The basic principle is, **“If you can see it, you can use it”**. This is more formally known as a *capability system*.

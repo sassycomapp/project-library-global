@@ -1,13 +1,7 @@
 ---
-document: "Plans and Accounts"
-title: "Plans and Accounts"
-url: "/docs/plans-and-accounts"
-doc-id: plans-and-accounts-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Anvil Plans and Accounts](#anvil-plans-and-accounts)
 
 Here you can find information about your Anvil account and the different subscription options available.

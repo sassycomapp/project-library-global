@@ -1,13 +1,7 @@
 ---
-document: "Connecting to GitHub and Git Remotes"
-title: "Connecting to GitHub and Git Remotes"
-url: "/docs/workflows/version-control/git"
-doc-id: git-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Connecting to GitHub and Other Git Remotes](#connecting-to-github-and-other-git-remotes)
 
 When collaborating in Anvil, you can [add collaborators](collaborators) to your app in order to work on the same codebase. Anvil also allows you to connect to an external (“remote”) Git repository, such as one provided by [GitHub](https://github.com). This allows you to collaborate with developers in different organisations, work on open source projects, or make use of external code review and CI/CD tools.

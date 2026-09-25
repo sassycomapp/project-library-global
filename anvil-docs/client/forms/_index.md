@@ -1,13 +1,7 @@
 ---
-document: "Forms"
-title: "Forms"
-url: "/docs/client/forms"
-doc-id: forms-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Forms](#forms)
 
 Forms are the pages of your Anvil app. Each Form has two parts: a visual design that describes how it looks and a Python class that defines how it behaves.

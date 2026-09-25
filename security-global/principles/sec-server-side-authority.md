@@ -1,9 +1,6 @@
 ---
-document: "Principle — Server-Side Authority"
-doc-id: sec-server-side-authority
-state: Live
-date-created: 2026-08-27
-category: principles
+title: "sec-server-side-authority"
+doc-id: "sec-server-side-authority"
 ---
 # Principle — Server-Side Authority
 

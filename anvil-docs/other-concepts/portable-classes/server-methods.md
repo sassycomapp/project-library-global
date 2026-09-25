@@ -1,13 +1,7 @@
 ---
-document: "Server Methods"
-title: "Server Methods"
-url: "/docs/other-concepts/portable-classes/server-methods"
-doc-id: server-methods
-state: Live
-date-created: 2026-09-08
+title: "server-methods"
+doc-id: "server-methods"
 ---
-
-
 # [Server-side methods](#server-side-methods)
 
 Sometimes you might want to define a method on the client but have it run on the server. You can do this with the `@anvil.server.server_method` decorator.

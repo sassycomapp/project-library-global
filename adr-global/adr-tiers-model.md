@@ -1,8 +1,6 @@
 ---
-document: Tiers Model
-doc-id: adr-tiers-model
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-tiers-model"
+doc-id: "adr-tiers-model"
 ---
 # Tiers Model
 Date: 2026-05-29

@@ -1,13 +1,7 @@
 ---
-document: "Coming from Scripts"
-title: "Coming from Scripts"
-url: "/docs/get-started/coming-from-scripting"
-doc-id: coming-from-scripting
-state: Live
-date-created: 2026-09-08
+title: "coming-from-scripting"
+doc-id: "coming-from-scripting"
 ---
-
-
 # [Introduction to GUI and Server Programming](#introduction-to-gui-and-server-programming)
 
 #### Contents:

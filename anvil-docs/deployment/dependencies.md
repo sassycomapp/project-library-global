@@ -1,13 +1,7 @@
 ---
-document: "Depending On Other Apps"
-title: "Depending On Other Apps"
-url: "/docs/deployment/dependencies"
-doc-id: deployment-dependencies
-state: Live
-date-created: 2026-09-08
+title: "dependencies"
+doc-id: "dependencies"
 ---
-
-
 # [Depending On Other Apps](#depending-on-other-apps)
 
 ## [Reusing Components and Code](#reusing-components-and-code)

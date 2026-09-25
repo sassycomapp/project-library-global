@@ -1,13 +1,7 @@
 ---
-document: "Alerts and Notifications"
-title: "Alerts and Notifications"
-url: "/docs/client/adding-ui-elements/alerts-and-notifications"
-doc-id: alerts-and-notifications
-state: Live
-date-created: 2026-09-08
+title: "alerts-and-notifications"
+doc-id: "alerts-and-notifications"
 ---
-
-
 # [Alerts and Notifications](#alerts-and-notifications)
 
 You can display popup messages using the `alert` and `confirm` functions. They are in the [`anvil`](/docs/api/anvil) module, so will be imported by default.

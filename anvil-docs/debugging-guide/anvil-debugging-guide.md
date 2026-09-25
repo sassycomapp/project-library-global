@@ -1,10 +1,7 @@
 ---
-document: "anvil-debugging-guide"
-doc-id: anvil-debugging-guide
-state: Live
-date-created: 2026-07-21
+title: "anvil-debugging-guide"
+doc-id: "anvil-debugging-guide"
 ---
-
 Anvil Debugging Guide
 
 ## Introduction

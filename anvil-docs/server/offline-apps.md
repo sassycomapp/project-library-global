@@ -1,13 +1,7 @@
 ---
-document: "Offline Apps"
-title: "Offline Apps"
-url: "/docs/server/offline-apps"
-doc-id: offline-apps
-state: Live
-date-created: 2026-09-08
+title: "offline-apps"
+doc-id: "offline-apps"
 ---
-
-
 # [Running an app offline](#running-an-app-offline)
 
 Anvil apps can function offline. In other words, an app’s client-side code will continue to work if the device loses its internet connection.

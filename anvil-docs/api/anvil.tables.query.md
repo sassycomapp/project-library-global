@@ -1,13 +1,7 @@
 ---
-document: "anvil.tables.query"
 title: "anvil.tables.query"
-url: "/docs/api/anvil.tables.query"
-doc-id: anvil.tables.query
-state: Live
-date-created: 2026-09-08
+doc-id: "anvil.tables.query"
 ---
-
-
 ## `anvil.tables.query` Module
 
 #### Functions

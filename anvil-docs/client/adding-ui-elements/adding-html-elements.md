@@ -1,13 +1,7 @@
 ---
-document: "Adding HTML Elements"
-title: "Adding HTML Elements"
-url: "/docs/client/adding-ui-elements/adding-html-elements"
-doc-id: adding-html-elements
-state: Live
-date-created: 2026-09-08
+title: "adding-html-elements"
+doc-id: "adding-html-elements"
 ---
-
-
 # [Adding HTML Elements](#adding-html-elements)
 
 You do not need to know HTML to use Anvil. You can build your user interfaces entirely using the drag-and-drop designer and Python code.

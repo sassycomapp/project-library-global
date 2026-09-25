@@ -1,13 +1,7 @@
 ---
-document: "Using Multiple Databases"
-title: "Using Multiple Databases"
-url: "/docs/data-tables/multiple-databases"
-doc-id: multiple-databases
-state: Live
-date-created: 2026-09-08
+title: "multiple-databases"
+doc-id: "multiple-databases"
 ---
-
-
 # [Using Multiple Databases](#using-multiple-databases)
 
 To use multiple databases in your app, upgrade to the [**Business Plan**](/pricing) or higher.

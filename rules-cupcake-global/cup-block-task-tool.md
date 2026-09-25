@@ -1,10 +1,7 @@
 ---
-document: "Rule: Block Task and Spawn Tools"
-doc-id: cup-block-task-tool
-state: Live
-date-created: 2026-09-05
+title: "cup-block-task-tool"
+doc-id: "cup-block-task-tool"
 ---
-
 # Rule: Block Task and Spawn Tools
 
 ## Harness

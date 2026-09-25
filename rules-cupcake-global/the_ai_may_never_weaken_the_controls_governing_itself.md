@@ -1,10 +1,7 @@
 ---
-document: "Rule: The AI May Never Weaken the Controls Governing Itself"
-doc-id: the_ai_may_never_weaken_the_controls_governing_itself
-state: Live
-date-created: 2026-09-05
+title: "the_ai_may_never_weaken_the_controls_governing_itself"
+doc-id: "the_ai_may_never_weaken_the_controls_governing_itself"
 ---
-
 # Rule: The AI May Never Weaken the Controls Governing Itself
 
 ## Harness

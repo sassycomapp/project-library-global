@@ -1,13 +1,7 @@
 ---
-document: "Quickstart"
-title: "Quickstart"
-url: "/docs/external-resources/http-apis/creating-http-endpoints/quickstart"
-doc-id: creating-http-endpoints-quickstart
-state: Live
-date-created: 2026-09-08
+title: "quickstart"
+doc-id: "quickstart"
 ---
-
-
 # [Quickstart: Creating HTTP endpoints](#quickstart-creating-http-endpoints)
 
 ### Put an HTTP API on your app

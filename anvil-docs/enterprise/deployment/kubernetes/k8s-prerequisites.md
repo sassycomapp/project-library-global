@@ -1,13 +1,7 @@
 ---
-document: "K8s Prerequisites"
-title: "K8s Prerequisites"
-url: "/docs/enterprise/deployment/kubernetes/k8s-prerequisites"
-doc-id: k8s-prerequisites
-state: Live
-date-created: 2026-09-08
+title: "k8s-prerequisites"
+doc-id: "k8s-prerequisites"
 ---
-
-
 # [Kubernetes Prerequisites](#kubernetes-prerequisites)
 
 To get Anvil up and running in Kubernetes, you’ll need a few tools installed on your local machine. These will allow you to manage the deployment.

@@ -1,13 +1,7 @@
 ---
-document: "Sharing Uplinks"
-title: "Sharing Uplinks"
-url: "/docs/external-resources/uplink/dependencies"
-doc-id: uplink-dependencies
-state: Live
-date-created: 2026-09-08
+title: "dependencies"
+doc-id: "dependencies"
 ---
-
-
 # [Sharing Uplinks](#sharing-uplinks)
 
 If you connect an Uplink to your app, you can choose to *share* it, by allowing it to be called from apps that [depend on](../../deployment/dependencies) this app or from other [deployment environments](../../deployment/environments).

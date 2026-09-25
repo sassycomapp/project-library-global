@@ -1,9 +1,6 @@
 ---
-document: "Threat Model — Privilege Escalation"
-doc-id: sec-privilege-escalation
-state: Live
-date-created: 2026-08-27
-category: threat-models
+title: "sec-privilege-escalation"
+doc-id: "sec-privilege-escalation"
 ---
 # Threat Model — Privilege Escalation
 

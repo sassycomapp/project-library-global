@@ -1,13 +1,7 @@
 ---
-document: "Stripe"
-title: "Stripe"
-url: "/docs/integrations/stripe"
-doc-id: stripe-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Stripe Integration](#stripe-integration)
 
 [Tutorial: Payments with Stripe](/learn/tutorials/stripe)

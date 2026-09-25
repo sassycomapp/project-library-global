@@ -1,13 +1,7 @@
 ---
-document: "TLS Certificates"
-title: "TLS Certificates"
-url: "/docs/enterprise/deployment/prerequisites/tls-certificates"
-doc-id: tls-certificates
-state: Live
-date-created: 2026-09-08
+title: "tls-certificates"
+doc-id: "tls-certificates"
 ---
-
-
 # [TLS Certificates](#tls-certificates)
 
 You have a choice of using an Anvil-supplied service to perform HTTPS termination, or using your own infrastructure (e.g. an HTTP load balancer).

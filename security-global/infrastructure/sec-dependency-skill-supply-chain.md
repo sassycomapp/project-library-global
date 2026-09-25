@@ -1,9 +1,6 @@
 ---
-document: "Dependency and Skill Supply Chain"
-doc-id: sec-dependency-skill-supply-chain
-state: Live
-date-created: 2026-08-27
-category: infrastructure
+title: "sec-dependency-skill-supply-chain"
+doc-id: "sec-dependency-skill-supply-chain"
 ---
 # Dependency and Skill Supply Chain
 

@@ -1,13 +1,7 @@
 ---
-document: "Creating PDFs"
-title: "Creating PDFs"
-url: "/docs/other-concepts/creating-pdf-files"
-doc-id: creating-pdf-files-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Creating PDFs](#creating-pdfs)
 
 Anvil Forms can be converted to PDFs with a single function call. You might do this in order to attach a PDF to an email, print a PDF, or allow your users to download a PDF.

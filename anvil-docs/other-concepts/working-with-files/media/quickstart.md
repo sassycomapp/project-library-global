@@ -1,13 +1,7 @@
 ---
-document: "Quickstart: Files and Media"
-title: "Quickstart: Files and Media"
-url: "/docs/other-concepts/working-with-files/media/quickstart"
-doc-id: media-quickstart
-state: Live
-date-created: 2026-09-08
+title: "quickstart"
+doc-id: "quickstart"
 ---
-
-
 # [Quickstart: Files, Media and Binary Data](#quickstart-files-media-and-binary-data)
 
 ### Make your app handle files

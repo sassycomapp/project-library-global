@@ -1,9 +1,6 @@
 ---
-document: "Requirement — New Server Function"
-doc-id: sec-requirements-server-function
-state: Live
-date-created: 2026-08-27
-category: requirements
+title: "sec-requirements-server-function"
+doc-id: "sec-requirements-server-function"
 ---
 # Requirement — New Server Function
 

@@ -1,8 +1,6 @@
 ---
-document: "{Project Name} — Business Requirements Document (BRD)"
-doc-id: docstd-business-requirements-document
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "docstd-business-requirements-document"
+doc-id: "docstd-business-requirements-document"
 ---
 # {Project Name} — Business Requirements Document (BRD)
 

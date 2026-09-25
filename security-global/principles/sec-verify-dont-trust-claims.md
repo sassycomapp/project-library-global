@@ -1,9 +1,6 @@
 ---
-document: "Principle — Verify, Don't Trust Claims"
-doc-id: sec-verify-dont-trust-claims
-state: Live
-date-created: 2026-08-27
-category: principles
+title: "sec-verify-dont-trust-claims"
+doc-id: "sec-verify-dont-trust-claims"
 ---
 # Principle — Verify, Don't Trust Claims
 

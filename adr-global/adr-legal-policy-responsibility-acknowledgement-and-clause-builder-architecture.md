@@ -1,8 +1,6 @@
 ---
-document: Legal Policy Responsibility Acknowledgement and Clause-Builder Architecture
-doc-id: adr-legal-policy-responsibility-acknowledgement-and-clause-builder-architecture
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-legal-policy-responsibility-acknowledgement-and-clause-builder-architecture"
+doc-id: "adr-legal-policy-responsibility-acknowledgement-and-clause-builder-architecture"
 ---
 # Legal Policy Responsibility Acknowledgement and Clause-Builder Architecture
 Date: 2026-05-29

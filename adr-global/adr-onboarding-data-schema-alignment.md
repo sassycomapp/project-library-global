@@ -1,8 +1,6 @@
 ---
-document: Onboarding Data Schema Alignment
-doc-id: adr-onboarding-data-schema-alignment
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-onboarding-data-schema-alignment"
+doc-id: "adr-onboarding-data-schema-alignment"
 ---
 # Onboarding Data Schema Alignment
 Date: 2026-05-29

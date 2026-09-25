@@ -1,13 +1,7 @@
 ---
-document: "Custom Serialisation"
-title: "Custom Serialisation"
-url: "/docs/other-concepts/portable-classes/custom-serialisation"
-doc-id: custom-serialisation
-state: Live
-date-created: 2026-09-08
+title: "custom-serialisation"
+doc-id: "custom-serialisation"
 ---
-
-
 # [Custom serialisation](#custom-serialisation)
 
 The `@anvil.server.portable_class` decorator marks a class as portable. By default, Anvil transmits portable objects by extracting and transmitting the class’s `__dict__` – which is usually where the object’s data attributes live. This is fine so long as every attribute of your class is already [something Anvil knows how to transmit](/docs/server#valid-arguments-and-return-values), but if you want to do something more complex, you can decide how your class gets transmitted and reconstituted by implementing the `__serialize__` and `__deserialize__` methods:

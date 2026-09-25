@@ -1,13 +1,7 @@
 ---
-document: "Google Cloud"
-title: "Google Cloud"
-url: "/docs/how-to/app-server/cloud-deployment-guides/google-cloud-app-server-deployment"
-doc-id: google-cloud-app-server-deployment
-state: Live
-date-created: 2026-09-08
+title: "google-cloud-app-server-deployment"
+doc-id: "google-cloud-app-server-deployment"
 ---
-
-
 # [How to use Anvil’s open-source App Server on Google Cloud](#how-to-use-anvils-open-source-app-server-on-google-cloud)
 
 ## [Introduction](#introduction)

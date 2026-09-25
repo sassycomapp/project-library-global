@@ -1,9 +1,6 @@
 ---
-document: "Email Service Trust Boundary"
-doc-id: sec-email-service-trust-boundary
-state: Live
-date-created: 2026-08-27
-category: cloud
+title: "sec-email-service-trust-boundary"
+doc-id: "sec-email-service-trust-boundary"
 ---
 # Email Service Trust Boundary
 

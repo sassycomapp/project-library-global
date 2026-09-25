@@ -1,13 +1,7 @@
 ---
-document: "Files, Media Objects and Binary Data"
-title: "Files, Media Objects and Binary Data"
-url: "/docs/other-concepts/working-with-files/media"
-doc-id: media-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Files, Media and Binary Data](#files-media-and-binary-data)
 
 All binary data (pictures, uploaded files, etc.) is represented in Anvil as **Media objects**. Check the [Quickstart](/docs/working-with-files/media/quickstart) to see some examples using them.

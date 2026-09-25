@@ -1,9 +1,6 @@
 ---
-document: "AI Agent Secret Visibility"
-doc-id: sec-ai-agent-secret-visibility
-state: Live
-date-created: 2026-08-27
-category: secrets
+title: "sec-ai-agent-secret-visibility"
+doc-id: "sec-ai-agent-secret-visibility"
 ---
 # AI Agent Secret Visibility
 

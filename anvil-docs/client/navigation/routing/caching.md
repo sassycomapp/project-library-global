@@ -1,13 +1,7 @@
 ---
-document: "Caching"
-title: "Caching"
-url: "/docs/client/navigation/routing/caching"
-doc-id: caching
-state: Live
-date-created: 2026-09-08
+title: "caching"
+doc-id: "caching"
 ---
-
-
 # [Caching](#caching)
 
 Routing allows two different types of caching: [Form](/docs/ui/forms) caching, and data caching. Both types involve storing Python object instances in a dictionary contained within the [router](/docs/client/navigation/routing/router) for later access.

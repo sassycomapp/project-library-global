@@ -1,9 +1,6 @@
 ---
-document: "AI Agent Execution Sandbox"
-doc-id: sec-ai-agent-execution-sandbox
-state: Live
-date-created: 2026-08-27
-category: infrastructure
+title: "sec-ai-agent-execution-sandbox"
+doc-id: "sec-ai-agent-execution-sandbox"
 ---
 # AI Agent Execution Sandbox
 

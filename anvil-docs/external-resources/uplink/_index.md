@@ -1,13 +1,7 @@
 ---
-document: "Uplink: Code outside Anvil"
-title: "Uplink: Code outside Anvil"
-url: "/docs/external-resources/uplink"
-doc-id: uplink-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Uplink: Code outside Anvil](#uplink-code-outside-anvil)
 
 The **Anvil Uplink** lets you connect Python code running anywhere, such as [your laptop](/docs/uplink/quickstart), a server on your company network, an [IoT device](/learn/tutorials/raspberry-pi), or a [Google Colab notebook](/learn/tutorials/google-colab-to-web-app) to your Anvil app.

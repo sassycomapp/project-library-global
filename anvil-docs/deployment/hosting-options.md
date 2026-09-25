@@ -1,13 +1,7 @@
 ---
-document: "Hosting options"
-title: "Hosting options"
-url: "/docs/deployment/hosting-options"
-doc-id: hosting-options
-state: Live
-date-created: 2026-09-08
+title: "hosting-options"
+doc-id: "hosting-options"
 ---
-
-
 # [Hosting options](#hosting-options)
 
 ## [Hosting by us (default)](#hosting-by-us-default)

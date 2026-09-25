@@ -1,13 +1,7 @@
 ---
-document: "Legacy Tables"
-title: "Legacy Tables"
-url: "/docs/data-tables/legacy-tables"
-doc-id: legacy-tables
-state: Live
-date-created: 2026-09-08
+title: "legacy-tables"
+doc-id: "legacy-tables"
 ---
-
-
 # [Legacy Tables](#legacy-tables)
 
 **Legacy Tables** is the deprecated [Data Tables](/docs/data-tables) API. It has been replaced with the Accelerated Tables API, which was previously a beta release. Legacy Tables are still available for LTS purposes.

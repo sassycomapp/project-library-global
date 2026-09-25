@@ -1,13 +1,7 @@
 ---
-document: "Plots"
-title: "Plots"
-url: "/docs/components/standard-components/plots"
-doc-id: plots
-state: Live
-date-created: 2026-09-08
+title: "plots"
+doc-id: "plots"
 ---
-
-
 # [Plots](#plots)
 
 [Properties](/docs/api/anvil#Plot_attributes) | [Events](/docs/api/anvil#Plot_events)

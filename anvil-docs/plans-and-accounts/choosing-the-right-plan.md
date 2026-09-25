@@ -1,13 +1,7 @@
 ---
-document: "Choosing The Right Plan"
-title: "Choosing The Right Plan"
-url: "/docs/plans-and-accounts/choosing-the-right-plan"
-doc-id: choosing-the-right-plan
-state: Live
-date-created: 2026-09-08
+title: "choosing-the-right-plan"
+doc-id: "choosing-the-right-plan"
 ---
-
-
 # [Choosing The Right Plan](#choosing-the-right-plan)
 
 We offer four different price plans, each designed to cater to different types of developers and their specific needs. This document is a high level explanation of the plans set out in pricing page. It explains what each plan is for and what use cases they’re aimed at.

@@ -1,9 +1,6 @@
 ---
-document: "Independent Security Review"
-doc-id: sec-testing-independent-review
-state: Live
-date-created: 2026-08-27
-category: testing
+title: "sec-testing-independent-review"
+doc-id: "sec-testing-independent-review"
 ---
 # Independent Security Review
 

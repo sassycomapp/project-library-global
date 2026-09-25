@@ -1,13 +1,7 @@
 ---
-document: "Parameters"
-title: "Parameters"
-url: "/docs/client/navigation/routing/parameters"
-doc-id: parameters
-state: Live
-date-created: 2026-09-08
+title: "parameters"
+doc-id: "parameters"
 ---
-
-
 # [Parameters](#parameters)
 
 The path that is being [routed to](/docs/client/navigation/routing/router) can include parameters for the linked [Form](/docs/ui/forms) to use upon initialization, allowing differentiation of different pages based on the same Form.

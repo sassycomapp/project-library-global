@@ -1,13 +1,7 @@
 ---
-document: "Get Started"
-title: "Get Started"
-url: "/docs/get-started"
-doc-id: get-started-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Get started with Anvil](#get-started-with-anvil)
 
 Welcome! Anvil is a platform for building full-stack web applications and instantly deploying them to the web. In Anvil, you can build your web apps with nothing but Python - no HTML, CSS or JavaScript required.

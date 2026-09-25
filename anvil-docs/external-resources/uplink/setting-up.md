@@ -1,13 +1,7 @@
 ---
-document: "Setting up"
-title: "Setting up"
-url: "/docs/external-resources/uplink/setting-up"
-doc-id: setting-up
-state: Live
-date-created: 2026-09-08
+title: "setting-up"
+doc-id: "setting-up"
 ---
-
-
 # [Setting up the Uplink](#setting-up-the-uplink)
 
 To set up the Uplink, you need to:

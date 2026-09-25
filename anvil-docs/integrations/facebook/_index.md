@@ -1,13 +1,7 @@
 ---
-document: "Facebook"
-title: "Facebook"
-url: "/docs/integrations/facebook"
-doc-id: facebook-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Facebook Integration](#facebook-integration)
 
 ### Log users in to your app with Facebook

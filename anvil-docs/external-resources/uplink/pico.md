@@ -1,13 +1,7 @@
 ---
-document: "Uplink for Pico W"
-title: "Uplink for Pico W"
-url: "/docs/external-resources/uplink/pico"
-doc-id: pico
-state: Live
-date-created: 2026-09-08
+title: "pico"
+doc-id: "pico"
 ---
-
-
 # [Create Internet-Connected Gadgets with Anvil and the Pico W](#create-internet-connected-gadgets-with-anvil-and-the-pico-w)
 
 The [Raspberry Pi Pico W](https://www.raspberrypi.com/news/raspberry-pi-pico-w-your-6-iot-platform) is a $6 microcontroller board with on-board WiFi. Anvil supports connecting the Pico to your Anvil apps via a cut-down version of the Uplink, that runs in [MicroPython](https://micropython.org/).

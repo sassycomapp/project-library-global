@@ -1,13 +1,7 @@
 ---
-document: "Maps"
-title: "Maps"
-url: "/docs/components/standard-components/maps"
-doc-id: maps
-state: Live
-date-created: 2026-09-08
+title: "maps"
+doc-id: "maps"
 ---
-
-
 # [Google Maps](#google-maps)
 
 You can display interactive Google Maps on your Anvil Form with the GoogleMap component. Drag and drop onto your Form, or create one in code with the `GoogleMap` constructor.

@@ -1,8 +1,6 @@
 ---
-document: "`ui-customization-approach` ADR — UI Customization Approach"
-doc-id: adr-ui-customization-approach
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-ui-customization-approach"
+doc-id: "adr-ui-customization-approach"
 ---
 # `ui-customization-approach` ADR — UI Customization Approach
 

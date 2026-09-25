@@ -1,13 +1,7 @@
 ---
-document: "Standard Anvil Components"
-title: "Standard Anvil Components"
-url: "/docs/components/standard-components"
-doc-id: standard-components-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Standard Anvil Components](#standard-anvil-components)
 
 The Standard Anvil Components are Anvil’s original set of components. This component library consists of a number of basic components, like Buttons and TextBoxes, as well as [Container](standard-components/containers) components for laying out your pages. In the Standard Anvil component library, you’ll find:

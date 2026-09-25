@@ -1,13 +1,7 @@
 ---
-document: "Other Anvil Concepts"
-title: "Other Anvil Concepts"
-url: "/docs/other-concepts"
-doc-id: other-concepts-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Other Anvil Concepts](#other-anvil-concepts)
 
 These Anvil concepts are miscellaneous features meant to help you build more complex apps and access advanced Anvil functionalities.

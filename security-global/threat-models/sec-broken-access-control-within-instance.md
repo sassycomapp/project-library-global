@@ -1,11 +1,7 @@
 ---
-document: "Threat Model — Broken Access Control Within a Client Instance"
-doc-id: sec-broken-access-control-within-instance
-state: Live
-date-created: 2026-08-27
-category: threat-models
+title: "sec-broken-access-control-within-instance"
+doc-id: "sec-broken-access-control-within-instance"
 ---
-
 # Threat Model — Broken Access Control Within a Client Instance
 
 **Scope note, stated first, to avoid confusion with a different, already-solved problem:** this is NOT cross-client data exposure. Cross-client isolation is structural — separate Anvil app, separate database, per client instance, per `[[spec-five-app-architecture-model]]`. Architecturally impossible to breach from application code. This document concerns a different, real risk: one user seeing or changing another user's own role-scoped data *within the same client instance*.

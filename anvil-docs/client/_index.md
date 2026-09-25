@@ -1,13 +1,7 @@
 ---
-document: "Building the Front-End"
-title: "Building the Front-End"
-url: "/docs/client"
-doc-id: client-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Building the Front-End](#building-the-front-end)
 
 You can build your [front-end](/docs/app-architecture) in the [Anvil Editor](/docs/editor). You create your user interface by dragging and dropping [built-in](/docs/ui/components) or [custom](/docs/client/customisation/custom-components) components onto [Forms](client/forms) in [Design view](/docs/editor/form-editor#design-view), editing your UI as text in [HTML view](/docs/editor/form-editor#html-view), or defining components directly in [Code view](/docs/editor/form-editor#code-view). You then write [client-side code](client/client-code) to control how your interface behaves and responds to user interaction.

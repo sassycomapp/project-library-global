@@ -1,13 +1,7 @@
 ---
-document: "Quickstart"
-title: "Quickstart"
-url: "/docs/integrations/x/quickstart"
-doc-id: x-quickstart
-state: Live
-date-created: 2026-09-08
+title: "quickstart"
+doc-id: "quickstart"
 ---
-
-
 # [Quickstart: Tableau Integration](#quickstart-tableau-integration)
 
 This quickstart will guide you through the process of creating an Anvil app that can be used as a Tableau extension, and connecting it to a dashboard in Tableau.

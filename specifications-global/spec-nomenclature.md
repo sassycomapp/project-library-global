@@ -1,8 +1,6 @@
 ---
-document: Mybizz CS — Nomenclature & Naming Conventions
-doc-id: spec-nomenclature
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-nomenclature"
+doc-id: "spec-nomenclature"
 ---
 # Mybizz CS — Nomenclature & Naming Conventions
 

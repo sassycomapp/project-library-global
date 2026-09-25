@@ -1,8 +1,6 @@
 ---
-document: Policy — Anvil-First Development
-doc-id: pol-anvil-first-development
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "pol-anvil-first-development"
+doc-id: "pol-anvil-first-development"
 ---
 # Policy — Anvil-First Development
 

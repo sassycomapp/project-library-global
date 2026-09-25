@@ -1,13 +1,7 @@
 ---
-document: "Layouts API"
-title: "Layouts API"
-url: "/docs/client/forms/layouts/layouts-api"
-doc-id: layouts-api
-state: Live
-date-created: 2026-09-08
+title: "layouts-api"
+doc-id: "layouts-api"
 ---
-
-
 # [The Layouts API](#the-layouts-api)
 
 **This is an advanced topic.** You can create and use Layouts entirely from the Anvil Designer. The rest of this page describes the underlying Python API, which you can use to Layouts entirely in code if you need to.

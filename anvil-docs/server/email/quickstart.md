@@ -1,13 +1,7 @@
 ---
-document: "Quickstart"
-title: "Quickstart"
-url: "/docs/server/email/quickstart"
-doc-id: email-quickstart
-state: Live
-date-created: 2026-09-08
+title: "quickstart"
+doc-id: "quickstart"
 ---
-
-
 # [Quickstart: Email](#quickstart-email)
 
 ### Communicate to and from your app by email

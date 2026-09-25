@@ -1,13 +1,7 @@
 ---
-document: "Host apps on your own server"
-title: "Host apps on your own server"
-url: "/docs/how-to/app-server"
-doc-id: app-server-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Host your Anvil Apps on your own computer](#host-your-anvil-apps-on-your-own-computer)
 
 You can export any Anvil app from the Anvil Editor and run it on your computer using the open-source [Anvil App Server](https://github.com/anvil-works/anvil-runtime).

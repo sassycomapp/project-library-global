@@ -1,9 +1,6 @@
 ---
-document: "Client Instance Provisioning Security"
-doc-id: sec-client-provisioning-security
-state: Live
-date-created: 2026-08-27
-category: cloud
+title: "sec-client-provisioning-security"
+doc-id: "sec-client-provisioning-security"
 ---
 # Client Instance Provisioning Security
 

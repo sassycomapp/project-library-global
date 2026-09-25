@@ -1,13 +1,7 @@
 ---
-document: "Layouts"
-title: "Layouts"
-url: "/docs/client/forms/layouts"
-doc-id: layouts-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Layouts](#layouts)
 
 The structure of an Anvil [Form](/docs/client/forms) is defined by its Layout. A Layout is a Form that provides the visual template for other Forms.

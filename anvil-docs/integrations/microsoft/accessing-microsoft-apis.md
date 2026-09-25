@@ -1,13 +1,7 @@
 ---
-document: "Accessing Azure APIs"
-title: "Accessing Azure APIs"
-url: "/docs/integrations/microsoft/accessing-microsoft-apis"
-doc-id: accessing-microsoft-apis
-state: Live
-date-created: 2026-09-08
+title: "accessing-microsoft-apis"
+doc-id: "accessing-microsoft-apis"
 ---
-
-
 # [Accessing Microsoft Azure APIs](#accessing-microsoft-azure-apis)
 
 Microsoft provides a huge range of REST APIs to give you machine-readable access to Azure services. The full list at the time of writing is [further down this page](#full-list-of-microsoft-rest-apis).

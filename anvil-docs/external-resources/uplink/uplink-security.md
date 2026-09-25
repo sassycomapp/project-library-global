@@ -1,13 +1,7 @@
 ---
-document: "Uplink Security"
-title: "Uplink Security"
-url: "/docs/external-resources/uplink/uplink-security"
-doc-id: uplink-security
-state: Live
-date-created: 2026-09-08
+title: "uplink-security"
+doc-id: "uplink-security"
 ---
-
-
 # [Uplink Security](#uplink-security)
 
 ## [Sharing](#sharing)

@@ -1,13 +1,7 @@
 ---
-document: "anvil.tables"
 title: "anvil.tables"
-url: "/docs/api/anvil.tables"
-doc-id: anvil.tables
-state: Live
-date-created: 2026-09-08
+doc-id: "anvil.tables"
 ---
-
-
 ## `anvil.tables` Module
 
 #### Classes

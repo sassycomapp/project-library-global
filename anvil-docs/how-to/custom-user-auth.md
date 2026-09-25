@@ -1,13 +1,7 @@
 ---
-document: "Custom user authentication"
-title: "Custom user authentication"
-url: "/docs/how-to/custom-user-auth"
-doc-id: custom-user-auth
-state: Live
-date-created: 2026-09-08
+title: "custom-user-auth"
+doc-id: "custom-user-auth"
 ---
-
-
 # [Customising the Users service](#customising-the-users-service)
 
 Anvil’s support for [user authentication](/docs/users) is simple to set up – you only need one line of code to get started. But it’s also very flexible – you can use the [Python APIs](/docs/api/anvil.users) to take full control of the authentication system, or build something entirely custom.

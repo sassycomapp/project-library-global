@@ -1,13 +1,7 @@
 ---
-document: "Usable configuration with Git"
-title: "Usable configuration with Git"
-url: "/docs/how-to/git-configuration"
-doc-id: git-configuration
-state: Live
-date-created: 2026-09-08
+title: "git-configuration"
+doc-id: "git-configuration"
 ---
-
-
 # [Usable configuration with Git](#usable-configuration-with-git)
 
 **This article is archived.**

@@ -1,13 +1,7 @@
 ---
-document: "Microsoft Azure"
-title: "Microsoft Azure"
-url: "/docs/how-to/app-server/cloud-deployment-guides/azure-app-server-deployment"
-doc-id: azure-app-server-deployment
-state: Live
-date-created: 2026-09-08
+title: "azure-app-server-deployment"
+doc-id: "azure-app-server-deployment"
 ---
-
-
 # [How to use Anvil’s open-source App Server on Windows Azure](#how-to-use-anvils-open-source-app-server-on-windows-azure)
 
 ## [Introduction](#introduction)

@@ -1,10 +1,7 @@
 ---
-document: "Rule: No Disabling Security Tooling"
-doc-id: no_disabling_security_tooling
-state: Live
-date-created: 2026-09-05
+title: "no_disabling_security_tooling"
+doc-id: "no_disabling_security_tooling"
 ---
-
 # Rule: No Disabling Security Tooling
 
 ## Harness

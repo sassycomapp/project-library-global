@@ -1,8 +1,6 @@
 ---
-document: "`dependency-update-model` ADR — Dependency Update Model"
-doc-id: adr-dependency-update-model
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-dependency-update-model"
+doc-id: "adr-dependency-update-model"
 ---
 # `dependency-update-model` ADR — Dependency Update Model
 

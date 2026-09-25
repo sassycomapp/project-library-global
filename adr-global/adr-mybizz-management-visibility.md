@@ -1,8 +1,6 @@
 ---
-document: "`mybizz-management-visibility` ADR — Mybizz_management Visibility and Control"
-doc-id: adr-mybizz-management-visibility
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-mybizz-management-visibility"
+doc-id: "adr-mybizz-management-visibility"
 ---
 # `mybizz-management-visibility` ADR — Mybizz_management Visibility and Control
 

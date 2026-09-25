@@ -1,13 +1,7 @@
 ---
-document: "Oracle OKE"
-title: "Oracle OKE"
-url: "/docs/enterprise/deployment/kubernetes/oke"
-doc-id: oke
-state: Live
-date-created: 2026-09-08
+title: "oke"
+doc-id: "oke"
 ---
-
-
 # [Oracle Kubernetes Engine](#oracle-kubernetes-engine)
 
 Anvil Enterprise is fully supported in OKE. If you want to maintain your production deployment using Infrastructure-As-Code, we provide a supported [Terraform](https://developer.hashicorp.com/terraform/install?product_intent=terraform) configuration to create a new OKE cluster using our standard OKE template.

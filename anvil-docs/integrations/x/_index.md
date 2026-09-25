@@ -1,13 +1,7 @@
 ---
-document: "Tableau Extensions with Anvil X"
-title: "Tableau Extensions with Anvil X"
-url: "/docs/integrations/x"
-doc-id: x-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Anvil X](#anvil-x)
 
 ### Create Tableau extensions with Anvil

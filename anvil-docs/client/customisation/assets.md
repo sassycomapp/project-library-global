@@ -1,13 +1,7 @@
 ---
-document: "Adding Assets"
-title: "Adding Assets"
-url: "/docs/client/customisation/assets"
-doc-id: assets
-state: Live
-date-created: 2026-09-08
+title: "assets"
+doc-id: "assets"
 ---
-
-
 # [Adding Assets](#adding-assets)
 
 Assets are files that are part of your app’s source code, such as CSS files, JavaScript, or images. They’re primarily used to customise your app’s [Theme](/docs/client/themes-and-styling) or inject your own [JavaScript objects](/docs/client/customisation/javascript).

@@ -1,9 +1,6 @@
 ---
-document: "Payment Gateway Trust Boundary"
-doc-id: sec-payment-gateway-trust-boundary
-state: Live
-date-created: 2026-08-27
-category: cloud
+title: "sec-payment-gateway-trust-boundary"
+doc-id: "sec-payment-gateway-trust-boundary"
 ---
 # Payment Gateway Trust Boundary
 

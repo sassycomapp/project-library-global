@@ -1,13 +1,7 @@
 ---
-document: "Quickstart: Data Files"
-title: "Quickstart: Data Files"
-url: "/docs/data-tables/data-files/quickstart"
-doc-id: data-files-quickstart
-state: Live
-date-created: 2026-09-08
+title: "quickstart"
+doc-id: "quickstart"
 ---
-
-
 # [Quickstart: Data Files](#quickstart-data-files)
 
 Data Files are static files you can attach to your app that are available in your Server Modules.

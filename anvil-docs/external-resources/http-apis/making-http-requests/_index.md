@@ -1,13 +1,7 @@
 ---
-document: "Making HTTP requests"
-title: "Making HTTP requests"
-url: "/docs/external-resources/http-apis/making-http-requests"
-doc-id: making-http-requests-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Making HTTP requests](#making-http-requests)
 
 ## [From client code](#from-client-code)

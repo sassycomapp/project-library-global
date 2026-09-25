@@ -1,10 +1,7 @@
 ---
-document: "Rule: No Lockfile Changes Without Explicit Approval"
-doc-id: no_dependency_or_lockfile_changes_without_explicit_approval
-state: Live
-date-created: 2026-09-05
+title: "no_dependency_or_lockfile_changes_without_explicit_approval"
+doc-id: "no_dependency_or_lockfile_changes_without_explicit_approval"
 ---
-
 # Rule: No Lockfile Changes Without Explicit Approval
 
 ## Harness

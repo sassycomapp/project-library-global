@@ -1,10 +1,7 @@
 ---
-document: "Anvil Docs — Confirmed Site Map (Step 1a)"
-doc-id: site-map
-state: Live
-date-created: 2026-09-08
+title: "site-map"
+doc-id: "site-map"
 ---
-
 # Anvil Docs — Confirmed Site Map (Step 1a)
 
 Authoritative URL → path reference for the `anvil-synthesized-reference` scaffold.

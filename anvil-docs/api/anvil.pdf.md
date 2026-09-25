@@ -1,13 +1,7 @@
 ---
-document: "anvil.pdf"
 title: "anvil.pdf"
-url: "/docs/api/anvil.pdf"
-doc-id: anvil.pdf
-state: Live
-date-created: 2026-09-08
+doc-id: "anvil.pdf"
 ---
-
-
 ## `anvil.pdf` Module
 
 #### Classes

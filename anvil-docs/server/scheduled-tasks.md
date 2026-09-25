@@ -1,13 +1,7 @@
 ---
-document: "Scheduled Tasks"
-title: "Scheduled Tasks"
-url: "/docs/server/scheduled-tasks"
-doc-id: scheduled-tasks
-state: Live
-date-created: 2026-09-08
+title: "scheduled-tasks"
+doc-id: "scheduled-tasks"
 ---
-
-
 # [Scheduled Tasks](#scheduled-tasks)
 
 Sometimes you want to run server functions at particular times, regardless of user activity on your app. For example, you might need to run analytics on your [Data Tables](/docs/data-tables) every night, or send out a daily [email](/docs/email) digest. For users on paid plans, Scheduled Tasks let you do just that - you can choose to run any [Background Task](/docs/background-tasks) every minute, hour, day, week, or month, on a schedule you configure.

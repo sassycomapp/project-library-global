@@ -1,13 +1,7 @@
 ---
-document: "Material 3"
-title: "Material 3"
-url: "/docs/components/material-3"
-doc-id: material-3-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [New Material 3 Theme](#new-material-3-theme)
 
 Anvil’s Material 3 theme is a set of custom components and layouts that implement Google’s [Material 3](https://m3.material.io/) design system.

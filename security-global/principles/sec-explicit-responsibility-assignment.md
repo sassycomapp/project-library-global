@@ -1,9 +1,6 @@
 ---
-document: "Principle — Explicit Responsibility Assignment"
-doc-id: sec-explicit-responsibility-assignment
-state: Live
-date-created: 2026-08-27
-category: principles
+title: "sec-explicit-responsibility-assignment"
+doc-id: "sec-explicit-responsibility-assignment"
 ---
 # Principle — Explicit Responsibility Assignment
 

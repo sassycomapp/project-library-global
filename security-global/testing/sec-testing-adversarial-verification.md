@@ -1,9 +1,6 @@
 ---
-document: "Adversarial Verification"
-doc-id: sec-testing-adversarial-verification
-state: Live
-date-created: 2026-08-27
-category: testing
+title: "sec-testing-adversarial-verification"
+doc-id: "sec-testing-adversarial-verification"
 ---
 # Adversarial Verification
 

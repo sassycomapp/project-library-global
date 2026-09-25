@@ -1,13 +1,7 @@
 ---
-document: "Accessing an External Database"
-title: "Accessing an External Database"
-url: "/docs/external-resources/external-database"
-doc-id: external-resources-external-database
-state: Live
-date-created: 2026-09-08
+title: "external-database"
+doc-id: "external-database"
 ---
-
-
 # [Accessing an external database](#accessing-an-external-database)
 
 [Tutorial: Using an external database with Anvil](/learn/tutorials/external-database)

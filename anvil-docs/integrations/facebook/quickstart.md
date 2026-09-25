@@ -1,13 +1,7 @@
 ---
-document: "Quickstart"
-title: "Quickstart"
-url: "/docs/integrations/facebook/quickstart"
-doc-id: facebook-quickstart
-state: Live
-date-created: 2026-09-08
+title: "quickstart"
+doc-id: "quickstart"
 ---
-
-
 # [Quickstart: Facebook Integration](#quickstart-facebook-integration)
 
 ### Log users in using Facebook accounts

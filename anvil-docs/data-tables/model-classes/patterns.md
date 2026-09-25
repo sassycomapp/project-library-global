@@ -1,13 +1,7 @@
 ---
-document: "Best Practices"
-title: "Best Practices"
-url: "/docs/data-tables/model-classes/patterns"
-doc-id: patterns
-state: Live
-date-created: 2026-09-08
+title: "patterns"
+doc-id: "patterns"
 ---
-
-
 # [Best Practices with Model Classes](#best-practices-with-model-classes)
 
 This page describes a few best pracices for combining [model classes](../model-classes), [buffering](../buffering) and [server methods](../../server/portable-classes/server-methods) to produce robust and secure apps. All of the examples on this page refer to a To Do List app.

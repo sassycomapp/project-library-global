@@ -1,13 +1,7 @@
 ---
-document: "anvil.stripe"
 title: "anvil.stripe"
-url: "/docs/api/anvil.stripe"
-doc-id: anvil.stripe
-state: Live
-date-created: 2026-09-08
+doc-id: "anvil.stripe"
 ---
-
-
 ## `anvil.stripe` Module
 
 #### Functions

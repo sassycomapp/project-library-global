@@ -1,9 +1,6 @@
 ---
-document: "Secret Access Audit"
-doc-id: sec-secret-access-audit
-state: Live
-date-created: 2026-08-27
-category: secrets
+title: "sec-secret-access-audit"
+doc-id: "sec-secret-access-audit"
 ---
 # Secret Access Audit
 

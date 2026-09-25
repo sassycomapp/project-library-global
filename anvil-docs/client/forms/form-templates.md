@@ -1,13 +1,7 @@
 ---
-document: "Form Templates"
-title: "Form Templates"
-url: "/docs/client/forms/form-templates"
-doc-id: form-templates
-state: Live
-date-created: 2026-09-08
+title: "form-templates"
+doc-id: "form-templates"
 ---
-
-
 # [Form Templates](#form-templates)
 
 Every Form in Anvil inherits from a template class called `<<FormName>Template`. For example, `Form1` inherits from `Form1Template`. This class is defined by an HTML file which represents the UI of your Form. When you build a Form visually in Design view, the Anvil Designer updates this file for you. You can also view and edit this file directly in the [HTML view](/docs/editor/form-editor#html-view) of the Form Editor.

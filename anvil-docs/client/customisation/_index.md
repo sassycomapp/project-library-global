@@ -1,13 +1,7 @@
 ---
-document: "Customisation"
-title: "Customisation"
-url: "/docs/client/customisation"
-doc-id: customisation-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Customisation](#customisation)
 
 Anvil provides several ways to customise your app’s appearance and behaviour. You can apply colour schemes and CSS to control how your app looks, build your own reusable components, add your own asset files, or interact directly with JavaScript from the Anvil Editor.

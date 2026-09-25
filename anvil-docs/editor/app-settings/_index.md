@@ -1,13 +1,7 @@
 ---
-document: "App Settings"
-title: "App Settings"
-url: "/docs/editor/app-settings"
-doc-id: app-settings-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [App Settings](#app-settings)
 
 App Settings lets you edit various settings for your Anvil apps. You can open App Settings from the [Sidebar Menu](/docs/editor#sidebar-menu):

@@ -1,13 +1,7 @@
 ---
-document: "Deploying your App"
-title: "Deploying your App"
-url: "/docs/deployment"
-doc-id: deployment-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Deploying your App](#deploying-your-app)
 
 Anvil apps are automatically hosted - all you need to do is click a button to publish them on the Internet.

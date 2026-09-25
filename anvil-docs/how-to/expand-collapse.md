@@ -1,13 +1,7 @@
 ---
-document: "Expand and collapse sections of pages"
-title: "Expand and collapse sections of pages"
-url: "/docs/how-to/expand-collapse"
-doc-id: expand-collapse
-state: Live
-date-created: 2026-09-08
+title: "expand-collapse"
+doc-id: "expand-collapse"
 ---
-
-
 # [Expand and collapse sections using components](#expand-and-collapse-sections-using-components)
 
 Components can be shown and hidden by setting their `visible` property to `True` or `False`. Showing or hiding a [container](/docs/client/components/containers) such as a ColumnPanel shows or hides the components within it, allowing you to create expandable/collapsable sections of pages.

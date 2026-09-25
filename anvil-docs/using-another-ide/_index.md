@@ -1,12 +1,7 @@
 ---
-document: "Using Anvil in a Local IDE"
-title: "Using Anvil in a Local IDE"
-url: "/docs/using-another-ide"
-doc-id: using-another-ide-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
 # [Using Anvil from a Local IDE](#using-anvil-from-a-local-ide)
 
 **The Anvil CLI is currently in beta** while we continue to make improvements.

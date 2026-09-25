@@ -1,8 +1,6 @@
 ---
-document: "Mybizz — Regulatory Compliance Baseline (Specification)"
-doc-id: spec-regulatory-compliance-baseline
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-regulatory-compliance-baseline"
+doc-id: "spec-regulatory-compliance-baseline"
 ---
 # Mybizz — Regulatory Compliance Baseline (Specification)
 

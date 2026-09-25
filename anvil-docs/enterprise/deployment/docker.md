@@ -1,13 +1,7 @@
 ---
-document: "Docker"
-title: "Docker"
-url: "/docs/enterprise/deployment/docker"
-doc-id: docker
-state: Live
-date-created: 2026-09-08
+title: "docker"
+doc-id: "docker"
 ---
-
-
 # [Deploy with Docker](#deploy-with-docker)
 
 For a single-node Anvil cluster, you can deploy the necessary containers with [Docker Compose](https://docs.docker.com/compose/). If you’re looking for the simplest way to get Anvil Enterprise up and running fast, we recommend starting with a [K3s deployment](kubernetes/k3s), but if that is not an option, [get in touch](mailto:sales@anvil.works) to discuss deploying Anvil with Docker Compose.

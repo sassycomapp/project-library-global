@@ -1,13 +1,7 @@
 ---
-document: "Microsoft"
-title: "Microsoft"
-url: "/docs/integrations/microsoft"
-doc-id: microsoft-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Microsoft Integration](#microsoft-integration)
 
 The Microsoft API Service enables users to log in to your app using their Entra ID account. This can be restricted to accounts within your Microsoft organisation.

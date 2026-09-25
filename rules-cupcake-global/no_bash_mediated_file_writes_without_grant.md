@@ -1,10 +1,7 @@
 ---
-document: "Rule: No Bash-Mediated File Writes Without Grant"
-doc-id: no_bash_mediated_file_writes_without_grant
-state: Live
-date-created: 2026-09-11
+title: "no_bash_mediated_file_writes_without_grant"
+doc-id: "no_bash_mediated_file_writes_without_grant"
 ---
-
 # Rule: No Bash-Mediated File Writes Without Grant
 
 ## Harness

@@ -1,9 +1,6 @@
 ---
-document: "Service Lifecycle Management"
-doc-id: sec-service-lifecycle-management
-state: Live
-date-created: 2026-08-27
-category: infrastructure
+title: "sec-service-lifecycle-management"
+doc-id: "sec-service-lifecycle-management"
 ---
 # Service Lifecycle Management
 

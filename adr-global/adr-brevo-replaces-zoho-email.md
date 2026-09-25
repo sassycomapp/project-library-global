@@ -1,8 +1,6 @@
 ---
-document: Brevo Replaces All Zoho Products
-doc-id: adr-brevo-replaces-zoho-email
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-brevo-replaces-zoho-email"
+doc-id: "adr-brevo-replaces-zoho-email"
 ---
 #  Brevo Replaces All Zoho Products
 Date: 2026-03-21

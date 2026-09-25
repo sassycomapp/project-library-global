@@ -1,13 +1,7 @@
 ---
-document: "Using Data Tables from Python"
-title: "Using Data Tables from Python"
-url: "/docs/data-tables/data-tables-in-code"
-doc-id: data-tables-in-code
-state: Live
-date-created: 2026-09-08
+title: "data-tables-in-code"
+doc-id: "data-tables-in-code"
 ---
-
-
 # [Using Data Tables from Python](#using-data-tables-from-python)
 
 Anvil represents Data Tables in code as Python objects. You can imagine a Data Table in Python as a list of dictionaries, although they have many extra methods as described on this page, and they have caching and lazy loading for efficiency.

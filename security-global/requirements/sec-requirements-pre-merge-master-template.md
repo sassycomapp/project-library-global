@@ -1,9 +1,6 @@
 ---
-document: "Requirement — Pre-Merge to master_template"
-doc-id: sec-requirements-pre-merge-master-template
-state: Live
-date-created: 2026-08-27
-category: requirements
+title: "sec-requirements-pre-merge-master-template"
+doc-id: "sec-requirements-pre-merge-master-template"
 ---
 # Requirement — Pre-Merge to master_template
 

@@ -1,13 +1,7 @@
 ---
-document: "Prompting best practices"
-title: "Prompting best practices"
-url: "/docs/how-to/prompting-best-practices"
-doc-id: prompting-best-practices
-state: Live
-date-created: 2026-09-08
+title: "prompting-best-practices"
+doc-id: "prompting-best-practices"
 ---
-
-
 # [Prompting best practices](#prompting-best-practices)
 
 How you write your prompts affects what the agent produces. These tips will help you get more consistent results.

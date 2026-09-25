@@ -1,13 +1,7 @@
 ---
-document: "Indexes"
-title: "Indexes"
-url: "/docs/data-tables/indexes"
-doc-id: indexes
-state: Live
-date-created: 2026-09-08
+title: "indexes"
+doc-id: "indexes"
 ---
-
-
 # [Indexes](#indexes)
 
 An index is used to find matching rows in a database more efficiently. Without an index, the database must scan every row in a table to find matches. With the appropriate index, it can quickly locate the rows that satisfy a query.

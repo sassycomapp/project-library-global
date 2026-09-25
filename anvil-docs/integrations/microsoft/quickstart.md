@@ -1,13 +1,7 @@
 ---
-document: "Quickstart"
-title: "Quickstart"
-url: "/docs/integrations/microsoft/quickstart"
-doc-id: microsoft-quickstart
-state: Live
-date-created: 2026-09-08
+title: "quickstart"
+doc-id: "quickstart"
 ---
-
-
 # [Quickstart: Microsoft SSO](#quickstart-microsoft-sso)
 
 Users can log into your Anvil app [using their Microsoft account](microsoft-single-sign-on). You can also restrict access to only users in your own Entra organisation by [linking your Entra ID application to Anvil](linking-azure-and-anvil).

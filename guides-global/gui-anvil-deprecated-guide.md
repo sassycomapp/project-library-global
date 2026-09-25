@@ -1,8 +1,6 @@
 ---
-document: Anvil Deprecated Guide
-doc-id: gui-anvil-deprecated-guide
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "gui-anvil-deprecated-guide"
+doc-id: "gui-anvil-deprecated-guide"
 ---
 https://docs.continue.dev/reference/deprecated-context-providers
 

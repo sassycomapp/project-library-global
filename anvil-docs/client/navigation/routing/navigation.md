@@ -1,13 +1,7 @@
 ---
-document: "Navigation"
-title: "Navigation"
-url: "/docs/client/navigation/routing/navigation"
-doc-id: navigation
-state: Live
-date-created: 2026-09-08
+title: "navigation"
+doc-id: "navigation"
 ---
-
-
 # [Navigation](#navigation)
 
 To provide navigation, the Routing dependency needs to be given instructions on which Form should be opened based on which URL has been navigated to. This is done by definining routes which are then used by the router to interpret given URLs.

@@ -1,8 +1,6 @@
 ---
-document: PDLF Standards Library — Screen & Wireframe Production Standards
-doc-id: spec-screen-and-wireframe-production-standards
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-screen-and-wireframe-production-standards"
+doc-id: "spec-screen-and-wireframe-production-standards"
 ---
 # PDLF Standards Library — Screen & Wireframe Production Standards
 

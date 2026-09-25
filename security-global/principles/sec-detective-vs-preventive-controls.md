@@ -1,9 +1,6 @@
 ---
-document: "Principle — Detective vs. Preventive Controls"
-doc-id: sec-detective-vs-preventive-controls
-state: Live
-date-created: 2026-08-27
-category: principles
+title: "sec-detective-vs-preventive-controls"
+doc-id: "sec-detective-vs-preventive-controls"
 ---
 # Principle — Detective vs. Preventive Controls
 

@@ -1,8 +1,6 @@
 ---
-document: "`webhook-architecture` ADR — Webhook Architecture"
-doc-id: adr-webhook-architecture
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-webhook-architecture"
+doc-id: "adr-webhook-architecture"
 ---
 # `webhook-architecture` ADR — Webhook Architecture
 

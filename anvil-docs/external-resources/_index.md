@@ -1,13 +1,7 @@
 ---
-document: "Connecting to External Resources"
-title: "Connecting to External Resources"
-url: "/docs/external-resources"
-doc-id: external-resources-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Connecting to External Resources](#connecting-to-external-resources)
 
 You can connect your Anvil app to code, web services, and databases that live outside of Anvil.

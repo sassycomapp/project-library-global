@@ -1,13 +1,7 @@
 ---
-document: "Anvil Enterprise"
-title: "Anvil Enterprise"
-url: "/docs/enterprise"
-doc-id: enterprise-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Anvil Enterprise](#anvil-enterprise)
 
 Enterprise customers often need to keep their data within their own network, and this is a fully-supported deployment option. Customers who want to manage their own hosting can install Anvil on their own servers. This could be your own network, a private cloud, or an account in a public cloud. Enterprise installations provide the following benefits:

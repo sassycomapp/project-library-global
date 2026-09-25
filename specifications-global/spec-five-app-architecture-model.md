@@ -1,8 +1,6 @@
 ---
-document: "Mybizz — Five-App Architecture Model (Specification)"
-doc-id: spec-five-app-architecture-model
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-five-app-architecture-model"
+doc-id: "spec-five-app-architecture-model"
 ---
 # Mybizz — Five-App Architecture Model (Specification)
 

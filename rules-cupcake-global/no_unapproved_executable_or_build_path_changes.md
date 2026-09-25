@@ -1,10 +1,7 @@
 ---
-document: "Rule: No Unapproved Executable or Build-Path Changes"
-doc-id: no_unapproved_executable_or_build_path_changes
-state: Live
-date-created: 2026-09-05
+title: "no_unapproved_executable_or_build_path_changes"
+doc-id: "no_unapproved_executable_or_build_path_changes"
 ---
-
 # Rule: No Unapproved Executable or Build-Path Changes
 
 ## Harness

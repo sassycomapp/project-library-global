@@ -1,9 +1,6 @@
 ---
-document: "Local Filesystem Access Boundary"
-doc-id: sec-local-filesystem-access-boundary
-state: Live
-date-created: 2026-08-27
-category: infrastructure
+title: "sec-local-filesystem-access-boundary"
+doc-id: "sec-local-filesystem-access-boundary"
 ---
 # Local Filesystem Access Boundary
 

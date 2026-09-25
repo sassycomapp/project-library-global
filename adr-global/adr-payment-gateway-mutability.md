@@ -1,8 +1,6 @@
 ---
-document: Payment Gateway Mutability
-doc-id: adr-payment-gateway-mutability
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-payment-gateway-mutability"
+doc-id: "adr-payment-gateway-mutability"
 ---
 # Payment Gateway Mutability
 Date: 2026-05-29

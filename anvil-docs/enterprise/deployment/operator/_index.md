@@ -1,13 +1,7 @@
 ---
-document: "Kubernetes Operator"
-title: "Kubernetes Operator"
-url: "/docs/enterprise/deployment/operator"
-doc-id: operator-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Kubernetes Operator](#kubernetes-operator)
 
 The Anvil Kubernetes Operator is responsible for orchestrating individual Kubernetes Resources to provision a full [Anvil Cluster inside Kubernetes](kubernetes). This way, you only need to deploy a single Custom Resource to your Kubernetes Cluster, and the Anvil Operator takes care of all the individual Pods, Services, etc.

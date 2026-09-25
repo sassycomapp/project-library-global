@@ -1,9 +1,6 @@
 ---
-document: "Anvil Platform Responsibility Boundary"
-doc-id: sec-anvil-platform-responsibility-boundary
-state: Live
-date-created: 2026-08-27
-category: cloud
+title: "sec-anvil-platform-responsibility-boundary"
+doc-id: "sec-anvil-platform-responsibility-boundary"
 ---
 # Anvil Platform Responsibility Boundary
 

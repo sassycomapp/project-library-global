@@ -1,13 +1,7 @@
 ---
-document: "Kubernetes"
-title: "Kubernetes"
-url: "/docs/enterprise/deployment/kubernetes"
-doc-id: kubernetes-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Deploy in Kubernetes](#deploy-in-kubernetes)
 
 Kubernetes is the preferred deployment environment for Anvil Enterprise. A Kubernetes deployment provides maximum flexibility for scaling, as well as continuous backup, observability and point-in-time restore out of the box. An Anvil cluster in Kubernetes can (but does not have to) include multiple server nodes to handle heavy load or to support high-availability with zero-downtime updates.

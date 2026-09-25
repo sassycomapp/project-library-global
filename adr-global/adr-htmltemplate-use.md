@@ -1,8 +1,6 @@
 ---
-document: "`htmltemplate-use` ADR: HTMLTemplate Use"
-doc-id: adr-htmltemplate-use
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-htmltemplate-use"
+doc-id: "adr-htmltemplate-use"
 ---
 # `htmltemplate-use` ADR: HTMLTemplate Use
 

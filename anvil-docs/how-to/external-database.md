@@ -1,13 +1,7 @@
 ---
-document: "External database"
-title: "External database"
-url: "/docs/how-to/external-database"
-doc-id: how-to-external-database
-state: Live
-date-created: 2026-09-08
+title: "external-database"
+doc-id: "external-database"
 ---
-
-
 # [Visualise data from an external database](#visualise-data-from-an-external-database)
 
 [Tutorial: Using an external database](/learn/tutorials/external-database)

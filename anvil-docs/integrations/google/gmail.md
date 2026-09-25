@@ -1,13 +1,7 @@
 ---
-document: "Gmail"
-title: "Gmail"
-url: "/docs/integrations/google/gmail"
-doc-id: gmail
-state: Live
-date-created: 2026-09-08
+title: "gmail"
+doc-id: "gmail"
 ---
-
-
 # [Gmail](#gmail)
 
 You can use Anvil to send email via your Gmail account.

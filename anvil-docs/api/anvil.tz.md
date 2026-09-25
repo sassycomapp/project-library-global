@@ -1,13 +1,7 @@
 ---
-document: "anvil.tz"
 title: "anvil.tz"
-url: "/docs/api/anvil.tz"
-doc-id: anvil.tz
-state: Live
-date-created: 2026-09-08
+doc-id: "anvil.tz"
 ---
-
-
 ## `anvil.tz` Module
 
 #### Classes

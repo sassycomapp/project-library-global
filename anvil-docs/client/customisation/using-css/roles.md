@@ -1,13 +1,7 @@
 ---
-document: "Roles"
-title: "Roles"
-url: "/docs/client/customisation/using-css/roles"
-doc-id: roles
-state: Live
-date-created: 2026-09-08
+title: "roles"
+doc-id: "roles"
 ---
-
-
 # [Roles](#roles)
 
 Roles work by applying [CSS classes](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Type_Class_and_ID_Selectors#class_selectors) to components. For example, a component with a role named `foo` will get the `.anvil-role-foo` CSS class applied to it.

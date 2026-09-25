@@ -1,13 +1,7 @@
 ---
-document: "Custom Domains"
-title: "Custom Domains"
-url: "/docs/deployment/custom-domains"
-doc-id: custom-domains
-state: Live
-date-created: 2026-09-08
+title: "custom-domains"
+doc-id: "custom-domains"
 ---
-
-
 # [Using your own domain name](#using-your-own-domain-name)
 
 Custom domains are available on the [Hobby Plan](https://anvil.works/pricing) and above

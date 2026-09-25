@@ -1,9 +1,6 @@
 ---
-document: "GitHub Repository Access Control"
-doc-id: sec-github-repository-access-control
-state: Live
-date-created: 2026-08-27
-category: cloud
+title: "sec-github-repository-access-control"
+doc-id: "sec-github-repository-access-control"
 ---
 # GitHub Repository Access Control
 

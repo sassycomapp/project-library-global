@@ -1,13 +1,7 @@
 ---
-document: "Deployment Environments"
-title: "Deployment Environments"
-url: "/docs/deployment/environments"
-doc-id: environments-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Deployment Environments](#deployment-environments)
 
 Every time you run an Anvil app, it’s running in some *environment* - that’s the configuration that determines:

@@ -1,13 +1,7 @@
 ---
-document: "Profiling and Tracing"
-title: "Profiling and Tracing"
-url: "/docs/editor/app-logs/profiling-and-tracing"
-doc-id: profiling-and-tracing
-state: Live
-date-created: 2026-09-08
+title: "profiling-and-tracing"
+doc-id: "profiling-and-tracing"
 ---
-
-
 # [Profiling and Tracing](#profiling-and-tracing)
 
 Profiling and tracing tools are available on the [Business Plan and above](/pricing).

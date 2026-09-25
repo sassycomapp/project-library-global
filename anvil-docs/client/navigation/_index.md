@@ -1,13 +1,7 @@
 ---
-document: "Navigation"
-title: "Navigation"
-url: "/docs/client/navigation"
-doc-id: navigation-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Navigation](#navigation)
 
 Anvil apps are [Single-Page Applications](https://developer.mozilla.org/en-US/docs/Glossary/SPA). When you open an Anvil app, only a single web page is loaded, but the content on that page can change.

@@ -1,8 +1,6 @@
 ---
-document: PDLF Standards Library — Testing Methodology
-doc-id: spec-testing-methodology-standards
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-testing-methodology-standards"
+doc-id: "spec-testing-methodology-standards"
 ---
 # PDLF Standards Library — Testing Methodology
 

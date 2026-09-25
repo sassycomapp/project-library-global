@@ -1,8 +1,6 @@
 ---
-document: PDLF Standards Library — Observability Requirements
-doc-id: spec-observability
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-observability"
+doc-id: "spec-observability"
 ---
 # PDLF Standards Library — Observability Requirements
 

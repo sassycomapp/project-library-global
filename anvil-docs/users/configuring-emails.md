@@ -1,13 +1,7 @@
 ---
-document: "Configuring Emails"
-title: "Configuring Emails"
-url: "/docs/users/configuring-emails"
-doc-id: configuring-emails
-state: Live
-date-created: 2026-09-08
+title: "configuring-emails"
+doc-id: "configuring-emails"
 ---
-
-
 # [Configuring Emails from the Users Service](#configuring-emails-from-the-users-service)
 
 Custom User Service Emails are available on the [Hobby Plan](https://anvil.works/pricing) and above.

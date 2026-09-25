@@ -1,8 +1,6 @@
 ---
-document: Client Instance Activation Runbook
-doc-id: spec-client-activation-runbook
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-client-activation-runbook"
+doc-id: "spec-client-activation-runbook"
 ---
 # Client Instance Activation Runbook
 

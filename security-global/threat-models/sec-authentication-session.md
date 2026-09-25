@@ -1,9 +1,6 @@
 ---
-document: "Threat Model — Authentication and Session Threats"
-doc-id: sec-authentication-session
-state: Live
-date-created: 2026-08-27
-category: threat-models
+title: "sec-authentication-session"
+doc-id: "sec-authentication-session"
 ---
 # Threat Model — Authentication and Session Threats
 

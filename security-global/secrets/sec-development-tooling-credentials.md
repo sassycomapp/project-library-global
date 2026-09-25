@@ -1,9 +1,6 @@
 ---
-document: "Development Tooling Credentials"
-doc-id: sec-development-tooling-credentials
-state: Live
-date-created: 2026-08-27
-category: secrets
+title: "sec-development-tooling-credentials"
+doc-id: "sec-development-tooling-credentials"
 ---
 # Development Tooling Credentials
 

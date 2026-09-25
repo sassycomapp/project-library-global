@@ -1,13 +1,7 @@
 ---
-document: "Python Directory Structure"
-title: "Python Directory Structure"
-url: "/docs/workflows/app-architecture/python-directory-structure"
-doc-id: python-directory-structure
-state: Live
-date-created: 2026-09-08
+title: "python-directory-structure"
+doc-id: "python-directory-structure"
 ---
-
-
 # [Python directory structure](#python-directory-structure)
 
 Your app is stored as a directory structure that you can [clone using Git](/docs/version-control). Each Package, Module and Form consists of files and directories within this structure.

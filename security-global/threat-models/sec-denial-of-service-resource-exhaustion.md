@@ -1,9 +1,6 @@
 ---
-document: "Threat Model — Denial of Service and Resource Exhaustion"
-doc-id: sec-denial-of-service-resource-exhaustion
-state: Live
-date-created: 2026-08-27
-category: threat-models
+title: "sec-denial-of-service-resource-exhaustion"
+doc-id: "sec-denial-of-service-resource-exhaustion"
 ---
 # Threat Model — Denial of Service and Resource Exhaustion
 

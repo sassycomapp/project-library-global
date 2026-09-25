@@ -1,13 +1,7 @@
 ---
-document: "Commands"
-title: "Commands"
-url: "/docs/using-another-ide/commands"
-doc-id: commands
-state: Live
-date-created: 2026-09-08
+title: "commands"
+doc-id: "commands"
 ---
-
-
 # [Anvil CLI commands](#anvil-cli-commands)
 
 **The Anvil CLI is currently in beta** while we continue to make improvements.

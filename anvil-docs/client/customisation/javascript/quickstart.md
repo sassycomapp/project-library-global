@@ -1,13 +1,7 @@
 ---
-document: "Quickstart"
-title: "Quickstart"
-url: "/docs/client/customisation/javascript/quickstart"
-doc-id: javascript-quickstart
-state: Live
-date-created: 2026-09-08
+title: "quickstart"
+doc-id: "quickstart"
 ---
-
-
 # [Quickstart: JavaScript](#quickstart-javascript)
 
 Learn how to drive JavaScript functions and external libraries from Anvil.  

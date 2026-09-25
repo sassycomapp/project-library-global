@@ -1,13 +1,7 @@
 ---
-document: "Forms in the Editor"
-title: "Forms in the Editor"
-url: "/docs/client/forms/forms-in-the-editor"
-doc-id: forms-in-the-editor
-state: Live
-date-created: 2026-09-08
+title: "forms-in-the-editor"
+doc-id: "forms-in-the-editor"
 ---
-
-
 # [Forms in the Anvil Editor](#forms-in-the-anvil-editor)
 
 The Anvil Editor lists all the Forms in your app in the [App Browser](/docs/editor#the-app-browser). Clicking on a Form in the App Browser opens it in the [Form Editor](/docs/editor/form-editor), where you can view and edit it in four modes:

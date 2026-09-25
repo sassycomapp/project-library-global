@@ -1,8 +1,6 @@
 ---
-document: "Mybizz CS — Test Specification (Canonical)"
-doc-id: spec-testing
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-testing"
+doc-id: "spec-testing"
 ---
 # Mybizz CS — Test Specification (Canonical)
 

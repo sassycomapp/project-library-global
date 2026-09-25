@@ -1,9 +1,6 @@
 ---
-document: "Requirement — Release Readiness"
-doc-id: sec-requirements-release-readiness
-state: Live
-date-created: 2026-08-27
-category: requirements
+title: "sec-requirements-release-readiness"
+doc-id: "sec-requirements-release-readiness"
 ---
 # Requirement — Release Readiness
 

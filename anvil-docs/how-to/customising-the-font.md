@@ -1,13 +1,7 @@
 ---
-document: "Customising your app's font"
-title: "Customising your app's font"
-url: "/docs/how-to/customising-the-font"
-doc-id: customising-the-font
-state: Live
-date-created: 2026-09-08
+title: "customising-the-font"
+doc-id: "customising-the-font"
 ---
-
-
 # [Customising your app’s font with Google Fonts](#customising-your-apps-font-with-google-fonts)
 
 This is a quick guide to using Google Fonts to customise your app. If you want to change the default font of your app, you’ll need to make minimal modifications to your app’s CSS file. Either way, no prior CSS knowledge is required.

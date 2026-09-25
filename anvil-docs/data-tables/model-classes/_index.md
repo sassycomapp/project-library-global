@@ -1,13 +1,7 @@
 ---
-document: "Model Classes"
-title: "Model Classes"
-url: "/docs/data-tables/model-classes"
-doc-id: model-classes-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Model Classes](#model-classes)
 
 Model classes allow you to add extra logic to rows in your Data Tables by providing a Python class that extends the [Row class](/docs/data-tables/data-tables-in-code#row-objects) for a particular table. That class will be instantiated anywhere that table is accessed. You can use model classes to provide properties and operations that are meaningful to your application, and to enforce permissions and constraints on your data.

@@ -1,9 +1,6 @@
 ---
-document: "Threat Model — Data Exfiltration via Bulk Export Abuse"
-doc-id: sec-data-exfiltration-bulk-export
-state: Live
-date-created: 2026-08-27
-category: threat-models
+title: "sec-data-exfiltration-bulk-export"
+doc-id: "sec-data-exfiltration-bulk-export"
 ---
 # Threat Model — Data Exfiltration via Bulk Export Abuse
 

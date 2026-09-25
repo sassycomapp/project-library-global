@@ -1,12 +1,7 @@
 ---
-document: "anvil"
 title: "anvil"
-url: "/docs/api/anvil"
-doc-id: anvil
-state: Live
-date-created: 2026-09-08
+doc-id: "anvil"
 ---
-
 ## `anvil` Module
 
 #### Classes

@@ -1,8 +1,6 @@
 ---
-document: "`data-access-patterns` ADR — Data Access Patterns and Query Limitations"
-doc-id: adr-data-access-patterns
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-data-access-patterns"
+doc-id: "adr-data-access-patterns"
 ---
 # `data-access-patterns` ADR — Data Access Patterns and Query Limitations
 

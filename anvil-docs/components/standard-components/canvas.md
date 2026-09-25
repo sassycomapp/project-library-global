@@ -1,13 +1,7 @@
 ---
-document: "Canvas"
-title: "Canvas"
-url: "/docs/components/standard-components/canvas"
-doc-id: canvas
-state: Live
-date-created: 2026-09-08
+title: "canvas"
+doc-id: "canvas"
 ---
-
-
 # [Canvas](#canvas)
 
 [Properties](/docs/api/anvil#Canvas_attributes) | [Events](/docs/api/anvil#Canvas_events)

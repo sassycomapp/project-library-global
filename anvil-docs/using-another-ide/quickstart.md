@@ -1,13 +1,7 @@
 ---
-document: "Quickstart"
-title: "Quickstart"
-url: "/docs/using-another-ide/quickstart"
-doc-id: using-another-ide-quickstart
-state: Live
-date-created: 2026-09-08
+title: "quickstart"
+doc-id: "quickstart"
 ---
-
-
 # [Quickstart: Build an app locally with the Anvil CLI](#quickstart-build-an-app-locally-with-the-anvil-cli)
 
 **The Anvil CLI is currently in beta** while we continue to make improvements.

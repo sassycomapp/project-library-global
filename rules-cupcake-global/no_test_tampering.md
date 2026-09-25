@@ -1,10 +1,7 @@
 ---
-document: "Rule: No Test Tampering"
-doc-id: no_test_tampering
-state: Live
-date-created: 2026-09-05
+title: "no_test_tampering"
+doc-id: "no_test_tampering"
 ---
-
 # Rule: No Test Tampering
 
 ## Harness

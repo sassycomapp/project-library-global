@@ -1,8 +1,6 @@
 ---
-document: PDLF Standards Library — Security Specification
-doc-id: spec-security
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-security"
+doc-id: "spec-security"
 ---
 # PDLF Standards Library — Security Specification
 

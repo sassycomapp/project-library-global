@@ -1,13 +1,7 @@
 ---
-document: "User Permissions"
-title: "User Permissions"
-url: "/docs/users/permissions"
-doc-id: permissions
-state: Live
-date-created: 2026-09-08
+title: "permissions"
+doc-id: "permissions"
 ---
-
-
 # [User Permissions](#user-permissions)
 
 User management consists of two aspects: **authentication** (checking who people are, login) and **authorisation** (deciding what they can do based on who they are).

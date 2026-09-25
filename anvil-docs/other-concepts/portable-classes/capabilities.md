@@ -1,13 +1,7 @@
 ---
-document: "Capabilities"
-title: "Capabilities"
-url: "/docs/other-concepts/portable-classes/capabilities"
-doc-id: capabilities
-state: Live
-date-created: 2026-09-08
+title: "capabilities"
+doc-id: "capabilities"
 ---
-
-
 # [Capabilities](#capabilities)
 
 Portable Classes are great for sharing data and behaviour between client and server, but we must remember that **client code is untrusted**. This means that if you need to perform a privileged action on an object, you must do it in server code, and that server code must first verify that this client is allowed to perform the action.

@@ -1,8 +1,6 @@
 ---
-document: "`dev-tooling-source-repos-must-be-github-backed` ADR — All Dev-Tooling Source Repositories Must Be GitHub-Backed"
-doc-id: adr-dev-tooling-source-repos-must-be-github-backed
-state: Live
-date-created: 2026-08-05T120000+0200
+title: "adr-dev-tooling-source-repos-must-be-github-backed"
+doc-id: "adr-dev-tooling-source-repos-must-be-github-backed"
 ---
 # `dev-tooling-source-repos-must-be-github-backed` ADR — All Dev-Tooling Source Repositories Must Be GitHub-Backed
 

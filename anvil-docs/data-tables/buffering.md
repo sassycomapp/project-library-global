@@ -1,13 +1,7 @@
 ---
-document: "Buffering Changes"
-title: "Buffering Changes"
-url: "/docs/data-tables/buffering"
-doc-id: buffering
-state: Live
-date-created: 2026-09-08
+title: "buffering"
+doc-id: "buffering"
 ---
-
-
 # [Buffering Changes](#buffering-changes)
 
 If an app displays tabular data that users can edit, it’s common to save all the edits to the table at once or discard the changes. For example, after a user makes edits to the table data, they would need to click “Save” or “Discard” before proceeding. Similarly, if they want to add a new record to the table, the user will need to enter (and validate) the data for an entire record before saving it to the database.

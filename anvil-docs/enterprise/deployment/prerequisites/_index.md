@@ -1,13 +1,7 @@
 ---
-document: "Prerequisites"
-title: "Prerequisites"
-url: "/docs/enterprise/deployment/prerequisites"
-doc-id: prerequisites-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Prerequisites](#prerequisites)
 
 However you choose to deploy Anvil Enterprise, there are a few things you’ll need to set up first.

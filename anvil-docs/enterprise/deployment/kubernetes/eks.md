@@ -1,13 +1,7 @@
 ---
-document: "AWS EKS"
-title: "AWS EKS"
-url: "/docs/enterprise/deployment/kubernetes/eks"
-doc-id: eks
-state: Live
-date-created: 2026-09-08
+title: "eks"
+doc-id: "eks"
 ---
-
-
 # [AWS Elastic Kubernetes Service](#aws-elastic-kubernetes-service)
 
 Anvil Enterprise is fully supported in EKS. Once you have collected the [Anvil Enterprise Prerequisites](../prerequisites) and the [Anvil Kubernetes Prerequisites](k8s-prerequisites), the easiest way to get up and running is to use [Terraform](https://developer.hashicorp.com/terraform/install?product_intent=terraform) to create a new EKS cluster using our standard EKS template. Please [get in touch for access to this](mailto:sales@anvil.works).

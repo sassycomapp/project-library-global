@@ -1,13 +1,7 @@
 ---
-document: "Google REST APIs"
-title: "Google REST APIs"
-url: "/docs/integrations/google/google-rest-apis"
-doc-id: google-rest-apis
-state: Live
-date-created: 2026-09-08
+title: "google-rest-apis"
+doc-id: "google-rest-apis"
 ---
-
-
 # [Google REST APIs](#google-rest-apis)
 
 You might want to use one of Google’s REST APIs directly. To do this, you will need a Google API Client ID from the Google Developer Console - see [Linking Anvil and Google](linking-google-and-anvil) for full instructions.

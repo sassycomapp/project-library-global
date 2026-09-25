@@ -1,13 +1,7 @@
 ---
-document: "Data Tables Settings"
-title: "Data Tables Settings"
-url: "/docs/editor/app-settings/data-tables"
-doc-id: app-settings-data-tables
-state: Live
-date-created: 2026-09-08
+title: "data-tables"
+doc-id: "data-tables"
 ---
-
-
 # [Settings for Data Tables](#settings-for-data-tables)
 
 You can change settings determining the behavior of Data Tables, per Anvil app. These options are available in [App Settings](/docs/editor/app-settings), under **Data Tables**.

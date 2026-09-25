@@ -1,12 +1,7 @@
 ---
-document: "Storing Data in Data Tables"
-title: "Storing Data in Data Tables"
-url: "/docs/data-tables"
-doc-id: data-tables-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
 # [Storing Data in Data Tables](#storing-data-in-data-tables)
 
 Every Anvil app comes with a built-in database. Each database stores tables of information for your Anvil app. It’s a full database system built on top of PostgreSQL.

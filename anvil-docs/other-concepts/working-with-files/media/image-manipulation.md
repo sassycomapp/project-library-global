@@ -1,13 +1,7 @@
 ---
-document: "Image Manipulation"
-title: "Image Manipulation"
-url: "/docs/other-concepts/working-with-files/media/image-manipulation"
-doc-id: image-manipulation
-state: Live
-date-created: 2026-09-08
+title: "image-manipulation"
+doc-id: "image-manipulation"
 ---
-
-
 # [`image` module](#image-module)
 
 [API Docs](/docs/api/anvil.image)

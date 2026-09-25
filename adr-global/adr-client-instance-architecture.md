@@ -1,8 +1,6 @@
 ---
-document: "`client-instance-architecture` ADR — Client Instance Architecture"
-doc-id: adr-client-instance-architecture
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-client-instance-architecture"
+doc-id: "adr-client-instance-architecture"
 ---
 # `client-instance-architecture` ADR — Client Instance Architecture
 

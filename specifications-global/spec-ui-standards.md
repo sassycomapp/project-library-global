@@ -1,8 +1,6 @@
 ---
-document: Mybizz CS — UI Standards
-doc-id: spec-ui-standards
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-ui-standards"
+doc-id: "spec-ui-standards"
 ---
 # Mybizz CS — UI Standards
 

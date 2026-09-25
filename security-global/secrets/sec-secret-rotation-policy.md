@@ -1,9 +1,6 @@
 ---
-document: "Secret Rotation Policy"
-doc-id: sec-secret-rotation-policy
-state: Live
-date-created: 2026-08-27
-category: secrets
+title: "sec-secret-rotation-policy"
+doc-id: "sec-secret-rotation-policy"
 ---
 # Secret Rotation Policy
 

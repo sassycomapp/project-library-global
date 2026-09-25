@@ -1,13 +1,7 @@
 ---
-document: "Creating Model Classes"
-title: "Creating Model Classes"
-url: "/docs/data-tables/model-classes/creating"
-doc-id: creating
-state: Live
-date-created: 2026-09-08
+title: "creating"
+doc-id: "creating"
 ---
-
-
 # [Creating Model Classes](#creating-model-classes)
 
 [Model classes](/docs/data-tables/model-classes) allow you to extend the [Data Table Row class](/docs/data-tables/data-tables-in-code#row-objects) for a particular table.

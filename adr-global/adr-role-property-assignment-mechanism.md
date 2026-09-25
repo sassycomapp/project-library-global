@@ -1,8 +1,6 @@
 ---
-document: "`role-property-assignment-mechanism` ADR: Role Property Assignment Mechanism (Designer vs. Code)"
-doc-id: adr-role-property-assignment-mechanism
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-role-property-assignment-mechanism"
+doc-id: "adr-role-property-assignment-mechanism"
 ---
 # `role-property-assignment-mechanism` ADR: Role Property Assignment Mechanism (Designer vs. Code)
 

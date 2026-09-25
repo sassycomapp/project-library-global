@@ -1,13 +1,7 @@
 ---
-document: "App Logs"
-title: "App Logs"
-url: "/docs/editor/app-logs"
-doc-id: app-logs-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [App Logs](#app-logs)
 
 App Logs contain information about your [app sessions](#app-sessions), [background tasks](#background-tasks), and [CPU](#cpu-usage-history) and [memory](#memory-usage) usage.

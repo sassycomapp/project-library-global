@@ -1,13 +1,7 @@
 ---
-document: "anvil.secrets"
 title: "anvil.secrets"
-url: "/docs/api/anvil.secrets"
-doc-id: anvil.secrets
-state: Live
-date-created: 2026-09-08
+doc-id: "anvil.secrets"
 ---
-
-
 ## `anvil.secrets` Module
 
 #### Classes

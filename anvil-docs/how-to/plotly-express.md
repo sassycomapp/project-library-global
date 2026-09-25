@@ -1,13 +1,7 @@
 ---
-document: "Using Plotly Express in Anvil"
-title: "Using Plotly Express in Anvil"
-url: "/docs/how-to/plotly-express"
-doc-id: plotly-express
-state: Live
-date-created: 2026-09-08
+title: "plotly-express"
+doc-id: "plotly-express"
 ---
-
-
 # [Using Plotly Express to build your figures](#using-plotly-express-to-build-your-figures)
 
 In this guide, you will learn how to use Plotly Express in Anvil, by creating figures on the server side and feeding them to plots on the client side. If you’re interested in using other plotting libraries, take a look at our [Making plots](/docs/how-to/plot) guide.

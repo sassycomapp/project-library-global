@@ -1,13 +1,7 @@
 ---
-document: "Quickstart"
-title: "Quickstart"
-url: "/docs/client/forms/layouts/quickstart"
-doc-id: layouts-quickstart
-state: Live
-date-created: 2026-09-08
+title: "quickstart"
+doc-id: "quickstart"
 ---
-
-
 # [Quickstart: Layouts](#quickstart-layouts)
 
 A Layout is a Form that provides a visual template for other Forms. It lets you create reuasble page structures shared across multiple Forms. This makes it especially useful for page navigation.

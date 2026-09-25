@@ -1,13 +1,7 @@
 ---
-document: "anvil.google.drive"
 title: "anvil.google.drive"
-url: "/docs/api/anvil.google.drive"
-doc-id: anvil.google.drive
-state: Live
-date-created: 2026-09-08
+doc-id: "anvil.google.drive"
 ---
-
-
 ## `anvil.google.drive` Module
 
 #### Classes

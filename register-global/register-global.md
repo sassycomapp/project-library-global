@@ -1,10 +1,7 @@
 ---
-document: Register — project-library-global
-doc-id: register-global
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "register-global"
+doc-id: "register-global"
 ---
-
 # Register — project-library-global
 
 One row per real corpus document. `doc-id` is the filename without its `.md`
@@ -13,498 +10,498 @@ tree on 2026-08-27 (post rename + de-index). Corrected 2026-09-01: `rules-cupcak
 (19 documents) and `security-global` (54 documents) were present on disk but missing
 from this register entirely — added below.
 
-| doc-id | filename | folder | type | state | notes |
-|---|---|---|---|---|---|
-| adr-anvil-extras-exclusion | adr-global/adr-anvil-extras-exclusion.md | adr-global | adr | Live |  |
-| adr-brevo-replaces-zoho-email | adr-global/adr-brevo-replaces-zoho-email.md | adr-global | adr | Live |  |
-| adr-client-data-management-rights-and-mybizz-retention-boundary | adr-global/adr-client-data-management-rights-and-mybizz-retention-boundary.md | adr-global | adr | Live |  |
-| adr-client-instance-architecture | adr-global/adr-client-instance-architecture.md | adr-global | adr | Live | Defines the dependency-based architecture. Confirmed by live testing (Test A: app_tables resolution, Test B: forms from dependency). Foundation for all data access patterns. |
-| adr-client-instance-readme-five-app-system | adr-global/adr-client-instance-readme-five-app-system.md | adr-global | adr | Live | Every client instance must contain a standardized README documenting the five-app architecture and the constraint against adding forms or modules directly to client instances. |
-| adr-dark-mode-v1 | adr-global/adr-dark-mode-v1.md | adr-global | adr | Live | Dark mode incorporated into V1. No longer deferred to V2. All screens require `@media (prefers-color-scheme: dark)` blocks. |
-| adr-dependency-based-not-multi-tenant | adr-global/adr-dependency-based-not-multi-tenant.md | adr-global | adr | Live | Definitive statement that Mybizz CS is a dependency-based SaaS platform, not a multi-tenant application. Prohibits tenant discriminator columns and tenant-filtered queries. |
-| adr-dependency-update-model | adr-global/adr-dependency-update-model.md | adr-global | adr | Live | Four-app update flow (mb-3-cs → master_template → client instances). Branch propagation confirmed. |
-| adr-filename-and-frontmatter-numbering-policy | adr-global/adr-filename-and-frontmatter-numbering-policy.md | adr-global | adr | Live | Files are not numbered anywhere in the scaffold (filenames or front matter); identity is the descriptive filename; references cite by filename. Exceptions: stepwise (inherently ordinal steps), quarantine/retired/archived historical material. |
-| adr-design-rules | adr-global/adr-design-rules.md | adr-global | adr | Live |  |
-| adr-dev-tooling-source-repos-must-be-github-backed | adr-global/adr-dev-tooling-source-repos-must-be-github-backed.md | adr-global | adr | Live | Grew out of a 2026-08-05 `gbrain doctor` root-cause investigation that found two PDLF-ecosystem sources (`pdlf`, `template-project-library`) as local-only working trees with no GitHub remote — the actual cause of a persistent `sync_freshness` failure and an unmanaged data-loss risk. Requires every dev-tooling source to be GitHub-backed: normal private repos for live tools, GitHub template repos for copy-to-start scaffolds. |
-| adr-free-trial-abandoned | adr-global/adr-free-trial-abandoned.md | adr-global | adr | Live |  |
-| adr-frontmatter-exemption-transient-files | adr-global/adr-frontmatter-exemption-transient-files.md | adr-global | adr | Live |  |
-| adr-htmltemplate-use | adr-global/adr-htmltemplate-use.md | adr-global | adr | Live | `HTMLTemplate` is banned. All current use cases have native M3 alternatives. Wireframes using it require reworking. |
-| adr-instructions-md-per-folder | adr-global/adr-instructions-md-per-folder.md | adr-global | adr | Live |  |
-| adr-lead-capture-simultaneous-creation | adr-global/adr-lead-capture-simultaneous-creation.md | adr-global | adr | Live |  |
-| adr-legal-policy-responsibility-acknowledgement-and-clause-builder-architecture | adr-global/adr-legal-policy-responsibility-acknowledgement-and-clause-builder-architecture.md | adr-global | adr | Live |  |
-| adr-material-3-theme-component-scope | adr-global/adr-material-3-theme-component-scope.md | adr-global | adr | Live |  |
-| adr-mybizz-management-visibility | adr-global/adr-mybizz-management-visibility.md | adr-global | adr | Live |  |
-| adr-navigation-lambda-link-open-form | adr-global/adr-navigation-lambda-link-open-form.md | adr-global | adr | Live |  |
-| adr-observability-architecture | adr-global/adr-observability-architecture.md | adr-global | adr | Live |  |
-| adr-onboarding-data-schema-alignment | adr-global/adr-onboarding-data-schema-alignment.md | adr-global | adr | Live |  |
-| adr-onboarding-finality | adr-global/adr-onboarding-finality.md | adr-global | adr | Live | Created 2026-05-31, updated 2026-06-01. Onboarding is resumable and revisitable. Owners may change any credential at any time. Mybizz_management maintains an append-only amendment log with three data tables. Reversed and fully replaced the original `onboarding-finality` (deleted). |
-| adr-onboarding-resumability | adr-global/adr-onboarding-resumability.md | adr-global | adr | Live |  |
-| adr-onboarding-vs-settings-boundary | adr-global/adr-onboarding-vs-settings-boundary.md | adr-global | adr | Live |  |
-| adr-openai-embedding-provider | adr-global/adr-openai-embedding-provider.md | adr-global | adr | Live |  |
-| adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed | adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed.md | adr-global | adr | Live |  |
-| adr-payment-gateway-mutability | adr-global/adr-payment-gateway-mutability.md | adr-global | adr | Live |  |
-| adr-payment-security-boundary-vault | adr-global/adr-payment-security-boundary-vault.md | adr-global | adr | Live |  |
-| adr-responsive-behaviour-mechanism | adr-global/adr-responsive-behaviour-mechanism.md | adr-global | adr | Live | Resolves contradicting breakpoint models in design-direction.md. Responsive behaviour uses `wrap_on` per-container, not CSS breakpoint tables. Nav collapse is automatic and separate. |
-| adr-role-property-assignment-mechanism | adr-global/adr-role-property-assignment-mechanism.md | adr-global | adr | Live | Superseded. Original decision: set `role` via Designer Properties Panel. Reversed by project-wide property-setting rule: if a property can be set programmatically, it must be set programmatically. Current decision: set `role` in code (`self.component.role = "role-name"`). |
-| adr-single-contacts-table | adr-global/adr-single-contacts-table.md | adr-global | adr | Live |  |
-| adr-system-currency-selection-and-immutability | adr-global/adr-system-currency-selection-and-immutability.md | adr-global | adr | Live | Consolidated from original ADR-13 and ADR-16. Covers system currency, display currency, immutability enforcement, and currency conversion strategy. |
-| adr-tiers-model | adr-global/adr-tiers-model.md | adr-global | adr | Live |  |
-| adr-timezone-utc-storage-display-conversion | adr-global/adr-timezone-utc-storage-display-conversion.md | adr-global | adr | Live |  |
-| docstd-business-requirements-document | docs-standard-global/docstd-business-requirements-document.md | docs-standard-global | guide | Live |  |
-| docstd-globals-contract | docs-standard-global/docstd-globals-contract.md | docs-standard-global | guide | Live |  |
-| docstd-product-requirements-document | docs-standard-global/docstd-product-requirements-document.md | docs-standard-global | guide | Live |  |
-| docstd-software-requirements-specification | docs-standard-global/docstd-software-requirements-specification.md | docs-standard-global | guide | Live |  |
-| gui-anvil-deprecated-guide | guides-global/gui-anvil-deprecated-guide.md | guides-global | guide | Live |  |
-| gui-Anvil-Debugging-Guide | guides-global/gui-Anvil-Debugging-Guide.md | guides-global | guide | Live |  |
-| pol-anvil-first-development | policy-global/pol-anvil-first-development.md | policy-global | policy | Live |  |
-| pol-documentation-and-decisions | policy-global/pol-documentation-and-decisions.md | policy-global | policy | Live |  |
-| pol-security-and-data-governance | policy-global/pol-security-and-data-governance.md | policy-global | policy | Live |  |
-| pol-testing-and-quality | policy-global/pol-testing-and-quality.md | policy-global | policy | Live |  |
-| spec-anvil-platform-standards | specifications-global/spec-anvil-platform-standards.md | specifications-global | spec | Live |  |
-| spec-anvil-spec-table | specifications-global/spec-anvil-spec-table.md | specifications-global | spec | Live |  |
-| spec-api-specification | specifications-global/spec-api-specification.md | specifications-global | spec | Live |  |
-| spec-client-activation-runbook | specifications-global/spec-client-activation-runbook.md | specifications-global | spec | Live |  |
-| spec-component-properties | specifications-global/spec-component-properties.md | specifications-global | spec | Live |  |
-| spec-deployment | specifications-global/spec-deployment.md | specifications-global | spec | Live |  |
-| spec-five-app-architecture-model | specifications-global/spec-five-app-architecture-model.md | specifications-global | spec | Live |  |
-| spec-integration | specifications-global/spec-integration.md | specifications-global | spec | Live |  |
-| spec-m3-design-standards | specifications-global/spec-m3-design-standards.md | specifications-global | spec | Live |  |
-| spec-m3_component_mapping | specifications-global/spec-m3_component_mapping.md | specifications-global | spec | Live |  |
-| spec-material-3-theme | specifications-global/spec-material-3-theme.md | specifications-global | spec | Live |  |
-| spec-nomenclature | specifications-global/spec-nomenclature.md | specifications-global | spec | Live |  |
-| spec-observability | specifications-global/spec-observability.md | specifications-global | spec | Live |  |
-| spec-onboarding-implementation-plan | specifications-global/spec-onboarding-implementation-plan.md | specifications-global | spec | Live |  |
-| spec-regulatory-compliance-baseline | specifications-global/spec-regulatory-compliance-baseline.md | specifications-global | spec | Live |  |
-| spec-screen-and-wireframe-production-standards | specifications-global/spec-screen-and-wireframe-production-standards.md | specifications-global | spec | Live |  |
-| spec-screen-production-standard | specifications-global/spec-screen-production-standard.md | specifications-global | spec | Live |  |
-| spec-security-architecture | specifications-global/spec-security-architecture.md | specifications-global | spec | Live |  |
-| spec-security | specifications-global/spec-security.md | specifications-global | spec | Live |  |
-| spec-testing-methodology-standards | specifications-global/spec-testing-methodology-standards.md | specifications-global | spec | Live |  |
-| spec-testing | specifications-global/spec-testing.md | specifications-global | spec | Live |  |
-| spec-ui-standards | specifications-global/spec-ui-standards.md | specifications-global | spec | Live |  |
-| spec-vault-system | specifications-global/spec-vault-system.md | specifications-global | spec | Live |  |
-| sop-deployment-procedures | standard-operating-procedures-global/sop-deployment-procedures.md | standard-operating-procedures-global | sop | Live |  |
-| sop-offboarding | standard-operating-procedures-global/sop-offboarding.md | standard-operating-procedures-global | sop | Live |  |
-| sop-vault-totp-recovery | standard-operating-procedures-global/sop-vault-totp-recovery.md | standard-operating-procedures-global | sop | Live |  |
-| sop-agent-readiness-framework | standard-operating-procedures-global/Agent readiness/sop-agent-readiness-framework.md | standard-operating-procedures-global/Agent readiness | sop | Live |  |
-| sop-set3-anvil_cop_agent_readiness | standard-operating-procedures-global/Agent readiness/sop-set3-anvil_cop_agent_readiness.md | standard-operating-procedures-global/Agent readiness | sop | Live |  |
-| tmp-authoritative-schema | templates-global/tmp-authoritative-schema.md | templates-global | template | — |  |
-| tmp-chklist-anvil-app-testing | templates-global/tmp-chklist-anvil-app-testing.md | templates-global | template | — |  |
-| tmp-chklist-screen | templates-global/tmp-chklist-screen.md | templates-global | template | — |  |
-| tmp-chklist-wireframe | templates-global/tmp-chklist-wireframe.md | templates-global | template | — |  |
-| tmp-custom-component-requirements-matrix | templates-global/tmp-custom-component-requirements-matrix.md | templates-global | template | — |  |
-| cup-block-anvil-yaml-writes | rules-cupcake-global/cup-block-anvil-yaml-writes.md | rules-cupcake-global | cupcake-rule | Live |  |
-| cup-block-task-tool | rules-cupcake-global/cup-block-task-tool.md | rules-cupcake-global | cupcake-rule | Live |  |
-| no_access_to_secrets_unless_explicitly_required | rules-cupcake-global/no_access_to_secrets_unless_explicitly_required.md | rules-cupcake-global | cupcake-rule | Live |  |
-| no_autonomous_commits_pushes_merges_releases_or_deployments | rules-cupcake-global/no_autonomous_commits_pushes_merges_releases_or_deployments.md | rules-cupcake-global | cupcake-rule | Live |  |
-| no_autonomous_installation_or_connection_of_tools | rules-cupcake-global/no_autonomous_installation_or_connection_of_tools.md | rules-cupcake-global | cupcake-rule | Live |  |
-| no_cross_project_filesystem_access_by_default | rules-cupcake-global/no_cross_project_filesystem_access_by_default.md | rules-cupcake-global | cupcake-rule | Live |  |
-| no_dependency_or_lockfile_changes_without_explicit_approval | rules-cupcake-global/no_dependency_or_lockfile_changes_without_explicit_approval.md | rules-cupcake-global | cupcake-rule | Live |  |
-| no_destructive_database_operations | rules-cupcake-global/no_destructive_database_operations.md | rules-cupcake-global | cupcake-rule | Live |  |
-| no_disabling_security_tooling | rules-cupcake-global/no_disabling_security_tooling.md | rules-cupcake-global | cupcake-rule | Live |  |
-| no_rewriting_or_destroying_development_history | rules-cupcake-global/no_rewriting_or_destroying_development_history.md | rules-cupcake-global | cupcake-rule | Live |  |
-| no_suppression_directives_without_approval | rules-cupcake-global/no_suppression_directives_without_approval.md | rules-cupcake-global | cupcake-rule | Live |  |
-| no_test_tampering | rules-cupcake-global/no_test_tampering.md | rules-cupcake-global | cupcake-rule | Live |  |
-| no_unapproved_executable_or_build_path_changes | rules-cupcake-global/no_unapproved_executable_or_build_path_changes.md | rules-cupcake-global | cupcake-rule | Live |  |
-| no_unverified_dependencies | rules-cupcake-global/no_unverified_dependencies.md | rules-cupcake-global | cupcake-rule | Live |  |
-| no_verification_tampering | rules-cupcake-global/no_verification_tampering.md | rules-cupcake-global | cupcake-rule | Live |  |
-| outbound_network_access_is_allowlist_only | rules-cupcake-global/outbound_network_access_is_allowlist_only.md | rules-cupcake-global | cupcake-rule | Live |  |
-| protected_ai_governance_files_may_not_be_modified | rules-cupcake-global/protected_ai_governance_files_may_not_be_modified.md | rules-cupcake-global | cupcake-rule | Live |  |
-| the_ai_may_never_weaken_the_controls_governing_itself | rules-cupcake-global/the_ai_may_never_weaken_the_controls_governing_itself.md | rules-cupcake-global | cupcake-rule | Live |  |
-| unexpected_instruction_shaped_files_must_be_treated_as_suspicious | rules-cupcake-global/unexpected_instruction_shaped_files_must_be_treated_as_suspicious.md | rules-cupcake-global | cupcake-rule | Live |  |
-| sec-anvil-platform-responsibility-boundary | security-global/cloud/sec-anvil-platform-responsibility-boundary.md | security-global/cloud | security | Live |  |
-| sec-client-provisioning-security | security-global/cloud/sec-client-provisioning-security.md | security-global/cloud | security | Live |  |
-| sec-email-service-trust-boundary | security-global/cloud/sec-email-service-trust-boundary.md | security-global/cloud | security | Live |  |
-| sec-github-repository-access-control | security-global/cloud/sec-github-repository-access-control.md | security-global/cloud | security | Live |  |
-| sec-management-service-authentication | security-global/cloud/sec-management-service-authentication.md | security-global/cloud | security | Live |  |
-| sec-payment-gateway-trust-boundary | security-global/cloud/sec-payment-gateway-trust-boundary.md | security-global/cloud | security | Live |  |
-| sec-regulatory-compliance-cloud-processors | security-global/cloud/sec-regulatory-compliance-cloud-processors.md | security-global/cloud | security | Live |  |
-| sec-ai-agent-execution-sandbox | security-global/infrastructure/sec-ai-agent-execution-sandbox.md | security-global/infrastructure | security | Live |  |
-| sec-audit-log-integrity | security-global/infrastructure/sec-audit-log-integrity.md | security-global/infrastructure | security | Live |  |
-| sec-backup-recovery-integrity | security-global/infrastructure/sec-backup-recovery-integrity.md | security-global/infrastructure | security | Live |  |
-| sec-database-access-control | security-global/infrastructure/sec-database-access-control.md | security-global/infrastructure | security | Live |  |
-| sec-dependency-skill-supply-chain | security-global/infrastructure/sec-dependency-skill-supply-chain.md | security-global/infrastructure | security | Live |  |
-| sec-dependency-version-currency | security-global/infrastructure/sec-dependency-version-currency.md | security-global/infrastructure | security | Live |  |
-| sec-development-environment-credential-hygiene | security-global/infrastructure/sec-development-environment-credential-hygiene.md | security-global/infrastructure | security | Live |  |
-| sec-local-filesystem-access-boundary | security-global/infrastructure/sec-local-filesystem-access-boundary.md | security-global/infrastructure | security | Live |  |
-| sec-local-network-exposure | security-global/infrastructure/sec-local-network-exposure.md | security-global/infrastructure | security | Live |  |
-| sec-service-lifecycle-management | security-global/infrastructure/sec-service-lifecycle-management.md | security-global/infrastructure | security | Live |  |
-| sec-defense-in-depth | security-global/principles/sec-defense-in-depth.md | security-global/principles | security | Live |  |
-| sec-detective-vs-preventive-controls | security-global/principles/sec-detective-vs-preventive-controls.md | security-global/principles | security | Live |  |
-| sec-explicit-responsibility-assignment | security-global/principles/sec-explicit-responsibility-assignment.md | security-global/principles | security | Live |  |
-| sec-fail-closed | security-global/principles/sec-fail-closed.md | security-global/principles | security | Live |  |
-| sec-least-privilege | security-global/principles/sec-least-privilege.md | security-global/principles | security | Live |  |
-| sec-review-before-trust | security-global/principles/sec-review-before-trust.md | security-global/principles | security | Live |  |
-| sec-server-side-authority | security-global/principles/sec-server-side-authority.md | security-global/principles | security | Live |  |
-| sec-simplicity-as-security-property | security-global/principles/sec-simplicity-as-security-property.md | security-global/principles | security | Live |  |
-| sec-verify-dont-trust-claims | security-global/principles/sec-verify-dont-trust-claims.md | security-global/principles | security | Live |  |
-| sec-requirements-architecture-review | security-global/requirements/sec-requirements-architecture-review.md | security-global/requirements | security | Live |  |
-| sec-requirements-data-table-creation | security-global/requirements/sec-requirements-data-table-creation.md | security-global/requirements | security | Live |  |
-| sec-requirements-pre-merge-master-template | security-global/requirements/sec-requirements-pre-merge-master-template.md | security-global/requirements | security | Live |  |
-| sec-requirements-release-readiness | security-global/requirements/sec-requirements-release-readiness.md | security-global/requirements | security | Live |  |
-| sec-requirements-server-function | security-global/requirements/sec-requirements-server-function.md | security-global/requirements | security | Live |  |
-| sec-requirements-third-party-integration | security-global/requirements/sec-requirements-third-party-integration.md | security-global/requirements | security | Live |  |
-| sec-ai-agent-secret-visibility | security-global/secrets/sec-ai-agent-secret-visibility.md | security-global/secrets | security | Live |  |
-| sec-development-tooling-credentials | security-global/secrets/sec-development-tooling-credentials.md | security-global/secrets | security | Live |  |
-| sec-master-encryption-key-protection | security-global/secrets/sec-master-encryption-key-protection.md | security-global/secrets | security | Live |  |
-| sec-secret-access-audit | security-global/secrets/sec-secret-access-audit.md | security-global/secrets | security | Live |  |
-| sec-secret-exposure-response | security-global/secrets/sec-secret-exposure-response.md | security-global/secrets | security | Live |  |
-| sec-secret-rotation-policy | security-global/secrets/sec-secret-rotation-policy.md | security-global/secrets | security | Live |  |
-| sec-testing-adversarial-verification | security-global/testing/sec-testing-adversarial-verification.md | security-global/testing | security | Live |  |
-| sec-testing-coverage-minimum | security-global/testing/sec-testing-coverage-minimum.md | security-global/testing | security | Live |  |
-| sec-testing-independent-review | security-global/testing/sec-testing-independent-review.md | security-global/testing | security | Live |  |
-| sec-testing-live-verification-standard | security-global/testing/sec-testing-live-verification-standard.md | security-global/testing | security | Live |  |
-| sec-testing-regression-prevention | security-global/testing/sec-testing-regression-prevention.md | security-global/testing | security | Live |  |
-| sec-ai-agent-introduced-vulnerabilities | security-global/threat-models/sec-ai-agent-introduced-vulnerabilities.md | security-global/threat-models | security | Live |  |
-| sec-authentication-session | security-global/threat-models/sec-authentication-session.md | security-global/threat-models | security | Live |  |
-| sec-broken-access-control-within-instance | security-global/threat-models/sec-broken-access-control-within-instance.md | security-global/threat-models | security | Live |  |
-| sec-business-logic-race-conditions | security-global/threat-models/sec-business-logic-race-conditions.md | security-global/threat-models | security | Live |  |
-| sec-data-exfiltration-bulk-export | security-global/threat-models/sec-data-exfiltration-bulk-export.md | security-global/threat-models | security | Live |  |
-| sec-denial-of-service-resource-exhaustion | security-global/threat-models/sec-denial-of-service-resource-exhaustion.md | security-global/threat-models | security | Live |  |
-| sec-injection-unsafe-input | security-global/threat-models/sec-injection-unsafe-input.md | security-global/threat-models | security | Live |  |
-| sec-insecure-direct-object-reference | security-global/threat-models/sec-insecure-direct-object-reference.md | security-global/threat-models | security | Live |  |
-| sec-multi-tenant-assumption-leakage | security-global/threat-models/sec-multi-tenant-assumption-leakage.md | security-global/threat-models | security | Live |  |
-| sec-payment-manipulation | security-global/threat-models/sec-payment-manipulation.md | security-global/threat-models | security | Live |  |
-| sec-privilege-escalation | security-global/threat-models/sec-privilege-escalation.md | security-global/threat-models | security | Live |  |
+| doc-id | title | state | superseded-by | notes |
+| --- | --- | --- | --- | --- |
+| adr-anvil-extras-exclusion | adr-anvil-extras-exclusion.md | Live |  |  |
+| adr-brevo-replaces-zoho-email | adr-brevo-replaces-zoho-email.md | Live |  |  |
+| adr-client-data-management-rights-and-mybizz-retention-boundary | adr-client-data-management-rights-and-mybizz-retention-boundary.md | Live |  |  |
+| adr-client-instance-architecture | adr-client-instance-architecture.md | Live |  | Defines the dependency-based architecture. Confirmed by live testing (Test A: app_tables resolution, Test B: forms from dependency). Foundation for all data access patterns. |
+| adr-client-instance-readme-five-app-system | adr-client-instance-readme-five-app-system.md | Live |  | Every client instance must contain a standardized README documenting the five-app architecture and the constraint against adding forms or modules directly to client instances. |
+| adr-dark-mode-v1 | adr-dark-mode-v1.md | Live |  | Dark mode incorporated into V1. No longer deferred to V2. All screens require `@media (prefers-color-scheme: dark)` blocks. |
+| adr-dependency-based-not-multi-tenant | adr-dependency-based-not-multi-tenant.md | Live |  | Definitive statement that Mybizz CS is a dependency-based SaaS platform, not a multi-tenant application. Prohibits tenant discriminator columns and tenant-filtered queries. |
+| adr-dependency-update-model | adr-dependency-update-model.md | Live |  | Four-app update flow (mb-3-cs → master_template → client instances). Branch propagation confirmed. |
+| adr-filename-and-frontmatter-numbering-policy | adr-filename-and-frontmatter-numbering-policy.md | Live |  | Files are not numbered anywhere in the scaffold (filenames or front matter); identity is the descriptive filename; references cite by filename. Exceptions: stepwise (inherently ordinal steps), quarantine/retired/archived historical material. |
+| adr-design-rules | adr-design-rules.md | Live |  |  |
+| adr-dev-tooling-source-repos-must-be-github-backed | adr-dev-tooling-source-repos-must-be-github-backed.md | Live |  | Grew out of a 2026-08-05 `gbrain doctor` root-cause investigation that found two PDLF-ecosystem sources (`pdlf`, `template-project-library`) as local-only working trees with no GitHub remote — the actual cause of a persistent `sync_freshness` failure and an unmanaged data-loss risk. Requires every dev-tooling source to be GitHub-backed: normal private repos for live tools, GitHub template repos for copy-to-start scaffolds. |
+| adr-free-trial-abandoned | adr-free-trial-abandoned.md | Live |  |  |
+| adr-frontmatter-exemption-transient-files | adr-frontmatter-exemption-transient-files.md | Live |  |  |
+| adr-htmltemplate-use | adr-htmltemplate-use.md | Live |  | `HTMLTemplate` is banned. All current use cases have native M3 alternatives. Wireframes using it require reworking. |
+| adr-instructions-md-per-folder | adr-instructions-md-per-folder.md | Live |  |  |
+| adr-lead-capture-simultaneous-creation | adr-lead-capture-simultaneous-creation.md | Live |  |  |
+| adr-legal-policy-responsibility-acknowledgement-and-clause-builder-architecture | adr-legal-policy-responsibility-acknowledgement-and-clause-builder-architecture.md | Live |  |  |
+| adr-material-3-theme-component-scope | adr-material-3-theme-component-scope.md | Live |  |  |
+| adr-mybizz-management-visibility | adr-mybizz-management-visibility.md | Live |  |  |
+| adr-navigation-lambda-link-open-form | adr-navigation-lambda-link-open-form.md | Live |  |  |
+| adr-observability-architecture | adr-observability-architecture.md | Live |  |  |
+| adr-onboarding-data-schema-alignment | adr-onboarding-data-schema-alignment.md | Live |  |  |
+| adr-onboarding-finality | adr-onboarding-finality.md | Live |  | Created 2026-05-31, updated 2026-06-01. Onboarding is resumable and revisitable. Owners may change any credential at any time. Mybizz_management maintains an append-only amendment log with three data tables. Reversed and fully replaced the original `onboarding-finality` (deleted). |
+| adr-onboarding-resumability | adr-onboarding-resumability.md | Live |  |  |
+| adr-onboarding-vs-settings-boundary | adr-onboarding-vs-settings-boundary.md | Live |  |  |
+| adr-openai-embedding-provider | adr-openai-embedding-provider.md | Live |  |  |
+| adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed | adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed.md | Live |  |  |
+| adr-payment-gateway-mutability | adr-payment-gateway-mutability.md | Live |  |  |
+| adr-payment-security-boundary-vault | adr-payment-security-boundary-vault.md | Live |  |  |
+| adr-responsive-behaviour-mechanism | adr-responsive-behaviour-mechanism.md | Live |  | Resolves contradicting breakpoint models in design-direction.md. Responsive behaviour uses `wrap_on` per-container, not CSS breakpoint tables. Nav collapse is automatic and separate. |
+| adr-role-property-assignment-mechanism | adr-role-property-assignment-mechanism.md | Live |  | Superseded. Original decision: set `role` via Designer Properties Panel. Reversed by project-wide property-setting rule: if a property can be set programmatically, it must be set programmatically. Current decision: set `role` in code (`self.component.role = "role-name"`). |
+| adr-single-contacts-table | adr-single-contacts-table.md | Live |  |  |
+| adr-system-currency-selection-and-immutability | adr-system-currency-selection-and-immutability.md | Live |  | Consolidated from original ADR-13 and ADR-16. Covers system currency, display currency, immutability enforcement, and currency conversion strategy. |
+| adr-tiers-model | adr-tiers-model.md | Live |  |  |
+| adr-timezone-utc-storage-display-conversion | adr-timezone-utc-storage-display-conversion.md | Live |  |  |
+| docstd-business-requirements-document | docstd-business-requirements-document.md | Live |  |  |
+| docstd-globals-contract | docstd-globals-contract.md | Live |  |  |
+| docstd-product-requirements-document | docstd-product-requirements-document.md | Live |  |  |
+| docstd-software-requirements-specification | docstd-software-requirements-specification.md | Live |  |  |
+| gui-anvil-deprecated-guide | gui-anvil-deprecated-guide.md | Live |  |  |
+| gui-Anvil-Debugging-Guide | gui-Anvil-Debugging-Guide.md | Live |  |  |
+| pol-anvil-first-development | pol-anvil-first-development.md | Live |  |  |
+| pol-documentation-and-decisions | pol-documentation-and-decisions.md | Live |  |  |
+| pol-security-and-data-governance | pol-security-and-data-governance.md | Live |  |  |
+| pol-testing-and-quality | pol-testing-and-quality.md | Live |  |  |
+| spec-anvil-platform-standards | spec-anvil-platform-standards.md | Live |  |  |
+| spec-anvil-spec-table | spec-anvil-spec-table.md | Live |  |  |
+| spec-api-specification | spec-api-specification.md | Live |  |  |
+| spec-client-activation-runbook | spec-client-activation-runbook.md | Live |  |  |
+| spec-component-properties | spec-component-properties.md | Live |  |  |
+| spec-deployment | spec-deployment.md | Live |  |  |
+| spec-five-app-architecture-model | spec-five-app-architecture-model.md | Live |  |  |
+| spec-integration | spec-integration.md | Live |  |  |
+| spec-m3-design-standards | spec-m3-design-standards.md | Live |  |  |
+| spec-m3_component_mapping | spec-m3_component_mapping.md | Live |  |  |
+| spec-material-3-theme | spec-material-3-theme.md | Live |  |  |
+| spec-nomenclature | spec-nomenclature.md | Live |  |  |
+| spec-observability | spec-observability.md | Live |  |  |
+| spec-onboarding-implementation-plan | spec-onboarding-implementation-plan.md | Live |  |  |
+| spec-regulatory-compliance-baseline | spec-regulatory-compliance-baseline.md | Live |  |  |
+| spec-screen-and-wireframe-production-standards | spec-screen-and-wireframe-production-standards.md | Live |  |  |
+| spec-screen-production-standard | spec-screen-production-standard.md | Live |  |  |
+| spec-security-architecture | spec-security-architecture.md | Live |  |  |
+| spec-security | spec-security.md | Live |  |  |
+| spec-testing-methodology-standards | spec-testing-methodology-standards.md | Live |  |  |
+| spec-testing | spec-testing.md | Live |  |  |
+| spec-ui-standards | spec-ui-standards.md | Live |  |  |
+| spec-vault-system | spec-vault-system.md | Live |  |  |
+| sop-deployment-procedures | sop-deployment-procedures.md | Live |  |  |
+| sop-offboarding | sop-offboarding.md | Live |  |  |
+| sop-vault-totp-recovery | sop-vault-totp-recovery.md | Live |  |  |
+| sop-agent-readiness-framework | sop-agent-readiness-framework.md | Live |  |  |
+| sop-set3-anvil_cop_agent_readiness | sop-set3-anvil_cop_agent_readiness.md | Live |  |  |
+| tmp-authoritative-schema | tmp-authoritative-schema.md | — |  |  |
+| tmp-chklist-anvil-app-testing | tmp-chklist-anvil-app-testing.md | — |  |  |
+| tmp-chklist-screen | tmp-chklist-screen.md | — |  |  |
+| tmp-chklist-wireframe | tmp-chklist-wireframe.md | — |  |  |
+| tmp-custom-component-requirements-matrix | tmp-custom-component-requirements-matrix.md | — |  |  |
+| cup-block-anvil-yaml-writes | cup-block-anvil-yaml-writes.md | Live |  |  |
+| cup-block-task-tool | cup-block-task-tool.md | Live |  |  |
+| no_access_to_secrets_unless_explicitly_required | no_access_to_secrets_unless_explicitly_required.md | Live |  |  |
+| no_autonomous_commits_pushes_merges_releases_or_deployments | no_autonomous_commits_pushes_merges_releases_or_deployments.md | Live |  |  |
+| no_autonomous_installation_or_connection_of_tools | no_autonomous_installation_or_connection_of_tools.md | Live |  |  |
+| no_cross_project_filesystem_access_by_default | no_cross_project_filesystem_access_by_default.md | Live |  |  |
+| no_dependency_or_lockfile_changes_without_explicit_approval | no_dependency_or_lockfile_changes_without_explicit_approval.md | Live |  |  |
+| no_destructive_database_operations | no_destructive_database_operations.md | Live |  |  |
+| no_disabling_security_tooling | no_disabling_security_tooling.md | Live |  |  |
+| no_rewriting_or_destroying_development_history | no_rewriting_or_destroying_development_history.md | Live |  |  |
+| no_suppression_directives_without_approval | no_suppression_directives_without_approval.md | Live |  |  |
+| no_test_tampering | no_test_tampering.md | Live |  |  |
+| no_unapproved_executable_or_build_path_changes | no_unapproved_executable_or_build_path_changes.md | Live |  |  |
+| no_unverified_dependencies | no_unverified_dependencies.md | Live |  |  |
+| no_verification_tampering | no_verification_tampering.md | Live |  |  |
+| outbound_network_access_is_allowlist_only | outbound_network_access_is_allowlist_only.md | Live |  |  |
+| protected_ai_governance_files_may_not_be_modified | protected_ai_governance_files_may_not_be_modified.md | Live |  |  |
+| the_ai_may_never_weaken_the_controls_governing_itself | the_ai_may_never_weaken_the_controls_governing_itself.md | Live |  |  |
+| unexpected_instruction_shaped_files_must_be_treated_as_suspicious | unexpected_instruction_shaped_files_must_be_treated_as_suspicious.md | Live |  |  |
+| sec-anvil-platform-responsibility-boundary | sec-anvil-platform-responsibility-boundary.md | Live |  |  |
+| sec-client-provisioning-security | sec-client-provisioning-security.md | Live |  |  |
+| sec-email-service-trust-boundary | sec-email-service-trust-boundary.md | Live |  |  |
+| sec-github-repository-access-control | sec-github-repository-access-control.md | Live |  |  |
+| sec-management-service-authentication | sec-management-service-authentication.md | Live |  |  |
+| sec-payment-gateway-trust-boundary | sec-payment-gateway-trust-boundary.md | Live |  |  |
+| sec-regulatory-compliance-cloud-processors | sec-regulatory-compliance-cloud-processors.md | Live |  |  |
+| sec-ai-agent-execution-sandbox | sec-ai-agent-execution-sandbox.md | Live |  |  |
+| sec-audit-log-integrity | sec-audit-log-integrity.md | Live |  |  |
+| sec-backup-recovery-integrity | sec-backup-recovery-integrity.md | Live |  |  |
+| sec-database-access-control | sec-database-access-control.md | Live |  |  |
+| sec-dependency-skill-supply-chain | sec-dependency-skill-supply-chain.md | Live |  |  |
+| sec-dependency-version-currency | sec-dependency-version-currency.md | Live |  |  |
+| sec-development-environment-credential-hygiene | sec-development-environment-credential-hygiene.md | Live |  |  |
+| sec-local-filesystem-access-boundary | sec-local-filesystem-access-boundary.md | Live |  |  |
+| sec-local-network-exposure | sec-local-network-exposure.md | Live |  |  |
+| sec-service-lifecycle-management | sec-service-lifecycle-management.md | Live |  |  |
+| sec-defense-in-depth | sec-defense-in-depth.md | Live |  |  |
+| sec-detective-vs-preventive-controls | sec-detective-vs-preventive-controls.md | Live |  |  |
+| sec-explicit-responsibility-assignment | sec-explicit-responsibility-assignment.md | Live |  |  |
+| sec-fail-closed | sec-fail-closed.md | Live |  |  |
+| sec-least-privilege | sec-least-privilege.md | Live |  |  |
+| sec-review-before-trust | sec-review-before-trust.md | Live |  |  |
+| sec-server-side-authority | sec-server-side-authority.md | Live |  |  |
+| sec-simplicity-as-security-property | sec-simplicity-as-security-property.md | Live |  |  |
+| sec-verify-dont-trust-claims | sec-verify-dont-trust-claims.md | Live |  |  |
+| sec-requirements-architecture-review | sec-requirements-architecture-review.md | Live |  |  |
+| sec-requirements-data-table-creation | sec-requirements-data-table-creation.md | Live |  |  |
+| sec-requirements-pre-merge-master-template | sec-requirements-pre-merge-master-template.md | Live |  |  |
+| sec-requirements-release-readiness | sec-requirements-release-readiness.md | Live |  |  |
+| sec-requirements-server-function | sec-requirements-server-function.md | Live |  |  |
+| sec-requirements-third-party-integration | sec-requirements-third-party-integration.md | Live |  |  |
+| sec-ai-agent-secret-visibility | sec-ai-agent-secret-visibility.md | Live |  |  |
+| sec-development-tooling-credentials | sec-development-tooling-credentials.md | Live |  |  |
+| sec-master-encryption-key-protection | sec-master-encryption-key-protection.md | Live |  |  |
+| sec-secret-access-audit | sec-secret-access-audit.md | Live |  |  |
+| sec-secret-exposure-response | sec-secret-exposure-response.md | Live |  |  |
+| sec-secret-rotation-policy | sec-secret-rotation-policy.md | Live |  |  |
+| sec-testing-adversarial-verification | sec-testing-adversarial-verification.md | Live |  |  |
+| sec-testing-coverage-minimum | sec-testing-coverage-minimum.md | Live |  |  |
+| sec-testing-independent-review | sec-testing-independent-review.md | Live |  |  |
+| sec-testing-live-verification-standard | sec-testing-live-verification-standard.md | Live |  |  |
+| sec-testing-regression-prevention | sec-testing-regression-prevention.md | Live |  |  |
+| sec-ai-agent-introduced-vulnerabilities | sec-ai-agent-introduced-vulnerabilities.md | Live |  |  |
+| sec-authentication-session | sec-authentication-session.md | Live |  |  |
+| sec-broken-access-control-within-instance | sec-broken-access-control-within-instance.md | Live |  |  |
+| sec-business-logic-race-conditions | sec-business-logic-race-conditions.md | Live |  |  |
+| sec-data-exfiltration-bulk-export | sec-data-exfiltration-bulk-export.md | Live |  |  |
+| sec-denial-of-service-resource-exhaustion | sec-denial-of-service-resource-exhaustion.md | Live |  |  |
+| sec-injection-unsafe-input | sec-injection-unsafe-input.md | Live |  |  |
+| sec-insecure-direct-object-reference | sec-insecure-direct-object-reference.md | Live |  |  |
+| sec-multi-tenant-assumption-leakage | sec-multi-tenant-assumption-leakage.md | Live |  |  |
+| sec-payment-manipulation | sec-payment-manipulation.md | Live |  |  |
+| sec-privilege-escalation | sec-privilege-escalation.md | Live |  |  |
+| anvil-docs-config | anvil-docs-config.md | Live |  |  |
+| anvil-docs-explainer | anvil-docs-explainer.md | Live |  |  |
+| anvil-docs-reference | anvil-docs-reference.md | Live |  |  |
+| anvil-docs-README | README.md | Live |  |  |
+| site-map | site-map.md | Live |  |  |
+| agent-chat-window | agent-chat-window.md | Live |  |  |
+| connecting-your-account | connecting-your-account.md | Live |  |  |
+| ai-_index | _index.md | Live |  |  |
+| anvil.email | anvil.email.md | Live |  |  |
+| anvil.email.message | anvil.email.message.md | Live |  |  |
+| anvil.facebook.auth | anvil.facebook.auth.md | Live |  |  |
+| anvil.files | anvil.files.md | Live |  |  |
+| anvil.google.auth | anvil.google.auth.md | Live |  |  |
+| anvil.google.drive | anvil.google.drive.md | Live |  |  |
+| anvil.google.mail | anvil.google.mail.md | Live |  |  |
+| anvil.google.sheets | anvil.google.sheets.md | Live |  |  |
+| anvil.googlemap.data | anvil.googlemap.data.md | Live |  |  |
+| anvil.googlemap | anvil.googlemap.md | Live |  |  |
+| anvil.http | anvil.http.md | Live |  |  |
+| anvil.image | anvil.image.md | Live |  |  |
+| anvil.js | anvil.js.md | Live |  |  |
+| anvil | anvil.md | Live |  |  |
+| anvil.media | anvil.media.md | Live |  |  |
+| anvil.microsoft.auth | anvil.microsoft.auth.md | Live |  |  |
+| anvil.mpl_util | anvil.mpl_util.md | Live |  |  |
+| anvil.pdf | anvil.pdf.md | Live |  |  |
+| anvil.pico-micro-uplink | anvil.pico-micro-uplink.md | Live |  |  |
+| anvil.plotly_templates | anvil.plotly_templates.md | Live |  |  |
+| anvil.saml.auth | anvil.saml.auth.md | Live |  |  |
+| anvil.script | anvil.script.md | Live |  |  |
+| anvil.secrets | anvil.secrets.md | Live |  |  |
+| anvil.server-uplink | anvil.server-uplink.md | Live |  |  |
+| anvil.server | anvil.server.md | Live |  |  |
+| anvil.stripe | anvil.stripe.md | Live |  |  |
+| anvil.tables | anvil.tables.md | Live |  |  |
+| anvil.tables.query | anvil.tables.query.md | Live |  |  |
+| anvil.tz | anvil.tz.md | Live |  |  |
+| anvil.users | anvil.users.md | Live |  |  |
+| anvil.users.mfa | anvil.users.mfa.md | Live |  |  |
+| segment.client | segment.client.md | Live |  |  |
+| stripe.checkout | stripe.checkout.md | Live |  |  |
+| api-_index | _index.md | Live |  |  |
+| app-structure | app-structure.md | Live |  |  |
+| client-quickstart | quickstart.md | Live |  |  |
+| client-_index | _index.md | Live |  |  |
+| adding-html-elements | adding-html-elements.md | Live |  |  |
+| alerts-and-notifications | alerts-and-notifications.md | Live |  |  |
+| adding-ui-elements-containers | containers.md | Live |  |  |
+| loading-indicator | loading-indicator.md | Live |  |  |
+| adding-ui-elements-_index | _index.md | Live |  |  |
+| modules | modules.md | Live |  |  |
+| the-python-environment | the-python-environment.md | Live |  |  |
+| client-code-_index | _index.md | Live |  |  |
+| data-bindings | data-bindings.md | Live |  |  |
+| component-properties-_index | _index.md | Live |  |  |
+| assets | assets.md | Live |  |  |
+| colour-schemes | colour-schemes.md | Live |  |  |
+| customisation-_index | _index.md | Live |  |  |
+| html-components | html-components.md | Live |  |  |
+| custom-components-_index | _index.md | Live |  |  |
+| accessing-javascript | accessing-javascript.md | Live |  |  |
+| html-forms | html-forms.md | Live |  |  |
+| javascript-quickstart | quickstart.md | Live |  |  |
+| javascript-_index | _index.md | Live |  |  |
+| loading_indicator | loading_indicator.md | Live |  |  |
+| roles | roles.md | Live |  |  |
+| using-css-_index | _index.md | Live |  |  |
+| service-worker-whiteboard | service-worker-whiteboard.md | Live |  |  |
+| component-lifecycle | component-lifecycle.md | Live |  |  |
+| events-_index | _index.md | Live |  |  |
+| form-templates | form-templates.md | Live |  |  |
+| forms-as-components | forms-as-components.md | Live |  |  |
+| forms-as-html | forms-as-html.md | Live |  |  |
+| forms-as-python-classes | forms-as-python-classes.md | Live |  |  |
+| forms-in-the-editor | forms-in-the-editor.md | Live |  |  |
+| forms-_index | _index.md | Live |  |  |
+| html-layouts | html-layouts.md | Live |  |  |
+| layouts-api | layouts-api.md | Live |  |  |
+| layouts-quickstart | quickstart.md | Live |  |  |
+| layouts-_index | _index.md | Live |  |  |
+| navigation-_index | _index.md | Live |  |  |
+| caching | caching.md | Live |  |  |
+| navigation | navigation.md | Live |  |  |
+| parameters | parameters.md | Live |  |  |
+| routing-quickstart | quickstart.md | Live |  |  |
+| router | router.md | Live |  |  |
+| routing-_index | _index.md | Live |  |  |
+| components-_index | _index.md | Live |  |  |
+| components | components.md | Live |  |  |
+| layouts | layouts.md | Live |  |  |
+| material-3-_index | _index.md | Live |  |  |
+| basic | basic.md | Live |  |  |
+| canvas | canvas.md | Live |  |  |
+| standard-components-containers | containers.md | Live |  |  |
+| data-grids | data-grids.md | Live |  |  |
+| html-component | html-component.md | Live |  |  |
+| maps | maps.md | Live |  |  |
+| plots | plots.md | Live |  |  |
+| repeating-panel | repeating-panel.md | Live |  |  |
+| standard-components-_index | _index.md | Live |  |  |
+| buffering | buffering.md | Live |  |  |
+| csv-and-excel | csv-and-excel.md | Live |  |  |
+| data-security | data-security.md | Live |  |  |
+| data-tables-in-code | data-tables-in-code.md | Live |  |  |
+| faster-storage | faster-storage.md | Live |  |  |
+| indexes | indexes.md | Live |  |  |
+| legacy-tables | legacy-tables.md | Live |  |  |
+| links-between-tables | links-between-tables.md | Live |  |  |
+| multiple-databases | multiple-databases.md | Live |  |  |
+| data-tables-quickstart | quickstart.md | Live |  |  |
+| sql-access | sql-access.md | Live |  |  |
+| transactions | transactions.md | Live |  |  |
+| data-tables-_index | _index.md | Live |  |  |
+| server_funcs | server_funcs.md | Live |  |  |
+| types | types.md | Live |  |  |
+| data-files-quickstart | quickstart.md | Live |  |  |
+| data-files-_index | _index.md | Live |  |  |
+| client-writable | client-writable.md | Live |  |  |
+| creating | creating.md | Live |  |  |
+| patterns | patterns.md | Live |  |  |
+| validation | validation.md | Live |  |  |
+| model-classes-_index | _index.md | Live |  |  |
+| anvil-debugging-guide | anvil-debugging-guide.md | Live |  |  |
+| custom-domains | custom-domains.md | Live |  |  |
+| deployment-dependencies | dependencies.md | Live |  |  |
+| embedding-your-app | embedding-your-app.md | Live |  |  |
+| hosting-options | hosting-options.md | Live |  |  |
+| on-site | on-site.md | Live |  |  |
+| deployment-quickstart | quickstart.md | Live |  |  |
+| runtime-repo-dependencies | runtime-repo-dependencies.md | Live |  |  |
+| deployment-_index | _index.md | Live |  |  |
+| environments-and-code | environments-and-code.md | Live |  |  |
+| environments-_index | _index.md | Live |  |  |
+| form-editor | form-editor.md | Live |  |  |
+| keyboard-shortcuts | keyboard-shortcuts.md | Live |  |  |
+| look-and-feel | look-and-feel.md | Live |  |  |
+| editor-_index | _index.md | Live |  |  |
+| profiling-and-tracing | profiling-and-tracing.md | Live |  |  |
+| app-logs-_index | _index.md | Live |  |  |
+| cloning-and-collaboration | cloning-and-collaboration.md | Live |  |  |
+| app-settings-data-tables | data-tables.md | Live |  |  |
+| titles-and-logos | titles-and-logos.md | Live |  |  |
+| app-settings-_index | _index.md | Live |  |  |
+| managed-enterprise | managed-enterprise.md | Live |  |  |
+| trials | trials.md | Live |  |  |
+| enterprise-_index | _index.md | Live |  |  |
+| custom | custom.md | Live |  |  |
+| docker | docker.md | Live |  |  |
+| enterprise-deployment-index | _index.md | Live |  |  |
+| aks | aks.md | Live |  |  |
+| configuration | configuration.md | Live |  |  |
+| eks | eks.md | Live |  |  |
+| gke | gke.md | Live |  |  |
+| installation | installation.md | Live |  |  |
+| k3s | k3s.md | Live |  |  |
+| k8s-prerequisites | k8s-prerequisites.md | Live |  |  |
+| oke | oke.md | Live |  |  |
+| openshift | openshift.md | Live |  |  |
+| kubernetes-_index | _index.md | Live |  |  |
+| changelog | changelog.md | Live |  |  |
+| cluster | cluster.md | Live |  |  |
+| restore | restore.md | Live |  |  |
+| operator-_index | _index.md | Live |  |  |
+| github | github.md | Live |  |  |
+| google | google.md | Live |  |  |
+| microsoft | microsoft.md | Live |  |  |
+| tls-certificates | tls-certificates.md | Live |  |  |
+| prerequisites-_index | _index.md | Live |  |  |
+| external-resources-external-database | external-database.md | Live |  |  |
+| external-resources-_index | _index.md | Live |  |  |
+| http-apis-_index | _index.md | Live |  |  |
+| authentication | authentication.md | Live |  |  |
+| creating-http-endpoints-quickstart | quickstart.md | Live |  |  |
+| security-cross-site | security-cross-site.md | Live |  |  |
+| creating-http-endpoints-_index | _index.md | Live |  |  |
+| making-http-requests-quickstart | quickstart.md | Live |  |  |
+| making-http-requests-_index | _index.md | Live |  |  |
+| calling-functions-remotely | calling-functions-remotely.md | Live |  |  |
+| uplink-data-tables | data-tables.md | Live |  |  |
+| uplink-dependencies | dependencies.md | Live |  |  |
+| pico | pico.md | Live |  |  |
+| uplink-quickstart | quickstart.md | Live |  |  |
+| setting-up | setting-up.md | Live |  |  |
+| uplink-security | uplink-security.md | Live |  |  |
+| uplink-_index | _index.md | Live |  |  |
+| build-first-app | build-first-app.md | Live |  |  |
+| coming-from-scripting | coming-from-scripting.md | Live |  |  |
+| coming-from-streamlit | coming-from-streamlit.md | Live |  |  |
+| help | help.md | Live |  |  |
+| how-does-it-work | how-does-it-work.md | Live |  |  |
+| get-started-_index | _index.md | Live |  |  |
+| collaborate-in-anvil | collaborate-in-anvil.md | Live |  |  |
+| creating-material-3-colour-scheme | creating-material-3-colour-scheme.md | Live |  |  |
+| crud-best-practice-guide | crud-best-practice-guide.md | Live |  |  |
+| custom-user-auth | custom-user-auth.md | Live |  |  |
+| customising-the-font | customising-the-font.md | Live |  |  |
+| dropdowns-data-tables | dropdowns-data-tables.md | Live |  |  |
+| embedding-webpage-iframe | embedding-webpage-iframe.md | Live |  |  |
+| expand-collapse | expand-collapse.md | Live |  |  |
+| how-to-external-database | external-database.md | Live |  |  |
+| git-configuration | git-configuration.md | Live |  |  |
+| plot | plot.md | Live |  |  |
+| plotly-express | plotly-express.md | Live |  |  |
+| porting-app-to-new-layouts | porting-app-to-new-layouts.md | Live |  |  |
+| prompting-best-practices | prompting-best-practices.md | Live |  |  |
+| serving-ui-from-http-routes | serving-ui-from-http-routes.md | Live |  |  |
+| upload-large-files-to-s3 | upload-large-files-to-s3.md | Live |  |  |
+| how-to-_index | _index.md | Live |  |  |
+| linux-ssh-key-setup | linux-ssh-key-setup.md | Live |  |  |
+| app-server-_index | _index.md | Live |  |  |
+| aws-lightsail-app-server-deployment | aws-lightsail-app-server-deployment.md | Live |  |  |
+| azure-app-server-deployment | azure-app-server-deployment.md | Live |  |  |
+| digitalocean-app-server-deployment | digitalocean-app-server-deployment.md | Live |  |  |
+| google-cloud-app-server-deployment | google-cloud-app-server-deployment.md | Live |  |  |
+| linode-app-server-deployment | linode-app-server-deployment.md | Live |  |  |
+| cloud-deployment-guides-_index | _index.md | Live |  |  |
+| integrations-_index | _index.md | Live |  |  |
+| linking-facebook-and-anvil | linking-facebook-and-anvil.md | Live |  |  |
+| facebook-quickstart | quickstart.md | Live |  |  |
+| facebook-_index | _index.md | Live |  |  |
+| authenticating-users | authenticating-users.md | Live |  |  |
+| gmail | gmail.md | Live |  |  |
+| google-drive | google-drive.md | Live |  |  |
+| google-rest-apis | google-rest-apis.md | Live |  |  |
+| linking-google-and-anvil | linking-google-and-anvil.md | Live |  |  |
+| google-quickstart | quickstart.md | Live |  |  |
+| google-_index | _index.md | Live |  |  |
+| accessing-microsoft-apis | accessing-microsoft-apis.md | Live |  |  |
+| linking-azure-and-anvil | linking-azure-and-anvil.md | Live |  |  |
+| microsoft-single-sign-on | microsoft-single-sign-on.md | Live |  |  |
+| microsoft-quickstart | quickstart.md | Live |  |  |
+| microsoft-_index | _index.md | Live |  |  |
+| configuration-options | configuration-options.md | Live |  |  |
+| saml-quickstart | quickstart.md | Live |  |  |
+| sharing-credentials-across-apps | sharing-credentials-across-apps.md | Live |  |  |
+| saml-_index | _index.md | Live |  |  |
+| payments-and-subscriptions | payments-and-subscriptions.md | Live |  |  |
+| stripe-quickstart | quickstart.md | Live |  |  |
+| raw-api-tokens | raw-api-tokens.md | Live |  |  |
+| stripe-_index | _index.md | Live |  |  |
+| buying | buying.md | Live |  |  |
+| data-tables-in-tableau | data-tables-in-tableau.md | Live |  |  |
+| publishing | publishing.md | Live |  |  |
+| x-quickstart | quickstart.md | Live |  |  |
+| tableau-extensions-api | tableau-extensions-api.md | Live |  |  |
+| testing-in-tableau | testing-in-tableau.md | Live |  |  |
+| trexjacket | trexjacket.md | Live |  |  |
+| x-_index | _index.md | Live |  |  |
+| error-reporting | error-reporting.md | Live |  |  |
+| other-concepts-_index | _index.md | Live |  |  |
+| creating-pdf-files-quickstart | quickstart.md | Live |  |  |
+| creating-pdf-files-_index | _index.md | Live |  |  |
+| capabilities | capabilities.md | Live |  |  |
+| capability-scoped-cache-updates | capability-scoped-cache-updates.md | Live |  |  |
+| custom-serialisation | custom-serialisation.md | Live |  |  |
+| server-methods | server-methods.md | Live |  |  |
+| portable-classes-_index | _index.md | Live |  |  |
+| working-with-files-_index | _index.md | Live |  |  |
+| files-on-disk | files-on-disk.md | Live |  |  |
+| image-manipulation | image-manipulation.md | Live |  |  |
+| media-quickstart | quickstart.md | Live |  |  |
+| media-_index | _index.md | Live |  |  |
+| faq | faq.md | Live |  |  |
+| quickstarts | quickstarts.md | Live |  |  |
+| overview-_index | _index.md | Live |  |  |
+| account-management | account-management.md | Live |  |  |
+| choosing-the-right-plan | choosing-the-right-plan.md | Live |  |  |
+| enterprise | enterprise.md | Live |  |  |
+| free-vs-paid | free-vs-paid.md | Live |  |  |
+| plans-and-accounts-_index | _index.md | Live |  |  |
+| call-context | call-context.md | Live |  |  |
+| offline-apps | offline-apps.md | Live |  |  |
+| scheduled-tasks | scheduled-tasks.md | Live |  |  |
+| scripts | scripts.md | Live |  |  |
+| sessions-and-cookies | sessions-and-cookies.md | Live |  |  |
+| server-_index | _index.md | Live |  |  |
+| communicating-back | communicating-back.md | Live |  |  |
+| defining-and-running | defining-and-running.md | Live |  |  |
+| background-tasks-quickstart | quickstart.md | Live |  |  |
+| background-tasks-_index | _index.md | Live |  |  |
+| packages | packages.md | Live |  |  |
+| custom-packages-_index | _index.md | Live |  |  |
+| attachments | attachments.md | Live |  |  |
+| email-quickstart | quickstart.md | Live |  |  |
+| security-and-dkim | security-and-dkim.md | Live |  |  |
+| sending-and-receiving | sending-and-receiving.md | Live |  |  |
+| email-_index | _index.md | Live |  |  |
+| server-modules-quickstart | quickstart.md | Live |  |  |
+| server-modules-_index | _index.md | Live |  |  |
+| tests-README | README.md | Live |  |  |
+| SmokeTest-README | README.md | Live |  |  |
+| authentication-choices | authentication-choices.md | Live |  |  |
+| configuring-emails | configuring-emails.md | Live |  |  |
+| logging-in-using-code | logging-in-using-code.md | Live |  |  |
+| permissions | permissions.md | Live |  |  |
+| presenting-a-login-form | presenting-a-login-form.md | Live |  |  |
+| quickstart-login | quickstart-login.md | Live |  |  |
+| quickstart-permissions | quickstart-permissions.md | Live |  |  |
+| the-users-table | the-users-table.md | Live |  |  |
+| two-factor-authentication | two-factor-authentication.md | Live |  |  |
+| users-_index | _index.md | Live |  |  |
+| commands | commands.md | Live |  |  |
+| creating-and-editing-apps | creating-and-editing-apps.md | Live |  |  |
+| using-another-ide-quickstart | quickstart.md | Live |  |  |
+| using-another-ide-_index | _index.md | Live |  |  |
+| dealing-with-timezones | dealing-with-timezones.md | Live |  |  |
+| workflows-_index | _index.md | Live |  |  |
+| how-to-import-things | how-to-import-things.md | Live |  |  |
+| python-directory-structure | python-directory-structure.md | Live |  |  |
+| structuring-your-app | structuring-your-app.md | Live |  |  |
+| app-architecture-_index | _index.md | Live |  |  |
+| additional-debugging-tools | additional-debugging-tools.md | Live |  |  |
+| interactive-debugger | interactive-debugger.md | Live |  |  |
+| debugger-_index | _index.md | Live |  |  |
+| encrypting-secret-data | encrypting-secret-data.md | Live |  |  |
+| security-_index | _index.md | Live |  |  |
+| collaborators | collaborators.md | Live |  |  |
+| version-control-quickstart | quickstart.md | Live |  |  |
+| version-control-anvil | version-control-anvil.md | Live |  |  |
+| what-is-version-control | what-is-version-control.md | Live |  |  |
+| workflows | workflows.md | Live |  |  |
+| version-control-_index | _index.md | Live |  |  |
+| direct-checkout | direct-checkout.md | Live |  |  |
+| git-quickstart | quickstart.md | Live |  |  |
+| secrets-across-repos | secrets-across-repos.md | Live |  |  |
+| git-_index | _index.md | Live |  |  |
+| plg-readme | README.md | Live |  | 2026-09-11\|2026-09-11\|\|registered by align-docs re-validation run |
+| adr-anvil-platform-constraints | adr-anvil-platform-constraints.md | Live |  | registered by align-docs 2026-09-17 (was on disk, missing from register) |
+| adr-data-access-patterns | adr-data-access-patterns.md | Live |  | registered by align-docs 2026-09-17 (was on disk, missing from register) |
+| adr-form-architecture-and-state | adr-form-architecture-and-state.md | Live |  | registered by align-docs 2026-09-17 (was on disk, missing from register) |
+| adr-pdf-invoice-generation | adr-pdf-invoice-generation.md | Live |  | registered by align-docs 2026-09-17 (was on disk, missing from register) |
+| adr-real-time-and-background-tasks | adr-real-time-and-background-tasks.md | Live |  | registered by align-docs 2026-09-17 (was on disk, missing from register) |
+| adr-ui-customization-approach | adr-ui-customization-approach.md | Live |  | registered by align-docs 2026-09-17 (was on disk, missing from register) |
+| adr-webhook-architecture | adr-webhook-architecture.md | Live |  | registered by align-docs 2026-09-17 (was on disk, missing from register) |
+| spec-mastertemplate-notification-system | spec-mastertemplate-notification-system.md | Live |  | registered by align-docs 2026-09-17 (was on disk, missing from register) |
+| spec-mybizz-management-app-notification-system | spec-mybizz-management-app-notification-system.md | Live |  | registered by align-docs 2026-09-17 (was on disk, missing from register) |
+| no_bash_mediated_file_writes_without_grant | no_bash_mediated_file_writes_without_grant.md | Live |  | registered by align-docs 2026-09-17 (was on disk, missing from register) |
 
 <!-- anvil-docs corpus registered 2026-09-10 per register-membership policy (align-docs function scope V2 item 6); collision-qualified doc-ids where basenames repeat -->
-| anvil-docs-config | anvil-docs/anvil-docs-config.md | anvil-docs | anvil-docs | Live |  |
-| anvil-docs-explainer | anvil-docs/anvil-docs-explainer.md | anvil-docs | anvil-docs | Live |  |
-| anvil-docs-reference | anvil-docs/anvil-docs-reference.md | anvil-docs | anvil-docs | Live |  |
-| anvil-docs-README | anvil-docs/README.md | anvil-docs | anvil-docs | Live |  |
-| site-map | anvil-docs/site-map.md | anvil-docs | anvil-docs | Live |  |
-| agent-chat-window | anvil-docs/ai/agent-chat-window.md | anvil-docs/ai | anvil-docs | Live |  |
-| connecting-your-account | anvil-docs/ai/connecting-your-account.md | anvil-docs/ai | anvil-docs | Live |  |
-| ai-_index | anvil-docs/ai/_index.md | anvil-docs/ai | anvil-docs | Live |  |
-| anvil.email | anvil-docs/api/anvil.email.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.email.message | anvil-docs/api/anvil.email.message.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.facebook.auth | anvil-docs/api/anvil.facebook.auth.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.files | anvil-docs/api/anvil.files.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.google.auth | anvil-docs/api/anvil.google.auth.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.google.drive | anvil-docs/api/anvil.google.drive.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.google.mail | anvil-docs/api/anvil.google.mail.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.google.sheets | anvil-docs/api/anvil.google.sheets.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.googlemap.data | anvil-docs/api/anvil.googlemap.data.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.googlemap | anvil-docs/api/anvil.googlemap.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.http | anvil-docs/api/anvil.http.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.image | anvil-docs/api/anvil.image.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.js | anvil-docs/api/anvil.js.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil | anvil-docs/api/anvil.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.media | anvil-docs/api/anvil.media.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.microsoft.auth | anvil-docs/api/anvil.microsoft.auth.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.mpl_util | anvil-docs/api/anvil.mpl_util.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.pdf | anvil-docs/api/anvil.pdf.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.pico-micro-uplink | anvil-docs/api/anvil.pico-micro-uplink.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.plotly_templates | anvil-docs/api/anvil.plotly_templates.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.saml.auth | anvil-docs/api/anvil.saml.auth.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.script | anvil-docs/api/anvil.script.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.secrets | anvil-docs/api/anvil.secrets.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.server-uplink | anvil-docs/api/anvil.server-uplink.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.server | anvil-docs/api/anvil.server.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.stripe | anvil-docs/api/anvil.stripe.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.tables | anvil-docs/api/anvil.tables.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.tables.query | anvil-docs/api/anvil.tables.query.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.tz | anvil-docs/api/anvil.tz.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.users | anvil-docs/api/anvil.users.md | anvil-docs/api | anvil-docs | Live |  |
-| anvil.users.mfa | anvil-docs/api/anvil.users.mfa.md | anvil-docs/api | anvil-docs | Live |  |
-| segment.client | anvil-docs/api/segment.client.md | anvil-docs/api | anvil-docs | Live |  |
-| stripe.checkout | anvil-docs/api/stripe.checkout.md | anvil-docs/api | anvil-docs | Live |  |
-| api-_index | anvil-docs/api/_index.md | anvil-docs/api | anvil-docs | Live |  |
-| app-structure | anvil-docs/app-structure/app-structure.md | anvil-docs/app-structure | anvil-docs | Live |  |
-| client-quickstart | anvil-docs/client/quickstart.md | anvil-docs/client | anvil-docs | Live |  |
-| client-_index | anvil-docs/client/_index.md | anvil-docs/client | anvil-docs | Live |  |
-| adding-html-elements | anvil-docs/client/adding-ui-elements/adding-html-elements.md | anvil-docs/client/adding-ui-elements | anvil-docs | Live |  |
-| alerts-and-notifications | anvil-docs/client/adding-ui-elements/alerts-and-notifications.md | anvil-docs/client/adding-ui-elements | anvil-docs | Live |  |
-| adding-ui-elements-containers | anvil-docs/client/adding-ui-elements/containers.md | anvil-docs/client/adding-ui-elements | anvil-docs | Live |  |
-| loading-indicator | anvil-docs/client/adding-ui-elements/loading-indicator.md | anvil-docs/client/adding-ui-elements | anvil-docs | Live |  |
-| adding-ui-elements-_index | anvil-docs/client/adding-ui-elements/_index.md | anvil-docs/client/adding-ui-elements | anvil-docs | Live |  |
-| modules | anvil-docs/client/client-code/modules.md | anvil-docs/client/client-code | anvil-docs | Live |  |
-| the-python-environment | anvil-docs/client/client-code/the-python-environment.md | anvil-docs/client/client-code | anvil-docs | Live |  |
-| client-code-_index | anvil-docs/client/client-code/_index.md | anvil-docs/client/client-code | anvil-docs | Live |  |
-| data-bindings | anvil-docs/client/component-properties/data-bindings.md | anvil-docs/client/component-properties | anvil-docs | Live |  |
-| component-properties-_index | anvil-docs/client/component-properties/_index.md | anvil-docs/client/component-properties | anvil-docs | Live |  |
-| assets | anvil-docs/client/customisation/assets.md | anvil-docs/client/customisation | anvil-docs | Live |  |
-| colour-schemes | anvil-docs/client/customisation/colour-schemes.md | anvil-docs/client/customisation | anvil-docs | Live |  |
-| customisation-_index | anvil-docs/client/customisation/_index.md | anvil-docs/client/customisation | anvil-docs | Live |  |
-| html-components | anvil-docs/client/customisation/custom-components/html-components.md | anvil-docs/client/customisation/custom-components | anvil-docs | Live |  |
-| custom-components-_index | anvil-docs/client/customisation/custom-components/_index.md | anvil-docs/client/customisation/custom-components | anvil-docs | Live |  |
-| accessing-javascript | anvil-docs/client/customisation/javascript/accessing-javascript.md | anvil-docs/client/customisation/javascript | anvil-docs | Live |  |
-| html-forms | anvil-docs/client/customisation/javascript/html-forms.md | anvil-docs/client/customisation/javascript | anvil-docs | Live |  |
-| javascript-quickstart | anvil-docs/client/customisation/javascript/quickstart.md | anvil-docs/client/customisation/javascript | anvil-docs | Live |  |
-| javascript-_index | anvil-docs/client/customisation/javascript/_index.md | anvil-docs/client/customisation/javascript | anvil-docs | Live |  |
-| loading_indicator | anvil-docs/client/customisation/using-css/loading_indicator.md | anvil-docs/client/customisation/using-css | anvil-docs | Live |  |
-| roles | anvil-docs/client/customisation/using-css/roles.md | anvil-docs/client/customisation/using-css | anvil-docs | Live |  |
-| using-css-_index | anvil-docs/client/customisation/using-css/_index.md | anvil-docs/client/customisation/using-css | anvil-docs | Live |  |
-| service-worker-whiteboard | anvil-docs/client/doc/service-worker-whiteboard.md | anvil-docs/client/doc | anvil-docs | Live |  |
-| component-lifecycle | anvil-docs/client/events/component-lifecycle.md | anvil-docs/client/events | anvil-docs | Live |  |
-| events-_index | anvil-docs/client/events/_index.md | anvil-docs/client/events | anvil-docs | Live |  |
-| form-templates | anvil-docs/client/forms/form-templates.md | anvil-docs/client/forms | anvil-docs | Live |  |
-| forms-as-components | anvil-docs/client/forms/forms-as-components.md | anvil-docs/client/forms | anvil-docs | Live |  |
-| forms-as-html | anvil-docs/client/forms/forms-as-html.md | anvil-docs/client/forms | anvil-docs | Live |  |
-| forms-as-python-classes | anvil-docs/client/forms/forms-as-python-classes.md | anvil-docs/client/forms | anvil-docs | Live |  |
-| forms-in-the-editor | anvil-docs/client/forms/forms-in-the-editor.md | anvil-docs/client/forms | anvil-docs | Live |  |
-| forms-_index | anvil-docs/client/forms/_index.md | anvil-docs/client/forms | anvil-docs | Live |  |
-| html-layouts | anvil-docs/client/forms/layouts/html-layouts.md | anvil-docs/client/forms/layouts | anvil-docs | Live |  |
-| layouts-api | anvil-docs/client/forms/layouts/layouts-api.md | anvil-docs/client/forms/layouts | anvil-docs | Live |  |
-| layouts-quickstart | anvil-docs/client/forms/layouts/quickstart.md | anvil-docs/client/forms/layouts | anvil-docs | Live |  |
-| layouts-_index | anvil-docs/client/forms/layouts/_index.md | anvil-docs/client/forms/layouts | anvil-docs | Live |  |
-| navigation-_index | anvil-docs/client/navigation/_index.md | anvil-docs/client/navigation | anvil-docs | Live |  |
-| caching | anvil-docs/client/navigation/routing/caching.md | anvil-docs/client/navigation/routing | anvil-docs | Live |  |
-| navigation | anvil-docs/client/navigation/routing/navigation.md | anvil-docs/client/navigation/routing | anvil-docs | Live |  |
-| parameters | anvil-docs/client/navigation/routing/parameters.md | anvil-docs/client/navigation/routing | anvil-docs | Live |  |
-| routing-quickstart | anvil-docs/client/navigation/routing/quickstart.md | anvil-docs/client/navigation/routing | anvil-docs | Live |  |
-| router | anvil-docs/client/navigation/routing/router.md | anvil-docs/client/navigation/routing | anvil-docs | Live |  |
-| routing-_index | anvil-docs/client/navigation/routing/_index.md | anvil-docs/client/navigation/routing | anvil-docs | Live |  |
-| components-_index | anvil-docs/components/_index.md | anvil-docs/components | anvil-docs | Live |  |
-| components | anvil-docs/components/material-3/components.md | anvil-docs/components/material-3 | anvil-docs | Live |  |
-| layouts | anvil-docs/components/material-3/layouts.md | anvil-docs/components/material-3 | anvil-docs | Live |  |
-| material-3-_index | anvil-docs/components/material-3/_index.md | anvil-docs/components/material-3 | anvil-docs | Live |  |
-| basic | anvil-docs/components/standard-components/basic.md | anvil-docs/components/standard-components | anvil-docs | Live |  |
-| canvas | anvil-docs/components/standard-components/canvas.md | anvil-docs/components/standard-components | anvil-docs | Live |  |
-| standard-components-containers | anvil-docs/components/standard-components/containers.md | anvil-docs/components/standard-components | anvil-docs | Live |  |
-| data-grids | anvil-docs/components/standard-components/data-grids.md | anvil-docs/components/standard-components | anvil-docs | Live |  |
-| html-component | anvil-docs/components/standard-components/html-component.md | anvil-docs/components/standard-components | anvil-docs | Live |  |
-| maps | anvil-docs/components/standard-components/maps.md | anvil-docs/components/standard-components | anvil-docs | Live |  |
-| plots | anvil-docs/components/standard-components/plots.md | anvil-docs/components/standard-components | anvil-docs | Live |  |
-| repeating-panel | anvil-docs/components/standard-components/repeating-panel.md | anvil-docs/components/standard-components | anvil-docs | Live |  |
-| standard-components-_index | anvil-docs/components/standard-components/_index.md | anvil-docs/components/standard-components | anvil-docs | Live |  |
-| buffering | anvil-docs/data-tables/buffering.md | anvil-docs/data-tables | anvil-docs | Live |  |
-| csv-and-excel | anvil-docs/data-tables/csv-and-excel.md | anvil-docs/data-tables | anvil-docs | Live |  |
-| data-security | anvil-docs/data-tables/data-security.md | anvil-docs/data-tables | anvil-docs | Live |  |
-| data-tables-in-code | anvil-docs/data-tables/data-tables-in-code.md | anvil-docs/data-tables | anvil-docs | Live |  |
-| faster-storage | anvil-docs/data-tables/faster-storage.md | anvil-docs/data-tables | anvil-docs | Live |  |
-| indexes | anvil-docs/data-tables/indexes.md | anvil-docs/data-tables | anvil-docs | Live |  |
-| legacy-tables | anvil-docs/data-tables/legacy-tables.md | anvil-docs/data-tables | anvil-docs | Live |  |
-| links-between-tables | anvil-docs/data-tables/links-between-tables.md | anvil-docs/data-tables | anvil-docs | Live |  |
-| multiple-databases | anvil-docs/data-tables/multiple-databases.md | anvil-docs/data-tables | anvil-docs | Live |  |
-| data-tables-quickstart | anvil-docs/data-tables/quickstart.md | anvil-docs/data-tables | anvil-docs | Live |  |
-| sql-access | anvil-docs/data-tables/sql-access.md | anvil-docs/data-tables | anvil-docs | Live |  |
-| transactions | anvil-docs/data-tables/transactions.md | anvil-docs/data-tables | anvil-docs | Live |  |
-| data-tables-_index | anvil-docs/data-tables/_index.md | anvil-docs/data-tables | anvil-docs | Live |  |
-| server_funcs | anvil-docs/data-tables/anvil/tables/v2/server_funcs.md | anvil-docs/data-tables/anvil/tables/v2 | anvil-docs | Live |  |
-| types | anvil-docs/data-tables/anvil/tables/v2/types.md | anvil-docs/data-tables/anvil/tables/v2 | anvil-docs | Live |  |
-| data-files-quickstart | anvil-docs/data-tables/data-files/quickstart.md | anvil-docs/data-tables/data-files | anvil-docs | Live |  |
-| data-files-_index | anvil-docs/data-tables/data-files/_index.md | anvil-docs/data-tables/data-files | anvil-docs | Live |  |
-| client-writable | anvil-docs/data-tables/model-classes/client-writable.md | anvil-docs/data-tables/model-classes | anvil-docs | Live |  |
-| creating | anvil-docs/data-tables/model-classes/creating.md | anvil-docs/data-tables/model-classes | anvil-docs | Live |  |
-| patterns | anvil-docs/data-tables/model-classes/patterns.md | anvil-docs/data-tables/model-classes | anvil-docs | Live |  |
-| validation | anvil-docs/data-tables/model-classes/validation.md | anvil-docs/data-tables/model-classes | anvil-docs | Live |  |
-| model-classes-_index | anvil-docs/data-tables/model-classes/_index.md | anvil-docs/data-tables/model-classes | anvil-docs | Live |  |
-| anvil-debugging-guide | anvil-docs/debugging-guide/anvil-debugging-guide.md | anvil-docs/debugging-guide | anvil-docs | Live |  |
-| custom-domains | anvil-docs/deployment/custom-domains.md | anvil-docs/deployment | anvil-docs | Live |  |
-| deployment-dependencies | anvil-docs/deployment/dependencies.md | anvil-docs/deployment | anvil-docs | Live |  |
-| embedding-your-app | anvil-docs/deployment/embedding-your-app.md | anvil-docs/deployment | anvil-docs | Live |  |
-| hosting-options | anvil-docs/deployment/hosting-options.md | anvil-docs/deployment | anvil-docs | Live |  |
-| on-site | anvil-docs/deployment/on-site.md | anvil-docs/deployment | anvil-docs | Live |  |
-| deployment-quickstart | anvil-docs/deployment/quickstart.md | anvil-docs/deployment | anvil-docs | Live |  |
-| runtime-repo-dependencies | anvil-docs/deployment/runtime-repo-dependencies.md | anvil-docs/deployment | anvil-docs | Live |  |
-| deployment-_index | anvil-docs/deployment/_index.md | anvil-docs/deployment | anvil-docs | Live |  |
-| environments-and-code | anvil-docs/deployment/environments/environments-and-code.md | anvil-docs/deployment/environments | anvil-docs | Live |  |
-| environments-_index | anvil-docs/deployment/environments/_index.md | anvil-docs/deployment/environments | anvil-docs | Live |  |
-| form-editor | anvil-docs/editor/form-editor.md | anvil-docs/editor | anvil-docs | Live |  |
-| keyboard-shortcuts | anvil-docs/editor/keyboard-shortcuts.md | anvil-docs/editor | anvil-docs | Live |  |
-| look-and-feel | anvil-docs/editor/look-and-feel.md | anvil-docs/editor | anvil-docs | Live |  |
-| editor-_index | anvil-docs/editor/_index.md | anvil-docs/editor | anvil-docs | Live |  |
-| profiling-and-tracing | anvil-docs/editor/app-logs/profiling-and-tracing.md | anvil-docs/editor/app-logs | anvil-docs | Live |  |
-| app-logs-_index | anvil-docs/editor/app-logs/_index.md | anvil-docs/editor/app-logs | anvil-docs | Live |  |
-| cloning-and-collaboration | anvil-docs/editor/app-settings/cloning-and-collaboration.md | anvil-docs/editor/app-settings | anvil-docs | Live |  |
-| app-settings-data-tables | anvil-docs/editor/app-settings/data-tables.md | anvil-docs/editor/app-settings | anvil-docs | Live |  |
-| titles-and-logos | anvil-docs/editor/app-settings/titles-and-logos.md | anvil-docs/editor/app-settings | anvil-docs | Live |  |
-| app-settings-_index | anvil-docs/editor/app-settings/_index.md | anvil-docs/editor/app-settings | anvil-docs | Live |  |
-| managed-enterprise | anvil-docs/enterprise/managed-enterprise.md | anvil-docs/enterprise | anvil-docs | Live |  |
-| trials | anvil-docs/enterprise/trials.md | anvil-docs/enterprise | anvil-docs | Live |  |
-| enterprise-_index | anvil-docs/enterprise/_index.md | anvil-docs/enterprise | anvil-docs | Live |  |
-| custom | anvil-docs/enterprise/deployment/custom.md | anvil-docs/enterprise/deployment | anvil-docs | Live |  |
-| docker | anvil-docs/enterprise/deployment/docker.md | anvil-docs/enterprise/deployment | anvil-docs | Live |  |
-| enterprise-deployment-index | anvil-docs/enterprise/deployment/_index.md | anvil-docs/enterprise/deployment | anvil-docs | Live |  |
-| aks | anvil-docs/enterprise/deployment/kubernetes/aks.md | anvil-docs/enterprise/deployment/kubernetes | anvil-docs | Live |  |
-| configuration | anvil-docs/enterprise/deployment/kubernetes/configuration.md | anvil-docs/enterprise/deployment/kubernetes | anvil-docs | Live |  |
-| eks | anvil-docs/enterprise/deployment/kubernetes/eks.md | anvil-docs/enterprise/deployment/kubernetes | anvil-docs | Live |  |
-| gke | anvil-docs/enterprise/deployment/kubernetes/gke.md | anvil-docs/enterprise/deployment/kubernetes | anvil-docs | Live |  |
-| installation | anvil-docs/enterprise/deployment/kubernetes/installation.md | anvil-docs/enterprise/deployment/kubernetes | anvil-docs | Live |  |
-| k3s | anvil-docs/enterprise/deployment/kubernetes/k3s.md | anvil-docs/enterprise/deployment/kubernetes | anvil-docs | Live |  |
-| k8s-prerequisites | anvil-docs/enterprise/deployment/kubernetes/k8s-prerequisites.md | anvil-docs/enterprise/deployment/kubernetes | anvil-docs | Live |  |
-| oke | anvil-docs/enterprise/deployment/kubernetes/oke.md | anvil-docs/enterprise/deployment/kubernetes | anvil-docs | Live |  |
-| openshift | anvil-docs/enterprise/deployment/kubernetes/openshift.md | anvil-docs/enterprise/deployment/kubernetes | anvil-docs | Live |  |
-| kubernetes-_index | anvil-docs/enterprise/deployment/kubernetes/_index.md | anvil-docs/enterprise/deployment/kubernetes | anvil-docs | Live |  |
-| changelog | anvil-docs/enterprise/deployment/operator/changelog.md | anvil-docs/enterprise/deployment/operator | anvil-docs | Live |  |
-| cluster | anvil-docs/enterprise/deployment/operator/cluster.md | anvil-docs/enterprise/deployment/operator | anvil-docs | Live |  |
-| restore | anvil-docs/enterprise/deployment/operator/restore.md | anvil-docs/enterprise/deployment/operator | anvil-docs | Live |  |
-| operator-_index | anvil-docs/enterprise/deployment/operator/_index.md | anvil-docs/enterprise/deployment/operator | anvil-docs | Live |  |
-| github | anvil-docs/enterprise/deployment/prerequisites/github.md | anvil-docs/enterprise/deployment/prerequisites | anvil-docs | Live |  |
-| google | anvil-docs/enterprise/deployment/prerequisites/google.md | anvil-docs/enterprise/deployment/prerequisites | anvil-docs | Live |  |
-| microsoft | anvil-docs/enterprise/deployment/prerequisites/microsoft.md | anvil-docs/enterprise/deployment/prerequisites | anvil-docs | Live |  |
-| tls-certificates | anvil-docs/enterprise/deployment/prerequisites/tls-certificates.md | anvil-docs/enterprise/deployment/prerequisites | anvil-docs | Live |  |
-| prerequisites-_index | anvil-docs/enterprise/deployment/prerequisites/_index.md | anvil-docs/enterprise/deployment/prerequisites | anvil-docs | Live |  |
-| external-resources-external-database | anvil-docs/external-resources/external-database.md | anvil-docs/external-resources | anvil-docs | Live |  |
-| external-resources-_index | anvil-docs/external-resources/_index.md | anvil-docs/external-resources | anvil-docs | Live |  |
-| http-apis-_index | anvil-docs/external-resources/http-apis/_index.md | anvil-docs/external-resources/http-apis | anvil-docs | Live |  |
-| authentication | anvil-docs/external-resources/http-apis/creating-http-endpoints/authentication.md | anvil-docs/external-resources/http-apis/creating-http-endpoints | anvil-docs | Live |  |
-| creating-http-endpoints-quickstart | anvil-docs/external-resources/http-apis/creating-http-endpoints/quickstart.md | anvil-docs/external-resources/http-apis/creating-http-endpoints | anvil-docs | Live |  |
-| security-cross-site | anvil-docs/external-resources/http-apis/creating-http-endpoints/security-cross-site.md | anvil-docs/external-resources/http-apis/creating-http-endpoints | anvil-docs | Live |  |
-| creating-http-endpoints-_index | anvil-docs/external-resources/http-apis/creating-http-endpoints/_index.md | anvil-docs/external-resources/http-apis/creating-http-endpoints | anvil-docs | Live |  |
-| making-http-requests-quickstart | anvil-docs/external-resources/http-apis/making-http-requests/quickstart.md | anvil-docs/external-resources/http-apis/making-http-requests | anvil-docs | Live |  |
-| making-http-requests-_index | anvil-docs/external-resources/http-apis/making-http-requests/_index.md | anvil-docs/external-resources/http-apis/making-http-requests | anvil-docs | Live |  |
-| calling-functions-remotely | anvil-docs/external-resources/uplink/calling-functions-remotely.md | anvil-docs/external-resources/uplink | anvil-docs | Live |  |
-| uplink-data-tables | anvil-docs/external-resources/uplink/data-tables.md | anvil-docs/external-resources/uplink | anvil-docs | Live |  |
-| uplink-dependencies | anvil-docs/external-resources/uplink/dependencies.md | anvil-docs/external-resources/uplink | anvil-docs | Live |  |
-| pico | anvil-docs/external-resources/uplink/pico.md | anvil-docs/external-resources/uplink | anvil-docs | Live |  |
-| uplink-quickstart | anvil-docs/external-resources/uplink/quickstart.md | anvil-docs/external-resources/uplink | anvil-docs | Live |  |
-| setting-up | anvil-docs/external-resources/uplink/setting-up.md | anvil-docs/external-resources/uplink | anvil-docs | Live |  |
-| uplink-security | anvil-docs/external-resources/uplink/uplink-security.md | anvil-docs/external-resources/uplink | anvil-docs | Live |  |
-| uplink-_index | anvil-docs/external-resources/uplink/_index.md | anvil-docs/external-resources/uplink | anvil-docs | Live |  |
-| build-first-app | anvil-docs/get-started/build-first-app.md | anvil-docs/get-started | anvil-docs | Live |  |
-| coming-from-scripting | anvil-docs/get-started/coming-from-scripting.md | anvil-docs/get-started | anvil-docs | Live |  |
-| coming-from-streamlit | anvil-docs/get-started/coming-from-streamlit.md | anvil-docs/get-started | anvil-docs | Live |  |
-| help | anvil-docs/get-started/help.md | anvil-docs/get-started | anvil-docs | Live |  |
-| how-does-it-work | anvil-docs/get-started/how-does-it-work.md | anvil-docs/get-started | anvil-docs | Live |  |
-| get-started-_index | anvil-docs/get-started/_index.md | anvil-docs/get-started | anvil-docs | Live |  |
-| collaborate-in-anvil | anvil-docs/how-to/collaborate-in-anvil.md | anvil-docs/how-to | anvil-docs | Live |  |
-| creating-material-3-colour-scheme | anvil-docs/how-to/creating-material-3-colour-scheme.md | anvil-docs/how-to | anvil-docs | Live |  |
-| crud-best-practice-guide | anvil-docs/how-to/crud-best-practice-guide.md | anvil-docs/how-to | anvil-docs | Live |  |
-| custom-user-auth | anvil-docs/how-to/custom-user-auth.md | anvil-docs/how-to | anvil-docs | Live |  |
-| customising-the-font | anvil-docs/how-to/customising-the-font.md | anvil-docs/how-to | anvil-docs | Live |  |
-| dropdowns-data-tables | anvil-docs/how-to/dropdowns-data-tables.md | anvil-docs/how-to | anvil-docs | Live |  |
-| embedding-webpage-iframe | anvil-docs/how-to/embedding-webpage-iframe.md | anvil-docs/how-to | anvil-docs | Live |  |
-| expand-collapse | anvil-docs/how-to/expand-collapse.md | anvil-docs/how-to | anvil-docs | Live |  |
-| how-to-external-database | anvil-docs/how-to/external-database.md | anvil-docs/how-to | anvil-docs | Live |  |
-| git-configuration | anvil-docs/how-to/git-configuration.md | anvil-docs/how-to | anvil-docs | Live |  |
-| plot | anvil-docs/how-to/plot.md | anvil-docs/how-to | anvil-docs | Live |  |
-| plotly-express | anvil-docs/how-to/plotly-express.md | anvil-docs/how-to | anvil-docs | Live |  |
-| porting-app-to-new-layouts | anvil-docs/how-to/porting-app-to-new-layouts.md | anvil-docs/how-to | anvil-docs | Live |  |
-| prompting-best-practices | anvil-docs/how-to/prompting-best-practices.md | anvil-docs/how-to | anvil-docs | Live |  |
-| serving-ui-from-http-routes | anvil-docs/how-to/serving-ui-from-http-routes.md | anvil-docs/how-to | anvil-docs | Live |  |
-| upload-large-files-to-s3 | anvil-docs/how-to/upload-large-files-to-s3.md | anvil-docs/how-to | anvil-docs | Live |  |
-| how-to-_index | anvil-docs/how-to/_index.md | anvil-docs/how-to | anvil-docs | Live |  |
-| linux-ssh-key-setup | anvil-docs/how-to/app-server/linux-ssh-key-setup.md | anvil-docs/how-to/app-server | anvil-docs | Live |  |
-| app-server-_index | anvil-docs/how-to/app-server/_index.md | anvil-docs/how-to/app-server | anvil-docs | Live |  |
-| aws-lightsail-app-server-deployment | anvil-docs/how-to/app-server/cloud-deployment-guides/aws-lightsail-app-server-deployment.md | anvil-docs/how-to/app-server/cloud-deployment-guides | anvil-docs | Live |  |
-| azure-app-server-deployment | anvil-docs/how-to/app-server/cloud-deployment-guides/azure-app-server-deployment.md | anvil-docs/how-to/app-server/cloud-deployment-guides | anvil-docs | Live |  |
-| digitalocean-app-server-deployment | anvil-docs/how-to/app-server/cloud-deployment-guides/digitalocean-app-server-deployment.md | anvil-docs/how-to/app-server/cloud-deployment-guides | anvil-docs | Live |  |
-| google-cloud-app-server-deployment | anvil-docs/how-to/app-server/cloud-deployment-guides/google-cloud-app-server-deployment.md | anvil-docs/how-to/app-server/cloud-deployment-guides | anvil-docs | Live |  |
-| linode-app-server-deployment | anvil-docs/how-to/app-server/cloud-deployment-guides/linode-app-server-deployment.md | anvil-docs/how-to/app-server/cloud-deployment-guides | anvil-docs | Live |  |
-| cloud-deployment-guides-_index | anvil-docs/how-to/app-server/cloud-deployment-guides/_index.md | anvil-docs/how-to/app-server/cloud-deployment-guides | anvil-docs | Live |  |
-| integrations-_index | anvil-docs/integrations/_index.md | anvil-docs/integrations | anvil-docs | Live |  |
-| linking-facebook-and-anvil | anvil-docs/integrations/facebook/linking-facebook-and-anvil.md | anvil-docs/integrations/facebook | anvil-docs | Live |  |
-| facebook-quickstart | anvil-docs/integrations/facebook/quickstart.md | anvil-docs/integrations/facebook | anvil-docs | Live |  |
-| facebook-_index | anvil-docs/integrations/facebook/_index.md | anvil-docs/integrations/facebook | anvil-docs | Live |  |
-| authenticating-users | anvil-docs/integrations/google/authenticating-users.md | anvil-docs/integrations/google | anvil-docs | Live |  |
-| gmail | anvil-docs/integrations/google/gmail.md | anvil-docs/integrations/google | anvil-docs | Live |  |
-| google-drive | anvil-docs/integrations/google/google-drive.md | anvil-docs/integrations/google | anvil-docs | Live |  |
-| google-rest-apis | anvil-docs/integrations/google/google-rest-apis.md | anvil-docs/integrations/google | anvil-docs | Live |  |
-| linking-google-and-anvil | anvil-docs/integrations/google/linking-google-and-anvil.md | anvil-docs/integrations/google | anvil-docs | Live |  |
-| google-quickstart | anvil-docs/integrations/google/quickstart.md | anvil-docs/integrations/google | anvil-docs | Live |  |
-| google-_index | anvil-docs/integrations/google/_index.md | anvil-docs/integrations/google | anvil-docs | Live |  |
-| accessing-microsoft-apis | anvil-docs/integrations/microsoft/accessing-microsoft-apis.md | anvil-docs/integrations/microsoft | anvil-docs | Live |  |
-| linking-azure-and-anvil | anvil-docs/integrations/microsoft/linking-azure-and-anvil.md | anvil-docs/integrations/microsoft | anvil-docs | Live |  |
-| microsoft-single-sign-on | anvil-docs/integrations/microsoft/microsoft-single-sign-on.md | anvil-docs/integrations/microsoft | anvil-docs | Live |  |
-| microsoft-quickstart | anvil-docs/integrations/microsoft/quickstart.md | anvil-docs/integrations/microsoft | anvil-docs | Live |  |
-| microsoft-_index | anvil-docs/integrations/microsoft/_index.md | anvil-docs/integrations/microsoft | anvil-docs | Live |  |
-| configuration-options | anvil-docs/integrations/saml/configuration-options.md | anvil-docs/integrations/saml | anvil-docs | Live |  |
-| saml-quickstart | anvil-docs/integrations/saml/quickstart.md | anvil-docs/integrations/saml | anvil-docs | Live |  |
-| sharing-credentials-across-apps | anvil-docs/integrations/saml/sharing-credentials-across-apps.md | anvil-docs/integrations/saml | anvil-docs | Live |  |
-| saml-_index | anvil-docs/integrations/saml/_index.md | anvil-docs/integrations/saml | anvil-docs | Live |  |
-| payments-and-subscriptions | anvil-docs/integrations/stripe/payments-and-subscriptions.md | anvil-docs/integrations/stripe | anvil-docs | Live |  |
-| stripe-quickstart | anvil-docs/integrations/stripe/quickstart.md | anvil-docs/integrations/stripe | anvil-docs | Live |  |
-| raw-api-tokens | anvil-docs/integrations/stripe/raw-api-tokens.md | anvil-docs/integrations/stripe | anvil-docs | Live |  |
-| stripe-_index | anvil-docs/integrations/stripe/_index.md | anvil-docs/integrations/stripe | anvil-docs | Live |  |
-| buying | anvil-docs/integrations/x/buying.md | anvil-docs/integrations/x | anvil-docs | Live |  |
-| data-tables-in-tableau | anvil-docs/integrations/x/data-tables-in-tableau.md | anvil-docs/integrations/x | anvil-docs | Live |  |
-| publishing | anvil-docs/integrations/x/publishing.md | anvil-docs/integrations/x | anvil-docs | Live |  |
-| x-quickstart | anvil-docs/integrations/x/quickstart.md | anvil-docs/integrations/x | anvil-docs | Live |  |
-| tableau-extensions-api | anvil-docs/integrations/x/tableau-extensions-api.md | anvil-docs/integrations/x | anvil-docs | Live |  |
-| testing-in-tableau | anvil-docs/integrations/x/testing-in-tableau.md | anvil-docs/integrations/x | anvil-docs | Live |  |
-| trexjacket | anvil-docs/integrations/x/trexjacket.md | anvil-docs/integrations/x | anvil-docs | Live |  |
-| x-_index | anvil-docs/integrations/x/_index.md | anvil-docs/integrations/x | anvil-docs | Live |  |
-| error-reporting | anvil-docs/other-concepts/error-reporting.md | anvil-docs/other-concepts | anvil-docs | Live |  |
-| other-concepts-_index | anvil-docs/other-concepts/_index.md | anvil-docs/other-concepts | anvil-docs | Live |  |
-| creating-pdf-files-quickstart | anvil-docs/other-concepts/creating-pdf-files/quickstart.md | anvil-docs/other-concepts/creating-pdf-files | anvil-docs | Live |  |
-| creating-pdf-files-_index | anvil-docs/other-concepts/creating-pdf-files/_index.md | anvil-docs/other-concepts/creating-pdf-files | anvil-docs | Live |  |
-| capabilities | anvil-docs/other-concepts/portable-classes/capabilities.md | anvil-docs/other-concepts/portable-classes | anvil-docs | Live |  |
-| capability-scoped-cache-updates | anvil-docs/other-concepts/portable-classes/capability-scoped-cache-updates.md | anvil-docs/other-concepts/portable-classes | anvil-docs | Live |  |
-| custom-serialisation | anvil-docs/other-concepts/portable-classes/custom-serialisation.md | anvil-docs/other-concepts/portable-classes | anvil-docs | Live |  |
-| server-methods | anvil-docs/other-concepts/portable-classes/server-methods.md | anvil-docs/other-concepts/portable-classes | anvil-docs | Live |  |
-| portable-classes-_index | anvil-docs/other-concepts/portable-classes/_index.md | anvil-docs/other-concepts/portable-classes | anvil-docs | Live |  |
-| working-with-files-_index | anvil-docs/other-concepts/working-with-files/_index.md | anvil-docs/other-concepts/working-with-files | anvil-docs | Live |  |
-| files-on-disk | anvil-docs/other-concepts/working-with-files/media/files-on-disk.md | anvil-docs/other-concepts/working-with-files/media | anvil-docs | Live |  |
-| image-manipulation | anvil-docs/other-concepts/working-with-files/media/image-manipulation.md | anvil-docs/other-concepts/working-with-files/media | anvil-docs | Live |  |
-| media-quickstart | anvil-docs/other-concepts/working-with-files/media/quickstart.md | anvil-docs/other-concepts/working-with-files/media | anvil-docs | Live |  |
-| media-_index | anvil-docs/other-concepts/working-with-files/media/_index.md | anvil-docs/other-concepts/working-with-files/media | anvil-docs | Live |  |
-| faq | anvil-docs/overview/faq.md | anvil-docs/overview | anvil-docs | Live |  |
-| quickstarts | anvil-docs/overview/quickstarts.md | anvil-docs/overview | anvil-docs | Live |  |
-| overview-_index | anvil-docs/overview/_index.md | anvil-docs/overview | anvil-docs | Live |  |
-| account-management | anvil-docs/plans-and-accounts/account-management.md | anvil-docs/plans-and-accounts | anvil-docs | Live |  |
-| choosing-the-right-plan | anvil-docs/plans-and-accounts/choosing-the-right-plan.md | anvil-docs/plans-and-accounts | anvil-docs | Live |  |
-| enterprise | anvil-docs/plans-and-accounts/enterprise.md | anvil-docs/plans-and-accounts | anvil-docs | Live |  |
-| free-vs-paid | anvil-docs/plans-and-accounts/free-vs-paid.md | anvil-docs/plans-and-accounts | anvil-docs | Live |  |
-| plans-and-accounts-_index | anvil-docs/plans-and-accounts/_index.md | anvil-docs/plans-and-accounts | anvil-docs | Live |  |
-| call-context | anvil-docs/server/call-context.md | anvil-docs/server | anvil-docs | Live |  |
-| offline-apps | anvil-docs/server/offline-apps.md | anvil-docs/server | anvil-docs | Live |  |
-| scheduled-tasks | anvil-docs/server/scheduled-tasks.md | anvil-docs/server | anvil-docs | Live |  |
-| scripts | anvil-docs/server/scripts.md | anvil-docs/server | anvil-docs | Live |  |
-| sessions-and-cookies | anvil-docs/server/sessions-and-cookies.md | anvil-docs/server | anvil-docs | Live |  |
-| server-_index | anvil-docs/server/_index.md | anvil-docs/server | anvil-docs | Live |  |
-| communicating-back | anvil-docs/server/background-tasks/communicating-back.md | anvil-docs/server/background-tasks | anvil-docs | Live |  |
-| defining-and-running | anvil-docs/server/background-tasks/defining-and-running.md | anvil-docs/server/background-tasks | anvil-docs | Live |  |
-| background-tasks-quickstart | anvil-docs/server/background-tasks/quickstart.md | anvil-docs/server/background-tasks | anvil-docs | Live |  |
-| background-tasks-_index | anvil-docs/server/background-tasks/_index.md | anvil-docs/server/background-tasks | anvil-docs | Live |  |
-| packages | anvil-docs/server/custom-packages/packages.md | anvil-docs/server/custom-packages | anvil-docs | Live |  |
-| custom-packages-_index | anvil-docs/server/custom-packages/_index.md | anvil-docs/server/custom-packages | anvil-docs | Live |  |
-| attachments | anvil-docs/server/email/attachments.md | anvil-docs/server/email | anvil-docs | Live |  |
-| email-quickstart | anvil-docs/server/email/quickstart.md | anvil-docs/server/email | anvil-docs | Live |  |
-| security-and-dkim | anvil-docs/server/email/security-and-dkim.md | anvil-docs/server/email | anvil-docs | Live |  |
-| sending-and-receiving | anvil-docs/server/email/sending-and-receiving.md | anvil-docs/server/email | anvil-docs | Live |  |
-| email-_index | anvil-docs/server/email/_index.md | anvil-docs/server/email | anvil-docs | Live |  |
-| server-modules-quickstart | anvil-docs/server/server-modules/quickstart.md | anvil-docs/server/server-modules | anvil-docs | Live |  |
-| server-modules-_index | anvil-docs/server/server-modules/_index.md | anvil-docs/server/server-modules | anvil-docs | Live |  |
-| tests-README | anvil-docs/tests/README.md | anvil-docs/tests | anvil-docs | Live |  |
-| SmokeTest-README | anvil-docs/tests/apps/SmokeTest/README.md | anvil-docs/tests/apps/SmokeTest | anvil-docs | Live |  |
-| authentication-choices | anvil-docs/users/authentication-choices.md | anvil-docs/users | anvil-docs | Live |  |
-| configuring-emails | anvil-docs/users/configuring-emails.md | anvil-docs/users | anvil-docs | Live |  |
-| logging-in-using-code | anvil-docs/users/logging-in-using-code.md | anvil-docs/users | anvil-docs | Live |  |
-| permissions | anvil-docs/users/permissions.md | anvil-docs/users | anvil-docs | Live |  |
-| presenting-a-login-form | anvil-docs/users/presenting-a-login-form.md | anvil-docs/users | anvil-docs | Live |  |
-| quickstart-login | anvil-docs/users/quickstart-login.md | anvil-docs/users | anvil-docs | Live |  |
-| quickstart-permissions | anvil-docs/users/quickstart-permissions.md | anvil-docs/users | anvil-docs | Live |  |
-| the-users-table | anvil-docs/users/the-users-table.md | anvil-docs/users | anvil-docs | Live |  |
-| two-factor-authentication | anvil-docs/users/two-factor-authentication.md | anvil-docs/users | anvil-docs | Live |  |
-| users-_index | anvil-docs/users/_index.md | anvil-docs/users | anvil-docs | Live |  |
-| commands | anvil-docs/using-another-ide/commands.md | anvil-docs/using-another-ide | anvil-docs | Live |  |
-| creating-and-editing-apps | anvil-docs/using-another-ide/creating-and-editing-apps.md | anvil-docs/using-another-ide | anvil-docs | Live |  |
-| using-another-ide-quickstart | anvil-docs/using-another-ide/quickstart.md | anvil-docs/using-another-ide | anvil-docs | Live |  |
-| using-another-ide-_index | anvil-docs/using-another-ide/_index.md | anvil-docs/using-another-ide | anvil-docs | Live |  |
-| dealing-with-timezones | anvil-docs/workflows/dealing-with-timezones.md | anvil-docs/workflows | anvil-docs | Live |  |
-| workflows-_index | anvil-docs/workflows/_index.md | anvil-docs/workflows | anvil-docs | Live |  |
-| how-to-import-things | anvil-docs/workflows/app-architecture/how-to-import-things.md | anvil-docs/workflows/app-architecture | anvil-docs | Live |  |
-| python-directory-structure | anvil-docs/workflows/app-architecture/python-directory-structure.md | anvil-docs/workflows/app-architecture | anvil-docs | Live |  |
-| structuring-your-app | anvil-docs/workflows/app-architecture/structuring-your-app.md | anvil-docs/workflows/app-architecture | anvil-docs | Live |  |
-| app-architecture-_index | anvil-docs/workflows/app-architecture/_index.md | anvil-docs/workflows/app-architecture | anvil-docs | Live |  |
-| additional-debugging-tools | anvil-docs/workflows/debugger/additional-debugging-tools.md | anvil-docs/workflows/debugger | anvil-docs | Live |  |
-| interactive-debugger | anvil-docs/workflows/debugger/interactive-debugger.md | anvil-docs/workflows/debugger | anvil-docs | Live |  |
-| debugger-_index | anvil-docs/workflows/debugger/_index.md | anvil-docs/workflows/debugger | anvil-docs | Live |  |
-| encrypting-secret-data | anvil-docs/workflows/security/encrypting-secret-data.md | anvil-docs/workflows/security | anvil-docs | Live |  |
-| security-_index | anvil-docs/workflows/security/_index.md | anvil-docs/workflows/security | anvil-docs | Live |  |
-| collaborators | anvil-docs/workflows/version-control/collaborators.md | anvil-docs/workflows/version-control | anvil-docs | Live |  |
-| version-control-quickstart | anvil-docs/workflows/version-control/quickstart.md | anvil-docs/workflows/version-control | anvil-docs | Live |  |
-| version-control-anvil | anvil-docs/workflows/version-control/version-control-anvil.md | anvil-docs/workflows/version-control | anvil-docs | Live |  |
-| what-is-version-control | anvil-docs/workflows/version-control/what-is-version-control.md | anvil-docs/workflows/version-control | anvil-docs | Live |  |
-| workflows | anvil-docs/workflows/version-control/workflows.md | anvil-docs/workflows/version-control | anvil-docs | Live |  |
-| version-control-_index | anvil-docs/workflows/version-control/_index.md | anvil-docs/workflows/version-control | anvil-docs | Live |  |
-| direct-checkout | anvil-docs/workflows/version-control/git/direct-checkout.md | anvil-docs/workflows/version-control/git | anvil-docs | Live |  |
-| git-quickstart | anvil-docs/workflows/version-control/git/quickstart.md | anvil-docs/workflows/version-control/git | anvil-docs | Live |  |
-| secrets-across-repos | anvil-docs/workflows/version-control/git/secrets-across-repos.md | anvil-docs/workflows/version-control/git | anvil-docs | Live |  |
-| git-_index | anvil-docs/workflows/version-control/git/_index.md | anvil-docs/workflows/version-control/git | anvil-docs | Live |  |
-| plg-readme | README.md | . | readme | Live | 2026-09-11 | 2026-09-11 | | registered by align-docs re-validation run |
-| adr-anvil-platform-constraints | adr-global/adr-anvil-platform-constraints.md | adr-global | adr | Live | registered by align-docs 2026-09-17 (was on disk, missing from register) |
-| adr-data-access-patterns | adr-global/adr-data-access-patterns.md | adr-global | adr | Live | registered by align-docs 2026-09-17 (was on disk, missing from register) |
-| adr-form-architecture-and-state | adr-global/adr-form-architecture-and-state.md | adr-global | adr | Live | registered by align-docs 2026-09-17 (was on disk, missing from register) |
-| adr-pdf-invoice-generation | adr-global/adr-pdf-invoice-generation.md | adr-global | adr | Live | registered by align-docs 2026-09-17 (was on disk, missing from register) |
-| adr-real-time-and-background-tasks | adr-global/adr-real-time-and-background-tasks.md | adr-global | adr | Live | registered by align-docs 2026-09-17 (was on disk, missing from register) |
-| adr-ui-customization-approach | adr-global/adr-ui-customization-approach.md | adr-global | adr | Live | registered by align-docs 2026-09-17 (was on disk, missing from register) |
-| adr-webhook-architecture | adr-global/adr-webhook-architecture.md | adr-global | adr | Live | registered by align-docs 2026-09-17 (was on disk, missing from register) |
-| spec-mastertemplate-notification-system | specifications-global/spec-mastertemplate-notification-system.md | specifications-global | spec | Live | registered by align-docs 2026-09-17 (was on disk, missing from register) |
-| spec-mybizz-management-app-notification-system | specifications-global/spec-mybizz-management-app-notification-system.md | specifications-global | spec | Live | registered by align-docs 2026-09-17 (was on disk, missing from register) |
-| no_bash_mediated_file_writes_without_grant | rules-cupcake-global/no_bash_mediated_file_writes_without_grant.md | rules-cupcake-global | rule | Live | registered by align-docs 2026-09-17 (was on disk, missing from register) |
 
 ## Field definitions
 

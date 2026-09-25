@@ -1,13 +1,7 @@
 ---
-document: "anvil.google.mail"
 title: "anvil.google.mail"
-url: "/docs/api/anvil.google.mail"
-doc-id: anvil.google.mail
-state: Live
-date-created: 2026-09-08
+doc-id: "anvil.google.mail"
 ---
-
-
 ## `anvil.google.mail` Module
 
 #### Functions

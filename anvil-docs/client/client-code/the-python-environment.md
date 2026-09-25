@@ -1,13 +1,7 @@
 ---
-document: "The Python Environment"
-title: "The Python Environment"
-url: "/docs/client/client-code/the-python-environment"
-doc-id: the-python-environment
-state: Live
-date-created: 2026-09-08
+title: "the-python-environment"
+doc-id: "the-python-environment"
 ---
-
-
 # [The Client-side Python Environment](#the-client-side-python-environment)
 
 Your Form code, which runs in the browser, runs in approximately Python 3.7. We say “approximately”, because in fact your Python code is being compiled to Javascript so it can run right in the user’s browser.

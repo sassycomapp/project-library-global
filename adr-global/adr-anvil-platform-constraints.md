@@ -1,8 +1,6 @@
 ---
-document: "`anvil-platform-constraints` ADR — Anvil Platform Constraints and Design Boundaries"
-doc-id: adr-anvil-platform-constraints
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-anvil-platform-constraints"
+doc-id: "adr-anvil-platform-constraints"
 ---
 # `anvil-platform-constraints` ADR — Anvil Platform Constraints and Design Boundaries
 

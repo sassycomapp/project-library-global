@@ -1,13 +1,7 @@
 ---
-document: "Payments and Subscriptions"
-title: "Payments and Subscriptions"
-url: "/docs/integrations/stripe/payments-and-subscriptions"
-doc-id: payments-and-subscriptions
-state: Live
-date-created: 2026-09-08
+title: "payments-and-subscriptions"
+doc-id: "payments-and-subscriptions"
 ---
-
-
 # [Payments and Subscriptions](#payments-and-subscriptions)
 
 Add the Stripe service to your project to accept credit card payments through [Stripe](https://stripe.com) in your app.

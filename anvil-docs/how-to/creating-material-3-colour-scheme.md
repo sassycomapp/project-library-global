@@ -1,13 +1,7 @@
 ---
-document: "Custom M3 colour schemes"
-title: "Custom M3 colour schemes"
-url: "/docs/how-to/creating-material-3-colour-scheme"
-doc-id: creating-material-3-colour-scheme
-state: Live
-date-created: 2026-09-08
+title: "creating-material-3-colour-scheme"
+doc-id: "creating-material-3-colour-scheme"
 ---
-
-
 # [Creating a custom Material Design 3 colour scheme](#creating-a-custom-material-design-3-colour-scheme)
 
 Anvil’s Material Design 3 theme is based on [Google’s latest version of Material Design](https://m3.material.io/) (also called M3), which is all about personalization and flexibility. The Anvil theme uses M3’s default light colour scheme, but allows you to pick from a number of predefined colour schemes.

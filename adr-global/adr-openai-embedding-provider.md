@@ -1,8 +1,6 @@
 ---
-document: OpenAI Must Remain the Embedding Provider
-doc-id: adr-openai-embedding-provider
-state: Live
-date-created: 2026-08-12T000000+0200
+title: "adr-openai-embedding-provider"
+doc-id: "adr-openai-embedding-provider"
 ---
 # OpenAI Must Remain the Embedding Provider
 

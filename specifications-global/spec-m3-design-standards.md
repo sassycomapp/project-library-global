@@ -1,8 +1,6 @@
 ---
-document: PDLF Standards Library — M3 Design & Component Standards
-doc-id: spec-m3-design-standards
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-m3-design-standards"
+doc-id: "spec-m3-design-standards"
 ---
 # PDLF Standards Library — M3 Design & Component Standards
 

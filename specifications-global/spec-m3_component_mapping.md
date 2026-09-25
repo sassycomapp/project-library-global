@@ -1,8 +1,6 @@
 ---
-document: m3_component_mapping.md
-doc-id: spec-m3_component_mapping
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-m3_component_mapping"
+doc-id: "spec-m3_component_mapping"
 ---
 ***
 

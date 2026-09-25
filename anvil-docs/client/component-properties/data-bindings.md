@@ -1,13 +1,7 @@
 ---
-document: "Data Bindings"
-title: "Data Bindings"
-url: "/docs/client/component-properties/data-bindings"
-doc-id: data-bindings
-state: Live
-date-created: 2026-09-08
+title: "data-bindings"
+doc-id: "data-bindings"
 ---
-
-
 # [Data Bindings](#data-bindings)
 
 Data Bindings are a way of keeping a component’s properties in sync with the underlying data with minimal effort. A Data Binding associates a property of a component with a single Python expression.

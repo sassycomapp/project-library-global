@@ -1,13 +1,7 @@
 ---
-document: "Quickstart"
-title: "Quickstart"
-url: "/docs/server/background-tasks/quickstart"
-doc-id: background-tasks-quickstart
-state: Live
-date-created: 2026-09-08
+title: "quickstart"
+doc-id: "quickstart"
 ---
-
-
 # [Quickstart: Background Tasks](#quickstart-background-tasks)
 
 If you need to run a process that takes a long time, you want your app to carry on running while it executes.

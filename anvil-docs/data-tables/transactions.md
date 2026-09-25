@@ -1,13 +1,7 @@
 ---
-document: "Transactions"
-title: "Transactions"
-url: "/docs/data-tables/transactions"
-doc-id: transactions
-state: Live
-date-created: 2026-09-08
+title: "transactions"
+doc-id: "transactions"
 ---
-
-
 # [Transactions](#transactions)
 
 If multiple users are accessing data at the same time, you might want to place your data table operations in a *transaction*. This ensures your Data Table operations are carried out as a group.

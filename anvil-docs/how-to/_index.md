@@ -1,13 +1,7 @@
 ---
-document: "How-to Guides"
-title: "How-to Guides"
-url: "/docs/how-to"
-doc-id: how-to-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Anvil How-to Guides](#anvil-how-to-guides)
 
 Anvil’s how-to guides show you how to accomplish specific tasks. These tasks are small use-cases that appear often in Anvil apps.

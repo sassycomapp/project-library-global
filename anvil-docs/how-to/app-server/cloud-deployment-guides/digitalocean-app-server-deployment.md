@@ -1,13 +1,7 @@
 ---
-document: "DigitalOcean Droplet"
-title: "DigitalOcean Droplet"
-url: "/docs/how-to/app-server/cloud-deployment-guides/digitalocean-app-server-deployment"
-doc-id: digitalocean-app-server-deployment
-state: Live
-date-created: 2026-09-08
+title: "digitalocean-app-server-deployment"
+doc-id: "digitalocean-app-server-deployment"
 ---
-
-
 # [How to use Anvil’s open-source App Server on a DigitalOcean Droplet](#how-to-use-anvils-open-source-app-server-on-a-digitalocean-droplet)
 
 ## [Introduction](#introduction)

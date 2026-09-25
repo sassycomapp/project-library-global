@@ -1,13 +1,7 @@
 ---
-document: "Keyboard Shortcuts"
-title: "Keyboard Shortcuts"
-url: "/docs/editor/keyboard-shortcuts"
-doc-id: keyboard-shortcuts
-state: Live
-date-created: 2026-09-08
+title: "keyboard-shortcuts"
+doc-id: "keyboard-shortcuts"
 ---
-
-
 # [Keyboard Shortcuts](#keyboard-shortcuts)
 
 There are several keyboard shortcuts available in the Anvil Editor. If you are using a Mac, you can use `Cmd` instead of `Ctrl` everywhere if you prefer, but you’ll need to use `Option` instead of `Alt`.

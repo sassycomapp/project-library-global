@@ -1,10 +1,7 @@
 ---
-document: "`mybizz-management-app-notification-system` Spec — Platform-to-Client Notification Console"
-doc-id: spec-mybizz-management-app-notification-system
-state: Draft
-date-created: 2026-09-15
+title: "spec-mybizz-management-app-notification-system"
+doc-id: "spec-mybizz-management-app-notification-system"
 ---
-
 # `mybizz-management-app-notification-system` Spec — Platform-to-Client Notification Console
 
 **Status:** Draft — for review

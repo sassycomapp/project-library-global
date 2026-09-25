@@ -1,10 +1,7 @@
 ---
-document: "README"
-doc-id: tests-README
-state: Live
-date-created: 2026-09-08
+title: "README"
+doc-id: "README"
 ---
-
 I just want to run the tests
 
 1. ./run_tests

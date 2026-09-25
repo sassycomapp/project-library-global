@@ -1,13 +1,7 @@
 ---
-document: "Communicating with Background Tasks"
-title: "Communicating with Background Tasks"
-url: "/docs/server/background-tasks/communicating-back"
-doc-id: communicating-back
-state: Live
-date-created: 2026-09-08
+title: "communicating-back"
+doc-id: "communicating-back"
 ---
-
-
 # [Communicating with Background Tasks](#communicating-with-background-tasks)
 
 Each instance of a Background Task is associated with a Task object that can be used to get the task’s current status, and any data the task has passed to the main program.

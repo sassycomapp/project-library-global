@@ -1,13 +1,7 @@
 ---
-document: "HTML Forms"
-title: "HTML Forms"
-url: "/docs/client/customisation/javascript/html-forms"
-doc-id: html-forms
-state: Live
-date-created: 2026-09-08
+title: "html-forms"
+doc-id: "html-forms"
 ---
-
-
 # [HTML Forms](#html-forms)
 
 All [HTML Forms](/docs/ui/layouts/html-layouts) have an underlying HTML Template. HTML Forms are able to call JavaScript functions defined within the HTML Template.

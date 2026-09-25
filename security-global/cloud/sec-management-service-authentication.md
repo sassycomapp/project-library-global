@@ -1,9 +1,6 @@
 ---
-document: "Management Service Authentication"
-doc-id: sec-management-service-authentication
-state: Live
-date-created: 2026-08-27
-category: cloud
+title: "sec-management-service-authentication"
+doc-id: "sec-management-service-authentication"
 ---
 # Management Service Authentication
 

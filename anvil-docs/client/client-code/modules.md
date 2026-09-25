@@ -1,13 +1,7 @@
 ---
-document: "Modules"
-title: "Modules"
-url: "/docs/client/client-code/modules"
-doc-id: modules
-state: Live
-date-created: 2026-09-08
+title: "modules"
+doc-id: "modules"
 ---
-
-
 # [Modules](#modules)
 
 Modules allow you to write code that exists independently of your Forms. They also allow you to write code that can be used on the server and in the browser.

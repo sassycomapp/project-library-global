@@ -1,13 +1,7 @@
 ---
-document: "How does it work?"
-title: "How does it work?"
-url: "/docs/get-started/how-does-it-work"
-doc-id: how-does-it-work
-state: Live
-date-created: 2026-09-08
+title: "how-does-it-work"
+doc-id: "how-does-it-work"
 ---
-
-
 # [How does Anvil work?](#how-does-anvil-work)
 
 Anvil is an online IDE for building web apps entirely in Python and deploying them on the web. You [build your front-end](#building-your-ui) and [back-end in Python](#creating-your-backend-server-code), and there’s even a [Python database](#storing-data-in-databases). Anvil hosts your apps for you, so there’s nothing to install and no servers to set up (unless you’re self-hosting).

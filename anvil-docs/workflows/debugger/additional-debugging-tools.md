@@ -1,13 +1,7 @@
 ---
-document: "Additional Debugging Tools"
-title: "Additional Debugging Tools"
-url: "/docs/workflows/debugger/additional-debugging-tools"
-doc-id: additional-debugging-tools
-state: Live
-date-created: 2026-09-08
+title: "additional-debugging-tools"
+doc-id: "additional-debugging-tools"
 ---
-
-
 # [Additional Debugging Tools in Anvil](#additional-debugging-tools-in-anvil)
 
 In addition to the Interactive Debugger, Anvil has the [**Server Console**](/docs/editor#server-console) and [**Running App Console**](/docs/editor#app-console), which can be useful for debugging both server-side and client-side logic, respectively.

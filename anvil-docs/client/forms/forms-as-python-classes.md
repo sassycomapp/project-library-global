@@ -1,13 +1,7 @@
 ---
-document: "Forms as Python Classes"
-title: "Forms as Python Classes"
-url: "/docs/client/forms/forms-as-python-classes"
-doc-id: forms-as-python-classes
-state: Live
-date-created: 2026-09-08
+title: "forms-as-python-classes"
+doc-id: "forms-as-python-classes"
 ---
-
-
 # [Forms as Python Classes](#forms-as-python-classes)
 
 Each Form is represented by a Python package that defines a class with the same name as the Form. This class inherits from a class called `<FormName>Template`, which defines the basic structure of the Form.

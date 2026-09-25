@@ -1,13 +1,7 @@
 ---
-document: "stripe.checkout"
 title: "stripe.checkout"
-url: "/docs/api/stripe.checkout"
-doc-id: stripe.checkout
-state: Live
-date-created: 2026-09-08
+doc-id: "stripe.checkout"
 ---
-
-
 ## `stripe.checkout` Module
 
 #### Functions

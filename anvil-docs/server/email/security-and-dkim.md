@@ -1,13 +1,7 @@
 ---
-document: "Security and DKIM"
-title: "Security and DKIM"
-url: "/docs/server/email/security-and-dkim"
-doc-id: security-and-dkim
-state: Live
-date-created: 2026-09-08
+title: "security-and-dkim"
+doc-id: "security-and-dkim"
 ---
-
-
 # [Trusting Incoming Email](#trusting-incoming-email)
 
 Email is easy to *spoof* - to give it an inaccurate `From` address. Therefore, it’s important not to do drastic things (eg release sensitive data) just because you got an email claiming to be from someone.

@@ -1,10 +1,7 @@
 ---
-document: "Rule: Protected AI Governance Files May Not Be Modified"
-doc-id: protected_ai_governance_files_may_not_be_modified
-state: Live
-date-created: 2026-09-05
+title: "protected_ai_governance_files_may_not_be_modified"
+doc-id: "protected_ai_governance_files_may_not_be_modified"
 ---
-
 # Rule: Protected AI Governance Files May Not Be Modified
 
 ## Harness

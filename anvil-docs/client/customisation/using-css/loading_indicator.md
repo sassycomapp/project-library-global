@@ -1,13 +1,7 @@
 ---
-document: "Customising the Loading Indicator"
-title: "Customising the Loading Indicator"
-url: "/docs/client/customisation/using-css/loading_indicator"
-doc-id: loading_indicator
-state: Live
-date-created: 2026-09-08
+title: "loading_indicator"
+doc-id: "loading_indicator"
 ---
-
-
 # [Loading Indicator](#loading-indicator)
 
 A loading indicator is displayed when your app is retrieving data. This stops users from being able to interact with your app while the server returns data.

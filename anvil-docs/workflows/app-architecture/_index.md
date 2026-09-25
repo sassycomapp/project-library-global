@@ -1,13 +1,7 @@
 ---
-document: "Anvil App Architecture"
-title: "Anvil App Architecture"
-url: "/docs/workflows/app-architecture"
-doc-id: app-architecture-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [App architecture](#app-architecture)
 
 Anvil is a platform for building full-stack web applications with nothing but Python. But what exactly is a web application? And how does the structure of an Anvil app compare to that of a traditional web app?

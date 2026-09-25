@@ -1,9 +1,6 @@
 ---
-document: "Principle — Defense in Depth"
-doc-id: sec-defense-in-depth
-state: Live
-date-created: 2026-08-27
-category: principles
+title: "sec-defense-in-depth"
+doc-id: "sec-defense-in-depth"
 ---
 # Principle — Defense in Depth
 

@@ -1,9 +1,6 @@
 ---
-document: "Backup and Recovery Integrity"
-doc-id: sec-backup-recovery-integrity
-state: Live
-date-created: 2026-08-27
-category: infrastructure
+title: "sec-backup-recovery-integrity"
+doc-id: "sec-backup-recovery-integrity"
 ---
 # Backup and Recovery Integrity
 

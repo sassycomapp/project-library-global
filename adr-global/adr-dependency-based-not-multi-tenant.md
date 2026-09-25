@@ -1,8 +1,6 @@
 ---
-document: "`dependency-based-not-multi-tenant` ADR — Mybizz CS is a Dependency-Based Architecture, Not a Multi-Tenant Architecture"
-doc-id: adr-dependency-based-not-multi-tenant
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-dependency-based-not-multi-tenant"
+doc-id: "adr-dependency-based-not-multi-tenant"
 ---
 # `dependency-based-not-multi-tenant` ADR — Mybizz CS is a Dependency-Based Architecture, Not a Multi-Tenant Architecture
 

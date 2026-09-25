@@ -1,13 +1,7 @@
 ---
-document: "Testing your extension"
-title: "Testing your extension"
-url: "/docs/integrations/x/testing-in-tableau"
-doc-id: testing-in-tableau
-state: Live
-date-created: 2026-09-08
+title: "testing-in-tableau"
+doc-id: "testing-in-tableau"
 ---
-
-
 # [Testing your extension in Tableau](#testing-your-extension-in-tableau)
 
 As you develop your Tableau extension, you’ll want to test it in a Tableau dashboard. To set this up, click **Test in Tableau** in the top right of the Anvil Editor.

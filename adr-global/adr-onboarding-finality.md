@@ -1,8 +1,6 @@
 ---
-document: Onboarding Finality
-doc-id: adr-onboarding-finality
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-onboarding-finality"
+doc-id: "adr-onboarding-finality"
 ---
 # Onboarding Finality
 Date: 2026-05-31

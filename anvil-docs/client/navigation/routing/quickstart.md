@@ -1,13 +1,7 @@
 ---
-document: "Quickstart"
-title: "Quickstart"
-url: "/docs/client/navigation/routing/quickstart"
-doc-id: routing-quickstart
-state: Live
-date-created: 2026-09-08
+title: "quickstart"
+doc-id: "quickstart"
 ---
-
-
 # [Get started with routing quickly](#get-started-with-routing-quickly)
 
 Follow this Quickstart guide to set up a basic routing-enabled app. Learn how to make the browser’s URL reflect the state of the app, define Route objects and navigate through pages of your app.

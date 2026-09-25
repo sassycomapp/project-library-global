@@ -1,12 +1,7 @@
 ---
-document: "FAQ"
-title: "FAQ"
-url: "/docs/overview/faq"
-doc-id: faq
-state: Live
-date-created: 2026-09-08
+title: "faq"
+doc-id: "faq"
 ---
-
 # [FAQ](#faq)
 
 Find quick answers to common questions about building apps with Anvil.

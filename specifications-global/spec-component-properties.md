@@ -1,8 +1,6 @@
 ---
-document: Mybizz CS — Component Properties Specification
-doc-id: spec-component-properties
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-component-properties"
+doc-id: "spec-component-properties"
 ---
 # Mybizz CS — Component Properties Specification
 

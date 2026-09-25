@@ -1,9 +1,6 @@
 ---
-document: "Requirement — New Data Table Creation"
-doc-id: sec-requirements-data-table-creation
-state: Live
-date-created: 2026-08-27
-category: requirements
+title: "sec-requirements-data-table-creation"
+doc-id: "sec-requirements-data-table-creation"
 ---
 # Requirement — New Data Table Creation
 

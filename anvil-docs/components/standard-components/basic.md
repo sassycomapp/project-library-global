@@ -1,13 +1,7 @@
 ---
-document: "Basic Components"
-title: "Basic Components"
-url: "/docs/components/standard-components/basic"
-doc-id: basic
-state: Live
-date-created: 2026-09-08
+title: "basic"
+doc-id: "basic"
 ---
-
-
 # [Basic Components](#basic-components)
 
 This is a list of the basic components available in Anvil.

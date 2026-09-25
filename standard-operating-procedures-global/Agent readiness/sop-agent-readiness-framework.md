@@ -1,8 +1,6 @@
 ---
-document: Agent Readiness Framework
-doc-id: sop-agent-readiness-framework
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "sop-agent-readiness-framework"
+doc-id: "sop-agent-readiness-framework"
 ---
 # Agent Readiness Framework
 

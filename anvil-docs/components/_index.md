@@ -1,13 +1,7 @@
 ---
-document: "Components"
-title: "Components"
-url: "/docs/components"
-doc-id: components-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Component Libraries](#component-libraries)
 
 In Anvil, you build your UI by [adding components](/docs/client/adding-ui-elements) to [Forms](/docs/client/forms), either via code or dragging and dropping. These components are just Python objects.

@@ -1,13 +1,7 @@
 ---
-document: "anvil.google.auth"
 title: "anvil.google.auth"
-url: "/docs/api/anvil.google.auth"
-doc-id: anvil.google.auth
-state: Live
-date-created: 2026-09-08
+doc-id: "anvil.google.auth"
 ---
-
-
 ## `anvil.google.auth` Module
 
 #### Functions

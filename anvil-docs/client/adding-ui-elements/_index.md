@@ -1,13 +1,7 @@
 ---
-document: "Adding UI Elements"
-title: "Adding UI Elements"
-url: "/docs/client/adding-ui-elements"
-doc-id: adding-ui-elements-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [UI Elements](#ui-elements)
 
 In Anvil, every part of your user interface is a component. Components are Python objects you can create, configure and control entirely in Python. Components range from simple display elements like [Labels](/docs/ui/components/basic#label) and [Images](/docs/ui/components/basic#image) to interactive ones like [Buttons](/docs/ui/components/basic#button) and [TextBoxes](/docs/ui/components/basic#textbox). Alongside components, Anvil also gives you visual and interactive elements you can control entirely in code, like alerts, notifications or loading indicators.

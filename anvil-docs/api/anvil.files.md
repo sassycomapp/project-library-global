@@ -1,13 +1,7 @@
 ---
-document: "anvil.files"
 title: "anvil.files"
-url: "/docs/api/anvil.files"
-doc-id: anvil.files
-state: Live
-date-created: 2026-09-08
+doc-id: "anvil.files"
 ---
-
-
 ## `anvil.files` Module
 
 #### Classes

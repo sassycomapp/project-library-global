@@ -1,9 +1,6 @@
 ---
-document: "Development Environment Credential Hygiene"
-doc-id: sec-development-environment-credential-hygiene
-state: Live
-date-created: 2026-08-27
-category: infrastructure
+title: "sec-development-environment-credential-hygiene"
+doc-id: "sec-development-environment-credential-hygiene"
 ---
 # Development Environment Credential Hygiene
 

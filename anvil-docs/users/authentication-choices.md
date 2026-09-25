@@ -1,13 +1,7 @@
 ---
-document: "Authentication Choices"
-title: "Authentication Choices"
-url: "/docs/users/authentication-choices"
-doc-id: authentication-choices
-state: Live
-date-created: 2026-09-08
+title: "authentication-choices"
+doc-id: "authentication-choices"
 ---
-
-
 # [Authentication Choices](#authentication-choices)
 
 The Users service supports the following sign-in methods:

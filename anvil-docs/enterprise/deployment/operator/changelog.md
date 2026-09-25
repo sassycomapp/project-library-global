@@ -1,13 +1,7 @@
 ---
-document: "Changelog"
-title: "Changelog"
-url: "/docs/enterprise/deployment/operator/changelog"
-doc-id: changelog
-state: Live
-date-created: 2026-09-08
+title: "changelog"
+doc-id: "changelog"
 ---
-
-
 # [Anvil Operator Changelog](#anvil-operator-changelog)
 
 ## [2026-07-17](#2026-07-17)

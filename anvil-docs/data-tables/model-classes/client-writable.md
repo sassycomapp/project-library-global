@@ -1,13 +1,7 @@
 ---
-document: "Client-Writable Models"
-title: "Client-Writable Models"
-url: "/docs/data-tables/model-classes/client-writable"
-doc-id: client-writable
-state: Live
-date-created: 2026-09-08
+title: "client-writable"
+doc-id: "client-writable"
 ---
-
-
 # [Client-Writable Models](#client-writable-models)
 
 It’s convenient to express all your UI logic in Forms, without having to create a server function corresponding to every action. However, this needs to be done securely: Forms are [untrusted client-side code](https://anvil.works/articles/client-vs-server), so we must perform server-side validation.

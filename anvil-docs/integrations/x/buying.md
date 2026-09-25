@@ -1,13 +1,7 @@
 ---
-document: "Billing and Metering"
-title: "Billing and Metering"
-url: "/docs/integrations/x/buying"
-doc-id: buying
-state: Live
-date-created: 2026-09-08
+title: "buying"
+doc-id: "buying"
 ---
-
-
 # [Billing and Metering](#billing-and-metering)
 
 Anvil X is an add-on for the Anvil platform. Like Tableau itself, Anvil X is billed by the number of users who view your extensions. You can try Anvil X for free with up to 10 Tableau viewers, including on Anvil’s Free plan. Use of Tableau Desktop is not counted against your viewer limit.

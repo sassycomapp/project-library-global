@@ -1,13 +1,7 @@
 ---
-document: "Microsoft SSO"
-title: "Microsoft SSO"
-url: "/docs/enterprise/deployment/prerequisites/microsoft"
-doc-id: microsoft
-state: Live
-date-created: 2026-09-08
+title: "microsoft"
+doc-id: "microsoft"
 ---
-
-
 # [Microsoft SSO](#microsoft-sso)
 
 Anvil Enterprise [supports using Microsoft](/docs/integrations/microsoft) to log in to your Anvil apps or the Anvil Editor.

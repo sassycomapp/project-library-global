@@ -1,9 +1,6 @@
 ---
-document: "Regulatory Compliance Scope of Third-Party Cloud Processors"
-doc-id: sec-regulatory-compliance-cloud-processors
-state: Live
-date-created: 2026-08-27
-category: cloud
+title: "sec-regulatory-compliance-cloud-processors"
+doc-id: "sec-regulatory-compliance-cloud-processors"
 ---
 # Regulatory Compliance Scope of Third-Party Cloud Processors
 

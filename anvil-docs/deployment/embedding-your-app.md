@@ -1,13 +1,7 @@
 ---
-document: "Embedding Your App"
-title: "Embedding Your App"
-url: "/docs/deployment/embedding-your-app"
-doc-id: embedding-your-app
-state: Live
-date-created: 2026-09-08
+title: "embedding-your-app"
+doc-id: "embedding-your-app"
 ---
-
-
 # [Embedding Your App in a Web Page](#embedding-your-app-in-a-web-page)
 
 You can allow embedding of your published Anvil apps into other web pages. To do this, go to your app’s settings from the Sidebar menu and choose Embedding. There, tick the checkbox next to “Allow this app to be embedded in other pages”. If your app is published, a block of code will appear that you can copy and paste into a page to display your app.

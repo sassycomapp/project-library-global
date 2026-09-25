@@ -1,13 +1,7 @@
 ---
-document: "Links Between Tables"
-title: "Links Between Tables"
-url: "/docs/data-tables/links-between-tables"
-doc-id: links-between-tables
-state: Live
-date-created: 2026-09-08
+title: "links-between-tables"
+doc-id: "links-between-tables"
 ---
-
-
 # [Links Between Tables](#links-between-tables)
 
 You can store a reference to one table in another table, using a link column. In this example, we have a `people` table, and a `notes` table containing notes about a person. The `notes` table has a “Person” column, which links to a row from the `people` table.

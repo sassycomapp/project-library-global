@@ -1,9 +1,6 @@
 ---
-document: "Principle — Least Privilege"
-doc-id: sec-least-privilege
-state: Live
-date-created: 2026-08-27
-category: principles
+title: "sec-least-privilege"
+doc-id: "sec-least-privilege"
 ---
 # Principle — Least Privilege
 

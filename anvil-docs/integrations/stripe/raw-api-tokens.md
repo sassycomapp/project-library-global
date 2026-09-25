@@ -1,13 +1,7 @@
 ---
-document: "Using Stripe's Python API"
-title: "Using Stripe's Python API"
-url: "/docs/integrations/stripe/raw-api-tokens"
-doc-id: raw-api-tokens
-state: Live
-date-created: 2026-09-08
+title: "raw-api-tokens"
+doc-id: "raw-api-tokens"
 ---
-
-
 # [Using Stripe’s Python API](#using-stripes-python-api)
 
 If you’re using a [Python 3.10](https://anvil.works/docs/server/custom-packages#available-python-versions) server environment, you can opt out of using Anvil’s simplified APIs. Instead, you can install the Stripe package with [self-service package installation](https://anvil.works/docs/server/custom-packages) and use the official [Stripe Python API](https://stripe.com/docs/api?lang=python) from your Server Modules.

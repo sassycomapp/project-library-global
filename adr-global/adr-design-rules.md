@@ -1,8 +1,6 @@
 ---
-document: "`design-rules` ADR — Wireframe Design Rules"
-doc-id: adr-design-rules
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-design-rules"
+doc-id: "adr-design-rules"
 ---
 # `design-rules` ADR — Wireframe Design Rules
 

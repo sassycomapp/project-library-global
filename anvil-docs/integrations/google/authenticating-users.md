@@ -1,13 +1,7 @@
 ---
-document: "Authenticating Users"
-title: "Authenticating Users"
-url: "/docs/integrations/google/authenticating-users"
-doc-id: authenticating-users
-state: Live
-date-created: 2026-09-08
+title: "authenticating-users"
+doc-id: "authenticating-users"
 ---
-
-
 # [Authenticating Users with Google](#authenticating-users-with-google)
 
 Your users can log in to their Google accounts in your app. It’s easy to add Google login to the Users Service - see [Users:Authentication Choices](/docs/users/authentication_choices) to see how.

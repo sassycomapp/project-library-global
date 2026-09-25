@@ -1,10 +1,7 @@
 ---
-document: "Rule: No Suppression Directives Without Explicit Approval"
-doc-id: no_suppression_directives_without_approval
-state: Live
-date-created: 2026-09-05
+title: "no_suppression_directives_without_approval"
+doc-id: "no_suppression_directives_without_approval"
 ---
-
 # Rule: No Suppression Directives Without Explicit Approval
 
 ## Harness

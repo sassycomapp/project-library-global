@@ -1,8 +1,6 @@
 ---
-document: Mybizz — Deployment Specification
-doc-id: spec-deployment
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-deployment"
+doc-id: "spec-deployment"
 ---
 # Mybizz — Deployment Specification
 

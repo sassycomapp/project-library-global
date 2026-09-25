@@ -1,8 +1,6 @@
 ---
-document: "Client Timezone: IANA String, UTC Storage, Display-Time Conversion"
-doc-id: adr-timezone-utc-storage-display-conversion
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-timezone-utc-storage-display-conversion"
+doc-id: "adr-timezone-utc-storage-display-conversion"
 ---
 # Client Timezone: IANA String, UTC Storage, Display-Time Conversion
 Date: 2026-03-17

@@ -1,8 +1,6 @@
 ---
-document: Frontmatter Exemption for Transient Files
-doc-id: adr-frontmatter-exemption-transient-files
-state: Live
-date-created: 2026-08-12T000000+0200
+title: "adr-frontmatter-exemption-transient-files"
+doc-id: "adr-frontmatter-exemption-transient-files"
 ---
 # Frontmatter Exemption for Transient Files
 

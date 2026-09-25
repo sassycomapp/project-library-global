@@ -1,13 +1,7 @@
 ---
-document: "Managing your Anvil account"
-title: "Managing your Anvil account"
-url: "/docs/plans-and-accounts/account-management"
-doc-id: account-management
-state: Live
-date-created: 2026-09-08
+title: "account-management"
+doc-id: "account-management"
 ---
-
-
 # [Account Management](#account-management)
 
 This documentation will tell you all about how to manage your account and billing with Anvil.

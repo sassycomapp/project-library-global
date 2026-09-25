@@ -1,13 +1,7 @@
 ---
-document: "The Form Editor"
-title: "The Form Editor"
-url: "/docs/editor/form-editor"
-doc-id: form-editor
-state: Live
-date-created: 2026-09-08
+title: "form-editor"
+doc-id: "form-editor"
 ---
-
-
 # [The Form Editor](#the-form-editor)
 
 The Form Editor is where you build your app’s UI by dragging-and-dropping components and writing Python code. It has four modes: Design View, HTML View, Code View and Split View. You choose your view using the buttons at the top of the Form Editor:

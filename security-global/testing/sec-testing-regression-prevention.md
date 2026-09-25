@@ -1,9 +1,6 @@
 ---
-document: "Security Regression Prevention"
-doc-id: sec-testing-regression-prevention
-state: Live
-date-created: 2026-08-27
-category: testing
+title: "sec-testing-regression-prevention"
+doc-id: "sec-testing-regression-prevention"
 ---
 # Security Regression Prevention
 

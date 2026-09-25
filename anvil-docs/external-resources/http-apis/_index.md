@@ -1,13 +1,7 @@
 ---
-document: "HTTP APIs"
-title: "HTTP APIs"
-url: "/docs/external-resources/http-apis"
-doc-id: http-apis-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [HTTP APIs](#http-apis)
 
 You don’t need to make HTTP requests to build an Anvil app thanks to Anvil’s ability to call Python functions between client and server code (including [code outside of Anvil](/docs/uplink)). Even if you’re collaborating with a third-party, they can use the [Client Uplink](/docs/uplink/uplink_security) to safely make function calls to and from your app.

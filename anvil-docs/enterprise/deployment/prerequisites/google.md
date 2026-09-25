@@ -1,13 +1,7 @@
 ---
-document: "Google SSO"
-title: "Google SSO"
-url: "/docs/enterprise/deployment/prerequisites/google"
-doc-id: google
-state: Live
-date-created: 2026-09-08
+title: "google"
+doc-id: "google"
 ---
-
-
 # [Google SSO](#google-sso)
 
 Anvil Enterprise supports using Google to log in to your Anvil apps, log in to the Anvil Editor, and [access various other Google services](/docs/integrations/google).

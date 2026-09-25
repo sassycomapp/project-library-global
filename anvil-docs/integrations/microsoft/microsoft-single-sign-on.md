@@ -1,13 +1,7 @@
 ---
-document: "Microsoft Single Sign-On"
-title: "Microsoft Single Sign-On"
-url: "/docs/integrations/microsoft/microsoft-single-sign-on"
-doc-id: microsoft-single-sign-on
-state: Live
-date-created: 2026-09-08
+title: "microsoft-single-sign-on"
+doc-id: "microsoft-single-sign-on"
 ---
-
-
 # [Microsoft Single Sign-On](#microsoft-single-sign-on)
 
 ## [Log users in to their Microsoft accounts](#log-users-in-to-their-microsoft-accounts)

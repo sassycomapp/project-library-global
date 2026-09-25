@@ -1,8 +1,6 @@
 ---
-document: "{Project Name} — Software Requirements Specification (SRS)"
-doc-id: docstd-software-requirements-specification
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "docstd-software-requirements-specification"
+doc-id: "docstd-software-requirements-specification"
 ---
 # {Project Name} — Software Requirements Specification (SRS)
 

@@ -1,13 +1,7 @@
 ---
-document: "Quickstart"
-title: "Quickstart"
-url: "/docs/workflows/version-control/quickstart"
-doc-id: version-control-quickstart
-state: Live
-date-created: 2026-09-08
+title: "quickstart"
+doc-id: "quickstart"
 ---
-
-
 # [Quickstart: Version Control](#quickstart-version-control)
 
 ### Track and merge changes to your app

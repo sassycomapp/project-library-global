@@ -1,13 +1,7 @@
 ---
-document: "Publishing your extension"
-title: "Publishing your extension"
-url: "/docs/integrations/x/publishing"
-doc-id: publishing
-state: Live
-date-created: 2026-09-08
+title: "publishing"
+doc-id: "publishing"
 ---
-
-
 # [Publishing a version of your extension](#publishing-a-version-of-your-extension)
 
 While you’re developing your Tableau Extension, you’ll be using a “testing” version of your extension. This means that:

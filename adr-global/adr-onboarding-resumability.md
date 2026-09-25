@@ -1,8 +1,6 @@
 ---
-document: Onboarding Resumability
-doc-id: adr-onboarding-resumability
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-onboarding-resumability"
+doc-id: "adr-onboarding-resumability"
 ---
 # Onboarding Resumability
 Date: 2026-05-29

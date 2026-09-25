@@ -1,13 +1,7 @@
 ---
-document: "K3s"
-title: "K3s"
-url: "/docs/enterprise/deployment/kubernetes/k3s"
-doc-id: k3s
-state: Live
-date-created: 2026-09-08
+title: "k3s"
+doc-id: "k3s"
 ---
-
-
 # [K3s: Lightweight Kubernetes](#k3s-lightweight-kubernetes)
 
 [K3s](https://k3s.io/) provides a single-binary Kubernetes implementation suitable for production workloads with minimal overhead.

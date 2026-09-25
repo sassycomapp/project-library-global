@@ -1,13 +1,7 @@
 ---
-document: "How to get help"
-title: "How to get help"
-url: "/docs/get-started/help"
-doc-id: help
-state: Live
-date-created: 2026-09-08
+title: "help"
+doc-id: "help"
 ---
-
-
 # [How to get help](#how-to-get-help)
 
 Whether you prefer to work through video tutorials, follow written guides, or discover APIs through live auto-completion, help is never far away in Anvil. All the available resources are listed below, along with examples of their use.

@@ -1,8 +1,6 @@
 ---
-document: "Lead Capture: Simultaneous leads + contacts Creation"
-doc-id: adr-lead-capture-simultaneous-creation
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-lead-capture-simultaneous-creation"
+doc-id: "adr-lead-capture-simultaneous-creation"
 ---
 # Lead Capture: Simultaneous leads + contacts Creation
 Date: 2026-03-21

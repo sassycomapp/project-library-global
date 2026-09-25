@@ -1,13 +1,7 @@
 ---
-document: "Cross-site Security"
-title: "Cross-site Security"
-url: "/docs/external-resources/http-apis/creating-http-endpoints/security-cross-site"
-doc-id: security-cross-site
-state: Live
-date-created: 2026-09-08
+title: "security-cross-site"
+doc-id: "security-cross-site"
 ---
-
-
 # [Security and cross-site sessions](#security-and-cross-site-sessions)
 
 You should take care when writing HTTP endpoints. They are accessible to anyone on the internet, so you must be robust against malicious requests.

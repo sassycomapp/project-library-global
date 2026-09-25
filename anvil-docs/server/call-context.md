@@ -1,13 +1,7 @@
 ---
-document: "Call Context"
-title: "Call Context"
-url: "/docs/server/call-context"
-doc-id: call-context
-state: Live
-date-created: 2026-09-08
+title: "call-context"
+doc-id: "call-context"
 ---
-
-
 # [Call Context](#call-context)
 
 Call context provides information about where your code is running and where it was called from.

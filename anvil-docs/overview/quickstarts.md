@@ -1,12 +1,7 @@
 ---
-document: "Quickstarts"
-title: "Quickstarts"
-url: "/docs/overview/quickstarts"
-doc-id: quickstarts
-state: Live
-date-created: 2026-09-08
+title: "quickstarts"
+doc-id: "quickstarts"
 ---
-
 # [Quickstarts](#quickstarts)
 
 ### Get building fast

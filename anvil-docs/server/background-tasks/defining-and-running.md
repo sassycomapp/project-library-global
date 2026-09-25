@@ -1,13 +1,7 @@
 ---
-document: "Defining and Running"
-title: "Defining and Running"
-url: "/docs/server/background-tasks/defining-and-running"
-doc-id: defining-and-running
-state: Live
-date-created: 2026-09-08
+title: "defining-and-running"
+doc-id: "defining-and-running"
 ---
-
-
 # [Defining and Running Background Tasks](#defining-and-running-background-tasks)
 
 ## [Defining a Background Task](#defining-a-background-task)

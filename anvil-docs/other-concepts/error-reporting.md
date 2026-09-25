@@ -1,13 +1,7 @@
 ---
-document: "Error Reporting"
-title: "Error Reporting"
-url: "/docs/other-concepts/error-reporting"
-doc-id: error-reporting
-state: Live
-date-created: 2026-09-08
+title: "error-reporting"
+doc-id: "error-reporting"
 ---
-
-
 # [Error reporting](#error-reporting)
 
 When an uncaught exception occurs in your Anvil app, it is displayed in the Output window if you are debugging in the Anvil Editor. If you are running the app outside the Anvil Editor, it will display a box at the bottom-right of the screen, as pictured here.

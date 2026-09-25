@@ -1,13 +1,7 @@
 ---
-document: "Build your first app"
-title: "Build your first app"
-url: "/docs/get-started/build-first-app"
-doc-id: build-first-app
-state: Live
-date-created: 2026-09-08
+title: "build-first-app"
+doc-id: "build-first-app"
 ---
-
-
 # [Build a Hello World app](#build-a-hello-world-app)
 
 It’s simple to get started building full-stack web apps in Anvil, but even easier if you know the basics! Follow along to dive right in and learn how to build a Hello World app.

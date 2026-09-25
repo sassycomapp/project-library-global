@@ -1,13 +1,7 @@
 ---
-document: "Background Tasks"
-title: "Background Tasks"
-url: "/docs/server/background-tasks"
-doc-id: background-tasks-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Running tasks in the background](#running-tasks-in-the-background)
 
 Background Tasks allow you to fire off a function to run in the background, leaving your main program to continue executing while the function is running.

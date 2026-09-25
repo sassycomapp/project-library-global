@@ -1,9 +1,6 @@
 ---
-document: "Local Network Exposure of Internal Services"
-doc-id: sec-local-network-exposure
-state: Live
-date-created: 2026-08-27
-category: infrastructure
+title: "sec-local-network-exposure"
+doc-id: "sec-local-network-exposure"
 ---
 # Local Network Exposure of Internal Services
 

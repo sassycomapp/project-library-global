@@ -1,13 +1,7 @@
 ---
-document: "Collaborate as a team in Anvil"
-title: "Collaborate as a team in Anvil"
-url: "/docs/how-to/collaborate-in-anvil"
-doc-id: collaborate-in-anvil
-state: Live
-date-created: 2026-09-08
+title: "collaborate-in-anvil"
+doc-id: "collaborate-in-anvil"
 ---
-
-
 # [Collaborate as a team in Anvil](#collaborate-as-a-team-in-anvil)
 
 When working as a team, it is important to protect your production deployments, sensitive data, and app secrets from accidental changes and unauthorised access.

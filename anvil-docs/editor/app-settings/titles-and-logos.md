@@ -1,13 +1,7 @@
 ---
-document: "General Settings"
-title: "General Settings"
-url: "/docs/editor/app-settings/titles-and-logos"
-doc-id: titles-and-logos
-state: Live
-date-created: 2026-09-08
+title: "titles-and-logos"
+doc-id: "titles-and-logos"
 ---
-
-
 # [Setting the App Title and Logo](#setting-the-app-title-and-logo)
 
 You can set the title, description and logo of your app in the app’s General Settings, which can be found in the [Sidebar Menu](/docs/editor#sidebar-menu).

@@ -1,13 +1,7 @@
 ---
-document: "Adding Collaborators"
-title: "Adding Collaborators"
-url: "/docs/workflows/version-control/collaborators"
-doc-id: collaborators
-state: Live
-date-created: 2026-09-08
+title: "collaborators"
+doc-id: "collaborators"
 ---
-
-
 # [Collaborating with Other Developers](#collaborating-with-other-developers)
 
 If you’re working with other developers on the same application, you’ll need to give them access to your app. To do this, open your app’s **Settings** from the [Sidebar Menu](/docs/editor#sidebar-menu), then choose **Collaboration**.

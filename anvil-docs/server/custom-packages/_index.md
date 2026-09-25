@@ -1,13 +1,7 @@
 ---
-document: "Installing Packages"
-title: "Installing Packages"
-url: "/docs/server/custom-packages"
-doc-id: custom-packages-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Custom Python packages](#custom-python-packages)
 
 To import a third-party package into your app’s Server Modules, you need to install it into that app’s server environment. Packages in Anvil are installed on a per-app basis, meaning that you can add only the necessary packages for each app.

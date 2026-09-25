@@ -1,13 +1,7 @@
 ---
-document: "Quickstart: Login"
-title: "Quickstart: Login"
-url: "/docs/users/quickstart-login"
-doc-id: quickstart-login
-state: Live
-date-created: 2026-09-08
+title: "quickstart-login"
+doc-id: "quickstart-login"
 ---
-
-
 # [Quickstart: Login](#quickstart-login)
 
 ### Add signup/login to your app

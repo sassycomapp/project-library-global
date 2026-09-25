@@ -1,13 +1,7 @@
 ---
-document: "Component Properties"
-title: "Component Properties"
-url: "/docs/client/component-properties"
-doc-id: component-properties-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Component Properties](#component-properties)
 
 Components have **properties** that determine how they look and how they behave. Properties can be modified in the [Anvil Editor](/docs/editor) using the Properties Panel (on the right below the Toolbox):

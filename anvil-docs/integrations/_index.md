@@ -1,13 +1,7 @@
 ---
-document: "Built-in Integrations"
-title: "Built-in Integrations"
-url: "/docs/integrations"
-doc-id: integrations-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Built-in Integrations](#built-in-integrations)
 
 You can connect your app with services from Google, Microsoft, Facebook, Stripe and Tableau as easily as doing anything else in Anvil.

@@ -1,13 +1,7 @@
 ---
-document: "Port an app to new Layouts"
-title: "Port an app to new Layouts"
-url: "/docs/how-to/porting-app-to-new-layouts"
-doc-id: porting-app-to-new-layouts
-state: Live
-date-created: 2026-09-08
+title: "porting-app-to-new-layouts"
+doc-id: "porting-app-to-new-layouts"
 ---
-
-
 # [Using Layouts in your app](#using-layouts-in-your-app)
 
 Anvil has introduced [Layouts](../../blog/announcing-layouts), a major update to the Anvil UI system. In the old UI system, you would have a pseudo “layout” Form which would add and delete Forms from its [containers](https://anvil.works/docs/client/adding-ui-elements/containers). In the new UI system, you can create a Layout Form that other Forms can inherit from - which is much simpler. This guide will show you how to take an old style Anvil app and convert it to use Layouts.

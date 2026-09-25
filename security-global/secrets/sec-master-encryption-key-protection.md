@@ -1,9 +1,6 @@
 ---
-document: "Master Encryption Key Protection"
-doc-id: sec-master-encryption-key-protection
-state: Live
-date-created: 2026-08-27
-category: secrets
+title: "sec-master-encryption-key-protection"
+doc-id: "sec-master-encryption-key-protection"
 ---
 # Master Encryption Key Protection
 

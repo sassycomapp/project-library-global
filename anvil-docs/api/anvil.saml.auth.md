@@ -1,13 +1,7 @@
 ---
-document: "anvil.saml.auth"
 title: "anvil.saml.auth"
-url: "/docs/api/anvil.saml.auth"
-doc-id: anvil.saml.auth
-state: Live
-date-created: 2026-09-08
+doc-id: "anvil.saml.auth"
 ---
-
-
 ## `anvil.saml.auth` Module
 
 #### Functions

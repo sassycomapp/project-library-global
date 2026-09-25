@@ -1,13 +1,7 @@
 ---
-document: "Using Data Tables from Tableau"
-title: "Using Data Tables from Tableau"
-url: "/docs/integrations/x/data-tables-in-tableau"
-doc-id: data-tables-in-tableau
-state: Live
-date-created: 2026-09-08
+title: "data-tables-in-tableau"
+doc-id: "data-tables-in-tableau"
 ---
-
-
 # [Access Data Tables from Tableau](#access-data-tables-from-tableau)
 
 All Anvil apps, including Tableau Extensions built with Anvil X, have a built-in database called [Data Tables](../../data-tables). You can connect your extension’s Data Tables as a data source in Tableau.

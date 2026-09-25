@@ -1,13 +1,7 @@
 ---
-document: "anvil.script"
 title: "anvil.script"
-url: "/docs/api/anvil.script"
-doc-id: anvil.script
-state: Live
-date-created: 2026-09-08
+doc-id: "anvil.script"
 ---
-
-
 ## `anvil.script` Module
 
 #### Globals

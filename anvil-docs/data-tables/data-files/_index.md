@@ -1,13 +1,7 @@
 ---
-document: "Static Data Files"
-title: "Static Data Files"
-url: "/docs/data-tables/data-files"
-doc-id: data-files-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Data Files in Your App](#data-files-in-your-app)
 
 Data Files are files that you, as the app developer, can attach to your app. These files are available in your [Server Modules](https://anvil.works/docs/server#server-modules). Data Files are useful for machine learning models, static datasets and data that stays constant.

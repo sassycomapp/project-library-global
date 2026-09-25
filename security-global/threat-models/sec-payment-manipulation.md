@@ -1,9 +1,6 @@
 ---
-document: "Threat Model — Payment Manipulation"
-doc-id: sec-payment-manipulation
-state: Live
-date-created: 2026-08-27
-category: threat-models
+title: "sec-payment-manipulation"
+doc-id: "sec-payment-manipulation"
 ---
 # Threat Model — Payment Manipulation
 

@@ -1,8 +1,6 @@
 ---
-document: "`responsive-behaviour-mechanism` ADR: Responsive Behaviour Mechanism"
-doc-id: adr-responsive-behaviour-mechanism
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-responsive-behaviour-mechanism"
+doc-id: "adr-responsive-behaviour-mechanism"
 ---
 # `responsive-behaviour-mechanism` ADR: Responsive Behaviour Mechanism
 

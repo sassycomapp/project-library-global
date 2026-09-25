@@ -1,13 +1,7 @@
 ---
-document: "Components from HTML"
-title: "Components from HTML"
-url: "/docs/client/customisation/custom-components/html-components"
-doc-id: html-components
-state: Live
-date-created: 2026-09-08
+title: "html-components"
+doc-id: "html-components"
 ---
-
-
 # [Building Custom Components from Scratch](#building-custom-components-from-scratch)
 
 You can create your own custom components in Anvil entirely in Python. However, if you want more control over the look and function of your custom components, you can build them from scratch using HTML with a Custom HTML Form. You can also style your components using CSS and add functionality using Python or JavaScript.

@@ -1,13 +1,7 @@
 ---
-document: "Making plots"
-title: "Making plots"
-url: "/docs/how-to/plot"
-doc-id: plot
-state: Live
-date-created: 2026-09-08
+title: "plot"
+doc-id: "plot"
 ---
-
-
 # [Making plots in Anvil](#making-plots-in-anvil)
 
 The recommended way to make plots in Anvil is to use Anvil’s [Plot component](/docs/client/components/plots). This uses Anvil’s client-side Python Plotly library, so you can configure and reconfigure the plot dynamically without making a round-trip to the server.

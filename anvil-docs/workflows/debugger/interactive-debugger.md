@@ -1,13 +1,7 @@
 ---
-document: "The Interactive Debugger"
-title: "The Interactive Debugger"
-url: "/docs/workflows/debugger/interactive-debugger"
-doc-id: interactive-debugger
-state: Live
-date-created: 2026-09-08
+title: "interactive-debugger"
+doc-id: "interactive-debugger"
 ---
-
-
 # [The Interactive Debugger in Anvil](#the-interactive-debugger-in-anvil)
 
 The Anvil Editor has a built-in **Interactive Debugger** that allows you to pause execution and inspect your code in real time, both on the **client and server side**. It provides tools to help you quickly diagnose and fix issues in your app.

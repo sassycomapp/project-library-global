@@ -1,13 +1,7 @@
 ---
-document: "Custom Components"
-title: "Custom Components"
-url: "/docs/client/customisation/custom-components"
-doc-id: custom-components-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Creating Custom Components](#creating-custom-components)
 
 You can create your own component types in Anvil by creating a Form and configuring it as a custom component. Your custom component can appear in the [Toolbox](/docs/editor/form-editor#toolbox) where you will be able to drag and drop it onto your Forms just like any other component. You can also configure custom properties and events for the component or make it a [container](/docs/ui/components/containers).

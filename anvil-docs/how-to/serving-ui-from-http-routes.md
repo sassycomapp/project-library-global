@@ -1,13 +1,7 @@
 ---
-document: "Serve your UI from HTTP routes"
-title: "Serve your UI from HTTP routes"
-url: "/docs/how-to/serving-ui-from-http-routes"
-doc-id: serving-ui-from-http-routes
-state: Live
-date-created: 2026-09-08
+title: "serving-ui-from-http-routes"
+doc-id: "serving-ui-from-http-routes"
 ---
-
-
 # [Serving your app’s user interface from HTTP routes](#serving-your-apps-user-interface-from-http-routes)
 
 Anvil lets you serve your app’s user interface directly from [HTTP endpoints](/docs/external-resources/http-apis/creating-http-endpoints) using [`AppResponder`](/docs/external-resources/http-apis/creating-http-endpoints#appresponder-object). This is useful when you want a URL to load a specific Form.

@@ -1,13 +1,7 @@
 ---
-document: "Installation"
-title: "Installation"
-url: "/docs/enterprise/deployment/kubernetes/installation"
-doc-id: installation
-state: Live
-date-created: 2026-09-08
+title: "installation"
+doc-id: "installation"
 ---
-
-
 # [Installation in Kubernetes](#installation-in-kubernetes)
 
 This guide assumes you are comfortable working at a terminal. You should have the necessary [Anvil Enterprise Prerequisites](../prerequisites) and [Kubernetes Prerequisites](k8s-prerequisites) ready.

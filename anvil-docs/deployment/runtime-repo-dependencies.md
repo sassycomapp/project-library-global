@@ -1,10 +1,7 @@
 ---
-document: "Anvil App Server Dependencies"
-doc-id: runtime-repo-dependencies
-state: Live
-date-created: 2026-09-08
+title: "runtime-repo-dependencies"
+doc-id: "runtime-repo-dependencies"
 ---
-
 # Anvil App Server Dependencies
 
 [Anvil](https://anvil.works) gives you the ability to reuse [Forms](https://anvil.works/docs/client/components/forms), [Custom Components](https://anvil.works/docs/client/custom-components) and code from one Anvil app in another.

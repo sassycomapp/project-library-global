@@ -1,13 +1,7 @@
 ---
-document: "Presenting a Login Form"
-title: "Presenting a Login Form"
-url: "/docs/users/presenting-a-login-form"
-doc-id: presenting-a-login-form
-state: Live
-date-created: 2026-09-08
+title: "presenting-a-login-form"
+doc-id: "presenting-a-login-form"
 ---
-
-
 # [Presenting a Login Form](#presenting-a-login-form)
 
 The simplest way to use the Users service is to call `anvil.users.login_with_form()` on the client. This function shows a graphical login form, including all the options configured in the Users service (eg password, Google, two factor authenticatication, and new-account registration). If login succeeds, `anvil.users.login_with_form()` returns the user object; if it is cancelled, it returns `None`.

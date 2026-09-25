@@ -1,13 +1,7 @@
 ---
-document: "Quickstart"
-title: "Quickstart"
-url: "/docs/external-resources/http-apis/making-http-requests/quickstart"
-doc-id: making-http-requests-quickstart
-state: Live
-date-created: 2026-09-08
+title: "quickstart"
+doc-id: "quickstart"
 ---
-
-
 # [Quickstart: Making HTTP requests](#quickstart-making-http-requests)
 
 Anvil lets you make HTTP requests with very little code.

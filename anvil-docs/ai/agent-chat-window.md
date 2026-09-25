@@ -1,13 +1,7 @@
 ---
-document: "Agent chat window"
-title: "Agent chat window"
-url: "/docs/ai/agent-chat-window"
-doc-id: agent-chat-window
-state: Live
-date-created: 2026-09-08
+title: "agent-chat-window"
+doc-id: "agent-chat-window"
 ---
-
-
 # [The Agent chat window](#the-agent-chat-window)
 
 The Agent chat window is where you interact with the AI agent in the Anvil Editor. You can open the Agent chat window by clicking from the Sidebar Menu.

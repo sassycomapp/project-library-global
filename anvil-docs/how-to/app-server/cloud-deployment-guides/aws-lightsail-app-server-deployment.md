@@ -1,13 +1,7 @@
 ---
-document: "AWS Lightsail"
-title: "AWS Lightsail"
-url: "/docs/how-to/app-server/cloud-deployment-guides/aws-lightsail-app-server-deployment"
-doc-id: aws-lightsail-app-server-deployment
-state: Live
-date-created: 2026-09-08
+title: "aws-lightsail-app-server-deployment"
+doc-id: "aws-lightsail-app-server-deployment"
 ---
-
-
 # [How to use Anvil’s open-source App Server on an AWS Lightsail instance](#how-to-use-anvils-open-source-app-server-on-an-aws-lightsail-instance)
 
 ## [Introduction](#introduction)

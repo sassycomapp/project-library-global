@@ -1,13 +1,7 @@
 ---
-document: "The Users Table"
-title: "The Users Table"
-url: "/docs/users/the-users-table"
-doc-id: the-users-table
-state: Live
-date-created: 2026-09-08
+title: "the-users-table"
+doc-id: "the-users-table"
 ---
-
-
 # [The Users Table](#the-users-table)
 
 The [table](/docs/data-tables) of users is created for you automatically when you configure the Users service. Many of the columns are automatically added at the moment they’re first needed.

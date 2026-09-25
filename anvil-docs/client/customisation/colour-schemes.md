@@ -1,13 +1,7 @@
 ---
-document: "Colour Schemes"
-title: "Colour Schemes"
-url: "/docs/client/customisation/colour-schemes"
-doc-id: colour-schemes
-state: Live
-date-created: 2026-09-08
+title: "colour-schemes"
+doc-id: "colour-schemes"
 ---
-
-
 # [Colour Schemes](#colour-schemes)
 
 Some Anvil app themes have built-in colour schemes. You can find the colour scheme of your app by navigating to the ‘Theme’ tab in the [Sidebar menu](/docs/editor#sidebar-menu), then choosing ‘Colour Scheme’.

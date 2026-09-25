@@ -1,9 +1,6 @@
 ---
-document: "Principle — Simplicity as a Security Property"
-doc-id: sec-simplicity-as-security-property
-state: Live
-date-created: 2026-08-27
-category: principles
+title: "sec-simplicity-as-security-property"
+doc-id: "sec-simplicity-as-security-property"
 ---
 # Principle — Simplicity as a Security Property
 

@@ -1,13 +1,7 @@
 ---
-document: "anvil.email"
 title: "anvil.email"
-url: "/docs/api/anvil.email"
-doc-id: anvil.email
-state: Live
-date-created: 2026-09-08
+doc-id: "anvil.email"
 ---
-
-
 ## `anvil.email` Module
 
 The `anvil.email` module contains functions for sending and receiving email in your Anvil app.

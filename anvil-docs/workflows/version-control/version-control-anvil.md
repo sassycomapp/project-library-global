@@ -1,13 +1,7 @@
 ---
-document: "Using Version Control in Anvil"
-title: "Using Version Control in Anvil"
-url: "/docs/workflows/version-control/version-control-anvil"
-doc-id: version-control-anvil
-state: Live
-date-created: 2026-09-08
+title: "version-control-anvil"
+doc-id: "version-control-anvil"
 ---
-
-
 # [Using Version Control in Anvil](#using-version-control-in-anvil)
 
 This section explains how Anvil’s version control system works and how to use it. If you are new to version control, read our [introduction](what-is-version-control) first or start with the [quickstart](quickstart).

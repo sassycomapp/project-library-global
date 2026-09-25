@@ -1,13 +1,7 @@
 ---
-document: "Using CSS"
-title: "Using CSS"
-url: "/docs/client/customisation/using-css"
-doc-id: using-css-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Using CSS in Anvil Apps](#using-css-in-anvil-apps)
 
 You can build the front-end of your app entirely in Python using [Anvil’s components](/docs/ui/components). However, your app still uses [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) and [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) under the hood.

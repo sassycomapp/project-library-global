@@ -1,13 +1,7 @@
 ---
-document: "Workflows"
-title: "Workflows"
-url: "/docs/workflows/version-control/workflows"
-doc-id: workflows
-state: Live
-date-created: 2026-09-08
+title: "workflows"
+doc-id: "workflows"
 ---
-
-
 # [Workflows for Collaborating on Anvil Apps](#workflows-for-collaborating-on-anvil-apps)
 
 If you’re working in a team, it’s a good idea to adopt a standard workflow so you can collaborate smoothly. Below is a series of suggested workflows suitable for small teams and large enterprises alike. There are a lot of different ways to work with Git, but these are recommended approaches. The workflows are ordered from the simplest to the most powerful, but we recommend choosing the simplest approach that works for your use case.

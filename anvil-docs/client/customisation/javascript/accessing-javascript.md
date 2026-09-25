@@ -1,13 +1,7 @@
 ---
-document: "Accessing JavaScript"
-title: "Accessing JavaScript"
-url: "/docs/client/customisation/javascript/accessing-javascript"
-doc-id: accessing-javascript
-state: Live
-date-created: 2026-09-08
+title: "accessing-javascript"
+doc-id: "accessing-javascript"
 ---
-
-
 # [Accessing JavaScript](#accessing-javascript)
 
 Interaction with JavaScript objects in Anvil is primarily done through the [`anvil.js`](/docs/api/anvil.js) module. This reference provides some details about working with JavaScript objects from Python code.

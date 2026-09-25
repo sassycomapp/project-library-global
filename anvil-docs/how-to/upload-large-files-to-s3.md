@@ -1,13 +1,7 @@
 ---
-document: "Upload a large file directly to S3"
-title: "Upload a large file directly to S3"
-url: "/docs/how-to/upload-large-files-to-s3"
-doc-id: upload-large-files-to-s3
-state: Live
-date-created: 2026-09-08
+title: "upload-large-files-to-s3"
+doc-id: "upload-large-files-to-s3"
 ---
-
-
 # [Upload a large file directly to Amazon S3](#upload-a-large-file-directly-to-amazon-s3)
 
 Normally, if you’re uploading a file into an Anvil app, you would capture the file with a [FileLoader](/docs/client/components/basic#fileloader) component, then pass the resulting [Media object](/docs/working-with-files/media) as an argument to a [Server Function](/docs/server), then store that Media in a [Data Table](/docs/data-tables).

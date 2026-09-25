@@ -1,13 +1,7 @@
 ---
-document: "Containers"
-title: "Containers"
-url: "/docs/client/adding-ui-elements/containers"
-doc-id: adding-ui-elements-containers
-state: Live
-date-created: 2026-09-08
+title: "containers"
+doc-id: "containers"
 ---
-
-
 # [Containers](#containers)
 
 Some components can contain other components. We call these containers, and they all inherit from the `Container` class. (All Forms are also containers.)

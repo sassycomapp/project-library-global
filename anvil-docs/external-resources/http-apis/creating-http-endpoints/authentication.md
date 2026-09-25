@@ -1,13 +1,7 @@
 ---
-document: "Authentication"
-title: "Authentication"
-url: "/docs/external-resources/http-apis/creating-http-endpoints/authentication"
-doc-id: authentication
-state: Live
-date-created: 2026-09-08
+title: "authentication"
+doc-id: "authentication"
 ---
-
-
 # [Authentication in HTTP Endpoints](#authentication-in-http-endpoints)
 
 ## [Authenticating using the Users Service](#authenticating-using-the-users-service)

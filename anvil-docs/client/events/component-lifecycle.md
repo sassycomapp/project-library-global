@@ -1,13 +1,7 @@
 ---
-document: "Component Lifecycle"
-title: "Component Lifecycle"
-url: "/docs/client/events/component-lifecycle"
-doc-id: component-lifecycle
-state: Live
-date-created: 2026-09-08
+title: "component-lifecycle"
+doc-id: "component-lifecycle"
 ---
-
-
 # [Component Lifecycle](#component-lifecycle)
 
 When building custom components in Anvil, you may need to perform basic setup and cleanup tasks such as adding event handlers when the component is connected to the [browser’s DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) and removing them when the component is disconnected from the DOM. To handle this properly, you need a way to track the component through these lifecycle changes.

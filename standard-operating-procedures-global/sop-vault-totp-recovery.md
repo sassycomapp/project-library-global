@@ -1,8 +1,6 @@
 ---
-document: "{Project Name} — SOP: Vault TOTP Recovery"
-doc-id: sop-vault-totp-recovery
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "sop-vault-totp-recovery"
+doc-id: "sop-vault-totp-recovery"
 ---
 # {Project Name} — SOP: Vault TOTP Recovery
 

@@ -1,13 +1,7 @@
 ---
-document: "The Anvil Editor"
-title: "The Anvil Editor"
-url: "/docs/editor"
-doc-id: editor-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [The Anvil Editor](#the-anvil-editor)
 
 This is a picture of the Anvil Editor, with the most important parts labelled:

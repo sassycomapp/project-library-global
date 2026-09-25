@@ -1,13 +1,7 @@
 ---
-document: "App Secrets across Repos"
-title: "App Secrets across Repos"
-url: "/docs/workflows/version-control/git/secrets-across-repos"
-doc-id: secrets-across-repos
-state: Live
-date-created: 2026-09-08
+title: "secrets-across-repos"
+doc-id: "secrets-across-repos"
 ---
-
-
 # [Using App Secrets with Multiple Checkouts](#using-app-secrets-with-multiple-checkouts)
 
 If you use Anvil’s [App Secrets](../../security/encrypting-secret-data) to store secret data, then the values are encrypted with an encryption key that is unique to your app. This means that if you sync your source code between multiple Anvil apps (for example, using a shared [GitHub repo](../git)), the secrets you configure with one app will not be available in another.

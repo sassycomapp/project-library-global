@@ -1,12 +1,7 @@
 ---
-document: "Legacy Full Python Packages"
-title: "Legacy Full Python Packages"
-url: "/docs/server/custom-packages/packages"
-doc-id: packages
-state: Live
-date-created: 2026-09-08
+title: "packages"
+doc-id: "packages"
 ---
-
 # [Legacy Full Python Packages](#legacy-full-python-packages)
 
 Anvil’s legacy ‘Full Python’ [server environment options](/docs/server/custom-packages#available-python-versions) run an ordinary CPython interpreter, just like you would run on your own machine. There is a long list of packages already installed in the legacy Full Python 3 server environment.

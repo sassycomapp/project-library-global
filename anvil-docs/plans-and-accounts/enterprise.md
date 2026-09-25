@@ -1,13 +1,7 @@
 ---
-document: "Anvil Enterprise"
-title: "Anvil Enterprise"
-url: "/docs/plans-and-accounts/enterprise"
-doc-id: enterprise
-state: Live
-date-created: 2026-09-08
+title: "enterprise"
+doc-id: "enterprise"
 ---
-
-
 # [Anvil Enterprise](#anvil-enterprise)
 
 If you are interested in our Enterprise Plan, please get in touch by sending an email to [sales@anvil.works](mailto:sales@anvil.works).

@@ -1,13 +1,7 @@
 ---
-document: "Forms as Components"
-title: "Forms as Components"
-url: "/docs/client/forms/forms-as-components"
-doc-id: forms-as-components
-state: Live
-date-created: 2026-09-08
+title: "forms-as-components"
+doc-id: "forms-as-components"
 ---
-
-
 # [Forms as Components](#forms-as-components)
 
 Forms are themselves components, which means you can place a Form inside another Form. This lets you build your UI in a modular way, breaking your interface into smaller, reusable pieces and combining them together.

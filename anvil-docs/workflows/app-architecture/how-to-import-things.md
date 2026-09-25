@@ -1,13 +1,7 @@
 ---
-document: "How to Import Things"
-title: "How to Import Things"
-url: "/docs/workflows/app-architecture/how-to-import-things"
-doc-id: how-to-import-things
-state: Live
-date-created: 2026-09-08
+title: "how-to-import-things"
+doc-id: "how-to-import-things"
 ---
-
-
 # [How to import things](#how-to-import-things)
 
 Imports can be confusing in Python, especially when you have a mixture of modules and packages. If in doubt, use the autocompleter to help you get it right!

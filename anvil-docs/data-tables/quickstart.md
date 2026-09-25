@@ -1,13 +1,7 @@
 ---
-document: "Quickstart"
-title: "Quickstart"
-url: "/docs/data-tables/quickstart"
-doc-id: data-tables-quickstart
-state: Live
-date-created: 2026-09-08
+title: "quickstart"
+doc-id: "quickstart"
 ---
-
-
 # [Quickstart: Databases](#quickstart-databases)
 
 ### Learn how to store data in Anvil’s hosted database system

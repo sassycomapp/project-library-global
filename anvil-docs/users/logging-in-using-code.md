@@ -1,13 +1,7 @@
 ---
-document: "Logging in Using Code"
-title: "Logging in Using Code"
-url: "/docs/users/logging-in-using-code"
-doc-id: logging-in-using-code
-state: Live
-date-created: 2026-09-08
+title: "logging-in-using-code"
+doc-id: "logging-in-using-code"
 ---
-
-
 # [Logging in Using Code](#logging-in-using-code)
 
 As well as using the built-in login and sign-up forms, you can create your own forms and call the following functions yourself.

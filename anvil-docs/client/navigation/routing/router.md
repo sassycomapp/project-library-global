@@ -1,13 +1,7 @@
 ---
-document: "Router"
-title: "Router"
-url: "/docs/client/navigation/routing/router"
-doc-id: router
-state: Live
-date-created: 2026-09-08
+title: "router"
+doc-id: "router"
 ---
-
-
 # [The Router Module](#the-router-module)
 
 Most of the Routing dependency is contained in its **router module**.

@@ -1,8 +1,6 @@
 ---
-document: "Navigation Standard: Lambda/Link/open_form"
-doc-id: adr-navigation-lambda-link-open-form
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-navigation-lambda-link-open-form"
+doc-id: "adr-navigation-lambda-link-open-form"
 ---
 # Navigation Standard: Lambda/Link/open_form
 

@@ -1,9 +1,6 @@
 ---
-document: "Payment Security Boundary: Secret Keys Deferred to the Vault"
-doc-id: adr-payment-security-boundary-vault
-aliases: [payment-security-boundary-vault]
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-payment-security-boundary-vault"
+doc-id: "adr-payment-security-boundary-vault"
 ---
 # Payment Security Boundary: Secret Keys Deferred to the Vault
 Date: 2026-03-15

@@ -1,9 +1,6 @@
 ---
-document: "Principle — Review Before Trust"
-doc-id: sec-review-before-trust
-state: Live
-date-created: 2026-08-27
-category: principles
+title: "sec-review-before-trust"
+doc-id: "sec-review-before-trust"
 ---
 # Principle — Review Before Trust
 

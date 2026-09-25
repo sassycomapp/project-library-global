@@ -1,9 +1,6 @@
 ---
-document: "Database Access Control"
-doc-id: sec-database-access-control
-state: Live
-date-created: 2026-08-27
-category: infrastructure
+title: "sec-database-access-control"
+doc-id: "sec-database-access-control"
 ---
 # Database Access Control
 

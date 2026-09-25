@@ -1,9 +1,6 @@
 ---
-document: "Dependency and Tool Version Currency"
-doc-id: sec-dependency-version-currency
-state: Live
-date-created: 2026-08-27
-category: infrastructure
+title: "sec-dependency-version-currency"
+doc-id: "sec-dependency-version-currency"
 ---
 # Dependency and Tool Version Currency
 

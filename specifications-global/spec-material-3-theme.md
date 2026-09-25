@@ -1,8 +1,6 @@
 ---
-document: Material 3 Theme Specification
-doc-id: spec-material-3-theme
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-material-3-theme"
+doc-id: "spec-material-3-theme"
 ---
 Based on the information gathered, here is a strict spec/documentation style rewrite for your project docs:
 

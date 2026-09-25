@@ -1,13 +1,7 @@
 ---
-document: "Layouts"
-title: "Layouts"
-url: "/docs/components/material-3/layouts"
-doc-id: layouts
-state: Live
-date-created: 2026-09-08
+title: "layouts"
+doc-id: "layouts"
 ---
-
-
 # [Material 3 Layouts](#material-3-layouts)
 
 The Anvil Material 3 theme comes with two predefined [layouts](/docs/ui/layouts), based on two different styles of [Material 3 navigation regions](https://m3.material.io/foundations/layout/understanding-layout/parts-of-layout).

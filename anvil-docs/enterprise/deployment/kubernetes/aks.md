@@ -1,13 +1,7 @@
 ---
-document: "Azure AKS"
-title: "Azure AKS"
-url: "/docs/enterprise/deployment/kubernetes/aks"
-doc-id: aks
-state: Live
-date-created: 2026-09-08
+title: "aks"
+doc-id: "aks"
 ---
-
-
 # [Azure Managed Kubernetes Service](#azure-managed-kubernetes-service)
 
 Anvil Enterprise is fully supported in AKS. Once you have collected the [Anvil Enterprise Prerequisites](../prerequisites) and the [Anvil Kubernetes Prerequisites](k8s-prerequisites), the easiest way to get up and running is to use [Terraform](https://developer.hashicorp.com/terraform/install?product_intent=terraform) to create a new AKS cluster using our standard AKS template. Please [get in touch for access to this](mailto:sales@anvil.works).

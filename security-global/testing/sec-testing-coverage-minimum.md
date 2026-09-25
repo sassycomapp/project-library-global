@@ -1,9 +1,6 @@
 ---
-document: "Security Test Coverage Minimum"
-doc-id: sec-testing-coverage-minimum
-state: Live
-date-created: 2026-08-27
-category: testing
+title: "sec-testing-coverage-minimum"
+doc-id: "sec-testing-coverage-minimum"
 ---
 # Security Test Coverage Minimum
 

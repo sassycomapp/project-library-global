@@ -1,8 +1,6 @@
 ---
-document: Single Contacts Table Replaces Dual contacts/customers
-doc-id: adr-single-contacts-table
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-single-contacts-table"
+doc-id: "adr-single-contacts-table"
 ---
 # Single Contacts Table Replaces Dual contacts/customers
 **Consolidated Contact Model for CRM**

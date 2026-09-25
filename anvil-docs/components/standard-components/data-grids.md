@@ -1,13 +1,7 @@
 ---
-document: "Data Grids"
-title: "Data Grids"
-url: "/docs/components/standard-components/data-grids"
-doc-id: data-grids
-state: Live
-date-created: 2026-09-08
+title: "data-grids"
+doc-id: "data-grids"
 ---
-
-
 # [Data Grids](#data-grids)
 
 [Properties](/docs/api/anvil#DataGrid_attributes) | [Events](/docs/api/anvil#DataGrid_events)

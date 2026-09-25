@@ -1,8 +1,6 @@
 ---
-document: PDLF Standards Library — Anvil Platform Mechanics
-doc-id: spec-anvil-platform-standards
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-anvil-platform-standards"
+doc-id: "spec-anvil-platform-standards"
 ---
 # PDLF Standards Library — Anvil Platform Mechanics
 

@@ -1,8 +1,6 @@
 ---
-document: "Mybizz — API Specification (HTTP Endpoints)"
-doc-id: spec-api-specification
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-api-specification"
+doc-id: "spec-api-specification"
 ---
 # Mybizz — API Specification (HTTP Endpoints)
 

@@ -1,13 +1,7 @@
 ---
-document: "Layouts from HTML"
-title: "Layouts from HTML"
-url: "/docs/client/forms/layouts/html-layouts"
-doc-id: html-layouts
-state: Live
-date-created: 2026-09-08
+title: "html-layouts"
+doc-id: "html-layouts"
 ---
-
-
 # [Building Layouts from HTML](#building-layouts-from-html)
 
 In addition to building [Layouts from Anvil Forms](docs/client/forms/layouts#creating-a-layout-from-an-anvil-form), you can create Layouts from HTML using HTML Forms. This allows you to build fully custom layouts with HTML elements and Anvil components.

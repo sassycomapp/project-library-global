@@ -1,13 +1,7 @@
 ---
-document: "service-worker-whiteboard"
-doc-id: service-worker-whiteboard
-state: Live
-date-created: 2026-09-08
+title: "service-worker-whiteboard"
+doc-id: "service-worker-whiteboard"
 ---
-
-
-
-
 - service worker is for app-origin resources
 - goals:
   - prefer fresh data when the network is healthy

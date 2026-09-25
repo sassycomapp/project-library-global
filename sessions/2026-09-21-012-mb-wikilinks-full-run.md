@@ -1,17 +1,7 @@
 ---
-type: concept
-title: Session 012 — mb-wikilinks full run (2026-09-20 → 2026-09-21)
-state: Live
-doc-id: sessions/2026-09-21-012-mb-wikilinks-full-run
-document: >-
-  Session 012 — mb-wikilinks full run: all eight sources wikilinked, governance
-  reset, defects owned
-date-created: '2026-09-21T00:00:00.000Z'
-ingested_via: 'mcp:put_page'
-ingested_at: '2026-09-21T09:43:33.824Z'
-source_kind: 'mcp:put_page'
+title: "2026-09-21-012-mb-wikilinks-full-run"
+doc-id: "2026-09-21-012-mb-wikilinks-full-run"
 ---
-
 # Session 012 — mb-wikilinks full run (2026-09-20 → 2026-09-21)
 
 ## What was done

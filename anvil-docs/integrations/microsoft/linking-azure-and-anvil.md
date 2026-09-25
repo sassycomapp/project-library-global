@@ -1,13 +1,7 @@
 ---
-document: "Connecting Entra ID to Anvil"
-title: "Connecting Entra ID to Anvil"
-url: "/docs/integrations/microsoft/linking-azure-and-anvil"
-doc-id: linking-azure-and-anvil
-state: Live
-date-created: 2026-09-08
+title: "linking-azure-and-anvil"
+doc-id: "linking-azure-and-anvil"
 ---
-
-
 # [Connecting Entra ID to Anvil](#connecting-entra-id-to-anvil)
 
 For advanced use of Anvil’s Microsoft integration, you need to let Microsoft Entra ID know about your app. This is true if you want to do either of these things:

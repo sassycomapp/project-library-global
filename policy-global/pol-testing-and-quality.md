@@ -1,8 +1,6 @@
 ---
-document: Policy — Testing and Quality
-doc-id: pol-testing-and-quality
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "pol-testing-and-quality"
+doc-id: "pol-testing-and-quality"
 ---
 # Policy — Testing and Quality
 

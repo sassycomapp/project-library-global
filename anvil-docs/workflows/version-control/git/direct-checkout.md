@@ -1,13 +1,7 @@
 ---
-document: "Clone your app locally"
-title: "Clone your app locally"
-url: "/docs/workflows/version-control/git/direct-checkout"
-doc-id: direct-checkout
-state: Live
-date-created: 2026-09-08
+title: "direct-checkout"
+doc-id: "direct-checkout"
 ---
-
-
 # [Clone Your App’s Source Code Locally](#clone-your-apps-source-code-locally)
 
 You can check your source code out directly from Anvil – for example, to view or edit it on your local machine. You don’t need to set up a GitHub repository to do this: you can use your Anvil app as a Git remote.

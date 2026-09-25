@@ -1,9 +1,6 @@
 ---
-document: "Threat Model — AI-Agent-Introduced Vulnerabilities"
-doc-id: sec-ai-agent-introduced-vulnerabilities
-state: Live
-date-created: 2026-08-27
-category: threat-models
+title: "sec-ai-agent-introduced-vulnerabilities"
+doc-id: "sec-ai-agent-introduced-vulnerabilities"
 ---
 # Threat Model — AI-Agent-Introduced Vulnerabilities
 

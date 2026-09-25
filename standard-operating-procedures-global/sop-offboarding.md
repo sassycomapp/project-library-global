@@ -1,8 +1,6 @@
 ---
-document: "{Project Name} — SOP: Client Offboarding"
-doc-id: sop-offboarding
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "sop-offboarding"
+doc-id: "sop-offboarding"
 ---
 # {Project Name} — SOP: Client Offboarding
 

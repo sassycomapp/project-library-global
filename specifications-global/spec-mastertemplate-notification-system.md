@@ -1,10 +1,7 @@
 ---
-document: "`mastertemplate-notification-system` Spec — Notification Engine for Client Instances"
-doc-id: spec-mastertemplate-notification-system
-state: Draft
-date-created: 2026-09-15
+title: "spec-mastertemplate-notification-system"
+doc-id: "spec-mastertemplate-notification-system"
 ---
-
 # `mastertemplate-notification-system` Spec — Notification Engine for Client Instances
 
 **Status:** Draft — for review

@@ -1,13 +1,7 @@
 ---
-document: "anvil.image"
 title: "anvil.image"
-url: "/docs/api/anvil.image"
-doc-id: anvil.image
-state: Live
-date-created: 2026-09-08
+doc-id: "anvil.image"
 ---
-
-
 ## `anvil.image` Module
 
 #### Classes

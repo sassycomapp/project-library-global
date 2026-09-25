@@ -1,13 +1,7 @@
 ---
-document: "Configuration options for SAML Authentication"
-title: "Configuration options for SAML Authentication"
-url: "/docs/integrations/saml/configuration-options"
-doc-id: configuration-options
-state: Live
-date-created: 2026-09-08
+title: "configuration-options"
+doc-id: "configuration-options"
 ---
-
-
 # [Configuring your SAML Authentication](#configuring-your-saml-authentication)
 
 ## [Configuring your Anvil app with your identity provider’s details](#configuring-your-anvil-app-with-your-identity-providers-details)

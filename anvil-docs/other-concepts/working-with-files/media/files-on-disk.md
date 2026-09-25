@@ -1,13 +1,7 @@
 ---
-document: "Files on Disk"
-title: "Files on Disk"
-url: "/docs/other-concepts/working-with-files/media/files-on-disk"
-doc-id: files-on-disk
-state: Live
-date-created: 2026-09-08
+title: "files-on-disk"
+doc-id: "files-on-disk"
 ---
-
-
 # [Files on Disk](#files-on-disk)
 
 You can write to and from files in Server Modules using Media objects.

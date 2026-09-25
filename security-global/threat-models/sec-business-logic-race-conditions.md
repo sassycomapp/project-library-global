@@ -1,9 +1,6 @@
 ---
-document: "Threat Model — Business Logic and Race Condition Abuse"
-doc-id: sec-business-logic-race-conditions
-state: Live
-date-created: 2026-08-27
-category: threat-models
+title: "sec-business-logic-race-conditions"
+doc-id: "sec-business-logic-race-conditions"
 ---
 # Threat Model — Business Logic and Race Condition Abuse
 

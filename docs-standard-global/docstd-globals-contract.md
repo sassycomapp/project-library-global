@@ -1,8 +1,6 @@
 ---
-document: "{Project Name} — globals.py Contract"
-doc-id: docstd-globals-contract
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "docstd-globals-contract"
+doc-id: "docstd-globals-contract"
 ---
 # {Project Name} — globals.py Contract
 

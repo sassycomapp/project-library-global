@@ -1,13 +1,7 @@
 ---
-document: "GitHub SSO"
-title: "GitHub SSO"
-url: "/docs/enterprise/deployment/prerequisites/github"
-doc-id: github
-state: Live
-date-created: 2026-09-08
+title: "github"
+doc-id: "github"
 ---
-
-
 # [GitHub SSO](#github-sso)
 
 Anvil Enterprise supports using GitHub or GitHub Enterprise to log in to the Anvil Editor, as well as for storing app source code.

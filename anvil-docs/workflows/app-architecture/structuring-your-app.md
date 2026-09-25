@@ -1,13 +1,7 @@
 ---
-document: "Structuring your app"
-title: "Structuring your app"
-url: "/docs/workflows/app-architecture/structuring-your-app"
-doc-id: structuring-your-app
-state: Live
-date-created: 2026-09-08
+title: "structuring-your-app"
+doc-id: "structuring-your-app"
 ---
-
-
 # [Structuring your app](#structuring-your-app)
 
 Anvil apps are made up of:

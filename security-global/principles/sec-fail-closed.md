@@ -1,9 +1,6 @@
 ---
-document: "Principle — Fail Closed"
-doc-id: sec-fail-closed
-state: Live
-date-created: 2026-08-27
-category: principles
+title: "sec-fail-closed"
+doc-id: "sec-fail-closed"
 ---
 # Principle — Fail Closed
 

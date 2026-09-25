@@ -1,13 +1,7 @@
 ---
-document: "Client Code"
-title: "Client Code"
-url: "/docs/client/client-code"
-doc-id: client-code-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Client-side code](#client-side-code)
 
 The user interface of an Anvil app is programmed in Python. This code that makes up the [front-end of your app](/docs/app-architecture) is called client-side code. When someone visits your app, Anvil compiles the client-side Python code into Javascript which runs in the user’s web browser.

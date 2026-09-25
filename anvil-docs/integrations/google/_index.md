@@ -1,13 +1,7 @@
 ---
-document: "Google"
-title: "Google"
-url: "/docs/integrations/google"
-doc-id: google-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Google Service](#google-service)
 
 Anvil has built-in functionality to integrate your apps with Google services.

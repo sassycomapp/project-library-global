@@ -1,13 +1,7 @@
 ---
-document: "Quickstart"
-title: "Quickstart"
-url: "/docs/workflows/version-control/git/quickstart"
-doc-id: git-quickstart
-state: Live
-date-created: 2026-09-08
+title: "quickstart"
+doc-id: "quickstart"
 ---
-
-
 # [Quickstart: Working with GitHub](#quickstart-working-with-github)
 
 ### Version control, collaboration and open-source made easy

@@ -1,13 +1,7 @@
 ---
-document: "Cache Updates"
-title: "Cache Updates"
-url: "/docs/other-concepts/portable-classes/capability-scoped-cache-updates"
-doc-id: capability-scoped-cache-updates
-state: Live
-date-created: 2026-09-08
+title: "capability-scoped-cache-updates"
+doc-id: "capability-scoped-cache-updates"
 ---
-
-
 # [Capability-Scoped Cache Updates](#capability-scoped-cache-updates)
 
 If you’re using portable objects to represent long-lived server-side resources, you probably don’t want to go back to the server every time you fetch a property from your object. You want to *cache* that information as part of your object.

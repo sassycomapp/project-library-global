@@ -1,9 +1,6 @@
 ---
-document: "Secret Exposure Response"
-doc-id: sec-secret-exposure-response
-state: Live
-date-created: 2026-08-27
-category: secrets
+title: "sec-secret-exposure-response"
+doc-id: "sec-secret-exposure-response"
 ---
 # Secret Exposure Response
 

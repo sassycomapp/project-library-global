@@ -1,8 +1,6 @@
 ---
-document: Policy — Security and Data Governance
-doc-id: pol-security-and-data-governance
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "pol-security-and-data-governance"
+doc-id: "pol-security-and-data-governance"
 ---
 # Policy — Security and Data Governance
 

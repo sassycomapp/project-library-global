@@ -1,13 +1,7 @@
 ---
-document: "Components"
-title: "Components"
-url: "/docs/components/material-3/components"
-doc-id: components
-state: Live
-date-created: 2026-09-08
+title: "components"
+doc-id: "components"
 ---
-
-
 # [Material 3 Components](#material-3-components)
 
 Similarly to [Standard Anvil components](/docs/components/standard-components), you can use Material 3 components in two ways: by dragging them from the Toolbox then dropping them onto a [Form](/docs/ui/forms) or by constructing them in [client code](/docs/client).

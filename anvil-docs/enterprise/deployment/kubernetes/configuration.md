@@ -1,13 +1,7 @@
 ---
-document: "Configuration Guide"
-title: "Configuration Guide"
-url: "/docs/enterprise/deployment/kubernetes/configuration"
-doc-id: configuration
-state: Live
-date-created: 2026-09-08
+title: "configuration"
+doc-id: "configuration"
 ---
-
-
 # [Configuration Guide](#configuration-guide)
 
 The Anvil team will provide you with an `anvil-cluster.yml` configuration file to set up your Anvil cluster. This guide provides some tips and best practices for configuring your Anvil cluster.

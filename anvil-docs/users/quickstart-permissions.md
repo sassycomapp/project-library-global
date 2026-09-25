@@ -1,13 +1,7 @@
 ---
-document: "Quickstart: Permissions"
-title: "Quickstart: Permissions"
-url: "/docs/users/quickstart-permissions"
-doc-id: quickstart-permissions
-state: Live
-date-created: 2026-09-08
+title: "quickstart-permissions"
+doc-id: "quickstart-permissions"
 ---
-
-
 # [Quickstart: Permissions](#quickstart-permissions)
 
 ### Give users different privileges

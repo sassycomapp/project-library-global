@@ -1,13 +1,7 @@
 ---
-document: "Using JavaScript"
-title: "Using JavaScript"
-url: "/docs/client/customisation/javascript"
-doc-id: javascript-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Using JavaScript](#using-javascript)
 
 **This feature is optional** - you do not need to know JavaScript to use Anvil!

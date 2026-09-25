@@ -1,13 +1,7 @@
 ---
-document: "Encrypting Secret Data"
-title: "Encrypting Secret Data"
-url: "/docs/workflows/security/encrypting-secret-data"
-doc-id: encrypting-secret-data
-state: Live
-date-created: 2026-09-08
+title: "encrypting-secret-data"
+doc-id: "encrypting-secret-data"
 ---
-
-
 # [Encrypting Secret Data with App Secrets](#encrypting-secret-data-with-app-secrets)
 
 [Watch our App Secrets tutorial](/blog/app-secrets)

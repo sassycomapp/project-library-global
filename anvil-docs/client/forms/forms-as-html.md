@@ -1,13 +1,7 @@
 ---
-document: "Forms as HTML"
-title: "Forms as HTML"
-url: "/docs/client/forms/forms-as-html"
-doc-id: forms-as-html
-state: Live
-date-created: 2026-09-08
+title: "forms-as-html"
+doc-id: "forms-as-html"
 ---
-
-
 # [Forms as HTML](#forms-as-html)
 
 You do not need to know HTML to use Anvil. You can build your UIs entirely with the drag-and-drop designer without having to edit your Form’s UI as text in the [HTML view](/docs/editor/form-editor#html-view).

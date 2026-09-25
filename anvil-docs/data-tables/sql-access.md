@@ -1,13 +1,7 @@
 ---
-document: "SQL Access"
-title: "SQL Access"
-url: "/docs/data-tables/sql-access"
-doc-id: sql-access
-state: Live
-date-created: 2026-09-08
+title: "sql-access"
+doc-id: "sql-access"
 ---
-
-
 # [Direct SQL Access](#direct-sql-access)
 
 Direct SQL access to your Anvil Data Tables is available only on the [Production Plan](/docs/plans-and-accounts/free-vs-paid#production-plan) or [Enterprise deployments](/docs/overview/enterprise). Users on any plan can still connect to external SQL databases. See [here](/docs/data-tables/external-database) for more details.

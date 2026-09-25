@@ -1,13 +1,7 @@
 ---
-document: "Cluster Restore"
-title: "Cluster Restore"
-url: "/docs/enterprise/deployment/operator/restore"
-doc-id: restore
-state: Live
-date-created: 2026-09-08
+title: "restore"
+doc-id: "restore"
 ---
-
-
 # [Cluster Restore](#cluster-restore)
 
 In its default configuration, the Anvil Operator will back up your Anvil Cluster every 24 hours, with the internal databases backed up continuously. You can restore your cluster to any previous time by creating a `ClusterRestore` Resource. For example:

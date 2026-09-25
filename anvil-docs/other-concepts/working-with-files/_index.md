@@ -1,13 +1,7 @@
 ---
-document: "Files, Media and Binary Data"
-title: "Files, Media and Binary Data"
-url: "/docs/other-concepts/working-with-files"
-doc-id: working-with-files-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Working With Files, Media And Binary Data](#working-with-files-media-and-binary-data)
 
 Anvil has built-in support for uploading, storing, downloading, and manipulating files and other binary data.

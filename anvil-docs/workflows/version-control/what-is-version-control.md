@@ -1,13 +1,7 @@
 ---
-document: "What is Version Control?"
-title: "What is Version Control?"
-url: "/docs/workflows/version-control/what-is-version-control"
-doc-id: what-is-version-control
-state: Live
-date-created: 2026-09-08
+title: "what-is-version-control"
+doc-id: "what-is-version-control"
 ---
-
-
 # [What is Version Control?](#what-is-version-control)
 
 As we write software, it’s good to keep track of the changes we’ve made and previous versions of our software. This is the job of Anvil’s *version control* system. It lets you:

@@ -1,13 +1,7 @@
 ---
-document: "Using the Extensions API"
-title: "Using the Extensions API"
-url: "/docs/integrations/x/tableau-extensions-api"
-doc-id: tableau-extensions-api
-state: Live
-date-created: 2026-09-08
+title: "tableau-extensions-api"
+doc-id: "tableau-extensions-api"
 ---
-
-
 # [The Tableau Extensions API](#the-tableau-extensions-api)
 
 Tableau Extensions can access data and components within a Tableau dashboard, using the [Extensions API](https://tableau.github.io/extensions-api/) provided by Tableau. Anvil X gives you access to the Extensions API from Python, as the `anvil.tableau` module.

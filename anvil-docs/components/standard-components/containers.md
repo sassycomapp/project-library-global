@@ -1,13 +1,7 @@
 ---
-document: "Containers"
-title: "Containers"
-url: "/docs/components/standard-components/containers"
-doc-id: standard-components-containers
-state: Live
-date-created: 2026-09-08
+title: "containers"
+doc-id: "containers"
 ---
-
-
 # [Containers](#containers)
 
 Some components can contain other components. We call these containers. (A [Form](/docs/ui/forms) is also a container.)

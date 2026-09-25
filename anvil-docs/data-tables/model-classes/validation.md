@@ -1,13 +1,7 @@
 ---
-document: "Checks and Validation"
-title: "Checks and Validation"
-url: "/docs/data-tables/model-classes/validation"
-doc-id: validation
-state: Live
-date-created: 2026-09-08
+title: "validation"
+doc-id: "validation"
 ---
-
-
 # [Checks and Validation](#checks-and-validation)
 
 When defining the data structure for your application, it is common to want to define rules about your data and what happens when it changes. These include:

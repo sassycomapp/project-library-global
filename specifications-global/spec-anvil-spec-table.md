@@ -1,8 +1,6 @@
 ---
-document: Mybizz CS — Anvil Specification Table
-doc-id: spec-anvil-spec-table
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-anvil-spec-table"
+doc-id: "spec-anvil-spec-table"
 ---
 # Mybizz CS — Anvil Specification Table
 

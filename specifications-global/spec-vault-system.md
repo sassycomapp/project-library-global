@@ -1,8 +1,6 @@
 ---
-document: Mybizz — The Vault System
-doc-id: spec-vault-system
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-vault-system"
+doc-id: "spec-vault-system"
 ---
 # Mybizz — The Vault System
 

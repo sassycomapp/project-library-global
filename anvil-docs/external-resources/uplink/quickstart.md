@@ -1,13 +1,7 @@
 ---
-document: "Quickstart"
-title: "Quickstart"
-url: "/docs/external-resources/uplink/quickstart"
-doc-id: uplink-quickstart
-state: Live
-date-created: 2026-09-08
+title: "quickstart"
+doc-id: "quickstart"
 ---
-
-
 # [Quickstart: Connect to code on your local machine](#quickstart-connect-to-code-on-your-local-machine)
 
 The Anvil Uplink lets you connect to Python code running anywhere and call Python functions directly from your app.

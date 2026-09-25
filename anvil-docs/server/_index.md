@@ -1,13 +1,7 @@
 ---
-document: "Building the Backend"
-title: "Building the Backend"
-url: "/docs/server"
-doc-id: server-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Building the Backend](#building-the-backend)
 
 While the [front-end](/docs/client) of your Anvil app controls how the UI looks and behaves, the back-end takes care of your app’s functionality and infrastructure.

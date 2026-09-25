@@ -1,13 +1,7 @@
 ---
-document: "Version Control and Collaboration"
-title: "Version Control and Collaboration"
-url: "/docs/workflows/version-control"
-doc-id: version-control-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Version Control and Collaboration](#version-control-and-collaboration)
 
 The Anvil Editor has built-in version control to help you track changes made to your app and collaborate with other developers

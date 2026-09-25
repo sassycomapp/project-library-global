@@ -1,13 +1,7 @@
 ---
-document: "Portable Classes"
-title: "Portable Classes"
-url: "/docs/other-concepts/portable-classes"
-doc-id: portable-classes-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Writing Portable Classes](#writing-portable-classes)
 
 By default, Anvil already knows how to pass [many basic Python objects](/docs/server#valid-arguments-and-return-values) between client and server code. But if you want to pass more complicated objects, you can define your own classes that can be passed from server to client code. We call these **portable classes**.

@@ -1,10 +1,7 @@
 ---
-document: "The Anvil app structure explained"
-doc-id: app-structure
-state: Live
-date-created: 2026-09-08
+title: "app-structure"
+doc-id: "app-structure"
 ---
-
 # The Anvil app structure explained
 
 [Anvil](https://anvil.works) is a platform for building full-stack web apps with nothing but Python. The Anvil Runtime is the open-source engine that powers those apps.

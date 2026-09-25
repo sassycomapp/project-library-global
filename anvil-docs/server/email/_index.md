@@ -1,13 +1,7 @@
 ---
-document: "Email"
-title: "Email"
-url: "/docs/server/email"
-doc-id: email-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Email](#email)
 
 [Email Service tutorial and code snippets](/blog/email-driven-apps)

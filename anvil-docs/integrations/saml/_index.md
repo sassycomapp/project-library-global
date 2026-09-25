@@ -1,13 +1,7 @@
 ---
-document: "SAML Authentication"
-title: "SAML Authentication"
-url: "/docs/integrations/saml"
-doc-id: saml-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [SAML Authentication](#saml-authentication)
 
 Configuring SAML authentication allows users to log in to your app with an identity provded by another service.

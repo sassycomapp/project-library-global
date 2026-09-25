@@ -1,13 +1,7 @@
 ---
-document: "anvil.users"
 title: "anvil.users"
-url: "/docs/api/anvil.users"
-doc-id: anvil.users
-state: Live
-date-created: 2026-09-08
+doc-id: "anvil.users"
 ---
-
-
 ## `anvil.users` Module
 
 #### Classes

@@ -1,9 +1,6 @@
 ---
-document: "Threat Model — Insecure Direct Object Reference"
-doc-id: sec-insecure-direct-object-reference
-state: Live
-date-created: 2026-08-27
-category: threat-models
+title: "sec-insecure-direct-object-reference"
+doc-id: "sec-insecure-direct-object-reference"
 ---
 # Threat Model — Insecure Direct Object Reference
 

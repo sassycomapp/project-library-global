@@ -1,8 +1,6 @@
 ---
-document: "`form-architecture-and-state` ADR — Form Architecture and State Management"
-doc-id: adr-form-architecture-and-state
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-form-architecture-and-state"
+doc-id: "adr-form-architecture-and-state"
 ---
 # `form-architecture-and-state` ADR — Form Architecture and State Management
 

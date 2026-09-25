@@ -1,13 +1,7 @@
 ---
-document: "AI Agents in Anvil"
-title: "AI Agents in Anvil"
-url: "/docs/ai"
-doc-id: ai-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [AI Agents in Anvil](#ai-agents-in-anvil)
 
 AI agents in Anvil let you build and edit your apps by describing what you want in the chat. The agent reads your code, makes the right changes across your files, and explains what it did. Everything is written in Python you can read, understand, and edit yourself.

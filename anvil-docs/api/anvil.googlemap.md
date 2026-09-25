@@ -1,13 +1,7 @@
 ---
-document: "anvil.GoogleMap"
-title: "anvil.GoogleMap"
-url: "/docs/api/anvil.googlemap"
-doc-id: anvil.googlemap
-state: Live
-date-created: 2026-09-08
+title: "anvil.googlemap"
+doc-id: "anvil.googlemap"
 ---
-
-
 ## `anvil.GoogleMap` Module
 
 #### Classes

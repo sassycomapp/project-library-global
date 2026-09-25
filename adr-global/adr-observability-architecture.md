@@ -1,8 +1,6 @@
 ---
-document: "`observability-architecture` ADR — Observability Architecture"
-doc-id: adr-observability-architecture
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-observability-architecture"
+doc-id: "adr-observability-architecture"
 ---
 # `observability-architecture` ADR — Observability Architecture
 

@@ -1,9 +1,6 @@
 ---
-document: "Requirement — New Third-Party Integration"
-doc-id: sec-requirements-third-party-integration
-state: Live
-date-created: 2026-08-27
-category: requirements
+title: "sec-requirements-third-party-integration"
+doc-id: "sec-requirements-third-party-integration"
 ---
 # Requirement — New Third-Party Integration
 

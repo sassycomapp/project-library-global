@@ -1,8 +1,6 @@
 ---
-document: Mybizz — Integration Specification
-doc-id: spec-integration
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-integration"
+doc-id: "spec-integration"
 ---
 # Mybizz — Integration Specification
 

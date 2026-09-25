@@ -1,13 +1,7 @@
 ---
-document: "anvil.js"
 title: "anvil.js"
-url: "/docs/api/anvil.js"
-doc-id: anvil.js
-state: Live
-date-created: 2026-09-08
+doc-id: "anvil.js"
 ---
-
-
 ## `anvil.js` Module
 
 #### Classes

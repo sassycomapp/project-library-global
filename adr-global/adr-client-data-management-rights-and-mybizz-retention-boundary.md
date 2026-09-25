@@ -1,8 +1,6 @@
 ---
-document: Client Data Management Rights and Mybizz Retention Boundary
-doc-id: adr-client-data-management-rights-and-mybizz-retention-boundary
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-client-data-management-rights-and-mybizz-retention-boundary"
+doc-id: "adr-client-data-management-rights-and-mybizz-retention-boundary"
 ---
 # Client Data Management Rights and Mybizz Retention Boundary
 Date: 2026-05-29

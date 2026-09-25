@@ -1,13 +1,7 @@
 ---
-document: "anvil.facebook.auth"
 title: "anvil.facebook.auth"
-url: "/docs/api/anvil.facebook.auth"
-doc-id: anvil.facebook.auth
-state: Live
-date-created: 2026-09-08
+doc-id: "anvil.facebook.auth"
 ---
-
-
 ## `anvil.facebook.auth` Module
 
 #### Functions

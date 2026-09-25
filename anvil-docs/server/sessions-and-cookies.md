@@ -1,13 +1,7 @@
 ---
-document: "Sessions and Cookies"
-title: "Sessions and Cookies"
-url: "/docs/server/sessions-and-cookies"
-doc-id: sessions-and-cookies
-state: Live
-date-created: 2026-09-08
+title: "sessions-and-cookies"
+doc-id: "sessions-and-cookies"
 ---
-
-
 # [Sessions and Cookies](#sessions-and-cookies)
 
 When your users visit your app, their browser starts a ‘session’ and stores a token to identify what session they are in. If they run your app again in the same browser window, your app will get the same session token. Anvil uses this to allow you to store data in Server Modules for the duration of a user’s session.

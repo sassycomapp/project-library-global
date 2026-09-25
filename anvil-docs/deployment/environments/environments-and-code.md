@@ -1,13 +1,7 @@
 ---
-document: "Environments and Code"
-title: "Environments and Code"
-url: "/docs/deployment/environments/environments-and-code"
-doc-id: environments-and-code
-state: Live
-date-created: 2026-09-08
+title: "environments-and-code"
+doc-id: "environments-and-code"
 ---
-
-
 # [Learning about Environments from Code](#learning-about-environments-from-code)
 
 In a typical application, the same source code will run in several different environments – a developer’s personal [Development Environment](../environments#development-environments), then perhaps a testing environment, then production. It might need to behave differently in different environments: for example, if it is generating links to its own HTTP endpoints, those links should include the URL for the current environment. As another example, an application that connects to an external database server might connect to a testing database in development and testing environments, and a production database in production.

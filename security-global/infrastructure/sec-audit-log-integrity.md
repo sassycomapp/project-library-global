@@ -1,9 +1,6 @@
 ---
-document: "Audit Log Integrity Across Systems"
-doc-id: sec-audit-log-integrity
-state: Live
-date-created: 2026-08-27
-category: infrastructure
+title: "sec-audit-log-integrity"
+doc-id: "sec-audit-log-integrity"
 ---
 # Audit Log Integrity Across Systems
 

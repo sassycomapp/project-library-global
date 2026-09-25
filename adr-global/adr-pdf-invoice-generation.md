@@ -1,8 +1,6 @@
 ---
-document: "`pdf-invoice-generation` ADR — PDF Invoice Generation"
-doc-id: adr-pdf-invoice-generation
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-pdf-invoice-generation"
+doc-id: "adr-pdf-invoice-generation"
 ---
 # `pdf-invoice-generation` ADR — PDF Invoice Generation
 

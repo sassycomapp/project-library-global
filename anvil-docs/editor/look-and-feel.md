@@ -1,13 +1,7 @@
 ---
-document: "Editor Look and Feel"
-title: "Editor Look and Feel"
-url: "/docs/editor/look-and-feel"
-doc-id: look-and-feel
-state: Live
-date-created: 2026-09-08
+title: "look-and-feel"
+doc-id: "look-and-feel"
 ---
-
-
 # [Changing the Look and Feel of the Editor](#changing-the-look-and-feel-of-the-editor)
 
 You can update the look and feel of the Anvil Editor from the My Account tab in the top right corner of the page.

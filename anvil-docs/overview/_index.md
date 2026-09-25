@@ -1,12 +1,7 @@
 ---
-document: "Overview"
-title: "Overview"
-url: "/docs/overview"
-doc-id: overview-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
 # [Welcome to Anvil.](#welcome-to-anvil)
 
 Anvil is a new way to build web apps, with nothing but Python. This documentation will tell you all about how it works.

@@ -1,13 +1,7 @@
 ---
-document: "Quickstart"
-title: "Quickstart"
-url: "/docs/integrations/google/quickstart"
-doc-id: google-quickstart
-state: Live
-date-created: 2026-09-08
+title: "quickstart"
+doc-id: "quickstart"
 ---
-
-
 # [Quickstart: Google integration](#quickstart-google-integration)
 
 ### Upload a file to Google Drive

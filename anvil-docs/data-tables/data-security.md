@@ -1,13 +1,7 @@
 ---
-document: "Data Security"
-title: "Data Security"
-url: "/docs/data-tables/data-security"
-doc-id: data-security
-state: Live
-date-created: 2026-09-08
+title: "data-security"
+doc-id: "data-security"
 ---
-
-
 # [Data Security with Data Tables](#data-security-with-data-tables)
 
 **Data in Data Tables is encrypted at rest.** This page is a guide to prevent you from accidentally disclosing data to app users.

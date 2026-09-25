@@ -1,8 +1,6 @@
 ---
-document: Mybizz CS Onboarding System - Engineering Plan
-doc-id: spec-onboarding-implementation-plan
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-onboarding-implementation-plan"
+doc-id: "spec-onboarding-implementation-plan"
 ---
 # Mybizz CS Onboarding System - Engineering Plan
 

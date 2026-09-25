@@ -1,13 +1,7 @@
 ---
-document: "RepeatingPanels"
-title: "RepeatingPanels"
-url: "/docs/components/standard-components/repeating-panel"
-doc-id: repeating-panel
-state: Live
-date-created: 2026-09-08
+title: "repeating-panel"
+doc-id: "repeating-panel"
 ---
-
-
 # [RepeatingPanels](#repeatingpanels)
 
 [Properties](/docs/api/anvil#RepeatingPanel_attributes) | [Events](/docs/api/anvil#RepeatingPanel_events)

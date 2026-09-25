@@ -1,13 +1,7 @@
 ---
-document: "Sending and Receiving"
-title: "Sending and Receiving"
-url: "/docs/server/email/sending-and-receiving"
-doc-id: sending-and-receiving
-state: Live
-date-created: 2026-09-08
+title: "sending-and-receiving"
+doc-id: "sending-and-receiving"
 ---
-
-
 # [Sending and Receiving Email in your Apps](#sending-and-receiving-email-in-your-apps)
 
 ## [Enabling the Email Service](#enabling-the-email-service)

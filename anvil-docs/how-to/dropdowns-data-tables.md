@@ -1,13 +1,7 @@
 ---
-document: "DropDowns and Data Tables"
-title: "DropDowns and Data Tables"
-url: "/docs/how-to/dropdowns-data-tables"
-doc-id: dropdowns-data-tables
-state: Live
-date-created: 2026-09-08
+title: "dropdowns-data-tables"
+doc-id: "dropdowns-data-tables"
 ---
-
-
 # [Connecting a DropDown component to a Data Table](#connecting-a-dropdown-component-to-a-data-table)
 
 A common use case for the [DropDown component](/docs/client/components/basic#dropdown) is to populate it with rows from a [Data Table](/docs/data-tables). This how-to guide will show you how to populate a DropDown component with rows from a Data Table then write back to a Data Table after making a selection.

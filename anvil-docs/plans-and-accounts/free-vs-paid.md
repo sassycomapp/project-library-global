@@ -1,13 +1,7 @@
 ---
-document: "Pricing plans"
-title: "Pricing plans"
-url: "/docs/plans-and-accounts/free-vs-paid"
-doc-id: free-vs-paid
-state: Live
-date-created: 2026-09-08
+title: "free-vs-paid"
+doc-id: "free-vs-paid"
 ---
-
-
 # [Pricing plans](#pricing-plans)
 
 It is free to use Anvil, even for commercial purposes. However, certain features are only unlocked for users of one of our [paid plans](/pricing). These include:

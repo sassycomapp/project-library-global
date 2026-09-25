@@ -1,8 +1,6 @@
 ---
-document: "`free-trial-abandoned` ADR — 30-Day Free Trial Abandoned"
-doc-id: adr-free-trial-abandoned
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-free-trial-abandoned"
+doc-id: "adr-free-trial-abandoned"
 ---
 # `free-trial-abandoned` ADR — 30-Day Free Trial Abandoned
 

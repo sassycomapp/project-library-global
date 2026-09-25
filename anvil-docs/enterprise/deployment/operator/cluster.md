@@ -1,12 +1,7 @@
 ---
-document: "Cluster Configuration"
-title: "Cluster Configuration"
-url: "/docs/enterprise/deployment/operator/cluster"
-doc-id: cluster
-state: Live
-date-created: 2026-09-08
+title: "cluster"
+doc-id: "cluster"
 ---
-
 # [Cluster Configuration](#cluster-configuration)
 
 Your Anvil cluster can be configured by specifying appropriate options in the Cluster Custom Resource spec. Here is a sample Cluster resource:

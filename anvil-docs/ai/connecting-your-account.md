@@ -1,13 +1,7 @@
 ---
-document: "Connecting Your Account"
-title: "Connecting Your Account"
-url: "/docs/ai/connecting-your-account"
-doc-id: connecting-your-account
-state: Live
-date-created: 2026-09-08
+title: "connecting-your-account"
+doc-id: "connecting-your-account"
 ---
-
-
 # [Connecting Your Account](#connecting-your-account)
 
 To use AI agents in Anvil, you need to connect your account to an AI provider. When you open the agent chat window for the first time, you’ll be prompted to choose a provider.

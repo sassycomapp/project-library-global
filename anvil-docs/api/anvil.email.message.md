@@ -1,13 +1,7 @@
 ---
-document: "anvil.email.Message"
-title: "anvil.email.Message"
-url: "/docs/api/anvil.email.message"
-doc-id: anvil.email.message
-state: Live
-date-created: 2026-09-08
+title: "anvil.email.message"
+doc-id: "anvil.email.message"
 ---
-
-
 ## `anvil.email.Message` Module
 
 #### Classes

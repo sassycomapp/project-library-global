@@ -1,13 +1,7 @@
 ---
-document: "Connecting to Data Tables"
-title: "Connecting to Data Tables"
-url: "/docs/external-resources/uplink/data-tables"
-doc-id: uplink-data-tables
-state: Live
-date-created: 2026-09-08
+title: "data-tables"
+doc-id: "data-tables"
 ---
-
-
 # [Connecting to Data Tables](#connecting-to-data-tables)
 
 Once you have set up the Anvil Uplink, your local Python code can do anything a Server Module can do. This includes connecting to [Data Tables](/docs/data-tables) in your Anvil App from your own machine.

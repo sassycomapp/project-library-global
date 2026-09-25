@@ -1,13 +1,7 @@
 ---
-document: "Connecting Facebook to Anvil"
-title: "Connecting Facebook to Anvil"
-url: "/docs/integrations/facebook/linking-facebook-and-anvil"
-doc-id: linking-facebook-and-anvil
-state: Live
-date-created: 2026-09-08
+title: "linking-facebook-and-anvil"
+doc-id: "linking-facebook-and-anvil"
 ---
-
-
 # [Connecting Facebook to Anvil](#connecting-facebook-to-anvil)
 
 You can allow your users to sign in with Facebook using the Facebook Service.

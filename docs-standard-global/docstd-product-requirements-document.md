@@ -1,8 +1,6 @@
 ---
-document: "{Project Name} — Product Requirements Document (PRD)"
-doc-id: docstd-product-requirements-document
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "docstd-product-requirements-document"
+doc-id: "docstd-product-requirements-document"
 ---
 # {Project Name} — Product Requirements Document (PRD)
 

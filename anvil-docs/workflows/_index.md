@@ -1,13 +1,7 @@
 ---
-document: "Workflows and Best Practices"
-title: "Workflows and Best Practices"
-url: "/docs/workflows"
-doc-id: workflows-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Workflows and Best Practices](#workflows-and-best-practices)
 
 This section covers tools and patterns to help you build better Anvil apps. Here, you’ll find information on how to structure and debug your apps as well as how to build secure apps and work collaboratively with other devlopers

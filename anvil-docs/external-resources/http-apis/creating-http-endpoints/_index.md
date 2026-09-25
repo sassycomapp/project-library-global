@@ -1,13 +1,7 @@
 ---
-document: "Creating HTTP APIs"
-title: "Creating HTTP APIs"
-url: "/docs/external-resources/http-apis/creating-http-endpoints"
-doc-id: creating-http-endpoints-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Creating HTTP APIs](#creating-http-apis)
 
 You can build an HTTP API for your app by decorating server functions with the `@anvil.server.route` decorator.

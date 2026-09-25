@@ -1,9 +1,6 @@
 ---
-document: "Threat Model — Multi-Tenant Assumption Leakage"
-doc-id: sec-multi-tenant-assumption-leakage
-state: Live
-date-created: 2026-08-27
-category: threat-models
+title: "sec-multi-tenant-assumption-leakage"
+doc-id: "sec-multi-tenant-assumption-leakage"
 ---
 # Threat Model — Multi-Tenant Assumption Leakage
 

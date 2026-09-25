@@ -1,13 +1,7 @@
 ---
-document: "Managing Users"
-title: "Managing Users"
-url: "/docs/users"
-doc-id: users-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Managing Users](#managing-users)
 
 The Users Service handles signup, login and user permissions, and provides a range of functionality to make user management easy and flexible. See the [Quickstart for logins](users/quickstart-login) and the [Quickstart for permissions](users/quickstart-permissions) to get up and running quickly.

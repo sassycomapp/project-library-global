@@ -1,13 +1,7 @@
 ---
-document: "Connecting Google to Anvil"
-title: "Connecting Google to Anvil"
-url: "/docs/integrations/google/linking-google-and-anvil"
-doc-id: linking-google-and-anvil
-state: Live
-date-created: 2026-09-08
+title: "linking-google-and-anvil"
+doc-id: "linking-google-and-anvil"
 ---
-
-
 # [Connecting Google to Anvil](#connecting-google-to-anvil)
 
 For advanced use of Anvil’s Google integration, you need to let Google Developer Console know about your app.

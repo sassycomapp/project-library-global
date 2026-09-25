@@ -1,8 +1,6 @@
 ---
-document: Filename and Front-Matter Numbering Policy
-doc-id: adr-filename-and-frontmatter-numbering-policy
-state: Live
-date-created: 20260910T103452+0200
+title: "adr-filename-and-frontmatter-numbering-policy"
+doc-id: "adr-filename-and-frontmatter-numbering-policy"
 ---
 # Filename and Front-Matter Numbering Policy
 

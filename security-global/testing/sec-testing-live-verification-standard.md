@@ -1,9 +1,6 @@
 ---
-document: "Live Verification Standard"
-doc-id: sec-testing-live-verification-standard
-state: Live
-date-created: 2026-08-27
-category: testing
+title: "sec-testing-live-verification-standard"
+doc-id: "sec-testing-live-verification-standard"
 ---
 # Live Verification Standard
 

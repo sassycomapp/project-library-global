@@ -1,13 +1,7 @@
 ---
-document: "Using Trexjacket"
-title: "Using Trexjacket"
-url: "/docs/integrations/x/trexjacket"
-doc-id: trexjacket
-state: Live
-date-created: 2026-09-08
+title: "trexjacket"
+doc-id: "trexjacket"
 ---
-
-
 # [Making the Tableau Extension API easier to use](#making-the-tableau-extension-api-easier-to-use)
 
 Trexjacket is a library that aims to simplify creation of Tableau Extensions with Anvil X. Although Anvil X offers access to the full [Tableau Extensions API](tableau-extensions-api) provided by Tableau, these APIs can sometimes feel daunting. Trexjacket was developed to fill that gap, by providing a simplified Python API to the most common operations when building a Tableau Extension.

@@ -1,15 +1,7 @@
 ---
-type: concept
-title: 'Session 014 — mb-doccycle WP2-WP8 complete, config suite built, close-out'
-state: Live
-doc-id: sessions-2026-09-22-014
-document: Session 014 — mb-doccycle WP2-WP8 + config-management suite
-date-created: '2026-09-22T00:00:00.000Z'
-ingested_via: 'mcp:put_page'
-ingested_at: '2026-09-23T04:55:30.043Z'
-source_kind: 'mcp:put_page'
+title: "2026-09-22-014-mb-doccycle-wp2-wp8"
+doc-id: "2026-09-22-014-mb-doccycle-wp2-wp8"
 ---
-
 # Session 014 — mb-doccycle WP2-WP8 complete, config suite built, close-out
 
 ## What happened

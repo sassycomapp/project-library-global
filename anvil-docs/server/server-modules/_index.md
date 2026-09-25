@@ -1,13 +1,7 @@
 ---
-document: "Server Modules"
-title: "Server Modules"
-url: "/docs/server/server-modules"
-doc-id: server-modules-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Server Modules](#server-modules)
 
 Anvil’s Server Modules are a full server-side Python environment, with the ability to [import any packages you like](/docs/server/custom-packages).

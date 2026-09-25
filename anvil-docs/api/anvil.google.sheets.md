@@ -1,13 +1,7 @@
 ---
-document: "anvil.google.sheets"
 title: "anvil.google.sheets"
-url: "/docs/api/anvil.google.sheets"
-doc-id: anvil.google.sheets
-state: Live
-date-created: 2026-09-08
+doc-id: "anvil.google.sheets"
 ---
-
-
 ## `anvil.google.sheets` Module
 
 #### Classes

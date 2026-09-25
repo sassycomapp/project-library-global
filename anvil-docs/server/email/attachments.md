@@ -1,13 +1,7 @@
 ---
-document: "Attachments"
-title: "Attachments"
-url: "/docs/server/email/attachments"
-doc-id: attachments
-state: Live
-date-created: 2026-09-08
+title: "attachments"
+doc-id: "attachments"
 ---
-
-
 # [Sending and Receiving Email Attachments](#sending-and-receiving-email-attachments)
 
 As well as text and HTML content, email messages can contain binary attachments. Like all other binary data in Anvil, attachments are [Media objects](/docs/working-with-files/media).

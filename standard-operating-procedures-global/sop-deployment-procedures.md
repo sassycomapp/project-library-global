@@ -1,8 +1,6 @@
 ---
-document: "{Project Name} — SOP: Deployment Procedures"
-doc-id: sop-deployment-procedures
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "sop-deployment-procedures"
+doc-id: "sop-deployment-procedures"
 ---
 # {Project Name} — SOP: Deployment Procedures
 

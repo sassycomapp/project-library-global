@@ -1,17 +1,7 @@
 ---
-type: concept
-title: >-
-  Session 013 — mb-doccycle architecture, Cupcake set-and-forget, WP0–WP1
-  (2026-09-21 → 2026-09-22)
-state: Live
-doc-id: session-013
-document: 'Session 013 — mb-doccycle architecture, Cupcake set-and-forget, WP0–WP1'
-date-created: '2026-09-22T00:00:00.000Z'
-ingested_via: 'mcp:put_page'
-ingested_at: '2026-09-22T08:58:04.373Z'
-source_kind: 'mcp:put_page'
+title: "2026-09-22-013-mb-doccycle-wp0-wp1"
+doc-id: "2026-09-22-013-mb-doccycle-wp0-wp1"
 ---
-
 # Session 013 — mb-doccycle architecture, Cupcake set-and-forget, WP0–WP1 (2026-09-21 → 2026-09-22)
 
 ## What was done

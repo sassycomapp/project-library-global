@@ -1,13 +1,7 @@
 ---
-document: "Linode"
-title: "Linode"
-url: "/docs/how-to/app-server/cloud-deployment-guides/linode-app-server-deployment"
-doc-id: linode-app-server-deployment
-state: Live
-date-created: 2026-09-08
+title: "linode-app-server-deployment"
+doc-id: "linode-app-server-deployment"
 ---
-
-
 # [How to use Anvil’s open-source App Server on Linode](#how-to-use-anvils-open-source-app-server-on-linode)
 
 ## [Introduction](#introduction)

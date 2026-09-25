@@ -1,8 +1,6 @@
 ---
-document: Mybizz CS — Screen Production Standard
-doc-id: spec-screen-production-standard
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "spec-screen-production-standard"
+doc-id: "spec-screen-production-standard"
 ---
 # Mybizz CS — Screen Production Standard
 

@@ -1,8 +1,6 @@
 ---
-document: Onboarding vs Settings Boundary
-doc-id: adr-onboarding-vs-settings-boundary
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "adr-onboarding-vs-settings-boundary"
+doc-id: "adr-onboarding-vs-settings-boundary"
 ---
 # Onboarding vs Settings Boundary
 Date: 2026-05-29

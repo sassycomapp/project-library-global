@@ -1,9 +1,6 @@
 ---
-document: "Threat Model — Injection and Unsafe Input"
-doc-id: sec-injection-unsafe-input
-state: Live
-date-created: 2026-08-27
-category: threat-models
+title: "sec-injection-unsafe-input"
+doc-id: "sec-injection-unsafe-input"
 ---
 # Threat Model — Injection and Unsafe Input
 

@@ -1,8 +1,6 @@
 ---
-document: Agent Readiness CoP preparation
-doc-id: sop-set3-anvil_cop_agent_readiness
-state: Live
-date-created: 2026-07-25T150027+0200
+title: "sop-set3-anvil_cop_agent_readiness"
+doc-id: "sop-set3-anvil_cop_agent_readiness"
 ---
 # Agent Readiness CoP preparation
 

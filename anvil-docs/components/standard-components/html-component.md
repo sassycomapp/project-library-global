@@ -1,13 +1,7 @@
 ---
-document: "HTMLComponent"
-title: "HTMLComponent"
-url: "/docs/components/standard-components/html-component"
-doc-id: html-component
-state: Live
-date-created: 2026-09-08
+title: "html-component"
+doc-id: "html-component"
 ---
-
-
 # [HtmlComponent](#htmlcomponent)
 
 You can add native HTML elements to a Form’s HTML from [HTML view](/docs/client/forms/forms-in-the-editor#html-view). Anvil represents these native HTML elements as HTMLComponents that you can then edit and interact with from the drag-and-drop designer and Python code.

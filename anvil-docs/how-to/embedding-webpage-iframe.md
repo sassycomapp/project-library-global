@@ -1,13 +1,7 @@
 ---
-document: "Embed a Webpage in an Anvil App"
-title: "Embed a Webpage in an Anvil App"
-url: "/docs/how-to/embedding-webpage-iframe"
-doc-id: embedding-webpage-iframe
-state: Live
-date-created: 2026-09-08
+title: "embedding-webpage-iframe"
+doc-id: "embedding-webpage-iframe"
 ---
-
-
 # [Embed a Webpage in an Anvil App](#embed-a-webpage-in-an-anvilapp)
 
 In this guide, I’ll show you how to embed a webpage in your Anvil app with just 3 simple steps. You can use this to embed blogs, charts or embedded analytics like PowerBI.

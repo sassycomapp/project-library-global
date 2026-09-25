@@ -1,13 +1,7 @@
 ---
-document: "URL Routing"
-title: "URL Routing"
-url: "/docs/client/navigation/routing"
-doc-id: routing-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [URL Routing](#url-routing)
 
 **This feature is optional** - you can make perfectly functional apps in Anvil without routing.

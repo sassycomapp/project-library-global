@@ -1,13 +1,7 @@
 ---
-document: "Building clean database apps"
-title: "Building clean database apps"
-url: "/docs/how-to/crud-best-practice-guide"
-doc-id: crud-best-practice-guide
-state: Live
-date-created: 2026-09-08
+title: "crud-best-practice-guide"
+doc-id: "crud-best-practice-guide"
 ---
-
-
 # [Building clean database-backed apps](#building-clean-database-backed-apps)
 
 There are many ways to build database-backed, or CRUD (**C**reate/**R**ead/**U**pdate/**D**elete) apps with Anvil. This guide describes our **recommended** approach for building CRUD functionality in Anvil. It’s not mandatory – Anvil provides tons of flexibility, so you can do whatever you need to – but we’ve found that these principles make your apps faster to build and easier to maintain.

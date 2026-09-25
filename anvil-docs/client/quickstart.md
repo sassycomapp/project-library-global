@@ -1,13 +1,7 @@
 ---
-document: "Quickstart"
-title: "Quickstart"
-url: "/docs/client/quickstart"
-doc-id: client-quickstart
-state: Live
-date-created: 2026-09-08
+title: "quickstart"
+doc-id: "quickstart"
 ---
-
-
 # [Quickstart: User Interfaces](#quickstart-user-interfaces)
 
 ### Build your UI visually and write Python to make it work

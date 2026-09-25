@@ -1,13 +1,7 @@
 ---
-document: "Quickstart"
-title: "Quickstart"
-url: "/docs/integrations/saml/quickstart"
-doc-id: saml-quickstart
-state: Live
-date-created: 2026-09-08
+title: "quickstart"
+doc-id: "quickstart"
 ---
-
-
 # [Quickstart: SAML Authentication](#quickstart-saml-authentication)
 
 ### Authenticate with SAML in your Anvil app

@@ -1,13 +1,7 @@
 ---
-document: "Events"
-title: "Events"
-url: "/docs/client/events"
-doc-id: events-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Events](#events)
 
 [Components](/docs/ui/components) in Anvil can raise events. Events occur when users interact with your app. For example, when a Button is clicked, a `click` event is raised by a component. In Anvil, you can write Python code that runs whenever a specific event is rasied.

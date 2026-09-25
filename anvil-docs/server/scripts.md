@@ -1,13 +1,7 @@
 ---
-document: "Scripts"
-title: "Scripts"
-url: "/docs/server/scripts"
-doc-id: scripts
-state: Live
-date-created: 2026-09-08
+title: "scripts"
+doc-id: "scripts"
 ---
-
-
 # [Scripts](#scripts)
 
 **Scripts** in Anvil are single-file Python scripts that run from beginning to end, like a Python script on your computer. You can run a Script directly in the Anvil Editor, or run a Script from your [front-end user interface](../client).

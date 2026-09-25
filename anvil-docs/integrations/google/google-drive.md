@@ -1,13 +1,7 @@
 ---
-document: "Google Drive"
-title: "Google Drive"
-url: "/docs/integrations/google/google-drive"
-doc-id: google-drive
-state: Live
-date-created: 2026-09-08
+title: "google-drive"
+doc-id: "google-drive"
 ---
-
-
 # [Google Drive](#google-drive)
 
 You can use the Google Service to integrate Google Drive functionality into your Anvil app.

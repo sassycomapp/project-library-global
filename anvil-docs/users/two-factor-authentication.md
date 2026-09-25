@@ -1,13 +1,7 @@
 ---
-document: "Two-Factor Authentication"
-title: "Two-Factor Authentication"
-url: "/docs/users/two-factor-authentication"
-doc-id: two-factor-authentication
-state: Live
-date-created: 2026-09-08
+title: "two-factor-authentication"
+doc-id: "two-factor-authentication"
 ---
-
-
 # [Two-Factor Authentication](#two-factor-authentication)
 
 The Users service comes with the ability to add Two-Factor Authentication, also known as Multi-Factor Authentication, out of the box.

@@ -1,13 +1,7 @@
 ---
-document: "Coming from Streamlit"
-title: "Coming from Streamlit"
-url: "/docs/get-started/coming-from-streamlit"
-doc-id: coming-from-streamlit
-state: Live
-date-created: 2026-09-08
+title: "coming-from-streamlit"
+doc-id: "coming-from-streamlit"
 ---
-
-
 # [Comparing Streamlit to Anvil](#comparing-streamlit-to-anvil)
 
 If you’ve built apps with Streamlit, you’re probably used to building your UI in code, and running everything in a top-to-bottom script. Anvil is different — it’s an IDE and hosting platform for building full-stack web apps entirely in Python.

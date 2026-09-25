@@ -1,13 +1,7 @@
 ---
-document: "Calling functions remotely"
-title: "Calling functions remotely"
-url: "/docs/external-resources/uplink/calling-functions-remotely"
-doc-id: calling-functions-remotely
-state: Live
-date-created: 2026-09-08
+title: "calling-functions-remotely"
+doc-id: "calling-functions-remotely"
 ---
-
-
 # [Calling functions remotely](#calling-functions-remotely)
 
 You can use the Uplink to call functions on your own machine—or anywhere else, like a cloud server or IoT device. You can also call functions in your Anvil Server Modules from these external scripts.

@@ -1,10 +1,7 @@
 ---
-document: "anvil-docs — Explainer"
-doc-id: anvil-docs-explainer
-state: Live
-date-created: 2026-09-08
+title: "anvil-docs-explainer"
+doc-id: "anvil-docs-explainer"
 ---
-
 # anvil-docs — Explainer
 
 *Companion note: for current confirmed state (scale, structure, provenance,

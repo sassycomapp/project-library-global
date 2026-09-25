@@ -1,13 +1,7 @@
 ---
-document: "Cloning and Collaboration"
-title: "Cloning and Collaboration"
-url: "/docs/editor/app-settings/cloning-and-collaboration"
-doc-id: cloning-and-collaboration
-state: Live
-date-created: 2026-09-08
+title: "cloning-and-collaboration"
+doc-id: "cloning-and-collaboration"
 ---
-
-
 # [Collaboration with other Anvil developers](#collaboration-with-other-anvil-developers)
 
 There are two options for collaborating on an Anvil app with other Anvil developers: adding collaborators and app cloning. Both options are available in [App Settings](/docs/editor/app-settings), under **Collaboration**.

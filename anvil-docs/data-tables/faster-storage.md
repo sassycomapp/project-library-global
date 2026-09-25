@@ -1,13 +1,7 @@
 ---
-document: "Faster Storage"
-title: "Faster Storage"
-url: "/docs/data-tables/faster-storage"
-doc-id: faster-storage
-state: Live
-date-created: 2026-09-08
+title: "faster-storage"
+doc-id: "faster-storage"
 ---
-
-
 # [Faster Storage](#faster-storage)
 
 Faster Storage is a new storage engine for Data Tables that offers faster queries and better parallelism than the previous generation of Data Tables. Each Data Table in your app uses either the legacy or new Faster Storage engine.

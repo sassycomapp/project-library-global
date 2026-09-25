@@ -1,13 +1,7 @@
 ---
-document: "Debugging Your App"
-title: "Debugging Your App"
-url: "/docs/workflows/debugger"
-doc-id: debugger-_index
-state: Live
-date-created: 2026-09-08
+title: "_index"
+doc-id: "_index"
 ---
-
-
 # [Debugging Tools in the Anvil Editor](#debugging-tools-in-the-anvil-editor)
 
 Debugging is an essential part of building reliable applications, and the Anvil Editor makes it seamless with a suite of powerful tools.
