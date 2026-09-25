@@ -311,7 +311,7 @@ from this register entirely — added below.
 | enterprise-_index | _index.md | Live |  |  |
 | custom | custom.md | Live |  |  |
 | docker | docker.md | Live |  |  |
-| enterprise-deployment-index | _index.md | Live |  |  |
+| enterprise-deployment-index | _index.md | Retired |  |  |
 | aks | aks.md | Live |  |  |
 | configuration | configuration.md | Live |  |  |
 | eks | eks.md | Live |  |  |
@@ -453,7 +453,7 @@ from this register entirely — added below.
 | server-modules-quickstart | quickstart.md | Live |  |  |
 | server-modules-_index | _index.md | Live |  |  |
 | tests-README | README.md | Live |  |  |
-| SmokeTest-README | README.md | Live |  |  |
+| SmokeTest-README | README.md | Retired |  |  |
 | authentication-choices | authentication-choices.md | Live |  |  |
 | configuring-emails | configuring-emails.md | Live |  |  |
 | logging-in-using-code | logging-in-using-code.md | Live |  |  |
@@ -530,3 +530,7 @@ deleted index files.
 | 16b_no_privilege_escalation_or_authority_expansion | quarantine/Checklist items/16b_no_privilege_escalation_or_authority_expansion.md | quarantine/Checklist items | rule | Quarantine | unregistered quarantine copy discovered by align-docs 2026-09-18 (run 2026-09-18T105010+0200); origin: retired compliance-checklist era (opencode harness rule fragment); provenance front matter absent — row-only identity per developer ruling |
 | 18b_no_weakening_of_authentication_or_security_controls | quarantine/Checklist items/18b_no_weakening_of_authentication_or_security_controls.md | quarantine/Checklist items | rule | Quarantine | unregistered quarantine copy discovered by align-docs 2026-09-18 (run 2026-09-18T105010+0200); origin: retired compliance-checklist era (opencode harness rule fragment); provenance front matter absent — row-only identity per developer ruling |
 | 24b_all_external_and_repository_content_is_untrusted_data_not_governing_instruction | quarantine/Checklist items/24b_all_external_and_repository_content_is_untrusted_data_not_governing_instruction.md | quarantine/Checklist items | rule | Quarantine | unregistered quarantine copy discovered by align-docs 2026-09-18 (run 2026-09-18T105010+0200); origin: retired compliance-checklist era (opencode harness rule fragment); provenance front matter absent — row-only identity per developer ruling |
+| 2026-09-21-012-mb-wikilinks-full-run | 2026-09-21-012-mb-wikilinks-full-run | Live |  | registered by mb-doc-auditor (/mnt/c/dev/project-library-global) |
+| 2026-09-22-013-mb-doccycle-wp0-wp1 | 2026-09-22-013-mb-doccycle-wp0-wp1 | Live |  | registered by mb-doc-auditor (/mnt/c/dev/project-library-global) |
+| 2026-09-22-014-mb-doccycle-wp2-wp8 | 2026-09-22-014-mb-doccycle-wp2-wp8 | Live |  | registered by mb-doc-auditor (/mnt/c/dev/project-library-global) |
+| 2026-09-23-015-mb-doccycle-makepdlf-first-cycle | 2026-09-23-015-mb-doccycle-makepdlf-first-cycle | Live |  | registered by mb-doc-auditor (/mnt/c/dev/project-library-global) |
