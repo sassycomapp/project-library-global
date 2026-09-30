@@ -1,6 +1,6 @@
 ---
 title: "authentication-choices"
-doc-id: "authentication-choices"
+doc-id: "mb-300c500f"
 ---
 # [Authentication Choices](#authentication-choices)
 

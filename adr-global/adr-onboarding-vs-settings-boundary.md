@@ -1,6 +1,6 @@
 ---
 title: "adr-onboarding-vs-settings-boundary"
-doc-id: "adr-onboarding-vs-settings-boundary"
+doc-id: "mb-43ac2971"
 ---
 # Onboarding vs Settings Boundary
 Date: 2026-05-29

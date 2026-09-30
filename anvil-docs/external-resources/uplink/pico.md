@@ -1,6 +1,6 @@
 ---
 title: "pico"
-doc-id: "pico"
+doc-id: "mb-2f44c83b"
 ---
 # [Create Internet-Connected Gadgets with Anvil and the Pico W](#create-internet-connected-gadgets-with-anvil-and-the-pico-w)
 

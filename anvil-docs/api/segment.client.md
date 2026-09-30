@@ -1,6 +1,6 @@
 ---
 title: "segment.client"
-doc-id: "segment.client"
+doc-id: "mb-13ea02b4"
 ---
 ## `segment.client` Module
 

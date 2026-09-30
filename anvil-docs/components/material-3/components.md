@@ -1,6 +1,6 @@
 ---
 title: "components"
-doc-id: "components"
+doc-id: "mb-2c802285"
 ---
 # [Material 3 Components](#material-3-components)
 

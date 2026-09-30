@@ -1,6 +1,6 @@
 ---
 title: "publishing"
-doc-id: "publishing"
+doc-id: "mb-79fbf2f3"
 ---
 # [Publishing a version of your extension](#publishing-a-version-of-your-extension)
 

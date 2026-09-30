@@ -1,6 +1,6 @@
 ---
 title: "pol-documentation-and-decisions"
-doc-id: "pol-documentation-and-decisions"
+doc-id: "mb-ab7b68ea"
 ---
 # Policy — Documentation and Decisions
 

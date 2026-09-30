@@ -1,6 +1,6 @@
 ---
 title: "sec-ai-agent-secret-visibility"
-doc-id: "sec-ai-agent-secret-visibility"
+doc-id: "mb-a35bafbd"
 ---
 # AI Agent Secret Visibility
 

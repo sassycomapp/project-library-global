@@ -1,6 +1,6 @@
 ---
 title: "faster-storage"
-doc-id: "faster-storage"
+doc-id: "mb-a2cb0f8c"
 ---
 # [Faster Storage](#faster-storage)
 

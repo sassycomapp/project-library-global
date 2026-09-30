@@ -1,6 +1,6 @@
 ---
 title: "setting-up"
-doc-id: "setting-up"
+doc-id: "mb-3d7815cb"
 ---
 # [Setting up the Uplink](#setting-up-the-uplink)
 

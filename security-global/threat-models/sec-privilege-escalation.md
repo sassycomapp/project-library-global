@@ -1,6 +1,6 @@
 ---
 title: "sec-privilege-escalation"
-doc-id: "sec-privilege-escalation"
+doc-id: "mb-a824bb8a"
 ---
 # Threat Model — Privilege Escalation
 

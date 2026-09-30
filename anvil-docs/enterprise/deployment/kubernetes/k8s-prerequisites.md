@@ -1,6 +1,6 @@
 ---
 title: "k8s-prerequisites"
-doc-id: "k8s-prerequisites"
+doc-id: "mb-539e6915"
 ---
 # [Kubernetes Prerequisites](#kubernetes-prerequisites)
 

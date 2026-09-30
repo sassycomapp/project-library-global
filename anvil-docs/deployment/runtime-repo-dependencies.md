@@ -1,6 +1,6 @@
 ---
 title: "runtime-repo-dependencies"
-doc-id: "runtime-repo-dependencies"
+doc-id: "mb-6cb26b44"
 ---
 # Anvil App Server Dependencies
 
@@ -85,7 +85,7 @@ $ anvil-app-server --app MyApp --dep-id FWM2EMXS4IKC5HZS=HelloWorldApp
 
 You can also supply configuration options from a YAML file of keys and values instead of the command line. If you're configuring your application via a config file within your app directory, you can add your dependency configuration to that YAML file.
 
-For more information on config files please see the [README](../README.md).
+For more information on config files please see the [[anvil-docs/README]].
 
 For example, if you create a `config.yaml` file in the MyApp directory:
 

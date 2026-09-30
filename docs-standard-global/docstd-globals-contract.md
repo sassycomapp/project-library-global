@@ -1,6 +1,6 @@
 ---
 title: "docstd-globals-contract"
-doc-id: "docstd-globals-contract"
+doc-id: "mb-eaaaa3e8"
 ---
 # {Project Name} — globals.py Contract
 

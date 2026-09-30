@@ -1,6 +1,6 @@
 ---
 title: "managed-enterprise"
-doc-id: "managed-enterprise"
+doc-id: "mb-fe419447"
 ---
 # [Managed Enterprise](#managed-enterprise)
 

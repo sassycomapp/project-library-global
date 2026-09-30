@@ -1,6 +1,6 @@
 ---
 title: "_index"
-doc-id: "_index"
+doc-id: "mb-41a49ef7"
 ---
 # [Working With Files, Media And Binary Data](#working-with-files-media-and-binary-data)
 

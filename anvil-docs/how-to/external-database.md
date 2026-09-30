@@ -1,6 +1,6 @@
 ---
 title: "external-database"
-doc-id: "external-database"
+doc-id: "mb-1353e6b0"
 ---
 # [Visualise data from an external database](#visualise-data-from-an-external-database)
 

@@ -1,6 +1,6 @@
 ---
 title: "error-reporting"
-doc-id: "error-reporting"
+doc-id: "mb-9824839d"
 ---
 # [Error reporting](#error-reporting)
 

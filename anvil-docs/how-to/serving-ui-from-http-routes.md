@@ -1,6 +1,6 @@
 ---
 title: "serving-ui-from-http-routes"
-doc-id: "serving-ui-from-http-routes"
+doc-id: "mb-84769c79"
 ---
 # [Serving your app’s user interface from HTTP routes](#serving-your-apps-user-interface-from-http-routes)
 

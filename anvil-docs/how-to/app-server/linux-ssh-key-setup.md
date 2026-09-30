@@ -1,6 +1,6 @@
 ---
 title: "linux-ssh-key-setup"
-doc-id: "linux-ssh-key-setup"
+doc-id: "mb-bd9f649a"
 ---
 # [Setting up an SSH key to clone your Anvil app with Git](#setting-up-an-ssh-key-to-clone-your-anvil-app-with-git)
 

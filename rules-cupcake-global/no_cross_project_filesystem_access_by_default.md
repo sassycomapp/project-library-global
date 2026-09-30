@@ -1,6 +1,6 @@
 ---
 title: "no_cross_project_filesystem_access_by_default"
-doc-id: "no_cross_project_filesystem_access_by_default"
+doc-id: "mb-9a9b54d6"
 ---
 # Rule: No Cross-Project Filesystem Access by Default
 

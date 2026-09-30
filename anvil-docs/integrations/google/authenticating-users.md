@@ -1,6 +1,6 @@
 ---
 title: "authenticating-users"
-doc-id: "authenticating-users"
+doc-id: "mb-c666bab0"
 ---
 # [Authenticating Users with Google](#authenticating-users-with-google)
 

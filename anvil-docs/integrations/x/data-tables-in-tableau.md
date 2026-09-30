@@ -1,6 +1,6 @@
 ---
 title: "data-tables-in-tableau"
-doc-id: "data-tables-in-tableau"
+doc-id: "mb-0bf75c91"
 ---
 # [Access Data Tables from Tableau](#access-data-tables-from-tableau)
 

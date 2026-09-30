@@ -1,6 +1,6 @@
 ---
 title: "sec-anvil-platform-responsibility-boundary"
-doc-id: "sec-anvil-platform-responsibility-boundary"
+doc-id: "mb-b889a077"
 ---
 # Anvil Platform Responsibility Boundary
 

@@ -1,6 +1,6 @@
 ---
 title: "eks"
-doc-id: "eks"
+doc-id: "mb-8beef5e6"
 ---
 # [AWS Elastic Kubernetes Service](#aws-elastic-kubernetes-service)
 

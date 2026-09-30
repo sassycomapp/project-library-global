@@ -1,6 +1,6 @@
 ---
 title: "microsoft"
-doc-id: "microsoft"
+doc-id: "mb-aab31428"
 ---
 # [Microsoft SSO](#microsoft-sso)
 

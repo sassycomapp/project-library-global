@@ -1,6 +1,6 @@
 ---
 title: "collaborate-in-anvil"
-doc-id: "collaborate-in-anvil"
+doc-id: "mb-ad765639"
 ---
 # [Collaborate as a team in Anvil](#collaborate-as-a-team-in-anvil)
 

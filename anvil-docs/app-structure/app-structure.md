@@ -1,12 +1,12 @@
 ---
 title: "app-structure"
-doc-id: "app-structure"
+doc-id: "mb-c7cae267"
 ---
 # The Anvil app structure explained
 
 [Anvil](https://anvil.works) is a platform for building full-stack web apps with nothing but Python. The Anvil Runtime is the open-source engine that powers those apps.
 
-The [Anvil App Server](../README.md) serves Anvil apps, which follow a certain directory structure. You can create an Anvil app from scratch using your Text Editor, using the [create-anvil-app](creating-and-editing-apps.md) command, or by [cloning an app with Git](https://anvil.works/docs/version-control/git) from the [online IDE](https://anvil.works/build) (the [Anvil Editor](https://anvil.works/docs/editor)).
+The [[anvil-docs/README|Anvil App Server]] serves Anvil apps, which follow a certain directory structure. You can create an Anvil app from scratch using your Text Editor, using the [create-anvil-app](creating-and-editing-apps.md) command, or by [cloning an app with Git](https://anvil.works/docs/version-control/git) from the [online IDE](https://anvil.works/build) (the [Anvil Editor](https://anvil.works/docs/editor)).
 
 ## Anvil app structure
 
@@ -93,7 +93,7 @@ dependencies:
   version: {branch: "master"}
 ```
 
-You will also need to inform the Anvil App Server of any dependencies when launching your apps locally, either on the command line or in a config file. See the [README](../README.md) for more information. 
+You will also need to inform the Anvil App Server of any dependencies when launching your apps locally, either on the command line or in a config file. See the [[anvil-docs/README]] for more information. 
 
 
 ### Scheduled Tasks
@@ -377,7 +377,7 @@ db_schema:
 
 The App Server will check the `db_schema` provided in `anvil.yaml`, and compare this to the database in the local data directory (default: .anvil-data). 
 
-If the database is already configured with a different schema, the App Server will ask you to either migrate the changes to your local database, or ignore the schema specified in your `anvil.yaml` file. See the [README](../README.md) for more information.
+If the database is already configured with a different schema, the App Server will ask you to either migrate the changes to your local database, or ignore the schema specified in your `anvil.yaml` file. See the [[anvil-docs/README]] for more information.
 
 #### Users
 
@@ -485,7 +485,7 @@ To add the Email Service to your app, you need the following entry in your `anvi
   server_config: {}
 ```
 
-See the [README](../README.md) for more information on configuring the App Server to send and receive emails from your app. 
+See the [[anvil-docs/README]] for more information on configuring the App Server to send and receive emails from your app. 
   
 #### App Secrets
 
@@ -499,7 +499,7 @@ You can add the App Secrets service in your `anvil.yaml` file:
   server_config: {}
 ```
 
-For the App Server, the values of secrets and encryption keys are provided on the command line or in a config file, using the `secret` and `encryption-key` options (see the [README](../README.md) for details).
+For the App Server, the values of secrets and encryption keys are provided on the command line or in a config file, using the `secret` and `encryption-key` options (see the [[anvil-docs/README]] for details).
 
 (In the hosted Anvil platform, the values of your secrets are stored, encrypted, in your application. The platform provides key management and access control before decrypting these values. If you have exported your app from the Anvil Editor, you may see a `secrets:` key in `anvil.yaml` that contains these encrypted values. They cannot be extracted without the per-app keys stored in the Anvil platform, and are thus ignored by the App Server.)
 
@@ -522,7 +522,7 @@ This provides access to the following:
 * [Google REST APIs](https://anvil.works/docs/integrations/google/google-rest-apis) - You can easily get and refresh an access token to use with Google's many REST APIs. Then you can use `requests` or `anvil.http.request` to make calls to these APIs.
 
 
-You can add the Google Service in your `anvil.yaml` file, and then specify the `google-client-id` and `google-client-secret` options in your [App Server configuration](../README.md#service-integrations-and-api-keys). This will allow you to use Google authentication, access your users' Drive files (with the appropriate scopes) and access Google's REST APIs:
+You can add the Google Service in your `anvil.yaml` file, and then specify the `google-client-id` and `google-client-secret` options in your [[anvil-docs/README#service-integrations-and-api-keys|App Server configuration]]. This will allow you to use Google authentication, access your users' Drive files (with the appropriate scopes) and access Google's REST APIs:
 
 ```
 - source: /runtime/services/google.yml
@@ -545,7 +545,7 @@ This provides access to the following:
   * [Facebook REST APIs](https://anvil.works/docs/integrations/facebook/linking-facebook-and-anvil#authenticate-with-facebook-and-get-an-access-token) - you can easily get an access token to use with Facebook's REST APIs.
 
 To connect Anvil with Facebook, you need to create an 'app' in [Facebook for Developers](https://developers.facebook.com/).
-For our purposes, this is just a record held by Facebook to inform it of your Anvil app. You will receive an App ID and App Secret, which you should supply using the `facebook-app-id` and `facebook-app-secret` options in the App Server configuration (see the [README](../README.md)).
+For our purposes, this is just a record held by Facebook to inform it of your Anvil app. You will receive an App ID and App Secret, which you should supply using the `facebook-app-id` and `facebook-app-secret` options in the App Server configuration (see the [[anvil-docs/README]]).
 
 Here's an example entry in `anvil.yaml` to add the Facebook Service:
 
@@ -570,7 +570,7 @@ This provides access to the following:
 
 To use Anvil’s Microsoft integration, you need to let Microsoft Azure know about your app, and obtain an app ID and secret. See [connecting Azure to Anvil](https://anvil.works/docs/integrations/microsoft/linking-azure-and-anvil) for more information.
 
-Supply the application ID, secret and Tenant ID (if applicable) to the App Server configuration (see the [README](../README.md)).
+Supply the application ID, secret and Tenant ID (if applicable) to the App Server configuration (see the [[anvil-docs/README]]).
 
 This service's `server_config` in `anvil.yaml` can specify additional OAuth scopes to request (if any). `additional_oauth_scopes` takes a comma-separated string of scopes.
 

@@ -1,6 +1,6 @@
 ---
 title: "agent-chat-window"
-doc-id: "agent-chat-window"
+doc-id: "mb-7a97ea8e"
 ---
 # [The Agent chat window](#the-agent-chat-window)
 

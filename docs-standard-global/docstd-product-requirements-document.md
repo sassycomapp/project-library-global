@@ -1,6 +1,6 @@
 ---
 title: "docstd-product-requirements-document"
-doc-id: "docstd-product-requirements-document"
+doc-id: "mb-ff79bc42"
 ---
 # {Project Name} — Product Requirements Document (PRD)
 

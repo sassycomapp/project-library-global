@@ -1,6 +1,6 @@
 ---
 title: "_index"
-doc-id: "_index"
+doc-id: "mb-9d6cadb7"
 ---
 # [App architecture](#app-architecture)
 

@@ -1,6 +1,6 @@
 ---
 title: "spec-material-3-theme"
-doc-id: "spec-material-3-theme"
+doc-id: "mb-233089e4"
 ---
 Based on the information gathered, here is a strict spec/documentation style rewrite for your project docs:
 

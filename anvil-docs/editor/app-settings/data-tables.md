@@ -1,6 +1,6 @@
 ---
 title: "data-tables"
-doc-id: "data-tables"
+doc-id: "mb-86720272"
 ---
 # [Settings for Data Tables](#settings-for-data-tables)
 

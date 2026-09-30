@@ -1,6 +1,6 @@
 ---
 title: "adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed"
-doc-id: "adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed"
+doc-id: "mb-af193eb2"
 ---
 # Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed
 Date: 2026-05-29

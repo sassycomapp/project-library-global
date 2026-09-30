@@ -1,6 +1,6 @@
 ---
 title: "no_autonomous_installation_or_connection_of_tools"
-doc-id: "no_autonomous_installation_or_connection_of_tools"
+doc-id: "mb-873f45a8"
 ---
 # Rule: No Autonomous Installation or Connection of Tools
 

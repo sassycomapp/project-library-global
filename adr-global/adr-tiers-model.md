@@ -1,6 +1,6 @@
 ---
 title: "adr-tiers-model"
-doc-id: "adr-tiers-model"
+doc-id: "mb-beb7c182"
 ---
 # Tiers Model
 Date: 2026-05-29

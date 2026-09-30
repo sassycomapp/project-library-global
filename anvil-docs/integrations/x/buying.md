@@ -1,6 +1,6 @@
 ---
 title: "buying"
-doc-id: "buying"
+doc-id: "mb-feeba9cf"
 ---
 # [Billing and Metering](#billing-and-metering)
 

@@ -1,6 +1,6 @@
 ---
 title: "crud-best-practice-guide"
-doc-id: "crud-best-practice-guide"
+doc-id: "mb-8665448a"
 ---
 # [Building clean database-backed apps](#building-clean-database-backed-apps)
 

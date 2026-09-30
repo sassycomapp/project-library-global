@@ -1,6 +1,6 @@
 ---
 title: "sec-authentication-session"
-doc-id: "sec-authentication-session"
+doc-id: "mb-e628fe60"
 ---
 # Threat Model — Authentication and Session Threats
 

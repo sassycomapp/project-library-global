@@ -1,6 +1,6 @@
 ---
 title: "adr-dark-mode-v1"
-doc-id: "adr-dark-mode-v1"
+doc-id: "mb-c66b42b5"
 ---
 # `dark-mode-v1` ADR: Dark Mode — V1 Inclusion
 

@@ -1,6 +1,6 @@
 ---
 title: "html-component"
-doc-id: "html-component"
+doc-id: "mb-2cb3ed2d"
 ---
 # [HtmlComponent](#htmlcomponent)
 

@@ -1,6 +1,6 @@
 ---
 title: "quickstart"
-doc-id: "quickstart"
+doc-id: "mb-cc46205e"
 ---
 # [Quickstart: Server Code](#quickstart-server-code)
 

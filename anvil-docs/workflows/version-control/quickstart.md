@@ -1,6 +1,6 @@
 ---
 title: "quickstart"
-doc-id: "quickstart"
+doc-id: "mb-5b3e1cf4"
 ---
 # [Quickstart: Version Control](#quickstart-version-control)
 

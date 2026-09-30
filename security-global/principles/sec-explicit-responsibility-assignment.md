@@ -1,6 +1,6 @@
 ---
 title: "sec-explicit-responsibility-assignment"
-doc-id: "sec-explicit-responsibility-assignment"
+doc-id: "mb-0c5fb360"
 ---
 # Principle — Explicit Responsibility Assignment
 

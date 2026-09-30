@@ -1,6 +1,6 @@
 ---
 title: "_index"
-doc-id: "_index"
+doc-id: "mb-d7b5947b"
 ---
 # [Connecting to External Resources](#connecting-to-external-resources)
 

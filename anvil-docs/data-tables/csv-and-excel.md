@@ -1,6 +1,6 @@
 ---
 title: "csv-and-excel"
-doc-id: "csv-and-excel"
+doc-id: "mb-22ab87ff"
 ---
 # [Importing data from CSV and Excel](#importing-data-from-csv-and-excel)
 

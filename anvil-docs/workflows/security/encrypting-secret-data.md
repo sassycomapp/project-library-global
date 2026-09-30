@@ -1,6 +1,6 @@
 ---
 title: "encrypting-secret-data"
-doc-id: "encrypting-secret-data"
+doc-id: "mb-8f91bf18"
 ---
 # [Encrypting Secret Data with App Secrets](#encrypting-secret-data-with-app-secrets)
 

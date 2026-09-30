@@ -1,6 +1,6 @@
 ---
 title: "no_bash_mediated_file_writes_without_grant"
-doc-id: "no_bash_mediated_file_writes_without_grant"
+doc-id: "mb-b3ee5535"
 ---
 # Rule: No Bash-Mediated File Writes Without Grant
 

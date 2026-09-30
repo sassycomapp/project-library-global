@@ -1,6 +1,6 @@
 ---
 title: "the-python-environment"
-doc-id: "the-python-environment"
+doc-id: "mb-f7f3c950"
 ---
 # [The Client-side Python Environment](#the-client-side-python-environment)
 

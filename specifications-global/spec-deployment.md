@@ -1,6 +1,6 @@
 ---
 title: "spec-deployment"
-doc-id: "spec-deployment"
+doc-id: "mb-4a8a251d"
 ---
 # Mybizz — Deployment Specification
 

@@ -1,6 +1,6 @@
 ---
 title: "no_unverified_dependencies"
-doc-id: "no_unverified_dependencies"
+doc-id: "mb-ca7a4363"
 ---
 # Rule: No Unverified Dependency Installation
 

@@ -1,6 +1,6 @@
 ---
 title: "_index"
-doc-id: "_index"
+doc-id: "mb-9dc70494"
 ---
 # [App Logs](#app-logs)
 

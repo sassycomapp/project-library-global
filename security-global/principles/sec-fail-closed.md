@@ -1,6 +1,6 @@
 ---
 title: "sec-fail-closed"
-doc-id: "sec-fail-closed"
+doc-id: "mb-9629b209"
 ---
 # Principle — Fail Closed
 

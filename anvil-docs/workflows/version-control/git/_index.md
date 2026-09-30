@@ -1,6 +1,6 @@
 ---
 title: "_index"
-doc-id: "_index"
+doc-id: "mb-22af8a6c"
 ---
 # [Connecting to GitHub and Other Git Remotes](#connecting-to-github-and-other-git-remotes)
 

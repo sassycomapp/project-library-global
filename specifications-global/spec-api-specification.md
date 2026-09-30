@@ -1,6 +1,6 @@
 ---
 title: "spec-api-specification"
-doc-id: "spec-api-specification"
+doc-id: "mb-639a7203"
 ---
 # Mybizz — API Specification (HTTP Endpoints)
 

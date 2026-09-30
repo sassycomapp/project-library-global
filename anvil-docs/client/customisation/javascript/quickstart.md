@@ -1,6 +1,6 @@
 ---
 title: "quickstart"
-doc-id: "quickstart"
+doc-id: "mb-e9b8f957"
 ---
 # [Quickstart: JavaScript](#quickstart-javascript)
 

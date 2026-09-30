@@ -1,6 +1,6 @@
 ---
 title: "sec-review-before-trust"
-doc-id: "sec-review-before-trust"
+doc-id: "mb-9180deda"
 ---
 # Principle — Review Before Trust
 

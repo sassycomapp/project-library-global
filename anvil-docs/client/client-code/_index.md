@@ -1,6 +1,6 @@
 ---
 title: "_index"
-doc-id: "_index"
+doc-id: "mb-96ab5b47"
 ---
 # [Client-side code](#client-side-code)
 

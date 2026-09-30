@@ -1,6 +1,6 @@
 ---
 title: "adr-form-architecture-and-state"
-doc-id: "adr-form-architecture-and-state"
+doc-id: "mb-4549f271"
 ---
 # `form-architecture-and-state` ADR — Form Architecture and State Management
 

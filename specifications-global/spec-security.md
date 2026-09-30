@@ -1,6 +1,6 @@
 ---
 title: "spec-security"
-doc-id: "spec-security"
+doc-id: "mb-d16f800e"
 ---
 # PDLF Standards Library — Security Specification
 

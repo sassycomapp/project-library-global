@@ -1,6 +1,6 @@
 ---
 title: "look-and-feel"
-doc-id: "look-and-feel"
+doc-id: "mb-f22a2ccd"
 ---
 # [Changing the Look and Feel of the Editor](#changing-the-look-and-feel-of-the-editor)
 

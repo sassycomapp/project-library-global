@@ -1,6 +1,6 @@
 ---
 title: "microsoft-single-sign-on"
-doc-id: "microsoft-single-sign-on"
+doc-id: "mb-a3a3b144"
 ---
 # [Microsoft Single Sign-On](#microsoft-single-sign-on)
 

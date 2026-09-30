@@ -1,6 +1,6 @@
 ---
 title: "custom-serialisation"
-doc-id: "custom-serialisation"
+doc-id: "mb-7d04ea3c"
 ---
 # [Custom serialisation](#custom-serialisation)
 

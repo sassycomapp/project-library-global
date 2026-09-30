@@ -1,6 +1,6 @@
 ---
 title: "adr-lead-capture-simultaneous-creation"
-doc-id: "adr-lead-capture-simultaneous-creation"
+doc-id: "mb-c6554efe"
 ---
 # Lead Capture: Simultaneous leads + contacts Creation
 Date: 2026-03-21

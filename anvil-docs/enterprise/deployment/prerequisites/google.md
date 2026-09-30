@@ -1,6 +1,6 @@
 ---
 title: "google"
-doc-id: "google"
+doc-id: "mb-a0dfdbcf"
 ---
 # [Google SSO](#google-sso)
 

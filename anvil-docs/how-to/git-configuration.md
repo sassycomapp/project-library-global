@@ -1,6 +1,6 @@
 ---
 title: "git-configuration"
-doc-id: "git-configuration"
+doc-id: "mb-87fc3eb9"
 ---
 # [Usable configuration with Git](#usable-configuration-with-git)
 

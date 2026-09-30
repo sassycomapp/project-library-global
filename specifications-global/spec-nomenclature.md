@@ -1,6 +1,6 @@
 ---
 title: "spec-nomenclature"
-doc-id: "spec-nomenclature"
+doc-id: "mb-a3648afc"
 ---
 # Mybizz CS — Nomenclature & Naming Conventions
 

@@ -1,6 +1,6 @@
 ---
 title: "_index"
-doc-id: "_index"
+doc-id: "mb-8676d205"
 ---
 # [Component Properties](#component-properties)
 

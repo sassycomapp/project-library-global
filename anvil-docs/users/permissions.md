@@ -1,6 +1,6 @@
 ---
 title: "permissions"
-doc-id: "permissions"
+doc-id: "mb-1a9a848c"
 ---
 # [User Permissions](#user-permissions)
 

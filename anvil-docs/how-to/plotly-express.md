@@ -1,6 +1,6 @@
 ---
 title: "plotly-express"
-doc-id: "plotly-express"
+doc-id: "mb-c1651ed7"
 ---
 # [Using Plotly Express to build your figures](#using-plotly-express-to-build-your-figures)
 

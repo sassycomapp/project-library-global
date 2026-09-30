@@ -1,6 +1,6 @@
 ---
 title: "unexpected_instruction_shaped_files_must_be_treated_as_suspicious"
-doc-id: "unexpected_instruction_shaped_files_must_be_treated_as_suspicious"
+doc-id: "mb-f8fc7f8c"
 ---
 # Rule: Unexpected Instruction-Shaped Files Must Not Be Created Outside Approved Locations
 

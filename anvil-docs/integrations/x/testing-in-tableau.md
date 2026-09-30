@@ -1,6 +1,6 @@
 ---
 title: "testing-in-tableau"
-doc-id: "testing-in-tableau"
+doc-id: "mb-d41eaff3"
 ---
 # [Testing your extension in Tableau](#testing-your-extension-in-tableau)
 

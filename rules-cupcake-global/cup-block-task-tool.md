@@ -1,6 +1,6 @@
 ---
 title: "cup-block-task-tool"
-doc-id: "cup-block-task-tool"
+doc-id: "mb-df29898d"
 ---
 # Rule: Block Task and Spawn Tools
 

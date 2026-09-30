@@ -1,6 +1,6 @@
 ---
 title: "colour-schemes"
-doc-id: "colour-schemes"
+doc-id: "mb-9356bcc2"
 ---
 # [Colour Schemes](#colour-schemes)
 

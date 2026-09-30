@@ -1,6 +1,6 @@
 ---
 title: "sessions-and-cookies"
-doc-id: "sessions-and-cookies"
+doc-id: "mb-aca71770"
 ---
 # [Sessions and Cookies](#sessions-and-cookies)
 

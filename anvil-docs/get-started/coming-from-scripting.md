@@ -1,6 +1,6 @@
 ---
 title: "coming-from-scripting"
-doc-id: "coming-from-scripting"
+doc-id: "mb-dc7169b7"
 ---
 # [Introduction to GUI and Server Programming](#introduction-to-gui-and-server-programming)
 

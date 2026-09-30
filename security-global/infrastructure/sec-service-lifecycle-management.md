@@ -1,6 +1,6 @@
 ---
 title: "sec-service-lifecycle-management"
-doc-id: "sec-service-lifecycle-management"
+doc-id: "mb-c710aa8a"
 ---
 # Service Lifecycle Management
 

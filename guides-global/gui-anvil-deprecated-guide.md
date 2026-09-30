@@ -1,6 +1,6 @@
 ---
 title: "gui-anvil-deprecated-guide"
-doc-id: "gui-anvil-deprecated-guide"
+doc-id: "mb-8e19d84e"
 ---
 https://docs.continue.dev/reference/deprecated-context-providers
 

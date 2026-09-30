@@ -1,6 +1,6 @@
 ---
 title: "build-first-app"
-doc-id: "build-first-app"
+doc-id: "mb-3cfb2dd2"
 ---
 # [Build a Hello World app](#build-a-hello-world-app)
 

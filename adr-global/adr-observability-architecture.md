@@ -1,6 +1,6 @@
 ---
 title: "adr-observability-architecture"
-doc-id: "adr-observability-architecture"
+doc-id: "mb-d5da852f"
 ---
 # `observability-architecture` ADR — Observability Architecture
 

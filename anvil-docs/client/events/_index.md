@@ -1,6 +1,6 @@
 ---
 title: "_index"
-doc-id: "_index"
+doc-id: "mb-cf03ca11"
 ---
 # [Events](#events)
 

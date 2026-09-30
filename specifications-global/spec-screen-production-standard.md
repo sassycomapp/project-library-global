@@ -1,6 +1,6 @@
 ---
 title: "spec-screen-production-standard"
-doc-id: "spec-screen-production-standard"
+doc-id: "mb-97195caa"
 ---
 # Mybizz CS — Screen Production Standard
 

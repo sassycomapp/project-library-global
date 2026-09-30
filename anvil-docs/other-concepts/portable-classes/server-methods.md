@@ -1,6 +1,6 @@
 ---
 title: "server-methods"
-doc-id: "server-methods"
+doc-id: "mb-ce771b60"
 ---
 # [Server-side methods](#server-side-methods)
 

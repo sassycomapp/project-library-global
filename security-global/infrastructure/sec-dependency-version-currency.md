@@ -1,6 +1,6 @@
 ---
 title: "sec-dependency-version-currency"
-doc-id: "sec-dependency-version-currency"
+doc-id: "mb-eaac5791"
 ---
 # Dependency and Tool Version Currency
 

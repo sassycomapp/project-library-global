@@ -1,6 +1,6 @@
 ---
 title: "spec-anvil-platform-standards"
-doc-id: "spec-anvil-platform-standards"
+doc-id: "mb-57f2e70b"
 ---
 # PDLF Standards Library — Anvil Platform Mechanics
 

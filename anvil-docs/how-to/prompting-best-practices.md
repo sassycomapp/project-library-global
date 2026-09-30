@@ -1,6 +1,6 @@
 ---
 title: "prompting-best-practices"
-doc-id: "prompting-best-practices"
+doc-id: "mb-3fd68caa"
 ---
 # [Prompting best practices](#prompting-best-practices)
 

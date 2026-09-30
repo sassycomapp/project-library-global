@@ -1,6 +1,6 @@
 ---
 title: "html-layouts"
-doc-id: "html-layouts"
+doc-id: "mb-9b3c36a1"
 ---
 # [Building Layouts from HTML](#building-layouts-from-html)
 

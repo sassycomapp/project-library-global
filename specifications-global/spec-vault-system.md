@@ -1,6 +1,6 @@
 ---
 title: "spec-vault-system"
-doc-id: "spec-vault-system"
+doc-id: "mb-4960a0bb"
 ---
 # Mybizz — The Vault System
 

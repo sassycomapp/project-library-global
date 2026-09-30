@@ -1,6 +1,6 @@
 ---
 title: "cup-block-anvil-yaml-writes"
-doc-id: "cup-block-anvil-yaml-writes"
+doc-id: "mb-9d7b1c8c"
 ---
 # Rule: Block Writes to anvil.yaml
 

@@ -1,6 +1,6 @@
 ---
 title: "adr-free-trial-abandoned"
-doc-id: "adr-free-trial-abandoned"
+doc-id: "mb-4d9be554"
 ---
 # `free-trial-abandoned` ADR — 30-Day Free Trial Abandoned
 

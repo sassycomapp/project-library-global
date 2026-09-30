@@ -1,6 +1,6 @@
 ---
 title: "types"
-doc-id: "types"
+doc-id: "mb-3c183180"
 ---
 Types:
 (a weird mixture of Python and TypeScript typing)

@@ -1,6 +1,6 @@
 ---
 title: "adr-onboarding-finality"
-doc-id: "adr-onboarding-finality"
+doc-id: "mb-e9266696"
 ---
 # Onboarding Finality
 Date: 2026-05-31

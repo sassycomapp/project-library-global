@@ -1,6 +1,6 @@
 ---
 title: "docstd-business-requirements-document"
-doc-id: "docstd-business-requirements-document"
+doc-id: "mb-db640d1e"
 ---
 # {Project Name} — Business Requirements Document (BRD)
 

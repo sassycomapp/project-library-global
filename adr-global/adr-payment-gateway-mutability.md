@@ -1,6 +1,6 @@
 ---
 title: "adr-payment-gateway-mutability"
-doc-id: "adr-payment-gateway-mutability"
+doc-id: "mb-c91997a0"
 ---
 # Payment Gateway Mutability
 Date: 2026-05-29

@@ -1,6 +1,6 @@
 ---
 title: "spec-mybizz-management-app-notification-system"
-doc-id: "spec-mybizz-management-app-notification-system"
+doc-id: "mb-631f063d"
 ---
 # `mybizz-management-app-notification-system` Spec — Platform-to-Client Notification Console
 

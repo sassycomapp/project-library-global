@@ -1,6 +1,6 @@
 ---
 title: "spec-security-architecture"
-doc-id: "spec-security-architecture"
+doc-id: "mb-9112b5a3"
 ---
 # Mybizz — Security & Secrets Architecture
 

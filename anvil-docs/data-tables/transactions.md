@@ -1,6 +1,6 @@
 ---
 title: "transactions"
-doc-id: "transactions"
+doc-id: "mb-b93e0746"
 ---
 # [Transactions](#transactions)
 

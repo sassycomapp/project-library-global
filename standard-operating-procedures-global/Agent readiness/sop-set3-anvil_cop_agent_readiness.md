@@ -1,6 +1,6 @@
 ---
 title: "sop-set3-anvil_cop_agent_readiness"
-doc-id: "sop-set3-anvil_cop_agent_readiness"
+doc-id: "mb-f638bd08"
 ---
 # Agent Readiness CoP preparation
 

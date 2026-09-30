@@ -1,6 +1,6 @@
 ---
 title: "sec-multi-tenant-assumption-leakage"
-doc-id: "sec-multi-tenant-assumption-leakage"
+doc-id: "mb-e882c1c2"
 ---
 # Threat Model — Multi-Tenant Assumption Leakage
 

@@ -1,6 +1,6 @@
 ---
 title: "data-security"
-doc-id: "data-security"
+doc-id: "mb-802201b3"
 ---
 # [Data Security with Data Tables](#data-security-with-data-tables)
 

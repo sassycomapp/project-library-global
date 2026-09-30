@@ -1,6 +1,6 @@
 ---
 title: "spec-regulatory-compliance-baseline"
-doc-id: "spec-regulatory-compliance-baseline"
+doc-id: "mb-6f1553b6"
 ---
 # Mybizz — Regulatory Compliance Baseline (Specification)
 

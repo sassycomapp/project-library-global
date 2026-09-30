@@ -1,6 +1,6 @@
 ---
 title: "no_autonomous_commits_pushes_merges_releases_or_deployments"
-doc-id: "no_autonomous_commits_pushes_merges_releases_or_deployments"
+doc-id: "mb-64321f1a"
 ---
 # Rule: No Autonomous Commits, Pushes, Merges, Releases, or Deployments
 

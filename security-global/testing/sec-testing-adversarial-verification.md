@@ -1,6 +1,6 @@
 ---
 title: "sec-testing-adversarial-verification"
-doc-id: "sec-testing-adversarial-verification"
+doc-id: "mb-b996a457"
 ---
 # Adversarial Verification
 

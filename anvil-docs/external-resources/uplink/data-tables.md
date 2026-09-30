@@ -1,6 +1,6 @@
 ---
 title: "data-tables"
-doc-id: "data-tables"
+doc-id: "mb-9d319c7d"
 ---
 # [Connecting to Data Tables](#connecting-to-data-tables)
 

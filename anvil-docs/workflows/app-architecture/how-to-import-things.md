@@ -1,6 +1,6 @@
 ---
 title: "how-to-import-things"
-doc-id: "how-to-import-things"
+doc-id: "mb-7c527622"
 ---
 # [How to import things](#how-to-import-things)
 

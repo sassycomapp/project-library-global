@@ -1,6 +1,6 @@
 ---
 title: "adr-data-access-patterns"
-doc-id: "adr-data-access-patterns"
+doc-id: "mb-c468c49c"
 ---
 # `data-access-patterns` ADR — Data Access Patterns and Query Limitations
 

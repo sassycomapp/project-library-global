@@ -1,6 +1,6 @@
 ---
 title: "sec-secret-exposure-response"
-doc-id: "sec-secret-exposure-response"
+doc-id: "mb-fca7e1e5"
 ---
 # Secret Exposure Response
 

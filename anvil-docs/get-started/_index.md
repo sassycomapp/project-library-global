@@ -1,6 +1,6 @@
 ---
 title: "_index"
-doc-id: "_index"
+doc-id: "mb-343163f5"
 ---
 # [Get started with Anvil](#get-started-with-anvil)
 

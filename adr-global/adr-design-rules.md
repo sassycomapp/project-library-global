@@ -1,6 +1,6 @@
 ---
 title: "adr-design-rules"
-doc-id: "adr-design-rules"
+doc-id: "mb-473a4b4e"
 ---
 # `design-rules` ADR — Wireframe Design Rules
 

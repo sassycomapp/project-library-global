@@ -1,6 +1,6 @@
 ---
 title: "sec-requirements-third-party-integration"
-doc-id: "sec-requirements-third-party-integration"
+doc-id: "mb-f6f30b31"
 ---
 # Requirement — New Third-Party Integration
 

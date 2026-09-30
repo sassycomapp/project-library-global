@@ -1,6 +1,6 @@
 ---
 title: "quickstart"
-doc-id: "quickstart"
+doc-id: "mb-b4ba4fbc"
 ---
 # [Quickstart: Google integration](#quickstart-google-integration)
 

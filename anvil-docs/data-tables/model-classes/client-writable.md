@@ -1,6 +1,6 @@
 ---
 title: "client-writable"
-doc-id: "client-writable"
+doc-id: "mb-c3df580a"
 ---
 # [Client-Writable Models](#client-writable-models)
 

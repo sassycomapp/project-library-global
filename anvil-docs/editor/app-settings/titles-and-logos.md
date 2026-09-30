@@ -1,6 +1,6 @@
 ---
 title: "titles-and-logos"
-doc-id: "titles-and-logos"
+doc-id: "mb-852a4d86"
 ---
 # [Setting the App Title and Logo](#setting-the-app-title-and-logo)
 

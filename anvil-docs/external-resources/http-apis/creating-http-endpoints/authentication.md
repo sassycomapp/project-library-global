@@ -1,6 +1,6 @@
 ---
 title: "authentication"
-doc-id: "authentication"
+doc-id: "mb-1e86be02"
 ---
 # [Authentication in HTTP Endpoints](#authentication-in-http-endpoints)
 

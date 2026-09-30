@@ -1,6 +1,6 @@
 ---
 title: "additional-debugging-tools"
-doc-id: "additional-debugging-tools"
+doc-id: "mb-4ad64886"
 ---
 # [Additional Debugging Tools in Anvil](#additional-debugging-tools-in-anvil)
 

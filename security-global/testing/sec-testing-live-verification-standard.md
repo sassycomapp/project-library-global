@@ -1,6 +1,6 @@
 ---
 title: "sec-testing-live-verification-standard"
-doc-id: "sec-testing-live-verification-standard"
+doc-id: "mb-b80f0b98"
 ---
 # Live Verification Standard
 

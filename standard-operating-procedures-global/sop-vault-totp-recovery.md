@@ -1,6 +1,6 @@
 ---
 title: "sop-vault-totp-recovery"
-doc-id: "sop-vault-totp-recovery"
+doc-id: "mb-eae1c80e"
 ---
 # {Project Name} — SOP: Vault TOTP Recovery
 

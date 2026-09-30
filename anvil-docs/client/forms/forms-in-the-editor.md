@@ -1,6 +1,6 @@
 ---
 title: "forms-in-the-editor"
-doc-id: "forms-in-the-editor"
+doc-id: "mb-f5b380bf"
 ---
 # [Forms in the Anvil Editor](#forms-in-the-anvil-editor)
 

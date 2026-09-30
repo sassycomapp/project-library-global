@@ -1,6 +1,6 @@
 ---
 title: "offline-apps"
-doc-id: "offline-apps"
+doc-id: "mb-a1def251"
 ---
 # [Running an app offline](#running-an-app-offline)
 

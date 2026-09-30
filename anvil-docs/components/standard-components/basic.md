@@ -1,6 +1,6 @@
 ---
 title: "basic"
-doc-id: "basic"
+doc-id: "mb-dd439cc2"
 ---
 # [Basic Components](#basic-components)
 

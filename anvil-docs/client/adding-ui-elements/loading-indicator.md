@@ -1,6 +1,6 @@
 ---
 title: "loading-indicator"
-doc-id: "loading-indicator"
+doc-id: "mb-02a7bedc"
 ---
 # [Loading Indicator](#loading-indicator)
 

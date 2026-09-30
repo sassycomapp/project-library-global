@@ -1,6 +1,6 @@
 ---
 title: "sec-insecure-direct-object-reference"
-doc-id: "sec-insecure-direct-object-reference"
+doc-id: "mb-841c6c1f"
 ---
 # Threat Model — Insecure Direct Object Reference
 

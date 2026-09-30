@@ -1,6 +1,6 @@
 ---
 title: "quickstart"
-doc-id: "quickstart"
+doc-id: "mb-e30778b6"
 ---
 # [Quickstart: Working with GitHub](#quickstart-working-with-github)
 

@@ -1,6 +1,6 @@
 ---
 title: "communicating-back"
-doc-id: "communicating-back"
+doc-id: "mb-32461f55"
 ---
 # [Communicating with Background Tasks](#communicating-with-background-tasks)
 

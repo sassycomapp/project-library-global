@@ -1,6 +1,6 @@
 ---
 title: "free-vs-paid"
-doc-id: "free-vs-paid"
+doc-id: "mb-167521e9"
 ---
 # [Pricing plans](#pricing-plans)
 

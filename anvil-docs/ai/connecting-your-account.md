@@ -1,6 +1,6 @@
 ---
 title: "connecting-your-account"
-doc-id: "connecting-your-account"
+doc-id: "mb-0eff6ade"
 ---
 # [Connecting Your Account](#connecting-your-account)
 

@@ -1,6 +1,6 @@
 ---
 title: "image-manipulation"
-doc-id: "image-manipulation"
+doc-id: "mb-5db994bc"
 ---
 # [`image` module](#image-module)
 

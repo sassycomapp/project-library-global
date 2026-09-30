@@ -1,6 +1,6 @@
 ---
 title: "quickstart"
-doc-id: "quickstart"
+doc-id: "mb-04c77d37"
 ---
 # [Quickstart: Facebook Integration](#quickstart-facebook-integration)
 

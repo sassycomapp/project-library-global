@@ -1,6 +1,6 @@
 ---
 title: "sec-verify-dont-trust-claims"
-doc-id: "sec-verify-dont-trust-claims"
+doc-id: "mb-0db0d898"
 ---
 # Principle — Verify, Don't Trust Claims
 

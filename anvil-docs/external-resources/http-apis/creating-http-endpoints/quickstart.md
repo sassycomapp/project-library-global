@@ -1,6 +1,6 @@
 ---
 title: "quickstart"
-doc-id: "quickstart"
+doc-id: "mb-484a2985"
 ---
 # [Quickstart: Creating HTTP endpoints](#quickstart-creating-http-endpoints)
 

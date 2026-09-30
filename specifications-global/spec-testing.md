@@ -1,6 +1,6 @@
 ---
 title: "spec-testing"
-doc-id: "spec-testing"
+doc-id: "mb-d8dcf41a"
 ---
 # Mybizz CS — Test Specification (Canonical)
 

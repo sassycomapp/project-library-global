@@ -1,6 +1,6 @@
 ---
 title: "anvil.image"
-doc-id: "anvil.image"
+doc-id: "mb-0cfcecb1"
 ---
 ## `anvil.image` Module
 

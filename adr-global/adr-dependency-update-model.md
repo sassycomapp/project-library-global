@@ -1,6 +1,6 @@
 ---
 title: "adr-dependency-update-model"
-doc-id: "adr-dependency-update-model"
+doc-id: "mb-bf8aa7d8"
 ---
 # `dependency-update-model` ADR — Dependency Update Model
 

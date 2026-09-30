@@ -1,6 +1,6 @@
 ---
 title: "accessing-javascript"
-doc-id: "accessing-javascript"
+doc-id: "mb-658b9d58"
 ---
 # [Accessing JavaScript](#accessing-javascript)
 

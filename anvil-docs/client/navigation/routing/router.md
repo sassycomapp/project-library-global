@@ -1,6 +1,6 @@
 ---
 title: "router"
-doc-id: "router"
+doc-id: "mb-4a605d1e"
 ---
 # [The Router Module](#the-router-module)
 

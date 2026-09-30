@@ -1,6 +1,6 @@
 ---
 title: "tls-certificates"
-doc-id: "tls-certificates"
+doc-id: "mb-4f9865b5"
 ---
 # [TLS Certificates](#tls-certificates)
 

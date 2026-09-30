@@ -1,6 +1,6 @@
 ---
 title: "accessing-microsoft-apis"
-doc-id: "accessing-microsoft-apis"
+doc-id: "mb-a453b90c"
 ---
 # [Accessing Microsoft Azure APIs](#accessing-microsoft-azure-apis)
 

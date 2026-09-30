@@ -1,6 +1,6 @@
 ---
 title: "sending-and-receiving"
-doc-id: "sending-and-receiving"
+doc-id: "mb-27c5a912"
 ---
 # [Sending and Receiving Email in your Apps](#sending-and-receiving-email-in-your-apps)
 

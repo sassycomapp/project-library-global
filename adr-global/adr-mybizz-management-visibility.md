@@ -1,6 +1,6 @@
 ---
 title: "adr-mybizz-management-visibility"
-doc-id: "adr-mybizz-management-visibility"
+doc-id: "mb-1962f48d"
 ---
 # `mybizz-management-visibility` ADR — Mybizz_management Visibility and Control
 

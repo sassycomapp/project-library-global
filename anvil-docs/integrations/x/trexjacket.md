@@ -1,6 +1,6 @@
 ---
 title: "trexjacket"
-doc-id: "trexjacket"
+doc-id: "mb-1481a9c9"
 ---
 # [Making the Tableau Extension API easier to use](#making-the-tableau-extension-api-easier-to-use)
 

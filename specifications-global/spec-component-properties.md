@@ -1,6 +1,6 @@
 ---
 title: "spec-component-properties"
-doc-id: "spec-component-properties"
+doc-id: "mb-5162b6c9"
 ---
 # Mybizz CS — Component Properties Specification
 

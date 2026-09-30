@@ -1,6 +1,6 @@
 ---
 title: "spec-integration"
-doc-id: "spec-integration"
+doc-id: "mb-a1d9a710"
 ---
 # Mybizz — Integration Specification
 

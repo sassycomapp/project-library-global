@@ -1,6 +1,6 @@
 ---
 title: "spec-observability"
-doc-id: "spec-observability"
+doc-id: "mb-3d23160a"
 ---
 # PDLF Standards Library — Observability Requirements
 

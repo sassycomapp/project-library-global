@@ -1,6 +1,6 @@
 ---
 title: "docstd-software-requirements-specification"
-doc-id: "docstd-software-requirements-specification"
+doc-id: "mb-dd0fe55c"
 ---
 # {Project Name} — Software Requirements Specification (SRS)
 

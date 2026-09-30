@@ -1,6 +1,6 @@
 ---
 title: "how-does-it-work"
-doc-id: "how-does-it-work"
+doc-id: "mb-b1338c89"
 ---
 # [How does Anvil work?](#how-does-anvil-work)
 

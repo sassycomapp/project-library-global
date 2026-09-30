@@ -1,6 +1,6 @@
 ---
 title: "restore"
-doc-id: "restore"
+doc-id: "mb-1936ac8f"
 ---
 # [Cluster Restore](#cluster-restore)
 

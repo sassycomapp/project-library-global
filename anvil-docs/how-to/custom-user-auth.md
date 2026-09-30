@@ -1,6 +1,6 @@
 ---
 title: "custom-user-auth"
-doc-id: "custom-user-auth"
+doc-id: "mb-a9f37d61"
 ---
 # [Customising the Users service](#customising-the-users-service)
 

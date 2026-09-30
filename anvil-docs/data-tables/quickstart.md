@@ -1,6 +1,6 @@
 ---
 title: "quickstart"
-doc-id: "quickstart"
+doc-id: "mb-7e2fbf57"
 ---
 # [Quickstart: Databases](#quickstart-databases)
 

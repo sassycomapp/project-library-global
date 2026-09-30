@@ -1,6 +1,6 @@
 ---
 title: "structuring-your-app"
-doc-id: "structuring-your-app"
+doc-id: "mb-1bfb45ca"
 ---
 # [Structuring your app](#structuring-your-app)
 

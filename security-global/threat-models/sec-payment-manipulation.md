@@ -1,6 +1,6 @@
 ---
 title: "sec-payment-manipulation"
-doc-id: "sec-payment-manipulation"
+doc-id: "mb-14e0973e"
 ---
 # Threat Model — Payment Manipulation
 

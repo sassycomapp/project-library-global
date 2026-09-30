@@ -1,6 +1,6 @@
 ---
 title: "adr-pdf-invoice-generation"
-doc-id: "adr-pdf-invoice-generation"
+doc-id: "mb-39f00e1d"
 ---
 # `pdf-invoice-generation` ADR — PDF Invoice Generation
 

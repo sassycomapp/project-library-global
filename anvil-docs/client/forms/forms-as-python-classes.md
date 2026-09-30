@@ -1,6 +1,6 @@
 ---
 title: "forms-as-python-classes"
-doc-id: "forms-as-python-classes"
+doc-id: "mb-c23bfc28"
 ---
 # [Forms as Python Classes](#forms-as-python-classes)
 

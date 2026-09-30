@@ -1,6 +1,6 @@
 ---
 title: "no_test_tampering"
-doc-id: "no_test_tampering"
+doc-id: "mb-d7676549"
 ---
 # Rule: No Test Tampering
 

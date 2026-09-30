@@ -1,6 +1,6 @@
 ---
 title: "scripts"
-doc-id: "scripts"
+doc-id: "mb-f33a25d8"
 ---
 # [Scripts](#scripts)
 

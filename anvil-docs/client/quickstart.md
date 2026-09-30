@@ -1,6 +1,6 @@
 ---
 title: "quickstart"
-doc-id: "quickstart"
+doc-id: "mb-da07f1e8"
 ---
 # [Quickstart: User Interfaces](#quickstart-user-interfaces)
 

@@ -1,6 +1,6 @@
 ---
 title: "commands"
-doc-id: "commands"
+doc-id: "mb-a9b85f78"
 ---
 # [Anvil CLI commands](#anvil-cli-commands)
 

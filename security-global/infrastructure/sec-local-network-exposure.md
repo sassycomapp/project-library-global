@@ -1,6 +1,6 @@
 ---
 title: "sec-local-network-exposure"
-doc-id: "sec-local-network-exposure"
+doc-id: "mb-c47ab5eb"
 ---
 # Local Network Exposure of Internal Services
 

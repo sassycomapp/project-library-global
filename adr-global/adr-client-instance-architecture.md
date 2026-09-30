@@ -1,6 +1,6 @@
 ---
 title: "adr-client-instance-architecture"
-doc-id: "adr-client-instance-architecture"
+doc-id: "mb-c7c61252"
 ---
 # `client-instance-architecture` ADR — Client Instance Architecture
 

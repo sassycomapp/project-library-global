@@ -1,6 +1,6 @@
 ---
 title: "gke"
-doc-id: "gke"
+doc-id: "mb-9db71d50"
 ---
 # [Google Kubernetes Engine](#google-kubernetes-engine)
 

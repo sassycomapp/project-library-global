@@ -1,6 +1,6 @@
 ---
 title: "sec-data-exfiltration-bulk-export"
-doc-id: "sec-data-exfiltration-bulk-export"
+doc-id: "mb-3f1e54d4"
 ---
 # Threat Model — Data Exfiltration via Bulk Export Abuse
 

@@ -1,6 +1,6 @@
 ---
 title: "_index"
-doc-id: "_index"
+doc-id: "mb-ccc9cfeb"
 ---
 # [Uplink: Code outside Anvil](#uplink-code-outside-anvil)
 

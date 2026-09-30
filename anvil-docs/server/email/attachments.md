@@ -1,6 +1,6 @@
 ---
 title: "attachments"
-doc-id: "attachments"
+doc-id: "mb-c0a53d35"
 ---
 # [Sending and Receiving Email Attachments](#sending-and-receiving-email-attachments)
 

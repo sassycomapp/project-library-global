@@ -1,6 +1,6 @@
 ---
 title: "quickstart"
-doc-id: "quickstart"
+doc-id: "mb-aa300587"
 ---
 # [Quickstart: Microsoft SSO](#quickstart-microsoft-sso)
 

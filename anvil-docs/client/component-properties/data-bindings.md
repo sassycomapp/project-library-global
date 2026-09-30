@@ -1,6 +1,6 @@
 ---
 title: "data-bindings"
-doc-id: "data-bindings"
+doc-id: "mb-fc8ce702"
 ---
 # [Data Bindings](#data-bindings)
 

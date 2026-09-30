@@ -1,6 +1,6 @@
 ---
 title: "_index"
-doc-id: "_index"
+doc-id: "mb-cdff34b7"
 ---
 # [App Settings](#app-settings)
 

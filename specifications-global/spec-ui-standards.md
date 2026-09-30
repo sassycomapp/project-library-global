@@ -1,6 +1,6 @@
 ---
 title: "spec-ui-standards"
-doc-id: "spec-ui-standards"
+doc-id: "mb-8d841a9d"
 ---
 # Mybizz CS — UI Standards
 

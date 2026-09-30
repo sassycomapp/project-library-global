@@ -1,6 +1,6 @@
 ---
 title: "caching"
-doc-id: "caching"
+doc-id: "mb-88a71aa9"
 ---
 # [Caching](#caching)
 

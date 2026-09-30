@@ -1,6 +1,6 @@
 ---
 title: "quickstart"
-doc-id: "quickstart"
+doc-id: "mb-4f7bf774"
 ---
 # [Quickstart: Stripe integration](#quickstart-stripe-integration)
 

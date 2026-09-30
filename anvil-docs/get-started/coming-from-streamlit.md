@@ -1,6 +1,6 @@
 ---
 title: "coming-from-streamlit"
-doc-id: "coming-from-streamlit"
+doc-id: "mb-e763e50a"
 ---
 # [Comparing Streamlit to Anvil](#comparing-streamlit-to-anvil)
 

@@ -1,6 +1,6 @@
 ---
 title: "sec-client-provisioning-security"
-doc-id: "sec-client-provisioning-security"
+doc-id: "mb-70793251"
 ---
 # Client Instance Provisioning Security
 

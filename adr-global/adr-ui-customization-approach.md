@@ -1,6 +1,6 @@
 ---
 title: "adr-ui-customization-approach"
-doc-id: "adr-ui-customization-approach"
+doc-id: "mb-426881de"
 ---
 # `ui-customization-approach` ADR — UI Customization Approach
 

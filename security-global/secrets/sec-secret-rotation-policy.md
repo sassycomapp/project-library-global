@@ -1,6 +1,6 @@
 ---
 title: "sec-secret-rotation-policy"
-doc-id: "sec-secret-rotation-policy"
+doc-id: "mb-a7d05c2d"
 ---
 # Secret Rotation Policy
 

@@ -1,6 +1,6 @@
 ---
 title: "two-factor-authentication"
-doc-id: "two-factor-authentication"
+doc-id: "mb-84ee3fc6"
 ---
 # [Two-Factor Authentication](#two-factor-authentication)
 

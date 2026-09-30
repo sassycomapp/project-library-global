@@ -1,6 +1,6 @@
 ---
 title: "no_dependency_or_lockfile_changes_without_explicit_approval"
-doc-id: "no_dependency_or_lockfile_changes_without_explicit_approval"
+doc-id: "mb-886318f2"
 ---
 # Rule: No Lockfile Changes Without Explicit Approval
 

@@ -1,6 +1,6 @@
 ---
 title: "sec-github-repository-access-control"
-doc-id: "sec-github-repository-access-control"
+doc-id: "mb-a2ae334b"
 ---
 # GitHub Repository Access Control
 

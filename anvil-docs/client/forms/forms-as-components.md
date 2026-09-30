@@ -1,6 +1,6 @@
 ---
 title: "forms-as-components"
-doc-id: "forms-as-components"
+doc-id: "mb-7b325c71"
 ---
 # [Forms as Components](#forms-as-components)
 

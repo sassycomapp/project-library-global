@@ -1,6 +1,6 @@
 ---
 title: "spec-m3_component_mapping"
-doc-id: "spec-m3_component_mapping"
+doc-id: "mb-af738688"
 ---
 ***
 

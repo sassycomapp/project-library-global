@@ -1,6 +1,6 @@
 ---
 title: "aks"
-doc-id: "aks"
+doc-id: "mb-d1a2eb9a"
 ---
 # [Azure Managed Kubernetes Service](#azure-managed-kubernetes-service)
 

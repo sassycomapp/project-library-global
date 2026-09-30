@@ -1,6 +1,6 @@
 ---
 title: "quickstart"
-doc-id: "quickstart"
+doc-id: "mb-0ddfe2b4"
 ---
 # [Get started with routing quickly](#get-started-with-routing-quickly)
 

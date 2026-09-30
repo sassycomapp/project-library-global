@@ -1,6 +1,6 @@
 ---
 title: "dependencies"
-doc-id: "dependencies"
+doc-id: "mb-5e6ce2be"
 ---
 # [Depending On Other Apps](#depending-on-other-apps)
 

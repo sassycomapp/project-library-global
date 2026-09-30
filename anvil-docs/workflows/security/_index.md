@@ -1,6 +1,6 @@
 ---
 title: "_index"
-doc-id: "_index"
+doc-id: "mb-d6cb9a3f"
 ---
 # [Building Secure Apps](#building-secure-apps)
 

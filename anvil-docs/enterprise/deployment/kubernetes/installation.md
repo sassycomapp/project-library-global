@@ -1,6 +1,6 @@
 ---
 title: "installation"
-doc-id: "installation"
+doc-id: "mb-6880f0ba"
 ---
 # [Installation in Kubernetes](#installation-in-kubernetes)
 

@@ -1,6 +1,6 @@
 ---
 title: "adr-instructions-md-per-folder"
-doc-id: "adr-instructions-md-per-folder"
+doc-id: "mb-2036b35a"
 ---
 # Instructions.md — Per-Folder Purpose File
 

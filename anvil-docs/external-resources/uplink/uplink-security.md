@@ -1,6 +1,6 @@
 ---
 title: "uplink-security"
-doc-id: "uplink-security"
+doc-id: "mb-59b3adae"
 ---
 # [Uplink Security](#uplink-security)
 

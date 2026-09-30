@@ -1,6 +1,6 @@
 ---
 title: "what-is-version-control"
-doc-id: "what-is-version-control"
+doc-id: "mb-0c3576f3"
 ---
 # [What is Version Control?](#what-is-version-control)
 

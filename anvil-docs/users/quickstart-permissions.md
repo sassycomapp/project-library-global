@@ -1,6 +1,6 @@
 ---
 title: "quickstart-permissions"
-doc-id: "quickstart-permissions"
+doc-id: "mb-c9da739d"
 ---
 # [Quickstart: Permissions](#quickstart-permissions)
 

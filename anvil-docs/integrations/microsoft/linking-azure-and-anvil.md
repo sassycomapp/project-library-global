@@ -1,6 +1,6 @@
 ---
 title: "linking-azure-and-anvil"
-doc-id: "linking-azure-and-anvil"
+doc-id: "mb-e984fbae"
 ---
 # [Connecting Entra ID to Anvil](#connecting-entra-id-to-anvil)
 

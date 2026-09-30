@@ -1,6 +1,6 @@
 ---
 title: "adr-system-currency-selection-and-immutability"
-doc-id: "adr-system-currency-selection-and-immutability"
+doc-id: "mb-4b5f697c"
 ---
 # System Currency, Display Currency, and Immutability
 Date: 2026-05-29

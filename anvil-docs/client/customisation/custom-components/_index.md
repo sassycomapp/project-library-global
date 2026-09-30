@@ -1,6 +1,6 @@
 ---
 title: "_index"
-doc-id: "_index"
+doc-id: "mb-748c33e9"
 ---
 # [Creating Custom Components](#creating-custom-components)
 

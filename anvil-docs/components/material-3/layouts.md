@@ -1,6 +1,6 @@
 ---
 title: "layouts"
-doc-id: "layouts"
+doc-id: "mb-a2314f95"
 ---
 # [Material 3 Layouts](#material-3-layouts)
 

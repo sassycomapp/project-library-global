@@ -1,6 +1,6 @@
 ---
 title: "assets"
-doc-id: "assets"
+doc-id: "mb-d587fa73"
 ---
 # [Adding Assets](#adding-assets)
 

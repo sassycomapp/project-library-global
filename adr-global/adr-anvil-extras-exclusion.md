@@ -1,6 +1,6 @@
 ---
 title: "adr-anvil-extras-exclusion"
-doc-id: "adr-anvil-extras-exclusion"
+doc-id: "mb-d08beff2"
 ---
 # Anvil Extras Exclusion
 Date: 2026-05-21

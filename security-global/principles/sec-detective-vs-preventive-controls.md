@@ -1,6 +1,6 @@
 ---
 title: "sec-detective-vs-preventive-controls"
-doc-id: "sec-detective-vs-preventive-controls"
+doc-id: "mb-c0f09dcc"
 ---
 # Principle — Detective vs. Preventive Controls
 

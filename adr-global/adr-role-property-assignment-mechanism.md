@@ -1,6 +1,6 @@
 ---
 title: "adr-role-property-assignment-mechanism"
-doc-id: "adr-role-property-assignment-mechanism"
+doc-id: "mb-0475ad64"
 ---
 # `role-property-assignment-mechanism` ADR: Role Property Assignment Mechanism (Designer vs. Code)
 

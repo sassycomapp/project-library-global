@@ -1,6 +1,6 @@
 ---
 title: "adr-single-contacts-table"
-doc-id: "adr-single-contacts-table"
+doc-id: "mb-c307af98"
 ---
 # Single Contacts Table Replaces Dual contacts/customers
 **Consolidated Contact Model for CRM**

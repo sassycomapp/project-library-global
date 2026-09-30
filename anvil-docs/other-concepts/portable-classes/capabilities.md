@@ -1,6 +1,6 @@
 ---
 title: "capabilities"
-doc-id: "capabilities"
+doc-id: "mb-0f14b02f"
 ---
 # [Capabilities](#capabilities)
 

@@ -1,6 +1,6 @@
 ---
 title: "sec-payment-gateway-trust-boundary"
-doc-id: "sec-payment-gateway-trust-boundary"
+doc-id: "mb-2f89aff9"
 ---
 # Payment Gateway Trust Boundary
 

@@ -1,6 +1,6 @@
 ---
 title: "plot"
-doc-id: "plot"
+doc-id: "mb-24d21ce7"
 ---
 # [Making plots in Anvil](#making-plots-in-anvil)
 

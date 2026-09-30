@@ -1,6 +1,6 @@
 ---
 title: "adr-legal-policy-responsibility-acknowledgement-and-clause-builder-architecture"
-doc-id: "adr-legal-policy-responsibility-acknowledgement-and-clause-builder-architecture"
+doc-id: "mb-62159214"
 ---
 # Legal Policy Responsibility Acknowledgement and Clause-Builder Architecture
 Date: 2026-05-29

@@ -1,6 +1,6 @@
 ---
 title: "oke"
-doc-id: "oke"
+doc-id: "mb-0ada6c73"
 ---
 # [Oracle Kubernetes Engine](#oracle-kubernetes-engine)
 

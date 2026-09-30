@@ -1,6 +1,6 @@
 ---
 title: "adr-material-3-theme-component-scope"
-doc-id: "adr-material-3-theme-component-scope"
+doc-id: "mb-b1d3bcc9"
 ---
 # Material 3 Theme Component Scope
 Date: 2026-05-21

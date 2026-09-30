@@ -1,6 +1,6 @@
 ---
 title: "adr-navigation-lambda-link-open-form"
-doc-id: "adr-navigation-lambda-link-open-form"
+doc-id: "mb-88483403"
 ---
 # Navigation Standard: Lambda/Link/open_form
 

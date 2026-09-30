@@ -1,6 +1,6 @@
 ---
 title: "adr-webhook-architecture"
-doc-id: "adr-webhook-architecture"
+doc-id: "mb-d4254987"
 ---
 # `webhook-architecture` ADR — Webhook Architecture
 

@@ -1,6 +1,6 @@
 ---
 title: "configuration-options"
-doc-id: "configuration-options"
+doc-id: "mb-0e498e65"
 ---
 # [Configuring your SAML Authentication](#configuring-your-saml-authentication)
 

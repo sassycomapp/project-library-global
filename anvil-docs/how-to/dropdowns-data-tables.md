@@ -1,6 +1,6 @@
 ---
 title: "dropdowns-data-tables"
-doc-id: "dropdowns-data-tables"
+doc-id: "mb-a6c5df3a"
 ---
 # [Connecting a DropDown component to a Data Table](#connecting-a-dropdown-component-to-a-data-table)
 

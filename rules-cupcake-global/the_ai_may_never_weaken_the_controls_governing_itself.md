@@ -1,6 +1,6 @@
 ---
 title: "the_ai_may_never_weaken_the_controls_governing_itself"
-doc-id: "the_ai_may_never_weaken_the_controls_governing_itself"
+doc-id: "mb-32fdea06"
 ---
 # Rule: The AI May Never Weaken the Controls Governing Itself
 

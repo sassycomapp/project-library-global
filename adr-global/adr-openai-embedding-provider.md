@@ -1,6 +1,6 @@
 ---
 title: "adr-openai-embedding-provider"
-doc-id: "adr-openai-embedding-provider"
+doc-id: "mb-340d26bd"
 ---
 # OpenAI Must Remain the Embedding Provider
 

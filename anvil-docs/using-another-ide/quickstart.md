@@ -1,6 +1,6 @@
 ---
 title: "quickstart"
-doc-id: "quickstart"
+doc-id: "mb-9b32b0c6"
 ---
 # [Quickstart: Build an app locally with the Anvil CLI](#quickstart-build-an-app-locally-with-the-anvil-cli)
 

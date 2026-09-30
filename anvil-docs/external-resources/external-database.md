@@ -1,6 +1,6 @@
 ---
 title: "external-database"
-doc-id: "external-database"
+doc-id: "mb-90f80a34"
 ---
 # [Accessing an external database](#accessing-an-external-database)
 

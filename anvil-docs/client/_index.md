@@ -1,6 +1,6 @@
 ---
 title: "_index"
-doc-id: "_index"
+doc-id: "mb-cfbba0eb"
 ---
 # [Building the Front-End](#building-the-front-end)
 

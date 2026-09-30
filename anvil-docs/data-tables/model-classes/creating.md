@@ -1,6 +1,6 @@
 ---
 title: "creating"
-doc-id: "creating"
+doc-id: "mb-a43be1fa"
 ---
 # [Creating Model Classes](#creating-model-classes)
 

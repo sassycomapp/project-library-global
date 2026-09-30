@@ -1,6 +1,6 @@
 ---
 title: "interactive-debugger"
-doc-id: "interactive-debugger"
+doc-id: "mb-8471b6bd"
 ---
 # [The Interactive Debugger in Anvil](#the-interactive-debugger-in-anvil)
 

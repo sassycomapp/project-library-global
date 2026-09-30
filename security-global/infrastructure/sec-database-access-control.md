@@ -1,6 +1,6 @@
 ---
 title: "sec-database-access-control"
-doc-id: "sec-database-access-control"
+doc-id: "mb-53d4575a"
 ---
 # Database Access Control
 

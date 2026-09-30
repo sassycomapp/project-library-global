@@ -1,6 +1,6 @@
 ---
 title: "sec-business-logic-race-conditions"
-doc-id: "sec-business-logic-race-conditions"
+doc-id: "mb-e8c2e350"
 ---
 # Threat Model — Business Logic and Race Condition Abuse
 

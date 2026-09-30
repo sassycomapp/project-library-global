@@ -1,6 +1,6 @@
 ---
 title: "sec-management-service-authentication"
-doc-id: "sec-management-service-authentication"
+doc-id: "mb-620f1f5e"
 ---
 # Management Service Authentication
 

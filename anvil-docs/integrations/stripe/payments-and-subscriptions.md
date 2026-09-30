@@ -1,6 +1,6 @@
 ---
 title: "payments-and-subscriptions"
-doc-id: "payments-and-subscriptions"
+doc-id: "mb-9cd62448"
 ---
 # [Payments and Subscriptions](#payments-and-subscriptions)
 

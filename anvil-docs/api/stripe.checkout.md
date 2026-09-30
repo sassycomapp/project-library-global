@@ -1,6 +1,6 @@
 ---
 title: "stripe.checkout"
-doc-id: "stripe.checkout"
+doc-id: "mb-47c806b2"
 ---
 ## `stripe.checkout` Module
 

@@ -1,6 +1,6 @@
 ---
 title: "adr-onboarding-resumability"
-doc-id: "adr-onboarding-resumability"
+doc-id: "mb-46bfcbde"
 ---
 # Onboarding Resumability
 Date: 2026-05-29

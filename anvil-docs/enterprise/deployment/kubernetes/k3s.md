@@ -1,6 +1,6 @@
 ---
 title: "k3s"
-doc-id: "k3s"
+doc-id: "mb-7b5f6669"
 ---
 # [K3s: Lightweight Kubernetes](#k3s-lightweight-kubernetes)
 

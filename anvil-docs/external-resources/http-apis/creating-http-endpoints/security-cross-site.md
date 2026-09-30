@@ -1,6 +1,6 @@
 ---
 title: "security-cross-site"
-doc-id: "security-cross-site"
+doc-id: "mb-4f2e191e"
 ---
 # [Security and cross-site sessions](#security-and-cross-site-sessions)
 

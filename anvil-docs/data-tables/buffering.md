@@ -1,6 +1,6 @@
 ---
 title: "buffering"
-doc-id: "buffering"
+doc-id: "mb-70bb8a5e"
 ---
 # [Buffering Changes](#buffering-changes)
 

@@ -1,6 +1,6 @@
 ---
 title: "sec-server-side-authority"
-doc-id: "sec-server-side-authority"
+doc-id: "mb-39909683"
 ---
 # Principle — Server-Side Authority
 

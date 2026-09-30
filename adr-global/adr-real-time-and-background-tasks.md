@@ -1,6 +1,6 @@
 ---
 title: "adr-real-time-and-background-tasks"
-doc-id: "adr-real-time-and-background-tasks"
+doc-id: "mb-1684942d"
 ---
 # `real-time-and-background-tasks` ADR — Real-Time Updates and Background Task Architecture
 

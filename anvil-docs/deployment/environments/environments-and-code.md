@@ -1,6 +1,6 @@
 ---
 title: "environments-and-code"
-doc-id: "environments-and-code"
+doc-id: "mb-3bf356b1"
 ---
 # [Learning about Environments from Code](#learning-about-environments-from-code)
 

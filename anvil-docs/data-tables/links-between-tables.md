@@ -1,6 +1,6 @@
 ---
 title: "links-between-tables"
-doc-id: "links-between-tables"
+doc-id: "mb-5d456164"
 ---
 # [Links Between Tables](#links-between-tables)
 

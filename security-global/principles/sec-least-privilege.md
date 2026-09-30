@@ -1,6 +1,6 @@
 ---
 title: "sec-least-privilege"
-doc-id: "sec-least-privilege"
+doc-id: "mb-c845ae9d"
 ---
 # Principle — Least Privilege
 

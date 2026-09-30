@@ -1,6 +1,6 @@
 ---
 title: "spec-m3-design-standards"
-doc-id: "spec-m3-design-standards"
+doc-id: "mb-e3a4e619"
 ---
 # PDLF Standards Library — M3 Design & Component Standards
 

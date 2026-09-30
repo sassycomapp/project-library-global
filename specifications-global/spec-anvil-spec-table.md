@@ -1,6 +1,6 @@
 ---
 title: "spec-anvil-spec-table"
-doc-id: "spec-anvil-spec-table"
+doc-id: "mb-867fb5cd"
 ---
 # Mybizz CS — Anvil Specification Table
 

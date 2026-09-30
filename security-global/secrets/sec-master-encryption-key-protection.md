@@ -1,6 +1,6 @@
 ---
 title: "sec-master-encryption-key-protection"
-doc-id: "sec-master-encryption-key-protection"
+doc-id: "mb-e441ad3d"
 ---
 # Master Encryption Key Protection
 

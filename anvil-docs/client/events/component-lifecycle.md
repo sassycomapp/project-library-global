@@ -1,6 +1,6 @@
 ---
 title: "component-lifecycle"
-doc-id: "component-lifecycle"
+doc-id: "mb-90fd1fab"
 ---
 # [Component Lifecycle](#component-lifecycle)
 

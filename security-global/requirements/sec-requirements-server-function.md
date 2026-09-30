@@ -1,6 +1,6 @@
 ---
 title: "sec-requirements-server-function"
-doc-id: "sec-requirements-server-function"
+doc-id: "mb-db1f93bd"
 ---
 # Requirement — New Server Function
 

@@ -1,6 +1,6 @@
 ---
 title: "keyboard-shortcuts"
-doc-id: "keyboard-shortcuts"
+doc-id: "mb-6156e7df"
 ---
 # [Keyboard Shortcuts](#keyboard-shortcuts)
 

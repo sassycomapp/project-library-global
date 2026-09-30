@@ -1,6 +1,6 @@
 ---
 title: "sec-backup-recovery-integrity"
-doc-id: "sec-backup-recovery-integrity"
+doc-id: "mb-4189f46c"
 ---
 # Backup and Recovery Integrity
 

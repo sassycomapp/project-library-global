@@ -1,6 +1,6 @@
 ---
 title: "sec-broken-access-control-within-instance"
-doc-id: "sec-broken-access-control-within-instance"
+doc-id: "mb-c5a79f1e"
 ---
 # Threat Model — Broken Access Control Within a Client Instance
 

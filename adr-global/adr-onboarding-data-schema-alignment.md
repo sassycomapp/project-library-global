@@ -1,6 +1,6 @@
 ---
 title: "adr-onboarding-data-schema-alignment"
-doc-id: "adr-onboarding-data-schema-alignment"
+doc-id: "mb-00eef3b7"
 ---
 # Onboarding Data Schema Alignment
 Date: 2026-05-29

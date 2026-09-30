@@ -1,6 +1,6 @@
 ---
 title: "server_funcs"
-doc-id: "server_funcs"
+doc-id: "mb-4ef7a8aa"
 ---
 Server Calls
 ============

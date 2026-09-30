@@ -1,6 +1,6 @@
 ---
 title: "adr-htmltemplate-use"
-doc-id: "adr-htmltemplate-use"
+doc-id: "mb-f7c956d1"
 ---
 # `htmltemplate-use` ADR: HTMLTemplate Use
 

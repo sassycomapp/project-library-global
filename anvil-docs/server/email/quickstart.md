@@ -1,6 +1,6 @@
 ---
 title: "quickstart"
-doc-id: "quickstart"
+doc-id: "mb-7bef3fd1"
 ---
 # [Quickstart: Email](#quickstart-email)
 

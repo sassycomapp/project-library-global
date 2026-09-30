@@ -1,6 +1,6 @@
 ---
 title: "plots"
-doc-id: "plots"
+doc-id: "mb-42f98be8"
 ---
 # [Plots](#plots)
 

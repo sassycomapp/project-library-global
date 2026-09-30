@@ -1,6 +1,6 @@
 ---
 title: "adr-responsive-behaviour-mechanism"
-doc-id: "adr-responsive-behaviour-mechanism"
+doc-id: "mb-c7aafcbe"
 ---
 # `responsive-behaviour-mechanism` ADR: Responsive Behaviour Mechanism
 

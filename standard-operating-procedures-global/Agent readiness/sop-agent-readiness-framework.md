@@ -1,6 +1,6 @@
 ---
 title: "sop-agent-readiness-framework"
-doc-id: "sop-agent-readiness-framework"
+doc-id: "mb-b621286f"
 ---
 # Agent Readiness Framework
 

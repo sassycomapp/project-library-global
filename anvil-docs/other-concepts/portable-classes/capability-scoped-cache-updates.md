@@ -1,6 +1,6 @@
 ---
 title: "capability-scoped-cache-updates"
-doc-id: "capability-scoped-cache-updates"
+doc-id: "mb-149bd755"
 ---
 # [Capability-Scoped Cache Updates](#capability-scoped-cache-updates)
 

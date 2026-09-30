@@ -1,6 +1,6 @@
 ---
 title: "quickstart"
-doc-id: "quickstart"
+doc-id: "mb-a10902f6"
 ---
 # [Quickstart: Layouts](#quickstart-layouts)
 

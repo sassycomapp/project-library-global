@@ -1,6 +1,6 @@
 ---
 title: "spec-mastertemplate-notification-system"
-doc-id: "spec-mastertemplate-notification-system"
+doc-id: "mb-387d1b6b"
 ---
 # `mastertemplate-notification-system` Spec — Notification Engine for Client Instances
 

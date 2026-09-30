@@ -1,6 +1,6 @@
 ---
 title: "sql-access"
-doc-id: "sql-access"
+doc-id: "mb-ea67a73b"
 ---
 # [Direct SQL Access](#direct-sql-access)
 

@@ -1,6 +1,6 @@
 ---
 title: "configuring-emails"
-doc-id: "configuring-emails"
+doc-id: "mb-e7074322"
 ---
 # [Configuring Emails from the Users Service](#configuring-emails-from-the-users-service)
 

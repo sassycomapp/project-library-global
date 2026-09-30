@@ -1,6 +1,6 @@
 ---
 title: "html-components"
-doc-id: "html-components"
+doc-id: "mb-d462b09a"
 ---
 # [Building Custom Components from Scratch](#building-custom-components-from-scratch)
 

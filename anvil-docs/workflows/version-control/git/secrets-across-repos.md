@@ -1,6 +1,6 @@
 ---
 title: "secrets-across-repos"
-doc-id: "secrets-across-repos"
+doc-id: "mb-0085c268"
 ---
 # [Using App Secrets with Multiple Checkouts](#using-app-secrets-with-multiple-checkouts)
 

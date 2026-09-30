@@ -1,6 +1,6 @@
 ---
 title: "packages"
-doc-id: "packages"
+doc-id: "mb-6ac162d0"
 ---
 # [Legacy Full Python Packages](#legacy-full-python-packages)
 

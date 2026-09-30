@@ -1,6 +1,6 @@
 ---
 title: "no_verification_tampering"
-doc-id: "no_verification_tampering"
+doc-id: "mb-ff59d355"
 ---
 # Rule: No Verification Tampering
 

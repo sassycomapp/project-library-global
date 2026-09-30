@@ -1,6 +1,6 @@
 ---
 title: "sec-requirements-release-readiness"
-doc-id: "sec-requirements-release-readiness"
+doc-id: "mb-540abe01"
 ---
 # Requirement — Release Readiness
 

@@ -1,6 +1,6 @@
 ---
 title: "legacy-tables"
-doc-id: "legacy-tables"
+doc-id: "mb-862b2a46"
 ---
 # [Legacy Tables](#legacy-tables)
 

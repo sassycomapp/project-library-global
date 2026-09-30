@@ -1,6 +1,6 @@
 ---
 title: "custom-domains"
-doc-id: "custom-domains"
+doc-id: "mb-fe331c34"
 ---
 # [Using your own domain name](#using-your-own-domain-name)
 

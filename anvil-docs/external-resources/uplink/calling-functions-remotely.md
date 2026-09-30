@@ -1,6 +1,6 @@
 ---
 title: "calling-functions-remotely"
-doc-id: "calling-functions-remotely"
+doc-id: "mb-c53769b1"
 ---
 # [Calling functions remotely](#calling-functions-remotely)
 

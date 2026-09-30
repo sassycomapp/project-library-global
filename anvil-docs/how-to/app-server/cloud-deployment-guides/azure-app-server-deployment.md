@@ -1,6 +1,6 @@
 ---
 title: "azure-app-server-deployment"
-doc-id: "azure-app-server-deployment"
+doc-id: "mb-d9c8144b"
 ---
 # [How to use Anvil’s open-source App Server on Windows Azure](#how-to-use-anvils-open-source-app-server-on-windows-azure)
 

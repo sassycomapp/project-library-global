@@ -1,6 +1,6 @@
 ---
 title: "adr-anvil-platform-constraints"
-doc-id: "adr-anvil-platform-constraints"
+doc-id: "mb-d1719e5a"
 ---
 # `anvil-platform-constraints` ADR — Anvil Platform Constraints and Design Boundaries
 

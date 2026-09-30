@@ -1,6 +1,6 @@
 ---
 title: "adr-client-instance-readme-five-app-system"
-doc-id: "adr-client-instance-readme-five-app-system"
+doc-id: "mb-ed135450"
 ---
 # Mandatory README in Every Client Instance Documenting the Five-App System
 

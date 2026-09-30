@@ -1,6 +1,6 @@
 ---
 title: "expand-collapse"
-doc-id: "expand-collapse"
+doc-id: "mb-e8c676eb"
 ---
 # [Expand and collapse sections using components](#expand-and-collapse-sections-using-components)
 

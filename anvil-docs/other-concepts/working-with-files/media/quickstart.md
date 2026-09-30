@@ -1,6 +1,6 @@
 ---
 title: "quickstart"
-doc-id: "quickstart"
+doc-id: "mb-9079d34b"
 ---
 # [Quickstart: Files, Media and Binary Data](#quickstart-files-media-and-binary-data)
 

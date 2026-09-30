@@ -1,6 +1,6 @@
 ---
 title: "hosting-options"
-doc-id: "hosting-options"
+doc-id: "mb-cf3fdbb7"
 ---
 # [Hosting options](#hosting-options)
 

@@ -1,6 +1,6 @@
 ---
 title: "anvil.email.message"
-doc-id: "anvil.email.message"
+doc-id: "mb-44411bff"
 ---
 ## `anvil.email.Message` Module
 

@@ -1,6 +1,6 @@
 ---
 title: "sec-audit-log-integrity"
-doc-id: "sec-audit-log-integrity"
+doc-id: "mb-fc351b71"
 ---
 # Audit Log Integrity Across Systems
 

@@ -1,6 +1,6 @@
 ---
 title: "cluster"
-doc-id: "cluster"
+doc-id: "mb-dff30641"
 ---
 # [Cluster Configuration](#cluster-configuration)
 

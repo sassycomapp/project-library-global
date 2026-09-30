@@ -1,6 +1,6 @@
 ---
 title: "sec-email-service-trust-boundary"
-doc-id: "sec-email-service-trust-boundary"
+doc-id: "mb-c25dc5f1"
 ---
 # Email Service Trust Boundary
 

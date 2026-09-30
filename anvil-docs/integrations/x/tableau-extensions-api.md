@@ -1,6 +1,6 @@
 ---
 title: "tableau-extensions-api"
-doc-id: "tableau-extensions-api"
+doc-id: "mb-0b6cf839"
 ---
 # [The Tableau Extensions API](#the-tableau-extensions-api)
 

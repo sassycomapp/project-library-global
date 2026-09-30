@@ -1,6 +1,6 @@
 ---
 title: "sec-development-tooling-credentials"
-doc-id: "sec-development-tooling-credentials"
+doc-id: "mb-63e4a84b"
 ---
 # Development Tooling Credentials
 

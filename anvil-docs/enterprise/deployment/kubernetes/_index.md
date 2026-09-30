@@ -1,6 +1,6 @@
 ---
 title: "_index"
-doc-id: "_index"
+doc-id: "mb-f83cb795"
 ---
 # [Deploy in Kubernetes](#deploy-in-kubernetes)
 

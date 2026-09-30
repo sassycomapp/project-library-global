@@ -1,6 +1,6 @@
 ---
 title: "adr-frontmatter-exemption-transient-files"
-doc-id: "adr-frontmatter-exemption-transient-files"
+doc-id: "mb-30664b09"
 ---
 # Frontmatter Exemption for Transient Files
 

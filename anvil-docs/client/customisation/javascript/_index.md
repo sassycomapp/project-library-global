@@ -1,6 +1,6 @@
 ---
 title: "_index"
-doc-id: "_index"
+doc-id: "mb-4a50dd82"
 ---
 # [Using JavaScript](#using-javascript)
 

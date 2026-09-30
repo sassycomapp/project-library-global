@@ -1,6 +1,6 @@
 ---
 title: "_index"
-doc-id: "_index"
+doc-id: "mb-2d597e84"
 ---
 # [Files, Media and Binary Data](#files-media-and-binary-data)
 

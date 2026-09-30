@@ -1,6 +1,6 @@
 ---
 title: "data-tables-in-code"
-doc-id: "data-tables-in-code"
+doc-id: "mb-982d2d76"
 ---
 # [Using Data Tables from Python](#using-data-tables-from-python)
 
