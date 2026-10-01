@@ -6,7 +6,7 @@ updated: "2026-10-01"
 # Filename and Front-Matter Numbering Policy
 
 Date: 2026-09-10
-Status: Accepted
+Status: Accepted. Decision item 2 and the first Consequence are superseded by [[[default:adr-global/adr-document-frontmatter-and-identity]]](C:/dev/project-library-global/adr-global/adr-document-frontmatter-and-identity.md) (2026-10-01)
 Source: Developer decision, 2026-09-10 (numbering investigation with OpenCode)
 
 ---

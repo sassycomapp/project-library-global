@@ -6,7 +6,7 @@ updated: "2026-10-01"
 # Frontmatter Exemption for Transient Files
 
 Date: 2026-08-12
-Status: Accepted
+Status: Superseded in full by [[[default:adr-global/adr-document-frontmatter-and-identity]]](C:/dev/project-library-global/adr-global/adr-document-frontmatter-and-identity.md) (2026-10-01)
 Source: Master Task List Task 2.2
 
 ---
