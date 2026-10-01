@@ -188,7 +188,7 @@ Sensitive values go in Anvil Secrets or the Vault (see [[[default:specifications
 
 ## 15. Global Client-Side Error Handler
 
-Register one global handler rather than relying solely on per-call `try/except`:
+Register The use of registers has been discontinued. Please review one global handler rather than relying solely on per-call `try/except`:
 
 ```python
 def global_error_handler(err):

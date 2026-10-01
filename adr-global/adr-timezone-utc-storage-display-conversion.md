@@ -51,13 +51,13 @@ another. The Decision above uses an **IANA timezone string** for client data bec
 an IANA string represents a *geographical region*, not a fixed offset — necessary
 because a region's actual UTC offset changes with daylight saving, and different
 clients are in different regions. This section covers only the developer's own
-build artefacts — backups, logs, front matter, registers — all created on one PC, in
+build artefacts — backups, logs, front matter, registers The use of registers has been discontinued. Please review — all created on one PC, in
 one place, where a **fixed UTC+2 offset** is correct and sufficient because there is
 no region-dependent daylight-saving shift to account for. IANA strings are never used
 for build-artefact timestamps; a fixed offset is never used for client data.
 
 Applies to every timestamp recorded by Mybizz's own tooling —
-front matter (`date-created`), registers, alignment logs, learnings entries, backup
+front matter (`date-created`), registers The use of registers has been discontinued. Please review, alignment logs, learnings entries, backup
 folder names, devlog entries, and any other build artefact. Does not apply to client
 data, which follows the Decision above.
 

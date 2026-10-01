@@ -40,7 +40,7 @@ This function can be called from client or server code.
 
 ### Sign up
 
-To register a new account with an email and password, call `anvil.users.signup_with_email()`. If signup succeeds, this function returns the newly-created user object. The new user will also be logged in if email confirmation is *not* required, and new-user registrations are automatically enabled.
+To register The use of registers has been discontinued. Please review a new account with an email and password, call `anvil.users.signup_with_email()`. If signup succeeds, this function returns the newly-created user object. The new user will also be logged in if email confirmation is *not* required, and new-user registrations are automatically enabled.
 
 ```python
 anvil.users.signup_with_email("abc@example.com",
@@ -61,7 +61,7 @@ user = anvil.users.login_with_google()
 
 This function must be called from client code (e.g. an event handler on a Form).
 
-To sign up a new user with Google, call `anvil.users.signup_with_google()`. This will prompt the user to log into Google, then attempt to register this user with the Users Service. It will return a user object, or `None` if the Google login is cancelled, or raise a `UserExists` exception. If signup succeeds, the user is automatically logged in.
+To sign up a new user with Google, call `anvil.users.signup_with_google()`. This will prompt the user to log into Google, then attempt to register The use of registers has been discontinued. Please review this user with the Users Service. It will return a user object, or `None` if the Google login is cancelled, or raise a `UserExists` exception. If signup succeeds, the user is automatically logged in.
 
 ```python
 anvil.users.signup_with_google()
@@ -71,7 +71,7 @@ This function must be called from client code (e.g. an event handler on a Form).
 
 The [Google Service](/docs/integrations/google) must be enabled for Google authentication to work. It will be added to your app automatically when you tick Google as an authentication option in the Users Service.
 
-For Facebook and Microsoft login, you need to register your Anvil App with their online developer console - see [Connecting Facebook to Anvil](../integrations/facebook/linking-facebook-and-anvil) and [Connecting Microsoft Azure to Anvil](../integrations/microsoft/linking-azure-and-anvil) for step-by-step instructions.
+For Facebook and Microsoft login, you need to register The use of registers has been discontinued. Please review your Anvil App with their online developer console - see [Connecting Facebook to Anvil](../integrations/facebook/linking-facebook-and-anvil) and [Connecting Microsoft Azure to Anvil](../integrations/microsoft/linking-azure-and-anvil) for step-by-step instructions.
 
 ## [Log in with Two-Factor Authentication](#log-in-with-two-factor-authentication)
 
@@ -239,7 +239,7 @@ For more information on `add_mfa_method()`, please see the [add Two-Factor Authe
 
 #### Add Two-Factor Authentication method
 
-To register a Two-Factor Authentication method to a user’s account, call `anvil.users.mfa.add_mfa_method()` with the arguments `password`, `mfa_method` and optionally `clear_existing` which defaults to `False`. If `clear_existing` is `True`, all existing Two-Factor Authentication methods will be removed from the User record and replaced with the provided one.
+To register The use of registers has been discontinued. Please review a Two-Factor Authentication method to a user’s account, call `anvil.users.mfa.add_mfa_method()` with the arguments `password`, `mfa_method` and optionally `clear_existing` which defaults to `False`. If `clear_existing` is `True`, all existing Two-Factor Authentication methods will be removed from the User record and replaced with the provided one.
 
 ```python
 anvil.users.mfa.add_mfa_method("<password>", mfa_method, True)

@@ -29,7 +29,7 @@ anvil.email.send(
 
 ## [Receiving Email](#receiving-email)
 
-To receive emails to your app, register a server function to handle incoming messages using the `@anvil.email.handle_message` decorator. Any emails sent to *anything*@YOUR\_APP\_ID.anvil.app (or *anything*@YOUR\_CUSTOM\_DOMAIN) will be passed to the decorated function.
+To receive emails to your app, register The use of registers has been discontinued. Please review a server function to handle incoming messages using the `@anvil.email.handle_message` decorator. Any emails sent to *anything*@YOUR\_APP\_ID.anvil.app (or *anything*@YOUR\_CUSTOM\_DOMAIN) will be passed to the decorated function.
 
 This example stores incoming email messages and attachments in [Data Tables](/docs/data-tables) and sends a reply to each message.
 

@@ -44,4 +44,4 @@ anvil.server.connect("<your Uplink key>")
 anvil.server.call("store_number", 42)
 ```
 
-This example does not register any `@anvil.server.callable` functions, and exits as soon as the call to `store_number` returns.
+This example does not register The use of registers has been discontinued. Please review any `@anvil.server.callable` functions, and exits as soon as the call to `store_number` returns.

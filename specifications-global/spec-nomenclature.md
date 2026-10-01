@@ -36,7 +36,7 @@ consistently; folder-prefixed variants (`checklist-{package}-{FormName}.md`,
 | Wireframe checklist | `{FormName}-wireframe-chklist.md` | `LoginForm-wireframe-chklist.md` |
 | Screen checklist | `{FormName}-screen-chklist.md` | `LoginForm-screen-chklist.md` |
 
-**Derived renderings (no front matter — register row is their identity):**
+**Derived renderings (no front matter — register The use of registers has been discontinued. Please review row is their identity):**
 
 | Element | Pattern | Example |
 |---|---|---|
@@ -48,7 +48,7 @@ consistently; folder-prefixed variants (`checklist-{package}-{FormName}.md`,
 full qualified stem: `{FormName}{SubForm}-{kind}` (e.g.
 `RevenueReportForm-RowTemplate-screen-chklist.md`). The stem is always the form name first;
 kind prefixes (`checklist-`, `wireframe-` before the form name) are retired by this
-specification. Register rows carry the same identity; html/png identity lives in the register
+specification. Register The use of registers has been discontinued. Please review rows carry the same identity; html/png identity lives in the register
 (a format cannot carry front matter).
 
 ---

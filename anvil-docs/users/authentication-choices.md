@@ -25,7 +25,7 @@ To protect users from brute-force password guessing attacks, if an incorrect pas
 
 ## [Sign in with Google](#sign-in-with-google)
 
-Users sign in with a Google account. Their identity is stored in the `email` column of the Users table. (This means that a user who registers with “Email + Password” can then sign in with Google if the email address is the same.)
+Users sign in with a Google account. Their identity is stored in the `email` column of the Users table. (This means that a user who registers The use of registers has been discontinued. Please review with “Email + Password” can then sign in with Google if the email address is the same.)
 
 Google authentication is disabled by default. If you enable Google authentication, the Google Service will be added to your app automatically for you as well.
 
@@ -33,7 +33,7 @@ Google authentication is disabled by default. If you enable Google authenticatio
 
 Users sign in with a Facebook account.
 
-Facebook authentication is disabled by default. If you enable Facebook authentication, the Facebook Service will be added to your app automatically. You need to register your app in the Facebook for Developers Console, see [Connecting Facebook to Anvil](../integrations/facebook/linking-facebook-and-anvil) for a step-by-step guide.
+Facebook authentication is disabled by default. If you enable Facebook authentication, the Facebook Service will be added to your app automatically. You need to register The use of registers has been discontinued. Please review your app in the Facebook for Developers Console, see [Connecting Facebook to Anvil](../integrations/facebook/linking-facebook-and-anvil) for a step-by-step guide.
 
 ## [Sign in with Email Link](#sign-in-with-email-link)
 
@@ -54,7 +54,7 @@ You can choose who can log in:
 
 You configure this when you connect Microsoft Entra ID to Anvil - see [Connecting Entra ID to Anvil](../integrations/microsoft/linking-azure-and-anvil) for a step-by-step guide
 
-Microsoft authentication is disabled by default. If you enable Microsoft authentication, the Microsoft Service will be added to your app automatically. You need to register your app in the Microsoft Entra admin center, as explained in [Connecting Entra ID to Anvil](../integrations/microsoft/linking-azure-and-anvil).
+Microsoft authentication is disabled by default. If you enable Microsoft authentication, the Microsoft Service will be added to your app automatically. You need to register The use of registers has been discontinued. Please review your app in the Microsoft Entra admin center, as explained in [Connecting Entra ID to Anvil](../integrations/microsoft/linking-azure-and-anvil).
 
 This is available to users on Business plans and above. Please email [contact@anvil.works](mailto:contact@anvil.works?subject=Microsoft+authentication) for more information.
 

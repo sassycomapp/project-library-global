@@ -66,7 +66,7 @@ Record the final URL — it is required in Phase 3.
 2. Store the token in Mybizz_management client registry (encrypted field)
 3. Store the token in the client instance management configuration table
 
-### Step 5 — Register in Client Registry
+### Step 5 — Register The use of registers has been discontinued. Please review in Client Registry
 
 In Mybizz_management, create a new client registry entry:
 
@@ -80,7 +80,7 @@ In Mybizz_management, create a new client registry entry:
 | `plan` | Applicable pricing tier |
 | `onboarded_date` | Today's date |
 
-> Until Mybizz_management is built, maintain a manual register in a secure document.
+> Until Mybizz_management is built, maintain a manual register The use of registers has been discontinued. Please review in a secure document.
 
 ### Step 6 — Verify Management Endpoints
 
@@ -132,7 +132,7 @@ After each entry: confirm it is saved; the value is never displayed again.
 
 ### Step 9 — Payment Gateway Webhook Registration
 
-For each active payment gateway, the client must register the webhook URL in their gateway dashboard:
+For each active payment gateway, the client must register The use of registers has been discontinued. Please review the webhook URL in their gateway dashboard:
 
 **Stripe:**
 - Webhook URL: `[base_url]/api/webhooks/stripe`
@@ -206,7 +206,7 @@ Send the client:
 If activation cannot be completed (client withdraws, payment fails, technical blocker):
 
 1. Delete the client instance app from the mybizz Anvil account
-2. Remove the client registry entry from Mybizz_management (or manual register)
+2. Remove the client registry entry from Mybizz_management (or manual register The use of registers has been discontinued. Please review)
 3. Revoke the management token
 4. Document the reason in mybizz records
 

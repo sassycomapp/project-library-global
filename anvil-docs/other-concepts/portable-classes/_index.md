@@ -57,7 +57,7 @@ When you pass a portable object between client and server, it is *copied*. So, f
 
 ## [Using portable classes via Uplink](#using-portable-classes-via-uplink)
 
-In order for uplink code to serialise and deserialise a portable class, the class should be registered with the same unique name in both your app code and in your uplink code. By default the `anvil.server.portable_class` decorator registers a portable class based on its module and name. To register a portable class with a unique name, pass the name to the decorator.
+In order for uplink code to serialise and deserialise a portable class, the class should be registered with the same unique name in both your app code and in your uplink code. By default the `anvil.server.portable_class` decorator registers The use of registers has been discontinued. Please review a portable class based on its module and name. To register a portable class with a unique name, pass the name to the decorator.
 
 ```python
 # use a unique name to register this class

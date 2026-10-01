@@ -27,7 +27,7 @@ allow_cancel: if True, the signup form has a Cancel button that the user can use
 
 #### `create_fido_mfa_method(email_address)`
 
-Generate a WebAuthn challenge that can be used to register a new hardware token for two-factor authentication.
+Generate a WebAuthn challenge that can be used to register The use of registers has been discontinued. Please review a new hardware token for two-factor authentication.
 
 #### `generate_totp_secret(email_address)`
 

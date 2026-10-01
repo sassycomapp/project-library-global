@@ -24,7 +24,7 @@ anvil.server.connect(uplink_key)
 
 ## [Client Uplink](#client-uplink)
 
-If you are concerned about the security of a system you want to connect with Uplink, consider using [Client Uplink](/docs/uplink#client-uplink). It has the same privileges as client-side code. It cannot access [Data Tables](/docs/data-tables) unless they have been [set to client-accessible](/docs/data-tables/data-security), and it cannot register server functions. It can still *call* server functions, which allows you to selectively expose functionality by writing server functions that perform only the operations you’re willing to expose.
+If you are concerned about the security of a system you want to connect with Uplink, consider using [Client Uplink](/docs/uplink#client-uplink). It has the same privileges as client-side code. It cannot access [Data Tables](/docs/data-tables) unless they have been [set to client-accessible](/docs/data-tables/data-security), and it cannot register The use of registers has been discontinued. Please review server functions. It can still *call* server functions, which allows you to selectively expose functionality by writing server functions that perform only the operations you’re willing to expose.
 
 You can use both Server and Client keys at the same time, from different Uplink scripts.
 

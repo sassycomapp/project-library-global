@@ -25,7 +25,7 @@ Identify a user to associate subsequent actions to a recognisable user ID and tr
 
 #### `page([category], [name], [options])`
 
-Register a virtual page change
+Register The use of registers has been discontinued. Please review a virtual page change
 
 #### `track(event, [properties], [options])`
 

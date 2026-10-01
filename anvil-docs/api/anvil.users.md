@@ -119,7 +119,7 @@ By default, login status is not remembered between sessions; set remember=True t
 
 #### `signup_with_facebook([additional_scopes], [remember=False])`
 
-Sign up for a new account with the email address associated with the user's Facebook account. Prompts the user to authenticate with Facebook, then registers a new user with that email address. Raises anvil.users.UserExists if this email address is already registered; returns new user or None if cancelled.
+Sign up for a new account with the email address associated with the user's Facebook account. Prompts the user to authenticate with Facebook, then registers The use of registers has been discontinued. Please review a new user with that email address. Raises anvil.users.UserExists if this email address is already registered; returns new user or None if cancelled.
 
 additional_scopes: If supplied, these are passed on to anvil.facebook.auth.login().
 
@@ -135,7 +135,7 @@ allow_cancel: if True, the signup form has a Cancel button that the user can use
 
 #### `signup_with_google([additional_scopes], [remember=False])`
 
-Sign up for a new account with the email address associated with the user's Google account. Prompts the user to authenticate with Google, then registers a new user with that email address. Raises anvil.users.UserExists if this email address is already registered; returns new user or None if cancelled.
+Sign up for a new account with the email address associated with the user's Google account. Prompts the user to authenticate with Google, then registers The use of registers has been discontinued. Please review a new user with that email address. Raises anvil.users.UserExists if this email address is already registered; returns new user or None if cancelled.
 
 additional_scopes: If supplied, these are passed on to anvil.google.auth.login().
 
@@ -143,7 +143,7 @@ By default, login status is not remembered between sessions; set remember=True t
 
 #### `signup_with_microsoft([additional_scopes], [remember=False])`
 
-Sign up for a new account with the email address associated with the user's Microsoft account. Prompts the user to authenticate with Microsoft, then registers a new user with that email address. Raises anvil.users.UserExists if this email address is already registered; returns new user or None if cancelled.
+Sign up for a new account with the email address associated with the user's Microsoft account. Prompts the user to authenticate with Microsoft, then registers The use of registers has been discontinued. Please review a new user with that email address. Raises anvil.users.UserExists if this email address is already registered; returns new user or None if cancelled.
 
 additional_scopes: If supplied, these are passed on to anvil.microsoft.auth.login().
 
@@ -151,6 +151,6 @@ By default, login status is not remembered between sessions; set remember=True t
 
 #### `signup_with_saml([remember=False])`
 
-Sign up for a new account with the email address associated with the user's SAML account. Prompts the user to authenticate via SAML, then registers a new user with that email address. Raises anvil.users.UserExists if this email address is already registered; returns new user or None if cancelled.
+Sign up for a new account with the email address associated with the user's SAML account. Prompts the user to authenticate via SAML, then registers The use of registers has been discontinued. Please review a new user with that email address. Raises anvil.users.UserExists if this email address is already registered; returns new user or None if cancelled.
 
 By default, login status is not remembered between sessions; set remember=True to remember login status.

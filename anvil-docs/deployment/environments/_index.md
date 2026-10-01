@@ -51,7 +51,7 @@ If you’re using the [Uplink](/docs/uplink), you have to connect your Uplink co
 
 ### Allowing other environments to call Uplink code
 
-When Uplink code registers a server function with `@anvil.server.callable`, that function can normally only be called from code running in the same environment.
+When Uplink code registers The use of registers has been discontinued. Please review a server function with `@anvil.server.callable`, that function can normally only be called from code running in the same environment.
 
 However, you can choose to **Share uplinks with other environments**. In this case, your Uplink code can be called from *any* environment. This is useful, for example, to access production Uplink functions when you click **Run** in the Editor (ie from the [Development Environment](#development-environments)).
 
