@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-da07f1e8"
+updated: "2026-10-01"
 ---
 # [Quickstart: User Interfaces](#quickstart-user-interfaces)
 

@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-04c77d37"
+updated: "2026-10-01"
 ---
 # [Quickstart: Facebook Integration](#quickstart-facebook-integration)
 

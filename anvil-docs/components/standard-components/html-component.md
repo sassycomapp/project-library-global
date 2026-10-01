@@ -1,6 +1,7 @@
 ---
 title: "html-component"
 doc-id: "mb-2cb3ed2d"
+updated: "2026-10-01"
 ---
 # [HtmlComponent](#htmlcomponent)
 

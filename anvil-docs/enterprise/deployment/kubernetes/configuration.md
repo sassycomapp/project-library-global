@@ -1,6 +1,7 @@
 ---
 title: "configuration"
 doc-id: "mb-e27067c7"
+updated: "2026-10-01"
 ---
 # [Configuration Guide](#configuration-guide)
 

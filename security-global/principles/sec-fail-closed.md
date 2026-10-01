@@ -1,6 +1,7 @@
 ---
 title: "sec-fail-closed"
 doc-id: "mb-9629b209"
+updated: "2026-10-01"
 ---
 # Principle — Fail Closed
 

@@ -1,6 +1,7 @@
 ---
 title: "additional-debugging-tools"
 doc-id: "mb-4ad64886"
+updated: "2026-10-01"
 ---
 # [Additional Debugging Tools in Anvil](#additional-debugging-tools-in-anvil)
 

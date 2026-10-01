@@ -1,6 +1,7 @@
 ---
 title: "sec-payment-manipulation"
 doc-id: "mb-14e0973e"
+updated: "2026-10-01"
 ---
 # Threat Model — Payment Manipulation
 

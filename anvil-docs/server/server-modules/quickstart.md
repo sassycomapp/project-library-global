@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-cc46205e"
+updated: "2026-10-01"
 ---
 # [Quickstart: Server Code](#quickstart-server-code)
 

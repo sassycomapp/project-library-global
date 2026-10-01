@@ -1,6 +1,7 @@
 ---
 title: "sessions-and-cookies"
 doc-id: "mb-aca71770"
+updated: "2026-10-01"
 ---
 # [Sessions and Cookies](#sessions-and-cookies)
 

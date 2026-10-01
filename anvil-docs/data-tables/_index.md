@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-48142ac8"
+updated: "2026-10-01"
 ---
 # [Storing Data in Data Tables](#storing-data-in-data-tables)
 

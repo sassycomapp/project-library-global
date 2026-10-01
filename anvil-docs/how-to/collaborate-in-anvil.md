@@ -1,6 +1,7 @@
 ---
 title: "collaborate-in-anvil"
 doc-id: "mb-ad765639"
+updated: "2026-10-01"
 ---
 # [Collaborate as a team in Anvil](#collaborate-as-a-team-in-anvil)
 

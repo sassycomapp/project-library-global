@@ -1,6 +1,7 @@
 ---
 title: "sec-database-access-control"
 doc-id: "mb-53d4575a"
+updated: "2026-10-01"
 ---
 # Database Access Control
 

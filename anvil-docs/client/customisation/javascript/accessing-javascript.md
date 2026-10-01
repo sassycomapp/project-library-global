@@ -1,6 +1,7 @@
 ---
 title: "accessing-javascript"
 doc-id: "mb-658b9d58"
+updated: "2026-10-01"
 ---
 # [Accessing JavaScript](#accessing-javascript)
 

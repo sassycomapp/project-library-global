@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-d93f7dca"
+updated: "2026-10-01"
 ---
 # [New Material 3 Theme](#new-material-3-theme)
 

@@ -1,6 +1,7 @@
 ---
 title: "linking-azure-and-anvil"
 doc-id: "mb-e984fbae"
+updated: "2026-10-01"
 ---
 # [Connecting Entra ID to Anvil](#connecting-entra-id-to-anvil)
 

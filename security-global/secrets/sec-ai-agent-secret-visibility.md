@@ -1,6 +1,7 @@
 ---
 title: "sec-ai-agent-secret-visibility"
 doc-id: "mb-a35bafbd"
+updated: "2026-10-01"
 ---
 # AI Agent Secret Visibility
 

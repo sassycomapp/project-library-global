@@ -1,6 +1,7 @@
 ---
 title: "accessing-microsoft-apis"
 doc-id: "mb-a453b90c"
+updated: "2026-10-01"
 ---
 # [Accessing Microsoft Azure APIs](#accessing-microsoft-azure-apis)
 

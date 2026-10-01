@@ -1,6 +1,7 @@
 ---
 title: "k8s-prerequisites"
 doc-id: "mb-539e6915"
+updated: "2026-10-01"
 ---
 # [Kubernetes Prerequisites](#kubernetes-prerequisites)
 

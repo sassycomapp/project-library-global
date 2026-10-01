@@ -1,6 +1,7 @@
 ---
 title: "creating-and-editing-apps"
 doc-id: "mb-262860a1"
+updated: "2026-10-01"
 ---
 # Creating Anvil apps locally
 

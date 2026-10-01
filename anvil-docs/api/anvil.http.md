@@ -1,6 +1,7 @@
 ---
 title: "anvil.http"
 doc-id: "mb-ec56ae51"
+updated: "2026-10-01"
 ---
 ## `anvil.http` Module
 

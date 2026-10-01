@@ -1,6 +1,7 @@
 ---
 title: "html-layouts"
 doc-id: "mb-9b3c36a1"
+updated: "2026-10-01"
 ---
 # [Building Layouts from HTML](#building-layouts-from-html)
 

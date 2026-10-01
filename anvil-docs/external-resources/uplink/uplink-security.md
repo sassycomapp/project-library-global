@@ -1,6 +1,7 @@
 ---
 title: "uplink-security"
 doc-id: "mb-59b3adae"
+updated: "2026-10-01"
 ---
 # [Uplink Security](#uplink-security)
 

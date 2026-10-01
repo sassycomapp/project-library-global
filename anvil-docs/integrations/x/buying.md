@@ -1,6 +1,7 @@
 ---
 title: "buying"
 doc-id: "mb-feeba9cf"
+updated: "2026-10-01"
 ---
 # [Billing and Metering](#billing-and-metering)
 

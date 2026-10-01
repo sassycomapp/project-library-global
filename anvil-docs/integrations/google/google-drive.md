@@ -1,6 +1,7 @@
 ---
 title: "google-drive"
 doc-id: "mb-b7a531ab"
+updated: "2026-10-01"
 ---
 # [Google Drive](#google-drive)
 

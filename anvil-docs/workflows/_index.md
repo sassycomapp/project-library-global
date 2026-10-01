@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-0a295756"
+updated: "2026-10-01"
 ---
 # [Workflows and Best Practices](#workflows-and-best-practices)
 

@@ -1,6 +1,7 @@
 ---
 title: "version-control-anvil"
 doc-id: "mb-54c65970"
+updated: "2026-10-01"
 ---
 # [Using Version Control in Anvil](#using-version-control-in-anvil)
 

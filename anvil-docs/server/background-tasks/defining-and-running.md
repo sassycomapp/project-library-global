@@ -1,6 +1,7 @@
 ---
 title: "defining-and-running"
 doc-id: "mb-c13bf201"
+updated: "2026-10-01"
 ---
 # [Defining and Running Background Tasks](#defining-and-running-background-tasks)
 

@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-aa300587"
+updated: "2026-10-01"
 ---
 # [Quickstart: Microsoft SSO](#quickstart-microsoft-sso)
 

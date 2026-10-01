@@ -1,6 +1,7 @@
 ---
 title: "adr-timezone-utc-storage-display-conversion"
 doc-id: "mb-5ba3ccea"
+updated: "2026-10-01"
 ---
 # Client Timezone: IANA String, UTC Storage, Display-Time Conversion
 Date: 2026-03-17

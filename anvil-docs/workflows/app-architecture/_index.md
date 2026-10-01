@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-9d6cadb7"
+updated: "2026-10-01"
 ---
 # [App architecture](#app-architecture)
 

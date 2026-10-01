@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-21a433dc"
+updated: "2026-10-01"
 ---
 # [Using Anvil from a Local IDE](#using-anvil-from-a-local-ide)
 

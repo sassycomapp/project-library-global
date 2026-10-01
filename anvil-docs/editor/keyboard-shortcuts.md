@@ -1,6 +1,7 @@
 ---
 title: "keyboard-shortcuts"
 doc-id: "mb-6156e7df"
+updated: "2026-10-01"
 ---
 # [Keyboard Shortcuts](#keyboard-shortcuts)
 

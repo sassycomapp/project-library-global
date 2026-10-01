@@ -1,6 +1,7 @@
 ---
 title: "agent-chat-window"
 doc-id: "mb-7a97ea8e"
+updated: "2026-10-01"
 ---
 # [The Agent chat window](#the-agent-chat-window)
 

@@ -1,6 +1,7 @@
 ---
 title: "coming-from-scripting"
 doc-id: "mb-dc7169b7"
+updated: "2026-10-01"
 ---
 # [Introduction to GUI and Server Programming](#introduction-to-gui-and-server-programming)
 

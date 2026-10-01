@@ -1,6 +1,7 @@
 ---
 title: "anvil.google.auth"
 doc-id: "mb-45bb8349"
+updated: "2026-10-01"
 ---
 ## `anvil.google.auth` Module
 

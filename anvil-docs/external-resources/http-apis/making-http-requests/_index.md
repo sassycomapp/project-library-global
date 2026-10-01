@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-b773a495"
+updated: "2026-10-01"
 ---
 # [Making HTTP requests](#making-http-requests)
 

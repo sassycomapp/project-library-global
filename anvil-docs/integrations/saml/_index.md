@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-987bf3e4"
+updated: "2026-10-01"
 ---
 # [SAML Authentication](#saml-authentication)
 

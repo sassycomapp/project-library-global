@@ -1,6 +1,7 @@
 ---
 title: "no_disabling_security_tooling"
 doc-id: "mb-850198c3"
+updated: "2026-10-01"
 ---
 # Rule: No Disabling Security Tooling
 

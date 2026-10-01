@@ -1,6 +1,7 @@
 ---
 title: "prompting-best-practices"
 doc-id: "mb-3fd68caa"
+updated: "2026-10-01"
 ---
 # [Prompting best practices](#prompting-best-practices)
 

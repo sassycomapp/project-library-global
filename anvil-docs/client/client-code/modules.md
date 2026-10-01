@@ -1,6 +1,7 @@
 ---
 title: "modules"
 doc-id: "mb-8af17090"
+updated: "2026-10-01"
 ---
 # [Modules](#modules)
 

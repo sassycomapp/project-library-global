@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-e30778b6"
+updated: "2026-10-01"
 ---
 # [Quickstart: Working with GitHub](#quickstart-working-with-github)
 

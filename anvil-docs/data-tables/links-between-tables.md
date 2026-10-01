@@ -1,6 +1,7 @@
 ---
 title: "links-between-tables"
 doc-id: "mb-5d456164"
+updated: "2026-10-01"
 ---
 # [Links Between Tables](#links-between-tables)
 

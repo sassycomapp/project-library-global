@@ -1,6 +1,7 @@
 ---
 title: "trials"
 doc-id: "mb-cb349f6b"
+updated: "2026-10-01"
 ---
 # [Anvil Enterprise Trials](#anvil-enterprise-trials)
 

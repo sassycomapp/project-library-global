@@ -1,6 +1,7 @@
 ---
 title: "sec-requirements-release-readiness"
 doc-id: "mb-540abe01"
+updated: "2026-10-01"
 ---
 # Requirement — Release Readiness
 

@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-7e2fbf57"
+updated: "2026-10-01"
 ---
 # [Quickstart: Databases](#quickstart-databases)
 

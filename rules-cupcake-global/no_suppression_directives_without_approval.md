@@ -1,6 +1,7 @@
 ---
 title: "no_suppression_directives_without_approval"
 doc-id: "mb-9f0bb921"
+updated: "2026-10-01"
 ---
 # Rule: No Suppression Directives Without Explicit Approval
 

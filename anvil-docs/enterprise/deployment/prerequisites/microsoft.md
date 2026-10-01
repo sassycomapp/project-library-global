@@ -1,6 +1,7 @@
 ---
 title: "microsoft"
 doc-id: "mb-aab31428"
+updated: "2026-10-01"
 ---
 # [Microsoft SSO](#microsoft-sso)
 

@@ -1,6 +1,7 @@
 ---
 title: "transactions"
 doc-id: "mb-b93e0746"
+updated: "2026-10-01"
 ---
 # [Transactions](#transactions)
 

@@ -1,6 +1,7 @@
 ---
 title: "aws-lightsail-app-server-deployment"
 doc-id: "mb-c0cc331c"
+updated: "2026-10-01"
 ---
 # [How to use Anvil’s open-source App Server on an AWS Lightsail instance](#how-to-use-anvils-open-source-app-server-on-an-aws-lightsail-instance)
 

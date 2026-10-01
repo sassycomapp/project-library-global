@@ -1,6 +1,7 @@
 ---
 title: "python-directory-structure"
 doc-id: "mb-c161c086"
+updated: "2026-10-01"
 ---
 # [Python directory structure](#python-directory-structure)
 

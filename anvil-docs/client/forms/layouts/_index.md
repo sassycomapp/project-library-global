@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-ba89881f"
+updated: "2026-10-01"
 ---
 # [Layouts](#layouts)
 

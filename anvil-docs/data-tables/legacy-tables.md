@@ -1,6 +1,7 @@
 ---
 title: "legacy-tables"
 doc-id: "mb-862b2a46"
+updated: "2026-10-01"
 ---
 # [Legacy Tables](#legacy-tables)
 

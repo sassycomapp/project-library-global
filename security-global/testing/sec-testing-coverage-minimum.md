@@ -1,6 +1,7 @@
 ---
 title: "sec-testing-coverage-minimum"
 doc-id: "mb-6298bddf"
+updated: "2026-10-01"
 ---
 # Security Test Coverage Minimum
 

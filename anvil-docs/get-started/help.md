@@ -1,6 +1,7 @@
 ---
 title: "help"
 doc-id: "mb-2b0a9732"
+updated: "2026-10-01"
 ---
 # [How to get help](#how-to-get-help)
 

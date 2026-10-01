@@ -1,6 +1,7 @@
 ---
 title: "what-is-version-control"
 doc-id: "mb-0c3576f3"
+updated: "2026-10-01"
 ---
 # [What is Version Control?](#what-is-version-control)
 

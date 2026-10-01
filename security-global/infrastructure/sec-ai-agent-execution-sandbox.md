@@ -1,6 +1,7 @@
 ---
 title: "sec-ai-agent-execution-sandbox"
 doc-id: "mb-b4c0c169"
+updated: "2026-10-01"
 ---
 # AI Agent Execution Sandbox
 

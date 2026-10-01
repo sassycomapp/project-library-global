@@ -1,6 +1,7 @@
 ---
 title: "profiling-and-tracing"
 doc-id: "mb-0cf10cd9"
+updated: "2026-10-01"
 ---
 # [Profiling and Tracing](#profiling-and-tracing)
 

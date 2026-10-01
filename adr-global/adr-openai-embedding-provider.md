@@ -1,6 +1,7 @@
 ---
 title: "adr-openai-embedding-provider"
 doc-id: "mb-340d26bd"
+updated: "2026-10-01"
 ---
 # OpenAI Must Remain the Embedding Provider
 

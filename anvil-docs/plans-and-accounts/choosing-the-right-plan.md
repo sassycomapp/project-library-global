@@ -1,6 +1,7 @@
 ---
 title: "choosing-the-right-plan"
 doc-id: "mb-be7fd3d7"
+updated: "2026-10-01"
 ---
 # [Choosing The Right Plan](#choosing-the-right-plan)
 

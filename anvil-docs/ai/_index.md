@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-bfcd914a"
+updated: "2026-10-01"
 ---
 # [AI Agents in Anvil](#ai-agents-in-anvil)
 

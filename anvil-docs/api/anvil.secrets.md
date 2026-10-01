@@ -1,6 +1,7 @@
 ---
 title: "anvil.secrets"
 doc-id: "mb-ee3edad8"
+updated: "2026-10-01"
 ---
 ## `anvil.secrets` Module
 

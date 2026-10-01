@@ -1,6 +1,7 @@
 ---
 title: "anvil.googlemap"
 doc-id: "mb-0a501d12"
+updated: "2026-10-01"
 ---
 ## `anvil.GoogleMap` Module
 

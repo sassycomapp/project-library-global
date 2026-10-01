@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-c9a13a72"
+updated: "2026-10-01"
 ---
 # [Deployment Options](#deployment-options)
 

@@ -1,6 +1,7 @@
 ---
 title: "creating"
 doc-id: "mb-a43be1fa"
+updated: "2026-10-01"
 ---
 # [Creating Model Classes](#creating-model-classes)
 

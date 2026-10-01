@@ -1,6 +1,7 @@
 ---
 title: "google"
 doc-id: "mb-a0dfdbcf"
+updated: "2026-10-01"
 ---
 # [Google SSO](#google-sso)
 

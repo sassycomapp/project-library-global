@@ -1,6 +1,7 @@
 ---
 title: "forms-in-the-editor"
 doc-id: "mb-f5b380bf"
+updated: "2026-10-01"
 ---
 # [Forms in the Anvil Editor](#forms-in-the-anvil-editor)
 

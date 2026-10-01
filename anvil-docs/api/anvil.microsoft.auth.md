@@ -1,6 +1,7 @@
 ---
 title: "anvil.microsoft.auth"
 doc-id: "mb-5522b8d0"
+updated: "2026-10-01"
 ---
 ## `anvil.microsoft.auth` Module
 

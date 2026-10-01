@@ -1,6 +1,7 @@
 ---
 title: "external-database"
 doc-id: "mb-1353e6b0"
+updated: "2026-10-01"
 ---
 # [Visualise data from an external database](#visualise-data-from-an-external-database)
 

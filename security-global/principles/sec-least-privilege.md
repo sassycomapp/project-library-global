@@ -1,6 +1,7 @@
 ---
 title: "sec-least-privilege"
 doc-id: "mb-c845ae9d"
+updated: "2026-10-01"
 ---
 # Principle — Least Privilege
 

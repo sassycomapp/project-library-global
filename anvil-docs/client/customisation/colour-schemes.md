@@ -1,6 +1,7 @@
 ---
 title: "colour-schemes"
 doc-id: "mb-9356bcc2"
+updated: "2026-10-01"
 ---
 # [Colour Schemes](#colour-schemes)
 

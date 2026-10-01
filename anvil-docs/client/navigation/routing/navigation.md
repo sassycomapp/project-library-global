@@ -1,6 +1,7 @@
 ---
 title: "navigation"
 doc-id: "mb-8c7ee5aa"
+updated: "2026-10-01"
 ---
 # [Navigation](#navigation)
 

@@ -1,6 +1,7 @@
 ---
 title: "sec-requirements-data-table-creation"
 doc-id: "mb-81c33fe4"
+updated: "2026-10-01"
 ---
 # Requirement — New Data Table Creation
 

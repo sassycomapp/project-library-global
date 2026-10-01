@@ -1,6 +1,7 @@
 ---
 title: "gui-Anvil-Debugging-Guide"
 doc-id: "mb-4d0f89bb"
+updated: "2026-10-01"
 ---
 Anvil Debugging Guide
 

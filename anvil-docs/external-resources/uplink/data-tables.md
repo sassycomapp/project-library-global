@@ -1,6 +1,7 @@
 ---
 title: "data-tables"
 doc-id: "mb-9d319c7d"
+updated: "2026-10-01"
 ---
 # [Connecting to Data Tables](#connecting-to-data-tables)
 

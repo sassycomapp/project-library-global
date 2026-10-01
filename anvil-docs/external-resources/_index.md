@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-d7b5947b"
+updated: "2026-10-01"
 ---
 # [Connecting to External Resources](#connecting-to-external-resources)
 

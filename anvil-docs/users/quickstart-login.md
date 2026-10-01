@@ -1,6 +1,7 @@
 ---
 title: "quickstart-login"
 doc-id: "mb-3327c414"
+updated: "2026-10-01"
 ---
 # [Quickstart: Login](#quickstart-login)
 

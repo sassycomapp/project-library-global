@@ -1,6 +1,7 @@
 ---
 title: "sec-explicit-responsibility-assignment"
 doc-id: "mb-0c5fb360"
+updated: "2026-10-01"
 ---
 # Principle — Explicit Responsibility Assignment
 

@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-748c33e9"
+updated: "2026-10-01"
 ---
 # [Creating Custom Components](#creating-custom-components)
 

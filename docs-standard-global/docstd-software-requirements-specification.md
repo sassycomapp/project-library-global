@@ -1,6 +1,7 @@
 ---
 title: "docstd-software-requirements-specification"
 doc-id: "mb-dd0fe55c"
+updated: "2026-10-01"
 ---
 # {Project Name} — Software Requirements Specification (SRS)
 

@@ -1,6 +1,7 @@
 ---
 title: "serving-ui-from-http-routes"
 doc-id: "mb-84769c79"
+updated: "2026-10-01"
 ---
 # [Serving your app’s user interface from HTTP routes](#serving-your-apps-user-interface-from-http-routes)
 

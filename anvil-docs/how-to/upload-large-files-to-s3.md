@@ -1,6 +1,7 @@
 ---
 title: "upload-large-files-to-s3"
 doc-id: "mb-9923335a"
+updated: "2026-10-01"
 ---
 # [Upload a large file directly to Amazon S3](#upload-a-large-file-directly-to-amazon-s3)
 

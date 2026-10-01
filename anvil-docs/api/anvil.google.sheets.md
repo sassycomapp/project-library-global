@@ -1,6 +1,7 @@
 ---
 title: "anvil.google.sheets"
 doc-id: "mb-3bc9df63"
+updated: "2026-10-01"
 ---
 ## `anvil.google.sheets` Module
 

@@ -1,6 +1,7 @@
 ---
 title: "sop-deployment-procedures"
 doc-id: "mb-1539ac25"
+updated: "2026-10-01"
 ---
 # {Project Name} — SOP: Deployment Procedures
 

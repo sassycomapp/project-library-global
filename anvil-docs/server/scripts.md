@@ -1,6 +1,7 @@
 ---
 title: "scripts"
 doc-id: "mb-f33a25d8"
+updated: "2026-10-01"
 ---
 # [Scripts](#scripts)
 

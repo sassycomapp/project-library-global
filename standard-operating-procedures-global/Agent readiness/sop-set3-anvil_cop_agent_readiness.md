@@ -1,6 +1,7 @@
 ---
 title: "sop-set3-anvil_cop_agent_readiness"
 doc-id: "mb-f638bd08"
+updated: "2026-10-01"
 ---
 # Agent Readiness CoP preparation
 

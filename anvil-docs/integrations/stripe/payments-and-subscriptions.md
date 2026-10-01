@@ -1,6 +1,7 @@
 ---
 title: "payments-and-subscriptions"
 doc-id: "mb-9cd62448"
+updated: "2026-10-01"
 ---
 # [Payments and Subscriptions](#payments-and-subscriptions)
 

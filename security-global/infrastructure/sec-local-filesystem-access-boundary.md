@@ -1,6 +1,7 @@
 ---
 title: "sec-local-filesystem-access-boundary"
 doc-id: "mb-7ba3ee3f"
+updated: "2026-10-01"
 ---
 # Local Filesystem Access Boundary
 

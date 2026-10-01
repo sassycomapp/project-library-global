@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-4a50dd82"
+updated: "2026-10-01"
 ---
 # [Using JavaScript](#using-javascript)
 

@@ -1,6 +1,7 @@
 ---
 title: "authenticating-users"
 doc-id: "mb-c666bab0"
+updated: "2026-10-01"
 ---
 # [Authenticating Users with Google](#authenticating-users-with-google)
 

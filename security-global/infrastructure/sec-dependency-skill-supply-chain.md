@@ -1,6 +1,7 @@
 ---
 title: "sec-dependency-skill-supply-chain"
 doc-id: "mb-579a1ec8"
+updated: "2026-10-01"
 ---
 # Dependency and Skill Supply Chain
 

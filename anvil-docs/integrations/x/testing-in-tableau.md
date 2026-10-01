@@ -1,6 +1,7 @@
 ---
 title: "testing-in-tableau"
 doc-id: "mb-d41eaff3"
+updated: "2026-10-01"
 ---
 # [Testing your extension in Tableau](#testing-your-extension-in-tableau)
 

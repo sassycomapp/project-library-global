@@ -1,6 +1,7 @@
 ---
 title: "the-python-environment"
 doc-id: "mb-f7f3c950"
+updated: "2026-10-01"
 ---
 # [The Client-side Python Environment](#the-client-side-python-environment)
 

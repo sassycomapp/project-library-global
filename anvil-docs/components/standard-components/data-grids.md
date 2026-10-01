@@ -1,6 +1,7 @@
 ---
 title: "data-grids"
 doc-id: "mb-0d70cb4d"
+updated: "2026-10-01"
 ---
 # [Data Grids](#data-grids)
 

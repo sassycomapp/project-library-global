@@ -1,6 +1,7 @@
 ---
 title: "capabilities"
 doc-id: "mb-0f14b02f"
+updated: "2026-10-01"
 ---
 # [Capabilities](#capabilities)
 

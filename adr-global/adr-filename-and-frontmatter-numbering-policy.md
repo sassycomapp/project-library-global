@@ -1,6 +1,7 @@
 ---
 title: "adr-filename-and-frontmatter-numbering-policy"
 doc-id: "mb-f880ccdb"
+updated: "2026-10-01"
 ---
 # Filename and Front-Matter Numbering Policy
 

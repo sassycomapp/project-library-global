@@ -1,6 +1,7 @@
 ---
 title: "free-vs-paid"
 doc-id: "mb-167521e9"
+updated: "2026-10-01"
 ---
 # [Pricing plans](#pricing-plans)
 

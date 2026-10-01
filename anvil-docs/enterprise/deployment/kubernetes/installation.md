@@ -1,6 +1,7 @@
 ---
 title: "installation"
 doc-id: "mb-6880f0ba"
+updated: "2026-10-01"
 ---
 # [Installation in Kubernetes](#installation-in-kubernetes)
 

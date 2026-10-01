@@ -1,6 +1,7 @@
 ---
 title: "2026-09-21-012-mb-wikilinks-full-run"
 doc-id: "mb-dcb55776"
+updated: "2026-10-01"
 ---
 # Session 012 — mb-wikilinks full run (2026-09-20 → 2026-09-21)
 

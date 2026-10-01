@@ -1,6 +1,7 @@
 ---
 title: "sec-testing-regression-prevention"
 doc-id: "mb-f763bac6"
+updated: "2026-10-01"
 ---
 # Security Regression Prevention
 

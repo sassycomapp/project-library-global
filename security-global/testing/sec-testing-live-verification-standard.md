@@ -1,6 +1,7 @@
 ---
 title: "sec-testing-live-verification-standard"
 doc-id: "mb-b80f0b98"
+updated: "2026-10-01"
 ---
 # Live Verification Standard
 

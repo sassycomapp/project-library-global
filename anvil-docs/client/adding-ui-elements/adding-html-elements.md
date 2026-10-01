@@ -1,6 +1,7 @@
 ---
 title: "adding-html-elements"
 doc-id: "mb-1fe49a12"
+updated: "2026-10-01"
 ---
 # [Adding HTML Elements](#adding-html-elements)
 

@@ -1,6 +1,7 @@
 ---
 title: "loading_indicator"
 doc-id: "mb-7fe318e2"
+updated: "2026-10-01"
 ---
 # [Loading Indicator](#loading-indicator)
 

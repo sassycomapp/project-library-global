@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-3d0b6efc"
+updated: "2026-10-01"
 ---
 # [Facebook Integration](#facebook-integration)
 

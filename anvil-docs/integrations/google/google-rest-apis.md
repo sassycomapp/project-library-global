@@ -1,6 +1,7 @@
 ---
 title: "google-rest-apis"
 doc-id: "mb-172c34f3"
+updated: "2026-10-01"
 ---
 # [Google REST APIs](#google-rest-apis)
 

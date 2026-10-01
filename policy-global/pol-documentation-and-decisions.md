@@ -1,6 +1,7 @@
 ---
 title: "pol-documentation-and-decisions"
 doc-id: "mb-ab7b68ea"
+updated: "2026-10-01"
 ---
 # Policy — Documentation and Decisions
 

@@ -1,6 +1,7 @@
 ---
 title: "sec-secret-exposure-response"
 doc-id: "mb-fca7e1e5"
+updated: "2026-10-01"
 ---
 # Secret Exposure Response
 

@@ -1,6 +1,7 @@
 ---
 title: "managed-enterprise"
 doc-id: "mb-fe419447"
+updated: "2026-10-01"
 ---
 # [Managed Enterprise](#managed-enterprise)
 

@@ -1,6 +1,7 @@
 ---
 title: "direct-checkout"
 doc-id: "mb-ef6cc53c"
+updated: "2026-10-01"
 ---
 # [Clone Your App’s Source Code Locally](#clone-your-apps-source-code-locally)
 

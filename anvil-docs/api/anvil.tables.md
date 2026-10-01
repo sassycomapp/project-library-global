@@ -1,6 +1,7 @@
 ---
 title: "anvil.tables"
 doc-id: "mb-355dd9a1"
+updated: "2026-10-01"
 ---
 ## `anvil.tables` Module
 

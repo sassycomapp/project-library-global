@@ -1,6 +1,7 @@
 ---
 title: "custom-serialisation"
 doc-id: "mb-7d04ea3c"
+updated: "2026-10-01"
 ---
 # [Custom serialisation](#custom-serialisation)
 

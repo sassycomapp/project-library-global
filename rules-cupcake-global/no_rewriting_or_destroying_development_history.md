@@ -1,6 +1,7 @@
 ---
 title: "no_rewriting_or_destroying_development_history"
 doc-id: "mb-64184887"
+updated: "2026-10-01"
 ---
 # Rule: No Rewriting or Destroying Development History
 

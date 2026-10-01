@@ -1,6 +1,7 @@
 ---
 title: "anvil.users"
 doc-id: "mb-dbe4a9e7"
+updated: "2026-10-01"
 ---
 ## `anvil.users` Module
 

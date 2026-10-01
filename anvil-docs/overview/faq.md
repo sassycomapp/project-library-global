@@ -1,6 +1,7 @@
 ---
 title: "faq"
 doc-id: "mb-a121a68d"
+updated: "2026-10-01"
 ---
 # [FAQ](#faq)
 

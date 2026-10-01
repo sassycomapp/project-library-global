@@ -1,6 +1,7 @@
 ---
 title: "form-editor"
 doc-id: "mb-85addfd6"
+updated: "2026-10-01"
 ---
 # [The Form Editor](#the-form-editor)
 

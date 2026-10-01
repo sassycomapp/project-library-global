@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-26977103"
+updated: "2026-10-01"
 ---
 # [Stripe Integration](#stripe-integration)
 

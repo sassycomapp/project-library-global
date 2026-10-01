@@ -1,6 +1,7 @@
 ---
 title: "google-cloud-app-server-deployment"
 doc-id: "mb-292ff9bf"
+updated: "2026-10-01"
 ---
 # [How to use Anvil’s open-source App Server on Google Cloud](#how-to-use-anvils-open-source-app-server-on-google-cloud)
 

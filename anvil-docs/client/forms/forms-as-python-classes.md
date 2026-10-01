@@ -1,6 +1,7 @@
 ---
 title: "forms-as-python-classes"
 doc-id: "mb-c23bfc28"
+updated: "2026-10-01"
 ---
 # [Forms as Python Classes](#forms-as-python-classes)
 

@@ -1,6 +1,7 @@
 ---
 title: "layouts"
 doc-id: "mb-a2314f95"
+updated: "2026-10-01"
 ---
 # [Material 3 Layouts](#material-3-layouts)
 

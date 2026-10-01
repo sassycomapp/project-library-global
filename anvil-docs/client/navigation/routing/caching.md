@@ -1,6 +1,7 @@
 ---
 title: "caching"
 doc-id: "mb-88a71aa9"
+updated: "2026-10-01"
 ---
 # [Caching](#caching)
 

@@ -1,6 +1,7 @@
 ---
 title: "setting-up"
 doc-id: "mb-3d7815cb"
+updated: "2026-10-01"
 ---
 # [Setting up the Uplink](#setting-up-the-uplink)
 

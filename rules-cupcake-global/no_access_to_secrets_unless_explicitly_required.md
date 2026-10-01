@@ -1,6 +1,7 @@
 ---
 title: "no_access_to_secrets_unless_explicitly_required"
 doc-id: "mb-8a54dcc7"
+updated: "2026-10-01"
 ---
 # Rule: No Access to Known Secret Files Unless Explicitly Required
 

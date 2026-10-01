@@ -1,6 +1,7 @@
 ---
 title: "on-site"
 doc-id: "mb-78bf9723"
+updated: "2026-10-01"
 ---
 # [Deploying Apps On-Site](#deploying-apps-on-site)
 

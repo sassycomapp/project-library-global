@@ -1,6 +1,7 @@
 ---
 title: "sec-development-environment-credential-hygiene"
 doc-id: "mb-24a86330"
+updated: "2026-10-01"
 ---
 # Development Environment Credential Hygiene
 

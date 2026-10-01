@@ -1,6 +1,7 @@
 ---
 title: "anvil.users.mfa"
 doc-id: "mb-45f76410"
+updated: "2026-10-01"
 ---
 ## `anvil.users.mfa` Module
 

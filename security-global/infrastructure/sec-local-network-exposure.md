@@ -1,6 +1,7 @@
 ---
 title: "sec-local-network-exposure"
 doc-id: "mb-c47ab5eb"
+updated: "2026-10-01"
 ---
 # Local Network Exposure of Internal Services
 

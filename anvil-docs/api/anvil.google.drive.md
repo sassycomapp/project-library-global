@@ -1,6 +1,7 @@
 ---
 title: "anvil.google.drive"
 doc-id: "mb-613213bd"
+updated: "2026-10-01"
 ---
 ## `anvil.google.drive` Module
 

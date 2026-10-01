@@ -1,6 +1,7 @@
 ---
 title: "spec-m3_component_mapping"
 doc-id: "mb-af738688"
+updated: "2026-10-01"
 ---
 ***
 

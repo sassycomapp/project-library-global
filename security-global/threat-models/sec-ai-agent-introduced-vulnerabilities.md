@@ -1,6 +1,7 @@
 ---
 title: "sec-ai-agent-introduced-vulnerabilities"
 doc-id: "mb-62aa13db"
+updated: "2026-10-01"
 ---
 # Threat Model — AI-Agent-Introduced Vulnerabilities
 

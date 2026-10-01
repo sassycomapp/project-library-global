@@ -1,6 +1,7 @@
 ---
 title: "plots"
 doc-id: "mb-42f98be8"
+updated: "2026-10-01"
 ---
 # [Plots](#plots)
 

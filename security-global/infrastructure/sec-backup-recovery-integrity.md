@@ -1,6 +1,7 @@
 ---
 title: "sec-backup-recovery-integrity"
 doc-id: "mb-4189f46c"
+updated: "2026-10-01"
 ---
 # Backup and Recovery Integrity
 

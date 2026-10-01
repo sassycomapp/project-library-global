@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-bbb29aac"
+updated: "2026-10-01"
 ---
 # [Quickstart: Making HTTP requests](#quickstart-making-http-requests)
 

@@ -1,6 +1,7 @@
 ---
 title: "porting-app-to-new-layouts"
 doc-id: "mb-395ce296"
+updated: "2026-10-01"
 ---
 # [Using Layouts in your app](#using-layouts-in-your-app)
 

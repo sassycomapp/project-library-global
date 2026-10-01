@@ -1,6 +1,7 @@
 ---
 title: "segment.client"
 doc-id: "mb-13ea02b4"
+updated: "2026-10-01"
 ---
 ## `segment.client` Module
 

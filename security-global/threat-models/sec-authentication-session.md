@@ -1,6 +1,7 @@
 ---
 title: "sec-authentication-session"
 doc-id: "mb-e628fe60"
+updated: "2026-10-01"
 ---
 # Threat Model — Authentication and Session Threats
 

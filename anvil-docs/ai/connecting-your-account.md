@@ -1,6 +1,7 @@
 ---
 title: "connecting-your-account"
 doc-id: "mb-0eff6ade"
+updated: "2026-10-01"
 ---
 # [Connecting Your Account](#connecting-your-account)
 

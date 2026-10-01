@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-1d3d16d3"
+updated: "2026-10-01"
 ---
 # [Creating PDFs](#creating-pdfs)
 

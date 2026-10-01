@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-4a03b951"
+updated: "2026-10-01"
 ---
 # [The Anvil Editor](#the-anvil-editor)
 

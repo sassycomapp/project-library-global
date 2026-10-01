@@ -1,6 +1,7 @@
 ---
 title: "sec-defense-in-depth"
 doc-id: "mb-5b6c19dd"
+updated: "2026-10-01"
 ---
 # Principle — Defense in Depth
 

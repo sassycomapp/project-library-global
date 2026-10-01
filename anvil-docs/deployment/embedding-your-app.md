@@ -1,6 +1,7 @@
 ---
 title: "embedding-your-app"
 doc-id: "mb-b3b458c8"
+updated: "2026-10-01"
 ---
 # [Embedding Your App in a Web Page](#embedding-your-app-in-a-web-page)
 

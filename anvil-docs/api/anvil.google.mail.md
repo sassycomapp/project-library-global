@@ -1,6 +1,7 @@
 ---
 title: "anvil.google.mail"
 doc-id: "mb-251edef5"
+updated: "2026-10-01"
 ---
 ## `anvil.google.mail` Module
 

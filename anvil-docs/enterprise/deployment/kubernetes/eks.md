@@ -1,6 +1,7 @@
 ---
 title: "eks"
 doc-id: "mb-8beef5e6"
+updated: "2026-10-01"
 ---
 # [AWS Elastic Kubernetes Service](#aws-elastic-kubernetes-service)
 

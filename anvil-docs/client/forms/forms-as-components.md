@@ -1,6 +1,7 @@
 ---
 title: "forms-as-components"
 doc-id: "mb-7b325c71"
+updated: "2026-10-01"
 ---
 # [Forms as Components](#forms-as-components)
 

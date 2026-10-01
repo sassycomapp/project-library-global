@@ -1,6 +1,7 @@
 ---
 title: "sec-master-encryption-key-protection"
 doc-id: "mb-e441ad3d"
+updated: "2026-10-01"
 ---
 # Master Encryption Key Protection
 

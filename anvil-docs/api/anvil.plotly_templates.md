@@ -1,6 +1,7 @@
 ---
 title: "anvil.plotly_templates"
 doc-id: "mb-7bb86ca3"
+updated: "2026-10-01"
 ---
 ## `anvil.plotly_templates` Module
 

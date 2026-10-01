@@ -1,6 +1,7 @@
 ---
 title: "sec-regulatory-compliance-cloud-processors"
 doc-id: "mb-c1321a2c"
+updated: "2026-10-01"
 ---
 # Regulatory Compliance Scope of Third-Party Cloud Processors
 

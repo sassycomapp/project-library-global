@@ -1,6 +1,7 @@
 ---
 title: "service-worker-whiteboard"
 doc-id: "mb-f8feb3a3"
+updated: "2026-10-01"
 ---
 - service worker is for app-origin resources
 - goals:

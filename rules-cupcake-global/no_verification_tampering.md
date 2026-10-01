@@ -1,6 +1,7 @@
 ---
 title: "no_verification_tampering"
 doc-id: "mb-ff59d355"
+updated: "2026-10-01"
 ---
 # Rule: No Verification Tampering
 

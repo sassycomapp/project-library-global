@@ -1,6 +1,7 @@
 ---
 title: "no_unapproved_executable_or_build_path_changes"
 doc-id: "mb-adc0b885"
+updated: "2026-10-01"
 ---
 # Rule: No Unapproved Executable or Build-Path Changes
 

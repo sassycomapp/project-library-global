@@ -1,6 +1,7 @@
 ---
 title: "sec-requirements-architecture-review"
 doc-id: "mb-82d65965"
+updated: "2026-10-01"
 ---
 # Requirement — Architecture Review
 

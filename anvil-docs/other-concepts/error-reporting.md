@@ -1,6 +1,7 @@
 ---
 title: "error-reporting"
 doc-id: "mb-9824839d"
+updated: "2026-10-01"
 ---
 # [Error reporting](#error-reporting)
 

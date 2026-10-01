@@ -1,6 +1,7 @@
 ---
 title: "anvil.files"
 doc-id: "mb-0fa6ce8c"
+updated: "2026-10-01"
 ---
 ## `anvil.files` Module
 

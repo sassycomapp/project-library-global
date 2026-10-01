@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-5b3e1cf4"
+updated: "2026-10-01"
 ---
 # [Quickstart: Version Control](#quickstart-version-control)
 

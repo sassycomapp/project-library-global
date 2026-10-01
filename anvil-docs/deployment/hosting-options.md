@@ -1,6 +1,7 @@
 ---
 title: "hosting-options"
 doc-id: "mb-cf3fdbb7"
+updated: "2026-10-01"
 ---
 # [Hosting options](#hosting-options)
 

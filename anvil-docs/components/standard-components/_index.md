@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-2a2f5698"
+updated: "2026-10-01"
 ---
 # [Standard Anvil Components](#standard-anvil-components)
 

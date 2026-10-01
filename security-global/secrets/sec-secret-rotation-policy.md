@@ -1,6 +1,7 @@
 ---
 title: "sec-secret-rotation-policy"
 doc-id: "mb-a7d05c2d"
+updated: "2026-10-01"
 ---
 # Secret Rotation Policy
 

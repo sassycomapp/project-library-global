@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-a2a6a657"
+updated: "2026-10-01"
 ---
 # [Using CSS in Anvil Apps](#using-css-in-anvil-apps)
 

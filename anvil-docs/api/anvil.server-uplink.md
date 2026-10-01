@@ -1,6 +1,7 @@
 ---
 title: "anvil.server-uplink"
 doc-id: "mb-6ff7ad13"
+updated: "2026-10-01"
 ---
 ## `anvil.server [uplink]` Module
 

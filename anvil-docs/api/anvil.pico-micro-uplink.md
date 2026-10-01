@@ -1,6 +1,7 @@
 ---
 title: "anvil.pico-micro-uplink"
 doc-id: "mb-bd1a53ea"
+updated: "2026-10-01"
 ---
 ## `anvil.pico [micro-uplink]` Module
 

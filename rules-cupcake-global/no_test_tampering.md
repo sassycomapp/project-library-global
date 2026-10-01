@@ -1,6 +1,7 @@
 ---
 title: "no_test_tampering"
 doc-id: "mb-d7676549"
+updated: "2026-10-01"
 ---
 # Rule: No Test Tampering
 

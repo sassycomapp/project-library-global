@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-9d55e919"
+updated: "2026-10-01"
 ---
 # [Quickstart: Background Tasks](#quickstart-background-tasks)
 

@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-ccc9cfeb"
+updated: "2026-10-01"
 ---
 # [Uplink: Code outside Anvil](#uplink-code-outside-anvil)
 

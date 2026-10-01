@@ -1,6 +1,7 @@
 ---
 title: "basic"
 doc-id: "mb-dd439cc2"
+updated: "2026-10-01"
 ---
 # [Basic Components](#basic-components)
 

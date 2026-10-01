@@ -1,6 +1,7 @@
 ---
 title: "data-tables-in-tableau"
 doc-id: "mb-0bf75c91"
+updated: "2026-10-01"
 ---
 # [Access Data Tables from Tableau](#access-data-tables-from-tableau)
 

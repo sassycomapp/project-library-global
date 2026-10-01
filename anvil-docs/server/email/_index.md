@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-c1c56e6b"
+updated: "2026-10-01"
 ---
 # [Email](#email)
 

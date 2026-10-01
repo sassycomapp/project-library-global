@@ -1,6 +1,7 @@
 ---
 title: "how-does-it-work"
 doc-id: "mb-b1338c89"
+updated: "2026-10-01"
 ---
 # [How does Anvil work?](#how-does-anvil-work)
 

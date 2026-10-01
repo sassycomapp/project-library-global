@@ -1,6 +1,7 @@
 ---
 title: "quickstart-permissions"
 doc-id: "mb-c9da739d"
+updated: "2026-10-01"
 ---
 # [Quickstart: Permissions](#quickstart-permissions)
 

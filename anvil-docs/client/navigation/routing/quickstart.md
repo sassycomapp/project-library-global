@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-0ddfe2b4"
+updated: "2026-10-01"
 ---
 # [Get started with routing quickly](#get-started-with-routing-quickly)
 

@@ -1,6 +1,7 @@
 ---
 title: "docstd-globals-contract"
 doc-id: "mb-eaaaa3e8"
+updated: "2026-10-01"
 ---
 # {Project Name} — globals.py Contract
 

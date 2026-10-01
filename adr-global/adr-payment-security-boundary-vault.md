@@ -1,6 +1,7 @@
 ---
 title: "adr-payment-security-boundary-vault"
 doc-id: "mb-dbb54a8c"
+updated: "2026-10-01"
 ---
 # Payment Security Boundary: Secret Keys Deferred to the Vault
 Date: 2026-03-15

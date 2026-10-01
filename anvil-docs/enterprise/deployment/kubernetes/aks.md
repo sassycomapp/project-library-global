@@ -1,6 +1,7 @@
 ---
 title: "aks"
 doc-id: "mb-d1a2eb9a"
+updated: "2026-10-01"
 ---
 # [Azure Managed Kubernetes Service](#azure-managed-kubernetes-service)
 

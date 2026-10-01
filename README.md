@@ -1,6 +1,7 @@
 ---
 title: "README"
 doc-id: "mb-a89ef3b2"
+updated: "2026-10-01"
 ---
 # project-library-global
 

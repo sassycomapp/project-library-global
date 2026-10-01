@@ -1,6 +1,7 @@
 ---
 title: "anvil.script"
 doc-id: "mb-07b43db0"
+updated: "2026-10-01"
 ---
 ## `anvil.script` Module
 

@@ -1,6 +1,7 @@
 ---
 title: "outbound_network_access_is_allowlist_only"
 doc-id: "mb-96fd1f52"
+updated: "2026-10-01"
 ---
 # Rule: Outbound Network Access Is Allowlist-Only
 

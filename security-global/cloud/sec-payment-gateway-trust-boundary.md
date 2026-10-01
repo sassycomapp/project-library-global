@@ -1,6 +1,7 @@
 ---
 title: "sec-payment-gateway-trust-boundary"
 doc-id: "mb-2f89aff9"
+updated: "2026-10-01"
 ---
 # Payment Gateway Trust Boundary
 

@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-d425ff4a"
+updated: "2026-10-01"
 ---
 # [Navigation](#navigation)
 

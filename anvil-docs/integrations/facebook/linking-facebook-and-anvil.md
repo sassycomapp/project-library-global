@@ -1,6 +1,7 @@
 ---
 title: "linking-facebook-and-anvil"
 doc-id: "mb-d72edb12"
+updated: "2026-10-01"
 ---
 # [Connecting Facebook to Anvil](#connecting-facebook-to-anvil)
 

@@ -1,6 +1,7 @@
 ---
 title: "coming-from-streamlit"
 doc-id: "mb-e763e50a"
+updated: "2026-10-01"
 ---
 # [Comparing Streamlit to Anvil](#comparing-streamlit-to-anvil)
 

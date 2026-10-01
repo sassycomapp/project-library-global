@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-69aaaa09"
+updated: "2026-10-01"
 ---
 # [Writing Portable Classes](#writing-portable-classes)
 

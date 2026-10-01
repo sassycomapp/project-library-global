@@ -1,6 +1,7 @@
 ---
 title: "sec-review-before-trust"
 doc-id: "mb-9180deda"
+updated: "2026-10-01"
 ---
 # Principle — Review Before Trust
 

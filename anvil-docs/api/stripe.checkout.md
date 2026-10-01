@@ -1,6 +1,7 @@
 ---
 title: "stripe.checkout"
 doc-id: "mb-47c806b2"
+updated: "2026-10-01"
 ---
 ## `stripe.checkout` Module
 

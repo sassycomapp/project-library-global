@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-a10902f6"
+updated: "2026-10-01"
 ---
 # [Quickstart: Layouts](#quickstart-layouts)
 

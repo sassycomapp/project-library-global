@@ -1,6 +1,7 @@
 ---
 title: "data-security"
 doc-id: "mb-802201b3"
+updated: "2026-10-01"
 ---
 # [Data Security with Data Tables](#data-security-with-data-tables)
 

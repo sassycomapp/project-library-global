@@ -1,6 +1,7 @@
 ---
 title: "git-configuration"
 doc-id: "mb-87fc3eb9"
+updated: "2026-10-01"
 ---
 # [Usable configuration with Git](#usable-configuration-with-git)
 

@@ -1,6 +1,7 @@
 ---
 title: "sql-access"
 doc-id: "mb-ea67a73b"
+updated: "2026-10-01"
 ---
 # [Direct SQL Access](#direct-sql-access)
 

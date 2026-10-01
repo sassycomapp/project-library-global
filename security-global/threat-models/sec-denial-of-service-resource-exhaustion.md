@@ -1,6 +1,7 @@
 ---
 title: "sec-denial-of-service-resource-exhaustion"
 doc-id: "mb-bd1ea30a"
+updated: "2026-10-01"
 ---
 # Threat Model — Denial of Service and Resource Exhaustion
 

@@ -1,6 +1,7 @@
 ---
 title: "sop-vault-totp-recovery"
 doc-id: "mb-eae1c80e"
+updated: "2026-10-01"
 ---
 # {Project Name} — SOP: Vault TOTP Recovery
 

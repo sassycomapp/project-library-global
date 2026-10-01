@@ -1,6 +1,7 @@
 ---
 title: "commands"
 doc-id: "mb-a9b85f78"
+updated: "2026-10-01"
 ---
 # [Anvil CLI commands](#anvil-cli-commands)
 

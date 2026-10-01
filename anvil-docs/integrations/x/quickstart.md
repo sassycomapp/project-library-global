@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-958cd679"
+updated: "2026-10-01"
 ---
 # [Quickstart: Tableau Integration](#quickstart-tableau-integration)
 

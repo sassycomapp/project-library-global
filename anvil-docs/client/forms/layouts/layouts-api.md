@@ -1,6 +1,7 @@
 ---
 title: "layouts-api"
 doc-id: "mb-04f177ca"
+updated: "2026-10-01"
 ---
 # [The Layouts API](#the-layouts-api)
 

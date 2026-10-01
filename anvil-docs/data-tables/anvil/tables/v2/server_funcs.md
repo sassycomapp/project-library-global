@@ -1,6 +1,7 @@
 ---
 title: "server_funcs"
 doc-id: "mb-4ef7a8aa"
+updated: "2026-10-01"
 ---
 Server Calls
 ============

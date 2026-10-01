@@ -1,6 +1,7 @@
 ---
 title: "buffering"
 doc-id: "mb-70bb8a5e"
+updated: "2026-10-01"
 ---
 # [Buffering Changes](#buffering-changes)
 

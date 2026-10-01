@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-1b72917a"
+updated: "2026-10-01"
 ---
 # [Creating HTTP APIs](#creating-http-apis)
 

@@ -1,6 +1,7 @@
 ---
 title: "github"
 doc-id: "mb-78f2a13e"
+updated: "2026-10-01"
 ---
 # [GitHub SSO](#github-sso)
 

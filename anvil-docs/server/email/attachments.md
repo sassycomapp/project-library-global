@@ -1,6 +1,7 @@
 ---
 title: "attachments"
 doc-id: "mb-c0a53d35"
+updated: "2026-10-01"
 ---
 # [Sending and Receiving Email Attachments](#sending-and-receiving-email-attachments)
 

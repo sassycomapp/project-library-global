@@ -1,6 +1,7 @@
 ---
 title: "encrypting-secret-data"
 doc-id: "mb-8f91bf18"
+updated: "2026-10-01"
 ---
 # [Encrypting Secret Data with App Secrets](#encrypting-secret-data-with-app-secrets)
 

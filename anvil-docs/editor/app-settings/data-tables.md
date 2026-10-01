@@ -1,6 +1,7 @@
 ---
 title: "data-tables"
 doc-id: "mb-86720272"
+updated: "2026-10-01"
 ---
 # [Settings for Data Tables](#settings-for-data-tables)
 

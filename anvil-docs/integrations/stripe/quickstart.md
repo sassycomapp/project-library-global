@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-4f7bf774"
+updated: "2026-10-01"
 ---
 # [Quickstart: Stripe integration](#quickstart-stripe-integration)
 

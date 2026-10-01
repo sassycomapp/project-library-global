@@ -1,6 +1,7 @@
 ---
 title: "data-tables-in-code"
 doc-id: "mb-982d2d76"
+updated: "2026-10-01"
 ---
 # [Using Data Tables from Python](#using-data-tables-from-python)
 

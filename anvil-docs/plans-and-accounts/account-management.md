@@ -1,6 +1,7 @@
 ---
 title: "account-management"
 doc-id: "mb-3a9de3c1"
+updated: "2026-10-01"
 ---
 # [Account Management](#account-management)
 

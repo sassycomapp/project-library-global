@@ -1,6 +1,7 @@
 ---
 title: "cluster"
 doc-id: "mb-dff30641"
+updated: "2026-10-01"
 ---
 # [Cluster Configuration](#cluster-configuration)
 

@@ -1,6 +1,7 @@
 ---
 title: "server-methods"
 doc-id: "mb-ce771b60"
+updated: "2026-10-01"
 ---
 # [Server-side methods](#server-side-methods)
 

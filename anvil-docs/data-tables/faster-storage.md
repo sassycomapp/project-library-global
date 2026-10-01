@@ -1,6 +1,7 @@
 ---
 title: "faster-storage"
 doc-id: "mb-a2cb0f8c"
+updated: "2026-10-01"
 ---
 # [Faster Storage](#faster-storage)
 

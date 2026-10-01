@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-e9b8f957"
+updated: "2026-10-01"
 ---
 # [Quickstart: JavaScript](#quickstart-javascript)
 

@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-ad6b208c"
+updated: "2026-10-01"
 ---
 # [Data Files in Your App](#data-files-in-your-app)
 

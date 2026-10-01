@@ -1,6 +1,7 @@
 ---
 title: "permissions"
 doc-id: "mb-1a9a848c"
+updated: "2026-10-01"
 ---
 # [User Permissions](#user-permissions)
 

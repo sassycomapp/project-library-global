@@ -1,6 +1,7 @@
 ---
 title: "canvas"
 doc-id: "mb-60029614"
+updated: "2026-10-01"
 ---
 # [Canvas](#canvas)
 

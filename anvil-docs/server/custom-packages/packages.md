@@ -1,6 +1,7 @@
 ---
 title: "packages"
 doc-id: "mb-6ac162d0"
+updated: "2026-10-01"
 ---
 # [Legacy Full Python Packages](#legacy-full-python-packages)
 

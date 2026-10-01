@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-b4ba4fbc"
+updated: "2026-10-01"
 ---
 # [Quickstart: Google integration](#quickstart-google-integration)
 

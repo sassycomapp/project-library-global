@@ -1,6 +1,7 @@
 ---
 title: "creating-material-3-colour-scheme"
 doc-id: "mb-60e255fe"
+updated: "2026-10-01"
 ---
 # [Creating a custom Material Design 3 colour scheme](#creating-a-custom-material-design-3-colour-scheme)
 

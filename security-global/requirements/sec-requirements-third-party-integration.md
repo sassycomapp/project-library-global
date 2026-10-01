@@ -1,6 +1,7 @@
 ---
 title: "sec-requirements-third-party-integration"
 doc-id: "mb-f6f30b31"
+updated: "2026-10-01"
 ---
 # Requirement — New Third-Party Integration
 

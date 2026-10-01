@@ -1,6 +1,7 @@
 ---
 title: "dependencies"
 doc-id: "mb-5e6ce2be"
+updated: "2026-10-01"
 ---
 # [Depending On Other Apps](#depending-on-other-apps)
 

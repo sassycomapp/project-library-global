@@ -1,6 +1,7 @@
 ---
 title: "gke"
 doc-id: "mb-9db71d50"
+updated: "2026-10-01"
 ---
 # [Google Kubernetes Engine](#google-kubernetes-engine)
 

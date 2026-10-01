@@ -1,6 +1,7 @@
 ---
 title: "security-and-dkim"
 doc-id: "mb-c9a1dadb"
+updated: "2026-10-01"
 ---
 # [Trusting Incoming Email](#trusting-incoming-email)
 

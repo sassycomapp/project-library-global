@@ -1,6 +1,7 @@
 ---
 title: "anvil.image"
 doc-id: "mb-0cfcecb1"
+updated: "2026-10-01"
 ---
 ## `anvil.image` Module
 

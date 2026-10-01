@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-2545afb0"
+updated: "2026-10-01"
 ---
 # [Debugging Tools in the Anvil Editor](#debugging-tools-in-the-anvil-editor)
 

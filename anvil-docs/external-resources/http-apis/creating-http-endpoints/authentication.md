@@ -1,6 +1,7 @@
 ---
 title: "authentication"
 doc-id: "mb-1e86be02"
+updated: "2026-10-01"
 ---
 # [Authentication in HTTP Endpoints](#authentication-in-http-endpoints)
 

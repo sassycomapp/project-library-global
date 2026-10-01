@@ -1,6 +1,7 @@
 ---
 title: "plot"
 doc-id: "mb-24d21ce7"
+updated: "2026-10-01"
 ---
 # [Making plots in Anvil](#making-plots-in-anvil)
 

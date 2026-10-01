@@ -1,6 +1,7 @@
 ---
 title: "spec-five-app-architecture-model"
 doc-id: "mb-1b7a1fda"
+updated: "2026-10-01"
 ---
 # Mybizz — Five-App Architecture Model (Specification)
 

@@ -1,6 +1,7 @@
 ---
 title: "build-first-app"
 doc-id: "mb-3cfb2dd2"
+updated: "2026-10-01"
 ---
 # [Build a Hello World app](#build-a-hello-world-app)
 

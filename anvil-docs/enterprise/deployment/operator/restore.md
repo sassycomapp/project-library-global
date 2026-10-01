@@ -1,6 +1,7 @@
 ---
 title: "restore"
 doc-id: "mb-1936ac8f"
+updated: "2026-10-01"
 ---
 # [Cluster Restore](#cluster-restore)
 

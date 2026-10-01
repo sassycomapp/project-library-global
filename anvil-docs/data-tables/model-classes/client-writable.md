@@ -1,6 +1,7 @@
 ---
 title: "client-writable"
 doc-id: "mb-c3df580a"
+updated: "2026-10-01"
 ---
 # [Client-Writable Models](#client-writable-models)
 

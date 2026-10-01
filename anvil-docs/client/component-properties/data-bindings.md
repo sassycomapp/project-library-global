@@ -1,6 +1,7 @@
 ---
 title: "data-bindings"
 doc-id: "mb-fc8ce702"
+updated: "2026-10-01"
 ---
 # [Data Bindings](#data-bindings)
 

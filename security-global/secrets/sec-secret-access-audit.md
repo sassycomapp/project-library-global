@@ -1,6 +1,7 @@
 ---
 title: "sec-secret-access-audit"
 doc-id: "mb-89026379"
+updated: "2026-10-01"
 ---
 # Secret Access Audit
 

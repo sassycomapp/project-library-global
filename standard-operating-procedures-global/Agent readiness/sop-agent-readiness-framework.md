@@ -1,6 +1,7 @@
 ---
 title: "sop-agent-readiness-framework"
 doc-id: "mb-b621286f"
+updated: "2026-10-01"
 ---
 # Agent Readiness Framework
 

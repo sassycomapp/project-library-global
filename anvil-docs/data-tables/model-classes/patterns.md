@@ -1,6 +1,7 @@
 ---
 title: "patterns"
 doc-id: "mb-2fbb59d5"
+updated: "2026-10-01"
 ---
 # [Best Practices with Model Classes](#best-practices-with-model-classes)
 

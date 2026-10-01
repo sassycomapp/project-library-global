@@ -1,6 +1,7 @@
 ---
 title: "docker"
 doc-id: "mb-2df77708"
+updated: "2026-10-01"
 ---
 # [Deploy with Docker](#deploy-with-docker)
 

@@ -1,6 +1,7 @@
 ---
 title: "types"
 doc-id: "mb-3c183180"
+updated: "2026-10-01"
 ---
 Types:
 (a weird mixture of Python and TypeScript typing)

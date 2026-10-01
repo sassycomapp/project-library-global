@@ -1,6 +1,7 @@
 ---
 title: "anvil.server"
 doc-id: "mb-f6aeff74"
+updated: "2026-10-01"
 ---
 ## `anvil.server` Module
 

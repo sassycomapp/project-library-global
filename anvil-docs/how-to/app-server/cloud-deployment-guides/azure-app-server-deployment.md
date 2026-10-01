@@ -1,6 +1,7 @@
 ---
 title: "azure-app-server-deployment"
 doc-id: "mb-d9c8144b"
+updated: "2026-10-01"
 ---
 # [How to use Anvil’s open-source App Server on Windows Azure](#how-to-use-anvils-open-source-app-server-on-windows-azure)
 

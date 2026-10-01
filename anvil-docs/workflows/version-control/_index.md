@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-3a1c2cda"
+updated: "2026-10-01"
 ---
 # [Version Control and Collaboration](#version-control-and-collaboration)
 

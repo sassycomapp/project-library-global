@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-3072da9b"
+updated: "2026-10-01"
 ---
 # [Microsoft Integration](#microsoft-integration)
 

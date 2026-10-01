@@ -1,6 +1,7 @@
 ---
 title: "the-users-table"
 doc-id: "mb-a0c85271"
+updated: "2026-10-01"
 ---
 # [The Users Table](#the-users-table)
 

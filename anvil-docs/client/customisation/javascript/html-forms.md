@@ -1,6 +1,7 @@
 ---
 title: "html-forms"
 doc-id: "mb-5246b9de"
+updated: "2026-10-01"
 ---
 # [HTML Forms](#html-forms)
 

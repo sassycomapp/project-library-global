@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-484a2985"
+updated: "2026-10-01"
 ---
 # [Quickstart: Creating HTTP endpoints](#quickstart-creating-http-endpoints)
 

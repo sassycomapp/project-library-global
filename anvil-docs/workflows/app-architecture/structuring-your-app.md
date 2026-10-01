@@ -1,6 +1,7 @@
 ---
 title: "structuring-your-app"
 doc-id: "mb-1bfb45ca"
+updated: "2026-10-01"
 ---
 # [Structuring your app](#structuring-your-app)
 

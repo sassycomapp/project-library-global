@@ -1,6 +1,7 @@
 ---
 title: "authentication-choices"
 doc-id: "mb-300c500f"
+updated: "2026-10-01"
 ---
 # [Authentication Choices](#authentication-choices)
 

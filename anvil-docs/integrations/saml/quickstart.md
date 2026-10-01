@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-0586c6ac"
+updated: "2026-10-01"
 ---
 # [Quickstart: SAML Authentication](#quickstart-saml-authentication)
 

@@ -1,6 +1,7 @@
 ---
 title: "repeating-panel"
 doc-id: "mb-a1469335"
+updated: "2026-10-01"
 ---
 # [RepeatingPanels](#repeatingpanels)
 

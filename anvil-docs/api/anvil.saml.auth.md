@@ -1,6 +1,7 @@
 ---
 title: "anvil.saml.auth"
 doc-id: "mb-8b696116"
+updated: "2026-10-01"
 ---
 ## `anvil.saml.auth` Module
 

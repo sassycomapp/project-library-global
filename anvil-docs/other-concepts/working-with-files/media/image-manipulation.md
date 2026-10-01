@@ -1,6 +1,7 @@
 ---
 title: "image-manipulation"
 doc-id: "mb-5db994bc"
+updated: "2026-10-01"
 ---
 # [`image` module](#image-module)
 

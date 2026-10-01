@@ -1,6 +1,7 @@
 ---
 title: "no_destructive_database_operations"
 doc-id: "mb-42e02e2e"
+updated: "2026-10-01"
 ---
 # Rule: No Destructive Database Operations
 

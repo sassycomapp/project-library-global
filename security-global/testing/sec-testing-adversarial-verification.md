@@ -1,6 +1,7 @@
 ---
 title: "sec-testing-adversarial-verification"
 doc-id: "mb-b996a457"
+updated: "2026-10-01"
 ---
 # Adversarial Verification
 

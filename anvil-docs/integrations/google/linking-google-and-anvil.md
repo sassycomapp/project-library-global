@@ -1,6 +1,7 @@
 ---
 title: "linking-google-and-anvil"
 doc-id: "mb-4f11d1c0"
+updated: "2026-10-01"
 ---
 # [Connecting Google to Anvil](#connecting-google-to-anvil)
 

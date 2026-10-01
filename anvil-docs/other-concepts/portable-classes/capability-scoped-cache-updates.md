@@ -1,6 +1,7 @@
 ---
 title: "capability-scoped-cache-updates"
 doc-id: "mb-149bd755"
+updated: "2026-10-01"
 ---
 # [Capability-Scoped Cache Updates](#capability-scoped-cache-updates)
 

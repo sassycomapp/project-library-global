@@ -1,6 +1,7 @@
 ---
 title: "anvil.tables.query"
 doc-id: "mb-a1cf4ddc"
+updated: "2026-10-01"
 ---
 ## `anvil.tables.query` Module
 

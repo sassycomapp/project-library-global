@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-7bef3fd1"
+updated: "2026-10-01"
 ---
 # [Quickstart: Email](#quickstart-email)
 

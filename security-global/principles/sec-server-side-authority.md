@@ -1,6 +1,7 @@
 ---
 title: "sec-server-side-authority"
 doc-id: "mb-39909683"
+updated: "2026-10-01"
 ---
 # Principle — Server-Side Authority
 

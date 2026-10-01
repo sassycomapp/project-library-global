@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-d6cb9a3f"
+updated: "2026-10-01"
 ---
 # [Building Secure Apps](#building-secure-apps)
 

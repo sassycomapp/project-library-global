@@ -1,6 +1,7 @@
 ---
 title: "anvil.js"
 doc-id: "mb-6b9ed360"
+updated: "2026-10-01"
 ---
 ## `anvil.js` Module
 

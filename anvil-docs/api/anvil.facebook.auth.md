@@ -1,6 +1,7 @@
 ---
 title: "anvil.facebook.auth"
 doc-id: "mb-2c538c5e"
+updated: "2026-10-01"
 ---
 ## `anvil.facebook.auth` Module
 

@@ -1,6 +1,7 @@
 ---
 title: "sop-offboarding"
 doc-id: "mb-472dfcb2"
+updated: "2026-10-01"
 ---
 # {Project Name} — SOP: Client Offboarding
 

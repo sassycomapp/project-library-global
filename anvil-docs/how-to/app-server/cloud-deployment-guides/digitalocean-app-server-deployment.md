@@ -1,6 +1,7 @@
 ---
 title: "digitalocean-app-server-deployment"
 doc-id: "mb-59aaae37"
+updated: "2026-10-01"
 ---
 # [How to use Anvil’s open-source App Server on a DigitalOcean Droplet](#how-to-use-anvils-open-source-app-server-on-a-digitalocean-droplet)
 

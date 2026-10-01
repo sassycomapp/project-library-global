@@ -1,6 +1,7 @@
 ---
 title: "component-lifecycle"
 doc-id: "mb-90fd1fab"
+updated: "2026-10-01"
 ---
 # [Component Lifecycle](#component-lifecycle)
 

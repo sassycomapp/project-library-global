@@ -1,6 +1,7 @@
 ---
 title: "microsoft-single-sign-on"
 doc-id: "mb-a3a3b144"
+updated: "2026-10-01"
 ---
 # [Microsoft Single Sign-On](#microsoft-single-sign-on)
 

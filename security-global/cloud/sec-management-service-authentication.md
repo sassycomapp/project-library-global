@@ -1,6 +1,7 @@
 ---
 title: "sec-management-service-authentication"
 doc-id: "mb-620f1f5e"
+updated: "2026-10-01"
 ---
 # Management Service Authentication
 

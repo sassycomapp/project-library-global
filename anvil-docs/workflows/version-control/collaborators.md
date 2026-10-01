@@ -1,6 +1,7 @@
 ---
 title: "collaborators"
 doc-id: "mb-1dfb398f"
+updated: "2026-10-01"
 ---
 # [Collaborating with Other Developers](#collaborating-with-other-developers)
 

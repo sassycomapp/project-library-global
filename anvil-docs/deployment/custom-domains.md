@@ -1,6 +1,7 @@
 ---
 title: "custom-domains"
 doc-id: "mb-fe331c34"
+updated: "2026-10-01"
 ---
 # [Using your own domain name](#using-your-own-domain-name)
 

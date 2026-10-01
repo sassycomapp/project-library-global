@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-8676d205"
+updated: "2026-10-01"
 ---
 # [Component Properties](#component-properties)
 

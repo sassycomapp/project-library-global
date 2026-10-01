@@ -1,6 +1,7 @@
 ---
 title: "external-database"
 doc-id: "mb-90f80a34"
+updated: "2026-10-01"
 ---
 # [Accessing an external database](#accessing-an-external-database)
 

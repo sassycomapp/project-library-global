@@ -1,6 +1,7 @@
 ---
 title: "sec-email-service-trust-boundary"
 doc-id: "mb-c25dc5f1"
+updated: "2026-10-01"
 ---
 # Email Service Trust Boundary
 

@@ -1,6 +1,7 @@
 ---
 title: "raw-api-tokens"
 doc-id: "mb-866b3cd5"
+updated: "2026-10-01"
 ---
 # [Using Stripe’s Python API](#using-stripes-python-api)
 

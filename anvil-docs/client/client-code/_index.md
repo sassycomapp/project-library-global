@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-96ab5b47"
+updated: "2026-10-01"
 ---
 # [Client-side code](#client-side-code)
 

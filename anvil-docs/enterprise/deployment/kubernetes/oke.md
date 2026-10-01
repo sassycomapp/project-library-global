@@ -1,6 +1,7 @@
 ---
 title: "oke"
 doc-id: "mb-0ada6c73"
+updated: "2026-10-01"
 ---
 # [Oracle Kubernetes Engine](#oracle-kubernetes-engine)
 

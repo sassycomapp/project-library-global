@@ -1,6 +1,7 @@
 ---
 title: "anvil.stripe"
 doc-id: "mb-81b720f8"
+updated: "2026-10-01"
 ---
 ## `anvil.stripe` Module
 

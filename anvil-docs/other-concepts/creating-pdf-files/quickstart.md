@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-83297e56"
+updated: "2026-10-01"
 ---
 # [Quickstart: Making PDFs](#quickstart-making-pdfs)
 

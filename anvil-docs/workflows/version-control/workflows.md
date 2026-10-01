@@ -1,6 +1,7 @@
 ---
 title: "workflows"
 doc-id: "mb-7db2283a"
+updated: "2026-10-01"
 ---
 # [Workflows for Collaborating on Anvil Apps](#workflows-for-collaborating-on-anvil-apps)
 

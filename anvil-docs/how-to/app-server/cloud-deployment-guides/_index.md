@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-bd2f84ba"
+updated: "2026-10-01"
 ---
 # [Deploy the Anvil App Server to your own cloud server](#deploy-the-anvil-app-server-to-your-own-cloud-server)
 

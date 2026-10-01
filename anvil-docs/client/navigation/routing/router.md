@@ -1,6 +1,7 @@
 ---
 title: "router"
 doc-id: "mb-4a605d1e"
+updated: "2026-10-01"
 ---
 # [The Router Module](#the-router-module)
 

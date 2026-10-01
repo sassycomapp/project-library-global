@@ -1,6 +1,7 @@
 ---
 title: "components"
 doc-id: "mb-2c802285"
+updated: "2026-10-01"
 ---
 # [Material 3 Components](#material-3-components)
 

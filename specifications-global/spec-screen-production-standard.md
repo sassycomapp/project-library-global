@@ -1,6 +1,7 @@
 ---
 title: "spec-screen-production-standard"
 doc-id: "mb-97195caa"
+updated: "2026-10-01"
 ---
 # Mybizz CS — Screen Production Standard
 

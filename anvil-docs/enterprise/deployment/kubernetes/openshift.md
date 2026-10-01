@@ -1,6 +1,7 @@
 ---
 title: "openshift"
 doc-id: "mb-29033aaf"
+updated: "2026-10-01"
 ---
 # [Red Hat OpenShift Kubernetes Container Platform](#red-hat-openshift-kubernetes-container-platform)
 

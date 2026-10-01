@@ -1,6 +1,7 @@
 ---
 title: "how-to-import-things"
 doc-id: "mb-7c527622"
+updated: "2026-10-01"
 ---
 # [How to import things](#how-to-import-things)
 

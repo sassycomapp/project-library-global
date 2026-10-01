@@ -1,6 +1,7 @@
 ---
 title: "logging-in-using-code"
 doc-id: "mb-92551c46"
+updated: "2026-10-01"
 ---
 # [Logging in Using Code](#logging-in-using-code)
 

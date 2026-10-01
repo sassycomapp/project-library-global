@@ -1,6 +1,7 @@
 ---
 title: "sec-simplicity-as-security-property"
 doc-id: "mb-9b749981"
+updated: "2026-10-01"
 ---
 # Principle — Simplicity as a Security Property
 

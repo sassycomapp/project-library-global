@@ -1,6 +1,7 @@
 ---
 title: "gmail"
 doc-id: "mb-7b0c449d"
+updated: "2026-10-01"
 ---
 # [Gmail](#gmail)
 

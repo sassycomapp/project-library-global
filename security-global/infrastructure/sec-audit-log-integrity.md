@@ -1,6 +1,7 @@
 ---
 title: "sec-audit-log-integrity"
 doc-id: "mb-fc351b71"
+updated: "2026-10-01"
 ---
 # Audit Log Integrity Across Systems
 

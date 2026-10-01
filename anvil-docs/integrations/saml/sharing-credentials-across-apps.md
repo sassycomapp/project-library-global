@@ -1,6 +1,7 @@
 ---
 title: "sharing-credentials-across-apps"
 doc-id: "mb-8f43492e"
+updated: "2026-10-01"
 ---
 # [Sharing SAML credentials across Anvil apps](#sharing-saml-credentials-across-anvil-apps)
 

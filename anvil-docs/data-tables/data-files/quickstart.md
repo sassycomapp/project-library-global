@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-75e4c0c6"
+updated: "2026-10-01"
 ---
 # [Quickstart: Data Files](#quickstart-data-files)
 

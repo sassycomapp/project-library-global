@@ -1,6 +1,7 @@
 ---
 title: "anvil.googlemap.data"
 doc-id: "mb-c2034fae"
+updated: "2026-10-01"
 ---
 ## `anvil.GoogleMap.Data` Module
 

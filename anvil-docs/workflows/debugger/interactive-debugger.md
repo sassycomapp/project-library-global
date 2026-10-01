@@ -1,6 +1,7 @@
 ---
 title: "interactive-debugger"
 doc-id: "mb-8471b6bd"
+updated: "2026-10-01"
 ---
 # [The Interactive Debugger in Anvil](#the-interactive-debugger-in-anvil)
 

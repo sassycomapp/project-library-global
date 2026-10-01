@@ -1,6 +1,7 @@
 ---
 title: "offline-apps"
 doc-id: "mb-a1def251"
+updated: "2026-10-01"
 ---
 # [Running an app offline](#running-an-app-offline)
 

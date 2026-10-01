@@ -1,6 +1,7 @@
 ---
 title: "configuring-emails"
 doc-id: "mb-e7074322"
+updated: "2026-10-01"
 ---
 # [Configuring Emails from the Users Service](#configuring-emails-from-the-users-service)
 

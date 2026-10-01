@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-f83cb795"
+updated: "2026-10-01"
 ---
 # [Deploy in Kubernetes](#deploy-in-kubernetes)
 

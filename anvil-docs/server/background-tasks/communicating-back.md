@@ -1,6 +1,7 @@
 ---
 title: "communicating-back"
 doc-id: "mb-32461f55"
+updated: "2026-10-01"
 ---
 # [Communicating with Background Tasks](#communicating-with-background-tasks)
 

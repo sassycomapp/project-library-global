@@ -1,6 +1,7 @@
 ---
 title: "anvil.media"
 doc-id: "mb-62a2cb3e"
+updated: "2026-10-01"
 ---
 ## `anvil.media` Module
 

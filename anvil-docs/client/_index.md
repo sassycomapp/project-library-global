@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-cfbba0eb"
+updated: "2026-10-01"
 ---
 # [Building the Front-End](#building-the-front-end)
 

@@ -1,6 +1,7 @@
 ---
 title: "linode-app-server-deployment"
 doc-id: "mb-c9587774"
+updated: "2026-10-01"
 ---
 # [How to use Anvil’s open-source App Server on Linode](#how-to-use-anvils-open-source-app-server-on-linode)
 

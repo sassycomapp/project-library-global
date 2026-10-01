@@ -1,6 +1,7 @@
 ---
 title: "environments-and-code"
 doc-id: "mb-3bf356b1"
+updated: "2026-10-01"
 ---
 # [Learning about Environments from Code](#learning-about-environments-from-code)
 

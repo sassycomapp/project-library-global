@@ -1,6 +1,7 @@
 ---
 title: "sec-development-tooling-credentials"
 doc-id: "mb-63e4a84b"
+updated: "2026-10-01"
 ---
 # Development Tooling Credentials
 

@@ -1,6 +1,7 @@
 ---
 title: "cloning-and-collaboration"
 doc-id: "mb-144bc3cb"
+updated: "2026-10-01"
 ---
 # [Collaboration with other Anvil developers](#collaboration-with-other-anvil-developers)
 

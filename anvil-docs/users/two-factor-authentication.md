@@ -1,6 +1,7 @@
 ---
 title: "two-factor-authentication"
 doc-id: "mb-84ee3fc6"
+updated: "2026-10-01"
 ---
 # [Two-Factor Authentication](#two-factor-authentication)
 

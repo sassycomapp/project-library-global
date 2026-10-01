@@ -1,6 +1,7 @@
 ---
 title: "forms-as-html"
 doc-id: "mb-de125744"
+updated: "2026-10-01"
 ---
 # [Forms as HTML](#forms-as-html)
 

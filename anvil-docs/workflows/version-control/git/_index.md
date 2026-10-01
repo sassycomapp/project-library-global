@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-22af8a6c"
+updated: "2026-10-01"
 ---
 # [Connecting to GitHub and Other Git Remotes](#connecting-to-github-and-other-git-remotes)
 

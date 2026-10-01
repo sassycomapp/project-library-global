@@ -1,6 +1,7 @@
 ---
 title: "docstd-business-requirements-document"
 doc-id: "mb-db640d1e"
+updated: "2026-10-01"
 ---
 # {Project Name} — Business Requirements Document (BRD)
 

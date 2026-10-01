@@ -1,6 +1,7 @@
 ---
 title: "protected_ai_governance_files_may_not_be_modified"
 doc-id: "mb-9fdf7d06"
+updated: "2026-10-01"
 ---
 # Rule: Protected AI Governance Files May Not Be Modified
 

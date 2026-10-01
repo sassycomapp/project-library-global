@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-0cecf639"
+updated: "2026-10-01"
 ---
 # [Anvil How-to Guides](#anvil-how-to-guides)
 

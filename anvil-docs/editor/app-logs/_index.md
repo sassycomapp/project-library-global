@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-9dc70494"
+updated: "2026-10-01"
 ---
 # [App Logs](#app-logs)
 

@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-9c635719"
+updated: "2026-10-01"
 ---
 # [Kubernetes Operator](#kubernetes-operator)
 

@@ -1,6 +1,7 @@
 ---
 title: "expand-collapse"
 doc-id: "mb-e8c676eb"
+updated: "2026-10-01"
 ---
 # [Expand and collapse sections using components](#expand-and-collapse-sections-using-components)
 

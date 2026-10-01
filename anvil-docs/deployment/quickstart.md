@@ -1,6 +1,7 @@
 ---
 title: "quickstart"
 doc-id: "mb-83c252c4"
+updated: "2026-10-01"
 ---
 # [Quickstart: Deployment](#quickstart-deployment)
 

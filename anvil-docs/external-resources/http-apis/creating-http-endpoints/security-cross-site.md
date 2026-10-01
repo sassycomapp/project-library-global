@@ -1,6 +1,7 @@
 ---
 title: "security-cross-site"
 doc-id: "mb-4f2e191e"
+updated: "2026-10-01"
 ---
 # [Security and cross-site sessions](#security-and-cross-site-sessions)
 

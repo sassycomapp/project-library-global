@@ -1,6 +1,7 @@
 ---
 title: "assets"
 doc-id: "mb-d587fa73"
+updated: "2026-10-01"
 ---
 # [Adding Assets](#adding-assets)
 

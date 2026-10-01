@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-343163f5"
+updated: "2026-10-01"
 ---
 # [Get started with Anvil](#get-started-with-anvil)
 

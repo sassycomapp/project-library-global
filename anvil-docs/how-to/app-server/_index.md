@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-75e688da"
+updated: "2026-10-01"
 ---
 # [Host your Anvil Apps on your own computer](#host-your-anvil-apps-on-your-own-computer)
 

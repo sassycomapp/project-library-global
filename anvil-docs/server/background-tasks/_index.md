@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-7822ce58"
+updated: "2026-10-01"
 ---
 # [Running tasks in the background](#running-tasks-in-the-background)
 

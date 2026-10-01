@@ -1,6 +1,7 @@
 ---
 title: "changelog"
 doc-id: "mb-520a9495"
+updated: "2026-10-01"
 ---
 # [Anvil Operator Changelog](#anvil-operator-changelog)
 

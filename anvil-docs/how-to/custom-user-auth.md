@@ -1,6 +1,7 @@
 ---
 title: "custom-user-auth"
 doc-id: "mb-a9f37d61"
+updated: "2026-10-01"
 ---
 # [Customising the Users service](#customising-the-users-service)
 
