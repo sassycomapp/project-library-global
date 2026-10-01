@@ -1,6 +1,7 @@
 ---
 title: "adr-instructions-md-per-folder"
 doc-id: "mb-2036b35a"
+updated: "2026-10-01"
 ---
 # Instructions.md — Per-Folder Purpose File
 
@@ -34,7 +35,7 @@ A per-folder purpose file makes local context discoverable at the point of use, 
 
 - The standing freeze on creating further `Instructions.md` files (Master Task List Task 2.2) remains in effect — this ADR establishes the concept, not the finalized format. Do not create additional `Instructions.md` files based on this ADR alone.
 - Format, scope (which folders require one), and final naming remain open, to be resolved separately.
-- This ADR does not address the separate frontmatter exemption question — see [[adr-frontmatter-exemption-transient-files|Frontmatter Exemption for Transient Files]] ADR.
+- This ADR does not address the separate frontmatter exemption question — see [[[default:adr-global/adr-frontmatter-exemption-transient-files|Frontmatter Exemption for Transient Files]]](C:/dev/project-library-global/adr-global/adr-frontmatter-exemption-transient-files.md) ADR.
 
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "adr-responsive-behaviour-mechanism"
 doc-id: "mb-c7aafcbe"
+updated: "2026-10-01"
 ---
 # `responsive-behaviour-mechanism` ADR: Responsive Behaviour Mechanism
 
@@ -49,8 +50,8 @@ No breakpoint-pixel table is used. Navigation collapse remains separately automa
 | Document | Relationship |
 |---|---|
 | `design-direction.md` (mb-3-cs project library) | Source of the contradicting breakpoint models this ADR supersedes |
-| [[adr-design-rules|Design Rules]] | Wireframe design rules; wireframes must annotate `wrap_on` where applicable |
-| [[adr-ui-customization-approach|UI Customization Approach]] | Broader UI customization approach; this ADR is a specific responsive instance |
+| [[[default:adr-global/adr-design-rules\|Design Rules]]](C:/dev/project-library-global/adr-global/adr-design-rules.md) | Wireframe design rules; wireframes must annotate `wrap_on` where applicable |
+| [[[default:adr-global/adr-ui-customization-approach\|UI Customization Approach]]](C:/dev/project-library-global/adr-global/adr-ui-customization-approach.md) | Broader UI customization approach; this ADR is a specific responsive instance |
 
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "sec-github-repository-access-control"
 doc-id: "mb-a2ae334b"
+updated: "2026-10-01"
 ---
 # GitHub Repository Access Control
 
@@ -10,7 +11,7 @@ doc-id: "mb-a2ae334b"
 
 ## Security Requirement
 
-Write access to `master_template` and `blank_client_template` is restricted to the developer directly. No automated process merges to `stable` without an explicit human action. Every dev-tooling source repository is GitHub-backed, per [[adr-dev-tooling-source-repos-must-be-github-backed|All Dev-Tooling Source Repositories Must Be GitHub-Backed]] — a local-only working tree is not an acceptable end state for either repository.
+Write access to `master_template` and `blank_client_template` is restricted to the developer directly. No automated process merges to `stable` without an explicit human action. Every dev-tooling source repository is GitHub-backed, per [[[default:adr-global/adr-dev-tooling-source-repos-must-be-github-backed|All Dev-Tooling Source Repositories Must Be GitHub-Backed]]](C:/dev/project-library-global/adr-global/adr-dev-tooling-source-repos-must-be-github-backed.md) — a local-only working tree is not an acceptable end state for either repository.
 
 ## Approved Pattern
 
@@ -31,7 +32,7 @@ Attempt a direct push to `stable`; confirm it's rejected at the GitHub level, no
 ## Authoritative Sources
 
 - `[[spec-five-app-architecture-model]]` — Update Deployment Model
-- [[adr-dev-tooling-source-repos-must-be-github-backed|All Dev-Tooling Source Repositories Must Be GitHub-Backed]]
+- [[[default:adr-global/adr-dev-tooling-source-repos-must-be-github-backed|All Dev-Tooling Source Repositories Must Be GitHub-Backed]]](C:/dev/project-library-global/adr-global/adr-dev-tooling-source-repos-must-be-github-backed.md)
 
 ## Known Exceptions
 

@@ -1,12 +1,13 @@
 ---
 title: "adr-dependency-update-model"
 doc-id: "mb-bf8aa7d8"
+updated: "2026-10-01"
 ---
 # `dependency-update-model` ADR — Dependency Update Model
 
 **Status:** Confirmed  
 **Date:** 2026-06-13  
-**Authority:** Derived from the retired platform-overview.md, [[adr-client-instance-architecture|Client Instance Architecture]] ADR, Anvil documentation
+**Authority:** Derived from the retired platform-overview.md, [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) ADR, Anvil documentation
 
 ---
 
@@ -110,7 +111,7 @@ Branch-based update propagation has not yet been verified by live test. The foll
 - ✅ Staged rollout available via version tags without infrastructure changes
 - ✅ Single Anvil account; single IDE; single billing relationship
 - ⚠️ Merge to `stable` is a production action — release discipline is mandatory
-- ✅ UI and form updates propagate automatically via master_template dependency (confirmed by Test B — see [[adr-client-instance-architecture|Client Instance Architecture]] ADR)
+- ✅ UI and form updates propagate automatically via master_template dependency (confirmed by Test B — see [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) ADR)
 - ⚠️ Schema changes require separate migration process for existing client instances
 
 ---
@@ -119,10 +120,10 @@ Branch-based update propagation has not yet been verified by live test. The foll
 
 | Document | Relationship |
 |---|---|
-| [[adr-client-instance-architecture|Client Instance Architecture]] | Defines what lives in client instance vs master_template |
+| [[[default:adr-global/adr-client-instance-architecture\|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) | Defines what lives in client instance vs master_template |
 | `blank-client-template.md` (mb-3-cs project library) | Provisioning clone source |
-| [[adr-free-trial-abandoned|30-Day Free Trial Abandoned]] | Trial model replaced; all clients on stable from day one |
-| [[spec-client-activation-runbook|Client Instance Activation Runbook]] | Includes dependency configuration step at provisioning |
+| [[[default:adr-global/adr-free-trial-abandoned\|30-Day Free Trial Abandoned]]](C:/dev/project-library-global/adr-global/adr-free-trial-abandoned.md) | Trial model replaced; all clients on stable from day one |
+| [[[default:specifications-global/spec-client-activation-runbook\|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) | Includes dependency configuration step at provisioning |
 
 ---
 

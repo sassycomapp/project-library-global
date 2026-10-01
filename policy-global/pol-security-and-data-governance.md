@@ -1,6 +1,7 @@
 ---
 title: "pol-security-and-data-governance"
 doc-id: "mb-e779e1b8"
+updated: "2026-10-01"
 ---
 # Policy — Security and Data Governance
 
@@ -29,7 +30,7 @@ missing one is a finding.
 
 A client's data is theirs. On offboarding, they receive a full, usable export of
 everything — Data Tables, encryption key, decrypted Vault contents — and this operation
-retains nothing after the export is confirmed received. See [[sop-offboarding|Offboarding SOP]] for the
+retains nothing after the export is confirmed received. See [[[default:standard-operating-procedures-global/sop-offboarding|Offboarding SOP]]](C:/dev/project-library-global/standard-operating-procedures-global/sop-offboarding.md) for the
 procedure; this policy states the underlying principle it must never violate.
 
 ### Client-Facing Data Exposure
@@ -40,7 +41,7 @@ an inefficiency — treat it accordingly.
 
 ### Enforcement Severity
 
-Security issues are always Critical, per [[pol-anvil-first-development|Policy — Anvil-First Development]]'s enforcement
+Security issues are always Critical, per [[[default:policy-global/pol-anvil-first-development|Policy — Anvil-First Development]]](C:/dev/project-library-global/policy-global/pol-anvil-first-development.md)'s enforcement
 table. RBAC violations, secret-handling errors, and over-broad client-facing data returns
 are Critical without exception.
 

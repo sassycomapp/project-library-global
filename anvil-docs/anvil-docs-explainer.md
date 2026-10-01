@@ -1,12 +1,13 @@
 ---
 title: "anvil-docs-explainer"
 doc-id: "mb-37b917d4"
+updated: "2026-10-01"
 ---
 # anvil-docs — Explainer
 
 *Companion note: for current confirmed state (scale, structure, provenance,
-policies, open items) see [[anvil-docs-config|Configuration]]. For navigation, verification
-commands, and maintenance rules, see [[anvil-docs-reference|Reference: Navigation, Verification, Maintenance]].*
+policies, open items) see [[[default:anvil-docs/anvil-docs-config|Configuration]]](C:/dev/project-library-global/anvil-docs/anvil-docs-config.md). For navigation, verification
+commands, and maintenance rules, see [[[default:anvil-docs/anvil-docs-reference|Reference: Navigation, Verification, Maintenance]]](C:/dev/project-library-global/anvil-docs/anvil-docs-reference.md).*
 
 ---
 
@@ -140,7 +141,7 @@ decided never to use).
   cross-project grants once recorded for it no longer exist (grants file
   verified empty, 2026-09-06) — and none are needed for ordinary in-project
   work, since the corpus lives inside the current project. Enforcement status
-  is a changeable fact (see [[cupcake-config|Cupcake Configuration]]'s Current Operational Status);
+  is a changeable fact (see [[[mybizz-config-docs:cupcake/cupcake-config|Cupcake Configuration]]](C:/mybizz/mybizz-config-docs/cupcake/cupcake-config.md)'s Current Operational Status);
   none of the corpus's own rules depend on it.
 - **Relative to `anvil-agent-references`:** complements, not duplicates. The
   vendor layer is generated from Anvil's source and stays authoritative through

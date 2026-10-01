@@ -1,6 +1,7 @@
 ---
 title: "adr-onboarding-vs-settings-boundary"
 doc-id: "mb-43ac2971"
+updated: "2026-10-01"
 ---
 # Onboarding vs Settings Boundary
 Date: 2026-05-29
@@ -98,7 +99,7 @@ The platform currently has some operational controls (like palette selection, se
 
 ## Related Documents
 
-- [[adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]] — System currency as onboarding concern
+- [[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md) — System currency as onboarding concern
 - `docs/phased-implementation/phase-0-implementation.md` — Implementation phases
 - Platform overview documentation — Current configuration patterns
 

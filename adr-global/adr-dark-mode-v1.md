@@ -1,6 +1,7 @@
 ---
 title: "adr-dark-mode-v1"
 doc-id: "mb-c66b42b5"
+updated: "2026-10-01"
 ---
 # `dark-mode-v1` ADR: Dark Mode — V1 Inclusion
 
@@ -67,5 +68,5 @@ The following references to dark mode deferral are superseded by this ADR:
 ## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
 
 Material referenced by this document but not present in the current corpus, with developer-provided locations:
-- DESIGN_palette_section.md (referenced from this global document; target lives in a project library) — /mnt/c/dev/dev-mb-3-cs/mb-3-cs-project-library/docs-local/DESIGN_palette_section.md
+- DESIGN_palette_section.md (referenced from this global document; target lives in a project library) — [[[mb-3-cs-project-library:docs-local/design_palette_section]]](C:/dev/dev-mb-3-cs/mb-3-cs-project-library/docs-local/DESIGN_palette_section.md)
 *End of `dark-mode-v1` ADR*

@@ -1,6 +1,7 @@
 ---
 title: "adr-onboarding-data-schema-alignment"
 doc-id: "mb-00eef3b7"
+updated: "2026-10-01"
 ---
 # Onboarding Data Schema Alignment
 Date: 2026-05-29
@@ -103,7 +104,7 @@ The authoritative schema (`authoritative-schema.md`, mb-3-cs project library) de
 ## Related Documents
 
 - `authoritative-schema.md` (mb-3-cs project library) — Sole source of truth for database schema
-- [[adr-onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]] — Onboarding scope definition
+- [[[default:adr-global/adr-onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]]](C:/dev/project-library-global/adr-global/adr-onboarding-vs-settings-boundary.md) — Onboarding scope definition
 - Database architecture documentation
 
 ---

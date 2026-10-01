@@ -1,17 +1,18 @@
 ---
 title: "spec-security"
 doc-id: "mb-d16f800e"
+updated: "2026-10-01"
 ---
 # PDLF Standards Library — Security Specification
 
 **Location:** `C:\dev\project-library-global\specifications-global\spec-security.md`
-**Vault System:** [[spec-vault-system|Vault System Specification]] — the single authoritative Vault document.
+**Vault System:** [[[default:specifications-global/spec-vault-system|Vault System Specification]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md) — the single authoritative Vault document.
 **Scope:** Project-agnostic security patterns. A project's specific role limits, regulatory
 posture, and implementation details belong in that project's own canonical security document.
 
 ---
 
-**The Vault System:** The two-level secrets model, enforcement/masking pattern, and Vault implementation are now the single authoritative document [[spec-vault-system|Vault System Specification]]. This file does not duplicate that content — reference [[spec-vault-system|Vault System Specification]] for all Vault-related patterns.
+**The Vault System:** The two-level secrets model, enforcement/masking pattern, and Vault implementation are now the single authoritative document [[[default:specifications-global/spec-vault-system|Vault System Specification]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md). This file does not duplicate that content — reference [[[default:specifications-global/spec-vault-system|Vault System Specification]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md) for all Vault-related patterns.
 
 ## 1. RBAC and Data Access
 
@@ -39,4 +40,4 @@ across a multi-server environment.
 
 ---
 
-*Security Specification v1.1 — Vault content (two-level secrets model, enforcement/masking) moved to [[spec-vault-system|Vault System Specification]]. Remaining content: RBAC/data access, rate limiting, shared numeric security standards.*
+*Security Specification v1.1 — Vault content (two-level secrets model, enforcement/masking) moved to [[[default:specifications-global/spec-vault-system|Vault System Specification]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md). Remaining content: RBAC/data access, rate limiting, shared numeric security standards.*

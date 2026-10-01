@@ -1,6 +1,7 @@
 ---
 title: "spec-anvil-spec-table"
 doc-id: "mb-867fb5cd"
+updated: "2026-10-01"
 ---
 # Mybizz CS — Anvil Specification Table
 
@@ -33,13 +34,13 @@ doc-id: "mb-867fb5cd"
 
 | Topic | Specification |
 |---|---|
-| ADR | [[adr-navigation-lambda-link-open-form|Navigation Standard: Lambda/Link/open_form]] (navigation pattern), [[adr-htmltemplate-use|HTMLTemplate Use]] (layout shell) |
+| ADR | [[[default:adr-global/adr-navigation-lambda-link-open-form\|Navigation Standard: Lambda/Link/open_form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md) (navigation pattern), [[[default:adr-global/adr-htmltemplate-use\|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) (layout shell) |
 | Layout type | Native M3 Layouts (`NavigationRailLayout` for admin, `NavigationDrawerLayout` for customer portal) |
 | Sidebar nav component | Plain `Link` components |
 | Sidebar nav creation | Built programmatically in `build_navigation()` |
 | Navigation action | `open_form(string)` via lambda click handler |
 | Variable capture | **MANDATORY**: `lambda e, fn=form_name, a=attr_name: self._nav_click(fn, a)` |
-| NEVER use | `navigate_to`, `HTMLTemplate` (banned per [[adr-htmltemplate-use|HTMLTemplate Use]] ADR) |
+| NEVER use | `navigate_to`, `HTMLTemplate` (banned per [[[default:adr-global/adr-htmltemplate-use\|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) ADR) |
 | Reason | `navigate_to` requires instantiated Forms; `HTMLTemplate` banned — native M3 Layouts and components only |
 
 ```python
@@ -210,14 +211,14 @@ def btn_next_click(self, **event_args):
 
 | Component / Pattern | Rule |
 |---|---|
-| Anvil Extras | Excluded — see [[adr-anvil-extras-exclusion|Anvil Extras Exclusion]] |
-| `NavigationLink` for sidebar | Not used in current architecture — see [[adr-navigation-lambda-link-open-form|Navigation Standard: Lambda/Link/open_form]] |
-| `NavigationDrawerLayoutTemplate` | Not used in current architecture — see [[adr-navigation-lambda-link-open-form|Navigation Standard: Lambda/Link/open_form]] |
-| `navigate_to` for internal nav | Not used — see [[adr-navigation-lambda-link-open-form|Navigation Standard: Lambda/Link/open_form]] |
+| Anvil Extras | Excluded — see [[[default:adr-global/adr-anvil-extras-exclusion\|Anvil Extras Exclusion]]](C:/dev/project-library-global/adr-global/adr-anvil-extras-exclusion.md) |
+| `NavigationLink` for sidebar | Not used in current architecture — see [[[default:adr-global/adr-navigation-lambda-link-open-form\|Navigation Standard: Lambda/Link/open_form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md) |
+| `NavigationDrawerLayoutTemplate` | Not used in current architecture — see [[[default:adr-global/adr-navigation-lambda-link-open-form\|Navigation Standard: Lambda/Link/open_form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md) |
+| `navigate_to` for internal nav | Not used — see [[[default:adr-global/adr-navigation-lambda-link-open-form\|Navigation Standard: Lambda/Link/open_form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md) |
 | RichText | Use sparingly; not core M3 |
-| Material Web Components | Excluded — see [[adr-anvil-extras-exclusion|Anvil Extras Exclusion]] |
-| Material Web Components | Excluded — see [[adr-anvil-extras-exclusion|Anvil Extras Exclusion]] |
-| Material Web Components | Excluded — see [[adr-anvil-extras-exclusion|Anvil Extras Exclusion]] |
+| Material Web Components | Excluded — see [[[default:adr-global/adr-anvil-extras-exclusion\|Anvil Extras Exclusion]]](C:/dev/project-library-global/adr-global/adr-anvil-extras-exclusion.md) |
+| Material Web Components | Excluded — see [[[default:adr-global/adr-anvil-extras-exclusion\|Anvil Extras Exclusion]]](C:/dev/project-library-global/adr-global/adr-anvil-extras-exclusion.md) |
+| Material Web Components | Excluded — see [[[default:adr-global/adr-anvil-extras-exclusion\|Anvil Extras Exclusion]]](C:/dev/project-library-global/adr-global/adr-anvil-extras-exclusion.md) |
 
 ---
 
@@ -295,7 +296,7 @@ booking = app_tables.bookings.add_row(contact=contact)
 
 ### 4.4 Data Access (Dependency-Based Architecture)
 
-Each client instance is a separate Anvil app with its own isolated database. No tenant discriminator columns or tenant-filtered queries are needed — see [[adr-dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]] ADR:
+Each client instance is a separate Anvil app with its own isolated database. No tenant discriminator columns or tenant-filtered queries are needed — see [[[default:adr-global/adr-dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]]](C:/dev/project-library-global/adr-global/adr-dependency-based-not-multi-tenant.md) ADR:
 
 ```python
 @anvil.server.callable
@@ -843,4 +844,4 @@ def process_email_campaigns():
 
 ---
 
-**Status:** Consolidated specification and methods reference aligned to active Mybizz Anvil methods, M3 standards, [[adr-navigation-lambda-link-open-form|Navigation Standard: Lambda/Link/open_form]] navigation, testing code of practice, startup pattern, packages/namespaces, Designer gotchas, uplink patterns, and background tasks.
+**Status:** Consolidated specification and methods reference aligned to active Mybizz Anvil methods, M3 standards, [[[default:adr-global/adr-navigation-lambda-link-open-form|Navigation Standard: Lambda/Link/open_form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md) navigation, testing code of practice, startup pattern, packages/namespaces, Designer gotchas, uplink patterns, and background tasks.

@@ -1,6 +1,7 @@
 ---
 title: "adr-htmltemplate-use"
 doc-id: "mb-f7c956d1"
+updated: "2026-10-01"
 ---
 # `htmltemplate-use` ADR: HTMLTemplate Use
 
@@ -20,7 +21,7 @@ Accepted
 
 In all three cases, a native alternative exists:
 
-- The ServicesForm case needs only basic CSS positioning, achievable via a plain ColumnPanel with a role-driven CSS class (per [[adr-role-property-assignment-mechanism|Role Property Assignment Mechanism]] ADR, roles are a real, working mechanism). No HTML escape hatch is needed.
+- The ServicesForm case needs only basic CSS positioning, achievable via a plain ColumnPanel with a role-driven CSS class (per [[[default:adr-global/adr-role-property-assignment-mechanism|Role Property Assignment Mechanism]]](C:/dev/project-library-global/adr-global/adr-role-property-assignment-mechanism.md) ADR, roles are a real, working mechanism). No HTML escape hatch is needed.
 - M3 already ships two native, complete Layouts: `NavigationRailLayout` and `NavigationDrawerLayout`. Building a custom HTML-based shell duplicates what these already provide.
 
 ## Decision
@@ -43,11 +44,11 @@ In all three cases, a native alternative exists:
 | Document | Relationship |
 |---|---|
 | `[[spec-component-properties]]` | Documents `HTMLTemplate` and its properties; superseded for this component |
-| [[adr-anvil-extras-exclusion|Anvil Extras Exclusion]] | Excludes third-party packages; this ADR extends the exclusion principle to `HTMLTemplate` |
-| [[adr-material-3-theme-component-scope|Material 3 Theme Component Scope]] | Defines permitted M3 components; `HTMLTemplate` is not among them |
-| [[adr-design-rules|Design Rules]] | Wireframe design rules; wireframes must not use `HTMLTemplate` |
-| [[adr-ui-customization-approach|UI Customization Approach]] | Broader UI customization approach; this ADR is a specific component exclusion |
-| [[adr-role-property-assignment-mechanism|Role Property Assignment Mechanism]] | Role-driven CSS classes provide the native alternative for the ServicesForm case |
+| [[[default:adr-global/adr-anvil-extras-exclusion\|Anvil Extras Exclusion]]](C:/dev/project-library-global/adr-global/adr-anvil-extras-exclusion.md) | Excludes third-party packages; this ADR extends the exclusion principle to `HTMLTemplate` |
+| [[[default:adr-global/adr-material-3-theme-component-scope\|Material 3 Theme Component Scope]]](C:/dev/project-library-global/adr-global/adr-material-3-theme-component-scope.md) | Defines permitted M3 components; `HTMLTemplate` is not among them |
+| [[[default:adr-global/adr-design-rules\|Design Rules]]](C:/dev/project-library-global/adr-global/adr-design-rules.md) | Wireframe design rules; wireframes must not use `HTMLTemplate` |
+| [[[default:adr-global/adr-ui-customization-approach\|UI Customization Approach]]](C:/dev/project-library-global/adr-global/adr-ui-customization-approach.md) | Broader UI customization approach; this ADR is a specific component exclusion |
+| [[[default:adr-global/adr-role-property-assignment-mechanism\|Role Property Assignment Mechanism]]](C:/dev/project-library-global/adr-global/adr-role-property-assignment-mechanism.md) | Role-driven CSS classes provide the native alternative for the ServicesForm case |
 
 ---
 

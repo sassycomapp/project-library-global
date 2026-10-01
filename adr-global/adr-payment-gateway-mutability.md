@@ -1,6 +1,7 @@
 ---
 title: "adr-payment-gateway-mutability"
 doc-id: "mb-c91997a0"
+updated: "2026-10-01"
 ---
 # Payment Gateway Mutability
 Date: 2026-05-29
@@ -105,7 +106,7 @@ From platform documentation:
 
 ## Related Documents
 
-- [[adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed|Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed]] — Gateway configuration in Settings
+- [[[default:adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed|Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed.md) — Gateway configuration in Settings
 - Platform overview documentation — Current gateway description
 - Payment processing architecture
 

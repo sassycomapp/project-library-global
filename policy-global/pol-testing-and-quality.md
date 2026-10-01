@@ -1,6 +1,7 @@
 ---
 title: "pol-testing-and-quality"
 doc-id: "mb-b7965794"
+updated: "2026-10-01"
 ---
 # Policy — Testing and Quality
 
@@ -13,7 +14,7 @@ conform. No exceptions without documented justification.
 
 ### Testing Methodology Is Mandatory, Not Advisory
 
-Every feature is built and verified per [[spec-testing-methodology-standards|Testing Methodology Standards]] — the
+Every feature is built and verified per [[[default:specifications-global/spec-testing-methodology-standards|Testing Methodology Standards]]](C:/dev/project-library-global/specifications-global/spec-testing-methodology-standards.md) — the
 three-level testing model (pure logic, Uplink integration, manual verification), in
 strict sequence, no level skipped.
 
@@ -31,7 +32,7 @@ breakage is attributable to something done after this point, not to this feature
 
 ### RBAC Verification Is Part of Testing, Not Separate
 
-Per [[spec-testing-methodology-standards|Testing Methodology Standards]] §7, every feature with role-based access
+Per [[[default:specifications-global/spec-testing-methodology-standards|Testing Methodology Standards]]](C:/dev/project-library-global/specifications-global/spec-testing-methodology-standards.md) §7, every feature with role-based access
 gets both a manual per-role walkthrough and a mechanical grep for missing auth decorators.
 Neither alone is sufficient — the manual pass catches UX leaks (a disabled-but-visible
 link); the grep catches what a manual pass misses.
@@ -58,5 +59,5 @@ specific failure mode, not the post-success one.
 
 Every project this operation builds on Anvil.works, from the first feature onward.
 
-**Source:** [[spec-testing-methodology-standards|Testing Methodology Standards]]; testing discipline validated across
+**Source:** [[[default:specifications-global/spec-testing-methodology-standards|Testing Methodology Standards]]](C:/dev/project-library-global/specifications-global/spec-testing-methodology-standards.md); testing discipline validated across
 prior project practice, not invented fresh for this policy.

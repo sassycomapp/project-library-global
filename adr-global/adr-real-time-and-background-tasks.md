@@ -1,12 +1,13 @@
 ---
 title: "adr-real-time-and-background-tasks"
 doc-id: "mb-1684942d"
+updated: "2026-10-01"
 ---
 # `real-time-and-background-tasks` ADR — Real-Time Updates and Background Task Architecture
 
 **Status:** Approved  
 **Date:** 2026-06-14  
-**Authority:** Derived from the retired platform-overview.md, [[adr-observability-architecture|Observability Architecture]] ADR, [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR, integration-architecture.md
+**Authority:** Derived from the retired platform-overview.md, [[[default:adr-global/adr-observability-architecture|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md) ADR, [[[default:adr-global/adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) ADR, integration-architecture.md
 
 ---
 
@@ -201,9 +202,9 @@ def process_webhook(event_id):
 
 | Document | Relationship |
 |---|---|
-| [[adr-observability-architecture|Observability Architecture]] | Health heartbeat task feeds observability metrics |
-| [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] | Background task limits and server call latency constraints |
-| [[adr-webhook-architecture|Webhook Architecture]] | Detailed webhook handling pattern |
+| [[[default:adr-global/adr-observability-architecture\|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md) | Health heartbeat task feeds observability metrics |
+| [[[default:adr-global/adr-anvil-platform-constraints\|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) | Background task limits and server call latency constraints |
+| [[[default:adr-global/adr-webhook-architecture\|Webhook Architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md) | Detailed webhook handling pattern |
 | `integration-architecture.md` (mb-3-cs project library) | Section 4: Background Tasks (existing task inventory) |
 | `deployment-procedures.md` (mb-3-cs project library) | Operational procedures for task failure recovery |
 

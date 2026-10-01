@@ -1,6 +1,7 @@
 ---
 title: "adr-dev-tooling-source-repos-must-be-github-backed"
 doc-id: "mb-6b7f097f"
+updated: "2026-10-01"
 ---
 # `dev-tooling-source-repos-must-be-github-backed` ADR — All Dev-Tooling Source Repositories Must Be GitHub-Backed
 
@@ -121,5 +122,5 @@ Empty output means no remote — treat this as a gap requiring the same remediat
 ## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
 
 Material referenced by this document but not present in the current corpus, with developer-provided locations:
-- daily-ops.md — intended target (developer-confirmed, 2026-09-20): /mnt/c/mybizz/mybizz-os-docs/operating-procedures/daily-ops.md
+- daily-ops.md — intended target (developer-confirmed, 2026-09-20): [[[mybizz-os-docs:operating-procedures/daily-ops]]](C:/mybizz/mybizz-os-docs/operating-procedures/daily-ops.md)
 *End of `dev-tooling-source-repos-must-be-github-backed` ADR*

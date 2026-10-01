@@ -1,6 +1,7 @@
 ---
 title: "adr-legal-policy-responsibility-acknowledgement-and-clause-builder-architecture"
 doc-id: "mb-62159214"
+updated: "2026-10-01"
 ---
 # Legal Policy Responsibility Acknowledgement and Clause-Builder Architecture
 Date: 2026-05-29
@@ -103,7 +104,7 @@ The platform needs to support policy creation and publication while maintaining 
 
 ## Related Documents
 
-- [[adr-onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]] — Onboarding vs settings boundary
+- [[[default:adr-global/adr-onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]]](C:/dev/project-library-global/adr-global/adr-onboarding-vs-settings-boundary.md) — Onboarding vs settings boundary
 - Legal documentation requirements
 - Platform terms of service
 

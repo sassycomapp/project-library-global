@@ -1,11 +1,12 @@
 ---
 title: "spec-deployment"
 doc-id: "mb-4a8a251d"
+updated: "2026-10-01"
 ---
 # Mybizz — Deployment Specification
 
 **Scope:** Mybizz-wide. Covers Anvil deployment environments, release workflow, rollback procedures, and schema migration.
-**Authority:** [[adr-dependency-update-model|Dependency Update Model]] ADR, the `blank-client-template` ADR (mb-3-cs project library), [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR §7
+**Authority:** [[[default:adr-global/adr-dependency-update-model|Dependency Update Model]]](C:/dev/project-library-global/adr-global/adr-dependency-update-model.md) ADR, the `blank-client-template` ADR (mb-3-cs project library), [[[default:adr-global/adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) ADR §7
 
 ---
 

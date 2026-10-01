@@ -1,6 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-9162d4bc"
+updated: "2026-10-01"
 ---
 # [Anvil X](#anvil-x)
 
@@ -18,7 +19,7 @@ To get started, follow the [Quickstart Guide](x/quickstart) to build a simple Ta
 
 ## [Tutorials](#tutorials)
 
-The [[trexjacket|Using Trexjacket]] project also provides step-by-step tutorials for building real-world Tableau extensions with Anvil X and the high-level [[trexjacket|Using Trexjacket]] API:
+The [[[default:anvil-docs/integrations/x/trexjacket|Using Trexjacket]]](C:/dev/project-library-global/anvil-docs/integrations/x/trexjacket.md) project also provides step-by-step tutorials for building real-world Tableau extensions with Anvil X and the high-level [[[default:anvil-docs/integrations/x/trexjacket|Using Trexjacket]]](C:/dev/project-library-global/anvil-docs/integrations/x/trexjacket.md) API:
 
 ### Annotate your data
 

@@ -1,12 +1,13 @@
 ---
 title: "adr-data-access-patterns"
 doc-id: "mb-c468c49c"
+updated: "2026-10-01"
 ---
 # `data-access-patterns` ADR — Data Access Patterns and Query Limitations
 
 **Status:** Approved  
 **Date:** 2026-06-14  
-**Authority:** Derived from the retired platform-overview.md, [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR, authoritative-schema.md
+**Authority:** Derived from the retired platform-overview.md, [[[default:adr-global/adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) ADR, authoritative-schema.md
 
 ---
 
@@ -27,7 +28,7 @@ All data access goes through Anvil's `app_tables` API, which provides `.search()
 
 ### Data Access Rules
 
-1. **All data access is server-side.** Client code never reads Data Tables directly. All queries go through server functions ([[adr-client-instance-architecture|Client Instance Architecture]] ADR).
+1. **All data access is server-side.** Client code never reads Data Tables directly. All queries go through server functions ([[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) ADR).
 
 2. **Use `.search()` with filters, not iteration.** Never iterate over all rows. Always use `.search()` with keyword arguments to filter, or `.limit_to()` to bound the result set.
 
@@ -125,7 +126,7 @@ For reporting and analytics, pre-computed summary tables store aggregated data:
 | `provider_performance` | Revenue and booking count per provider | Daily background task |
 | `campaign_metrics` | Open rates, click rates, conversions per campaign | Hourly background task |
 
-These tables are populated by background tasks ([[adr-real-time-and-background-tasks|Real-Time and Background Tasks]] ADR) and read directly by dashboard and reporting forms.
+These tables are populated by background tasks ([[[default:adr-global/adr-real-time-and-background-tasks|Real-Time and Background Tasks]]](C:/dev/project-library-global/adr-global/adr-real-time-and-background-tasks.md) ADR) and read directly by dashboard and reporting forms.
 
 ---
 
@@ -136,7 +137,7 @@ These tables are populated by background tasks ([[adr-real-time-and-background-t
 - ✅ Pre-computed aggregations enable fast dashboard loading
 - ✅ Bounded pagination prevents timeout on large result sets
 - ⚠️ Denormalization introduces data consistency risk — denormalized fields must be updated when source data changes
-- ⚠️ Summary tables require background task scheduling — adds to per-client task load ([[adr-real-time-and-background-tasks|Real-Time and Background Tasks]] ADR)
+- ⚠️ Summary tables require background task scheduling — adds to per-client task load ([[[default:adr-global/adr-real-time-and-background-tasks|Real-Time and Background Tasks]]](C:/dev/project-library-global/adr-global/adr-real-time-and-background-tasks.md) ADR)
 - ⚠️ Complex ad-hoc queries are not possible — reporting is limited to pre-computed summaries
 
 ---
@@ -145,9 +146,9 @@ These tables are populated by background tasks ([[adr-real-time-and-background-t
 
 | Document | Relationship |
 |---|---|
-| [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] | Data Table limitations and lazy-load behavior |
-| [[adr-client-instance-architecture|Client Instance Architecture]] | All data access is server-side |
-| [[adr-real-time-and-background-tasks|Real-Time and Background Tasks]] | Background tasks compute summary tables |
+| [[[default:adr-global/adr-anvil-platform-constraints\|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) | Data Table limitations and lazy-load behavior |
+| [[[default:adr-global/adr-client-instance-architecture\|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) | All data access is server-side |
+| [[[default:adr-global/adr-real-time-and-background-tasks\|Real-Time and Background Tasks]]](C:/dev/project-library-global/adr-global/adr-real-time-and-background-tasks.md) | Background tasks compute summary tables |
 | `authoritative-schema.md` (mb-3-cs project library) | 36-table schema definition |
 
 ---

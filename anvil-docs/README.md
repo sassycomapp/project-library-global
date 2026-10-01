@@ -1,6 +1,7 @@
 ---
 title: "README"
 doc-id: "mb-21fe921d"
+updated: "2026-10-01"
 ---
 # Anvil Docs
 
@@ -12,7 +13,7 @@ by subject.
 
 - **Scraped official documentation** — the real content of every page
   under anvil.works/docs, organized to mirror the site's own structure.
-  See [[site-map|Confirmed Site Map (Step 1a)]] for the authoritative URL → path reference.
+  See [[[default:anvil-docs/site-map|Confirmed Site Map (Step 1a)]]](C:/dev/project-library-global/anvil-docs/site-map.md) for the authoritative URL → path reference.
 - **Absorbed runtime source code** — real Python and Clojure source from
   the official Anvil Runtime, moved in and organized by subject
   alongside the matching documentation (e.g. real Stripe integration

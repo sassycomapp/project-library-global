@@ -1,11 +1,12 @@
 ---
 title: "spec-api-specification"
 doc-id: "mb-639a7203"
+updated: "2026-10-01"
 ---
 # Mybizz — API Specification (HTTP Endpoints)
 
 **Scope:** Mybizz-wide. Covers all HTTP endpoints exposed by client instances — webhook handlers and management endpoints.
-**Authority:** [[adr-webhook-architecture|Webhook Architecture]] ADR, [[adr-mybizz-management-visibility|Mybizz Management Visibility]] ADR, [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR
+**Authority:** [[[default:adr-global/adr-webhook-architecture|Webhook Architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md) ADR, [[[default:adr-global/adr-mybizz-management-visibility|Mybizz Management Visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md) ADR, [[[default:adr-global/adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) ADR
 
 ---
 
@@ -171,7 +172,7 @@ All server functions (not just HTTP endpoints) follow the response envelope patt
 {'success': False, 'error': msg}
 ```
 
-See [[spec-anvil-platform-standards|Anvil Platform Standards]] §2.
+See [[[default:specifications-global/spec-anvil-platform-standards|Anvil Platform Standards]]](C:/dev/project-library-global/specifications-global/spec-anvil-platform-standards.md) §2.
 
 ---
 
@@ -184,7 +185,7 @@ HTTP endpoints are subject to the same rate limits as all server functions:
 | Unauthenticated | 10 requests/minute/IP |
 | Authenticated | 100 requests/minute/user |
 
-Rate limits enforced via `rate_limits` Data Table. See [[spec-security|Security Specification]].
+Rate limits enforced via `rate_limits` Data Table. See [[[default:specifications-global/spec-security|Security Specification]]](C:/dev/project-library-global/specifications-global/spec-security.md).
 
 ---
 

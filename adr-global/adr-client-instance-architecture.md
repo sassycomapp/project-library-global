@@ -1,13 +1,14 @@
 ---
 title: "adr-client-instance-architecture"
 doc-id: "mb-c7c61252"
+updated: "2026-10-01"
 ---
 # `client-instance-architecture` ADR — Client Instance Architecture
 
 **Status:** Confirmed — architecturally tested (Tests A and B)  
 **Date:** 2026-06-13  
 **Last updated:** 2026-06-13 — revised following Test B (startup form from dependency)  
-**Authority:** Derived from the retired platform-overview.md, [[adr-payment-security-boundary-vault|Payment Security Boundary: Secret Keys Deferred to the Vault]] ADR, and live testing conducted 2026-06-13
+**Authority:** Derived from the retired platform-overview.md, [[[default:adr-global/adr-payment-security-boundary-vault|Payment Security Boundary: Secret Keys Deferred to the Vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) ADR, and live testing conducted 2026-06-13
 
 ---
 
@@ -102,9 +103,9 @@ open_form(MainForm())
 
 | Document | Relationship |
 |---|---|
-| [[adr-dependency-update-model|Dependency Update Model]] | How updates flow from mb-3-cs to client instances |
+| [[[default:adr-global/adr-dependency-update-model\|Dependency Update Model]]](C:/dev/project-library-global/adr-global/adr-dependency-update-model.md) | How updates flow from mb-3-cs to client instances |
 | `blank-client-template.md` (mb-3-cs project library) | The provisioning source for new client instances |
-| [[spec-client-activation-runbook|Client Instance Activation Runbook]] | Step-by-step provisioning process |
+| [[[default:specifications-global/spec-client-activation-runbook\|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) | Step-by-step provisioning process |
 
 ---
 

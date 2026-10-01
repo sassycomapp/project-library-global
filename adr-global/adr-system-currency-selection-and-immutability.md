@@ -1,6 +1,7 @@
 ---
 title: "adr-system-currency-selection-and-immutability"
 doc-id: "mb-4b5f697c"
+updated: "2026-10-01"
 ---
 # System Currency, Display Currency, and Immutability
 Date: 2026-05-29
@@ -181,8 +182,8 @@ INVOICE: transaction currency + system_currency_amount (for reporting)
 ## Related Documents
 
 - `authoritative-schema.md` (mb-3-cs project library) — Database schema with currency fields
-- [[adr-timezone-utc-storage-display-conversion|Client Timezone: UTC Storage, Display Conversion]] — Timezone/UTC storage pattern (similar approach)
-- [[spec-onboarding-implementation-plan|Mybizz CS Onboarding System - Engineering Plan]] — System currency selection in onboarding
+- [[[default:adr-global/adr-timezone-utc-storage-display-conversion|Client Timezone: UTC Storage, Display Conversion]]](C:/dev/project-library-global/adr-global/adr-timezone-utc-storage-display-conversion.md) — Timezone/UTC storage pattern (similar approach)
+- [[[default:specifications-global/spec-onboarding-implementation-plan|Mybizz CS Onboarding System - Engineering Plan]]](C:/dev/project-library-global/specifications-global/spec-onboarding-implementation-plan.md) — System currency selection in onboarding
 
 ---
 

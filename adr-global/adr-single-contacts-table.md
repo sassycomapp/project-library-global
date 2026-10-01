@@ -1,6 +1,7 @@
 ---
 title: "adr-single-contacts-table"
 doc-id: "mb-c307af98"
+updated: "2026-10-01"
 ---
 # Single Contacts Table Replaces Dual contacts/customers
 **Consolidated Contact Model for CRM**
@@ -23,7 +24,7 @@ The live schema originally contained two overlapping tables: `contacts` (CRM-foc
 
 Every query needed to know which table to join. The dual-table model was a half-migrated schema that added complexity without benefit.
 
-This decision builds on [[adr-lead-capture-simultaneous-creation|Lead Capture Simultaneous Creation]] (Lead Capture: Simultaneous Creation), which established that `leads` and `contacts` are created simultaneously at capture time, with `leads.converted_to_contact_id` set immediately. The `contacts` table is the authoritative person record for all CRM operations.
+This decision builds on [[[default:adr-global/adr-lead-capture-simultaneous-creation|Lead Capture Simultaneous Creation]]](C:/dev/project-library-global/adr-global/adr-lead-capture-simultaneous-creation.md) (Lead Capture: Simultaneous Creation), which established that `leads` and `contacts` are created simultaneously at capture time, with `leads.converted_to_contact_id` set immediately. The `contacts` table is the authoritative person record for all CRM operations.
 
 ---
 
@@ -39,7 +40,7 @@ All customers are contacts but not all contacts are customers. The `contacts` ta
 - `time_entries.customer_id` removed; `time_entries.contact_id` added
 - `client_notes.customer_id` removed; `client_notes.contact_id` added
 - `customers` table dropped from schema
-- `zoho_crm_id` column removed from `contacts` ([[adr-brevo-replaces-zoho-email|Brevo Replaces All Zoho Products]] compliance)
+- `zoho_crm_id` column removed from `contacts` ([[[default:adr-global/adr-brevo-replaces-zoho-email|Brevo Replaces All Zoho Products]]](C:/dev/project-library-global/adr-global/adr-brevo-replaces-zoho-email.md) compliance)
 
 ### `contacts` table fields (consolidated):
 - Identity: `contact_id`, `first_name`, `last_name`, `email`, `phone`
@@ -56,7 +57,7 @@ All customers are contacts but not all contacts are customers. The `contacts` ta
 - Single source of truth for all person records
 - Simplified queries — no need to join two tables
 - Clean CRM integration — Brevo sync targets one table
-- Consistent with [[adr-lead-capture-simultaneous-creation|Lead Capture Simultaneous Creation]] lead capture pattern
+- Consistent with [[[default:adr-global/adr-lead-capture-simultaneous-creation|Lead Capture Simultaneous Creation]]](C:/dev/project-library-global/adr-global/adr-lead-capture-simultaneous-creation.md) lead capture pattern
 
 ### Files affected:
 - `anvil.yaml` — `customers` table removed, FK references updated

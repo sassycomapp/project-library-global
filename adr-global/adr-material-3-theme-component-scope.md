@@ -1,6 +1,7 @@
 ---
 title: "adr-material-3-theme-component-scope"
 doc-id: "mb-b1d3bcc9"
+updated: "2026-10-01"
 ---
 # Material 3 Theme Component Scope
 Date: 2026-05-21
@@ -51,7 +52,7 @@ Components not natively provided by M3 must be composed from permitted primitive
 
 1. **Prefer native M3**: Always use native M3 components when available
 2. **Document composition**: When composing custom components, document which M3 primitives are used
-3. **Reference mapping**: Use [[spec-m3_component_mapping|M3 Component Mapping]] as the authoritative reference for component availability
+3. **Reference mapping**: Use [[[default:specifications-global/spec-m3_component_mapping|M3 Component Mapping]]](C:/dev/project-library-global/specifications-global/spec-m3_component_mapping.md) as the authoritative reference for component availability
 4. **No external imports**: Do not import UI components from external packages without ADR approval
 
 ---

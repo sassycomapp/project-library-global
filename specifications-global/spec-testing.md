@@ -1,16 +1,17 @@
 ---
 title: "spec-testing"
 doc-id: "mb-d8dcf41a"
+updated: "2026-10-01"
 ---
 # Mybizz CS — Test Specification (Canonical)
 
 **Date:** 2026-06-16
 **Source:** CEO review 2026-06-15 Section 6, Engineering review 2026-06-16
-**Authority:** Build plan test framework, [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR, [[adr-form-architecture-and-state|Form Architecture and State Management]] ADR, [[adr-webhook-architecture|Webhook Architecture]] ADR, [[adr-dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]] ADR
+**Authority:** Build plan test framework, [[[default:adr-global/adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) ADR, [[[default:adr-global/adr-form-architecture-and-state|Form Architecture and State Management]]](C:/dev/project-library-global/adr-global/adr-form-architecture-and-state.md) ADR, [[[default:adr-global/adr-webhook-architecture|Webhook Architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md) ADR, [[[default:adr-global/adr-dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]]](C:/dev/project-library-global/adr-global/adr-dependency-based-not-multi-tenant.md) ADR
 
 **Note:** General testing methodology (the Level 1/2/3 model, pure-function characteristics, the
 Uplink safety protocol, generic test structure/naming, common test patterns) lives in
-[[spec-testing-methodology-standards|Testing Methodology Standards]] and is not repeated here. This document contains only this
+[[[default:specifications-global/spec-testing-methodology-standards|Testing Methodology Standards]]](C:/dev/project-library-global/specifications-global/spec-testing-methodology-standards.md) and is not repeated here. This document contains only this
 project's specific flows, roles, and data — the actual test plan.
 
 ---

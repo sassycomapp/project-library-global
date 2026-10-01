@@ -1,6 +1,7 @@
 ---
 title: "spec-onboarding-implementation-plan"
 doc-id: "mb-edfcb7ed"
+updated: "2026-10-01"
 ---
 # Mybizz CS Onboarding System - Engineering Plan
 
@@ -10,7 +11,7 @@ doc-id: "mb-edfcb7ed"
 > - **Bidirectional navigation** between Onboarding and Settings
 > - **Mybizz_management amendment log** — append-only credential change history
 > - **Client data rights** — Owner may remove details from Client Details Table, but not from Retained Records Table
-> - All ADR references use full file names (e.g., [[adr-brevo-replaces-zoho-email|Brevo Replaces All Zoho Products]])
+> - All ADR references use full file names (e.g., [[[default:adr-global/adr-brevo-replaces-zoho-email|Brevo Replaces All Zoho Products]]](C:/dev/project-library-global/adr-global/adr-brevo-replaces-zoho-email.md))
 
 ---
 
@@ -30,7 +31,7 @@ Two distinct flows:
 
 Authentication and user signup flows are governed by the Authentication & Administration design, not this document.
 
-Onboarding is **resumable and revisitable**. The Owner may return to the onboarding page at any time to review or change any credential. **[[adr-onboarding-finality|Onboarding Finality]]**
+Onboarding is **resumable and revisitable**. The Owner may return to the onboarding page at any time to review or change any credential. **[[[default:adr-global/adr-onboarding-finality|Onboarding Finality]]](C:/dev/project-library-global/adr-global/adr-onboarding-finality.md)**
 
 ---
 
@@ -49,13 +50,13 @@ Onboarding is **resumable and revisitable**. The Owner may return to the onboard
 1. **Onboarding is a separate form** — not embedded in Settings, but links to Settings for specific tasks **[New]**
 2. **Settings is a single tabbed form** — uses M3 buttons for tab navigation, RBAC-governed **[New]**
 3. **Bidirectional navigation** — Onboarding → Settings (for specific tabs) and Settings → Onboarding (return button) **[New]**
-4. **Onboarding is resumable** — Owner may leave and return without losing progress **[[adr-onboarding-resumability|Onboarding Resumability]]**
-5. **Credential changes are append-only** — Mybizz_management never overwrites, always appends **[[adr-onboarding-finality|Onboarding Finality]]**
-6. **Client data rights** — Owner may remove details from Client Details Table, but not from Retained Records Table **[[adr-onboarding-finality|Onboarding Finality]]**
-7. **System Currency is immutable after first transaction** — selected in onboarding, locked after first transaction **[[adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]]**
-8. **Payment gateway is configured in Settings** — RBAC-governed, not part of onboarding **[[adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed|Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed]]**
-9. **Palette selection is in Settings** — Onboarding has a button to jump to Settings → Palette tab **[[adr-onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]]**
-10. **Table and field names match `authoritative-schema.md` (mb-3-cs project library)** — `business_profile` (with underscore) **[[adr-onboarding-data-schema-alignment|Onboarding Data Schema Alignment]]**
+4. **Onboarding is resumable** — Owner may leave and return without losing progress **[[[default:adr-global/adr-onboarding-resumability|Onboarding Resumability]]](C:/dev/project-library-global/adr-global/adr-onboarding-resumability.md)**
+5. **Credential changes are append-only** — Mybizz_management never overwrites, always appends **[[[default:adr-global/adr-onboarding-finality|Onboarding Finality]]](C:/dev/project-library-global/adr-global/adr-onboarding-finality.md)**
+6. **Client data rights** — Owner may remove details from Client Details Table, but not from Retained Records Table **[[[default:adr-global/adr-onboarding-finality|Onboarding Finality]]](C:/dev/project-library-global/adr-global/adr-onboarding-finality.md)**
+7. **System Currency is immutable after first transaction** — selected in onboarding, locked after first transaction **[[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md)**
+8. **Payment gateway is configured in Settings** — RBAC-governed, not part of onboarding **[[[default:adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed|Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed.md)**
+9. **Palette selection is in Settings** — Onboarding has a button to jump to Settings → Palette tab **[[[default:adr-global/adr-onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]]](C:/dev/project-library-global/adr-global/adr-onboarding-vs-settings-boundary.md)**
+10. **Table and field names match `authoritative-schema.md` (mb-3-cs project library)** — `business_profile` (with underscore) **[[[default:adr-global/adr-onboarding-data-schema-alignment|Onboarding Data Schema Alignment]]](C:/dev/project-library-global/adr-global/adr-onboarding-data-schema-alignment.md)**
 
 ---
 
@@ -75,7 +76,7 @@ Create a new Client instance shell with minimal configuration, then notify the O
 | 5 | Create client record in Mybizz_management | Client Details Table entry | Record exists |
 | 6 | Send welcome email with login credentials | Email via Brevo | Owner notified |
 
-> **Note:** Currency and payment gateway are NOT set by Mybizz during provisioning. The Owner configures these in Onboarding and Settings respectively. **[[adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]], [[adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed|Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed]]**
+> **Note:** Currency and payment gateway are NOT set by Mybizz during provisioning. The Owner configures these in Onboarding and Settings respectively. **[[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md), [[[default:adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed|Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed.md)**
 
 ### 2.3 Mybizz_management Behaviour
 
@@ -197,7 +198,7 @@ The onboarding form includes buttons that link to specific Settings tabs:
 | Palette Selection | "Choose Palette in Settings →" | Jump to Settings → Palette tab |
 | Completion | "Configure Gateway in Settings →" | Jump to Settings → Payment Gateway tab (post-onboarding) |
 
-> **Note:** These are convenience navigation affordances within the onboarding form, not required onboarding steps. Payment Gateway configuration is a post-onboarding Settings concern (see [[adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed|Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed]] ADR). The gateway link appears in the completion step as a suggested next action.
+> **Note:** These are convenience navigation affordances within the onboarding form, not required onboarding steps. Payment Gateway configuration is a post-onboarding Settings concern (see [[[default:adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed|Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed.md) ADR). The gateway link appears in the completion step as a suggested next action.
 
 **Navigation behaviour:**
 - Clicking the button opens the Settings form with the relevant tab active
@@ -306,15 +307,15 @@ business_profile:
 
 - **Before completion:** Owner can re-enter onboarding at any time; form state is preserved
 - **After completion:** Owner can still return to onboarding to review or change credentials
-- **System Currency:** Cannot be changed after the first transaction; any exception requires Mybizz support **[[adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]]**
-- **Legal Acknowledgement:** Recorded once, cannot be reversed **[[adr-onboarding-finality|Onboarding Finality]]**
-- **Payment Gateway:** Can be changed under approved platform rules **[[adr-payment-gateway-mutability|Payment Gateway Mutability]]**
+- **System Currency:** Cannot be changed after the first transaction; any exception requires Mybizz support **[[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md)**
+- **Legal Acknowledgement:** Recorded once, cannot be reversed **[[[default:adr-global/adr-onboarding-finality|Onboarding Finality]]](C:/dev/project-library-global/adr-global/adr-onboarding-finality.md)**
+- **Payment Gateway:** Can be changed under approved platform rules **[[[default:adr-global/adr-payment-gateway-mutability|Payment Gateway Mutability]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-mutability.md)**
 
 ---
 
 ## 7. Data Table Changes Required
 
-> **Note:** All table and field names match `authoritative-schema.md` (mb-3-cs project library). `business_profile` (with underscore) is used throughout. **[[adr-onboarding-data-schema-alignment|Onboarding Data Schema Alignment]]**
+> **Note:** All table and field names match `authoritative-schema.md` (mb-3-cs project library). `business_profile` (with underscore) is used throughout. **[[[default:adr-global/adr-onboarding-data-schema-alignment|Onboarding Data Schema Alignment]]](C:/dev/project-library-global/adr-global/adr-onboarding-data-schema-alignment.md)**
 
 ### 7.1 business_profile Table Additions
 
@@ -416,22 +417,22 @@ Post-Onboarding (accessible at any time)
 
 | ADR File | Title | Relevance |
 |----------|-------|-----------|
-| [[adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]] | System Currency Selection and Immutability | Currency selected in onboarding, immutable after first transaction |
-| [[adr-onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]] | Onboarding vs Settings Boundary | Onboarding is a separate form; Settings is the single configuration surface |
-| [[adr-legal-policy-responsibility-acknowledgement-and-clause-builder-architecture|Legal Policy Responsibility Acknowledgement and Clause-Builder Architecture]] | Legal Policy Responsibility Acknowledgement | Legal acknowledgement logged in Mybizz_management |
-| [[adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed|Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed]] | Payment Gateway Configuration Is Settings | Gateway configured in Settings, not onboarding |
-| [[adr-onboarding-data-schema-alignment|Onboarding Data Schema Alignment]] | Onboarding Data Schema Alignment | All field names match authoritative-schema.md |
-| [[adr-client-data-management-rights-and-mybizz-retention-boundary|Client Data Management Rights and Mybizz Retention Boundary]] | Client Data Management Rights | Owner may remove details from Client Details Table, not Retained Records Table |
-| [[adr-tiers-model|Tiers Model]] | Tiers Model | Tiers (Free Trial, Launch, Pioneer, Business) are pricing constructs |
-| [[adr-onboarding-resumability|Onboarding Resumability]] | Onboarding Resumability | Progress preserved, can leave and return |
-| [[adr-payment-gateway-mutability|Payment Gateway Mutability]] | Payment Gateway Mutability | Gateway can change under approved rules |
-| [[adr-onboarding-finality|Onboarding Finality]] | Onboarding Finality | Onboarding is resumable; credential changes are append-only |
+| [[[default:adr-global/adr-system-currency-selection-and-immutability\|System Currency Selection and Immutability]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md) | System Currency Selection and Immutability | Currency selected in onboarding, immutable after first transaction |
+| [[[default:adr-global/adr-onboarding-vs-settings-boundary\|Onboarding vs Settings Boundary]]](C:/dev/project-library-global/adr-global/adr-onboarding-vs-settings-boundary.md) | Onboarding vs Settings Boundary | Onboarding is a separate form; Settings is the single configuration surface |
+| [[[default:adr-global/adr-legal-policy-responsibility-acknowledgement-and-clause-builder-architecture\|Legal Policy Responsibility Acknowledgement and Clause-Builder Architecture]]](C:/dev/project-library-global/adr-global/adr-legal-policy-responsibility-acknowledgement-and-clause-builder-architecture.md) | Legal Policy Responsibility Acknowledgement | Legal acknowledgement logged in Mybizz_management |
+| [[[default:adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed\|Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed.md) | Payment Gateway Configuration Is Settings | Gateway configured in Settings, not onboarding |
+| [[[default:adr-global/adr-onboarding-data-schema-alignment\|Onboarding Data Schema Alignment]]](C:/dev/project-library-global/adr-global/adr-onboarding-data-schema-alignment.md) | Onboarding Data Schema Alignment | All field names match authoritative-schema.md |
+| [[[default:adr-global/adr-client-data-management-rights-and-mybizz-retention-boundary\|Client Data Management Rights and Mybizz Retention Boundary]]](C:/dev/project-library-global/adr-global/adr-client-data-management-rights-and-mybizz-retention-boundary.md) | Client Data Management Rights | Owner may remove details from Client Details Table, not Retained Records Table |
+| [[[default:adr-global/adr-tiers-model\|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md) | Tiers Model | Tiers (Free Trial, Launch, Pioneer, Business) are pricing constructs |
+| [[[default:adr-global/adr-onboarding-resumability\|Onboarding Resumability]]](C:/dev/project-library-global/adr-global/adr-onboarding-resumability.md) | Onboarding Resumability | Progress preserved, can leave and return |
+| [[[default:adr-global/adr-payment-gateway-mutability\|Payment Gateway Mutability]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-mutability.md) | Payment Gateway Mutability | Gateway can change under approved rules |
+| [[[default:adr-global/adr-onboarding-finality\|Onboarding Finality]]](C:/dev/project-library-global/adr-global/adr-onboarding-finality.md) | Onboarding Finality | Onboarding is resumable; credential changes are append-only |
 
 ---
 
 ## 11. Tier and Setup Support Model
 
-- **Tiers** (Free Trial, Launch, Pioneer, Business) differ by price and feature access; they do not alter the onboarding flow. **[[adr-tiers-model|Tiers Model]]**
+- **Tiers** (Free Trial, Launch, Pioneer, Business) differ by price and feature access; they do not alter the onboarding flow. **[[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md)**
 - **Setup support** is a separate operational offering:
   - All tiers include a 30-minute interactive setup session with Mybizz
   - A $100 DFY (Done For You) setup option is available; this is an operational service, not a different software onboarding flow
@@ -470,7 +471,7 @@ This plan defines an updated, implementation-ready onboarding system for Mybizz 
 4. **Supports credential changes** — Owner may return to onboarding to change any credential at any time
 5. **Uses append-only logging** — Mybizz_management amendment log never overwrites
 6. **Respects client data rights** — Owner may remove details from Client Details Table, but not from Retained Records Table
-7. **Uses authoritative schema names** — `business_profile` (with underscore), aligned with [[adr-onboarding-data-schema-alignment|Onboarding Data Schema Alignment]]
+7. **Uses authoritative schema names** — `business_profile` (with underscore), aligned with [[[default:adr-global/adr-onboarding-data-schema-alignment|Onboarding Data Schema Alignment]]](C:/dev/project-library-global/adr-global/adr-onboarding-data-schema-alignment.md)
 
 **The canonical V1 onboarding flow is:**
 - Mybizz provisions instance shell and Owner account (no currency or gateway pre-set)

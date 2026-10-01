@@ -1,6 +1,7 @@
 ---
 title: "adr-navigation-lambda-link-open-form"
 doc-id: "mb-88483403"
+updated: "2026-10-01"
 ---
 # Navigation Standard: Lambda/Link/open_form
 
@@ -12,9 +13,9 @@ doc-id: "mb-88483403"
 
 ## Context
 
-The Mybizz applications use layout shells for authenticated navigation. This ADR established the navigation pattern. Since then, the [[adr-htmltemplate-use|HTMLTemplate Use]] ADR has banned `HTMLTemplate` and mandated native M3 Layouts (`NavigationRailLayout`, `NavigationDrawerLayout`) for all layout-shell cases.
+The Mybizz applications use layout shells for authenticated navigation. This ADR established the navigation pattern. Since then, the [[[default:adr-global/adr-htmltemplate-use|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) ADR has banned `HTMLTemplate` and mandated native M3 Layouts (`NavigationRailLayout`, `NavigationDrawerLayout`) for all layout-shell cases.
 
-This ADR remains authoritative for the **navigation pattern** (lambda click handlers, Link components, open_form). The **layout shell decision** (custom HtmlTemplate vs native M3 Layouts) is governed by the [[adr-htmltemplate-use|HTMLTemplate Use]] ADR.
+This ADR remains authoritative for the **navigation pattern** (lambda click handlers, Link components, open_form). The **layout shell decision** (custom HtmlTemplate vs native M3 Layouts) is governed by the [[[default:adr-global/adr-htmltemplate-use|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) ADR.
 
 ---
 
@@ -44,14 +45,14 @@ open_form('BookingViewerForm', booking_id=row['booking_id'])
 **`NavigationLink` is not used for sidebar navigation.** The `nav_` prefix in component naming
 refers to Link components styled for sidebar use — not NavigationLink components.
 
-### Superseded by [[adr-htmltemplate-use|HTMLTemplate Use]] ADR
+### Superseded by [[[default:adr-global/adr-htmltemplate-use|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) ADR
 
 The following parts of the original decision are superseded:
 
 | Original decision | Superseded by |
 |---|---|
-| Custom `HtmlTemplate` layouts for layout shells | [[adr-htmltemplate-use|HTMLTemplate Use]] ADR — HTMLTemplate banned, native M3 Layouts required |
-| `NavigationDrawerLayoutTemplate` is not used | [[adr-htmltemplate-use|HTMLTemplate Use]] ADR — NavigationRailLayout/NavigationDrawerLayout are now standard |
+| Custom `HtmlTemplate` layouts for layout shells | [[[default:adr-global/adr-htmltemplate-use\|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) ADR — HTMLTemplate banned, native M3 Layouts required |
+| `NavigationDrawerLayoutTemplate` is not used | [[[default:adr-global/adr-htmltemplate-use\|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) ADR — NavigationRailLayout/NavigationDrawerLayout are now standard |
 
 The lambda/Link/open_form navigation pattern remains unchanged and binding.
 
@@ -76,7 +77,7 @@ correctly applied. Do not blindly reapply — verify first, then correct only wh
 
 ---
 
-*Navigation Standard v2.0 — Layout shell decision superseded by [[adr-htmltemplate-use|HTMLTemplate Use]] ADR. Navigation pattern (lambda/Link/open_form) unchanged and binding.*
+*Navigation Standard v2.0 — Layout shell decision superseded by [[[default:adr-global/adr-htmltemplate-use|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) ADR. Navigation pattern (lambda/Link/open_form) unchanged and binding.*
 
 ## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
 

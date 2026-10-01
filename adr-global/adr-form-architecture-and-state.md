@@ -1,18 +1,19 @@
 ---
 title: "adr-form-architecture-and-state"
 doc-id: "mb-4549f271"
+updated: "2026-10-01"
 ---
 # `form-architecture-and-state` ADR — Form Architecture and State Management
 
 **Status:** Approved  
 **Date:** 2026-06-14  
-**Authority:** Derived from the retired platform-overview.md, [[adr-navigation-lambda-link-open-form|Navigation Lambda/Link/open_form]] ADR, [[adr-client-instance-architecture|Client Instance Architecture]] ADR, [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR
+**Authority:** Derived from the retired platform-overview.md, [[[default:adr-global/adr-navigation-lambda-link-open-form|Navigation Lambda/Link/open_form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md) ADR, [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) ADR, [[[default:adr-global/adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) ADR
 
 ---
 
 ## Context
 
-The Mybizz CS admin and customer portal uses Anvil's form-based UI model. Navigation uses lambda click handlers with `open_form()` ([[adr-navigation-lambda-link-open-form|Navigation Lambda/Link/open_form]] ADR). Each `open_form()` call instantiates a fresh form — state does not carry across automatically.
+The Mybizz CS admin and customer portal uses Anvil's form-based UI model. Navigation uses lambda click handlers with `open_form()` ([[[default:adr-global/adr-navigation-lambda-link-open-form|Navigation Lambda/Link/open_form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md) ADR). Each `open_form()` call instantiates a fresh form — state does not carry across automatically.
 
 Three problems must be solved:
 
@@ -97,7 +98,7 @@ The booking flow has 6+ steps, each potentially requiring a server call. To avoi
 |---|---|
 | Single form with toggle visibility | Form becomes bloated; hard to maintain |
 | Multiple open_form() calls | Layout re-renders on every navigation; state loss |
-| NavigationDrawerLayoutTemplate | M3 native component; not compatible with custom layout approach ([[adr-navigation-lambda-link-open-form|Navigation Lambda/Link/open_form]] ADR) |
+| NavigationDrawerLayoutTemplate | M3 native component; not compatible with custom layout approach ([[[default:adr-global/adr-navigation-lambda-link-open-form\|Navigation Lambda/Link/open_form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md) ADR) |
 
 ### State Management Alternatives
 
@@ -125,10 +126,10 @@ The booking flow has 6+ steps, each potentially requiring a server call. To avoi
 
 | Document | Relationship |
 |---|---|
-| [[adr-navigation-lambda-link-open-form|Navigation Lambda/Link/open_form]] | Navigation pattern that form architecture builds on |
-| [[adr-client-instance-architecture|Client Instance Architecture]] | Forms live in client instances; server calls resolve to master_template |
-| [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] | Server call latency constraint driving batch design |
-| [[adr-data-access-patterns|Data Access Patterns and Query Limitations]] | Data access patterns used in form data loading |
+| [[[default:adr-global/adr-navigation-lambda-link-open-form\|Navigation Lambda/Link/open_form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md) | Navigation pattern that form architecture builds on |
+| [[[default:adr-global/adr-client-instance-architecture\|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) | Forms live in client instances; server calls resolve to master_template |
+| [[[default:adr-global/adr-anvil-platform-constraints\|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) | Server call latency constraint driving batch design |
+| [[[default:adr-global/adr-data-access-patterns\|Data Access Patterns and Query Limitations]]](C:/dev/project-library-global/adr-global/adr-data-access-patterns.md) | Data access patterns used in form data loading |
 | `[[architecture]]` | Section 5: Three-Tier Module Pattern; Section 6: Navigation Architecture |
 | `user-flows.md` (mb-3-cs project library) | §2: Services Appointment Booking; §3: Admin Daily Operations |
 

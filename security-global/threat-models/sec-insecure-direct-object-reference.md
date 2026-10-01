@@ -1,6 +1,7 @@
 ---
 title: "sec-insecure-direct-object-reference"
 doc-id: "mb-841c6c1f"
+updated: "2026-10-01"
 ---
 # Threat Model — Insecure Direct Object Reference
 
@@ -8,7 +9,7 @@ doc-id: "mb-841c6c1f"
 
 ## Applicable Threat
 
-An invoice, generated per the [[adr-pdf-invoice-generation|PDF Invoice Generation]] ADR, or any uploaded file, is reachable via a predictable or sequential identifier, letting a user access another user's specific document by changing an ID in a URL or request, without going through any search function's own filtering.
+An invoice, generated per the [[[default:adr-global/adr-pdf-invoice-generation|PDF Invoice Generation]]](C:/dev/project-library-global/adr-global/adr-pdf-invoice-generation.md) ADR, or any uploaded file, is reachable via a predictable or sequential identifier, letting a user access another user's specific document by changing an ID in a URL or request, without going through any search function's own filtering.
 
 ## Security Requirement
 
@@ -46,7 +47,7 @@ For each get-by-ID function, log in as a user with no relationship to a specific
 
 ## Authoritative Sources
 
-- [[adr-pdf-invoice-generation|PDF Invoice Generation]] ADR (referenced; specific document not yet reviewed directly)
+- [[[default:adr-global/adr-pdf-invoice-generation|PDF Invoice Generation]]](C:/dev/project-library-global/adr-global/adr-pdf-invoice-generation.md) ADR (referenced; specific document not yet reviewed directly)
 - `[[sec-broken-access-control-within-instance]]`
 
 ## Known Exceptions

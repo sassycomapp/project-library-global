@@ -1,6 +1,7 @@
 ---
 title: "adr-onboarding-finality"
 doc-id: "mb-e9266696"
+updated: "2026-10-01"
 ---
 # Onboarding Finality
 Date: 2026-05-31
@@ -56,7 +57,7 @@ The question arose of what happens after onboarding is completed, whether the Ow
    - Changes made in the client instance are synced to Mybizz_management via server functions
 
 5. **System Currency exception:**
-   - System Currency is immutable after the first transaction (per [[adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]])
+   - System Currency is immutable after the first transaction (per [[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md))
    - This is the only field that cannot be changed after a specific event
    - All other credentials remain changeable at any time
 
@@ -85,11 +86,11 @@ The question arose of what happens after onboarding is completed, whether the Ow
 
 ## Related Documents
 
-- [[adr-onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]] — Settings as the single configuration surface
-- [[adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]] — Currency immutability after first transaction
-- [[adr-payment-gateway-mutability|Payment Gateway Mutability]] — Gateway change rules
-- [[adr-onboarding-resumability|Onboarding Resumability]] — Progress preservation during onboarding
-- [[spec-onboarding-implementation-plan|Mybizz CS Onboarding System - Engineering Plan]] — Settings-based onboarding implementation
+- [[[default:adr-global/adr-onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]]](C:/dev/project-library-global/adr-global/adr-onboarding-vs-settings-boundary.md) — Settings as the single configuration surface
+- [[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md) — Currency immutability after first transaction
+- [[[default:adr-global/adr-payment-gateway-mutability|Payment Gateway Mutability]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-mutability.md) — Gateway change rules
+- [[[default:adr-global/adr-onboarding-resumability|Onboarding Resumability]]](C:/dev/project-library-global/adr-global/adr-onboarding-resumability.md) — Progress preservation during onboarding
+- [[[default:specifications-global/spec-onboarding-implementation-plan|Mybizz CS Onboarding System - Engineering Plan]]](C:/dev/project-library-global/specifications-global/spec-onboarding-implementation-plan.md) — Settings-based onboarding implementation
 - `docs/the retired platform-overview.md` (retired) — Mybizz_management data architecture intention
 
 ---

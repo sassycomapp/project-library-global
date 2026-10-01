@@ -1,10 +1,11 @@
 ---
 title: "spec-client-activation-runbook"
 doc-id: "mb-b575e9fd"
+updated: "2026-10-01"
 ---
 # Client Instance Activation Runbook
 
-**Authority:** [[adr-client-instance-architecture|Client Instance Architecture]] ADR, [[adr-dependency-update-model|Dependency Update Model]] ADR, the `blank-client-template` ADR (mb-3-cs project library), [[adr-mybizz-management-visibility|Mybizz Management Visibility]] ADR  
+**Authority:** [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) ADR, [[[default:adr-global/adr-dependency-update-model|Dependency Update Model]]](C:/dev/project-library-global/adr-global/adr-dependency-update-model.md) ADR, the `blank-client-template` ADR (mb-3-cs project library), [[[default:adr-global/adr-mybizz-management-visibility|Mybizz Management Visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md) ADR  
 **Version:** 1.1 — 2026-06-13 (updated following Test B — startup module and form architecture confirmed)  
 **Applies to:** Every new client onboarding. No exceptions. Complete all steps in order.
 
@@ -44,7 +45,7 @@ In the new client instance, set the following in Anvil Secrets (IDE only):
 
 - [ ] `encryption_key` — generate a new Fernet symmetric key; do not reuse from any other instance
 
-> ⚠️ This is the only item that ever goes in Anvil Secrets. See [[adr-payment-security-boundary-vault|Payment Security Boundary Vault]] ADR and vault-system.md.
+> ⚠️ This is the only item that ever goes in Anvil Secrets. See [[[default:adr-global/adr-payment-security-boundary-vault|Payment Security Boundary Vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) ADR and vault-system.md.
 
 ### Step 3 — Configure Domain
 
@@ -106,7 +107,7 @@ In the client instance:
 2. Assign the `Owner` role
 3. Confirm only one Owner account exists in the instance
 
-> The Owner role is the only role with access to the Vault and Settings. See [[spec-vault-system|Mybizz — The Vault System]].
+> The Owner role is the only role with access to the Vault and Settings. See [[[default:specifications-global/spec-vault-system|Mybizz — The Vault System]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md).
 
 ---
 

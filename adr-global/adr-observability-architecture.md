@@ -1,12 +1,13 @@
 ---
 title: "adr-observability-architecture"
 doc-id: "mb-d5da852f"
+updated: "2026-10-01"
 ---
 # `observability-architecture` ADR — Observability Architecture
 
 **Status:** Confirmed  
 **Date:** 2026-06-13  
-**Authority:** Derived from the retired platform-overview.md, [[adr-mybizz-management-visibility|Mybizz Management Visibility]] ADR, Anvil monitoring feature analysis
+**Authority:** Derived from the retired platform-overview.md, [[[default:adr-global/adr-mybizz-management-visibility|Mybizz Management Visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md) ADR, Anvil monitoring feature analysis
 
 ---
 
@@ -46,13 +47,13 @@ Master_template includes server-side logic that writes key events and metrics to
 | Health heartbeat | Scheduled background task | `health_log` table |
 | Background task completion/failure | On task end | `audit_log` table |
 | Payment event | On payment success/failure | `audit_log` table |
-| Vault access | On every Vault open | `audit_log` table (existing, [[adr-payment-security-boundary-vault|Payment Security Boundary Vault]] ADR) |
+| Vault access | On every Vault open | `audit_log` table (existing, [[[default:adr-global/adr-payment-security-boundary-vault\|Payment Security Boundary Vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) ADR) |
 | Error threshold exceeded | On unhandled exception | `error_log` table |
 | Session activity | On user login/logout | `audit_log` table |
 
 ### What Mybizz_management Displays
 
-Mybizz_management queries client instances via HTTP endpoints (see [[adr-mybizz-management-visibility|Mybizz Management Visibility]] ADR) and presents:
+Mybizz_management queries client instances via HTTP endpoints (see [[[default:adr-global/adr-mybizz-management-visibility|Mybizz Management Visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md) ADR) and presents:
 
 - Last active timestamp per client
 - Background task health (last run, success/failure)
@@ -102,8 +103,8 @@ Anvil's built-in observability tools are not replaced — they are complementary
 
 | Document | Relationship |
 |---|---|
-| [[adr-payment-security-boundary-vault|Payment Security Boundary Vault]] | Audit log pattern (existing) extended by this ADR |
-| [[adr-mybizz-management-visibility|Mybizz Management Visibility]] | HTTP endpoint mechanism by which management queries client metrics |
+| [[[default:adr-global/adr-payment-security-boundary-vault\|Payment Security Boundary Vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) | Audit log pattern (existing) extended by this ADR |
+| [[[default:adr-global/adr-mybizz-management-visibility\|Mybizz Management Visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md) | HTTP endpoint mechanism by which management queries client metrics |
 
 ---
 

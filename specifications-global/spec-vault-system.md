@@ -1,14 +1,15 @@
 ---
 title: "spec-vault-system"
 doc-id: "mb-4960a0bb"
+updated: "2026-10-01"
 ---
 # Mybizz — The Vault System
 
 **Scope:** Mybizz-wide. This is the single authoritative document on the Vault system — its architecture, pattern, enforcement rules, and implementation. All other documents reference this one; none duplicate or restate its content.
 
-**Authority:** [[adr-payment-security-boundary-vault|Payment Security Boundary Vault]] ADR ([[adr-payment-security-boundary-vault|Payment Security Boundary: Secret Keys Deferred to the Vault]])
+**Authority:** [[[default:adr-global/adr-payment-security-boundary-vault|Payment Security Boundary Vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) ADR ([[[default:adr-global/adr-payment-security-boundary-vault|Payment Security Boundary: Secret Keys Deferred to the Vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md))
 
-**Source:** Consolidated from [[spec-security|Security Specification]] (the generic security pattern) and the original `docs/vault-system.md` (the CS-specific implementation), merged into one authoritative document.
+**Source:** Consolidated from [[[default:specifications-global/spec-security|Security Specification]]](C:/dev/project-library-global/specifications-global/spec-security.md) (the generic security pattern) and the original `docs/vault-system.md` (the CS-specific implementation), merged into one authoritative document.
 
 ---
 
@@ -99,25 +100,25 @@ If the Owner loses their TOTP device, the following recovery path applies:
 - Only Mybizz_management can reset TOTP — no self-service recovery
 - The reset event is permanently logged for audit
 
-**Source:** [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] ADR, CEO review 2026-06-15 Section 3
+**Source:** [[[default:adr-global/adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) ADR, CEO review 2026-06-15 Section 3
 
 ## Related Documents
 
 | Document | Relationship |
 |---|---|
-| [[adr-payment-security-boundary-vault|Payment Security Boundary Vault]] | Architectural decision — accepted 2026-03-15 |
-| [[adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]] | Anvil secrets limits, Vault TOTP recovery |
-| [[adr-brevo-replaces-zoho-email|Brevo Replaces All Zoho Products]] | Vault credentials for Brevo |
-| [[adr-observability-architecture|Observability Architecture]] | Vault access audit logging |
-| [[adr-mybizz-management-visibility|Mybizz Management Visibility]] | Vault access event forwarding |
-| [[spec-security-architecture|Security Architecture Specification]] | RBAC role limits, token security, regulatory posture |
+| [[[default:adr-global/adr-payment-security-boundary-vault\|Payment Security Boundary Vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) | Architectural decision — accepted 2026-03-15 |
+| [[[default:adr-global/adr-anvil-platform-constraints\|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) | Anvil secrets limits, Vault TOTP recovery |
+| [[[default:adr-global/adr-brevo-replaces-zoho-email\|Brevo Replaces All Zoho Products]]](C:/dev/project-library-global/adr-global/adr-brevo-replaces-zoho-email.md) | Vault credentials for Brevo |
+| [[[default:adr-global/adr-observability-architecture\|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md) | Vault access audit logging |
+| [[[default:adr-global/adr-mybizz-management-visibility\|Mybizz Management Visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md) | Vault access event forwarding |
+| [[[default:specifications-global/spec-security-architecture\|Security Architecture Specification]]](C:/dev/project-library-global/specifications-global/spec-security-architecture.md) | RBAC role limits, token security, regulatory posture |
 | `docs/DESIGN.md` | VaultForm design specification |
 | `build-plan.md` (mb-3-cs project library) | Stage 1.5: The Vault |
 | `scaffold-spec.md` (mb-3-cs project library) | File/folder structure for vault components |
 | `authoritative-schema.md` (mb-3-cs project library) | `vault` Data Table schema |
-| [[spec-testing|Testing Specification]] | Vault test scenarios |
-| [[spec-client-activation-runbook|Client Activation Runbook]] | Client provisioning — Vault setup steps |
+| [[[default:specifications-global/spec-testing\|Testing Specification]]](C:/dev/project-library-global/specifications-global/spec-testing.md) | Vault test scenarios |
+| [[[default:specifications-global/spec-client-activation-runbook\|Client Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) | Client provisioning — Vault setup steps |
 
 ---
 
-*[[spec-vault-system|Vault System Specification]] v3.0 — consolidated from spec-security.md (generic pattern) and vault-system.md (CS implementation) into the single authoritative Vault document.*
+*[[[default:specifications-global/spec-vault-system|Vault System Specification]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md) v3.0 — consolidated from spec-security.md (generic pattern) and vault-system.md (CS implementation) into the single authoritative Vault document.*

@@ -1,12 +1,13 @@
 ---
 title: "adr-mybizz-management-visibility"
 doc-id: "mb-1962f48d"
+updated: "2026-10-01"
 ---
 # `mybizz-management-visibility` ADR — Mybizz_management Visibility and Control
 
 **Status:** Confirmed  
 **Date:** 2026-06-13  
-**Authority:** Derived from the retired platform-overview.md, [[adr-observability-architecture|Observability Architecture]] ADR
+**Authority:** Derived from the retired platform-overview.md, [[[default:adr-global/adr-observability-architecture|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md) ADR
 
 ---
 
@@ -89,7 +90,7 @@ Mybizz_management runs a scheduled background task that periodically calls each 
 | Mybizz → Client | Per-client Bearer token (unique per instance) | Mybizz_management client registry (encrypted) |
 | Client → Mybizz | Shared event push token | Each client instance Vault |
 
-Per-client tokens ensure that compromise of one client instance does not affect any other. Token generation is part of the client activation process (see [[spec-client-activation-runbook|Client Instance Activation Runbook]]).
+Per-client tokens ensure that compromise of one client instance does not affect any other. Token generation is part of the client activation process (see [[[default:specifications-global/spec-client-activation-runbook|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md)).
 
 ---
 
@@ -159,9 +160,9 @@ The following steps are added to the provisioning process:
 
 | Document | Relationship |
 |---|---|
-| [[adr-observability-architecture|Observability Architecture]] | Defines what metrics are written and queried |
-| [[adr-client-instance-architecture|Client Instance Architecture]] | Confirms server modules (including management endpoints) live in master_template |
-| [[spec-client-activation-runbook|Client Instance Activation Runbook]] | Token generation and registry steps |
+| [[[default:adr-global/adr-observability-architecture\|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md) | Defines what metrics are written and queried |
+| [[[default:adr-global/adr-client-instance-architecture\|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) | Confirms server modules (including management endpoints) live in master_template |
+| [[[default:specifications-global/spec-client-activation-runbook\|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) | Token generation and registry steps |
 
 ---
 

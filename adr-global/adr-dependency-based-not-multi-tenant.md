@@ -1,12 +1,13 @@
 ---
 title: "adr-dependency-based-not-multi-tenant"
 doc-id: "mb-e66b2305"
+updated: "2026-10-01"
 ---
 # `dependency-based-not-multi-tenant` ADR — Mybizz CS is a Dependency-Based Architecture, Not a Multi-Tenant Architecture
 
 **Status:** Confirmed — Sealed  
 **Date:** 2026-06-13  
-**Authority:** Derived from [[adr-client-instance-architecture|Client Instance Architecture]] ADR, [[adr-dependency-update-model|Dependency Update Model]] ADR, the `blank-client-template` ADR (mb-3-cs project library), live testing 2026-06-13  
+**Authority:** Derived from [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) ADR, [[[default:adr-global/adr-dependency-update-model|Dependency Update Model]]](C:/dev/project-library-global/adr-global/adr-dependency-update-model.md) ADR, the `blank-client-template` ADR (mb-3-cs project library), live testing 2026-06-13  
 **Audience:** All developers and AI coding assistants working on this codebase
 
 ---
@@ -262,8 +263,8 @@ If you find an existing function that includes a `client_id`, `tenant_id`, or eq
 
 | Document | Relationship |
 |---|---|
-| [[adr-client-instance-architecture|Client Instance Architecture]] | Defines client instance structure and app_tables test |
-| [[adr-dependency-update-model|Dependency Update Model]] | How master_template updates reach all client instances |
+| [[[default:adr-global/adr-client-instance-architecture\|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) | Defines client instance structure and app_tables test |
+| [[[default:adr-global/adr-dependency-update-model\|Dependency Update Model]]](C:/dev/project-library-global/adr-global/adr-dependency-update-model.md) | How master_template updates reach all client instances |
 | `blank-client-template.md` (mb-3-cs project library) | Provisioning — how client instances are created |
 | `HANDOVER-opencode-2026-06-13.md` | Technical handover for OpenCode |
 

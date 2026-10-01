@@ -1,21 +1,22 @@
 ---
 title: "spec-security-architecture"
 doc-id: "mb-9112b5a3"
+updated: "2026-10-01"
 ---
 # Mybizz — Security & Secrets Architecture
 
-**Related ADRs:** [[adr-payment-security-boundary-vault|Payment Security Boundary Vault]] (Vault), [[adr-client-instance-architecture|Client Instance Architecture]], [[adr-mybizz-management-visibility|Mybizz Management Visibility]]
+**Related ADRs:** [[[default:adr-global/adr-payment-security-boundary-vault|Payment Security Boundary Vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) (Vault), [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md), [[[default:adr-global/adr-mybizz-management-visibility|Mybizz Management Visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md)
 
 **Note:** Reusable security patterns (the two-level secrets model, secret enforcement/masking,
-RBAC/data access pattern, rate limiting) live in [[spec-security|Security Specification]]. The
+RBAC/data access pattern, rate limiting) live in [[[default:specifications-global/spec-security|Security Specification]]](C:/dev/project-library-global/specifications-global/spec-security.md). The
 regulatory baseline (POPIA, GDPR, PCI DSS, standard retention periods) is Mybizz-wide — see
-[[spec-regulatory-compliance-baseline|Regulatory Compliance Baseline]]. This document contains the Mybizz-wide security architecture and token model that applies to every application.
+[[[default:specifications-global/spec-regulatory-compliance-baseline|Regulatory Compliance Baseline]]](C:/dev/project-library-global/specifications-global/spec-regulatory-compliance-baseline.md). This document contains the Mybizz-wide security architecture and token model that applies to every application.
 
 ---
 
 ## 1. RBAC — Role Limits
 
-Five roles, per the standard RBAC pattern (see [[spec-security|Security Specification]]). The standard per-instance limits that apply to all Mybizz applications:
+Five roles, per the standard RBAC pattern (see [[[default:specifications-global/spec-security|Security Specification]]](C:/dev/project-library-global/specifications-global/spec-security.md)). The standard per-instance limits that apply to all Mybizz applications:
 
 | Role | Access | Instance Limit |
 |---|---|---|
@@ -25,7 +26,7 @@ Five roles, per the standard RBAC pattern (see [[spec-security|Security Specific
 | Staff | Own calendar and bookings only | 0–20 per instance |
 | Customer | Own bookings, invoices, account in the customer portal | Unlimited |
 
-## 2. Mybizz_management Token Security (per [[adr-mybizz-management-visibility|Mybizz_management Visibility and Control]] ADR)
+## 2. Mybizz_management Token Security (per [[[default:adr-global/adr-mybizz-management-visibility|Mybizz_management Visibility and Control]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md) ADR)
 
 Mybizz_management communicates with client instances via bidirectional HTTP endpoints secured
 with per-client Bearer tokens. This is the standard Mybizz service-to-service authentication
@@ -52,7 +53,7 @@ service-to-service auth" idea, which isn't specific enough to be worth extractin
 
 ### Token Lifecycle
 
-- **Generation:** unique token generated at provisioning (see [[spec-client-activation-runbook|Client Activation Runbook]] in
+- **Generation:** unique token generated at provisioning (see [[[default:specifications-global/spec-client-activation-runbook|Client Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) in
   `specifications/`).
 - **Storage:** stored in both the Mybizz_management registry (encrypted) and the client
   instance's own config.
@@ -63,7 +64,7 @@ service-to-service auth" idea, which isn't specific enough to be worth extractin
 ## 3. Regulatory Compliance
 
 The regulatory baseline (POPIA, GDPR, PCI DSS, standard retention periods) is Mybizz-wide — see
-[[spec-regulatory-compliance-baseline|Regulatory Compliance Baseline]]. The standard applicability:
+[[[default:specifications-global/spec-regulatory-compliance-baseline|Regulatory Compliance Baseline]]](C:/dev/project-library-global/specifications-global/spec-regulatory-compliance-baseline.md). The standard applicability:
 
 - **PCI DSS applies** — Mybizz processes payments via Stripe and Paystack, placing
   it in SAQ A scope per the Mybizz-wide standard.
@@ -73,4 +74,4 @@ The regulatory baseline (POPIA, GDPR, PCI DSS, standard retention periods) is My
 
 ---
 
-*Security & Secrets Architecture v3.1 — Elevated from app-specific to Mybizz-wide. Multi-tenant language corrected per [[adr-dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]] ADR. Regulatory content references [[spec-regulatory-compliance-baseline|Regulatory Compliance Baseline]].*
+*Security & Secrets Architecture v3.1 — Elevated from app-specific to Mybizz-wide. Multi-tenant language corrected per [[[default:adr-global/adr-dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]]](C:/dev/project-library-global/adr-global/adr-dependency-based-not-multi-tenant.md) ADR. Regulatory content references [[[default:specifications-global/spec-regulatory-compliance-baseline|Regulatory Compliance Baseline]]](C:/dev/project-library-global/specifications-global/spec-regulatory-compliance-baseline.md).*

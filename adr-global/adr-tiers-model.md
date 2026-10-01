@@ -1,6 +1,7 @@
 ---
 title: "adr-tiers-model"
 doc-id: "mb-beb7c182"
+updated: "2026-10-01"
 ---
 # Tiers Model
 Date: 2026-05-29
@@ -96,7 +97,7 @@ These are pricing/business-model constructs. They are separate from setup-servic
 
 - `docs/the retired platform-overview.md` (retired) — Current tier framing
 - `[[positioning-strategy]]` — Pricing and business model
-- [[spec-onboarding-implementation-plan|Mybizz CS Onboarding System - Engineering Plan]] — Onboarding flow
+- [[[default:specifications-global/spec-onboarding-implementation-plan|Mybizz CS Onboarding System - Engineering Plan]]](C:/dev/project-library-global/specifications-global/spec-onboarding-implementation-plan.md) — Onboarding flow
 
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "anvil.email"
 doc-id: "mb-0db7e1ec"
+updated: "2026-10-01"
 ---
 ## `anvil.email` Module
 
@@ -169,6 +170,6 @@ Send an email
 
 -   `html` - The HTML content for this email. You must specify at least one of 'text' and 'html'.
 
--   [[attachments|Attachments]] - A list of Media objects to send as attachments with this email.
+-   [[[default:anvil-docs/server/email/attachments|Attachments]]](C:/dev/project-library-global/anvil-docs/server/email/attachments.md) - A list of Media objects to send as attachments with this email.
 
 -   `inline_attachments` - Inline that can be used in this email's HTML, for example in <img> tags. Must be a dictionary whose keys are IDs and values are Media objects. IDs can then be used in a message's HTML with 'cid:xxx' URIs.

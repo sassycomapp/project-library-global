@@ -1,13 +1,14 @@
 ---
 title: "spec-regulatory-compliance-baseline"
 doc-id: "mb-6f1553b6"
+updated: "2026-10-01"
 ---
 # Mybizz — Regulatory Compliance Baseline (Specification)
 
 **Scope:** Mybizz-wide. This posture applies because Mybizz-the-company is based in South Africa
 and operates a multi-tenant SaaS model — it does not depend on what any individual app does.
 App-specific facts (e.g., whether a given app actually processes payments, and therefore whether
-PCI DSS applies to it) are recorded in [[spec-security-architecture|Security Architecture Specification]], which
+PCI DSS applies to it) are recorded in [[[default:specifications-global/spec-security-architecture|Security Architecture Specification]]](C:/dev/project-library-global/specifications-global/spec-security-architecture.md), which
 should reference this baseline rather than restate it.
 
 ---

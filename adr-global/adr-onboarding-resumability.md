@@ -1,6 +1,7 @@
 ---
 title: "adr-onboarding-resumability"
 doc-id: "mb-46bfcbde"
+updated: "2026-10-01"
 ---
 # Onboarding Resumability
 Date: 2026-05-29
@@ -102,7 +103,7 @@ The onboarding flow captures substantial business information but may not suppor
 
 ## Related Documents
 
-- [[adr-onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]] — Onboarding scope definition
+- [[[default:adr-global/adr-onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]]](C:/dev/project-library-global/adr-global/adr-onboarding-vs-settings-boundary.md) — Onboarding scope definition
 - User experience documentation
 - Onboarding flow documentation
 

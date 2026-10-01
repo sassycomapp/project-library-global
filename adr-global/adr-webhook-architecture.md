@@ -1,12 +1,13 @@
 ---
 title: "adr-webhook-architecture"
 doc-id: "mb-d4254987"
+updated: "2026-10-01"
 ---
 # `webhook-architecture` ADR — Webhook Architecture
 
 **Status:** Approved  
 **Date:** 2026-06-14  
-**Authority:** Derived from the retired platform-overview.md, [[adr-real-time-and-background-tasks|Real-Time and Background Tasks]] ADR, integration-architecture.md
+**Authority:** Derived from the retired platform-overview.md, [[[default:adr-global/adr-real-time-and-background-tasks|Real-Time and Background Tasks]]](C:/dev/project-library-global/adr-global/adr-real-time-and-background-tasks.md) ADR, integration-architecture.md
 
 ---
 
@@ -251,10 +252,10 @@ This ensures webhooks are never silently lost due to dispatch failures.
 
 | Document | Relationship |
 |---|---|
-| [[adr-real-time-and-background-tasks|Real-Time and Background Tasks]] | Background task architecture and limits |
-| [[adr-mybizz-management-visibility|Mybizz Management Visibility]] | Error events pushed to Mybizz_management |
+| [[[default:adr-global/adr-real-time-and-background-tasks\|Real-Time and Background Tasks]]](C:/dev/project-library-global/adr-global/adr-real-time-and-background-tasks.md) | Background task architecture and limits |
+| [[[default:adr-global/adr-mybizz-management-visibility\|Mybizz Management Visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md) | Error events pushed to Mybizz_management |
 | `integration-architecture.md` (mb-3-cs project library) | Section 1: Payment Gateway Architecture; Section 3: Brevo CRM Integration |
-| [[spec-client-activation-runbook|Client Instance Activation Runbook]] | §4.9: Webhook URL registration during provisioning |
+| [[[default:specifications-global/spec-client-activation-runbook\|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) | §4.9: Webhook URL registration during provisioning |
 
 ---
 

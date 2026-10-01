@@ -1,6 +1,7 @@
 ---
 title: "adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed"
 doc-id: "mb-af193eb2"
+updated: "2026-10-01"
 ---
 # Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed
 Date: 2026-05-29
@@ -104,7 +105,7 @@ Payment gateway configuration could be placed in onboarding or settings, with un
 
 ## Related Documents
 
-- [[adr-onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]] — Onboarding vs settings boundary
+- [[[default:adr-global/adr-onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]]](C:/dev/project-library-global/adr-global/adr-onboarding-vs-settings-boundary.md) — Onboarding vs settings boundary
 - Security architecture documentation
 - RBAC implementation guidelines
 

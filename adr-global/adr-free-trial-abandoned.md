@@ -1,6 +1,7 @@
 ---
 title: "adr-free-trial-abandoned"
 doc-id: "mb-4d9be554"
+updated: "2026-10-01"
 ---
 # `free-trial-abandoned` ADR — 30-Day Free Trial Abandoned
 
@@ -62,7 +63,7 @@ All paying clients receive a properly provisioned instance on the Anvil Business
 
 | Document | Relationship |
 |---|---|
-| [[spec-client-activation-runbook|Client Instance Activation Runbook]] | Provisioning process applies to all clients from day one |
+| [[[default:specifications-global/spec-client-activation-runbook\|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) | Provisioning process applies to all clients from day one |
 
 ---
 
