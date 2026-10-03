@@ -1,7 +1,7 @@
 ---
 title: "anvil-docs-explainer"
 doc-id: "mb-37b917d4"
-updated: "2026-10-01"
+updated: "2026-10-03"
 ---
 # anvil-docs — Explainer
 
@@ -84,8 +84,8 @@ invisible to Windows Explorer, and a documentary corpus never executes code,
 so a symlink's only real value — letting running code share one file — has no
 purpose here; the *information* of the relationship is what matters. The same
 logic settled the wikilink question: cross-references stayed plain relative
-markdown links because the corpus's links span non-markdown source files the
-`mb-wikilinks` resolver cannot meaningfully cover, and a manually fixable plain
+markdown links because the corpus's links span non-markdown source files that
+a markdown-scoped link resolver cannot meaningfully cover, and a manually fixable plain
 link beats a resolver whose scope doesn't fit the corpus.
 
 ### Why the tests folder was kept

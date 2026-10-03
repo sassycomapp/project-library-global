@@ -1,7 +1,7 @@
 ---
 title: "adr-tiers-model"
 doc-id: "mb-beb7c182"
-updated: "2026-10-01"
+updated: "2026-10-03"
 ---
 # Tiers Model
 Date: 2026-05-29
@@ -101,7 +101,7 @@ These are pricing/business-model constructs. They are separate from setup-servic
 
 ---
 
-## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+## Old-material pointers (added 2026-09-20, developer instruction)
 
 Material referenced by this document but not present in the current corpus, with developer-provided locations:
 - platform-overview.md (the retired platform-overview) — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/platform_overview.md

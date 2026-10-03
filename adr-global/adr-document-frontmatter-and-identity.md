@@ -1,7 +1,7 @@
 ---
 title: "adr-document-frontmatter-and-identity"
 doc-id: "mb-f5f31745"
-updated: "2026-10-01"
+updated: "2026-10-03"
 ---
 # Document Frontmatter and Identity
 
@@ -16,7 +16,7 @@ Supersedes: [[[default:adr-global/adr-frontmatter-exemption-transient-files]]](C
 
 The earlier ADRs made a document's identity its filename: `doc-id` was the filename's own slug, and `tmp-`-prefixed files were exempt from frontmatter. That identity cannot survive the one event that matters most: when a document is renamed or moved, its name — its identity — changes, and every link by name breaks. Nothing could recognise the renamed file as the same document.
 
-The documentation skills those ADRs rely on — `mb-docs-manager`, `mb-align-docs`, `mb-wikilinks`, `mb-doccycle`, `mb-doc-maintainer`, `mb-doc-auditor` — no longer exist. One program, `mb-doc-check`, now runs at every commit in the eight documentation repositories listed in [[[mybizz-os-docs:os-reference-docs/repo-organization]]](C:/mybizz/mybizz-os-docs/os-reference-docs/repo-organization.md). It keeps frontmatter and links correct as the documents enter history.
+One program, `mb-doc-check` ([[[mybizz-config-docs:mb-doc-check/doc-check-explainer]]](C:/mybizz/mybizz-config-docs/mb-doc-check/doc-check-explainer.md)), runs at every commit in the eight documentation repositories listed in [[[mybizz-os-docs:os-reference-docs/repo-organization]]](C:/mybizz/mybizz-os-docs/os-reference-docs/repo-organization.md). It keeps frontmatter and links correct as the documents enter history.
 
 ---
 
@@ -45,7 +45,7 @@ The documentation skills those ADRs rely on — `mb-docs-manager`, `mb-align-doc
 ## Consequences
 
 - **[[[default:adr-global/adr-frontmatter-exemption-transient-files]]](C:/dev/project-library-global/adr-global/adr-frontmatter-exemption-transient-files.md) is superseded in part.** Its list of frontmatter fields (`doc-id`, `state`, `date-created`) is replaced by the three fields above. Its exemption of `tmp-` files stays in force and is restated in Decision item 6; the five `tmp-*.md` files in `templates-global` still carry no frontmatter and are not treated as needing a fix.
-- **[[[default:adr-global/adr-filename-and-frontmatter-numbering-policy]]](C:/dev/project-library-global/adr-global/adr-filename-and-frontmatter-numbering-policy.md) is superseded in part.** Its Decision item 2 ("`doc-id` is the filename's own slug") is replaced by Decision items 2 and 3 above. Its items 1 and 3, its standing exceptions and its rule that numbered files need an ADR to be introduced remain in force. Its Consequences that name `mb-docs-manager` and `mb-align-docs` are void, because those skills no longer exist. A sequence-numbered file in the live corpus is still an anomaly, but no tool flags it; `mb-doc-check` does not check filenames.
+- **[[[default:adr-global/adr-filename-and-frontmatter-numbering-policy]]](C:/dev/project-library-global/adr-global/adr-filename-and-frontmatter-numbering-policy.md) is superseded in part.** Its Decision item 2 ("`doc-id` is the filename's own slug") is replaced by Decision items 2 and 3 above. Its items 1 and 3, its standing exceptions and its rule that numbered files need an ADR to be introduced remain in force. Its documentation-skill Consequences are void. A sequence-numbered file in the live corpus is still an anomaly, but no tool flags it; `mb-doc-check` does not check filenames.
 - The rules a document must meet are stated in [[[mybizz-config-docs:gbrain/gbrain-doc-contract]]](C:/mybizz/mybizz-config-docs/gbrain/gbrain-doc-contract.md) and [[[mybizz-os-docs:os-reference-docs/frontmatter-conventions]]](C:/mybizz/mybizz-os-docs/os-reference-docs/frontmatter%20conventions.md), which carry the same three fields.
 - A commit made outside WSL, or with `--no-verify`, bypasses the hook and leaves a document without these fields until its next commit.
 

@@ -1,7 +1,7 @@
 ---
 title: "adr-filename-and-frontmatter-numbering-policy"
 doc-id: "mb-f880ccdb"
-updated: "2026-10-01"
+updated: "2026-10-03"
 ---
 # Filename and Front-Matter Numbering Policy
 
@@ -62,11 +62,8 @@ matter.** Numbering is an exception, never the rule. Specifically:
 
 ## Consequences
 
-- A sequence-numbered file appearing in the **live** corpus is an anomaly — a
-  genuine finding for the documentation-management skills (mb-docs-manager flags it;
-  mb-align-docs treats it as an identity/lifecycle defect), with this ADR as the
-  policy to point to.
-- The skills' false-positive risk is bounded by the two carve-outs above: stepwise
-  content and non-live folders are never flagged.
+- A sequence-numbered file appearing in the **live** corpus is an anomaly — no
+  tool flags it (`mb-doc-check` does not check filenames, [[[mybizz-config-docs:mb-doc-check/doc-check-explainer]]](C:/mybizz/mybizz-config-docs/mb-doc-check/doc-check-explainer.md)),
+  with this ADR as the policy to point to.
 - Any future proposal to introduce numbered files or numeric ids must amend or
   supersede this ADR — it cannot be introduced silently as a local convenience.

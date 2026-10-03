@@ -1,7 +1,7 @@
 ---
 title: "adr-timezone-utc-storage-display-conversion"
 doc-id: "mb-5ba3ccea"
-updated: "2026-10-01"
+updated: "2026-10-03"
 ---
 # Client Timezone: IANA String, UTC Storage, Display-Time Conversion
 Date: 2026-03-17
@@ -122,7 +122,7 @@ select an alternative conversion approach.
 
 ---
 
-## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+## Old-material pointers (added 2026-09-20, developer instruction)
 
 Material referenced by this document but not present in the current corpus, with developer-provided locations:
 - spec_architecture.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/spec_architecture.md

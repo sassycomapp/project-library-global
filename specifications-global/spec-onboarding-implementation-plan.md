@@ -1,7 +1,7 @@
 ---
 title: "spec-onboarding-implementation-plan"
 doc-id: "mb-edfcb7ed"
-updated: "2026-10-01"
+updated: "2026-10-03"
 ---
 # Mybizz CS Onboarding System - Engineering Plan
 
@@ -487,7 +487,7 @@ This plan defines an updated, implementation-ready onboarding system for Mybizz 
 
 ---
 
-## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+## Old-material pointers (added 2026-09-20, developer instruction)
 
 Material referenced by this document but not present in the current corpus, with developer-provided locations:
 - platform-overview.md (the retired platform-overview) — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/platform_overview.md

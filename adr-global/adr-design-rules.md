@@ -1,7 +1,7 @@
 ---
 title: "adr-design-rules"
 doc-id: "mb-473a4b4e"
-updated: "2026-10-01"
+updated: "2026-10-03"
 ---
 # `design-rules` ADR — Wireframe Design Rules
 
@@ -209,7 +209,7 @@ Before submitting any wireframe, confirm ALL of the following are true:
 - The mandatory pre-reading requirement (Section 0) and compliance checklist (Section 7) directly target the recurring failure modes of ADR non-compliance, architectural unfamiliarity, and unread specification/scaffold documents.
 - Future changes to these rules must be made by updating or superseding this ADR.
 
-## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+## Old-material pointers (added 2026-09-20, developer instruction)
 
 Material referenced by this document but not present in the current corpus, with developer-provided locations:
 - docs/nomenclature.md — resolves to the live specification (developer-confirmed, 2026-09-20): [[[default:specifications-global/spec-nomenclature]]](C:/dev/project-library-global/specifications-global/spec-nomenclature.md)

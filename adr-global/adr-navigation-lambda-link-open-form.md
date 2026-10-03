@@ -1,7 +1,7 @@
 ---
 title: "adr-navigation-lambda-link-open-form"
 doc-id: "mb-88483403"
-updated: "2026-10-01"
+updated: "2026-10-03"
 ---
 # Navigation Standard: Lambda/Link/open_form
 
@@ -79,7 +79,7 @@ correctly applied. Do not blindly reapply — verify first, then correct only wh
 
 *Navigation Standard v2.0 — Layout shell decision superseded by [[[default:adr-global/adr-htmltemplate-use|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) ADR. Navigation pattern (lambda/Link/open_form) unchanged and binding.*
 
-## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+## Old-material pointers (added 2026-09-20, developer instruction)
 
 Material referenced by this document but not present in the current corpus, with developer-provided locations:
 - spec_ui_standards.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/spec_ui_standards.md

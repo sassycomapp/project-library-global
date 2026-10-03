@@ -1,7 +1,7 @@
 ---
 title: "adr-lead-capture-simultaneous-creation"
 doc-id: "mb-c6554efe"
-updated: "2026-10-01"
+updated: "2026-10-03"
 ---
 # Lead Capture: Simultaneous leads + contacts Creation
 Date: 2026-03-21
@@ -57,7 +57,7 @@ lead creation — it is never null for a successfully captured lead.
 
 ---
 
-## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+## Old-material pointers (added 2026-09-20, developer instruction)
 
 Material referenced by this document but not present in the current corpus, with developer-provided locations:
 - spec_crm.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/spec_crm.md

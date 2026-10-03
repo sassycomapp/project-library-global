@@ -1,7 +1,7 @@
 ---
 title: "adr-single-contacts-table"
 doc-id: "mb-c307af98"
-updated: "2026-10-01"
+updated: "2026-10-03"
 ---
 # Single Contacts Table Replaces Dual contacts/customers
 **Consolidated Contact Model for CRM**
@@ -67,7 +67,7 @@ All customers are contacts but not all contacts are customers. The `contacts` ta
 
 ---
 
-## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+## Old-material pointers (added 2026-09-20, developer instruction)
 
 Material referenced by this document but not present in the current corpus, with developer-provided locations:
 - spec_database_schema.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/spec_database_schema.md

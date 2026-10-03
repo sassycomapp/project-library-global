@@ -1,7 +1,7 @@
 ---
 title: "adr-onboarding-vs-settings-boundary"
 doc-id: "mb-43ac2971"
-updated: "2026-10-01"
+updated: "2026-10-03"
 ---
 # Onboarding vs Settings Boundary
 Date: 2026-05-29
@@ -105,7 +105,7 @@ The platform currently has some operational controls (like palette selection, se
 
 ---
 
-## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+## Old-material pointers (added 2026-09-20, developer instruction)
 
 Material referenced by this document but not present in the current corpus, with developer-provided locations:
 - docs/phased-implementation/phase-0-implementation.md — obsolete (developer, 2026-09-20); no backup path provided

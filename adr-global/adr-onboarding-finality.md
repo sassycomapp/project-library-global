@@ -1,7 +1,7 @@
 ---
 title: "adr-onboarding-finality"
 doc-id: "mb-e9266696"
-updated: "2026-10-01"
+updated: "2026-10-03"
 ---
 # Onboarding Finality
 Date: 2026-05-31
@@ -95,7 +95,7 @@ The question arose of what happens after onboarding is completed, whether the Ow
 
 ---
 
-## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+## Old-material pointers (added 2026-09-20, developer instruction)
 
 Material referenced by this document but not present in the current corpus, with developer-provided locations:
 - platform-overview.md (the retired platform-overview) — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/platform_overview.md

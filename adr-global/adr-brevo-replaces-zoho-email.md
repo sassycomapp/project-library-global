@@ -1,7 +1,7 @@
 ---
 title: "adr-brevo-replaces-zoho-email"
 doc-id: "mb-9399478f"
-updated: "2026-10-01"
+updated: "2026-10-03"
 ---
 #  Brevo Replaces All Zoho Products
 Date: 2026-03-21
@@ -214,7 +214,7 @@ corrected immediately.
 
 ---
 
-## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+## Old-material pointers (added 2026-09-20, developer instruction)
 
 Material referenced by this document but not present in the current corpus, with developer-provided locations:
 - spec_integrations.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/spec_integrations.md — live successor: [[[default:specifications-global/spec-integration]]](C:/dev/project-library-global/specifications-global/spec-integration.md)

@@ -1,7 +1,7 @@
 ---
 title: "sop-agent-readiness-framework"
 doc-id: "mb-b621286f"
-updated: "2026-10-01"
+updated: "2026-10-03"
 ---
 # Agent Readiness Framework
 
@@ -356,7 +356,7 @@ Returns persist regardless of agent or vendor choice.
 
 **Questions?** Refer to the corresponding `rules-set4/` files for implementation details.
 
-## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+## Old-material pointers (added 2026-09-20, developer instruction)
 
 Material referenced by this document but not present in the current corpus, with developer-provided locations:
 - policy_development.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/policy_development.md

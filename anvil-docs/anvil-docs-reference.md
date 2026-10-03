@@ -1,7 +1,7 @@
 ---
 title: "anvil-docs-reference"
 doc-id: "mb-70ba045c"
-updated: "2026-10-01"
+updated: "2026-10-03"
 ---
 # anvil-docs — Reference: Navigation, Verification, Maintenance
 
@@ -70,8 +70,8 @@ developer decision, not routine maintenance.
 
 Links inside scraped pages (e.g. `[Quickstart for logins](users/quickstart-login)`)
 are plain, relative markdown links — not GBrain wikilinks, by design
-(`mb-wikilinks`'s resolver is scoped to markdown and would not cover the
-corpus's non-markdown source files). A broken relative link is fixed directly
+(the corpus's non-markdown source files fall outside what a markdown-scoped
+resolver can cover). A broken relative link is fixed directly
 in the file; there is no automatic resolution mechanism.
 
 ## Using GBrain against this corpus

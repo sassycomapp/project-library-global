@@ -1,7 +1,7 @@
 ---
 title: "adr-payment-security-boundary-vault"
 doc-id: "mb-dbb54a8c"
-updated: "2026-10-01"
+updated: "2026-10-03"
 ---
 # Payment Security Boundary: Secret Keys Deferred to the Vault
 Date: 2026-03-15
@@ -80,7 +80,7 @@ from the outbound dict entirely.
 
 ---
 
-## Old-material pointers (added 2026-09-20, developer instruction, mb-wikilinks run 20260920T100155)
+## Old-material pointers (added 2026-09-20, developer instruction)
 
 Material referenced by this document but not present in the current corpus, with developer-provided locations:
 - spec_vault.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/spec_vault.md
