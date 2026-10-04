@@ -1,7 +1,7 @@
 ---
 title: "adr-real-time-and-background-tasks"
 doc-id: "mb-1684942d"
-updated: "2026-10-01"
+updated: "2026-10-04"
 ---
 # `real-time-and-background-tasks` ADR — Real-Time Updates and Background Task Architecture
 
@@ -204,7 +204,7 @@ def process_webhook(event_id):
 |---|---|
 | [[[default:adr-global/adr-observability-architecture\|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md) | Health heartbeat task feeds observability metrics |
 | [[[default:adr-global/adr-anvil-platform-constraints\|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) | Background task limits and server call latency constraints |
-| [[[default:adr-global/adr-webhook-architecture\|Webhook Architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md) | Detailed webhook handling pattern |
+| [[[default:adr-global/adr-webhook-architecture\|[[[default:adr-global/adr-webhook-architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md)]]]([[[default:adr-global/adr-webhook-architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md)) | Detailed webhook handling pattern |
 | `integration-architecture.md` (mb-3-cs project library) | Section 4: Background Tasks (existing task inventory) |
 | `deployment-procedures.md` (mb-3-cs project library) | Operational procedures for task failure recovery |
 

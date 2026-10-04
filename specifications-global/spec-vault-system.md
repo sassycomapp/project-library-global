@@ -1,7 +1,7 @@
 ---
 title: "spec-vault-system"
 doc-id: "mb-4960a0bb"
-updated: "2026-10-01"
+updated: "2026-10-04"
 ---
 # Mybizz — The Vault System
 
@@ -106,15 +106,15 @@ If the Owner loses their TOTP device, the following recovery path applies:
 
 | Document | Relationship |
 |---|---|
-| [[[default:adr-global/adr-payment-security-boundary-vault\|Payment Security Boundary Vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) | Architectural decision — accepted 2026-03-15 |
-| [[[default:adr-global/adr-anvil-platform-constraints\|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) | Anvil secrets limits, Vault TOTP recovery |
-| [[[default:adr-global/adr-brevo-replaces-zoho-email\|Brevo Replaces All Zoho Products]]](C:/dev/project-library-global/adr-global/adr-brevo-replaces-zoho-email.md) | Vault credentials for Brevo |
-| [[[default:adr-global/adr-observability-architecture\|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md) | Vault access audit logging |
-| [[[default:adr-global/adr-mybizz-management-visibility\|Mybizz Management Visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md) | Vault access event forwarding |
+| [[[default:adr-global/adr-payment-security-boundary-vault\|[[[default:adr-global/adr-payment-security-boundary-vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md)]]]([[[default:adr-global/adr-payment-security-boundary-vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md)) | Architectural decision — accepted 2026-03-15 |
+| [[[default:adr-global/adr-anvil-platform-constraints\|[[[default:adr-global/adr-anvil-platform-constraints]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md)]]]([[[default:adr-global/adr-anvil-platform-constraints]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md)) | Anvil secrets limits, Vault TOTP recovery |
+| [[[default:adr-global/adr-brevo-replaces-zoho-email\|[[[default:adr-global/adr-brevo-replaces-zoho-email]]](C:/dev/project-library-global/adr-global/adr-brevo-replaces-zoho-email.md)]]]([[[default:adr-global/adr-brevo-replaces-zoho-email]]](C:/dev/project-library-global/adr-global/adr-brevo-replaces-zoho-email.md)) | Vault credentials for Brevo |
+| [[[default:adr-global/adr-observability-architecture\|[[[default:adr-global/adr-observability-architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md)]]]([[[default:adr-global/adr-observability-architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md)) | Vault access audit logging |
+| [[[default:adr-global/adr-mybizz-management-visibility\|[[[default:adr-global/adr-mybizz-management-visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md)]]]([[[default:adr-global/adr-mybizz-management-visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md)) | Vault access event forwarding |
 | [[[default:specifications-global/spec-security-architecture\|Security Architecture Specification]]](C:/dev/project-library-global/specifications-global/spec-security-architecture.md) | RBAC role limits, token security, regulatory posture |
 | `docs/DESIGN.md` | VaultForm design specification |
 | `build-plan.md` (mb-3-cs project library) | Stage 1.5: The Vault |
-| `scaffold-spec.md` (mb-3-cs project library) | File/folder structure for vault components |
+| `[[[mb-3-cs-project-library:docs-standard-local/scaffold-spec]]](C:/dev/dev-mb-3-cs/mb-3-cs-project-library/docs-standard-local/scaffold-spec.md).md` (mb-3-cs project library) | File/folder structure for vault components |
 | `authoritative-schema.md` (mb-3-cs project library) | `vault` Data Table schema |
 | [[[default:specifications-global/spec-testing\|Testing Specification]]](C:/dev/project-library-global/specifications-global/spec-testing.md) | Vault test scenarios |
 | [[[default:specifications-global/spec-client-activation-runbook\|Client Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) | Client provisioning — Vault setup steps |

@@ -1,7 +1,7 @@
 ---
 title: "spec-component-properties"
 doc-id: "mb-5162b6c9"
-updated: "2026-10-01"
+updated: "2026-10-04"
 ---
 # Mybizz CS — Component Properties Specification
 
@@ -313,7 +313,7 @@ updated: "2026-10-01"
 
 ### HTMLTemplate — BANNED ([[[default:adr-global/adr-htmltemplate-use|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) ADR)
 
-**HTMLTemplate is banned.** Use stock Anvil M3 components and the two native M3 Layouts (NavigationRailLayout, NavigationDrawerLayout) in all cases. See [[[default:adr-global/adr-htmltemplate-use|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) for the full decision.
+**HTMLTemplate is banned.** Use stock Anvil M3 components and the two native M3 Layouts (NavigationRailLayout, NavigationDrawerLayout) in all cases. See [[[default:adr-global/adr-htmltemplate-use|[[[default:adr-global/adr-htmltemplate-use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md)]]]([[[default:adr-global/adr-htmltemplate-use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md)) for the full decision.
 
 | Property | Classification | Default | Description |
 |----------|---------------|---------|-------------|

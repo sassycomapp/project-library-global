@@ -1,13 +1,13 @@
 ---
 title: "spec-five-app-architecture-model"
 doc-id: "mb-1b7a1fda"
-updated: "2026-10-01"
+updated: "2026-10-04"
 ---
 # Mybizz — Five-App Architecture Model (Specification)
 
 **Scope:** Mybizz-wide. Applies to every Mybizz product, not just this app. The specific app
 names/slugs below are placeholders — a given app's actual instance names live in that app's own
-`[[platform-architecture]]`.
+`[[[mb-3-cs-project-library:docs-local/platform-architecture]]](C:/dev/dev-mb-3-cs/mb-3-cs-project-library/docs-local/platform-architecture.md)`.
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "spec-anvil-spec-table"
 doc-id: "mb-867fb5cd"
-updated: "2026-10-01"
+updated: "2026-10-04"
 ---
 # Mybizz CS — Anvil Specification Table
 
@@ -34,7 +34,7 @@ updated: "2026-10-01"
 
 | Topic | Specification |
 |---|---|
-| ADR | [[[default:adr-global/adr-navigation-lambda-link-open-form\|Navigation Standard: Lambda/Link/open_form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md) (navigation pattern), [[[default:adr-global/adr-htmltemplate-use\|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) (layout shell) |
+| ADR | [[[default:adr-global/adr-navigation-lambda-link-open-form\|[[[default:adr-global/adr-navigation-lambda-link-open-form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md)]]]([[[default:adr-global/adr-navigation-lambda-link-open-form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md)) (navigation pattern), [[[default:adr-global/adr-htmltemplate-use\|[[[default:adr-global/adr-htmltemplate-use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md)]]]([[[default:adr-global/adr-htmltemplate-use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md)) (layout shell) |
 | Layout type | Native M3 Layouts (`NavigationRailLayout` for admin, `NavigationDrawerLayout` for customer portal) |
 | Sidebar nav component | Plain `Link` components |
 | Sidebar nav creation | Built programmatically in `build_navigation()` |

@@ -1,7 +1,7 @@
 ---
 title: "adr-dependency-update-model"
 doc-id: "mb-bf8aa7d8"
-updated: "2026-10-01"
+updated: "2026-10-04"
 ---
 # `dependency-update-model` ADR — Dependency Update Model
 
@@ -122,7 +122,7 @@ Branch-based update propagation has not yet been verified by live test. The foll
 |---|---|
 | [[[default:adr-global/adr-client-instance-architecture\|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) | Defines what lives in client instance vs master_template |
 | `blank-client-template.md` (mb-3-cs project library) | Provisioning clone source |
-| [[[default:adr-global/adr-free-trial-abandoned\|30-Day Free Trial Abandoned]]](C:/dev/project-library-global/adr-global/adr-free-trial-abandoned.md) | Trial model replaced; all clients on stable from day one |
+| [[[default:adr-global/adr-free-trial-abandoned\|[[[default:adr-global/adr-free-trial-abandoned]]](C:/dev/project-library-global/adr-global/adr-free-trial-abandoned.md)]]]([[[default:adr-global/adr-free-trial-abandoned]]](C:/dev/project-library-global/adr-global/adr-free-trial-abandoned.md)) | Trial model replaced; all clients on stable from day one |
 | [[[default:specifications-global/spec-client-activation-runbook\|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) | Includes dependency configuration step at provisioning |
 
 ---

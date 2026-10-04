@@ -1,7 +1,7 @@
 ---
 title: "spec-client-activation-runbook"
 doc-id: "mb-b575e9fd"
-updated: "2026-10-01"
+updated: "2026-10-04"
 ---
 # Client Instance Activation Runbook
 
@@ -45,7 +45,7 @@ In the new client instance, set the following in Anvil Secrets (IDE only):
 
 - [ ] `encryption_key` — generate a new Fernet symmetric key; do not reuse from any other instance
 
-> ⚠️ This is the only item that ever goes in Anvil Secrets. See [[[default:adr-global/adr-payment-security-boundary-vault|Payment Security Boundary Vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) ADR and vault-system.md.
+> ⚠️ This is the only item that ever goes in Anvil Secrets. See [[[default:adr-global/adr-payment-security-boundary-vault|`payment-security-boundary-vault`]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) ADR and vault-system.md.
 
 ### Step 3 — Configure Domain
 

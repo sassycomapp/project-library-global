@@ -1,7 +1,7 @@
 ---
 title: "spec-anvil-platform-standards"
 doc-id: "mb-57f2e70b"
-updated: "2026-10-01"
+updated: "2026-10-04"
 ---
 # PDLF Standards Library — Anvil Platform Mechanics
 
@@ -362,7 +362,7 @@ resolution may fail or return incomplete results.
 
 
 
-*Anvil Platform Standards v1.6 — merged [[[default:adr-global/adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) (ADR, misfiled —
+*Anvil Platform Standards v1.6 — merged [[[default:adr-global/adr-anvil-platform-constraints|[[[default:adr-global/adr-anvil-platform-constraints]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md)]]]([[[default:adr-global/adr-anvil-platform-constraints]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md)) (ADR, misfiled —
 reclassified as spec content, this file, per single-source-of-truth review). Added §22
 Skulpt runtime workarounds (expands §17's existing flag), §23 Git integration constraint,
 §24 media/file handling, §25 persistent server requirement, §26 `app_tables` resolution

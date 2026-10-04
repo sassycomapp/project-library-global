@@ -1,7 +1,7 @@
 ---
 title: "adr-observability-architecture"
 doc-id: "mb-d5da852f"
-updated: "2026-10-01"
+updated: "2026-10-04"
 ---
 # `observability-architecture` ADR — Observability Architecture
 
@@ -104,7 +104,7 @@ Anvil's built-in observability tools are not replaced — they are complementary
 | Document | Relationship |
 |---|---|
 | [[[default:adr-global/adr-payment-security-boundary-vault\|Payment Security Boundary Vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) | Audit log pattern (existing) extended by this ADR |
-| [[[default:adr-global/adr-mybizz-management-visibility\|Mybizz Management Visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md) | HTTP endpoint mechanism by which management queries client metrics |
+| [[[default:adr-global/adr-mybizz-management-visibility\|[[[default:adr-global/adr-mybizz-management-visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md)]]]([[[default:adr-global/adr-mybizz-management-visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md)) | HTTP endpoint mechanism by which management queries client metrics |
 
 ---
 

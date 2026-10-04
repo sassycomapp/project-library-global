@@ -1,7 +1,7 @@
 ---
 title: "adr-anvil-platform-constraints"
 doc-id: "mb-d1719e5a"
-updated: "2026-10-01"
+updated: "2026-10-04"
 ---
 # `anvil-platform-constraints` ADR — Anvil Platform Constraints and Design Boundaries
 
@@ -154,7 +154,7 @@ Vault access requires TOTP step-up on every open ([[[default:adr-global/adr-paym
 | [[[default:adr-global/adr-payment-security-boundary-vault\|Payment Security Boundary Vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) | Vault system replaces Anvil Secrets |
 | [[[default:adr-global/adr-client-instance-architecture\|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) | Dependency model — the core architectural pattern |
 | [[[default:adr-global/adr-form-architecture-and-state\|Form Architecture and State Management]]](C:/dev/project-library-global/adr-global/adr-form-architecture-and-state.md) | How forms work within Anvil's form model |
-| [[[default:adr-global/adr-real-time-and-background-tasks\|Real-Time and Background Tasks]]](C:/dev/project-library-global/adr-global/adr-real-time-and-background-tasks.md) | Background task patterns within Anvil's limits |
+| [[[default:adr-global/adr-real-time-and-background-tasks\|[[[default:adr-global/adr-real-time-and-background-tasks]]](C:/dev/project-library-global/adr-global/adr-real-time-and-background-tasks.md)]]]([[[default:adr-global/adr-real-time-and-background-tasks]]](C:/dev/project-library-global/adr-global/adr-real-time-and-background-tasks.md)) | Background task patterns within Anvil's limits |
 | [[[default:adr-global/adr-data-access-patterns\|Data Access Patterns and Query Limitations]]](C:/dev/project-library-global/adr-global/adr-data-access-patterns.md) | Data Table query patterns within Anvil's model |
 | `deployment-procedures.md` (mb-3-cs project library) | Anvil account-level failure scenarios and recovery |
 

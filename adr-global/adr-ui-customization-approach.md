@@ -1,7 +1,7 @@
 ---
 title: "adr-ui-customization-approach"
 doc-id: "mb-426881de"
-updated: "2026-10-01"
+updated: "2026-10-04"
 ---
 # `ui-customization-approach` ADR — UI Customization Approach
 
@@ -87,7 +87,7 @@ MUI (Material-UI) design patterns were evaluated as a potential source of design
 
 | Document | Relationship |
 |---|---|
-| [[[default:adr-global/adr-material-3-theme-component-scope\|Material 3 Theme Component Scope]]](C:/dev/project-library-global/adr-global/adr-material-3-theme-component-scope.md) | Which M3 components are in scope |
+| [[[default:adr-global/adr-material-3-theme-component-scope\|[[[default:adr-global/adr-material-3-theme-component-scope]]](C:/dev/project-library-global/adr-global/adr-material-3-theme-component-scope.md)]]]([[[default:adr-global/adr-material-3-theme-component-scope]]](C:/dev/project-library-global/adr-global/adr-material-3-theme-component-scope.md)) | Which M3 components are in scope |
 | [[[default:adr-global/adr-design-rules\|Design Rules]]](C:/dev/project-library-global/adr-global/adr-design-rules.md) | Design rules and palette system |
 | [[[default:adr-global/adr-navigation-lambda-link-open-form\|Navigation Lambda/Link/open_form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md) | Why M3 navigation components are not used |
 | [[[default:specifications-global/spec-ui-standards\|UI Standards]]](C:/dev/project-library-global/specifications-global/spec-ui-standards.md) | UI standards and component usage |

@@ -1,7 +1,7 @@
 ---
 title: "sec-development-tooling-credentials"
 doc-id: "mb-63e4a84b"
-updated: "2026-10-01"
+updated: "2026-10-04"
 ---
 # Development Tooling Credentials
 
@@ -33,7 +33,7 @@ For each real development-tooling credential, confirm its storage location and c
 
 ## Authoritative Sources
 
-- This session's own real credential handling: the `.env`-based `PGPASSWORD` recorded in `spec-postgres-ledger.md` (makePDLF project library), the governor's own `.env`-based writer credentials
+- This session's own real credential handling: the `.env`-based `PGPASSWORD` recorded in `[[[makepdlf-project-library:specifications-local/spec-postgres-ledger]]](C:/dev/dev-makepdlf/makepdlf-project-library/specifications-local/spec-postgres-ledger.md).md` (makePDLF project library), the governor's own `.env`-based writer credentials
 
 ## Known Exceptions
 
