@@ -1,7 +1,7 @@
 ---
 title: "segment.client"
 doc-id: "mb-13ea02b4"
-updated: "2026-10-01"
+updated: "2026-10-05"
 ---
 ## `segment.client` Module
 
@@ -25,7 +25,7 @@ Identify a user to associate subsequent actions to a recognisable user ID and tr
 
 #### `page([category], [name], [options])`
 
-Register The use of registers has been discontinued. Please review a virtual page change
+Register a virtual page change
 
 #### `track(event, [properties], [options])`
 

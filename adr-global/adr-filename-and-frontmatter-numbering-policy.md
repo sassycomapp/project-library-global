@@ -1,7 +1,7 @@
 ---
 title: "adr-filename-and-frontmatter-numbering-policy"
 doc-id: "mb-f880ccdb"
-updated: "2026-10-03"
+updated: "2026-10-05"
 ---
 # Filename and Front-Matter Numbering Policy
 
@@ -16,10 +16,10 @@ Source: Developer decision, 2026-09-10 (numbering investigation with OpenCode)
 The numbering of documents was decided in different directions at different times:
 an earlier era used numeric document identifiers (`global-0037`-style doc-ids,
 `DOC-INDEX` numbering), while the later regime moved to name-based identity
-(`doc-id` = the filename's own slug, per the register The use of registers has been discontinued. Please review convention). The two regimes
+(`doc-id` = the filename's own slug). The two regimes
 coexisted uneasily: file numbering and front-matter numbering drifted apart, citations
-by number broke when documents moved between registers The use of registers has been discontinued. Please review, and the numbers added no
-indexing value — search and the registers The use of registers has been discontinued. Please review resolve by name and folder, not by
+by number broke when documents moved between registers, and the numbers added no
+indexing value — search resolves by name and folder, not by
 sequence position. A numeric identifier is a second, fragile identity layered on top
 of the filename, which is the thing that already keeps silently breaking elsewhere.
 
@@ -43,8 +43,7 @@ matter.** Numbering is an exception, never the rule. Specifically:
    counter.
 2. **No numeric identifiers in front matter.** `doc-id` is the filename's own slug.
    No `doc-number`/sequence field exists now and none is added later; front matter
-   stays identity-only and small (see the front-matter schema and the register The use of registers has been discontinued. Please review's
-   field definitions).
+   stays identity-only and small (see the front-matter schema).
 3. **References cite by filename**, never by number.
 
 ### Standing exceptions

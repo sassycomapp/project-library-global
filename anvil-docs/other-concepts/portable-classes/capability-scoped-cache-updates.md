@@ -1,7 +1,7 @@
 ---
 title: "capability-scoped-cache-updates"
 doc-id: "mb-149bd755"
-updated: "2026-10-01"
+updated: "2026-10-05"
 ---
 # [Capability-Scoped Cache Updates](#capability-scoped-cache-updates)
 
@@ -11,7 +11,7 @@ But what happens when some server-side code updates that object? You want to upd
 
 **But**, sometimes the server-side code is updating something secret that we don’t want the client to know about! So we only *sometimes* want to transmit cache updates.
 
-To solve this problem, Anvil allows you to transmit updates about a *particular Capability scope*, by calling [`send_update()`](/docs/api/anvil.server#Capability_methods) on a Capability object. These updates will only be transmitted to the client if the client supplied that Capability as part of this call. The code at the other end can register The use of registers has been discontinued. Please review a callback (using [`set_update_handler()`](/docs/api/anvil.server#Capability_methods)), which will be called with any updates when the server call completes.
+To solve this problem, Anvil allows you to transmit updates about a *particular Capability scope*, by calling [`send_update()`](/docs/api/anvil.server#Capability_methods) on a Capability object. These updates will only be transmitted to the client if the client supplied that Capability as part of this call. The code at the other end can register a callback (using [`set_update_handler()`](/docs/api/anvil.server#Capability_methods)), which will be called with any updates when the server call completes.
 
 ## [Example](#example)
 

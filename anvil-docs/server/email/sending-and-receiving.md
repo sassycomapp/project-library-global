@@ -1,7 +1,7 @@
 ---
 title: "sending-and-receiving"
 doc-id: "mb-27c5a912"
-updated: "2026-10-01"
+updated: "2026-10-05"
 ---
 # [Sending and Receiving Email in your Apps](#sending-and-receiving-email-in-your-apps)
 
@@ -29,7 +29,7 @@ anvil.email.send(
 
 ## [Receiving Email](#receiving-email)
 
-To receive emails to your app, register The use of registers has been discontinued. Please review a server function to handle incoming messages using the `@anvil.email.handle_message` decorator. Any emails sent to *anything*@YOUR\_APP\_ID.anvil.app (or *anything*@YOUR\_CUSTOM\_DOMAIN) will be passed to the decorated function.
+To receive emails to your app, register a server function to handle incoming messages using the `@anvil.email.handle_message` decorator. Any emails sent to *anything*@YOUR\_APP\_ID.anvil.app (or *anything*@YOUR\_CUSTOM\_DOMAIN) will be passed to the decorated function.
 
 This example stores incoming email messages and attachments in [Data Tables](/docs/data-tables) and sends a reply to each message.
 

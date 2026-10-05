@@ -1,7 +1,7 @@
 ---
 title: "anvil.users.mfa"
 doc-id: "mb-45f76410"
-updated: "2026-10-01"
+updated: "2026-10-05"
 ---
 ## `anvil.users.mfa` Module
 
@@ -27,7 +27,7 @@ allow_cancel: if True, the signup form has a Cancel button that the user can use
 
 #### `create_fido_mfa_method(email_address)`
 
-Generate a WebAuthn challenge that can be used to register The use of registers has been discontinued. Please review a new hardware token for two-factor authentication.
+Generate a WebAuthn challenge that can be used to register a new hardware token for two-factor authentication.
 
 #### `generate_totp_secret(email_address)`
 

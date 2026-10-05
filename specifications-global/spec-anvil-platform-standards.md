@@ -1,7 +1,7 @@
 ---
 title: "spec-anvil-platform-standards"
 doc-id: "mb-57f2e70b"
-updated: "2026-10-04"
+updated: "2026-10-05"
 ---
 # PDLF Standards Library — Anvil Platform Mechanics
 
@@ -188,7 +188,7 @@ Sensitive values go in Anvil Secrets or the Vault (see [[[default:specifications
 
 ## 15. Global Client-Side Error Handler
 
-Register The use of registers has been discontinued. Please review one global handler rather than relying solely on per-call `try/except`:
+Register one global handler rather than relying solely on per-call `try/except`:
 
 ```python
 def global_error_handler(err):

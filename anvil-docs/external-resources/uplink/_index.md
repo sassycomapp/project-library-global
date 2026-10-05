@@ -1,7 +1,7 @@
 ---
 title: "_index"
 doc-id: "mb-ccc9cfeb"
-updated: "2026-10-01"
+updated: "2026-10-05"
 ---
 # [Uplink: Code outside Anvil](#uplink-code-outside-anvil)
 
@@ -76,7 +76,7 @@ The **Client Uplink** gives external Python code the same privileges as your [Fo
 Client Uplink code behaves like client-side code. It:
 
 -   Cannot access [Data Tables](/docs/data-tables), unless they are [set to client-accessible](/docs/data-tables/data-security).
--   Cannot register The use of registers has been discontinued. Please review server functions.
+-   Cannot register server functions.
 -   Can still call server functions (so you can expose only the operations you are happy to allow).
 
 This is the same security best-practice that applies to [Form](/docs/ui/forms) code as well. This is because the user can control the code that runs in their browser. See [Client vs Server Code in Anvil](/articles/client-vs-server).

@@ -1,7 +1,7 @@
 ---
 title: "tableau-extensions-api"
 doc-id: "mb-0b6cf839"
-updated: "2026-10-04"
+updated: "2026-10-05"
 ---
 # [The Tableau Extensions API](#the-tableau-extensions-api)
 
@@ -34,7 +34,7 @@ worksheet_names = [
     ]
 ```
 
-Similarly, you can register The use of registers has been discontinued. Please review [event listeners](https://tableau.github.io/extensions-api/docs/interfaces/worksheet.html#addeventlistener) using Python functions, or methods of your [Form](https://anvil.works/docs/client/ui#forms) class:
+Similarly, you can register [event listeners](https://tableau.github.io/extensions-api/docs/interfaces/worksheet.html#addeventlistener) using Python functions, or methods of your [Form](https://anvil.works/docs/client/ui#forms) class:
 
 ```python
 class Form1(Form1Template):

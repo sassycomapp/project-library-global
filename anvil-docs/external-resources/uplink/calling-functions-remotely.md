@@ -1,7 +1,7 @@
 ---
 title: "calling-functions-remotely"
 doc-id: "mb-c53769b1"
-updated: "2026-10-01"
+updated: "2026-10-05"
 ---
 # [Calling functions remotely](#calling-functions-remotely)
 
@@ -44,4 +44,4 @@ anvil.server.connect("<your Uplink key>")
 anvil.server.call("store_number", 42)
 ```
 
-This example does not register The use of registers has been discontinued. Please review any `@anvil.server.callable` functions, and exits as soon as the call to `store_number` returns.
+This example does not register any `@anvil.server.callable` functions, and exits as soon as the call to `store_number` returns.

@@ -1,7 +1,7 @@
 ---
 title: "linking-azure-and-anvil"
 doc-id: "mb-e984fbae"
-updated: "2026-10-01"
+updated: "2026-10-05"
 ---
 # [Connecting Entra ID to Anvil](#connecting-entra-id-to-anvil)
 
@@ -16,7 +16,7 @@ Follow this guide to create an Entra ID App Registration. An App Registration re
 
 Sign in to the [Entra Portal](https://entra.microsoft.com/) and choose ‘App registrations’ from the menu on the left. Then click ‘+ New registration’ at the top of that page.
 
-You’ll then be able to register The use of registers has been discontinued. Please review an application by filling out the form.
+You’ll then be able to register an application by filling out the form.
 
 You’ll need to fill out the form with:
 

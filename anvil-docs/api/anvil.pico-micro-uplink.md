@@ -1,7 +1,7 @@
 ---
 title: "anvil.pico-micro-uplink"
 doc-id: "mb-bd1a53ea"
-updated: "2026-10-01"
+updated: "2026-10-05"
 ---
 ## `anvil.pico [micro-uplink]` Module
 
@@ -35,7 +35,7 @@ updated: "2026-10-01"
 
 #### `connect(key, [on_first_connect=None], [on_every_connect=None], [no_led=False])` [(more info)](/pico)
 
-Connect your Pico to your Anvil app. This function will block forever: register The use of registers has been discontinued. Please review all @anvil.pico.callable functions beforehand.
+Connect your Pico to your Anvil app. This function will block forever: register all @anvil.pico.callable functions beforehand.
 
 The key is a unique string and should be kept private. You can generate a new key from inside your anvil app.
 
