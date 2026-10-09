@@ -1,7 +1,7 @@
 ---
 title: "sec-development-environment-credential-hygiene"
 doc-id: "mb-24a86330"
-updated: "2026-10-04"
+updated: "2026-10-09"
 ---
 # Development Environment Credential Hygiene
 
@@ -31,7 +31,7 @@ For each repository containing a `.env` file, run `git status` and confirm the f
 
 ## Authoritative Sources
 
-- This session's own direct read of the Connection table in `[[[makepdlf-project-library:specifications-local/spec-postgres-ledger]]](C:/dev/dev-makepdlf/makepdlf-project-library/specifications-local/spec-postgres-ledger.md).md` (makePDLF project library), confirming `.env`-based credential storage as the current, real pattern
+- This session's own direct read of the Connection table in `[[[pdlf:makepdlf-project-library/specifications-local/spec-postgres-ledger]]](C:/pdlf/makepdlf-project-library/specifications-local/spec-postgres-ledger.md).md` (makePDLF project library), confirming `.env`-based credential storage as the current, real pattern
 
 ## Known Exceptions
 
