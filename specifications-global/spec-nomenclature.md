@@ -1,92 +1,115 @@
 ---
 title: "spec-nomenclature"
 doc-id: "mb-a3648afc"
-updated: "2026-10-05"
+updated: "2026-10-10"
 ---
-# Mybizz CS — Nomenclature & Naming Conventions
+# Nomenclature and Naming Conventions
 
-**Authority:** Mandatory — all code, files, forms, and databases must follow
+**Authority:** Mandatory. Every document, step file, policy, specification, form, module and table follows this specification.
+
+## How this document works
+
+This is the only nomenclature document. Every name and term used anywhere in Mybizz's systems is defined here, once.
+
+- **Part 1** applies to everything: PDLF and every application.
+- **Part 2** holds names used only by PDLF.
+- **Part 3** onwards holds names used only by one application, one part per application.
+
+A term is defined in exactly one part. A part for PDLF or an application holds only what is unique to it; anything shared moves to Part 1. A part for an application is added only when that application has a term of its own. When a name is agreed in discussion, it is written here before anything relies on it.
+
+Why one document: separate nomenclature documents overlap, and the same term ends up meaning different things in different places.
 
 ---
 
-## File & Folder Naming
+## Part 1 — Common to everything
+
+### 1.1 Documents
 
 | Element | Convention | Example |
 |---|---|---|
-| Folders | PascalCase | `ServerAuth`, `ContactListForm` |
-| Files | lowercase_with_underscores.ext | `backup_strategy_analysis.md` |
-| ADR files | `{adr}-{kebab-case-name}.md` | `[[adr-brevo-replaces-zoho-email]]` |
-| ADR files (superseded) | `{adr}-{kebab-case-name}.md` with `[Superseded]` on line 2 | `13-system-currency-setting.md` |
-| ADR files (cancelled) | `{adr}-cancelled-{kebab-case-name}.md` | `adr-onboarding-finality.md` |
-| Custom component wireframes | `wireframe-custom-component-{ComponentName}.html` | `wireframe-custom-component-ClauseBuilder.html` |
+| Document file | lowercase kebab-case `.md` | `platform-architecture.md` |
+| ADR file | `adr-{kebab-case-name}.md` | `adr-brevo-replaces-zoho-email.md` |
+| Superseded ADR | same name, `[Superseded]` on the line after the title | |
+| Cancelled ADR | `adr-cancelled-{kebab-case-name}.md` | |
+| Front matter | `title` (the filename without `.md`), `doc-id`, `updated` | |
 
-### UI Form Folder Nomenclature (formalized 2026-09-10)
+`doc-id` is a permanent code (`mb-xxxxxxxx`) added by the commit hook, never written by hand. Links between documents are written by agents as `[[name]]` and converted by the commit hook into the standard form; their rules belong to mybizz-os, not to this document.
 
-Every form folder under `{slug}-project-library\ui\{package}\{FormName}\` carries exactly six
-files — three authored documents and three derived renderings — named by the locked UI
-convention below. This convention is the single standard for the UI tree, applied
-consistently; folder-prefixed variants (`checklist-{package}-{FormName}.md`,
-`wireframe-{package}-{FormName}.html`) are retired.
+### 1.2 Repositories and paths
 
-**Authored documents (markdown, carry front matter):**
-
-| Element | Pattern | Example |
+| Element | Convention | Example |
 |---|---|---|
-| Wireframe definition | `{FormName}-wireframe-definition.md` | `LoginForm-wireframe-definition.md` |
-| Wireframe checklist | `{FormName}-wireframe-chklist.md` | `LoginForm-wireframe-chklist.md` |
-| Screen checklist | `{FormName}-screen-chklist.md` | `LoginForm-screen-chklist.md` |
+| Project slug | short lowercase name, supplied once at Step 11 | `mb5pdlf` |
+| Project folder | `C:\dev\dev-{slug}\` | `C:\dev\dev-mb5pdlf\` |
+| Code repository | `{slug}`; full path `C:\dev\dev-{slug}\{slug}\` | `mb5pdlf` |
+| Documentation repository | `dev-{slug}\{slug}-project-library\` | `dev-mb5pdlf\mb5pdlf-project-library\` |
+| GitHub organisation | `sassycomapp` | |
 
-**Derived renderings (no front matter — a rendering takes its source document's filename stem, and that stem is its identity):**
+The documentation repository carries the slug as a prefix so that it sorts next to the code repository on GitHub.
 
-| Element | Pattern | Example |
-|---|---|---|
-| Wireframe rendering | `{FormName}-wireframe.html` | `LoginForm-wireframe.html` |
-| Screen rendering | `{FormName}-screen.html` | `LoginForm-screen.html` |
-| Screen capture | `{FormName}-screen.png` | `LoginForm-screen.png` |
+**Rule:** plain-language text may use the short forms above. Any command the agent runs uses the full absolute path, because a short form is not something the operating system can act on. The `dev-{slug}\` segment is never dropped from the documentation repository's path.
 
-**Sub-forms / row templates** nest one folder deeper and repeat the same patterns with the
-full qualified stem: `{FormName}{SubForm}-{kind}` (e.g.
-`RevenueReportForm-RowTemplate-screen-chklist.md`). The stem is always the form name first;
-kind prefixes (`checklist-`, `wireframe-` before the form name) are retired by this
-specification. A rendering takes its source document's filename stem, and that stem is its
-identity (a format cannot carry front matter).
+### 1.3 Global and local folders
 
----
+Every folder in `project-library-global` has a matching local folder in each project's documentation repository. The local folder holds only what is true of that one project.
 
-## User Terminology
-
-| Term | Definition |
+| Global | Local |
 |---|---|
-| Client | Mybizz subscriber (business owner) |
-| Customer | Client's end user (their customer) |
-| Visitor | Public website visitor (not logged in) |
-| Staff | Client's staff member — `Staff` role in RBAC |
-| Owner | Client's business owner — `Owner` role in RBAC |
-| Manager | Client's operational manager — `Manager` role in RBAC |
-| Admin | Client's administrative staff — `Admin` role in RBAC |
+| `adr-global` | `adr-local` |
+| `checklists-global` | `checklists-local` |
+| `docs-standard-global` | `docs-standard-local` |
+| `policy-global` | `policy-local` |
+| `specifications-global` | `specifications-local` |
+| `standard-operating-procedures-global` | `standard-operating-procedures-local` |
+| `templates-global` | `templates-local` |
 
-Client and Owner are principally defined as;
-"Client" refers to the entity, business or individual, which signs up to the Mybizz management application as a new client/ subscriber who is then onboarded and then becomes the "owner" Of that client instance 
-"Owner" refers to the entity which signed up with the maybizz management application for a new client instance and is therefore the person responsible for that client instance
+### 1.4 The five apps
 
+| App | Name | Example (`mb-3-cs`) |
+|---|---|---|
+| App 1 — development workspace | `{slug}` | `mb-3-cs` |
+| App 2 — published dependency | `master_template` | `master_template` |
+| App 3 — provisioning clone source | `blank_client_template` | `blank_client_template` |
+| App 4 — client instance | `[client-name]-{vertical}` | `[client-name]-cs` |
+| App 5 — management tooling | `{Product}_management` | `Mybizz_management` |
 
----
+### 1.5 Mybizz business terms
 
-## Form Naming
+| Term | Meaning |
+|---|---|
+| Client | The business or individual that subscribes to a Mybizz application and is given its own client instance. |
+| Owner | The person responsible for a client instance: the client who signed up, once onboarded. |
+| Customer | A client's own customer, who uses the client's instance. |
+| Visitor | Someone viewing a client's public website without logging in. |
+| Master template | `master_template`, the published dependency holding all server logic and forms for every client instance. |
+| Client instance | One client's own Anvil app, with its own database, running on `master_template`. |
+| Data isolation | Every client instance is a separate app with a separate database. No database is ever shared between clients. |
+| Updates | A client instance receives every change merged into `master_template`'s `stable` branch automatically. |
 
-**Pattern:** `{Entity}{Type}Form`
+### 1.6 Anvil application code
+
+**Forms:** `{Entity}{Type}Form`.
 
 | Type | Purpose | Example |
 |---|---|---|
-| `ListForm` | Data listing/browsing | `ContactListForm` |
+| `ListForm` | Listing and browsing | `ContactListForm` |
 | `EditorForm` | Create or edit | `ContactEditorForm` |
 | `ViewerForm` | Read-only detail | `ContactViewerForm` |
 | `DashboardForm` | Summary with metrics | `DashboardForm` |
-| `Page` | Public-facing read-only page | `PrivacyPolicyPage`, `TermsConditionsPage` |
+| `Page` | Public read-only page | `PrivacyPolicyPage` |
 
----
+**Packages:** lowercase, by feature (`auth/`, `bookings/`); server packages carry `server_` (`server_bookings/`).
 
-## Component Prefixes
+**Modules:** lowercase with underscores.
+
+| Module | Pattern | Example |
+|---|---|---|
+| Server service | `{purpose}_service.py` | `booking_service.py` |
+| Server integration | `{purpose}_integration.py` | `brevo_integration.py` |
+| Client utility | `{purpose}_utils.py` | `validation_utils.py` |
+| Client helper | `{purpose}_helpers.py` | `navigation_helpers.py` |
+
+**Components:**
 
 | Component | Prefix | Example |
 |---|---|---|
@@ -96,7 +119,7 @@ Client and Owner are principally defined as;
 | DropdownMenu | `dd_` | `dd_status` |
 | DatePicker | `dp_` | `dp_date` |
 | FileLoader | `fu_` | `fu_upload` |
-| Link / Navigation | `nav_` | `nav_dashboard` |
+| Link / navigation | `nav_` | `nav_dashboard` |
 | Checkbox | `cb_` | `cb_agree` |
 | RadioButton | `rb_` | `rb_option` |
 | ColumnPanel | `col_` | `col_main` |
@@ -104,103 +127,149 @@ Client and Owner are principally defined as;
 | Card | `card_` | `card_details` |
 | DataGrid | `dg_` | `dg_customers` |
 | DataRowPanel | `drp_` | `drp_comment_row` |
-| Icon | `ico_` | `ic_empty_vault` (maps to `IconButton` used decoratively — no click event) |
+| Icon (decorative IconButton, no click event) | `ico_` | `ico_empty_vault` |
 | RepeatingPanel | `rp_` | `rp_items` |
 | Plot | `plot_` | `plot_revenue` |
 
----
+Only components listed in [[[default:specifications-global/spec-m3_component_mapping|M3 Component Mapping]]](C:/dev/project-library-global/specifications-global/spec-m3_component_mapping.md) may be used. The legacy `Label` component is banned. Any component not on that list is restricted until an ADR adds it, together with its prefix.
 
-## Module Naming
+**Data tables:** table names lowercase with underscores, no prefix; link columns `{table}_id` or the singular name of the target table; `created_at` and `updated_at` on most tables.
 
-| Module Type | Pattern | Example |
+### 1.7 UI form folders
+
+Each form folder, `{slug}-project-library\ui\{package}\{FormName}\`, holds exactly six files:
+
+| File | Pattern | Front matter |
 |---|---|---|
-| Server service | `{purpose}_service.py` | `booking_service.py` |
-| Server integration | `{purpose}_integration.py` | `brevo_integration.py` |
-| Client utility | `{purpose}_utils.py` | `validation_utils.py` |
-| Client helper | `{purpose}_helpers.py` | `navigation_helpers.py` |
+| Wireframe definition | `{FormName}-wireframe-definition.md` | Yes |
+| Wireframe checklist | `{FormName}-wireframe-chklist.md` | Yes |
+| Screen checklist | `{FormName}-screen-chklist.md` | Yes |
+| Wireframe rendering | `{FormName}-wireframe.html` | No |
+| Screen rendering | `{FormName}-screen.html` | No |
+| Screen capture | `{FormName}-screen.png` | No |
 
----
+A sub-form or row template sits one folder deeper and uses the full stem: `{FormName}{SubForm}-{kind}`. A custom component's wireframe is `wireframe-custom-component-{ComponentName}.html`.
 
-## Database Tables
-
-- **Table names:** lowercase_snake, no prefix
-- **Link columns:** `{table}_id` or singular name matching target table
-- **System columns:** `created_at`, `updated_at` (mandatory on most tables)
-
----
-
-## Transaction Types
-
-| Type | Usage |
-|---|---|
-| `appointment` | Timed service booking |
-| `consulting` | Fixed-price service |
-
----
-
-## Currency Terms
-
-| Term | Definition |
-|---|---|
-| System Currency | Primary currency (set at onboarding, immutable after first transaction) |
-| Display Currency | Optional secondary currency for customer-facing prices |
-
----
-
-## Critical Concepts
-
-| Concept | Definition |
-|---|---|
-| Master Template | Published Anvil dependency containing all features |
-| Client Instance | Individual Anvil app for one business, depends on master_template |
-| Pull-Based Updates | Clients choose when to adopt new master_template version |
-| Data Isolation | Complete — each client is separate Anvil app with separate database |
-| The Vault | Encrypted secrets store for all client API keys |
-| RBAC | Role-Based Access Control with 5 roles |
-
----
-
-## Version & Release System
+### 1.8 Planning units
 
 | Term | Format | Example |
 |---|---|---|
-| Phase | `Phase {number}: {Name}` | Phase 1: Authentication |
-| Stage | `Stage {phase}.{number}: {Name}` | Stage 1.1: User Auth System |
-| Task | `T{stage}-{number}: {Action}` | T1.1-001: Create users table |
+| Phase | `Phase {n}: {Name}` | Phase 1: Authentication |
+| Stage | `Stage {phase}.{n}: {Name}` | Stage 1.1: User Auth System |
+| Task | `T{stage}-{nnn}: {Action}` | T1.1-001: Create users table |
 
----
+### 1.9 Acronyms
 
-## Common Abbreviations
-
-| Abbrev | Full Term |
+| Acronym | Meaning |
 |---|---|
-| MVP | Minimum Viable Product |
+| ADR | Architecture Decision Record |
+| AC | Acceptance Criterion |
 | CRM | Customer Relationship Management |
-| RBAC | Role-Based Access Control |
-| TOTP | Time-Based One-Time Password |
+| DX | Developer Experience |
+| FS | Functional Specification |
 | GDPR | General Data Protection Regulation |
-| POPIA | Protection of Personal Information Act |
+| M3 / MD3 | Material Design 3 |
+| MCP | Model Context Protocol |
+| MVP | Minimum Viable Product |
+| NFR | Non-Functional Requirement |
 | PCI DSS | Payment Card Industry Data Security Standard |
+| POPIA | Protection of Personal Information Act |
+| PRD | Product Requirements Document |
+| RBAC | Role-Based Access Control |
+| SEO | Search Engine Optimisation |
 | SMTP | Simple Mail Transfer Protocol |
-| SEO | Search Engine Optimization |
+| TDD | Test-Driven Development |
+| TOTP | Time-Based One-Time Password |
+| TTHW | Time to Hello World (time from install to first working output) |
+| UAT | User Acceptance Testing |
+| US | User Story |
+| WSL | Windows Subsystem for Linux |
 
 ---
 
-## Component Permission Model — Naming + Permission
+## Part 2 — PDLF
 
-The prefix convention (§1) carries an additional permission dimension. Every component falls into
-one of two tiers, and the naming convention reflects which camp it belongs to:
+### 2.1 Terms
 
-| Tier | Rule |
+| Term | Meaning |
 |---|---|
-| **Approved** | Component listed in [[[default:specifications-global/spec-m3_component_mapping\|M3 Component Mapping]]](C:/dev/project-library-global/specifications-global/spec-m3_component_mapping.md) with its assigned prefix |
-| **Restricted** | Legacy `Label` component — banned. Any component not in the approved list — treated as restricted by default |
+| PDLF | Project Development Lifecycle Framework |
+| BFT | BODY Frame Thinking (Edward de Bono), PDLF's thinking checkpoint |
+| ISA | Ideal State Artifact, a project's definition of "done" |
+| ISC | Ideal State Criterion, one criterion in the ISA |
+| GBrain | The memory layer of mybizz-os (PostgreSQL in WSL) |
+| GStack | A library of workflow skills used by PDLF |
+| Ledger | PDLF's PostgreSQL database `pdlf` |
+| Module | One finished step, packaged as a unit in `app-factory/` |
+| Gate | A hard stop where David approves a commitment before the build continues |
+| Deviation | A recorded decision taken when a step cannot be done as written |
+| Step Receipt | The report of a step, produced from its ledger row |
 
-Additions to the approved list require an ADR and an update to [[[default:specifications-global/spec-m3_component_mapping|M3 Component Mapping]]](C:/dev/project-library-global/specifications-global/spec-m3_component_mapping.md).
-The `drp_` prefix (DataRowPanel) is the documented example of a component prefix that was
-identified as a gap and later codified — the process for closing a prefix gap is: flag it,
-ADR it, add it.
+### 2.2 Locations
+
+| Location | Path |
+|---|---|
+| PDLF | `C:\pdlf\` |
+| Global library | `C:\dev\project-library-global\` |
+| Project template | `C:\dev\project-template\dev-(SLUG)\` |
+
+### 2.3 Steps and modules
+
+| Element | Convention | Example |
+|---|---|---|
+| Step file | `step-{NN}-{skill-or-function-name}.md` | `step-14-plan-ceo-review.md` |
+| Build notes | `step-{NN}-build-notes.md` | `step-14-build-notes.md` |
+| Decision tree | `step-{NN}-decision-tree.html` | `step-14-decision-tree.html` |
+| Inserted step | nearest preceding number plus a letter | `step-35A-testing.md` |
+| Module | `module-{NN}.md`, two digits, matching the step number | `module-07.md` |
+| Kept skill source | `stepwise\skill-source-reference\{skill-name}-{file-name}` | `plan-eng-review-manifest.json` |
+
+The skill or function name appears only in the step file's own name, never in its build notes or decision tree. Step numbers identify steps; they never state the order in which steps run (`run-plan.md` does that). Step 1 is the orchestrator; Steps 2 to 10 are entry points for work on existing applications; Steps 13 and 25 are not used.
+
+### 2.4 Build records and outputs
+
+| Artifact | Path |
+|---|---|
+| Step Receipt | `{docs-repo}\pdlf\step-{N}-receipt.md` |
+| First concept draft | `{docs-repo}\docs-local\design-doc-first-concept.md` (written once, never overwritten) |
+| Working design doc | `{docs-repo}\docs-local\design-doc.md` |
+| Output copy | `C:\pdlf\output\output-{tool}\{slug}-step-{NN}-{name}.md` |
+
+Output copies are sorted by the tool that produced them: `output-gstack`, `output-opencode`, `output-pocock`. The prefix is always the project slug, never a GStack-derived name.
+
+### 2.5 GStack project names
+
+GStack does not use the project slug. Each GStack skill derives a project name from the Git repository it runs in: first from its cache (keyed by the working folder), otherwise from the Git remote (`org-repo`), otherwise from the folder name. Because PDLF fixes the repository names, the derived names are fixed too:
+
+| Skill runs in | GStack name | Native save folder |
+|---|---|---|
+| The documentation repository | `sassycomapp-{slug}-project-library` | `~/.gstack/projects/sassycomapp-{slug}-project-library/` |
+| The code repository | `sassycomapp-{slug}` | `~/.gstack/projects/sassycomapp-{slug}/` |
+
+A project therefore has two GStack names. Any document that gives a GStack save path names the repository it means. `mb-3-cs` is an exception: its documentation repository's GStack name is `sassycomapp-project-library`.
+
+**Cache rule.** GStack's cache is never reconciled with the Git remote, so a renamed or re-cloned repository can keep an old name. The cache is never edited casually. When the cached name differs from the name the remote gives, the remote's name is written into the cache, with David's permission.
 
 ---
 
-*End of file*
+## Part 3 — mb-3-cs (Mybizz CS)
+
+### 3.1 Roles
+
+| Role | Meaning |
+|---|---|
+| Owner | Full control of the client instance. |
+| Manager | Operational management; no credentials or financial configuration. |
+| Admin | Bookings and customers; no financial reporting, settings or credentials. |
+| Staff | Their own calendar and bookings only. |
+| Customer | Their own bookings, invoices and account only. |
+
+### 3.2 Terms
+
+| Term | Meaning |
+|---|---|
+| `appointment` | Transaction type: a timed service booking. |
+| `consulting` | Transaction type: a fixed-price service. |
+| System currency | The primary currency, set at onboarding and fixed after the first transaction. |
+| Display currency | An optional second currency for prices shown to customers. |
+| The Vault | The encrypted store for a client's API keys and secrets. |
