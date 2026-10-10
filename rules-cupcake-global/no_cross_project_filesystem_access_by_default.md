@@ -1,7 +1,7 @@
 ---
 title: "no_cross_project_filesystem_access_by_default"
 doc-id: "mb-9a9b54d6"
-updated: "2026-10-04"
+updated: "2026-10-10"
 ---
 # Rule: No Cross-Project Filesystem Access by Default
 
@@ -28,7 +28,7 @@ working directory IS that folder, or a permission slip is active for it:
   decision G2 of the Docs-Skills Architecture Proposal; the compiled
   treatment is unchanged — this folder was already denied without a slip
   as an outside-cwd path, and the list entry documents that routing)
-- /mnt/c/dev/dev-makepdlf/makepdlf-project-library
+- /mnt/c/pdlf
 - /mnt/c/dev/dev-mb-3-cs/mb-3-cs
 - /mnt/c/dev/dev-mb-3-cs/mb-3-cs-project-library
 - /mnt/c/dev/dev-mb4ecom/mb4ecom

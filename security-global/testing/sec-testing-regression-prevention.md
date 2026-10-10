@@ -1,7 +1,7 @@
 ---
 title: "sec-testing-regression-prevention"
 doc-id: "mb-f763bac6"
-updated: "2026-10-01"
+updated: "2026-10-10"
 ---
 # Security Regression Prevention
 
@@ -32,7 +32,7 @@ For a sample of resolved `triage_findings` rows, confirm a corresponding permane
 ## Authoritative Sources
 
 - `step-15-plan-eng-review.md` Section 9 — REGRESSION RULE (mandatory, no `AskUserQuestion` required)
-- `spec-postgres-ledger.md` (makePDLF project library) — `triage_findings` schema
+- `spec-postgres-ledger.md` (PDLF) — `triage_findings` schema
 
 ## Known Exceptions
 

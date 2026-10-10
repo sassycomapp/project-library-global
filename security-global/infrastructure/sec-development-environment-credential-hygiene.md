@@ -7,7 +7,7 @@ updated: "2026-10-10"
 
 ## Applicable Threat
 
-Real database and service credentials are stored in plaintext `.env` files across this development environment — confirmed directly, this session, reading `PGPASSWORD` from `C:\dev\dev-makepdlf\makepdlf-project-library\.env`. A `.env` file accidentally committed to git, or read by an unintended process, exposes the credential immediately.
+Real database and service credentials are stored in plaintext `.env` files across this development environment — confirmed directly, this session, reading `PGPASSWORD` from `C:\pdlf\.env`. A `.env` file accidentally committed to git, or read by an unintended process, exposes the credential immediately.
 
 ## Security Requirement
 
@@ -31,7 +31,7 @@ For each repository containing a `.env` file, run `git status` and confirm the f
 
 ## Authoritative Sources
 
-- This session's own direct read of the Connection table in `[[[pdlf:pdlf-library/specifications-local/spec-postgres-ledger]]](C:/pdlf/pdlf-library/specifications-local/spec-postgres-ledger.md).md` (makePDLF project library), confirming `.env`-based credential storage as the current, real pattern
+- This session's own direct read of the Connection table in `[[[pdlf:pdlf-library/specifications-local/spec-postgres-ledger]]](C:/pdlf/pdlf-library/specifications-local/spec-postgres-ledger.md).md` (PDLF), confirming `.env`-based credential storage as the current, real pattern
 
 ## Known Exceptions
 

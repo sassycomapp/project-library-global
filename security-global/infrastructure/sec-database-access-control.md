@@ -1,7 +1,7 @@
 ---
 title: "sec-database-access-control"
 doc-id: "mb-53d4575a"
-updated: "2026-10-01"
+updated: "2026-10-10"
 ---
 # Database Access Control
 
@@ -31,7 +31,7 @@ For each real database role, confirm it can perform only its intended operations
 
 ## Authoritative Sources
 
-- PDLF ledger connection and schema — specified in the makePDLF project library (`spec-postgres-ledger.md` there)
+- PDLF ledger connection and schema — specified in the PDLF (`spec-postgres-ledger.md` there)
 - Memory governor's own live RLS test (this session)
 
 ## Known Exceptions

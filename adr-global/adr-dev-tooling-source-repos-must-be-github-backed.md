@@ -1,14 +1,14 @@
 ---
 title: "adr-dev-tooling-source-repos-must-be-github-backed"
 doc-id: "mb-6b7f097f"
-updated: "2026-10-03"
+updated: "2026-10-10"
 ---
 # `dev-tooling-source-repos-must-be-github-backed` ADR — All Dev-Tooling Source Repositories Must Be GitHub-Backed
 
 **Status:** Confirmed — Sealed
 **Date:** 2026-08-05
 **Authority:** Derived from live diagnostic investigation 2026-08-05 (gbrain `sync_freshness` root-cause analysis), David's "simple, secure, robust, fit for purpose" credo
-**Audience:** All developers and AI coding assistants working across dev-makepdlf, PDLF, and any future dev-tooling repositories
+**Audience:** All developers and AI coding assistants working across PDLF and any future dev-tooling repositories
 
 ---
 
@@ -27,7 +27,7 @@ This is a structural gap, not a one-off mistake: any dev-tooling source with `lo
 
 ## Decision
 
-**Every dev-tooling source repository tracked by gbrain (i.e., every source with a `local_path` feeding the PDLF / dev-makepdlf ecosystem) must have a GitHub remote.** A local-only working tree is not an acceptable end state for any repository in this category.
+**Every dev-tooling source repository tracked by gbrain (i.e., every source with a `local_path` feeding the PDLF ecosystem) must have a GitHub remote.** A local-only working tree is not an acceptable end state for any repository in this category.
 
 ### Two repository types, chosen by function
 
@@ -66,7 +66,7 @@ This directly follows the "simple, secure, robust, fit for purpose" credo: a wor
 
 ## Required Pattern Going Forward
 
-Any new dev-tooling repository created for the PDLF/dev-makepdlf ecosystem must be given a GitHub remote **at creation**, not retrofitted later:
+Any new dev-tooling repository created for the PDLF ecosystem must be given a GitHub remote **at creation**, not retrofitted later:
 
 ```bash
 cd <new-repo-local-path>

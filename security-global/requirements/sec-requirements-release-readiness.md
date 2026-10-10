@@ -1,7 +1,7 @@
 ---
 title: "sec-requirements-release-readiness"
 doc-id: "mb-540abe01"
-updated: "2026-10-01"
+updated: "2026-10-10"
 ---
 # Requirement — Release Readiness
 
@@ -38,7 +38,7 @@ Run a real query against `triage_findings` before every release; confirm the res
 ## Authoritative Sources
 
 - `the retired sentinel-security-system-plan.md` Section 9 — Step 45
-- `spec-postgres-ledger.md` (makePDLF project library) — `triage_findings` schema
+- `spec-postgres-ledger.md` (PDLF) — `triage_findings` schema
 - `[[sec-requirements-pre-merge-master-template]]`
 
 ## Known Exceptions
