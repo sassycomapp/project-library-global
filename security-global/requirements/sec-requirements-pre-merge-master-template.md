@@ -1,7 +1,7 @@
 ---
 title: "sec-requirements-pre-merge-master-template"
 doc-id: "mb-5b61d0dc"
-updated: "2026-10-09"
+updated: "2026-10-10"
 ---
 # Requirement — Pre-Merge to master_template
 
@@ -15,7 +15,7 @@ Before merging to `stable`, all of the following are explicitly true:
 
 1. Every new or modified server function meets `[[sec-requirements-server-function]]` in full.
 2. Every new Data Table meets `[[sec-requirements-data-table-creation]]` in full.
-3. Every open Sentinel finding (`triage_findings`) tied to this change has `triage_label = 'wontfix'` or `resolved_at IS NOT NULL` — the same real condition PDLF's own `build-verified` gate already enforces, per `[[[pdlf:makepdlf-project-library/specifications-local/spec-postgres-ledger]]](C:/pdlf/makepdlf-project-library/specifications-local/spec-postgres-ledger.md).md` (makePDLF project library).
+3. Every open Sentinel finding (`triage_findings`) tied to this change has `triage_label = 'wontfix'` or `resolved_at IS NOT NULL` — the same real condition PDLF's own `build-verified` gate already enforces, per `[[[pdlf:pdlf-library/specifications-local/spec-postgres-ledger]]](C:/pdlf/pdlf-library/specifications-local/spec-postgres-ledger.md).md` (makePDLF project library).
 4. High-risk releases use the staged-rollout, version-tagged path described in `[[spec-five-app-architecture-model]]`, not a direct full rollout.
 
 ## Approved Pattern
