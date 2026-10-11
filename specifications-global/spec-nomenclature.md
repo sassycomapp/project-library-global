@@ -1,7 +1,7 @@
 ---
 title: "spec-nomenclature"
 doc-id: "mb-a3648afc"
-updated: "2026-10-10"
+updated: "2026-10-11"
 ---
 # Nomenclature and Naming Conventions
 
@@ -200,7 +200,7 @@ A sub-form or row template sits one folder deeper and uses the full stem: `{Form
 | GBrain | The memory layer of mybizz-os (PostgreSQL in WSL) |
 | GStack | A library of workflow skills used by PDLF |
 | Ledger | PDLF's PostgreSQL database `pdlf` |
-| Module | One finished step, packaged as a unit in `app-factory/` |
+| Module | One finished step, compiled into its module file in its phase folder in `app-factory/` |
 | Gate | A hard stop where David approves a commitment before the build continues |
 | Deviation | A recorded decision taken when a step cannot be done as written |
 | Step Receipt | The report of a step, produced from its ledger row |
@@ -217,14 +217,14 @@ A sub-form or row template sits one folder deeper and uses the full stem: `{Form
 
 | Element | Convention | Example |
 |---|---|---|
-| Step file | `step-{NN}-{skill-or-function-name}.md` | `step-14-plan-ceo-review.md` |
-| Build notes | `step-{NN}-build-notes.md` | `step-14-build-notes.md` |
-| Decision tree | `step-{NN}-decision-tree.html` | `step-14-decision-tree.html` |
-| Inserted step | nearest preceding number plus a letter | `step-35A-testing.md` |
-| Module | `module-{NN}.md`, two digits, matching the step number | `module-07.md` |
-| Kept skill source | `stepwise\skill-source-reference\{skill-name}-{file-name}` | `plan-eng-review-manifest.json` |
+| Phase folder | `app-factory\phase-{letter}-{name}\`, lowercase kebab-case | `phase-b-discover-and-define\` |
+| Step file | `{NN}-{skill-or-function-name}.md`, in its phase folder | `14-plan-ceo-review.md` |
+| Build notes | `{NN}-build-notes.md` | `14-build-notes.md` |
+| Decision tree | `{NN}-decision-tree.html` | `14-decision-tree.html` |
+| Inserted step | nearest preceding number plus a lowercase letter | `35a-testing.md` |
+| Module | `{NN}-module.md`, two digits, matching the step number, in the step's phase folder | `07-module.md` |
 
-The skill or function name appears only in the step file's own name, never in its build notes or decision tree. Step numbers identify steps; they never state the order in which steps run (`run-plan.md` does that). Step 1 is the orchestrator; Steps 2 to 10 are entry points for work on existing applications; Steps 13 and 25 are not used.
+The skill or function name appears only in the step file's own name, never in its build notes or decision tree. Step numbers identify steps; they never state the order in which steps run (`orchestrator-run-plan.md` does that). Step 1 is the orchestrator; Steps 2 to 10 are entry points for work on existing applications; Steps 13 and 25 are not used.
 
 ### 2.4 Build records and outputs
 

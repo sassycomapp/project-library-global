@@ -1,7 +1,7 @@
 ---
 title: "adr-filename-and-frontmatter-numbering-policy"
 doc-id: "mb-f880ccdb"
-updated: "2026-10-05"
+updated: "2026-10-11"
 ---
 # Filename and Front-Matter Numbering Policy
 
@@ -48,7 +48,7 @@ matter.** Numbering is an exception, never the rule. Specifically:
 
 ### Standing exceptions
 
-- **`{slug}-project-library\stepwise\`** — a sequence of numbered *steps*. This is
+- **`C:\pdlf\app-factory\`** (formerly `stepwise\`) — a sequence of numbered *steps*. This is
   content that is inherently ordinal (a procedure's execution order), not
   file-numbering for indexing. It is not a violation of this policy and not a
   precedent for numbering elsewhere.

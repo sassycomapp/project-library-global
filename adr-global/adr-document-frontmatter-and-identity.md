@@ -1,7 +1,7 @@
 ---
 title: "adr-document-frontmatter-and-identity"
 doc-id: "mb-f5f31745"
-updated: "2026-10-04"
+updated: "2026-10-11"
 ---
 # Document Frontmatter and Identity
 
@@ -28,7 +28,7 @@ One program, `mb-doc-check` ([[[mybizz-config-docs:mb-doc-check/doc-check-explai
 4. **`updated`** is the date `"YYYY-MM-DD"` of the last real change to the document. It moves only when the document is new, moved, or changed in anything other than its date line or its line endings.
 5. **Nobody writes or changes `doc-id` or `updated` by hand.** `mb-doc-check` adds and maintains both at commit, in WSL. A field is never named `date`.
 6. **The exemptions are exactly these.** The program applies them mechanically: files whose names start with `tmp-`; folders named `stencils`, `quarantine`, `backups`, `catalogue` or `logs`; folders whose names start with `.` or `tmp-`; any folder that contains `anvil.yaml` (an Anvil app root) and everything below it; anything inside an `obsolete` folder (indexed as a link target, never edited); installed skills (`SKILL.md`, which carry `name` and `description`); and empty files. Every other document in the documentation repositories listed in [[[mybizz-os-docs:operating-procedures/commit-all-repositories]]](C:/mybizz/mybizz-os-docs/operating-procedures/commit-all-repositories.md) carries the three fields. Further fields (for example `state` and `date-created` on fact files) are allowed where a document type defines them; the hook leaves them alone.
-7. **Retained from the numbering policy:** no sequence numbers in filenames or in frontmatter, with the same standing exceptions (`stepwise\` and the quarantine, retired and archived folders). References cite by name: authors write `[[name]]`, and the hook stores the link as source id, page name and path ([[[mybizz-os-docs:os-reference-docs/documentation-linking-explainer]]](C:/mybizz/mybizz-os-docs/os-reference-docs/documentation-linking-explainer.md)).
+7. **Retained from the numbering policy:** no sequence numbers in filenames or in frontmatter, with the same standing exceptions (`C:\pdlf\app-factory\` and the quarantine, retired and archived folders). References cite by name: authors write `[[name]]`, and the hook stores the link as source id, page name and path ([[[mybizz-os-docs:os-reference-docs/documentation-linking-explainer]]](C:/mybizz/mybizz-os-docs/os-reference-docs/documentation-linking-explainer.md)).
 
 ---
 

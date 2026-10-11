@@ -25,7 +25,7 @@ build; the full checklist at Steps 35A/36–39). Continuous, same principle as S
 a one-time pass.
 
 **Deferred integration, not yet done:** this checklist's content needs to be woven directly
-into the relevant stepwise step files — Steps 35A, 36, 37, 38, and 39 specifically — so
+into the relevant step files — Steps 35A, 36, 37, 38, and 39 specifically — so
 that running those steps actually exercises these checks, rather than this document sitting
 separately from the pipeline that should use it. That work is deferred along with the rest
 of Steps 17–46, addressed when Phase D is reached, not now. This checklist is usable
