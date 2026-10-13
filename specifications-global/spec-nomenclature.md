@@ -1,7 +1,7 @@
 ---
 title: "spec-nomenclature"
 doc-id: "mb-a3648afc"
-updated: "2026-10-11"
+updated: "2026-10-13"
 ---
 # Nomenclature and Naming Conventions
 
@@ -39,13 +39,13 @@ Why one document: separate nomenclature documents overlap, and the same term end
 
 | Element | Convention | Example |
 |---|---|---|
-| Project slug | short lowercase name, supplied once at Step 11 | `mb5pdlf` |
-| Project folder | `C:\dev\dev-{slug}\` | `C:\dev\dev-mb5pdlf\` |
-| Code repository | `{slug}`; full path `C:\dev\dev-{slug}\{slug}\` | `mb5pdlf` |
-| Documentation repository | `dev-{slug}\{slug}-project-library\` | `dev-mb5pdlf\mb5pdlf-project-library\` |
+| Project slug | the business's short name, lowercase, hyphens kept, supplied once at Step 11 | `mb-5-pdlf` |
+| Project folder | `C:\dev\dev-{slug}\` | `C:\dev\dev-mb-5-pdlf\` |
+| Code repositories | one per app: `{slug}-app1`, `{slug}-app2`, `{slug}-app3`, `{slug}-app5`; full path `C:\dev\dev-{slug}\{slug}-app{n}\`. App 4 lives on the client's own Anvil account and has no folder | `mb-5-pdlf-app1` |
+| Documentation repository | `dev-{slug}\{slug}-project-library\`, one per business | `dev-mb-5-pdlf\mb-5-pdlf-project-library\` |
 | GitHub organisation | `sassycomapp` | |
 
-The documentation repository carries the slug as a prefix so that it sorts next to the code repository on GitHub.
+Every repository carries the slug as a prefix so that a business's repositories sort together on GitHub.
 
 **Rule:** plain-language text may use the short forms above. Any command the agent runs uses the full absolute path, because a short form is not something the operating system can act on. The `dev-{slug}\` segment is never dropped from the documentation repository's path.
 
@@ -230,12 +230,12 @@ The skill or function name appears only in the step file's own name, never in it
 
 | Artifact | Path |
 |---|---|
-| Step Receipt | `{docs-repo}\pdlf\step-{N}-receipt.md` |
+| Step Receipt | `{docs-repo}\pdlf-outputs\{step}\{slug}-{step}-{run}-receipt.md` |
 | First concept draft | `{docs-repo}\docs-local\design-doc-first-concept.md` (written once, never overwritten) |
 | Working design doc | `{docs-repo}\docs-local\design-doc.md` |
-| Output copy | `C:\pdlf\output\output-{tool}\{slug}-step-{NN}-{name}.md` |
+| Output copy | `{docs-repo}\pdlf-outputs\{step}\{slug}-{step}-{run}-{name}.md` |
 
-Output copies are sorted by the tool that produced them: `output-gstack`, `output-opencode`, `output-pocock`. The prefix is always the project slug, never a GStack-derived name.
+`{step}` is the step's folder name in the app factory (for example `b14`). `{run}` is `app` for the whole application, or the feature's short name for a feature or an update, so a feature never overwrites the application's files. The prefix is always the project slug, never a GStack-derived name. Nothing an application produces is kept in `C:\pdlf`.
 
 ### 2.5 GStack project names
 
@@ -244,9 +244,9 @@ GStack does not use the project slug. Each GStack skill derives a project name f
 | Skill runs in | GStack name | Native save folder |
 |---|---|---|
 | The documentation repository | `sassycomapp-{slug}-project-library` | `~/.gstack/projects/sassycomapp-{slug}-project-library/` |
-| The code repository | `sassycomapp-{slug}` | `~/.gstack/projects/sassycomapp-{slug}/` |
+| A code repository | `sassycomapp-{slug}-app{n}` | `~/.gstack/projects/sassycomapp-{slug}-app{n}/` |
 
-A project therefore has two GStack names. Any document that gives a GStack save path names the repository it means. `mb-3-cs` is an exception: its documentation repository's GStack name is `sassycomapp-project-library`.
+PDLF starts its Phase B GStack skills from the documentation repository, so their GStack name is always `sassycomapp-{slug}-project-library`. Any document that gives a GStack save path names the repository it means. `mb-3-cs` is an exception: its documentation repository's GStack name is `sassycomapp-project-library`.
 
 **Cache rule.** GStack's cache is never reconciled with the Git remote, so a renamed or re-cloned repository can keep an old name. The cache is never edited casually. When the cached name differs from the name the remote gives, the remote's name is written into the cache, with David's permission.
 
