@@ -1,7 +1,7 @@
 ---
 title: "sec-fail-closed"
 doc-id: "mb-9629b209"
-updated: "2026-10-15"
+updated: "2026-10-16"
 ---
 # Principle — Fail Closed
 
@@ -25,4 +25,4 @@ For any check that can fail, time out, or be inconclusive, the default outcome o
 
 ## Known Exceptions
 
-Cupcake runs with `failMode: open`: when Cupcake itself fails, the tool call is allowed and the failure is logged. This is a deliberate design decision, not an oversight: a guard that blocks all work when it breaks gets switched off. See [[[mybizz-config-docs:cupcake/cupcake-learnings]]](C:/mybizz/mybizz-config-docs/cupcake/cupcake-learnings.md) L6.
+None identified.
