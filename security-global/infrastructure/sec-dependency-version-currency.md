@@ -1,13 +1,13 @@
 ---
 title: "sec-dependency-version-currency"
 doc-id: "mb-eaac5791"
-updated: "2026-10-01"
+updated: "2026-10-20"
 ---
 # Dependency and Tool Version Currency
 
 ## Applicable Threat
 
-Real, confirmed gap: GBrain is running version `0.46.1.0` while `0.46.32.0` is available — flagged repeatedly across this session's own work, never actually resolved. An outdated tool can carry known, already-fixed vulnerabilities or bugs the current version no longer has.
+GBrain runs version `0.59.18.0`. Every upgrade is a developer decision; a newer release is never adopted only because it exists. An outdated tool can carry known vulnerabilities that a later release has fixed, so each upgrade decision weighs that risk.
 
 ## Security Requirement
 

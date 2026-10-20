@@ -1,7 +1,7 @@
 ---
 title: "sec-requirements-architecture-review"
 doc-id: "mb-82d65965"
-updated: "2026-10-01"
+updated: "2026-10-20"
 ---
 # Requirement — Architecture Review
 
@@ -37,7 +37,7 @@ Confirm the architecture's own deliverable contains an explicit trust-boundary l
 
 ## Authoritative Sources
 
-- `the retired sentinel-security-system-plan.md` Section 9 — Step 34
+- `mb-sentinel-review` step-intensity table — Step 34
 - `[[sec-explicit-responsibility-assignment]]`
 
 ## Known Exceptions

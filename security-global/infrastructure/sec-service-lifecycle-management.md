@@ -1,13 +1,13 @@
 ---
 title: "sec-service-lifecycle-management"
 doc-id: "mb-c710aa8a"
-updated: "2026-10-01"
+updated: "2026-10-20"
 ---
 # Service Lifecycle Management
 
 ## Applicable Threat
 
-Critical services in this environment (the memory governor's API, its worker process) run as manually-started processes, not managed services. Confirmed real incident, this session: the governor was launched once without its `.env` loaded, silently unable to reach its database or resolve any writer credential, and had to be manually killed and relaunched. A security-relevant service can be down, or misconfigured, with nobody aware.
+The memory governor's API and its worker run as systemd services (`memory-governor-api` and `memory-governor-worker`), started at boot. `systemctl status` shows whether each one is running.
 
 ## Security Requirement
 

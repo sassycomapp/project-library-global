@@ -1,7 +1,7 @@
 ---
 title: "sec-ai-agent-introduced-vulnerabilities"
 doc-id: "mb-62aa13db"
-updated: "2026-10-10"
+updated: "2026-10-20"
 ---
 # Threat Model — AI-Agent-Introduced Vulnerabilities
 
@@ -37,7 +37,7 @@ No security-relevant code (anything touching auth, RBAC, payment, secrets, or cr
 
 ## Authoritative Sources
 
-- `the retired sentinel-security-system-plan.md` — Sentinel's own design and trigger model
+- `mb-sentinel-review` — Sentinel's design and trigger model
 - the retired `the retired structural-compliance-enforcement-architecture-v2.md` — the broader problem of AI actions and claims not being independently verifiable by default
 
 ## Known Exceptions

@@ -1,7 +1,7 @@
 ---
 title: "sec-requirements-server-function"
 doc-id: "mb-db1f93bd"
-updated: "2026-10-01"
+updated: "2026-10-20"
 ---
 # Requirement — New Server Function
 
@@ -38,7 +38,7 @@ For each new server function touching application data, confirm items 1–4 expl
 
 ## Authoritative Sources
 
-- `the retired sentinel-security-system-plan.md` Section 9 — Step 35
+- `mb-sentinel-review` step-intensity table — Step 35
 - `[[sec-server-side-authority]]`, `[[sec-broken-access-control-within-instance]]`, `[[spec-vault-system]]`, `[[sec-secret-exposure-response]]`
 
 ## Known Exceptions

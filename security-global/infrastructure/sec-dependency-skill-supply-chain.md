@@ -1,7 +1,7 @@
 ---
 title: "sec-dependency-skill-supply-chain"
 doc-id: "mb-579a1ec8"
-updated: "2026-10-01"
+updated: "2026-10-20"
 ---
 # Dependency and Skill Supply Chain
 
@@ -31,7 +31,6 @@ For any new dependency or skill under consideration, confirm: real publisher/mai
 
 ## Authoritative Sources
 
-- `the retired sentinel-security-system-plan.md` Section 3 — `/cso`'s real, confirmed scan scope
 - This session's own Cupcake adoption review, as the real precedent for what "checked" looks like
 
 ## Known Exceptions

@@ -1,7 +1,7 @@
 ---
 title: "sec-fail-closed"
 doc-id: "mb-9629b209"
-updated: "2026-10-16"
+updated: "2026-10-20"
 ---
 # Principle — Fail Closed
 
@@ -12,7 +12,7 @@ When a security check cannot be performed, or its result is uncertain, the defau
 ## Real Precedent in This Project
 
 - `task` tool denial removes the tool from the model's visible set entirely, rather than attempting a check-then-allow approach that could be bypassed if the check itself failed.
-- Sentinel's own ESCALATE outcome — when there isn't enough evidence to decide, the result is a stop-and-ask, not a default clear, per `the retired sentinel-security-system-plan.md` Section 6.
+- Sentinel's own ESCALATE outcome — when there isn't enough evidence to decide, the result is a stop-and-ask, not a default clear (`mb-sentinel-review`).
 - `mb-submit-memory`'s own rule: if the governor's API is unreachable, the skill stops and reports rather than proceeding or retrying silently.
 
 ## Why This Matters

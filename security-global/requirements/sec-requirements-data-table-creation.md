@@ -1,11 +1,11 @@
 ---
 title: "sec-requirements-data-table-creation"
 doc-id: "mb-81c33fe4"
-updated: "2026-10-01"
+updated: "2026-10-20"
 ---
 # Requirement — New Data Table Creation
 
-Maps to Sentinel's own step-intensity table (`the retired sentinel-security-system-plan.md` Section 9), Step 17 — High scrutiny: "What data exists? Who can access it? What isolation is required?"
+Maps to Sentinel's own step-intensity table (the step-intensity table in `mb-sentinel-review`), Step 17 — High scrutiny: "What data exists? Who can access it? What isolation is required?"
 
 ## Applicable Threat
 
@@ -38,7 +38,7 @@ For each new Data Table, confirm items 1–4 above are each explicitly answered,
 
 ## Authoritative Sources
 
-- `the retired sentinel-security-system-plan.md` Section 9 — Step 17
+- `mb-sentinel-review` step-intensity table — Step 17
 - `[[spec-security-architecture]]` §1, `[[spec-vault-system]]`, `[[sec-broken-access-control-within-instance]]`
 
 ## Known Exceptions

@@ -1,7 +1,7 @@
 ---
 title: "sec-requirements-release-readiness"
 doc-id: "mb-540abe01"
-updated: "2026-10-10"
+updated: "2026-10-20"
 ---
 # Requirement — Release Readiness
 
@@ -17,7 +17,7 @@ Before a release proceeds, all of the following are explicitly true:
 
 1. `[[sec-requirements-pre-merge-master-template]]` was satisfied for everything included in this release.
 2. No `triage_findings` row tied to this release has a severity of `High` or `Critical` with no `resolved_at` and no `wontfix` label.
-3. Monitoring for the release (per `the retired sentinel-security-system-plan.md` Section 9, Step 45) is confirmed active before traffic reaches the new release.
+3. Monitoring for the release (per the `mb-sentinel-review` step-intensity table, Step 45) is confirmed active before traffic reaches the new release.
 
 ## Approved Pattern
 
@@ -37,7 +37,7 @@ Run a real query against `triage_findings` before every release; confirm the res
 
 ## Authoritative Sources
 
-- `the retired sentinel-security-system-plan.md` Section 9 — Step 45
+- `mb-sentinel-review` step-intensity table — Step 45
 - `spec-postgres-ledger.md` (PDLF) — `triage_findings` schema
 - `[[sec-requirements-pre-merge-master-template]]`
 
