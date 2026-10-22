@@ -131,11 +131,22 @@ Evidence is saved in the step's output folder, named `{slug}-{step}-{run}-{kind}
 | OWASP ZAP | One dynamic scan per release (DAST), passive on hosted App 1 |
 | GStack `browse`, `/qa-only`, `/cso`, `benchmark`, `canary` | Browser tests, security review, performance, release watch |
 
-About 0.8 GB in WSL. Each tool is installed with the developer's approval, its version recorded in this table when installed, and never upgraded without the developer's decision.
+About 0.8 GB in WSL. The Python tools live in one virtual environment, `~/mybizz-test-tools/venv`, and ZAP in `~/mybizz-test-tools/ZAP_2.17.0`; Java and gitleaks are Ubuntu packages. Each tool is installed with the developer's approval at the version below, and never upgraded without the developer's decision.
 
 | Tool | Approved version |
 |---|---|
-| (each tool above) | (set at installation) |
+| Java (OpenJDK runtime, `openjdk-21-jre-headless`) | 21.0.12.1; the Anvil App Server needs Java 21 or later |
+| Anvil App Server (`anvil-app-server`) | 1.18.0 |
+| Anvil Uplink (`anvil-uplink`) | 0.7.0 |
+| pytest | 9.1.1 |
+| pyotp | 2.10.0 |
+| aiosmtpd | 1.4.6 |
+| PyYAML | 6.0.3 |
+| pip-audit | 2.10.1 |
+| bandit | 1.9.4 |
+| gitleaks (Ubuntu package) | 8.16.0 |
+| OWASP ZAP | 2.17.0 |
+| GStack | The version installed for PDLF |
 
 ## Why it works this way
 
