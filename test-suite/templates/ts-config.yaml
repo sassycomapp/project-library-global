@@ -1,0 +1,49 @@
+# Mybizz test suite: configuration of tools/ts_scan.py for one app.
+# Copy to the app repository as tests/ts-config.yaml at Step 11.
+# Step 31 fills it from scaffold-plan.md; Step 34 checks it against the plan.
+
+# app1 | app2 | app3 | client_instance
+role: app1
+
+# Decorators that apply the access rule to a server function (ST-02).
+access_decorators: [require_role]
+
+# Decorators or calls that apply the rate limit (ST-02).
+rate_limit_markers: [rate_limited]
+
+# Server functions that are intentionally public, each with its reason in the
+# access matrix (ST-02).
+public_functions: []
+
+# HTTP endpoint paths (ST-02).
+public_endpoints: []
+webhook_paths: []
+management_paths: []
+
+# Modules with a single, named role.
+vault_module: ""        # the only reader of Anvil Secrets (ST-03)
+constants_module: ""    # the only place for addresses and fixed values (ST-10)
+outbound_module: ""     # the only caller of third-party services (ST-09)
+
+# Pure modules: no Anvil, no data, no side effects (ST-10, LG-06).
+pure_modules: []
+
+# Anvil dependency apps by app id (ST-10): the Material 3 theme and routing;
+# for App 3 and client instances, App 2 as well.
+approved_dependencies: ["4UK6WHQ6UX7AKELK", "3PIDO5P3H4VPEMPL"]
+
+# Core tables that carry the metadata column (ST-07).
+core_tables: []
+
+# Tables the access matrix approves as client-readable views (ST-07).
+approved_client_views: []
+
+# Component types forms may use (ST-11); Material 3 components (form:dep_...)
+# are always allowed.
+approved_components: [ColumnPanel, FlowPanel, LinearPanel, RepeatingPanel, DataGrid, DataRowPanel, GridPanel, Image, Spacer, Timer, Plot, FileLoader, DatePicker, Link]
+
+# Users service and app settings (ST-12); RS-16 sets the two periods.
+max_remember_me_days: 7
+max_mfa_timeout_days: 7
+allow_embedding: false
+allow_signup: null      # true or false, as the access matrix decides

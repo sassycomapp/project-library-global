@@ -1,7 +1,7 @@
 ---
 title: "spec-client-activation-runbook"
 doc-id: "mb-b575e9fd"
-updated: "2026-10-05"
+updated: "2026-10-22"
 ---
 # Client Instance Activation Runbook
 
@@ -27,9 +27,9 @@ Before beginning activation:
 
 ### Step 1 — Clone blank_client_template
 
-1. Open the mybizz Anvil account IDE
+1. Create the client's own Anvil account, held by Mybizz and named after the client's business, on the Hobby tier ([[[default:policy-global/pol-common-aspects-for-mybizz-anvil-applications|Common Aspects for Mybizz Anvil Applications]]](C:/dev/project-library-global/policy-global/pol-common-aspects-for-mybizz-anvil-applications.md))
 2. Navigate to `blank_client_template`
-3. Clone the app
+3. Clone the app into the client's Anvil account
 4. Rename the clone to the client identifier format: `[client-name]-cs` (e.g. `acme-cs`)
 5. Verify the clone contains:
    - [ ] All 36 Data Tables (empty)
@@ -55,6 +55,14 @@ Choose one:
 - [ ] **Anvil subdomain** — set a meaningful subdomain in Anvil app settings (e.g. `acmeconsulting.anvil.app`)
 
 Record the final URL — it is required in Phase 3.
+
+### Step 3A — Create the Client's R2 Storage
+
+1. Create a Cloudflare account dedicated to the client, held by Mybizz and named after the client's business
+2. Create the client's R2 bucket (one or two, as set for this client)
+3. Create an access key limited to the client's bucket(s); it is entered in the Vault at Step 8
+
+See [[[default:adr-global/adr-client-r2-storage-and-exit-handover|Client R2 Storage and Exit Handover]]](C:/dev/project-library-global/adr-global/adr-client-r2-storage-and-exit-handover.md).
 
 ---
 
@@ -125,6 +133,9 @@ Walk the client through setting up their Vault secrets. For each item, the clien
 
 **Email:**
 - [ ] `smtp_password` — from client's Brevo account (SMTP credentials)
+
+**Storage:**
+- [ ] `r2_access_key_id` and `r2_secret_access_key` — for the client's own R2 bucket(s), created at Step 3A
 
 **Other integrations as applicable.**
 
@@ -205,10 +216,11 @@ Send the client:
 
 If activation cannot be completed (client withdraws, payment fails, technical blocker):
 
-1. Delete the client instance app from the mybizz Anvil account
-2. Remove the client registry entry from Mybizz_management (or manual register)
-3. Revoke the management token
-4. Document the reason in mybizz records
+1. Delete the client instance app and its Anvil account
+2. Delete the client's R2 bucket(s) and Cloudflare account
+3. Remove the client registry entry from Mybizz_management (or manual register)
+4. Revoke the management token
+5. Document the reason in mybizz records
 
 ---
 

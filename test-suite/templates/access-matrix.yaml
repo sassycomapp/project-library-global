@@ -1,0 +1,32 @@
+# Mybizz test suite: the access matrix of one application (DC-05).
+# Copy to the project library at Step 15 as docs-local/access-matrix.yaml.
+# Every server function, form and settings tab, against every role.
+# Scopes: all (every row), own (only the caller's own rows), none (refused).
+# Roles: Owner, Manager, Admin, Staff, Customer, SignedOut.
+# IN-02 and ST-02 are generated from this file; BR-03 reads it.
+
+roles: [Owner, Manager, Admin, Staff, Customer, SignedOut]
+
+server_functions:
+  get_my_bookings:
+    module: server_code/server_bookings/service.py
+    scope: {Owner: all, Manager: all, Admin: all, Staff: own, Customer: own, SignedOut: none}
+    returns: [id, start, end, service_name, status]          # IN-04 allowed fields
+    step_up: false                                           # SC-03
+  approve_refund:
+    module: server_code/server_payments/service.py
+    scope: {Owner: all, Manager: all, Admin: none, Staff: none, Customer: none, SignedOut: none}
+    returns: [id, status]
+    step_up: true
+
+forms:
+  BookingCalendarForm: {Owner: all, Manager: all, Admin: all, Staff: own, Customer: none, SignedOut: none}
+
+settings_tabs:
+  PaymentGateway: {Owner: all, Manager: none, Admin: none, Staff: none, Customer: none, SignedOut: none}
+
+# Fields each role may change, where it differs by role (IN-04, ASVS 8.2.3).
+writable_fields:
+  bookings:
+    Owner: [start, end, status, notes]
+    Staff: [notes]

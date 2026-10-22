@@ -1,7 +1,7 @@
 ---
 title: "spec-regulatory-compliance-baseline"
 doc-id: "mb-6f1553b6"
-updated: "2026-10-01"
+updated: "2026-10-22"
 ---
 # Mybizz — Regulatory Compliance Baseline (Specification)
 
@@ -52,13 +52,15 @@ above is shared.
 
 ## Standard Offboarding Data Handover Procedure
 
-On client offboarding, the client receives a complete data export. After handover is confirmed,
-the platform retains nothing of the client's data.
+On client offboarding, all the client's data is written to the client's own R2 bucket, and the client leaves in possession of that bucket. After the handover is confirmed, the platform retains nothing of the client's data except the records Mybizz is legally required to keep. [[[default:adr-global/adr-client-r2-storage-and-exit-handover|Client R2 Storage and Exit Handover]]](C:/dev/project-library-global/adr-global/adr-client-r2-storage-and-exit-handover.md).
 
-**Handover package:**
+**Handover package, written to the client's R2 bucket:**
 1. Full export of all Data Tables belonging to that client instance
 2. The client's `encryption_key`
 3. All Vault contents in decrypted form
+4. Everything the bucket already holds (webhook payloads, logs, backups)
+
+**Handover:** ownership of the Cloudflare account holding the bucket is transferred to the client.
 
 **Post-handover:**
 - All client data is removed from the platform
@@ -71,5 +73,3 @@ provider without platform lock-in.
 
 ---
 
-*Regulatory Compliance Baseline v1.1 — Added §Standard Offboarding Data Handover Procedure. Extracted
-from mb-3-cs integration-architecture.md. Supports POPIA Article 24 and GDPR Article 20.*
