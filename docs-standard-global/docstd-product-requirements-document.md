@@ -1,7 +1,7 @@
 ---
 title: "docstd-product-requirements-document"
 doc-id: "mb-ff79bc42"
-updated: "2026-10-01"
+updated: "2026-10-22"
 ---
 # {Project Name} — Product Requirements Document (PRD)
 
@@ -112,7 +112,7 @@ specifically deferred to a later release, not excluded from the product's vision
 
 **[PROJECT]** External systems, other in-progress work, or platform constraints this
 depends on. If this project depends on the dependency-based multi-instance model
-(tracking a template app's `stable` branch), state that explicitly here — it affects how
+(client instances depending on a template app that receives each release), state that explicitly here — it affects how
 every later release is delivered.
 
 ---

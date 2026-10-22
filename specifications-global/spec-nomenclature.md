@@ -1,7 +1,7 @@
 ---
 title: "spec-nomenclature"
 doc-id: "mb-a3648afc"
-updated: "2026-10-13"
+updated: "2026-10-22"
 ---
 # Nomenclature and Naming Conventions
 
@@ -84,7 +84,7 @@ Every folder in `project-library-global` has a matching local folder in each pro
 | Master template | `master_template`, the published dependency holding all server logic and forms for every client instance. |
 | Client instance | One client's own Anvil app, with its own database, running on `master_template`. |
 | Data isolation | Every client instance is a separate app with a separate database. No database is ever shared between clients. |
-| Updates | A client instance receives every change merged into `master_template`'s `stable` branch automatically. |
+| Updates | A client instance receives every release pushed into `master_template` automatically. |
 
 ### 1.6 Anvil application code
 

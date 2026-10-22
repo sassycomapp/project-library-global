@@ -1,7 +1,7 @@
 ---
 title: "adr-free-trial-abandoned"
 doc-id: "mb-4d9be554"
-updated: "2026-10-01"
+updated: "2026-10-22"
 ---
 # `free-trial-abandoned` ADR — 30-Day Free Trial Abandoned
 
@@ -43,7 +43,7 @@ The 30-day free trial is abandoned. It will not be implemented.
 | Self-serve trial access | 30-minute guided onboarding session post-signup |
 | "Look around" limited functionality | 30-day money-back guarantee on first paid subscription |
 
-All paying clients receive a properly provisioned instance on the Anvil Business plan from day one. No client instance ever runs on the Anvil free tier.
+All paying clients receive a properly provisioned instance on their own Anvil account, on the Hobby plan, from day one. No client instance ever runs on the Anvil free tier.
 
 ---
 

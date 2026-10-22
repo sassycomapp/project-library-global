@@ -1,69 +1,63 @@
 ---
 title: "spec-testing-methodology-standards"
 doc-id: "mb-0ab4d14d"
-updated: "2026-10-01"
+updated: "2026-10-22"
 ---
 # PDLF Standards Library — Testing Methodology
 
 **Location:** `C:\dev\project-library-global\specifications-global\spec-testing-methodology-standards.md`
-**Scope:** Project-agnostic testing method. Any project's specific test *plan* (which flows,
-which roles) is that project's own document. (PDLF's own former process reference for this
-shape of plan — the retired `pdlf-testing-policy.md` — was removed; verified gone 2026-09-19.)
-**Source:** Extracted from `mb-3-cs` (testing-standards.md, test-specifications.md), generalized.
-**Relationship to `the retired pdlf-testing-policy.md`:** that file is PDLF's own process reference, written
-for the build loop (Step 16). This file is the underlying standard it's built on — kept separate
-so the standard itself is reusable outside PDLF's specific step numbering too.
+**Scope:** The testing method every Mybizz application follows. The test suite in `C:\dev\project-library-global\test-suite\` holds the rules ([[[default:test-suite/ts-method]]](C:/dev/project-library-global/test-suite/ts-method.md)), the tests ([[[default:test-suite/ts-catalogue]]](C:/dev/project-library-global/test-suite/ts-catalogue.md)) and the tools; each step's `{step}-test-spec.md` names the tests it runs. A project's own test plan (which flows, which roles) is that project's own document, written at Step 15.
 
 ---
 
 ## 1. Testing Levels
 
-| Level | Scope | Runtime | Risk | Rule |
-|---|---|---|---|---|
-| 1 | Pure logic | Local Python | Zero | Continuous — run on every change |
-| 2 | Integration via Uplink | Local + live Anvil | Medium | Only after Level 1 passes and a backup exists |
-| 3 | End-to-end manual verification | Browser | Low | After a full work increment is complete |
+| Level | Scope | Runtime | Rule |
+|---|---|---|---|
+| 0 | Static checks of code and schema | Local code folder (`ts_scan.py`) | Before code runs |
+| 1 | Pure logic | Local Python (pytest) | On every change |
+| 2 | Integration through Uplink | The local Anvil App Server; hosted App 1 only for hosted services | After Level 1 passes |
+| 3 | Browser | Hosted App 1 | After a full work increment |
+| 4 | Release | App 2, App 3, the test client and every client instance | At release |
 
 ## 2. Pure Function Characteristics (Level 1)
 
 - No `import anvil` statements.
 - No Data Tables access, no server function calls.
 - No side effects.
-- Deterministic.
+- Deterministic: time is passed in as an input; money is whole cents.
 - Scope: calculations, validations, transformations — not orchestration.
 
 ## 3. Test Structure Standard
 
 ```python
-def test_feature_scenario():
+def test_feature_scenario(load_module):
     """Test: Clear description"""
+    module = load_module("server_code/pricing.py")
     # Arrange
     input_value = ...
     expected_output = ...
     # Act
-    result = function_under_test(input_value)
+    result = module.function_under_test(input_value)
     # Assert
     assert result == expected_output
 ```
 
 - Naming: `test_[feature]_[scenario]`, snake_case, grouped by prefix.
-- Assertions: plain `assert`.
-- A `run_all_tests()`-style runner function per module.
+- Assertions: plain `assert`. Tests run under pytest, and every test loads the real module, never a copy.
 - A failed test stops progress and gets fixed immediately — it is not logged and deferred.
 
 ## 4. Integration Testing Safety Protocol (Level 2)
 
-**Before:** all pure logic tests pass; a backup exists; the Uplink connection is verified.
+**Where:** first on the Anvil App Server on the developer's computer, started on an empty database each run. Only sign-up and reset emails, real webhooks, scheduled tasks and headers are tested on hosted App 1.
 
-**During:** read before writing; mark any test data with `source='Test'`; verify each write
-after it happens, don't assume it succeeded.
+**Before:** all Level 1 tests pass; the Uplink connections are verified (test PR-09); before a hosted run, App 1 is backed up.
 
-**After:** clean up test data; verify the cleanup actually succeeded; create a second backup on
-success.
+**During:** every test value starts with `TEST_`; read before writing; verify each write after it happens.
 
-**Two backup points, not one** — a defensive backup before integration code touches the live
-app, and a checkpoint backup once Level 2 passes. This is intentional, not redundant: the first
-backup protects against the integration attempt itself.
+**After:** clean up test data and verify the cleanup succeeded; after a passing hosted run, App 1 is backed up again. Local runs need no backup.
+
+**Two connections:** a server Uplink key sets up and inspects data only, because it passes every access check. A client Uplink key, signed in as a `TEST_` user of a role, is the only way access rules are proven.
 
 ## 5. Common Test Patterns
 
@@ -76,35 +70,31 @@ def test_function_valid_input():
 
 **Error handling:**
 ```python
+import pytest
+
 def test_function_invalid_input():
-    try:
+    with pytest.raises(ExpectedException, match="expected message"):
         function(invalid_input)
-        assert False, "Expected exception"
-    except ExpectedException as e:
-        assert "expected message" in str(e).lower()
 ```
 
 **Boundary conditions:** test zero, minimum, and maximum values explicitly — not just "typical"
 inputs.
 
-## 6. Test Plan Shape (for any project's own test specification)
+## 6. Test Plan Shape (for any project's own test plan)
 
-A concrete test plan, regardless of project, should include:
+A concrete test plan, regardless of project, includes:
 - **E2E happy-path specs** per critical flow: preconditions, a numbered steps table (action →
   expected result), a performance gate where relevant, explicit data-validation checks.
 - **Edge cases**, listed separately from the happy path.
 - **Error-path test cases**, one per named failure scenario, each with its own specific expected
   behavior.
-- **An RBAC/access coverage matrix**, if the project has roles: a form/tab access matrix, a test
-  procedure (log in as role → attempt access → verify granted/denied → verify the nav link is
-  hidden, not merely disabled), and a mechanical check — every server function should be grepped
-  for its required auth decorator; a function without one is a bug, not a style note.
+- **An access matrix** (`access-matrix.yaml`), if the project has roles: every server function, form and settings tab against every role.
 
-A real test plan is typically produced as a direct response to specific review findings ("no
-error-path tests," "no RBAC matrix") rather than written speculatively — the review names the
-gap, the test plan closes it.
+## 7. RBAC Verification Procedure
 
-## 7. RBAC Decorator Pattern
+1. Every server function carries its access rule, naming exactly the allowed roles; the scanner refuses a server function without one unless it is listed as intentionally public (test ST-02).
+2. Every server function is called as every role, and signed out, through the client Uplink key; each call succeeds or is refused exactly as `access-matrix.yaml` says, and a refused call changes nothing (test IN-02).
+3. Each role's navigation shows only what it may use: a restricted link is **hidden**, not merely disabled (test BR-03).
 
 ```python
 @authenticated_endpoint(roles=['Owner', 'Manager', 'Admin'])
@@ -112,29 +102,4 @@ def get_contacts():
     ...
 ```
 
-Every server function that isn't intentionally public should carry an equivalent decorator. The
-mechanical test: grep all server modules for the decorator; any function without one, that isn't
-explicitly documented as intentionally public, is a finding.
-
----
-
-*Testing Methodology Standards v1.0. The levels and safety protocol are the reusable part — a
-project's specific flows, roles, and data belong in that project's own test specification.
-
----
-
-## 7. RBAC Verification Procedure
-
-A mechanical verification procedure for role-based access control enforcement:
-
-1. For each form/tab in the access matrix, log in as each role and attempt access
-2. Verify access granted or denied per the matrix
-3. Verify the navigation link is **hidden** (not merely disabled) for restricted roles —
-   disabling a link without hiding it is a UX leak, not a security boundary
-4. Grep ALL server functions for the required auth decorator (`@require_role`,
-   `@authenticated_endpoint`, or equivalent). Any function without one, that is not
-   explicitly documented as intentionally public, is a bug — not a style note
-
-This procedure is run as part of every QA pass (Step 19) and is a gate condition at
-`build-verified`. The grep is a mechanical check — it catches functions that were
-accidentally left unprotected, which a manual role-by-role walkthrough might miss.*
+This procedure runs at Steps 35, 38 and 42A and is a gate condition at `build-verified`.

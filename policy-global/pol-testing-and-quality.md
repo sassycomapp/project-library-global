@@ -1,7 +1,7 @@
 ---
 title: "pol-testing-and-quality"
 doc-id: "mb-b7965794"
-updated: "2026-10-01"
+updated: "2026-10-22"
 ---
 # Policy — Testing and Quality
 
@@ -12,17 +12,21 @@ conform. No exceptions without documented justification.
 
 ## What
 
-### Testing Methodology Is Mandatory, Not Advisory
+### Testing Follows the Test Suite
 
-Every feature is built and verified per [[[default:specifications-global/spec-testing-methodology-standards|Testing Methodology Standards]]](C:/dev/project-library-global/specifications-global/spec-testing-methodology-standards.md) — the
-three-level testing model (pure logic, Uplink integration, manual verification), in
-strict sequence, no level skipped.
+Every step and every feature is tested as the test suite in `C:\dev\project-library-global\test-suite\` sets out: [[[default:test-suite/ts-method]]](C:/dev/project-library-global/test-suite/ts-method.md) says how, [[[default:test-suite/ts-catalogue]]](C:/dev/project-library-global/test-suite/ts-catalogue.md) holds the tests, and each step's `{step}-test-spec.md` names the tests it runs. [[[default:specifications-global/spec-testing-methodology-standards]]](C:/dev/project-library-global/specifications-global/spec-testing-methodology-standards.md) describes the levels of testing. No level is skipped.
 
-### Two Backups Per Feature, Both Mandatory
+### Tests Run Locally First
 
-A pre-integration backup, before any integration code touches the live app, and a
-post-success backup, once integration testing passes. Neither is optional; neither
-substitutes for the other. Never back up a failing state.
+Tests run first on the Anvil App Server on the developer's computer, with an empty database, so nothing live is touched. Only what needs Anvil's hosted service is tested on hosted App 1, with `TEST_` data removed afterwards. The local runtime and the test client take the place of a staging environment; the Hobby plan has none.
+
+### Two Uplink Keys
+
+A server Uplink key sets up and inspects test data only, because it passes every access check. A client Uplink key, signed in as a `TEST_` user of each role, is the only way access rules are proven. Both keys live only in `.env`, never committed.
+
+### Backups Around Hosted Runs
+
+App 1 is backed up before any test run against hosted App 1, and again once it passes. Local runs need no backup. Never back up a failing state.
 
 ### Feature Signoff
 
@@ -33,9 +37,7 @@ breakage is attributable to something done after this point, not to this feature
 ### RBAC Verification Is Part of Testing, Not Separate
 
 Per [[[default:specifications-global/spec-testing-methodology-standards|Testing Methodology Standards]]](C:/dev/project-library-global/specifications-global/spec-testing-methodology-standards.md) §7, every feature with role-based access
-gets both a manual per-role walkthrough and a mechanical grep for missing auth decorators.
-Neither alone is sufficient — the manual pass catches UX leaks (a disabled-but-visible
-link); the grep catches what a manual pass misses.
+is proven by calling every server function as every role through the client Uplink key (test IN-02), by the scanner's check for a missing access rule on any server function (test ST-02), and by a browser walkthrough of each role's navigation (test BR-03).
 
 ### A Finding Is Not Resolved Until Verified
 
@@ -48,10 +50,10 @@ it's closed once the fix is verified against the original failure condition.
 
 Untested integration work is where this operation's own experience says real damage
 happens — a change that touches the live app without prior verification is "a fast way to
-land in trouble... deep trouble you cannot dig your way out of." The two-backup rule looks
+land in trouble... deep trouble you cannot dig your way out of." The backup rule looks
 redundant until the first time the integration attempt itself, not the code being
-integrated, is what goes wrong — the pre-integration backup is what protects against that
-specific failure mode, not the post-success one.
+integrated, is what goes wrong — the backup before a hosted run protects against that
+specific failure mode. Running locally first keeps attacks and broken code away from every hosted app.
 
 ---
 
@@ -59,5 +61,4 @@ specific failure mode, not the post-success one.
 
 Every project this operation builds on Anvil.works, from the first feature onward.
 
-**Source:** [[[default:specifications-global/spec-testing-methodology-standards|Testing Methodology Standards]]](C:/dev/project-library-global/specifications-global/spec-testing-methodology-standards.md); testing discipline validated across
-prior project practice, not invented fresh for this policy.
+**Source:** [[[default:test-suite/ts-method]]](C:/dev/project-library-global/test-suite/ts-method.md); [[[default:specifications-global/spec-testing-methodology-standards]]](C:/dev/project-library-global/specifications-global/spec-testing-methodology-standards.md).

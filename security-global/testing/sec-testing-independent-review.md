@@ -1,7 +1,7 @@
 ---
 title: "sec-testing-independent-review"
 doc-id: "mb-be081259"
-updated: "2026-10-20"
+updated: "2026-10-22"
 ---
 # Independent Security Review
 
@@ -11,11 +11,11 @@ The same agent that implemented a feature reviews its own security — carrying 
 
 ## Security Requirement
 
-Security-relevant code is checked by a genuinely separate reviewer — a different AI session, GStack's own `/review` security specialist, or `/cso`'s independent audit — not solely by the same session or agent that wrote it.
+Security-relevant code is checked by genuinely separate reviewers — Matt Pocock's `code-review`, GStack's `/cso --diff` and Sentinel, each run in its own session — not solely by the session or agent that wrote it.
 
 ## Approved Pattern
 
-The pattern already identified in Matt Pocock's own `code-review` skill: two isolated reviewers checking the same work independently, so neither one's judgment influences the other's — the same principle, applied here to security specifically via `/review`'s security specialist (already part of PDLF Step 37) or `/cso`'s own periodic audit.
+The pattern of Matt Pocock's own `code-review` skill: isolated reviewers check the same work independently, so neither one's judgment influences the other's. PDLF applies it to security with `code-review`, `/cso --diff` and Sentinel at Step 37, each in a separate session (test SC-15).
 
 ## Prohibited Pattern
 
@@ -23,11 +23,11 @@ Treating the implementing agent's own stated confidence in its work as equivalen
 
 ## Implementation Guidance
 
-`/review`'s security specialist, already present at PDLF Step 37, is confirmed under-used — actually invoking it for security-relevant changes is the concrete action this requirement calls for, not new infrastructure.
+Each reviewer runs in a fresh session that did not write the change, and its findings are recorded in the ledger before the change is accepted.
 
 ## Verification Requirements
 
-For security-relevant changes, confirm a genuinely separate review (a different session, `/review`'s security specialist, or `/cso`) actually occurred, not just the implementer's own confidence.
+For security-relevant changes, confirm that `code-review`, `/cso --diff` and Sentinel each reviewed the change in a separate session, with their output saved as evidence, not just the implementer's own confidence.
 
 ## Authoritative Sources
 

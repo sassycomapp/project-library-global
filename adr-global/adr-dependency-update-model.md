@@ -1,7 +1,7 @@
 ---
 title: "adr-dependency-update-model"
 doc-id: "mb-bf8aa7d8"
-updated: "2026-10-04"
+updated: "2026-10-22"
 ---
 # `dependency-update-model` ADR — Dependency Update Model
 
@@ -17,36 +17,36 @@ The platform requires a mechanism to release updates from the development worksp
 
 The question was how to transfer a tested, stable version of mb-3-cs into master_template, and how client instances receive that update.
 
-Anvil's dependency system supports depending on a named branch or a specific version tag of another app. This changes the update model entirely — no cloning or overwriting is required.
+Anvil's dependency system lets a client instance depend on master_template's published version or on a specific version tag. Pushing App 1's tagged release into master_template's repository updates every client instance at once; no re-cloning is required.
 
 ---
 
 ## Decision
 
-### The Four-App Structure
+### The App Structure
 
-| App | Purpose | GitHub Branch |
+| App | Purpose | How it is updated |
 |---|---|---|
-| `mb-3-cs` | Development workspace | `develop` |
-| `master_template` | Published dependency | `stable` |
-| `blank_client_template` | Provisioning clone source | tracks `master_template` stable |
-| `Mybizz_management` | Platform operator tooling | separate repo |
+| App 1 — `{slug}-app1` | Development workspace | Daily development; each release is tagged `vMAJOR.MINOR.PATCH` |
+| App 2 — `master_template` | Published dependency | The developer pushes App 1's tagged release into App 2's repository (Step 42) |
+| App 3 — `blank_client_template` | Provisioning clone source | Carries the released schema |
+| App 5 — `Mybizz_management` | Platform operator tooling | Its own repository |
 
 ### Update Flow
 
 ```
-mb-3-cs  ←→  GitHub (develop branch)
-                    ↓  merge when feature is ready and tested
-master_template  ←→  GitHub (stable branch)
-                    ↓  automatically, immediately
-All client instances depending on master_template stable branch
+App 1 (tagged release)
+    ↓ pushed into App 2's repository when tested and approved (Step 42)
+master_template
+    ↓ automatically, through the dependency
+Every client instance
 ```
 
-1. All feature development happens in mb-3-cs on the `develop` branch
-2. When a feature or fix is tested and ready for release, `develop` is merged into `stable` in GitHub
-3. master_template, connected to the `stable` branch, reflects the update immediately
-4. All client instances depending on master_template's `stable` branch receive the update automatically — no client action required
-5. A release notification email is sent to clients via Anvil built-in email (internal notification system deferred to Mybizz_management phase)
+1. All feature development happens in App 1
+2. When a release is tested and approved, the developer pushes its tag into App 2's repository
+3. master_template reflects the release when it is published
+4. Every client instance depending on master_template receives the update automatically — no client action required
+5. A release notification email is sent to clients via Anvil built-in email
 
 ### Client Notification
 
@@ -60,12 +60,12 @@ The email does not trigger a technical update action. The update has already hap
 
 Anvil supports version tags using the format `vMAJOR.MINOR.PATCH` (e.g. `v1.1.0`). For high-risk releases:
 
-1. Tag the release commit in master_template's GitHub repo
-2. Update a subset of client instances to the version tag instead of tracking `stable`
-3. Monitor for issues
-4. Once confirmed stable, roll remaining client instances to `stable` (or the tag)
+1. The release is tagged in App 1 and pushed into App 2 with its tag
+2. A subset of client instances is set to depend on the new tag, the rest stay on the previous tag
+3. Monitor heartbeats and error logs
+4. Once the release is confirmed, the remaining client instances are set to the new tag
 
-All of the above is managed from the single mybizz Anvil account IDE.
+Each client instance is changed in its own client's Anvil account.
 
 ---
 
@@ -76,15 +76,14 @@ All of the above is managed from the single mybizz Anvil account IDE.
 | Re-clone master_template per release | Changes app ID — breaks all existing client dependencies |
 | Manual per-client update trigger | Unworkable at 100 clients; no Anvil provisioning API |
 | Client-initiated pull via in-app button | No Anvil API to change dependency version from within the app |
-| Separate Anvil account per client | 100 IDE logins to push one update; operationally untenable |
 
 ---
 
 ## Release Discipline
 
-Because all client instances on the `stable` branch update immediately on merge, the quality gate is the merge decision itself. The following must be true before merging `develop` → `stable`:
+Because every client instance updates as soon as a release reaches App 2, the quality gate is the release decision itself. The following must be true before a release is pushed into App 2:
 
-- Feature is fully tested in mb-3-cs
+- Every feature of the release has passed `build-verified` and the whole test suite passes
 - No breaking changes to existing Data Table schemas without a migration plan
 - Release notes are written and ready to send
 - Vault and integration dependencies are documented if changed
@@ -93,11 +92,11 @@ Because all client instances on the `stable` branch update immediately on merge,
 
 ## Test Required
 
-Branch-based update propagation has not yet been verified by live test. The following test must be conducted before the first client is onboarded:
+Update propagation is verified by live test before the first client is onboarded:
 
-1. Create `test-dependency-app` connected to GitHub `stable` branch
-2. Create `test-client-app` depending on `test-dependency-app` stable branch
-3. Make a change in `test-dependency-app`, merge to `stable`
+1. Create `test-dependency-app` as a published dependency
+2. Create `test-client-app`, on a separate Anvil account, depending on `test-dependency-app`
+3. Push a tagged change into `test-dependency-app` and publish it
 4. Verify `test-client-app` reflects the change without any action on the client app
 
 **ADR status moves to Fully Confirmed upon successful test completion.**
@@ -106,11 +105,11 @@ Branch-based update propagation has not yet been verified by live test. The foll
 
 ## Consequences
 
-- ✅ Updates require no manual per-client action once the merge is made
+- ✅ Updates require no manual per-client action once the release is in App 2
 - ✅ All client instances always run the same version (unless deliberately pinned)
 - ✅ Staged rollout available via version tags without infrastructure changes
-- ✅ Single Anvil account; single IDE; single billing relationship
-- ⚠️ Merge to `stable` is a production action — release discipline is mandatory
+- ✅ Each client owns its own Anvil account and leaves with it
+- ⚠️ Pushing a release into App 2 is a production action — release discipline is mandatory
 - ✅ UI and form updates propagate automatically via master_template dependency (confirmed by Test B — see [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) ADR)
 - ⚠️ Schema changes require separate migration process for existing client instances
 

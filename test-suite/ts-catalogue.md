@@ -150,7 +150,7 @@ Hosted App 1, with GStack `browse` and `/qa-only`.
 | ID | Test | Passes when | Basis |
 |---|---|---|---|
 | BR-01 | Every flow works end to end | Each critical flow's steps and data checks match, at desktop (1440 px) and mobile (390 px) width | DC-04 |
-| BR-02 | Edge cases and errors behave as designed | Declined card, gateway failure, expired session, lost connection: each shows its message and leaves no half record | [[[default:specifications-global/spec-testing]]](C:/dev/project-library-global/specifications-global/spec-testing.md) section 2 |
+| BR-02 | Edge cases and errors behave as designed | Declined card, gateway failure, expired session, lost connection: each shows its message and leaves no half record | The application's test plan (Step 15), error paths |
 | BR-03 | Each role sees only its own forms | Refused forms are hidden from navigation and, opened directly, refused | [[[default:specifications-global/spec-testing-methodology-standards]]](C:/dev/project-library-global/specifications-global/spec-testing-methodology-standards.md) section 7 |
 | BR-04 | The feature looks as approved | Each form matches its approved screen at both widths, in light and dark mode | [[[default:specifications-global/spec-screen-and-wireframe-production-standards]]](C:/dev/project-library-global/specifications-global/spec-screen-and-wireframe-production-standards.md) |
 | BR-05 | The feature is accessible | Every flow can be done by keyboard, focus is visible, icon buttons have names, errors say what to fix | WCAG 2.2 AA |

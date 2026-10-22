@@ -1,7 +1,7 @@
 ---
 title: "spec-security"
 doc-id: "mb-d16f800e"
-updated: "2026-10-01"
+updated: "2026-10-22"
 ---
 # PDLF Standards Library — Security Specification
 
@@ -32,7 +32,14 @@ across a multi-server environment.
 | Standard | Value |
 |---|---|
 | Password minimum length | 8 characters |
-| Password complexity | At least one uppercase, one lowercase, one number |
+| Password maximum length allowed | At least 64 characters |
+| Password composition rules | None: no required mix of upper case, lower case, numbers or symbols |
+| Breached passwords | Refused (Anvil's "Require secure passwords" setting) |
+| Context words in passwords | Refused: the app's name, the business's name and the user's email; sign-up and password change run through a server function that checks them first |
+| Second factor | Required for every account holder (Anvil's "Require 2-factor authentication", which applies to the whole app) |
+| Owner's second factor | FIDO2 only (a hardware key or the device's passkey) |
+| Shoppers | Buy as guests, without an account, so they never need a second factor |
+| Remember-me and remembered second factor | At most 7 days |
 | Rate limit — unauthenticated | 10 requests/minute/IP |
 | Rate limit — authenticated | 100 requests/minute/user |
 | Session inactivity timeout | 30 minutes |

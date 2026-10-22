@@ -32,9 +32,9 @@ Before beginning activation:
 3. Clone the app into the client's Anvil account
 4. Rename the clone to the client identifier format: `[client-name]-cs` (e.g. `acme-cs`)
 5. Verify the clone contains:
-   - [ ] All 36 Data Tables (empty)
+   - [ ] Every Data Table of the released schema (empty)
    - [ ] Startup module present (one client module only — opens first form from master_template)
-   - [ ] master_template set as dependency (stable branch)
+   - [ ] master_template set as dependency (current release)
    - [ ] No server modules of its own
    - [ ] No forms of its own
    - [ ] No Anvil Secrets set yet
@@ -205,7 +205,7 @@ Send the client:
 
 ## Post-Activation Notes
 
-- The client instance will receive all master_template updates automatically — server logic, UI, and forms — as they are released to the `stable` branch. No client action is required. The only exception is Data Table schema changes, which must be applied manually per instance in the Anvil IDE.
+- The client instance will receive all master_template updates automatically — server logic, UI, and forms — as each release is pushed into master_template. No client action is required. The only exception is Data Table schema changes, which must be applied manually per instance in the Anvil IDE.
 - Release notification emails are sent by mybizz via Anvil built-in email.
 - The client never has access to the Anvil IDE. All management of the instance is through the application UI (Owner role) or through mybizz operator tooling.
 - Schema migrations to this instance must be applied manually if the Data Table schema changes after activation. This includes new tables, new columns, modified columns, and deleted columns.

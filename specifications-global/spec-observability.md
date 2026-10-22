@@ -1,7 +1,7 @@
 ---
 title: "spec-observability"
 doc-id: "mb-3d23160a"
-updated: "2026-10-01"
+updated: "2026-10-22"
 ---
 # PDLF Standards Library — Observability Requirements
 
@@ -17,8 +17,7 @@ Anvil.works platform constraints.
 ## 1. Application-Level Observability via Data Tables
 
 Anvil-hosted deployments without access to external monitoring infrastructure use Anvil Data
-Tables as the observability store. A management application queries these tables via HTTP
-endpoints to produce consolidated dashboards — there is no separate metrics pipeline.
+Tables as the observability store. Each instance pushes a heartbeat summary of these tables to the management application on a schedule; the management application never polls instances. Its HTTP endpoints on each instance remain for control (suspend, notify) and on-demand checks. There is no separate metrics pipeline.
 
 **Three canonical log tables:**
 
@@ -48,7 +47,7 @@ JSON-structured format with these required fields:
 | `request_id` | string | UUID generated per request for correlation |
 
 **Additional rules:**
-- Log function entry and exit at DEBUG level (including arguments for entry)
+- Log function entry and exit at DEBUG level, with argument names and row ids only, never argument values
 - Log any external API call at INFO level (including duration)
 - Log any caught-then-re-raised exception at ERROR level
 - Do NOT log user credentials, API keys, or PII in any log message

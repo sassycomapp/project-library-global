@@ -1,7 +1,7 @@
 ---
 title: "adr-real-time-and-background-tasks"
 doc-id: "mb-1684942d"
-updated: "2026-10-04"
+updated: "2026-10-22"
 ---
 # `real-time-and-background-tasks` ADR — Real-Time Updates and Background Task Architecture
 
@@ -78,7 +78,7 @@ class DashboardForm:
 
 ### Background Task Architecture
 
-All asynchronous operations use Anvil's `@anvil.server.background_task` decorator. Background tasks have no timeout limit on the Business plan.
+All asynchronous operations use Anvil's `@anvil.server.background_task` decorator. Background tasks have no timeout limit on the Hobby plan, on which every client starts.
 
 **Task inventory per client instance:**
 
@@ -94,9 +94,7 @@ All asynchronous operations use Anvil's `@anvil.server.background_task` decorato
 
 **Total per client instance:** ~6 scheduled tasks + event-driven webhook processing
 
-**At 100 clients:** ~600 scheduled tasks + webhook bursts
-
-**Anvil Business plan verification required:** Confirm that 600+ scheduled tasks across 100 apps on a single account is within limits. This is a blocking question before launch.
+**Load:** each client instance runs on its client's own Anvil account, so the scheduled-task load is counted per client account, not added up across clients.
 
 ### Per-Task Failure and Retry Policy
 

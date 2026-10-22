@@ -1,7 +1,7 @@
 ---
 title: "spec-m3_component_mapping"
 doc-id: "mb-af738688"
-updated: "2026-10-01"
+updated: "2026-10-22"
 ---
 ***
 
@@ -124,7 +124,7 @@ Usage note for agents:
 - Navigation Rail
   - Mapping: `m3.NavigationLink` placed in `Navigation Rail Layout`
   - Support: Fully supported
-  - Example: `m3.NavigationLink(text="Home", icon="mi:home", navigate_to=HomeForm)`
+  - Example: `m3.NavigationLink(text="Home", icon="mi:home")`, its click handler set as in [[[default:adr-global/adr-navigation-lambda-link-open-form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md); `navigate_to` is not used
 
 - Navigation Drawer
   - Mapping: `m3.NavigationLink` placed in `Navigation Drawer Layout`
@@ -338,7 +338,8 @@ card = m3.InteractiveCard(appearance="elevated", click=self.open_details)
 
 - Create a navigation link (in Navigation Drawer Layout):
 ```python
-nav = m3.NavigationLink(text="Dashboard", icon="mi:dashboard", navigate_to=DashboardForm)
+nav = m3.NavigationLink(text="Dashboard", icon="mi:dashboard")
+nav.add_event_handler("click", lambda e, fn="DashboardForm": self._nav_click(fn))
 ```
 
 ***

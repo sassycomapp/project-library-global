@@ -1,7 +1,7 @@
 ---
 title: "spec-api-specification"
 doc-id: "mb-639a7203"
-updated: "2026-10-01"
+updated: "2026-10-22"
 ---
 # Mybizz — API Specification (HTTP Endpoints)
 
@@ -77,7 +77,7 @@ Both ship with master_template — all client instances have them from provision
 | Response time | Must return HTTP 200 within 5 seconds |
 | Signature validation | Reject invalid signatures with HTTP 400 |
 | Idempotency | Check `webhook_log` before processing to prevent duplicates |
-| Logging | All webhooks logged to `webhook_log` table |
+| Logging | Every webhook with a valid signature is logged to the `webhook_log` table. A webhook with an invalid signature gets HTTP 400, no `webhook_log` row and an `error_log` entry |
 | Processing | Deferred to background task — never process in HTTP handler |
 | Error handling | Log failures to `webhook_log.error_message` |
 | Reconciliation | Hourly task retries orphaned (unprocessed) webhook rows |
@@ -106,6 +106,8 @@ Returns current health status of the client instance.
 ```json
 {
   "status": "healthy",
+  "release_version": "v1.4.0",
+  "schema_fingerprint": "sha256 of the instance's table and column list",
   "last_active": "2026-06-15T10:30:00Z",
   "error_count_24h": 0,
   "last_error": null,
@@ -134,7 +136,7 @@ Returns subscription and feature flag status.
 }
 ```
 
-#### POST /management/suspends
+#### POST /management/suspend
 
 Suspends the client instance.
 
@@ -165,12 +167,7 @@ Notifies the client instance of an available update.
 
 ## 4. Server Function Pattern
 
-All server functions (not just HTTP endpoints) follow the response envelope pattern:
-
-```python
-{'success': True, 'data': result}
-{'success': False, 'error': msg}
-```
+Server functions return the data itself and raise an exception on failure; the global client-side error handler shows the error plainly. HTTP endpoints return HTTP status codes, with a short JSON error body on failure (section 6).
 
 See [[[default:specifications-global/spec-anvil-platform-standards|Anvil Platform Standards]]](C:/dev/project-library-global/specifications-global/spec-anvil-platform-standards.md) §2.
 

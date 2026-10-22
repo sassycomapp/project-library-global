@@ -6,7 +6,7 @@ updated: "2026-10-22"
 # Mybizz — Regulatory Compliance Baseline (Specification)
 
 **Scope:** Mybizz-wide. This posture applies because Mybizz-the-company is based in South Africa
-and operates a multi-tenant SaaS model — it does not depend on what any individual app does.
+and runs one app and one database per client, never a multi-tenant model — it does not depend on what any individual app does.
 App-specific facts (e.g., whether a given app actually processes payments, and therefore whether
 PCI DSS applies to it) are recorded in [[[default:specifications-global/spec-security-architecture|Security Architecture Specification]]](C:/dev/project-library-global/specifications-global/spec-security-architecture.md), which
 should reference this baseline rather than restate it.
@@ -30,6 +30,8 @@ implementation is needed per regulation, only a determination of whether EU cust
 Applies to any app that processes payments. The standard Mybizz approach: store only payment
 tokens, never raw card numbers — this places a compliant app in SAQ A, the lowest compliance
 scope. An annual Self-Assessment Questionnaire is required for any app in scope.
+
+SAQ A also requires that the payment page cannot be tampered with by scripts: card details are taken only on the gateway's own hosted page or in the gateway's own embedded payment fields, never in the app's own inputs; every script on a page that hosts or redirects to payment is listed and approved, and the list is checked at every release (test SC-10).
 
 ## Standard Data Retention Periods (Mybizz-Wide Defaults)
 

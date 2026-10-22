@@ -1,7 +1,7 @@
 ---
 title: "adr-anvil-platform-constraints"
 doc-id: "mb-d1719e5a"
-updated: "2026-10-04"
+updated: "2026-10-22"
 ---
 # `anvil-platform-constraints` ADR — Anvil Platform Constraints and Design Boundaries
 
@@ -65,15 +65,7 @@ Every `anvil.server.call()` is an HTTP round-trip. Over-reliance on server calls
 
 ### 5. Background Task Limits
 
-Anvil's background task system has plan-dependent limits:
-
-| Plan | Timeout | Scheduled Tasks | Notes |
-|------|---------|-----------------|-------|
-| Free | 30 seconds | None | Core features non-functional |
-| Personal | Limited | Limited | Insufficient for production |
-| Business | Unlimited timeout | Available | Required for Mybizz |
-
-With 100 client instances each running multiple background tasks (health heartbeat, campaign enrollment, reminders, webhook processing), the per-account task load must be verified against Anvil Business plan limits.
+Every client starts on the Hobby plan, which includes background tasks with no timeout and scheduled tasks. Each client instance runs on its client's own Anvil account, so task load is counted per client.
 
 **See:** [[[default:adr-global/adr-real-time-and-background-tasks|Real-Time and Background Tasks]]](C:/dev/project-library-global/adr-global/adr-real-time-and-background-tasks.md) ADR
 
@@ -95,7 +87,7 @@ Anvil's built-in Git integration is one-way friendly (Anvil ← GitHub). Branchi
 
 ### 9. Persistent Server
 
-Anvil's free tier has no persistent server. The Business plan includes persistent server capability, which is required for performance-sensitive operations.
+The Hobby plan has no persistent server. Every feature is designed to work without one: no state is kept in module-level variables between calls.
 
 ### 10. `app_tables` Resolution Failure
 

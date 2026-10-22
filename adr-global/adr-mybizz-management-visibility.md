@@ -1,7 +1,7 @@
 ---
 title: "adr-mybizz-management-visibility"
 doc-id: "mb-1962f48d"
-updated: "2026-10-01"
+updated: "2026-10-22"
 ---
 # `mybizz-management-visibility` ADR — Mybizz_management Visibility and Control
 
@@ -46,7 +46,7 @@ POST /management/push-update-alert → writes update available notice to client 
 
 **Authentication:** Each request must include a Bearer token in the `Authorization` header. The token is validated against a value stored in the client instance's management configuration. Requests without a valid token are rejected with HTTP 403.
 
-**Triggered by:** Mybizz_management UI (operator actions) and Mybizz_management background polling task.
+**Triggered by:** Mybizz_management UI (operator actions) and on-demand checks.
 
 ---
 
@@ -73,13 +73,11 @@ Master_template's server modules call this endpoint when key events occur. The c
 
 ---
 
-## Communication Pattern 3 — Background Polling
+## Communication Pattern 3 — Heartbeat Push
 
 **Used for:** Proactive health monitoring across all client instances
 
-Mybizz_management runs a scheduled background task that periodically calls each client instance's `/management/health` endpoint. Results are stored in Mybizz_management's client registry table. Clients that fail to respond within a defined threshold trigger an operator alert.
-
-**Polling frequency:** To be defined based on Anvil background task limits and operational need. Suggested: every 15 minutes.
+Each client instance runs a scheduled background task, every 15 minutes, that sends its health summary (the same content as `/management/health`) to Mybizz_management's event receiver, without blocking its own work. Mybizz_management never polls instances. It stores each heartbeat in its client registry table, and a client whose heartbeat is more than 45 minutes old triggers an operator alert.
 
 ---
 
@@ -107,7 +105,7 @@ Mybizz_management maintains a client registry table containing:
 | `subscription_status` | Active / suspended / churned |
 | `plan` | Pricing tier |
 | `onboarded_date` | Activation date |
-| `last_health_check` | Timestamp of last successful health poll |
+| `last_health_check` | Timestamp of the last heartbeat received |
 | `last_active` | Last user session timestamp (from health endpoint) |
 
 ---

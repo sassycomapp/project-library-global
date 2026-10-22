@@ -1,7 +1,7 @@
 ---
 title: "spec-five-app-architecture-model"
 doc-id: "mb-1b7a1fda"
-updated: "2026-10-04"
+updated: "2026-10-22"
 ---
 # Mybizz — Five-App Architecture Model (Specification)
 
@@ -15,8 +15,8 @@ names/slugs below are placeholders — a given app's actual instance names live 
 
 | App | Role | Contains | Updated via |
 |---|---|---|---|
-| App 1 — `{dev-workspace}` | Development workspace. All feature work happens here. Never a dependency for any client instance. | All Data Tables (dev/testing), all UI forms, all server modules, all application code | Daily development on GitHub `develop` branch |
-| App 2 — `master_template` | Published dependency. Sole source of all server-side logic and UI forms for every client instance. | All server modules + all forms + all UI | Merge `develop` → `stable` in GitHub; tracks `stable` automatically |
+| App 1 — `{dev-workspace}` | Development workspace. All feature work happens here. Never a dependency for any client instance. | All Data Tables (dev/testing), all UI forms, all server modules, all application code | Daily development; each release is tagged here |
+| App 2 — `master_template` | Published dependency. Sole source of all server-side logic and UI forms for every client instance. | All server modules + all forms + all UI | The developer pushes App 1's tagged release into App 2's repository (Step 42) |
 | App 3 — `blank_client_template` | Provisioning clone source. The sole clone source for creating new client instances. | Full Data Table schema (correct, no data), one startup module, `master_template` as dependency. Zero server modules, zero forms. | Only when schema changes occur |
 | App 4 — `[client-name]-{vertical}` | One per paying client — a dedicated, isolated app instance. | Data Tables + one startup module + active `master_template` dependency. Nothing else. | Automatic — server logic, UI, and forms all propagate via the dependency. Schema changes are manual only. |
 | App 5 — `{Product}_management` | Platform operator's internal tooling — provisioning, health monitoring, billing automation, update distribution. | Client registry, monitoring dashboard, billing status, update distribution controls | Deferred — built post-launch |
@@ -41,7 +41,7 @@ and permanently overrides the dependency for that instance only, with no error o
 instance stops receiving any future update to `master_template`.
 
 **If a change is needed for a specific client, it belongs in the development workspace (App 1)**,
-tested against a private client instance, then merged into `master_template` — after which every
+tested against a private client instance, then released into `master_template` — after which every
 client instance, including the one that prompted the change, receives it automatically.
 
 Every provisioned client instance should carry a README stating this explicitly from the moment
@@ -52,15 +52,15 @@ something for client X," a new team member, or anyone working under time pressur
 ## Update Deployment Model
 
 ```
-{dev-workspace} (develop branch)
-    ↓ merge when tested and ready
-master_template (stable branch)
-    ↓ automatically
-All client instances tracking stable branch
+{dev-workspace} (tagged release)
+    ↓ pushed into App 2's repository when tested and approved (Step 42)
+master_template
+    ↓ automatically, through the dependency
+Every client instance
 ```
 
-No manual per-client update action exists. Merging to `stable` is a production action — release
-discipline (full testing in the dev workspace before merge) is the quality gate. For high-risk
+No manual per-client update action exists. Releasing into `master_template` is a production action — release
+discipline (the whole test suite passing before release) is the quality gate. For high-risk
 releases, version tags allow staged rollout: a subset of clients updated first, remainder
 following once stability is confirmed.
 

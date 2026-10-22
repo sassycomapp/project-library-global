@@ -1,7 +1,7 @@
 ---
 title: "adr-anvil-extras-exclusion"
 doc-id: "mb-d08beff2"
-updated: "2026-10-01"
+updated: "2026-10-22"
 ---
 # Anvil Extras Exclusion
 Date: 2026-05-21
@@ -18,10 +18,10 @@ Anvil Extras is a third-party package that provides additional components and ut
 
 ## Decision
 
-**Anvil Extras is out of scope and excluded from the Mybizz CS project.**
+**Anvil Extras is out of scope and excluded from every Mybizz application.**
 
 This exclusion applies to:
-- All Anvil Extras components (Tabs, MultiSelectDropDown, Autocomplete, Quill, Switch, Slider, RadioGroup, CheckBoxGroup, Popover, etc.)
+- All Anvil Extras components (Tabs, MultiSelectDropDown, Autocomplete, Quill, Switch, Slider, RadioGroup, CheckBoxGroup, Popover, etc.). The ban covers Anvil Extras' versions only: the Material 3 Theme's own `Switch`, `Slider` and `RadioButton` are permitted.
 - Any third-party packages not included in the official Anvil Material 3 Theme dependency
 - Any custom JavaScript frameworks or non-standard widget dependencies
 
@@ -44,7 +44,7 @@ This exclusion applies to:
 ## Consequences
 
 ### Blocked components (always excluded)
-- Tabs, MultiSelectDropDown, Autocomplete, Quill, Switch, Slider, RadioGroup, CheckBoxGroup, Popover
+- Anvil Extras' Tabs, MultiSelectDropDown, Autocomplete, Quill, Switch, Slider, RadioGroup, CheckBoxGroup, Popover
 - Any component not in the official Anvil Material 3 Theme dependency
 
 ### Allowed patterns

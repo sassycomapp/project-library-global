@@ -1,7 +1,7 @@
 ---
 title: "spec-m3-design-standards"
 doc-id: "mb-e3a4e619"
-updated: "2026-10-01"
+updated: "2026-10-22"
 ---
 # PDLF Standards Library — M3 Design & Component Standards
 
@@ -85,7 +85,7 @@ guideline — more than one filled button on a screen is a compliance failure, n
 **Layout shell:** Use the native M3 Layouts — `NavigationRailLayout` or `NavigationDrawerLayout` — for the admin and customer portal shells. `HTMLTemplate` is banned per the [[[default:adr-global/adr-htmltemplate-use|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) ADR.
 
 **Authenticated (internal) navigation:**
-- Plain `Link` components in the sidebar, not `NavigationLink`.
+- The layouts' own `NavigationLink` components in the sidebar.
 - Lambda click handlers with **mandatory loop-variable capture**:
   ```python
   lambda e, fn=form_name, a=attr_name: self._nav_click(fn, a)
@@ -100,9 +100,8 @@ guideline — more than one filled button on a screen is a compliance failure, n
 - Route constructor signature: `def __init__(self, routing_context, **properties)`.
 - Access route parameters via `routing_context.params['id']`.
 
-**`navigate_to` is never used** — it is not compatible with the content panel navigation pattern.
-**`NavigationLink` is not used for sidebar navigation** — the `nav_` prefix in component naming
-refers to Link components styled for sidebar use, not NavigationLink components.
+**`navigate_to` is never used**, neither as a function nor as a `NavigationLink` property — every navigation goes through the lambda click handler or `open_form()`.
+The `nav_` prefix in component naming refers to the `NavigationLink` components in the sidebar.
 
 ## 8. Sidesheet
 

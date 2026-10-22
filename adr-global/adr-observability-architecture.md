@@ -1,7 +1,7 @@
 ---
 title: "adr-observability-architecture"
 doc-id: "mb-d5da852f"
-updated: "2026-10-04"
+updated: "2026-10-22"
 ---
 # `observability-architecture` ADR — Observability Architecture
 
@@ -53,7 +53,7 @@ Master_template includes server-side logic that writes key events and metrics to
 
 ### What Mybizz_management Displays
 
-Mybizz_management queries client instances via HTTP endpoints (see [[[default:adr-global/adr-mybizz-management-visibility|Mybizz Management Visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md) ADR) and presents:
+Each client instance pushes a heartbeat to Mybizz_management on a schedule, without blocking its own work; Mybizz_management never polls instances. Its HTTP endpoints on each instance (see [[[default:adr-global/adr-mybizz-management-visibility|Mybizz Management Visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md) ADR) remain for control and on-demand checks. From the heartbeats it presents:
 
 - Last active timestamp per client
 - Background task health (last run, success/failure)

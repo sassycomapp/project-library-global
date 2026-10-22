@@ -1,13 +1,13 @@
 ---
 title: "spec-screen-production-standard"
 doc-id: "mb-97195caa"
-updated: "2026-10-01"
+updated: "2026-10-22"
 ---
-# Mybizz CS — Screen Production Standard
+# Mybizz — Screen Production Standard
 
 **Date:** 2026-06-03
 **Authority:** Approved example — `screens/Example-screen-auth-SignupForm.html`
-**Purpose:** Canonical rules for all screen artefacts in the Mybizz CS project
+**Purpose:** Canonical rules for all screen artefacts in every Mybizz project
 
 # Note to reader
 Hard coated colors must not be present in any document Color palettes are by anvil color tokens system 
@@ -122,14 +122,28 @@ A screen is a **visual UI mockup**, not a documentation report. It must look lik
 
 ### 8. Dark Mode (required)
 
+Every colour token of the token block has a dark value. Each pair below passes WCAG 2.2 AA contrast (4.5:1 for text, 3:1 for outlines), as test DC-12 checks.
+
 ```css
 @media (prefers-color-scheme: dark) {
   :root {
-    --surface: #1C1B1F;
-    --on-surface: #E6E1E5;
-    --surface-variant: #49454F;
-    --on-surface-variant: #CAC4D0;
-    --outline: #938F99;
+    --primary: #adc6ff;
+    --on-primary: #102f60;
+    --primary-container: #2e4578;
+    --on-primary-container: #d8e2ff;
+    --secondary: #c2c7d3;
+    --on-secondary: #2c313a;
+    --secondary-container: #434852;
+    --on-secondary-container: #dee2ee;
+    --surface: #1a1b1f;
+    --on-surface: #e3e2e6;
+    --surface-variant: #44474f;
+    --on-surface-variant: #c5c6d0;
+    --surface-container-low: #1f2024;
+    --outline: #8f909a;
+    --outline-variant: #44474f;
+    --error: #ffb4ab;
+    --on-error: #690005;
   }
 }
 ```
@@ -155,7 +169,7 @@ A screen is a **visual UI mockup**, not a documentation report. It must look lik
 
 ## Screen Title Convention
 
-- `<title>Mybizz CS — [Form Name]</title>`
+- `<title>{Application name} — [Form Name]</title>`, for example `Mybizz CS — Sign Up`
 - No "Implementation Screen:" prefix
 - No "Anvil Construction Guide" subtitle
 

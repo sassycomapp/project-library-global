@@ -1,7 +1,7 @@
 ---
 title: "adr-frontmatter-exemption-transient-files"
 doc-id: "mb-30664b09"
-updated: "2026-10-01"
+updated: "2026-10-22"
 ---
 # Frontmatter Exemption for Transient Files
 
@@ -13,7 +13,7 @@ Source: Master Task List Task 2.2
 
 ## Context
 
-GBrain's `frontmatter validate` flags 5 template files in `templates-global` as `[MISSING_OPEN]`: `tmp-authoritative-schema.md`, `tmp-chklist-anvil-app-testing.md`, `tmp-chklist-screen.md`, `tmp-chklist-wireframe.md`, `tmp-custom-component-requirements-matrix.md`. All five are `tmp-`-prefixed, transient/scratch working files, not part of the permanent, registered document corpus.
+GBrain's `frontmatter validate` flags 4 template files in `templates-global` as `[MISSING_OPEN]`: `tmp-authoritative-schema.md`, `tmp-chklist-screen.md`, `tmp-chklist-wireframe.md`, `tmp-custom-component-requirements-matrix.md`. All four are `tmp-`-prefixed, transient/scratch working files, not part of the permanent, registered document corpus.
 
 ---
 
@@ -33,7 +33,7 @@ GBrain's `frontmatter validate` flags 5 template files in `templates-global` as 
 
 ## Consequences
 
-- The 5 named `tmp-*.md` files in `templates-global` are exempt. They should not be treated as requiring a frontmatter fix.
+- The 4 named `tmp-*.md` files in `templates-global` are exempt. They should not be treated as requiring a frontmatter fix.
 - This unblocks Master Task List Task 3.1, previously gated on this decision.
 - Any future file using the `tmp-` prefix inherits this same exemption automatically — the rule is prefix-based, not a one-off list.
 - This ADR does not address the separate, related `Instructions.md` question — see `instructions-md-per-folder-purpose-file` ADR.

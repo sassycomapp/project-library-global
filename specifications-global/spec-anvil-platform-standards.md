@@ -1,7 +1,7 @@
 ---
 title: "spec-anvil-platform-standards"
 doc-id: "mb-57f2e70b"
-updated: "2026-10-05"
+updated: "2026-10-22"
 ---
 # PDLF Standards Library — Anvil Platform Mechanics
 
@@ -18,16 +18,12 @@ scaffold-spec.md), generalized for reuse across any PDLF-run Anvil project.
 - Forms are folders: `FormName/`
 - Code lives in `FormName/__init__.py`
 - Designer config lives in `FormName/form_template.yaml`
-- **Never modify `form_template.yaml` programmatically** — it's Designer-managed.
+- `form_template.yaml` and `anvil.yaml` are changed only through Anvil's own agent skills (`client-forms`, `anvil-yaml`) or the Designer, and every change is validated (`anvil --json validate`); never by hand-written code that edits the YAML.
 
 ## 2. Server Function Pattern
 
 Every server function should:
-- Return a response envelope, not a bare value or exception:
-  ```python
-  {'success': True, 'data': result}
-  {'success': False, 'error': msg}
-  ```
+- Return the data itself (a row, a list of dicts, a value) and raise an exception on failure, as Anvil's `data-models` and `server-code` skills do. The global client-side error handler (section 15) shows a raised error plainly. HTTP endpoints return HTTP status codes.
 - Have a docstring with Args, Returns, Raises.
 - Have type hints on all public functions.
 - Log via `logging.getLogger(__name__)` — never `print` in server code.
@@ -60,17 +56,10 @@ Every server function should:
   (i.e. ~22 seconds against a 30-second limit) must use a background task instead of a normal
   server call.
 
-**Plan-dependent limits:**
-
-| Plan | Timeout | Scheduled Tasks | Notes |
-|---|---|---|---|
-| Free | 30 seconds | None | Core background-task-dependent features non-functional |
-| Personal | Limited | Limited | Insufficient for production use |
-| Business | Unlimited | Available | Required for any production deployment using this pattern |
+**Plan:** every client starts on the Hobby plan, which includes background tasks with no timeout and scheduled tasks. The Hobby plan has no persistent server and no staging environment, and allows 1,000 emails a month, 150,000 rows and 10 GB of storage.
 
 **[EXAMPLE]** For a multi-instance deployment (e.g. 100 client instances, each running
-several scheduled tasks — health heartbeat, reminders, webhook processing), verify total
-per-account task load against the Business plan's actual limits before scaling further.
+several scheduled tasks — health heartbeat, reminders, webhook processing), each instance runs on its own client's account, so each account's task load is checked against that client's plan.
 The specific instance count and task list are project data — track them in that project's
 own deployment/authoritative-schema documents, not here.
 
@@ -87,8 +76,8 @@ finally:
     anvil.server.disconnect()
 ```
 
-- Always use a **Server** Uplink key for server-side work (not Client).
-- **Never hardcode Uplink keys** — read from environment variables.
+- Two keys, two purposes. A **Server** Uplink key passes every access check, so it is used only to set up and inspect data. A **Client** Uplink key, signed in as a `TEST_` user of a role, behaves exactly like a browser and is the only way access rules are proven.
+- **Never hardcode Uplink keys** — read them from `.env`, which is never committed.
 - Always disconnect after the operation.
 - Restart the Anvil server runtime after making changes in the Designer, before the next Uplink
   session — stale runtime state is a real, documented failure mode.
@@ -96,25 +85,18 @@ finally:
   (`anvil.server.call('function_name')`), not only functions defined in the Uplink script itself —
   this is what makes remote integration testing possible without a browser.
 
-## 7. Deployment Environments
+## 7. Releases and Environments
 
-- Anvil deploys via named Deployment Environments, each with its own URL, code version
-  (branch/commit), and database — not a generic CI/CD pipeline.
-- Code can branch on environment to avoid per-deploy edits:
-  ```python
-  if anvil.app.environment.name == "Production":
-      ...
-  elif anvil.app.environment.name == "Staging":
-      ...
-  ```
-- Rollback is re-pointing an environment to a different commit and republishing — not a code
-  revert, which does not un-publish an app.
+- The Hobby plan gives each app one environment and one database. There is no staging environment.
+- App 1 is where development happens. A release is App 1's tagged code cloned into App 2 (Step 42); every client instance depends on App 2.
+- Testing before release happens on the Anvil App Server on the developer's computer and on a test client instance, not in a staging environment.
+- Rollback is re-pointing App 2 to the previous release tag — not a code revert, which does not un-publish an app.
 
 ## 8. Debugging Tools (Interactive, Not Autonomous)
 
 - **Interactive Debugger**: breakpoints, call-stack inspection, works client- and server-side.
-  Breakpoints only fire in the Development Environment, never in published versions.
-  Server-code breakpoints require the Business Plan or above.
+  Breakpoints only fire in the development version, never in published versions.
+  Server code is debugged on the Anvil App Server on the developer's computer, which needs no paid plan.
 - **Server Console / App Console**: Python REPLs for manually executing and inspecting code.
 - These are tools for a human at the keyboard. There is no confirmed autonomous "runs tests and
   repairs code by itself" capability built into Anvil.works — don't assume one exists without
@@ -175,6 +157,7 @@ override and the reason — never silently diverge.
   queries are needed. See [[[default:adr-global/adr-dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]]](C:/dev/project-library-global/adr-global/adr-dependency-based-not-multi-tenant.md) ADR.
 - **Mandatory columns:** `created_at` (datetime) and `updated_at` (datetime, if the row is
   mutable) on every table.
+- **Money:** every amount is stored as a whole number of cents (Anvil's number column is floating-point, so decimal amounts would round wrongly), with the currency held separately.
 - **Query patterns:** `get()` for a single record (returns `None` if not found); `search()` for
   multiple records (returns a `SearchIterator`); paginate with slicing (`[:50]`); sort with
   `tables.order_by()`; avoid converting a `SearchIterator` to a list unless actually necessary.
@@ -333,9 +316,7 @@ storage for large media.
 
 ## 25. Persistent Server Requirement
 
-Anvil's free tier has no persistent server. The Business plan's persistent server
-capability is required for any performance-sensitive operation — do not design a feature
-that assumes persistent-server behavior without confirming the plan tier supports it.
+The Hobby plan, on which every client starts, has no persistent server. Every feature is designed to work without one: no state is kept in module-level variables between calls, and slow start-up work is avoided or cached in Data Tables.
 
 ## 26. `app_tables` Resolution Failure
 

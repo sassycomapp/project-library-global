@@ -1,7 +1,7 @@
 ---
 title: "spec-vault-system"
 doc-id: "mb-4960a0bb"
-updated: "2026-10-04"
+updated: "2026-10-22"
 ---
 # Mybizz — The Vault System
 
@@ -9,15 +9,13 @@ updated: "2026-10-04"
 
 **Authority:** [[[default:adr-global/adr-payment-security-boundary-vault|Payment Security Boundary Vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) ADR ([[[default:adr-global/adr-payment-security-boundary-vault|Payment Security Boundary: Secret Keys Deferred to the Vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md))
 
-**Source:** Consolidated from [[[default:specifications-global/spec-security|Security Specification]]](C:/dev/project-library-global/specifications-global/spec-security.md) (the generic security pattern) and the original `docs/vault-system.md` (the CS-specific implementation), merged into one authoritative document.
-
 ---
 
 ## 1. Two-Level Secrets Model
 
 - **Anvil Secrets** holds exactly one item: a master encryption key, set at provisioning, never changed, used exclusively inside a dedicated vault-service module to encrypt/decrypt application-level secrets. No other code calls `anvil.secrets.get_secret()` directly.
 - **The Vault** (an application-level encrypted Data Table) holds every other credential — client API keys, integration tokens. Retrieved only via a `get_vault_secret(name)` function, never accessed directly by integration modules.
-- **Access control:** restrict Vault access to the Owner role, require step-up authentication (e.g. TOTP) on every open with no grace period, and send a notification on every access.
+- **Access control:** restrict Vault access to the Owner role, require a fresh second factor on every open with no grace period (the Owner's is FIDO2, per [[[default:specifications-global/spec-security]]](C:/dev/project-library-global/specifications-global/spec-security.md)), and send a notification on every access.
 
 ## 2. Secret Enforcement and Masking
 
@@ -39,65 +37,20 @@ assert not (_PAYMENT_SECRET_COLUMNS & set(data.keys())), (
 
 ## 3. What's Stored in the Vault (per application)
 
-Each application defines its own Vault contents. The following is the mb-3-cs (Consulting & Services) implementation:
+Each application lists its own Vault contents, its Vault form and its build sequence in its own project library; `mb-3-cs` holds them in `docs-local\mb-3-cs-vault-implementation.md`. Publishable keys (for example a Stripe publishable key) are safe for client-side use and are stored in the payment configuration table, not the Vault.
 
-| Secret | Used by |
-|---|---|
-| `stripe_secret_key` | Payment Gateway (Stripe) |
-| `paystack_secret_key` | Payment Gateway (Paystack) |
-| `paypal_secret` | Payment Gateway (deferred to V2) |
-| SMTP credentials / `smtp_password` | Email Configuration (Brevo SMTP) |
-| Brevo API key (`brevo_api_key`) | Brevo CRM integration |
-| Shared event push token | Mybizz_management event forwarding |
+## 4. Second-Factor Recovery
 
-Publishable keys (e.g. Stripe publishable key) are safe for client-side use and are stored in the `payment_config` table, not the Vault.
-
-**SMTP constants** (hardcoded — identical for all clients, not stored in Vault):
-- Host: `smtp-relay.brevo.com`
-- Port: `587` (STARTTLS)
-
-## 4. VaultForm UI (mb-3-cs)
-
-Standalone form accessed from Settings, visible to Owner only:
-- TOTP verification notice, displayed prominently at the top.
-- Stored Secrets list — name, last updated date, usage context. View (masked reveal) and Delete actions per item.
-- Add New Secret form — name + password input (`hide_text=True`) at the bottom. Value never displayed again after saving.
-
-Visual references: `wireframes/wireframe-settings-VaultForm.html`, `screens/screen-settings-VaultForm.html`.
-
-## 5. Build Sequence (mb-3-cs)
-
-Built in Phase 1, Stage 1.5 of `build-plan.md` (mb-3-cs project library), after authentication and settings (Stages 1.0–1.4). Phase 2 (payments, bookings, services) depends on the Vault being functional first.
-
-### Deliverables
-- `vault` Data Table with encrypted secrets storage
-- `encryption_key` set in Anvil Secrets
-- `server_shared/encryption_service.py`
-- `server_shared/vault_service.py`
-- `server_shared/vault_totp_service.py`
-- `settings/VaultForm`
-
-### Completion Criteria
-- `encryption_key` set in Anvil Secrets (only item there)
-- VaultForm requires TOTP step-up on every open, no grace period
-- Email notification sent to Owner on every Vault access
-- Secret keys stored encrypted in `vault` table
-- `get_vault_secret()` retrieves secrets correctly
-- Payment config uses Vault for secret keys (not stored in `payment_config` table)
-- Secret masking in `get_payment_config()` returns `'***'`
-
-## 6. TOTP Recovery
-
-If the Owner loses their TOTP device, the following recovery path applies:
+If the Owner loses their second-factor device, the following recovery path applies:
 
 1. Owner contacts Mybizz support (Mybizz_management)
 2. Mybizz_management verifies the Owner's identity through out-of-band process
-3. Mybizz_management resets the Owner's TOTP configuration
-4. Owner re-enrolls TOTP on their new device
+3. Mybizz_management resets the Owner's second-factor configuration
+4. Owner enrols a new FIDO2 key or passkey
 5. The reset event is logged in the Mybizz_management amendment log (append-only)
 
 **Constraints:**
-- Only Mybizz_management can reset TOTP — no self-service recovery
+- Only Mybizz_management can reset the Owner's second factor — no self-service recovery
 - The reset event is permanently logged for audit
 
 **Source:** [[[default:adr-global/adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) ADR, CEO review 2026-06-15 Section 3
@@ -106,19 +59,11 @@ If the Owner loses their TOTP device, the following recovery path applies:
 
 | Document | Relationship |
 |---|---|
-| [[[default:adr-global/adr-payment-security-boundary-vault\|[[[default:adr-global/adr-payment-security-boundary-vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md)]]]([[[default:adr-global/adr-payment-security-boundary-vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md)) | Architectural decision — accepted 2026-03-15 |
-| [[[default:adr-global/adr-anvil-platform-constraints\|[[[default:adr-global/adr-anvil-platform-constraints]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md)]]]([[[default:adr-global/adr-anvil-platform-constraints]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md)) | Anvil secrets limits, Vault TOTP recovery |
-| [[[default:adr-global/adr-brevo-replaces-zoho-email\|[[[default:adr-global/adr-brevo-replaces-zoho-email]]](C:/dev/project-library-global/adr-global/adr-brevo-replaces-zoho-email.md)]]]([[[default:adr-global/adr-brevo-replaces-zoho-email]]](C:/dev/project-library-global/adr-global/adr-brevo-replaces-zoho-email.md)) | Vault credentials for Brevo |
-| [[[default:adr-global/adr-observability-architecture\|[[[default:adr-global/adr-observability-architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md)]]]([[[default:adr-global/adr-observability-architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md)) | Vault access audit logging |
-| [[[default:adr-global/adr-mybizz-management-visibility\|[[[default:adr-global/adr-mybizz-management-visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md)]]]([[[default:adr-global/adr-mybizz-management-visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md)) | Vault access event forwarding |
-| [[[default:specifications-global/spec-security-architecture\|Security Architecture Specification]]](C:/dev/project-library-global/specifications-global/spec-security-architecture.md) | RBAC role limits, token security, regulatory posture |
-| `docs/DESIGN.md` | VaultForm design specification |
-| `build-plan.md` (mb-3-cs project library) | Stage 1.5: The Vault |
-| `[[[mb-3-cs-project-library:docs-standard-local/scaffold-spec]]](C:/dev/dev-mb-3-cs/mb-3-cs-project-library/docs-standard-local/scaffold-spec.md).md` (mb-3-cs project library) | File/folder structure for vault components |
-| `authoritative-schema.md` (mb-3-cs project library) | `vault` Data Table schema |
-| [[[default:specifications-global/spec-testing\|Testing Specification]]](C:/dev/project-library-global/specifications-global/spec-testing.md) | Vault test scenarios |
-| [[[default:specifications-global/spec-client-activation-runbook\|Client Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) | Client provisioning — Vault setup steps |
-
----
-
-*[[[default:specifications-global/spec-vault-system|Vault System Specification]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md) v3.0 — consolidated from spec-security.md (generic pattern) and vault-system.md (CS implementation) into the single authoritative Vault document.*
+| [[[default:adr-global/adr-payment-security-boundary-vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) | Architectural decision |
+| [[[default:adr-global/adr-anvil-platform-constraints]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) | Anvil secrets limits, Owner second-factor recovery |
+| [[[default:adr-global/adr-brevo-replaces-zoho-email]]](C:/dev/project-library-global/adr-global/adr-brevo-replaces-zoho-email.md) | Vault credentials for Brevo |
+| [[[default:adr-global/adr-observability-architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md) | Vault access audit logging |
+| [[[default:adr-global/adr-mybizz-management-visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md) | Vault access event forwarding |
+| [[[default:specifications-global/spec-security-architecture]]](C:/dev/project-library-global/specifications-global/spec-security-architecture.md) | RBAC role limits, sign-in, token security |
+| [[[default:specifications-global/spec-client-activation-runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) | Client provisioning — Vault setup steps |
+| Each project library's Vault implementation document | That application's Vault contents, form and build sequence |

@@ -1,7 +1,7 @@
 ---
 title: "adr-client-instance-architecture"
 doc-id: "mb-c7c61252"
-updated: "2026-10-01"
+updated: "2026-10-22"
 ---
 # `client-instance-architecture` ADR — Client Instance Architecture
 
@@ -62,8 +62,8 @@ Client instances are structured as follows:
 | Server modules | master_template only | All business logic, integrations, background tasks |
 | UI forms and form code | master_template only | Served to client instances via dependency at runtime |
 | Startup module | Client instance | One minimal module; imports and opens first form from master_template |
-| Data Tables (36) | Client instance | All client data; never leaves the instance |
-| master_template dependency | Client instance | Set to stable branch at provisioning; active |
+| Data Tables (every table of the released schema) | Client instance | All client data; never leaves the instance |
+| master_template dependency | Client instance | Set to the current release at provisioning; active |
 
 **Client instances contain no server modules and no forms of their own.** The startup module is the only code a client instance contains. It imports the first form from master_template and opens it. All subsequent navigation, UI, form code, and server logic is served from master_template via the dependency.
 

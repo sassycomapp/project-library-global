@@ -1,7 +1,7 @@
 ---
 title: "adr-client-instance-readme-five-app-system"
 doc-id: "mb-ed135450"
-updated: "2026-10-01"
+updated: "2026-10-22"
 ---
 # Mandatory README in Every Client Instance Documenting the Five-App System
 
@@ -11,10 +11,10 @@ Accepted
 
 ## Context
 
-Mybizz runs on a five-app architecture within a single Anvil account:
+Mybizz runs on a five-app architecture; Apps 1, 2, 3 and 5 are on Mybizz's Anvil account, and each client instance is on its client's own account:
 
 1. **`{slug}`** — the development workspace. All feature work happens here. Never a dependency for any client instance.
-2. **`master_template`** — the sole source of all server-side logic and UI forms for every client instance. Tracks the `stable` GitHub branch. Never given to clients directly; client instances depend on it.
+2. **`master_template`** — the sole source of all server-side logic and UI forms for every client instance. Receives App 1's tagged releases (Step 42). Never given to clients directly; client instances depend on it.
 3. **`blank_client_template`** — the provisioning clone source. Contains the schema (see the project's authoritative-schema document), one startup module, and `master_template` as a dependency. Zero server modules, zero forms.
 4. **`[client-name]-cs`** — one per paying client. Contains the schema, the startup module, and an active dependency on `master_template`. Nothing else.
 5. **`Mybizz_management`** — internal platform-operator tooling (deferred, post-launch).
@@ -37,7 +37,7 @@ Every client instance app (App 4) must contain a standardized README, present fr
 
 1. **Leads with the constraint, not the explanation.** The first visible line must state plainly that the directory is intentionally empty except for the startup module, and that no forms or server modules are to be added here.
 2. **Explains the mechanism.** A brief explanation that this app depends on `master_template` for all server logic and UI, and that adding a form or module here does not extend that behavior — it silently and permanently overrides the dependency for this instance only.
-3. **Redirects to the correct location.** A pointer to where the requested change actually belongs: the `{slug}` development workspace, tested against its own private client instance, then merged `develop` → `stable` into `master_template`, after which every client instance — including this one — reflects the change automatically.
+3. **Redirects to the correct location.** A pointer to where the requested change actually belongs: the `{slug}` development workspace, tested against its own private client instance, then released into `master_template` (Step 42), after which every client instance — including this one — reflects the change automatically.
 
 This README is added to `blank_client_template` (App 3), so that every newly provisioned client instance inherits it automatically at clone time with no manual step required.
 

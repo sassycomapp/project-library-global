@@ -1,7 +1,7 @@
 ---
 title: "adr-navigation-lambda-link-open-form"
 doc-id: "mb-88483403"
-updated: "2026-10-03"
+updated: "2026-10-22"
 ---
 # Navigation Standard: Lambda/Link/open_form
 
@@ -23,8 +23,8 @@ This ADR remains authoritative for the **navigation pattern** (lambda click hand
 
 ### Still binding: the navigation pattern
 
-**Sidebar navigation** in AdminLayout and CustomerLayout uses:
-- Plain `Link` components in the sidebar — not `NavigationLink`
+**Sidebar navigation** in AdminLayout and CustomerLayout, built on the Material 3 layouts (`NavigationDrawerLayout`, `NavigationRailLayout`), uses:
+- The layouts' own `NavigationLink` components in the navigation slot
 - Lambda click handlers with **mandatory loop variable capture**:
 
 ```python
@@ -41,9 +41,8 @@ called directly:
 open_form('BookingViewerForm', booking_id=row['booking_id'])
 ```
 
-**`navigate_to` is never used.** It is not compatible with the content panel navigation pattern.
-**`NavigationLink` is not used for sidebar navigation.** The `nav_` prefix in component naming
-refers to Link components styled for sidebar use — not NavigationLink components.
+**`navigate_to` is never used**, neither as a function nor as a `NavigationLink` property: every navigation goes through the lambda click handler or `open_form()`, so one pattern applies everywhere.
+The `nav_` prefix in component naming refers to the `NavigationLink` components in the sidebar.
 
 ### Superseded by [[[default:adr-global/adr-htmltemplate-use|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) ADR
 
