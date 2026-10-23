@@ -1,27 +1,23 @@
 ---
 title: "adr-navigation-lambda-link-open-form"
 doc-id: "mb-88483403"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # Navigation Standard: Lambda/Link/open_form
 
-**Date:** 2026-03-18
-**Status:** Accepted (partially superseded — see below)
-**Source:** Devlog #29 — task-navigation-ruling-propagation
+**Status:** Accepted
 
 ---
 
 ## Context
 
-The Mybizz applications use layout shells for authenticated navigation. This ADR established the navigation pattern. Since then, the [[[default:adr-global/adr-htmltemplate-use|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) ADR has banned `HTMLTemplate` and mandated native M3 Layouts (`NavigationRailLayout`, `NavigationDrawerLayout`) for all layout-shell cases.
-
-This ADR remains authoritative for the **navigation pattern** (lambda click handlers, Link components, open_form). The **layout shell decision** (custom HtmlTemplate vs native M3 Layouts) is governed by the [[[default:adr-global/adr-htmltemplate-use|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) ADR.
+Mybizz applications use layout shells for signed-in navigation. Layout shells are the native Material 3 layouts (`NavigationRailLayout`, `NavigationDrawerLayout`), as [[[default:adr-global/adr-htmltemplate-use|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) sets out. This ADR sets how navigation works inside them.
 
 ---
 
 ## Decision
 
-### Still binding: the navigation pattern
+### The navigation pattern
 
 **Sidebar navigation** in AdminLayout and CustomerLayout, built on the Material 3 layouts (`NavigationDrawerLayout`, `NavigationRailLayout`), uses:
 - The layouts' own `NavigationLink` components in the navigation slot
@@ -44,47 +40,9 @@ open_form('BookingViewerForm', booking_id=row['booking_id'])
 **`navigate_to` is never used**, neither as a function nor as a `NavigationLink` property: every navigation goes through the lambda click handler or `open_form()`, so one pattern applies everywhere.
 The `nav_` prefix in component naming refers to the `NavigationLink` components in the sidebar.
 
-### Superseded by [[[default:adr-global/adr-htmltemplate-use|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) ADR
-
-The following parts of the original decision are superseded:
-
-| Original decision | Superseded by |
-|---|---|
-| Custom `HtmlTemplate` layouts for layout shells | [[[default:adr-global/adr-htmltemplate-use\|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) ADR — HTMLTemplate banned, native M3 Layouts required |
-| `NavigationDrawerLayoutTemplate` is not used | [[[default:adr-global/adr-htmltemplate-use\|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) ADR — NavigationRailLayout/NavigationDrawerLayout are now standard |
-
-The lambda/Link/open_form navigation pattern remains unchanged and binding.
-
 ---
 
 ## Consequences
 
-### Rules files requiring verification during refactor
-
-All files below must be checked during their refactor task to confirm the ruling is
-correctly applied. Do not blindly reapply — verify first, then correct only what is wrong.
-
-| File | Note |
-|---|---|
-| `spec_ui_standards.md` | §1 rewritten in devlog #29 — verify correct |
-| `spec_ui_standards_forms.md` | Corrected in devlog #29 — verify correct |
-| `ref_anvil_navigation.md` | Corrected in devlog #29 — verify correct |
-| `policy_development.md` | Corrected in devlog #29 — verify correct |
-| `platform_overview.md` | §5.3 — verify nav ruling applied |
-| `spec_architecture.md` | Navigation section — verify nav ruling applied |
-| `platform_docmap.md` | §2 critical facts — verify nav ruling applied |
-
----
-
-*Navigation Standard v2.0 — Layout shell decision superseded by [[[default:adr-global/adr-htmltemplate-use|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) ADR. Navigation pattern (lambda/Link/open_form) unchanged and binding.*
-
-## Old-material pointers (added 2026-09-20, developer instruction)
-
-Material referenced by this document but not present in the current corpus, with developer-provided locations:
-- spec_ui_standards.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/spec_ui_standards.md
-- spec_ui_standards_forms.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/spec_ui_standards_forms.md
-- ref_anvil_navigation.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/ref_anvil_navigation.md
-- policy_development.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/policy_development.md
-- platform_overview.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/platform_overview.md
-- spec_architecture.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/spec_architecture.md
-- platform_docmap.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/platform_docmap.md
+- Every navigation item uses a lambda click handler with its loop variables captured, or `open_form()`; nothing else.
+- `navigate_to` appearing anywhere is a defect.

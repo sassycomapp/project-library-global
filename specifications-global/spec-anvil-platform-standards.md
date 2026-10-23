@@ -1,15 +1,12 @@
 ---
 title: "spec-anvil-platform-standards"
 doc-id: "mb-57f2e70b"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
-# PDLF Standards Library — Anvil Platform Mechanics
+# Anvil Platform Mechanics
 
-**Location:** `C:\dev\project-library-global\specifications-global\spec-anvil-platform-standards.md`
 **Scope:** Project-agnostic. Extracted patterns and rules — not any single project's specific
 values, keys, or data.
-**Source:** Extracted from `mb-3-cs` project documentation (anvil-spec-table.md, architecture.md,
-scaffold-spec.md), generalized for reuse across any PDLF-run Anvil project.
 
 ---
 
@@ -88,7 +85,7 @@ finally:
 ## 7. Releases and Environments
 
 - The Hobby plan gives each app one environment and one database. There is no staging environment.
-- App 1 is where development happens. A release is App 1's tagged code cloned into App 2 (Step 42); every client instance depends on App 2.
+- App 1 is where development happens. A release is App 1's tagged release, pushed into App 2's repository by the developer; every client instance depends on App 2.
 - Testing before release happens on the Anvil App Server on the developer's computer and on a test client instance, not in a staging environment.
 - Rollback is re-pointing App 2 to the previous release tag — not a code revert, which does not un-publish an app.
 
@@ -111,7 +108,7 @@ Anvil AI can build a competent Designer UI, but needs three specific inputs, not
 
 Given all three, it also wires components to their code-behind functions as part of the build.
 
-**Vault System:** For the two-level secrets model, enforcement/masking pattern, implementation, and TOTP recovery — see [[[default:specifications-global/spec-vault-system|Vault System Specification]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md). This document does not duplicate that content.
+**Vault System:** For the two-level secrets model, enforcement/masking pattern, implementation, and second-factor recovery — see [[[default:specifications-global/spec-vault-system|Vault System Specification]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md). This document does not duplicate that content.
 
 ## 10. RBAC and Data Access Pattern
 
@@ -158,6 +155,7 @@ override and the reason — never silently diverge.
 - **Mandatory columns:** `created_at` (datetime) and `updated_at` (datetime, if the row is
   mutable) on every table.
 - **Money:** every amount is stored as a whole number of cents (Anvil's number column is floating-point, so decimal amounts would round wrongly), with the currency held separately.
+- **Bounded queries:** never iterate over all rows of a table; always `search()` with filters, or slice the result. Data Table rows are lazy-loaded, and an unbounded iteration times out on a large table.
 - **Query patterns:** `get()` for a single record (returns `None` if not found); `search()` for
   multiple records (returns a `SearchIterator`); paginate with slicing (`[:50]`); sort with
   `tables.order_by()`; avoid converting a `SearchIterator` to a list unless actually necessary.
@@ -167,7 +165,7 @@ override and the reason — never silently diverge.
 ## 14. Constants
 
 No hardcoded URLs, API keys, or magic strings in code. Use a dedicated `constants.py` module.
-Sensitive values go in Anvil Secrets or the Vault (see [[[default:specifications-global/spec-vault-system|Vault System Specification]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md)), never in `constants.py` itself.
+Sensitive values go in the Vault (see [[[default:specifications-global/spec-vault-system|Vault System Specification]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md)), never in `constants.py`. Anvil Secrets holds exactly one item, `encryption_key`.
 
 ## 15. Global Client-Side Error Handler
 
@@ -205,9 +203,9 @@ the known constraints as a structured catalog with ADR back-references:
 | Constraint | Description | ADR |
 |---|---|---|
 | Skulpt client runtime | Client-side Python is Skulpt, not CPython — no native Python libraries | design-rules |
-| No native URL routing | Anvil forms, not URL-based routing | navigation-lambda-link-open-form |
+| No native URL routing | Public website pages use the Anvil Routing dependency (`3PIDO5P3H4VPEMPL`); signed-in navigation uses lambda/Link/`open_form` | navigation-lambda-link-open-form |
 | Lazy-loaded Data Tables | Tables load progressively; no eager bulk queries | data-access-patterns |
-| Server call latency | Every `anvil.server.call()` is a network round-trip | design-rules |
+| Server call latency | Every `anvil.server.call()` is a network round-trip of 100–500 ms; user-facing flows keep calls few and batch where possible | form-architecture-and-state |
 | No WebSocket push | Real-time is polling, not push | real-time-and-background-tasks |
 | No complex aggregations | Data Tables have no GROUP BY / aggregate query support | data-access-patterns |
 | Designer-first forms | Anvil Designer work precedes code work for any given form | design-rules |
@@ -330,26 +328,10 @@ resolution may fail or return incomplete results.
 - Show the user a generic, non-technical message ("Something went wrong. Please try again
   or contact support.")
 - Log the failure with status `"unhealthy"` and the specific missing-table detail
-- Alert the platform's monitoring/management layer, if one exists
+- Report it to Mybizz_management through the instance's heartbeat
 - Never expose internal error detail to the client user
 
 **Prevention:**
-- The provisioning clone source (see the Five-App pattern in this operation's project
-  templates) must always carry the complete, current table set
+- The provisioning clone source (`blank_client_template`) always carries the complete, current table set
 - Schema migrations follow the project's own deployment SOP without exception
 - A periodic health-check task should verify critical table accessibility
-
----
-
-
-
-*Anvil Platform Standards v1.6 — merged [[[default:adr-global/adr-anvil-platform-constraints|[[[default:adr-global/adr-anvil-platform-constraints]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md)]]]([[[default:adr-global/adr-anvil-platform-constraints]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md)) (ADR, misfiled —
-reclassified as spec content, this file, per single-source-of-truth review). Added §22
-Skulpt runtime workarounds (expands §17's existing flag), §23 Git integration constraint,
-§24 media/file handling, §25 persistent server requirement, §26 `app_tables` resolution
-failure. Background-task plan-tier limits merged into existing §5. Project-specific
-figures (client-instance count) stripped or tagged [EXAMPLE]; app names generalized to
-role descriptions. Vault TOTP recovery procedure from the source ADR was NOT merged here
-— flagged as SOP-shaped content, recommended for `standard-operating-procedures-global`
-instead. Prior footer: v1.4 removed `instance_id` references per
-[[[default:adr-global/adr-dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]]](C:/dev/project-library-global/adr-global/adr-dependency-based-not-multi-tenant.md) ADR; v1.5 added §17–21.*

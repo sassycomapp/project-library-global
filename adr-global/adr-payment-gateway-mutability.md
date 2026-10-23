@@ -1,37 +1,16 @@
 ---
 title: "adr-payment-gateway-mutability"
 doc-id: "mb-c91997a0"
-updated: "2026-10-04"
+updated: "2026-10-23"
 ---
 # Payment Gateway Mutability
-Date: 2026-05-29
 Status: Accepted
-Source: User request - ADR creation for architectural enforcement
 
 ---
 
 ## Context
 
-The Mybizz CS platform currently states that each client instance uses one payment gateway configured at onboarding. This creates a question about whether the gateway assignment can be changed after onboarding.
-
-### Problem Statement
-
-The current platform overview describes:
-- Each client instance uses one payment gateway
-- Gateway is configured at onboarding
-- No explicit statement about post-onboarding changes
-
-This creates ambiguity about:
-- Whether gateway assignment is immutable after onboarding
-- What happens if a client needs to change gateways
-- Platform rules for post-onboarding gateway changes
-
-### Current State
-
-From platform documentation:
-- Client instance uses one payment gateway
-- Gateway configured at onboarding
-- No explicit mutability rules defined
+Each client instance uses one payment gateway, configured at onboarding. A client may later need to change it. This decision sets whether and how the gateway assignment can change after onboarding.
 
 ---
 
@@ -106,10 +85,5 @@ From platform documentation:
 
 ## Related Documents
 
-- [[[default:adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed|[[[default:adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed.md)]]]([[[default:adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed.md)) — Gateway configuration in Settings
-- Platform overview documentation — Current gateway description
-- Payment processing architecture
+- [[[default:adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed.md) — Gateway configuration in Settings
 
----
-
-*End of `payment-gateway-mutability` ADR*

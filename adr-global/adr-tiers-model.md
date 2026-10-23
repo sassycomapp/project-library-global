@@ -1,23 +1,16 @@
 ---
 title: "adr-tiers-model"
 doc-id: "mb-beb7c182"
-updated: "2026-10-03"
+updated: "2026-10-23"
 ---
 # Tiers Model
-Date: 2026-05-29
 Status: Accepted
-Source: User request - ADR creation for architectural enforcement
-Updated: 2026-05-31 — Tier names, pricing, and definitions revised per plan-tune audit
 
 ---
 
 ## Context
 
-The Mybizz CS platform uses commercial tiers for pricing and business model differentiation. The tier model needs clear definition to replace inconsistent framing in platform documentation.
-
-### Problem Statement
-
-The platform currently has inconsistent onboarding-tier framing in the platform overview. Commercial tiers need clear definition separate from setup-service options.
+Every Mybizz application sells subscriptions in commercial tiers. Clients can also buy help with setup. The two must not be confused: one sets price and feature access, the other sets onboarding assistance.
 
 ---
 
@@ -95,14 +88,5 @@ These are pricing/business-model constructs. They are separate from setup-servic
 
 ## Related Documents
 
-- `docs/the retired platform-overview.md` (retired) — Current tier framing
-- `[[positioning-strategy]]` — Pricing and business model
-- [[[default:specifications-global/spec-onboarding-implementation-plan|Mybizz CS Onboarding System - Engineering Plan]]](C:/dev/project-library-global/specifications-global/spec-onboarding-implementation-plan.md) — Onboarding flow
+- [[[default:specifications-global/spec-onboarding-implementation-plan|Onboarding System — Engineering Plan]]](C:/dev/project-library-global/specifications-global/spec-onboarding-implementation-plan.md) — Onboarding flow
 
----
-
-## Old-material pointers (added 2026-09-20, developer instruction)
-
-Material referenced by this document but not present in the current corpus, with developer-provided locations:
-- platform-overview.md (the retired platform-overview) — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/platform_overview.md
-*End of `tiers-model` ADR*

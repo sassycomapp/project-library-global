@@ -1,12 +1,11 @@
 ---
 title: "spec-deployment"
 doc-id: "mb-4a8a251d"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # Mybizz — Deployment Specification
 
 **Scope:** Mybizz-wide. Covers the five apps' roles in deployment, the release workflow, rollback procedures, and schema migration.
-**Authority:** [[[default:adr-global/adr-dependency-update-model|Dependency Update Model]]](C:/dev/project-library-global/adr-global/adr-dependency-update-model.md) ADR, the `blank-client-template` ADR (mb-3-cs project library), [[[default:adr-global/adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) ADR §7
 
 ---
 
@@ -203,4 +202,3 @@ instances:
 - Increasing pattern of customer complaints
 
 Rollback mechanism: re-point App 2 to the last good release tag (section 4) — not `git revert` (which does not un-publish an app).
-

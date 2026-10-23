@@ -1,14 +1,12 @@
 ---
 title: "adr-client-r2-storage-and-exit-handover"
-updated: "2026-10-22"
+updated: "2026-10-23"
 doc-id: "mb-f9c1cc3d"
 ---
 # `client-r2-storage-and-exit-handover` ADR — Each Client Has Its Own R2 Storage, and Leaves With It
 
 **Status:** Accepted
-**Date:** 2026-10-21
 **Applies to:** Every Mybizz application and every client instance (App 4)
-**Authority:** [[[default:adr-global/adr-dependency-based-not-multi-tenant|Dependency-Based, Not Multi-Tenant]]](C:/dev/project-library-global/adr-global/adr-dependency-based-not-multi-tenant.md) ADR, [[[default:adr-global/adr-client-data-management-rights-and-mybizz-retention-boundary|Client Data Management Rights and Mybizz Retention Boundary]]](C:/dev/project-library-global/adr-global/adr-client-data-management-rights-and-mybizz-retention-boundary.md) ADR, [[[default:policy-global/pol-security-and-data-governance|Security and Data Governance]]](C:/dev/project-library-global/policy-global/pol-security-and-data-governance.md) policy
 
 ---
 
@@ -51,6 +49,3 @@ Every client already has its own Anvil account and its own database. Shared stor
 - Offboarding follows this ADR ([[[default:standard-operating-procedures-global/sop-offboarding|Offboarding SOP]]](C:/dev/project-library-global/standard-operating-procedures-global/sop-offboarding.md), [[[default:specifications-global/spec-regulatory-compliance-baseline|Regulatory Compliance Baseline]]](C:/dev/project-library-global/specifications-global/spec-regulatory-compliance-baseline.md)).
 - The exit export is a function of every Mybizz application, proven on the test client before the application's first release.
 
----
-
-*End of `client-r2-storage-and-exit-handover` ADR*

@@ -1,19 +1,17 @@
 ---
 title: "adr-form-architecture-and-state"
 doc-id: "mb-4549f271"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # `form-architecture-and-state` ADR — Form Architecture and State Management
 
 **Status:** Approved  
-**Date:** 2026-06-14  
-**Authority:** Derived from the retired platform-overview.md, [[[default:adr-global/adr-navigation-lambda-link-open-form|Navigation Lambda/Link/open_form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md) ADR, [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) ADR, [[[default:adr-global/adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) ADR
 
 ---
 
 ## Context
 
-The Mybizz CS admin and customer portal uses Anvil's form-based UI model. Navigation uses lambda click handlers with `open_form()` ([[[default:adr-global/adr-navigation-lambda-link-open-form|Navigation Lambda/Link/open_form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md) ADR). Each `open_form()` call instantiates a fresh form — state does not carry across automatically.
+The admin and customer portal of every Mybizz application uses Anvil's form-based UI model. Navigation uses lambda click handlers with `open_form()` ([[[default:adr-global/adr-navigation-lambda-link-open-form|Navigation Lambda/Link/open_form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md) ADR). Each `open_form()` call instantiates a fresh form — state does not carry across automatically.
 
 Three problems must be solved:
 
@@ -74,7 +72,7 @@ self.contact = globals.current_contact
 - State is global to the client session — no scoping or cleanup mechanism
 - Alternative: passing data via `self.item` on content panel forms (more structured but verbose)
 
-**For V1:** `globals.py` is sufficient. The number of shared state items is manageable (current contact, booking flow state, current notification). If state complexity grows beyond V1, a structured state service can be introduced.
+`globals.py` is sufficient while the shared state items stay few (for example the current contact, a flow's state, the current notification). When they grow beyond that, a structured state service replaces it, by ADR.
 
 ### Booking Flow Latency: Batched Server Calls
 
@@ -116,8 +114,8 @@ The booking flow has 6+ steps, each potentially requiring a server call. To avoi
 - ✅ Stable layout across navigation — sidebar and header persist
 - ✅ Simple state sharing between forms via globals.py
 - ✅ Booking flow designed for minimum latency from the start
-- ⚠️ Back-button behavior in admin portal is limited in V1
-- ⚠️ globals.py can become messy if state items grow beyond V1 scope
+- ⚠️ Back-button behavior in the admin portal is limited
+- ⚠️ globals.py can become messy if shared state items grow
 - ⚠️ Content panel forms must be designed to work without guaranteed state (defensive loading)
 
 ---
@@ -131,8 +129,4 @@ The booking flow has 6+ steps, each potentially requiring a server call. To avoi
 | [[[default:adr-global/adr-anvil-platform-constraints\|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) | Server call latency constraint driving batch design |
 | [[[default:adr-global/adr-data-access-patterns\|Data Access Patterns and Query Limitations]]](C:/dev/project-library-global/adr-global/adr-data-access-patterns.md) | Data access patterns used in form data loading |
 | `[[architecture]]` | Section 5: Three-Tier Module Pattern; Section 6: Navigation Architecture |
-| `user-flows.md` (mb-3-cs project library) | §2: Services Appointment Booking; §3: Admin Daily Operations |
 
----
-
-*End of `form-architecture-and-state` ADR*

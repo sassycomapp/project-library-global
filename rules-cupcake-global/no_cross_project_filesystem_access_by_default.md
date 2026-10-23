@@ -1,7 +1,7 @@
 ---
 title: "no_cross_project_filesystem_access_by_default"
 doc-id: "mb-9a9b54d6"
-updated: "2026-10-10"
+updated: "2026-10-23"
 ---
 # Rule: No Cross-Project Filesystem Access by Default
 
@@ -24,17 +24,9 @@ of the current working directory) — exactly one entry:
 
 Restricted project folders — writes blocked unless the agent's current
 working directory IS that folder, or a permission slip is active for it:
-- /mnt/c/data-mybizz-mgt (restricted-with-slip, amendment 2026-09-22,
-  decision G2 of the Docs-Skills Architecture Proposal; the compiled
-  treatment is unchanged — this folder was already denied without a slip
-  as an outside-cwd path, and the list entry documents that routing)
+- /mnt/c/data-mybizz-mgt
 - /mnt/c/pdlf
-- /mnt/c/dev/dev-mb-3-cs/mb-3-cs
-- /mnt/c/dev/dev-mb-3-cs/mb-3-cs-project-library
-- /mnt/c/dev/dev-mb4ecom/mb4ecom
-- /mnt/c/dev/dev-mb4ecom/mb4ecom-project-library
-- /mnt/c/dev/dev-mb5pdlf/mb5pdlf
-- /mnt/c/dev/dev-mb5pdlf/mb5pdlf-project-library
+- every business folder, /mnt/c/dev/dev-{slug}/, and every repository in it
 - /home/dev-p/memory-governor
 
 A prior approval, for a prior occasion, does not authorise a further

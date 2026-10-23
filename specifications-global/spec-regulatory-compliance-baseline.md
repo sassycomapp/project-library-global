@@ -1,7 +1,7 @@
 ---
 title: "spec-regulatory-compliance-baseline"
 doc-id: "mb-6f1553b6"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # Mybizz — Regulatory Compliance Baseline (Specification)
 
@@ -72,6 +72,4 @@ On client offboarding, all the client's data is written to the client's own R2 b
 **Legal basis:** POPIA Article 24 (data subject access and portability), GDPR Article 20
 (right to data portability). The procedure ensures clients can take their data to another
 provider without platform lock-in.
-
----
 

@@ -1,15 +1,12 @@
 ---
 title: "spec-m3-design-standards"
 doc-id: "mb-e3a4e619"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
-# PDLF Standards Library — M3 Design & Component Standards
+# M3 Design & Component Standards
 
-**Location:** `C:\dev\project-library-global\specifications-global\spec-m3-design-standards.md`
 **Scope:** Project-agnostic component and navigation patterns. Specific token *values* (colors,
 exact spacing scale) are project-specific and belong in that project's own DESIGN.md.
-**Source:** Extracted from `mb-3-cs` (anvil-spec-table.md, architecture.md,
-screen-production-standard.md), generalized for reuse.
 
 ---
 
@@ -294,8 +291,3 @@ Every component in the project falls into one of two tiers:
 Before adding a new component type: verify it is in the approved list. If it is not and
 is genuinely needed, propose addition via ADR.
 
----
-
----
-
-*M3 Design Standards v1.3 — Added Two-Use Minimum Threshold (§19), Empty State Mandatory Pattern (§20), MUI Aesthetic Overlay Fixed Variable Set (§21), Approved/Restricted Component Model (§22). Extracted from mb-3-cs custom-component-requirements-matrix.md and internal-standards-anvil-wireframe-conversion.md.*

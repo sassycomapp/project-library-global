@@ -1,9 +1,9 @@
 ---
 title: "spec-security"
 doc-id: "mb-d16f800e"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
-# PDLF Standards Library — Security Specification
+# Security Specification
 
 **Location:** `C:\dev\project-library-global\specifications-global\spec-security.md`
 **Vault System:** [[[default:specifications-global/spec-vault-system|Vault System Specification]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md) — the single authoritative Vault document.
@@ -45,6 +45,3 @@ across a multi-server environment.
 | Session inactivity timeout | 30 minutes |
 | Audit log retention | 2 years |
 
----
-
-*Security Specification v1.1 — Vault content (two-level secrets model, enforcement/masking) moved to [[[default:specifications-global/spec-vault-system|Vault System Specification]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md). Remaining content: RBAC/data access, rate limiting, shared numeric security standards.*

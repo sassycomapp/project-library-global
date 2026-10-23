@@ -1,7 +1,7 @@
 ---
 title: "sec-secret-rotation-policy"
 doc-id: "mb-a7d05c2d"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # Secret Rotation Policy
 
@@ -25,7 +25,7 @@ Treating "no known compromise" as equivalent to "no need to rotate" — the two 
 
 ## Implementation Guidance
 
-For each secret type in the Vault (`[[spec-vault-system]]` §3) and each dev-tooling credential (`[[sec-development-tooling-credentials]]`), assign a real maximum age. Management tokens, currently manual-only, need this tracked explicitly until automated rotation exists.
+For each secret type in the Vault (`[[spec-vault-system]]` §3), assign a real maximum age. Management tokens are rotated by hand, so their age is tracked explicitly.
 
 ## Verification Requirements
 

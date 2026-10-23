@@ -1,7 +1,7 @@
 ---
 title: "adr-htmltemplate-use"
 doc-id: "mb-f7c956d1"
-updated: "2026-10-04"
+updated: "2026-10-23"
 ---
 # `htmltemplate-use` ADR: HTMLTemplate Use
 
@@ -43,13 +43,10 @@ In all three cases, a native alternative exists:
 
 | Document | Relationship |
 |---|---|
-| `[[spec-component-properties]]` | Documents `HTMLTemplate` and its properties; superseded for this component |
-| [[[default:adr-global/adr-anvil-extras-exclusion\|[[[default:adr-global/adr-anvil-extras-exclusion]]](C:/dev/project-library-global/adr-global/adr-anvil-extras-exclusion.md)]]]([[[default:adr-global/adr-anvil-extras-exclusion]]](C:/dev/project-library-global/adr-global/adr-anvil-extras-exclusion.md)) | Excludes third-party packages; this ADR extends the exclusion principle to `HTMLTemplate` |
-| [[[default:adr-global/adr-material-3-theme-component-scope\|[[[default:adr-global/adr-material-3-theme-component-scope]]](C:/dev/project-library-global/adr-global/adr-material-3-theme-component-scope.md)]]]([[[default:adr-global/adr-material-3-theme-component-scope]]](C:/dev/project-library-global/adr-global/adr-material-3-theme-component-scope.md)) | Defines permitted M3 components; `HTMLTemplate` is not among them |
+| `[[spec-component-properties]]` | Documents component properties; for `HTMLTemplate`, this ADR governs |
+| [[[default:adr-global/adr-anvil-extras-exclusion]]](C:/dev/project-library-global/adr-global/adr-anvil-extras-exclusion.md) | Excludes third-party packages; this ADR extends the exclusion principle to `HTMLTemplate` |
+| [[[default:adr-global/adr-material-3-theme-component-scope]]](C:/dev/project-library-global/adr-global/adr-material-3-theme-component-scope.md) | Defines permitted M3 components; `HTMLTemplate` is not among them |
 | [[[default:adr-global/adr-design-rules\|Design Rules]]](C:/dev/project-library-global/adr-global/adr-design-rules.md) | Wireframe design rules; wireframes must not use `HTMLTemplate` |
 | [[[default:adr-global/adr-ui-customization-approach\|UI Customization Approach]]](C:/dev/project-library-global/adr-global/adr-ui-customization-approach.md) | Broader UI customization approach; this ADR is a specific component exclusion |
 | [[[default:adr-global/adr-role-property-assignment-mechanism\|Role Property Assignment Mechanism]]](C:/dev/project-library-global/adr-global/adr-role-property-assignment-mechanism.md) | Role-driven CSS classes provide the native alternative for the ServicesForm case |
 
----
-
-*End of `htmltemplate-use` ADR*

@@ -1,9 +1,9 @@
 ---
 title: "spec-component-properties"
 doc-id: "mb-5162b6c9"
-updated: "2026-10-04"
+updated: "2026-10-23"
 ---
-# Mybizz CS — Component Properties Specification
+# Component Properties Specification
 
 **Vertical:** Consulting & Services  
 **Platform:** Anvil.works with Material Design 3 (M3)  
@@ -313,7 +313,7 @@ updated: "2026-10-04"
 
 ### HTMLTemplate — BANNED ([[[default:adr-global/adr-htmltemplate-use|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) ADR)
 
-**HTMLTemplate is banned.** Use stock Anvil M3 components and the two native M3 Layouts (NavigationRailLayout, NavigationDrawerLayout) in all cases. See [[[default:adr-global/adr-htmltemplate-use|[[[default:adr-global/adr-htmltemplate-use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md)]]]([[[default:adr-global/adr-htmltemplate-use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md)) for the full decision.
+**HTMLTemplate is banned.** Use stock Anvil M3 components and the two native M3 Layouts (NavigationRailLayout, NavigationDrawerLayout) in all cases. See [[[default:adr-global/adr-htmltemplate-use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) for the full decision.
 
 | Property | Classification | Default | Description |
 |----------|---------------|---------|-------------|
@@ -407,6 +407,3 @@ The following components support two-way data bindings (Write Back) in the Desig
 
 **Not writeback-capable:** RadioButton, FileLoader. Display-only: Text, Link, RichText, Heading, LinearProgressIndicator, CircularProgressIndicator.
 
----
-
-*End of file — spec-component-properties.md*

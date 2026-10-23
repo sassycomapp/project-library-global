@@ -1,21 +1,15 @@
 ---
 title: "adr-design-rules"
 doc-id: "mb-473a4b4e"
-updated: "2026-10-03"
+updated: "2026-10-23"
 ---
 # `design-rules` ADR — Wireframe Design Rules
 
 - **Status:** Accepted
-- **Date:** 2026-06-10
-- **Authority:** This ADR is the single governing document for the creation and review of all wireframe HTML documents in this project. It is binding on every agent (OpenCode, GStack skills) that creates, edits, or reviews a wireframe. A wireframe that violates any rule in this document MUST be rejected and corrected before it is accepted as a deliverable.
 
 ---
 
 ## Section A — Applicability (Magdoub Wireframe Skill exemption)
-
-**[NEW — amended 2026-09-16 to resolve the previously undocumented reconciliation
-between this ADR and the Magdoub Claude Wireframe Skill (`wireframe`). Not part of
-the original rules; the rest of this document is unchanged.]**
 
 A0. This ADR applies **only to wireframes NOT created by the Magdoub Claude
 Wireframe Skill (`wireframe`)**.
@@ -45,17 +39,14 @@ may inform.
 
 ## Section 0 — Mandatory Pre-Wireframe Reading
 
-**[NEW — added to address recurring compliance failures. Not part of the original 16 rules; flagged separately so nothing original is altered.]**
-
 Before producing or modifying any wireframe, the agent MUST read the following, in this order, and MUST NOT proceed until this is done:
 
 1. This ADR (`design-rules` ADR) in full.
-2. `docs/nomenclature.md` — naming conventions for every component type.
+2. [[[default:specifications-global/spec-nomenclature|Spec: Nomenclature]]](C:/dev/project-library-global/specifications-global/spec-nomenclature.md) — naming conventions for every component type.
 3. [[[default:specifications-global/spec-m3_component_mapping|M3 Component Mapping]]](C:/dev/project-library-global/specifications-global/spec-m3_component_mapping.md) — which Material 3 components are supported, partially supported, or unsupported.
-4. `scaffold-spec.md` (mb-3-cs project library) — the architectural scaffold the wireframe must conform to.
-5. The relevant existing code under `mb-3-cs/client_code/` for the form being wireframed, if it exists — to confirm component names, structure, and naming already in use.
-6. Any architecture and design documents in `project-library/docs/`, `project-library/adr/`, and `project-library/implementation/` relevant to the specific form, flow, or screen being wireframed.
-7. Any relevant prior outputs in `project-library/gstack-outputs/` (e.g. design review findings, eng review findings) that bear on the form being wireframed.
+4. The application's architecture and scaffold documents in its own project library (`docs-local\`, `adr-local\`) — the structure the wireframe must conform to.
+5. The relevant existing code in App 1's `client_code\` for the form being wireframed, if it exists — to confirm component names, structure, and naming already in use.
+6. Any earlier review findings in the project library's `pdlf-outputs\` that bear on the form being wireframed.
 
 **A wireframe produced without first completing this reading is non-compliant by definition, regardless of how it looks.**
 
@@ -145,7 +136,7 @@ txt_password | TextBox | writeback = W, hide_text = True
 
 3.4. **Creative, intentional use of available components.** Make creative and innovative use of the M3 components available via the dependency above — do not default to the simplest option when a more appropriate approved component exists.
 
-3.5. **Nomenclature compliance.** Adhere strictly to the naming specification in `docs/nomenclature.md` (for example: `ColumnPanel` is named with the `col_` prefix).
+3.5. **Nomenclature compliance.** Adhere strictly to the naming specification in [[[default:specifications-global/spec-nomenclature|Spec: Nomenclature]]](C:/dev/project-library-global/specifications-global/spec-nomenclature.md) (for example: `ColumnPanel` is named with the `col_` prefix).
 
 ---
 
@@ -177,11 +168,11 @@ txt_password | TextBox | writeback = W, hide_text = True
 
 ## Section 7 — Pre-Submission Compliance Checklist
 
-**[NEW — added as a binding self-check. The agent MUST verify every item below before presenting a wireframe as complete.]**
+The agent MUST verify every item below before presenting a wireframe as complete.
 
 Before submitting any wireframe, confirm ALL of the following are true:
 
-- [ ] Section 0 reading completed (`design-rules` ADR, nomenclature.md, m3_component_mapping.md, scaffold-spec.md, relevant existing client_code, relevant project-library docs/adr/implementation files, relevant gstack-outputs)
+- [ ] Section 0 reading completed (every item of Section 0, in order)
 - [ ] Document contains exactly three sections, in the correct order (Section 2.1–2.3)
 - [ ] Document is NOT formatted as a "Screen" type document
 - [ ] No legacy `Label` (`lbl_`) component is used anywhere
@@ -193,7 +184,7 @@ Before submitting any wireframe, confirm ALL of the following are true:
 - [ ] No border drawn around non-bordered component types (e.g. `Heading`)
 - [ ] Properties table contains ONLY Designer-only properties — no programmatically-settable properties
 - [ ] `writeback (W)` is specified for all `DatePicker` and text-input components in the properties table
-- [ ] All component names follow `docs/nomenclature.md` exactly
+- [ ] All component names follow Spec: Nomenclature exactly
 - [ ] FlowPanel/ColumnPanel and all other containers are used only for their intended structural purpose
 - [ ] The wireframe architecturally matches what is defined upstream (it was not invented independently of architecture/spec documents)
 
@@ -208,8 +199,3 @@ Before submitting any wireframe, confirm ALL of the following are true:
 - Reviews can reject non-compliant wireframes against a single accepted project decision.
 - The mandatory pre-reading requirement (Section 0) and compliance checklist (Section 7) directly target the recurring failure modes of ADR non-compliance, architectural unfamiliarity, and unread specification/scaffold documents.
 - Future changes to these rules must be made by updating or superseding this ADR.
-
-## Old-material pointers (added 2026-09-20, developer instruction)
-
-Material referenced by this document but not present in the current corpus, with developer-provided locations:
-- docs/nomenclature.md — resolves to the live specification (developer-confirmed, 2026-09-20): [[[default:specifications-global/spec-nomenclature]]](C:/dev/project-library-global/specifications-global/spec-nomenclature.md)

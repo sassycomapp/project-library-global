@@ -1,76 +1,40 @@
 ---
 title: "adr-single-contacts-table"
 doc-id: "mb-c307af98"
-updated: "2026-10-03"
+updated: "2026-10-23"
 ---
-# Single Contacts Table Replaces Dual contacts/customers
+# Single Contacts Table
 **Consolidated Contact Model for CRM**
 
-Date: 2026-05-03
 Status: Accepted
-Source: YC Office Hours session — schema review and design consolidation
 
 ---
 
 ## Context
 
-The live schema originally contained two overlapping tables: `contacts` (CRM-focused with lifecycle stages, tags, source tracking) and `customers` (booking/invoice-focused with lifetime value, total bookings). This created referential chaos:
+A person appears across an application in many roles: a lead, a customer who books or buys, a recipient of invoices and notes. Two overlapping person tables (one for CRM, one for bookings and invoices) force every query to know which table to join, and split one person's history in two.
 
-- `bookings.customer_id` → `customers` but also `bookings.contact_id` → `contacts`
-- `invoice.customer_id` → `customers`
-- `time_entries.customer_id` → `customers`
-- `client_notes.customer_id` → `customers`
-- `customers.contact_id` → `contacts` (partial migration link)
-
-Every query needed to know which table to join. The dual-table model was a half-migrated schema that added complexity without benefit.
-
-This decision builds on [[[default:adr-global/adr-lead-capture-simultaneous-creation|Lead Capture Simultaneous Creation]]](C:/dev/project-library-global/adr-global/adr-lead-capture-simultaneous-creation.md) (Lead Capture: Simultaneous Creation), which established that `leads` and `contacts` are created simultaneously at capture time, with `leads.converted_to_contact_id` set immediately. The `contacts` table is the authoritative person record for all CRM operations.
+Leads and contacts are created together at capture time ([[[default:adr-global/adr-lead-capture-simultaneous-creation|Lead Capture Simultaneous Creation]]](C:/dev/project-library-global/adr-global/adr-lead-capture-simultaneous-creation.md)), so the contact exists from the person's first interaction.
 
 ---
 
 ## Decision
 
-**A single `contacts` table serves as the unified person record for the entire platform.**
+**A single `contacts` table is the person record for the entire application.** All customers are contacts; not all contacts are customers. There is no `customers` table.
 
-All customers are contacts but not all contacts are customers. The `contacts` table absorbs all fields and relationships previously split between `contacts` and `customers`.
+Every table that refers to a person does so with `contact_id`, a link to `contacts` (for example `bookings.contact_id`, `invoice.contact_id`, `time_entries.contact_id`, `client_notes.contact_id`).
 
-### Migration actions completed:
-- `bookings.customer_id` removed; `bookings.contact_id` retained as sole person reference
-- `invoice.customer_id` removed; `invoice.contact_id` added (note: column name in anvil.yaml is `contact-id` with hyphen — requires correction)
-- `time_entries.customer_id` removed; `time_entries.contact_id` added
-- `client_notes.customer_id` removed; `client_notes.contact_id` added
-- `customers` table dropped from schema
-- `zoho_crm_id` column removed from `contacts` ([[[default:adr-global/adr-brevo-replaces-zoho-email|Brevo Replaces All Zoho Products]]](C:/dev/project-library-global/adr-global/adr-brevo-replaces-zoho-email.md) compliance)
-
-### `contacts` table fields (consolidated):
+### `contacts` table fields:
 - Identity: `contact_id`, `first_name`, `last_name`, `email`, `phone`
 - CRM: `status`, `source`, `lifecycle_stage`, `tags`, `internal_notes`, `preferences`
 - Financial: `total_spent`, `total_transactions`, `average_order_value`
 - Tracking: `date_added`, `last_contact_date`, `created_at`, `updated_at`
 
-
 ---
 
 ## Consequences
 
-### Benefits:
-- Single source of truth for all person records
-- Simplified queries — no need to join two tables
-- Clean CRM integration — Brevo sync targets one table
-- Consistent with [[[default:adr-global/adr-lead-capture-simultaneous-creation|Lead Capture Simultaneous Creation]]](C:/dev/project-library-global/adr-global/adr-lead-capture-simultaneous-creation.md) lead capture pattern
-
-### Files affected:
-- `anvil.yaml` — `customers` table removed, FK references updated
-- `spec_database.md` / `spec_database_schema.md` — dual-table references removed
-- `spec_crm.md` — contact model simplified
-- All server modules — FK references updated from `customer_id` to `contact_id`
-
----
-
-## Old-material pointers (added 2026-09-20, developer instruction)
-
-Material referenced by this document but not present in the current corpus, with developer-provided locations:
-- spec_database_schema.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/spec_database_schema.md
-- spec_database.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/spec_database.md
-- spec_crm.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/spec_crm.md
-*End of `single-contacts-table` ADR*
+- One source of truth for every person record
+- Simpler queries: no join between two person tables
+- Brevo's CRM sync targets one table ([[[default:adr-global/adr-brevo-email-and-crm|Brevo for Email and CRM]]](C:/dev/project-library-global/adr-global/adr-brevo-email-and-crm.md))
+- A column named `customer_id`, or a `customers` table, is a defect

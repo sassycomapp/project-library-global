@@ -1,13 +1,11 @@
 ---
 title: "adr-data-access-patterns"
 doc-id: "mb-c468c49c"
-updated: "2026-10-04"
+updated: "2026-10-23"
 ---
 # `data-access-patterns` ADR — Data Access Patterns and Query Limitations
 
 **Status:** Approved  
-**Date:** 2026-06-14  
-**Authority:** Derived from the retired platform-overview.md, [[[default:adr-global/adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) ADR, authoritative-schema.md
 
 ---
 
@@ -148,9 +146,5 @@ These tables are populated by background tasks ([[[default:adr-global/adr-real-t
 |---|---|
 | [[[default:adr-global/adr-anvil-platform-constraints\|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) | Data Table limitations and lazy-load behavior |
 | [[[default:adr-global/adr-client-instance-architecture\|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) | All data access is server-side |
-| [[[default:adr-global/adr-real-time-and-background-tasks\|[[[default:adr-global/adr-real-time-and-background-tasks]]](C:/dev/project-library-global/adr-global/adr-real-time-and-background-tasks.md)]]]([[[default:adr-global/adr-real-time-and-background-tasks]]](C:/dev/project-library-global/adr-global/adr-real-time-and-background-tasks.md)) | Background tasks compute summary tables |
-| `authoritative-schema.md` (mb-3-cs project library) | 36-table schema definition |
+| [[[default:adr-global/adr-real-time-and-background-tasks]]](C:/dev/project-library-global/adr-global/adr-real-time-and-background-tasks.md) | Background tasks compute summary tables |
 
----
-
-*End of `data-access-patterns` ADR*

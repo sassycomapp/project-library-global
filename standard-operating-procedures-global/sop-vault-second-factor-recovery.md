@@ -1,19 +1,19 @@
 ---
-title: "sop-vault-totp-recovery"
+title: "sop-vault-second-factor-recovery"
 doc-id: "mb-eae1c80e"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
-# {Project Name} — SOP: Vault TOTP Recovery
+# {Project Name} — SOP: Vault Second-Factor Recovery
 
-**Authority:** **[PROJECT]** cite this project's Vault/security ADR (TOTP step-up
+**Authority:** **[PROJECT]** cite this project's Vault/security ADR (second-factor step-up
 requirement).
 
 ---
 
-## Procedure — Owner Lost TOTP Device
+## Procedure — Owner Lost Their Second Factor
 
-**Trigger:** An Owner cannot complete TOTP step-up to access the Vault because they've
-lost their authenticator device.
+**Trigger:** An Owner cannot complete the second-factor step-up to open the Vault because
+they have lost their FIDO2 key or passkey device.
 
 **Preconditions:**
 - Requester confirmed to be contacting through the platform's own support channel, not
@@ -24,8 +24,8 @@ lost their authenticator device.
 2. Support verifies the Owner's identity through an out-of-band process — **[PROJECT]**
    state this project's actual verification method(s): government ID, registered email,
    security questions, or equivalent
-3. Support resets the Owner's TOTP configuration
-4. Owner re-enrolls TOTP on their new device
+3. Support resets the Owner's second-factor configuration
+4. Owner enrols a new FIDO2 key or passkey
 5. The reset event is logged in an append-only amendment log
 
 **Constraints — fixed, do not weaken:**
@@ -41,8 +41,8 @@ lost their authenticator device.
 - [ ] Reset event appears in the amendment log with timestamp and operator identity
 
 **Escalation:** if identity cannot be verified through the standard out-of-band process,
-do not reset TOTP on the requester's assurance alone — escalate per **[PROJECT]** this
-project's identity-verification escalation path. Resetting TOTP for an unverified
+do not reset the second factor on the requester's assurance alone — escalate per **[PROJECT]** this
+project's identity-verification escalation path. Resetting a second factor for an unverified
 requester is a security incident, not a convenience shortcut.
 
 ---

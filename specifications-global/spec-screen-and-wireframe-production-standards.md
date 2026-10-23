@@ -1,17 +1,14 @@
 ---
 title: "spec-screen-and-wireframe-production-standards"
 doc-id: "mb-b8bb45a4"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
-# PDLF Standards Library — Screen & Wireframe Production Standards
+# Screen & Wireframe Production Standards
 
-**Location:** `C:\dev\project-library-global\specifications-global\spec-screen-and-wireframe-production-standards.md`
 **Scope:** Project-agnostic production *rules* and the compliance-checklist *method*. Specific
 token values (exact hex colors, exact spacing scale) are a project's own DESIGN.md/theme, not a
 standard — this file states the *rule that they must exist and be used*, never the values
 themselves.
-**Source:** Extracted from `mb-3-cs` (screen-production-standard.md, two worked compliance
-checklists), generalized.
 
 ---
 

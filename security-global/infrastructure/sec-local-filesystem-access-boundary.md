@@ -1,7 +1,7 @@
 ---
 title: "sec-local-filesystem-access-boundary"
 doc-id: "mb-7ba3ee3f"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # Local Filesystem Access Boundary
 
@@ -11,7 +11,7 @@ This environment spans two real, distinct filesystems — WSL's native Linux fil
 
 ## Security Requirement
 
-Per the native OpenCode permission system (the retired `the retired structural-compliance-enforcement-architecture-v3.md` Section 6.3): `external_directory` scoping is correctly configured and verified, not assumed, for every project.
+Through OpenCode's native permission system, `external_directory` scoping is correctly configured and verified, not assumed, for every project.
 
 ## Approved Pattern
 
@@ -31,7 +31,7 @@ Attempt a file operation outside the intended project boundary; confirm it is bl
 
 ## Authoritative Sources
 
-- the retired `the retired structural-compliance-enforcement-architecture-v3.md` Section 6.3, Implementation Status — the real, already-performed live test
+This document is the authority.
 
 ## Known Exceptions
 

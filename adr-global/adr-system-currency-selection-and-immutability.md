@@ -1,20 +1,16 @@
 ---
 title: "adr-system-currency-selection-and-immutability"
 doc-id: "mb-4b5f697c"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # System Currency, Display Currency, and Immutability
-Date: 2026-05-29
 Status: Accepted
-Source: Consolidated from the retired numbered-era documents `013-system-currency-setting.md` and `016-system-currency-selection-and-immutability.md` (both superseded by this ADR)
-Updated: 2026-06-01 — Merged `system-currency-setting` ADR (deleted) (currency architecture, conversion strategy, schema changes) with `system-currency-selection-and-immutability` ADR (immutability enforcement, display currency separation)
-Supersedes: the retired `013-system-currency-setting.md`
 
 ---
 
 ## Context
 
-The Mybizz CS platform supports multi-currency operations for global service businesses. Small service businesses operate in different currencies globally. The system needs to:
+Every Mybizz application supports multi-currency operations for global service businesses. Small service businesses operate in different currencies globally. The system needs to:
 
 1. Have a single system currency for all internal operations (accounting, reporting, analytics)
 2. Allow clients to set prices in different currencies for specific services/locations
@@ -24,7 +20,7 @@ The Mybizz CS platform supports multi-currency operations for global service bus
 
 ### Existing Design
 
-From `authoritative-schema.md` (mb-3-cs project library):
+From the application's authoritative schema (in its own project library):
 - `business_profile.system_currency` — set at onboarding, immutable after first transaction
 - `services.price` — price in system currency
 - `services.display_currency` — optional display currency for customer-facing prices
@@ -38,7 +34,7 @@ From `authoritative-schema.md` (mb-3-cs project library):
 
 **Display Currency remains a separate configurable concept outside onboarding.**
 
-**Currency conversion follows Option A (Fixed Exchange Rates) for V1, with Option B (API-Based Rates) as V2 enhancement.**
+**Currency conversion uses fixed exchange rates entered by the business.** No external rate service is used.
 
 ### Architectural Rules
 
@@ -60,11 +56,10 @@ From `authoritative-schema.md` (mb-3-cs project library):
    - Database schema should support this constraint
    - Any attempt to modify system currency after immutability point should fail with clear error messaging
 
-4. **Currency Conversion (V1):**
+4. **Currency Conversion:**
    - Fixed exchange rates (manual entry by business)
    - Rates updated periodically (weekly/monthly)
    - Simple, no external dependencies
-   - V2 enhancement: API-based real-time rates (e.g., exchangerate.host)
 
 ### Currency Architecture
 
@@ -149,7 +144,7 @@ INVOICE: transaction currency + system_currency_amount (for reporting)
 
 ### Negative
 - Businesses cannot change their system currency if they relocate or restructure
-- Currency conversion complexity (V1 uses manual fixed rates)
+- Exchange rates are entered and kept current by hand
 - Need to handle exchange rate updates
 - Potential customer confusion if displayed price differs from charged price
 - May need migration path for edge cases (though these should be rare)
@@ -181,10 +176,7 @@ INVOICE: transaction currency + system_currency_amount (for reporting)
 
 ## Related Documents
 
-- `authoritative-schema.md` (mb-3-cs project library) — Database schema with currency fields
+- the application's authoritative schema (in its own project library) — Database schema with currency fields
 - [[[default:adr-global/adr-timezone-utc-storage-display-conversion|Client Timezone: UTC Storage, Display Conversion]]](C:/dev/project-library-global/adr-global/adr-timezone-utc-storage-display-conversion.md) — Timezone/UTC storage pattern (similar approach)
-- [[[default:specifications-global/spec-onboarding-implementation-plan|Mybizz CS Onboarding System - Engineering Plan]]](C:/dev/project-library-global/specifications-global/spec-onboarding-implementation-plan.md) — System currency selection in onboarding
+- [[[default:specifications-global/spec-onboarding-implementation-plan|Onboarding System — Engineering Plan]]](C:/dev/project-library-global/specifications-global/spec-onboarding-implementation-plan.md) — System currency selection in onboarding
 
----
-
-*End of `system-currency-selection-and-immutability` ADR — Consolidated from `system-currency-setting` ADR (deleted) and `system-currency-selection-and-immutability` ADR*

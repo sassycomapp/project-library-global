@@ -1,13 +1,13 @@
 ---
 title: "sec-audit-log-integrity"
 doc-id: "mb-fc351b71"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # Audit Log Integrity Across Systems
 
 ## Applicable Threat
 
-This environment has multiple, separate audit/logging systems — the memory governor's own compliance ledger, Cupcake's Observability logging, GBrain's own history. None are cryptographically tamper-proof, per the retired `the retired structural-compliance-enforcement-architecture-v3.md` Section 16's own accepted-risk decision. Treating any of them as authoritative proof of what happened, rather than a record for human review, is a real risk if that distinction is forgotten.
+This environment has multiple, separate audit/logging systems — the memory governor's own compliance ledger, Cupcake's Observability logging, GBrain's own history. None are cryptographically tamper-proof, an accepted risk. Treating any of them as authoritative proof of what happened, rather than a record for human review, is a real risk if that distinction is forgotten.
 
 ## Security Requirement
 
@@ -31,7 +31,7 @@ For any real decision resting on log content, confirm at least one independent s
 
 ## Authoritative Sources
 
-- the retired `the retired structural-compliance-enforcement-architecture-v3.md` Section 16, Residual Risk 3 — the ledger's own accepted-risk decision, applied here consistently to every logging system
+This document is the authority.
 
 ## Known Exceptions
 

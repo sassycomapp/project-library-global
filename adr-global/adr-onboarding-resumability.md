@@ -1,18 +1,16 @@
 ---
 title: "adr-onboarding-resumability"
 doc-id: "mb-46bfcbde"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # Onboarding Resumability
-Date: 2026-05-29
 Status: Accepted
-Source: User request - ADR creation for architectural enforcement
 
 ---
 
 ## Context
 
-The Mybizz CS platform onboarding flow captures substantial business information that is not realistically a single-sitting process. The system needs to support resumable onboarding.
+The onboarding flow of every Mybizz application captures substantial business information that is not realistically a single-sitting process. The system needs to support resumable onboarding.
 
 ### Problem Statement
 
@@ -107,6 +105,3 @@ The onboarding flow captures substantial business information but may not suppor
 - User experience documentation
 - Onboarding flow documentation
 
----
-
-*End of `onboarding-resumability` ADR*

@@ -1,14 +1,12 @@
 ---
 title: "adr-common-architecture-across-mybizz-applications"
-updated: "2026-10-22"
+updated: "2026-10-23"
 doc-id: "mb-035ff93b"
 ---
 # `common-architecture-across-mybizz-applications` ADR — Mybizz Applications Share Everything They Can
 
 **Status:** Accepted
-**Date:** 2026-10-21
 **Applies to:** Every Mybizz application: `mb-3-cs`, `mb-4-ecom` and every later one
-**Authority:** [[[default:policy-global/pol-common-aspects-for-mybizz-anvil-applications|Common Aspects for Mybizz Anvil Applications]]](C:/dev/project-library-global/policy-global/pol-common-aspects-for-mybizz-anvil-applications.md) policy
 
 ---
 
@@ -41,10 +39,7 @@ Built separately, the same need would be solved differently in each application.
 
 ## Consequences
 
-- PDLF's Step 12 states what an application shares and what is particular to it; Step 15 checks the plan against the common aspects; Steps 34 and 37 check the built code against them.
-- A lesson about a common aspect, captured at Step 46, is written to `project-library-global`.
+- Every application's plan, and its built code, are checked against the common aspects.
+- A lesson about a common aspect is written to `project-library-global`.
 - Content in `project-library-global` that is particular to one application moves to that application's project library.
 
----
-
-*End of `common-architecture-across-mybizz-applications` ADR*

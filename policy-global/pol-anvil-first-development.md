@@ -1,7 +1,7 @@
 ---
 title: "pol-anvil-first-development"
 doc-id: "mb-29e3e340"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # Policy — Anvil-First Development
 
@@ -82,5 +82,3 @@ argued once, here, rather than re-litigated on every finding.
 
 Every project this operation builds on Anvil.works. Applies from the first line of code.
 
-**Source:** consolidated from prior project practice; the Anvil-First mandate and
-enforcement table are proven patterns, carried forward deliberately, not invented fresh.

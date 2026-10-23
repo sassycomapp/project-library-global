@@ -1,17 +1,17 @@
 ---
 title: "sec-multi-tenant-assumption-leakage"
 doc-id: "mb-e882c1c2"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # Threat Model — Multi-Tenant Assumption Leakage
 
 ## Applicable Threat
 
-An AI agent, trained on far more common multi-tenant SaaS patterns than this project's own dependency-based architecture, introduces a tenant-discriminator column, a `tenant_id`-filtered query, or other multi-tenant-style code — directly prohibited by [[[default:adr-global/adr-dependency-based-not-multi-tenant|Mybizz CS is a Dependency-Based Architecture, Not a Multi-Tenant Architecture]]](C:/dev/project-library-global/adr-global/adr-dependency-based-not-multi-tenant.md), but a pattern the agent may reach for by default, since it's the far more common industry pattern.
+An AI agent, trained on far more common multi-tenant SaaS patterns than this project's own dependency-based architecture, introduces a tenant-discriminator column, a `tenant_id`-filtered query, or other multi-tenant-style code — directly prohibited by [[[default:adr-global/adr-dependency-based-not-multi-tenant|Dependency-Based, Not Multi-Tenant]]](C:/dev/project-library-global/adr-global/adr-dependency-based-not-multi-tenant.md), but a pattern the agent may reach for by default, since it's the far more common industry pattern.
 
 ## Security Requirement
 
-No code introduces a tenant discriminator column or tenant-filtered query of any kind, per [[[default:adr-global/adr-dependency-based-not-multi-tenant|Mybizz CS is a Dependency-Based Architecture, Not a Multi-Tenant Architecture]]](C:/dev/project-library-global/adr-global/adr-dependency-based-not-multi-tenant.md). Data isolation is structural — separate app, separate database, per client instance — never enforced by a filter within shared code.
+No code introduces a tenant discriminator column or tenant-filtered query of any kind, per [[[default:adr-global/adr-dependency-based-not-multi-tenant|Dependency-Based, Not Multi-Tenant]]](C:/dev/project-library-global/adr-global/adr-dependency-based-not-multi-tenant.md). Data isolation is structural — separate app, separate database, per client instance — never enforced by a filter within shared code.
 
 ## Approved Pattern
 
@@ -27,7 +27,7 @@ Any query, column, or check referencing a "tenant" concept — this architecture
 
 ## Implementation Guidance
 
-If an AI agent's proposed implementation includes any tenant-style filtering, this is an automatic, high-confidence Sentinel finding — the ADR is unambiguous and the risk of an agent defaulting to a more common pattern is real and named directly in [[[default:adr-global/adr-dependency-based-not-multi-tenant|Mybizz CS is a Dependency-Based Architecture, Not a Multi-Tenant Architecture]]](C:/dev/project-library-global/adr-global/adr-dependency-based-not-multi-tenant.md) itself.
+If an AI agent's proposed implementation includes any tenant-style filtering, this is an automatic, high-confidence Sentinel finding — the ADR is unambiguous and the risk of an agent defaulting to a more common pattern is real and named directly in [[[default:adr-global/adr-dependency-based-not-multi-tenant|Dependency-Based, Not Multi-Tenant]]](C:/dev/project-library-global/adr-global/adr-dependency-based-not-multi-tenant.md) itself.
 
 ## Verification Requirements
 
@@ -35,7 +35,7 @@ Grep the codebase for `tenant`, `tenant_id`, or similar terms; confirm zero real
 
 ## Authoritative Sources
 
-- [[[default:adr-global/adr-dependency-based-not-multi-tenant|Mybizz CS is a Dependency-Based Architecture, Not a Multi-Tenant Architecture]]](C:/dev/project-library-global/adr-global/adr-dependency-based-not-multi-tenant.md) — the definitive, binding ADR
+- [[[default:adr-global/adr-dependency-based-not-multi-tenant|Dependency-Based, Not Multi-Tenant]]](C:/dev/project-library-global/adr-global/adr-dependency-based-not-multi-tenant.md) — the definitive, binding ADR
 - `[[spec-five-app-architecture-model]]` — structural basis for why this isn't needed
 
 ## Known Exceptions

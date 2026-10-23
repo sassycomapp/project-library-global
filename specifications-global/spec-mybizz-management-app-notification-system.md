@@ -1,7 +1,7 @@
 ---
 title: "spec-mybizz-management-app-notification-system"
 doc-id: "mb-631f063d"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # `mybizz-management-app-notification-system` Spec — Platform-to-Client Notification Console
 
@@ -195,6 +195,3 @@ Consistent with [[[default:specifications-global/spec-mastertemplate-notificatio
 | [[[default:adr-global/adr-client-instance-readme-five-app-system\|Client Instance Readme Five App System]]](C:/dev/project-library-global/adr-global/adr-client-instance-readme-five-app-system.md) | Confirms App 5's deferred status and the five-app boundary this spec respects |
 | `Notification-System-Design.md` | Source design; §8 of this document records what was deliberately not carried over |
 
----
-
-*End of `mybizz-management-app-notification-system` spec*

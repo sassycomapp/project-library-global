@@ -1,7 +1,7 @@
 ---
 title: "spec-m3_component_mapping"
 doc-id: "mb-af738688"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 ***
 
@@ -10,10 +10,6 @@ Material Design 3 (M3) — Dependency ID: 4UK6WHQ6UX7AKE
 # m3_component_mapping.md
 
 Title: M3 → Anvil component mapping (Python style)
-Version: 1.0  
-Generated: 2026-05-21  
-Authority: reference for developers, code generators, and automation agents
-
 ## Purpose
 
 This document is a canonical, machine‑ and human‑readable mapping from Material Design 3 UI concepts to the exact Anvil Material‑3 dependency classes, properties, and usage patterns your codebase should use. It is intentionally orthogonal to architecture/ADR documents (navigation patterns, layout rules, roles, etc.) and is meant to be referenced by code generators, CI linters, Opencode/GStack agents, and developers when composing UI.
@@ -352,10 +348,6 @@ nav.add_event_handler("click", lambda e, fn="DashboardForm": self._nav_click(fn)
   - If mapping shows Not supported → block or flag the change and request a justification or external widget wrapper.
 - When generating code, prefer Fully supported mappings. For Partials, generate a comment indicating which behaviors are missing and link to the ADR or policy file that governs allowed approximations.
 
-***
-
-## Change log
-- v1.0 — 2026-05-21 — Initial mapping extraction for Mybizz codebase.
 
 ***
 

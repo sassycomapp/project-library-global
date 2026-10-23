@@ -1,7 +1,7 @@
 ---
 title: "sec-github-repository-access-control"
 doc-id: "mb-a2ae334b"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # GitHub Repository Access Control
 
@@ -11,7 +11,7 @@ updated: "2026-10-22"
 
 ## Security Requirement
 
-Write access to `master_template` and `blank_client_template` is restricted to the developer directly. No automated process or AI agent pushes a release into `master_template` or changes `blank_client_template`; only the developer does, after approving the release. Every dev-tooling source repository is GitHub-backed, per [[[default:adr-global/adr-dev-tooling-source-repos-must-be-github-backed|All Dev-Tooling Source Repositories Must Be GitHub-Backed]]](C:/dev/project-library-global/adr-global/adr-dev-tooling-source-repos-must-be-github-backed.md) — a local-only working tree is not an acceptable end state for either repository.
+Write access to `master_template` and `blank_client_template` is restricted to the developer directly. No automated process or AI agent pushes a release into `master_template` or changes `blank_client_template`; only the developer does, after approving the release. Every MyBizz repository is GitHub-backed. — a local-only working tree is not an acceptable end state for either repository.
 
 ## Approved Pattern
 
@@ -32,7 +32,6 @@ Attempt a push to `master_template`'s published branch with an agent's credentia
 ## Authoritative Sources
 
 - `[[spec-five-app-architecture-model]]` — Update Deployment Model
-- [[[default:adr-global/adr-dev-tooling-source-repos-must-be-github-backed|All Dev-Tooling Source Repositories Must Be GitHub-Backed]]](C:/dev/project-library-global/adr-global/adr-dev-tooling-source-repos-must-be-github-backed.md)
 
 ## Known Exceptions
 

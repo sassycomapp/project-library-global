@@ -1,7 +1,7 @@
 ---
 title: "spec-mastertemplate-notification-system"
 doc-id: "mb-387d1b6b"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # `mastertemplate-notification-system` Spec — Notification Engine for Client Instances
 
@@ -251,6 +251,3 @@ Anvil components map onto the source design's five frontend components closely e
 | [[[default:adr-global/adr-client-instance-readme-five-app-system\|Client Instance Readme Five App System]]](C:/dev/project-library-global/adr-global/adr-client-instance-readme-five-app-system.md) | Governs where this code may and may not live |
 | `Notification-System-Design.md` | Source design this spec derives from; §5.4 documents deviations |
 
----
-
-*End of `mastertemplate-notification-system` spec*

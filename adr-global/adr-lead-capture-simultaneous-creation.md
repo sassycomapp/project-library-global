@@ -1,12 +1,10 @@
 ---
 title: "adr-lead-capture-simultaneous-creation"
 doc-id: "mb-c6554efe"
-updated: "2026-10-03"
+updated: "2026-10-23"
 ---
 # Lead Capture: Simultaneous leads + contacts Creation
-Date: 2026-03-21
 Status: Accepted
-Source: Devlog #34 — cs-architectural-specification-D.md §13
 
 ---
 
@@ -14,8 +12,8 @@ Source: Devlog #34 — cs-architectural-specification-D.md §13
 
 When a visitor submits a landing page lead capture form, two data entities are
 relevant: a `leads` record (the capture event) and a `contacts` record (the person).
-The question was whether to create only a `leads` record at capture time and convert
-it to a contact later (manual conversion model), or to create both simultaneously.
+A lead can be recorded alone and converted to a contact later by hand, or both records
+can be created at once.
 
 ---
 
@@ -46,23 +44,6 @@ lead creation — it is never null for a successfully captured lead.
 
 ## Consequences
 
-### Rules files affected
-
-| File | Required content |
-|---|---|
-| `spec_crm.md` | Lead capture flow, simultaneous creation ruling, contact enrollment |
-| `spec_crm_contacts.md` | Contact auto-creation from lead capture |
-| `spec_website.md` [NEW] | Landing page lead capture implementation — §13 flow |
-| `spec_database.md` / `spec_database_schema.md` | `leads`, `contacts`, `lead_captures` table relationships |
-
----
-
-## Old-material pointers (added 2026-09-20, developer instruction)
-
-Material referenced by this document but not present in the current corpus, with developer-provided locations:
-- spec_crm.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/spec_crm.md
-- spec_crm_contacts.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/spec_crm_contacts.md
-- spec_website.md — no backup located; confirmed does not exist (developer, 2026-09-20)
-- spec_database.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/spec_database.md
-- spec_database_schema.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-old/spec_database_schema.md
-*End of `lead-capture-simultaneous-creation` ADR*
+- The application's schema defines `leads`, `contacts` and `lead_captures` with the relationship above.
+- The lead capture server function creates both rows in one operation and enrols the contact in the welcome sequence.
+- No manual conversion step exists anywhere in the application.

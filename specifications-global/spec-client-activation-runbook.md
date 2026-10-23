@@ -1,12 +1,10 @@
 ---
 title: "spec-client-activation-runbook"
 doc-id: "mb-b575e9fd"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # Client Instance Activation Runbook
 
-**Authority:** [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) ADR, [[[default:adr-global/adr-dependency-update-model|Dependency Update Model]]](C:/dev/project-library-global/adr-global/adr-dependency-update-model.md) ADR, the `blank-client-template` ADR (mb-3-cs project library), [[[default:adr-global/adr-mybizz-management-visibility|Mybizz Management Visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md) ADR  
-**Version:** 1.1 — 2026-06-13 (updated following Test B — startup module and form architecture confirmed)  
 **Applies to:** Every new client onboarding. No exceptions. Complete all steps in order.
 
 ---
@@ -146,11 +144,11 @@ After each entry: confirm it is saved; the value is never displayed again.
 For each active payment gateway, the client must register the webhook URL in their gateway dashboard:
 
 **Stripe:**
-- Webhook URL: `[base_url]/api/webhooks/stripe`
+- Webhook URL: `[base_url]/_/api/webhooks/stripe`
 - Events: `payment_intent.succeeded`, `payment_intent.payment_failed`, `customer.subscription.updated`, `customer.subscription.deleted`
 
 **Paystack:**
-- Webhook URL: `[base_url]/api/webhooks/paystack`
+- Webhook URL: `[base_url]/_/api/webhooks/paystack`
 - Events: `charge.success`, `subscription.disable`, `invoice.payment_failed`
 
 - [ ] Stripe webhook registered (if applicable)
@@ -222,6 +220,3 @@ If activation cannot be completed (client withdraws, payment fails, technical bl
 4. Revoke the management token
 5. Document the reason in mybizz records
 
----
-
-*End of client-activation-runbook.md*

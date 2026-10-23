@@ -1,18 +1,16 @@
 ---
 title: "adr-onboarding-vs-settings-boundary"
 doc-id: "mb-43ac2971"
-updated: "2026-10-04"
+updated: "2026-10-23"
 ---
 # Onboarding vs Settings Boundary
-Date: 2026-05-29
 Status: Accepted
-Source: User request - ADR creation for architectural enforcement
 
 ---
 
 ## Context
 
-The Mybizz CS platform distinguishes between initial business establishment (onboarding) and ongoing operational configuration (settings). The boundary between these two concerns needs explicit definition to prevent onboarding from becoming a sprawling, multi-purpose configuration surface.
+Every Mybizz application distinguishes between initial business establishment (onboarding) and ongoing operational configuration (settings). The boundary between these two concerns needs explicit definition to prevent onboarding from becoming a sprawling, multi-purpose configuration surface.
 
 ### Problem Statement
 
@@ -21,9 +19,7 @@ Without clear boundaries:
 - Users might expect to return to onboarding for changes that belong in settings
 - The platform could develop inconsistent configuration patterns
 
-### Current State
-
-The platform currently has some operational controls (like palette selection, service catalogue setup, gateway setup) that could be placed in either onboarding or settings. This creates ambiguity about where configuration belongs.
+Some operational controls (such as palette selection, service catalogue setup and gateway setup) could be placed in either onboarding or settings, which leaves it unclear where configuration belongs.
 
 ---
 
@@ -99,14 +95,5 @@ The platform currently has some operational controls (like palette selection, se
 
 ## Related Documents
 
-- [[[default:adr-global/adr-system-currency-selection-and-immutability|[[[default:adr-global/adr-system-currency-selection-and-immutability]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md)]]]([[[default:adr-global/adr-system-currency-selection-and-immutability]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md)) — System currency as onboarding concern
-- `docs/phased-implementation/phase-0-implementation.md` — Implementation phases
-- Platform overview documentation — Current configuration patterns
+- [[[default:adr-global/adr-system-currency-selection-and-immutability]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md) — System currency as onboarding concern
 
----
-
-## Old-material pointers (added 2026-09-20, developer instruction)
-
-Material referenced by this document but not present in the current corpus, with developer-provided locations:
-- docs/phased-implementation/phase-0-implementation.md — obsolete (developer, 2026-09-20); no backup path provided
-*End of `onboarding-vs-settings-boundary` ADR*

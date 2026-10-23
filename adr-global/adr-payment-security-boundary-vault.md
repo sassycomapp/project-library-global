@@ -1,12 +1,10 @@
 ---
 title: "adr-payment-security-boundary-vault"
 doc-id: "mb-dbb54a8c"
-updated: "2026-10-03"
+updated: "2026-10-23"
 ---
 # Payment Security Boundary: Secret Keys Deferred to the Vault
-Date: 2026-03-15
 Status: Accepted
-Source: @authref/mybizz-architecture.md — Stage 1.4 discovery
 
 ---
 
@@ -64,27 +62,3 @@ plaintext. The same rule applies to `get_email_config()` for SMTP credentials.
 The client must not transmit secret fields in outbound dicts even when masked —
 defence in depth. `_save_payments()` on the client must exclude secret key fields
 from the outbound dict entirely.
-
----
-
-## Consequences
-
-### Rules files affected
-
-| File | Required content |
-|---|---|
-| `spec_vault.md` | Primary spec for Vault architecture, credential structure, Vault access pattern |
-| `policy_security.md` | Secret masking rule, Vault-only credential storage mandate |
-| `ref_anvil_coding.md` | AssertionError guard pattern — already present in §6 ✓ |
-| `spec_architecture.md` | Payment security boundary, Vault architecture overview |
-
----
-
-## Old-material pointers (added 2026-09-20, developer instruction)
-
-Material referenced by this document but not present in the current corpus, with developer-provided locations:
-- spec_vault.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/spec_vault.md
-- policy_security.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/policy_security.md
-- ref_anvil_coding.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/ref_anvil_coding.md
-- spec_architecture.md — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/spec_architecture.md
-*End of `payment-security-boundary-vault` ADR*

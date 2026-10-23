@@ -1,18 +1,16 @@
 ---
 title: "adr-material-3-theme-component-scope"
 doc-id: "mb-b1d3bcc9"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # Material 3 Theme Component Scope
-Date: 2026-05-21
 Status: Accepted
-Source: M3 component mapping alignment task
 
 ---
 
 ## Context
 
-The Mybizz CS application uses the official Anvil Material 3 Theme dependency (`4UK6WHQ6UX7AKELK`) as the foundational design system. This dependency provides a defined set of M3-compliant components, layouts, and design tokens.
+Every Mybizz application uses the official Anvil Material 3 Theme dependency (`4UK6WHQ6UX7AKELK`) as the foundational design system. This dependency provides a defined set of M3-compliant components, layouts, and design tokens.
 
 ---
 
@@ -74,6 +72,3 @@ These limitations must be documented when the component is implemented.
 ### Not supported (excluded)
 Components from excluded categories cannot be used without explicit ADR approval.
 
----
-
-*End of `material-3-theme-component-scope` ADR*

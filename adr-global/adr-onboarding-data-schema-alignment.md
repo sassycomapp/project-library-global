@@ -1,22 +1,20 @@
 ---
 title: "adr-onboarding-data-schema-alignment"
 doc-id: "mb-00eef3b7"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # Onboarding Data Schema Alignment
-Date: 2026-05-29
 Status: Accepted
-Source: User request - ADR creation for architectural enforcement
 
 ---
 
 ## Context
 
-The Mybizz CS platform has an authoritative schema that defines the database structure. Onboarding processes must align with this schema to maintain data integrity and consistency.
+Every Mybizz application has an authoritative schema that defines the database structure. Onboarding processes must align with this schema to maintain data integrity and consistency.
 
 ### Problem Statement
 
-Onboarding processes could potentially:
+Onboarding processes can:
 - Invent substitute table names or field structures
 - Create client-side fields that conflict with the authoritative schema
 - Lead to data inconsistencies between onboarding and main application
@@ -26,24 +24,20 @@ Without strict alignment:
 - Maintenance complexity from divergent schemas
 - Potential data migration challenges
 
-### Current State
-
-The authoritative schema (`authoritative-schema.md`, mb-3-cs project library) defines the database structure. Onboarding must align with this schema.
-
 ---
 
 ## Decision
 
-**All onboarding-related schema must align strictly with `authoritative-schema.md` (mb-3-cs project library).**
+**All onboarding-related schema must align strictly with the application's authoritative schema (in its own project library).**
 
-**`authoritative-schema.md` (mb-3-cs project library) remains the sole source of truth for table and field structure.**
+**The application's authoritative schema is the sole source of truth for table and field structure.**
 
 **No onboarding plan may invent substitute table names or client-side fields that conflict with the authoritative schema.**
 
 ### Architectural Rules
 
 1. **Schema Authority:**
-   - `authoritative-schema.md` (mb-3-cs project library) is the sole source of truth
+   - The application's authoritative schema is the sole source of truth
    - All database structures must match this schema
    - No exceptions for onboarding or any other process
 
@@ -103,10 +97,7 @@ The authoritative schema (`authoritative-schema.md`, mb-3-cs project library) de
 
 ## Related Documents
 
-- `authoritative-schema.md` (mb-3-cs project library) — Sole source of truth for database schema
+- The application's authoritative schema, in its own project library — the sole source of truth for its database schema
 - [[[default:adr-global/adr-onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]]](C:/dev/project-library-global/adr-global/adr-onboarding-vs-settings-boundary.md) — Onboarding scope definition
 - Database architecture documentation
 
----
-
-*End of `onboarding-data-schema-alignment` ADR*

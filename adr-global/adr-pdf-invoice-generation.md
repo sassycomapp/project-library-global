@@ -1,13 +1,11 @@
 ---
 title: "adr-pdf-invoice-generation"
 doc-id: "mb-39f00e1d"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # `pdf-invoice-generation` ADR — PDF Invoice Generation
 
 **Status:** Approved  
-**Date:** 2026-06-14  
-**Authority:** Derived from the retired platform-overview.md, integration-architecture.md
 
 ---
 
@@ -110,9 +108,4 @@ def generate_invoice_pdf(invoice_id):
 | Document | Relationship |
 |---|---|
 | [[[default:adr-global/adr-anvil-platform-constraints\|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) | Server-side only constraint; BlobMedia limits |
-| `integration-architecture.md` (mb-3-cs project library) | Section 1: Payment Gateway Architecture (invoice trigger) |
-| `user-flows.md` (mb-3-cs project library) | §3: Admin Daily Operations (invoice viewing) |
 
----
-
-*End of `pdf-invoice-generation` ADR*

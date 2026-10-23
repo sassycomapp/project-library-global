@@ -1,7 +1,7 @@
 ---
 title: "spec-material-3-theme"
 doc-id: "mb-233089e4"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 Based on the information gathered, here is a strict spec/documentation style rewrite for your project docs:
 
@@ -124,7 +124,7 @@ self.card.role = "surface-card elevated"
 
 #### 3.3 Material Web Components (EXCLUDED)
 
-**Material Web Components are excluded from the Mybizz CS project.** See [[[default:adr-global/adr-anvil-extras-exclusion|Anvil Extras Exclusion]]](C:/dev/project-library-global/adr-global/adr-anvil-extras-exclusion.md) for the complete component scope policy.
+**Material Web Components are excluded from every Mybizz application.** See [[[default:adr-global/adr-anvil-extras-exclusion|Anvil Extras Exclusion]]](C:/dev/project-library-global/adr-global/adr-anvil-extras-exclusion.md) for the complete component scope policy.
 
 Only components included in the Anvil Material 3 Theme dependency (`4UK6WHQ6UX7AKELK`) are permitted. Any component outside that dependency requires explicit ADR approval.
 

@@ -1,9 +1,9 @@
 ---
 title: "spec-testing-methodology-standards"
 doc-id: "mb-0ab4d14d"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
-# PDLF Standards Library — Testing Methodology
+# Testing Methodology
 
 **Location:** `C:\dev\project-library-global\specifications-global\spec-testing-methodology-standards.md`
 **Scope:** The testing method every Mybizz application follows. The test suite in `C:\dev\project-library-global\test-suite\` holds the rules ([[[default:test-suite/ts-method]]](C:/dev/project-library-global/test-suite/ts-method.md)), the tests ([[[default:test-suite/ts-catalogue]]](C:/dev/project-library-global/test-suite/ts-catalogue.md)) and the tools; each step's `{step}-test-spec.md` names the tests it runs. A project's own test plan (which flows, which roles) is that project's own document, written at Step 15.

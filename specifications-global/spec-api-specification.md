@@ -1,12 +1,11 @@
 ---
 title: "spec-api-specification"
 doc-id: "mb-639a7203"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # Mybizz — API Specification (HTTP Endpoints)
 
 **Scope:** Mybizz-wide. Covers all HTTP endpoints exposed by client instances — webhook handlers and management endpoints.
-**Authority:** [[[default:adr-global/adr-webhook-architecture|Webhook Architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md) ADR, [[[default:adr-global/adr-mybizz-management-visibility|Mybizz Management Visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md) ADR, [[[default:adr-global/adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) ADR
 
 ---
 
@@ -27,7 +26,7 @@ Both ship with master_template — all client instances have them from provision
 
 ### 2.1 Stripe Webhooks
 
-**URL:** `[base_url]/api/webhooks/stripe`
+**URL:** `[base_url]/_/api/webhooks/stripe`
 **Method:** POST
 **Authentication:** Stripe signature header (`stripe-signature`)
 
@@ -46,7 +45,7 @@ Both ship with master_template — all client instances have them from provision
 
 ### 2.2 Paystack Webhooks
 
-**URL:** `[base_url]/api/webhooks/paystack`
+**URL:** `[base_url]/_/api/webhooks/paystack`
 **Method:** POST
 **Authentication:** Paystack signature header
 
@@ -59,7 +58,7 @@ Both ship with master_template — all client instances have them from provision
 
 ### 2.3 Brevo Webhooks
 
-**URL:** `[base_url]/api/webhooks/brevo`
+**URL:** `[base_url]/_/api/webhooks/brevo`
 **Method:** POST
 **Authentication:** Brevo webhook signature
 
@@ -197,6 +196,3 @@ All HTTP endpoints return standard error responses:
 | 403 | Authentication failed (invalid Bearer token) |
 | 500 | Server error (logged to `error_log`) |
 
----
-
-*spec-api-specification.md v1.0 — HTTP endpoint patterns for webhooks and management.*

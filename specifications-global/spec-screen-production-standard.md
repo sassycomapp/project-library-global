@@ -1,12 +1,10 @@
 ---
 title: "spec-screen-production-standard"
 doc-id: "mb-97195caa"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # Mybizz — Screen Production Standard
 
-**Date:** 2026-06-03
-**Authority:** Approved example — `screens/Example-screen-auth-SignupForm.html`
 **Purpose:** Canonical rules for all screen artefacts in every Mybizz project
 
 # Note to reader
@@ -179,6 +177,3 @@ Every colour token of the token block has a dark value. Each pair below passes W
 
 Unchanged: `screen-{package}-{FormName}.html`
 
----
-
-*End of screen production standard — 2026-06-03*

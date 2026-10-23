@@ -1,55 +1,26 @@
 ---
 title: "adr-client-instance-architecture"
 doc-id: "mb-c7c61252"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # `client-instance-architecture` ADR — Client Instance Architecture
 
-**Status:** Confirmed — architecturally tested (Tests A and B)  
-**Date:** 2026-06-13  
-**Last updated:** 2026-06-13 — revised following Test B (startup form from dependency)  
-**Authority:** Derived from the retired platform-overview.md, [[[default:adr-global/adr-payment-security-boundary-vault|Payment Security Boundary: Secret Keys Deferred to the Vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) ADR, and live testing conducted 2026-06-13
+**Status:** Accepted
 
 ---
 
 ## Context
 
-The platform requires complete data isolation between clients, automatic propagation of server logic updates, and a clear separation between application code and client data. The relationship between master_template (the published dependency) and each client instance needed to be defined and tested before any server modules were written.
-
-The critical untested assumption was whether `app_tables` called from within a master_template server module would resolve to the client instance's own Data Tables or to master_template's tables.
+Every client needs complete data isolation from every other client, automatic propagation of server and UI updates, and a clear separation between application code and client data. This decision sets the relationship between `master_template` (App 2, the published dependency) and each client instance.
 
 ---
 
-## Test Conducted — 2026-06-13
+## Anvil Behaviour This Rests On
 
-Two Anvil apps were created:
+Both facts below were proven by test on Anvil before any server module was written.
 
-- `datatable-test-host-app` — acting as the dependency (master_template equivalent), containing a server module that called `app_tables.table_1.add_row()`
-- `datatable-test-client-app` — acting as the client instance, depending on the host app, containing its own `table_1`
-
-**Finding:** The row was written exclusively to the client app's `table_1`. The host app's `table_1` received nothing.
-
-**Conclusion:** `app_tables` in a dependency server module resolves to the calling client instance's Data Tables at runtime. This is structural and automatic — no application-level enforcement is required.
-
----
-
-## Test B Conducted — 2026-06-13
-
-A second test was conducted to determine whether a client instance with no forms of its own could successfully load and display a form defined in its dependency.
-
-- `test-dependency-forms`: An Anvil app containing one form (`MainForm`) with a visible label. No server modules, no Data Tables.
-- `test-client-no-forms`: A bare Anvil app with one startup module and no forms. `test-dependency-forms` set as dependency.
-
-**Startup module code in test-client-no-forms:**
-```python
-from PACKAGE_NAME.MainForm import MainForm
-from anvil import open_form
-open_form(MainForm())
-```
-
-**Finding:** The app ran without error. MainForm loaded and displayed correctly, served entirely from the dependency.
-
-**Conclusion:** A client instance requires no forms of its own. All UI and form code can reside in master_template and be served at runtime via the dependency. This means UI and form updates propagate automatically to all client instances — identical to server module update propagation.
+1. **`app_tables` resolves to the calling app.** When a server module in a dependency calls `app_tables`, the rows are read from and written to the Data Tables of the client instance that depends on it, never to the dependency's own tables. This is structural and automatic; no application-level enforcement is needed.
+2. **Forms are served from the dependency.** A client instance with no forms of its own can import a form from its dependency and open it; the form loads and renders from the dependency at runtime.
 
 ---
 
@@ -78,8 +49,8 @@ open_form(MainForm())
 
 ## Rationale
 
-- `app_tables` resolution to the client instance is confirmed structural behaviour in Anvil (Test A)
-- Forms defined in a dependency are served to and rendered in the dependent app at runtime — confirmed by Test B
+- `app_tables` resolves to the client instance (Anvil behaviour 1)
+- Forms defined in a dependency are served to and rendered in the client instance at runtime (Anvil behaviour 2)
 - Keeping all code (server modules and forms) exclusively in master_template ensures all updates propagate automatically to every client instance simultaneously
 - Data isolation between clients is architecturally guaranteed — one client instance cannot access another's tables
 - Security boundary is structural, not enforced in application code
@@ -95,7 +66,7 @@ open_form(MainForm())
 - ✅ No cross-client data access is architecturally possible
 - ✅ Client instances require no maintenance — only Data Tables and one startup module
 - ⚠️ Client instances must never have server modules or forms added — provisioning documentation must make this explicit
-- ⚠️ Schema changes (adding/modifying Data Tables) are the only update that does not propagate automatically — requires manual application to blank_client_template and all existing client instances
+- ⚠️ Schema changes (adding/modifying Data Tables) are the only update that does not propagate automatically — applied by the developer, in Anvil's Data Tables view, to `blank_client_template` and every existing client instance
 
 ---
 
@@ -103,10 +74,7 @@ open_form(MainForm())
 
 | Document | Relationship |
 |---|---|
-| [[[default:adr-global/adr-dependency-update-model\|Dependency Update Model]]](C:/dev/project-library-global/adr-global/adr-dependency-update-model.md) | How updates flow from mb-3-cs to client instances |
-| `blank-client-template.md` (mb-3-cs project library) | The provisioning source for new client instances |
+| [[[default:adr-global/adr-dependency-update-model\|Dependency Update Model]]](C:/dev/project-library-global/adr-global/adr-dependency-update-model.md) | How updates flow from App 1 to client instances |
+| [[[default:specifications-global/spec-five-app-architecture-model\|Five-App Architecture Model]]](C:/dev/project-library-global/specifications-global/spec-five-app-architecture-model.md) | App 3, `blank_client_template`, the provisioning source for new client instances |
 | [[[default:specifications-global/spec-client-activation-runbook\|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) | Step-by-step provisioning process |
 
----
-
-*End of `client-instance-architecture` ADR*

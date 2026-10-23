@@ -1,13 +1,11 @@
 ---
 title: "adr-real-time-and-background-tasks"
 doc-id: "mb-1684942d"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # `real-time-and-background-tasks` ADR — Real-Time Updates and Background Task Architecture
 
 **Status:** Approved  
-**Date:** 2026-06-14  
-**Authority:** Derived from the retired platform-overview.md, [[[default:adr-global/adr-observability-architecture|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md) ADR, [[[default:adr-global/adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) ADR, integration-architecture.md
 
 ---
 
@@ -98,8 +96,6 @@ All asynchronous operations use Anvil's `@anvil.server.background_task` decorato
 
 ### Per-Task Failure and Retry Policy
 
-**Source:** CEO review 2026-06-15 Section 2
-
 Each background task must define its failure behavior. The following table specifies the retry policy and failure action for each task:
 
 | Task | On Failure | Max Retries | Retry Interval | Failure Action |
@@ -120,8 +116,6 @@ Each background task must define its failure behavior. The following table speci
 - Non-critical failures (campaign enrollment) are logged but do not trigger alerts
 
 ### Task Priority for Graceful Degradation
-
-**Source:** Engineering review 2026-06-16
 
 If Anvil enforces per-account background task limits, the platform must degrade gracefully rather than fail silently. Tasks are assigned priority levels:
 
@@ -145,42 +139,7 @@ def daily_maintenance():
 
 ### Webhook Processing Pattern
 
-Webhook handlers (Stripe, Paystack, Brevo) must return HTTP 200 immediately or the gateway times out. Processing is deferred to a background task.
-
-**Pattern:**
-
-```python
-# In webhook handler
-@anvil.server.http_handler(path='webhooks/stripe')
-def handle_stripe_webhook():
-    payload = anvil.server.request.body
-    signature = anvil.server.request.headers.get('stripe-signature')
-    
-    # Validate signature
-    if not verify_stripe_signature(payload, signature):
-        return anvil.server.HttpResponse(status=400)
-    
-    # Store raw payload and dispatch to background task
-    event_id = app_tables.webhook_log.add_row(
-        source='stripe',
-        payload=payload,
-        status='pending',
-        received_at=datetime.now(TZ.UTC)
-    )
-    
-    anvil.server.launch_background_task('process_webhook', event_id)
-    
-    # Return 200 immediately
-    return anvil.server.HttpResponse(status=200)
-
-# In background task
-@anvil.server.background_task
-def process_webhook(event_id):
-    event = app_tables.webhook_log.get_by_id(event_id)
-    # Process the webhook payload
-    # Update booking status, payment status, etc.
-    event.status = 'processed'
-```
+Webhook handlers (Stripe, Paystack, Brevo) return HTTP 200 immediately, or the gateway times out and retries. Processing is deferred to a background task, as [[[default:adr-global/adr-webhook-architecture|Webhook Architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md) sets out in full.
 
 ---
 
@@ -192,7 +151,7 @@ def process_webhook(event_id):
 - ⚠️ Polling adds server load — must be balanced against freshness needs
 - ⚠️ Background task limits per Anvil plan are a hard ceiling — must be verified
 - ⚠️ Client-side timers stop when the form is hidden — updates pause in background tabs
-- ⚠️ No push notifications for critical events in V1 — polling is the only mechanism until Mybizz_management is built
+- ⚠️ The browser learns of critical events only by polling; Anvil has no server push to the browser
 
 ---
 
@@ -202,10 +161,5 @@ def process_webhook(event_id):
 |---|---|
 | [[[default:adr-global/adr-observability-architecture\|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md) | Health heartbeat task feeds observability metrics |
 | [[[default:adr-global/adr-anvil-platform-constraints\|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) | Background task limits and server call latency constraints |
-| [[[default:adr-global/adr-webhook-architecture\|[[[default:adr-global/adr-webhook-architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md)]]]([[[default:adr-global/adr-webhook-architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md)) | Detailed webhook handling pattern |
-| `integration-architecture.md` (mb-3-cs project library) | Section 4: Background Tasks (existing task inventory) |
-| `deployment-procedures.md` (mb-3-cs project library) | Operational procedures for task failure recovery |
+| [[[default:adr-global/adr-webhook-architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md) | Detailed webhook handling pattern |
 
----
-
-*End of `real-time-and-background-tasks` ADR*

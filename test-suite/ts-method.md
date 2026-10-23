@@ -1,6 +1,6 @@
 ---
 title: "ts-method"
-updated: "2026-10-22"
+updated: "2026-10-23"
 doc-id: "mb-2fad9223"
 ---
 # Test Suite — Method
@@ -41,12 +41,13 @@ Shoppers buy as guests, without an account. Anvil can require a second factor on
 1. **Every step is tested.** A step ends only when the tests in its test specification pass.
 2. **Proof, not claims.** A test counts only when its raw output is saved. Receipt counts are produced from that output by `ts_report.py`, never written by hand.
 3. **Test the real code.** A test loads the module it tests; it never holds a copy of it.
-4. **Business rules live in pure modules,** with no Anvil imports, no data access and no side effects, so they can be tested on their own.
+4. **Business rules live in pure modules,** with no Anvil imports, no data access and no side effects, so they can be tested on their own. Server modules are thin wrappers around them: the server module handles access and storage, the pure module the business rule.
 5. **Attacks are attempted, not reasoned about.** Each security control is proven by trying the attack it stops.
 6. **Never weaken a test to make it pass.** The code is fixed. A test is changed only with the developer's recorded approval.
 7. **Nothing test-only in the application.** Tests reach the app from outside, through Uplink connections and a browser.
 8. **A failure stops the work.** At Step 35 it is fixed at once. From Step 35A on it is a finding: recorded, triaged at Step 39, fixed at Step 35.
 9. **Tests are permanent.** The whole suite runs before every release. Every fault found later gets a test before it is fixed.
+10. **Levels run in order.** For a feature, Level 2 starts only after Level 1 passes, and Level 3 only after Level 2 passes, so each level tests what the one before has proven.
 
 ## 3. Levels and places
 
@@ -63,7 +64,7 @@ Shoppers buy as guests, without an account. Anvil can require a second factor on
 
 **Hosted App 1.** Only what needs Anvil's hosted service is tested there: sign-up and reset emails, real webhooks from gateways in test mode, scheduled tasks, headers and certificates. Every test value starts with `TEST_` and is removed afterwards. Attacks and load tests are never aimed at Anvil's hosted service.
 
-**Two connections.** A server connection sets up and inspects data. A client connection, signed in as a test user of a role, acts exactly like a browser and is the only way access rules are proven.
+**Two connections.** A server connection sets up and inspects data. A client connection, signed in as a test user of a role, acts exactly like a browser and is the only way access rules are proven. Each connection reads its key from `.env`, disconnects when its operation ends, and is reopened after the runtime is restarted whenever the app was changed in the Anvil editor.
 
 **Hobby limits.** At most five hosted emails per run (the plan allows 1,000 a month). Volume tests run locally. Hosted concurrency tests use at most 20 parallel calls.
 
@@ -82,6 +83,7 @@ Shoppers buy as guests, without an account. Anvil can require a second factor on
 - A failure from Step 35A on is recorded in the ledger's `triage_findings` with the test ID and its evidence.
 - Severity follows [[[default:specifications-global/spec-anvil-platform-standards]]](C:/dev/project-library-global/specifications-global/spec-anvil-platform-standards.md) section 21: anything touching security, money or client data is Critical or High.
 - Every fixed finding gets a permanent test that fails without the fix.
+- Steps 36, 37 and 38 each write a findings file, `{slug}-{step}-{run}-findings.md`, that states every finding or, when there is none, a clean pass. A step whose findings file is missing has failed.
 
 ## 6. Gates
 

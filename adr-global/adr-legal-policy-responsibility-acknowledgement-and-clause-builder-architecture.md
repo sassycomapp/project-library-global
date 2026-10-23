@@ -1,18 +1,16 @@
 ---
 title: "adr-legal-policy-responsibility-acknowledgement-and-clause-builder-architecture"
 doc-id: "mb-62159214"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # Legal Policy Responsibility Acknowledgement and Clause-Builder Architecture
-Date: 2026-05-29
 Status: Accepted
-Source: User request - ADR creation for architectural enforcement
 
 ---
 
 ## Context
 
-The Mybizz CS platform requires businesses to have legal policies (Privacy Policy and Terms & Conditions) for their operations. The platform needs to clarify responsibility for policy content while providing tools to assist with policy creation.
+Every Mybizz application requires businesses to have legal policies (Privacy Policy and Terms & Conditions) for their operations. The platform needs to clarify responsibility for policy content while providing tools to assist with policy creation.
 
 ### Problem Statement
 
@@ -108,6 +106,3 @@ The platform needs to support policy creation and publication while maintaining 
 - Legal documentation requirements
 - Platform terms of service
 
----
-
-*End of `legal-policy-responsibility-acknowledgement-and-clause-builder-architecture` ADR*

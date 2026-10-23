@@ -1,7 +1,7 @@
 ---
 title: "pol-testing-and-quality"
 doc-id: "mb-b7965794"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # Policy — Testing and Quality
 
@@ -26,13 +26,14 @@ A server Uplink key sets up and inspects test data only, because it passes every
 
 ### Backups Around Hosted Runs
 
-App 1 is backed up before any test run against hosted App 1, and again once it passes. Local runs need no backup. Never back up a failing state.
+App 1 is backed up before any test run against hosted App 1, because the integration attempt itself can go wrong, and again once it passes, as the known-good checkpoint. Local runs need no backup. Never back up a failing state.
 
 ### Feature Signoff
 
 A feature is not complete until it has passed the full testing sequence and the developer
-has explicitly signed off. After signoff, the feature is a known-good baseline — later
-breakage is attributable to something done after this point, not to this feature.
+has explicitly signed off. The Step Receipt records the sign-off. After sign-off, the feature
+is a known-good baseline: later breakage is attributable to something done after this point,
+not to this feature. The next feature starts only after sign-off.
 
 ### RBAC Verification Is Part of Testing, Not Separate
 
@@ -60,5 +61,3 @@ specific failure mode. Running locally first keeps attacks and broken code away 
 ## Where
 
 Every project this operation builds on Anvil.works, from the first feature onward.
-
-**Source:** [[[default:test-suite/ts-method]]](C:/dev/project-library-global/test-suite/ts-method.md); [[[default:specifications-global/spec-testing-methodology-standards]]](C:/dev/project-library-global/specifications-global/spec-testing-methodology-standards.md).

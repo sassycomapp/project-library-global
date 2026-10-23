@@ -1,56 +1,35 @@
 ---
 title: "adr-role-property-assignment-mechanism"
 doc-id: "mb-0475ad64"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
-# `role-property-assignment-mechanism` ADR: Role Property Assignment Mechanism (Designer vs. Code)
+# `role-property-assignment-mechanism` ADR: Role Property Assignment in Code
 
 ## Status
 
-**Superseded** — original decision reversed by project-wide property-setting rule.
+**Accepted**
 
-## Original Decision (superseded)
+## Context
 
-Set `role` via the **Designer Properties Panel**, not in code.
+Anvil lets a component's `role` be set either in the Designer's Properties Panel or in code (`self.button_1.role = "submit"`). A component can carry several roles, as a space-separated string or a list of strings. Mybizz's property-setting rule is: if a property can be set programmatically, it is set programmatically.
 
-## Reversal Reason
+## Decision
 
-The project-wide property-setting rule states: **"If a property can be set programmatically, then it must be set programmatically."**
+Set `role` in **code** (`self.component.role = "role-name"`), never in the Designer Properties Panel.
 
-Anvil's official Roles documentation confirms that `role` can be set programmatically:
-```python
-self.button_1.role = "submit"
-```
+## Why
 
-Since `role` can be set in code, the project rule requires it to be set in code.
-
-## Current Decision
-
-Set `role` in **code** (`self.component.role = "role-name"`), not via the Designer Properties Panel.
-
-## What Anvil's documentation says
-
-Anvil's Roles documentation supports both approaches:
-- Designer: "To set the role of a component, select the desired component in the Form Editor and go to the Properties Panel."
-- Code: "You can set the role of a component in code: `self.button_1.role = "submit"`"
-
-Components can have multiple roles (space-separated string or list of strings).
+The property-setting rule applies to `role` because Anvil supports setting it in code. Roles set in code are visible in review and in version control, and cannot be lost in a Designer edit.
 
 ## Consequences
 
-- Role assignment is done in Python code, not in the Designer Properties Panel.
-- `design-direction.md` (mb-3-cs project library), `[[spec-material-3-theme]]`, and the Standard all need to reflect code-based role assignment.
-- The Standard's §6.0 must be updated to show code examples, not Designer instructions.
+- Role assignment is done in Python code.
+- Every design document and standard shows roles as code, not as Designer instructions.
+- A wireframe never lists `role` in its Designer properties table.
 
 ## Related Documents
 
 | Document | Relationship |
 |---|---|
-| `design-direction.md` (mb-3-cs project library) | Source of the original contradiction |
-| `[[spec-material-3-theme]]` | Contains code examples — now correct per this reversal |
-| `ui-build-prep/anvil-ui-build-standard.md` | Standard §6.0 must be updated |
-| Anvil Roles docs | `https://anvil.works/docs/client/customisation/using-css/roles` |
-
----
-
-*End of `role-property-assignment-mechanism` ADR (superseded)*
+| `[[spec-material-3-theme]]` | Code examples of role assignment |
+| Anvil Roles documentation | `https://anvil.works/docs/client/customisation/using-css/roles` |

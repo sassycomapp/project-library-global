@@ -1,7 +1,7 @@
 ---
 title: "sec-simplicity-as-security-property"
 doc-id: "mb-9b749981"
-updated: "2026-10-20"
+updated: "2026-10-23"
 ---
 # Principle — Simplicity as a Security Property
 
@@ -12,7 +12,7 @@ A simpler control that is correctly understood and consistently applied is more 
 ## Real Precedent in This Project
 
 - Sentinel's design principle: "five controls that genuinely work beats fifteen that don't" — the explicit, stated design principle behind the whole compliance architecture.
-- The sub-agent delegation resolution: eliminating the capability entirely, rather than attempting a more complex, only-partially-reliable monitoring scheme, per the retired `the retired structural-compliance-enforcement-architecture-v3.md` Section 6.1.
+- The sub-agent delegation resolution: eliminating the capability entirely, rather than attempting a more complex, only-partially-reliable monitoring scheme.
 
 ## Why This Matters
 

@@ -33,17 +33,9 @@ instead of becoming a list of every non-trivial widget in the app.
 justification. The worked example above shows the bar: state what native M3 lacks, state
 where it's reused.
 
-### Downgraded Components
+### Components that stop qualifying
 
-Fixed discipline — keep this section even if empty at first. A component that no longer
-meets the two-part test gets tracked here, with the reason, not silently deleted from the
-matrix. This preserves the decision trail; a future developer shouldn't have to wonder
-whether a component was never custom or used to be and stopped qualifying.
-
-| Component | Previous Status | Current Status | Reason |
-|---|---|---|---|
-| *(example)* `PaletteSettingsForm` (mb0test) | *Shared custom component* | *Local/form-specific UI* | *Only used in one form — no longer meets the reuse criterion.* |
-| **[PROJECT]** | | | |
+A component that no longer meets the two-part test is removed from the matrix and kept as local UI of the form that uses it.
 
 ---
 
@@ -78,8 +70,5 @@ silently drift from the actual row count.
 ---
 
 *This is the global starter model. Copy into a new project's `docs-local/`, fill every
-**[PROJECT]** marker, replace the two `mb0test` example rows with this project's real
-components, remove this closing note. The Definition and the Downgraded Components
-discipline are the actual reusable learning here — keep both. The five example components
-in the source this template was built from were mb-3-cs-specific and are not carried
-forward.*
+**[PROJECT]** marker, replace the `mb0test` example rows with this project's real
+components, remove this closing note. The Definition is the reusable rule here — keep it.*

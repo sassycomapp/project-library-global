@@ -1,18 +1,16 @@
 ---
 title: "adr-anvil-extras-exclusion"
 doc-id: "mb-d08beff2"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # Anvil Extras Exclusion
-Date: 2026-05-21
 Status: Accepted
-Source: M3 component mapping alignment task
 
 ---
 
 ## Context
 
-Anvil Extras is a third-party package that provides additional components and utilities for Anvil applications. The Mybizz CS application uses the official Anvil Material 3 Theme dependency (`4UK6WHQ6UX7AKELK`) as the sole UI framework.
+Anvil Extras is a third-party package that provides additional components and utilities for Anvil applications. Every Mybizz application uses the official Anvil Material 3 Theme dependency (`4UK6WHQ6UX7AKELK`) as the sole UI framework.
 
 ---
 
@@ -52,6 +50,3 @@ This exclusion applies to:
 - Custom Components built from native M3 primitives
 - Material Web Components only if explicitly required and approved via ADR
 
----
-
-*End of `anvil-extras-exclusion` ADR*

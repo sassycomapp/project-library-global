@@ -1,7 +1,7 @@
 ---
 title: "sec-review-before-trust"
 doc-id: "mb-9180deda"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # Principle — Review Before Trust
 
@@ -11,7 +11,7 @@ Nothing new — a dependency, a skill, a plugin, a tool — is trusted by defaul
 
 ## Real Precedent in This Project
 
-- The standing skill-review habit — every new skill or plugin checked for spawn-tool capability before being trusted, per the retired `the retired structural-compliance-enforcement-architecture-v3.md` Section 6.1.
+- The standing skill-review habit — every new skill or plugin checked for spawn-tool capability before being trusted.
 - `[[sec-dependency-skill-supply-chain]]` — the real review performed for Cupcake before adoption (license, maintenance activity, security-research affiliation) as the standing example of what "reviewed" actually means.
 
 ## Why This Matters

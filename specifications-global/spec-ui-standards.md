@@ -1,12 +1,11 @@
 ---
 title: "spec-ui-standards"
 doc-id: "mb-8d841a9d"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # Mybizz — UI Standards
 
 **UI Framework:** Material Design 3 (M3) — Dependency ID: 4UK6WHQ6UX7AKELK
-**Authority:** Mandatory — all UI work uses M3 exclusively
 **MUI Aesthetic Overlay:** See `DESIGN.md` Section "MUI Aesthetic Implementation" for the MUI aesthetic variables applied on top of M3.
 
 ---
@@ -112,6 +111,3 @@ Button hierarchy: one filled button per screen for the primary action, outlined 
 
 All form input components use `role='outlined'`. Validation failure state uses `role='outlined-error'` with the error message in the placeholder. The field is restored to `role='outlined'` on valid input.
 
----
-
-*End of file*

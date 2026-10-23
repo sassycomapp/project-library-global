@@ -1,13 +1,11 @@
 ---
 title: "adr-mybizz-management-visibility"
 doc-id: "mb-1962f48d"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # `mybizz-management-visibility` ADR — Mybizz_management Visibility and Control
 
 **Status:** Confirmed  
-**Date:** 2026-06-13  
-**Authority:** Derived from the retired platform-overview.md, [[[default:adr-global/adr-observability-architecture|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md) ADR
 
 ---
 
@@ -162,6 +160,3 @@ The following steps are added to the provisioning process:
 | [[[default:adr-global/adr-client-instance-architecture\|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) | Confirms server modules (including management endpoints) live in master_template |
 | [[[default:specifications-global/spec-client-activation-runbook\|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) | Token generation and registry steps |
 
----
-
-*End of `mybizz-management-visibility` ADR*

@@ -1,22 +1,20 @@
 ---
 title: "adr-dependency-based-not-multi-tenant"
 doc-id: "mb-e66b2305"
-updated: "2026-10-03"
+updated: "2026-10-23"
 ---
-# `dependency-based-not-multi-tenant` ADR — Mybizz CS is a Dependency-Based Architecture, Not a Multi-Tenant Architecture
+# `dependency-based-not-multi-tenant` ADR — Dependency-Based, Not Multi-Tenant
 
-**Status:** Confirmed — Sealed  
-**Date:** 2026-06-13  
-**Authority:** Derived from [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) ADR, [[[default:adr-global/adr-dependency-update-model|Dependency Update Model]]](C:/dev/project-library-global/adr-global/adr-dependency-update-model.md) ADR, the `blank-client-template` ADR (mb-3-cs project library), live testing 2026-06-13  
-**Audience:** All developers and AI coding assistants working on this codebase
+**Status:** Accepted — sealed
+**Audience:** Every developer and AI coding assistant working on a Mybizz application
 
 ---
 
 ## ⚠️ READ THIS FIRST
 
-This ADR exists because AI coding assistants (including OpenCode) repeatedly default to multi-tenancy patterns when working on this codebase. This is **architecturally wrong** and must not happen.
+This ADR exists because AI coding assistants (including OpenCode) repeatedly default to multi-tenancy patterns when working on Mybizz applications. This is **architecturally wrong** and must not happen.
 
-**Mybizz CS is not a multi-tenant application. It is a dependency-based SaaS platform.**
+**No Mybizz application is multi-tenant. Every one is a dependency-based SaaS platform.**
 
 Every pattern, every query, every data access function, and every server module must be written to reflect this. If you find yourself writing `client_id`, `tenant_id`, `organisation_id`, or any variant thereof as a filter on a data query, **stop**. You are implementing the wrong architecture.
 
@@ -35,23 +33,23 @@ Multi-tenancy is an architecture where a single application instance serves mult
 - Tenant context injected into sessions or middleware
 - Risk of data leakage if a filter is accidentally omitted
 
-**Mybizz CS has none of these characteristics. None.**
+**A Mybizz application has none of these characteristics. None.**
 
 ---
 
-## 2. What Mybizz CS Actually Is
+## 2. What a Mybizz Application Is
 
-Mybizz CS is a **dependency-based SaaS platform**. It has the following structure:
+A Mybizz application is a **dependency-based SaaS platform**. It has the following structure:
 
 ### The Five Apps
 
 | App | Role | Contains |
 |---|---|---|
-| `mb-3-cs` | Development workspace | All code, all forms, all server modules, 36 tables (dev only) |
+| App 1, `{slug}-app1` | Development workspace | All code, all forms, all server modules, the development tables |
 | `master_template` | Published dependency | All server modules + all UI forms |
-| `blank_client_template` | Provisioning clone source | 36 Data Tables + one startup module |
-| `[client-name]-cs` | Client instances (one per client) | 36 Data Tables (live data) + one startup module + master_template as dependency |
-| `Mybizz_management` | Platform operator tooling | Deferred |
+| `blank_client_template` | Provisioning clone source | The released Data Tables + one startup module |
+| `[client-name]-{vertical}` | Client instances (one per client) | The released Data Tables (live data) + one startup module + master_template as dependency |
+| `{Product}_management` | Platform operator tooling | Provisioning, health monitoring, billing automation and update distribution |
 
 ### The Fundamental Principle
 
@@ -59,7 +57,7 @@ Mybizz CS is a **dependency-based SaaS platform**. It has the following structur
 
 - Client A's data is in Client A's app
 - Client B's data is in Client B's app
-- These apps are separate Anvil apps on the same account
+- Each client instance is a separate Anvil app on the client's own Anvil account
 - They share no database, no tables, no rows
 - Neither can access the other's data
 
@@ -67,13 +65,13 @@ Mybizz CS is a **dependency-based SaaS platform**. It has the following structur
 
 `master_template` is published as an Anvil dependency. Every client instance depends on it. When a client instance calls `anvil.server.call('get_invoices')`, Anvil executes that function in `master_template`. Inside that function, `app_tables.invoices` refers to **that specific client instance's own `invoices` table** — not a shared table, not filtered by client_id — just that client's table, containing only that client's data.
 
-This is structural behaviour confirmed by live test. See Section 6.
+This is structural Anvil behaviour, proven by test (Section 6).
 
 ---
 
 ## 3. The Definitive Contrast
 
-| Concern | Multi-Tenancy | Mybizz CS (Dependency-Based) |
+| Concern | Multi-Tenancy | Mybizz (Dependency-Based) |
 |---|---|---|
 | Number of app instances | One | One per client |
 | Number of databases | One (shared) | One per client (isolated) |
@@ -100,7 +98,7 @@ organisation_id = ...
 account_id = ...
 ```
 
-Data Tables in Mybizz CS must never include a column whose purpose is to identify which client a row belongs to. Every row in every table already belongs to one client — the client whose app is running.
+Data Tables in a Mybizz application must never include a column whose purpose is to identify which client a row belongs to. Every row in every table already belongs to one client — the client whose app is running.
 
 ### ❌ Tenant-filtered queries
 
@@ -198,41 +196,26 @@ def get_invoices_for_current_user():
 
 ## 6. Verified Architectural Evidence
 
-### Test A — app_tables Resolution (2026-06-13) ✅
+Two facts were proven by test on Anvil, and are stated in [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md):
 
-**Setup:**
-- `datatable-test-host-app`: dependency app with a server module calling `app_tables.table_1.add_row(name=name, some_number=number)`
-- `datatable-test-client-app`: client instance app with its own `table_1`, depending on host app
-
-**Result:** Row appeared in `datatable-test-client-app`'s `table_1` only. `datatable-test-host-app`'s `table_1` was unaffected.
-
-**Conclusion:** `app_tables` in a dependency server module resolves to the **calling client instance's own tables** at runtime. This is structural, automatic, and irrevocable. It does not require code to enforce it. It cannot accidentally fail to enforce it.
-
-### Test B — Forms from Dependency (2026-06-13) ✅
-
-**Setup:**
-- `test-dependency-forms`: dependency app with one form (`MainForm`)
-- `test-client-no-forms`: client instance with only a startup module, no forms of its own
-
-**Result:** `MainForm` loaded and displayed correctly, served from the dependency.
-
-**Conclusion:** Client instances require no code of their own. The startup module and Data Tables are the complete contents of a client instance. Everything else — server logic and UI — is served from `master_template`.
+- `app_tables` in a dependency's server module resolves to the **calling client instance's own tables** at runtime. This is structural and automatic; it needs no code to enforce it and cannot accidentally fail to enforce it.
+- Forms in the dependency are served to a client instance that has none of its own. The startup module and the Data Tables are the complete contents of a client instance; all server logic and UI come from `master_template`.
 
 ---
 
-## 7. Why This Architecture Was Chosen Over Multi-Tenancy
+## 7. Why Dependency-Based, Not Multi-Tenant
 
 | Consideration | Multi-Tenancy | Dependency-Based |
 |---|---|---|
 | Data isolation | Enforced in application code — can fail | Structural — cannot fail |
 | Security breach blast radius | All clients exposed if breach occurs | One client affected |
 | Regulatory compliance | Complex — all clients' data co-mingled | Simple — each client's data is physically separate |
-| Update mechanism | Immediate for all tenants (single instance) | Immediate for all clients (via dependency branch tracking) |
+| Update mechanism | Immediate for all tenants (single instance) | Immediate for all clients (through the `master_template` dependency) |
 | Client onboarding | Add a row to a tenants table | Clone blank_client_template |
-| Schema migration | Single migration | Applied per client instance — more effort, but isolated |
-| Suitability for consulting/services clients | Poor — clients expect data sovereignty | Strong — data sovereignty is structural |
+| Schema migration | Single migration | Applied per client instance by the developer — more effort, but isolated |
+| Suitability for business clients | Poor — clients expect data sovereignty | Strong — data sovereignty is structural |
 
-The consulting and services vertical has strong expectations around data privacy and sovereignty. A client whose financial data, client records, and booking history live in a physically separate database — not co-mingled with other businesses' data — is a significantly easier conversation than explaining row-level security in a shared database.
+Mybizz's business clients have strong expectations around data privacy and sovereignty. A client whose financial data, client records, and booking history live in a physically separate database — not co-mingled with other businesses' data — is a significantly easier conversation than explaining row-level security in a shared database.
 
 ---
 
@@ -263,15 +246,6 @@ If you find an existing function that includes a `client_id`, `tenant_id`, or eq
 
 | Document | Relationship |
 |---|---|
-| [[[default:adr-global/adr-client-instance-architecture\|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) | Defines client instance structure and app_tables test |
+| [[[default:adr-global/adr-client-instance-architecture\|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) | Defines client instance structure and the Anvil behaviour it rests on |
 | [[[default:adr-global/adr-dependency-update-model\|Dependency Update Model]]](C:/dev/project-library-global/adr-global/adr-dependency-update-model.md) | How master_template updates reach all client instances |
-| `blank-client-template.md` (mb-3-cs project library) | Provisioning — how client instances are created |
-| `HANDOVER-opencode-2026-06-13.md` | Technical handover for OpenCode |
 
----
-
-## Old-material pointers (added 2026-09-20, developer instruction)
-
-Material referenced by this document but not present in the current corpus, with developer-provided locations:
-- HANDOVER-opencode-2026-06-13.md — no backup located; confirmed does not exist (developer, 2026-09-20)
-*End of `dependency-based-not-multi-tenant` ADR*

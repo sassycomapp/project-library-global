@@ -1,21 +1,16 @@
 ---
 title: "adr-onboarding-finality"
 doc-id: "mb-e9266696"
-updated: "2026-10-03"
+updated: "2026-10-23"
 ---
 # Onboarding Finality
-Date: 2026-05-31
 Status: Accepted
-Source: Plan-tune cross-reference audit — formalising onboarding design decision
-Updated: 2026-06-01 — Rewritten to allow onboarding return, credential changes, and Mybizz_management data rights
 
 ---
 
 ## Context
 
-The Mybizz CS onboarding process was originally designed as a one-time, non-replayable flow. The revised understanding is that Owners have the right to change any credentials they choose, and the onboarding page remains accessible for this purpose.
-
-The question arose of what happens after onboarding is completed, whether the Owner can return to the onboarding page, and how credential changes are tracked in Mybizz_management.
+Owners have the right to change any credential they choose, at any time. This decision sets what happens after onboarding is completed, whether the Owner can return to the onboarding page, and how credential changes are tracked in Mybizz_management.
 
 ---
 
@@ -90,13 +85,5 @@ The question arose of what happens after onboarding is completed, whether the Ow
 - [[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md) — Currency immutability after first transaction
 - [[[default:adr-global/adr-payment-gateway-mutability|Payment Gateway Mutability]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-mutability.md) — Gateway change rules
 - [[[default:adr-global/adr-onboarding-resumability|Onboarding Resumability]]](C:/dev/project-library-global/adr-global/adr-onboarding-resumability.md) — Progress preservation during onboarding
-- [[[default:specifications-global/spec-onboarding-implementation-plan|Mybizz CS Onboarding System - Engineering Plan]]](C:/dev/project-library-global/specifications-global/spec-onboarding-implementation-plan.md) — Settings-based onboarding implementation
-- `docs/the retired platform-overview.md` (retired) — Mybizz_management data architecture intention
+- [[[default:specifications-global/spec-onboarding-implementation-plan|Onboarding System — Engineering Plan]]](C:/dev/project-library-global/specifications-global/spec-onboarding-implementation-plan.md) — Settings-based onboarding implementation
 
----
-
-## Old-material pointers (added 2026-09-20, developer instruction)
-
-Material referenced by this document but not present in the current corpus, with developer-provided locations:
-- platform-overview.md (the retired platform-overview) — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/platform_overview.md
-*End of `onboarding-finality` ADR (deleted)*

@@ -1,17 +1,16 @@
 ---
 title: "ts-catalogue"
-updated: "2026-10-22"
+updated: "2026-10-23"
 doc-id: "mb-2b95aede"
 ---
 # Test Suite — Catalogue
 
 ## What it is
 
-Every test a Mybizz application and its PDLF build are proven by, with its ID. Steps name these IDs in their test specifications. How tests are run, where, and with what evidence is in [[[default:test-suite/ts-method]]](C:/dev/project-library-global/test-suite/ts-method.md). "Basis" names the rule or standard the test proves: ASVS numbers refer to OWASP ASVS 5.0.
+Every test a Mybizz application is proven by, with its ID. Steps name these IDs in their test specifications. How tests are run, where, and with what evidence is in [[[default:test-suite/ts-method]]](C:/dev/project-library-global/test-suite/ts-method.md). "Basis" names the rule or standard the test proves: ASVS numbers refer to OWASP ASVS 5.0.
 
 | Family | Tests | What it proves |
 |---|---|---|
-| `PR` | 10 | PDLF ran the step correctly and its records are true |
 | `DC` | 15 | Plans, designs and documents are complete, consistent and testable |
 | `ST` | 13 | The code and schema obey Mybizz's rules (scanner and static tools) |
 | `LG` | 7 | Business rules are right |
@@ -19,25 +18,10 @@ Every test a Mybizz application and its PDLF build are proven by, with its ID. S
 | `SC` | 18 | Attacks fail; the security target is met |
 | `BR` | 9 | Features work for real users |
 | `RL` | 12 | Releases are safe and reversible; instances stay healthy |
-| `DM` | 10 | The business domains of `mb-3-cs` and `mb-4-ecom` behave correctly |
-| **Total** | **112** | |
+| `DM` | 10 | The business domains (bookings and services; catalogue, cart and orders) behave correctly |
+| **Total** | **102** | |
 
 ---
-
-## PR — PDLF process
-
-| ID | Test | Passes when | Level · where | Basis |
-|---|---|---|---|---|
-| PR-01 | The step starts from the right state | The entry record and step row are complete, and every step the run plan names as a dependency is complete | D · ledger | [[[pdlf:pdlf-library/specifications-local/spec-postgres-ledger]]](C:/pdlf/pdlf-library/specifications-local/spec-postgres-ledger.md); the run plan |
-| PR-02 | The health check passes | Every check of the health check SOP passes before work on an existing app | 0 · WSL | [[[pdlf:pdlf-library/operating-procedures/sop-health-check]]](C:/pdlf/pdlf-library/operating-procedures/sop-health-check.md) |
-| PR-03 | A gate cannot pass without the developer | An agent's attempt to pass a gate is blocked by Cupcake, and every passed gate has the developer's approval | 0 · ledger, Cupcake log | [[[pdlf:pdlf-library/specifications-local/spec-gate-procedure]]](C:/pdlf/pdlf-library/specifications-local/spec-gate-procedure.md) |
-| PR-04 | The security review ran | Sentinel's row for the step is in `triage_findings`, and any Flag or Escalate has the developer's decision | D · ledger | `mb-sentinel-review` |
-| PR-05 | The receipt matches its evidence | `ts_report.py --check` passes on the step's receipt | D · output folder | [[[default:test-suite/ts-method]]](C:/dev/project-library-global/test-suite/ts-method.md) rule 2 |
-| PR-06 | No agent committed and no secret was published | Every commit is the developer's; gitleaks finds no secret in the working tree or history of any repository the step touched | 0 · WSL | `rules-cupcake-global`; [[[default:security-global/secrets/sec-secret-exposure-response]]](C:/dev/project-library-global/security-global/secrets/sec-secret-exposure-response.md) |
-| PR-07 | No test was weakened or silenced | Compared with the last signed-off state, no test or assertion was removed or loosened, and no skip, `noqa` or `nosec` was added, unless the developer approved it | 0 · `tests\` diff | `no_test_tampering`, `no_suppression_directives_without_approval` |
-| PR-08 | The whole suite passes | The scanner, `anvil --json validate .`, and the logic, integration and security suites all pass; before a change, a failure is recorded as a finding of the existing app | 0–2 · WSL, local runtime | [[[default:test-suite/ts-method]]](C:/dev/project-library-global/test-suite/ts-method.md) rule 9 |
-| PR-09 | The local test environment works | The local runtime starts App 1 on an empty database; both Uplink connections work; a `TEST_` user signs in with a second factor; the mail catcher receives an email | 0 · WSL | [[[default:test-suite/ts-method]]](C:/dev/project-library-global/test-suite/ts-method.md) section 3 |
-| PR-10 | The pull holds the expected change | After a pull, only the expected files changed (plus Anvil's formatting) and the app validates | 0 · App 1 repository | the Step 18 pull procedure |
 
 ## DC — Documents and designs
 
@@ -51,13 +35,13 @@ Every test a Mybizz application and its PDLF build are proven by, with its ID. S
 | DC-06 | The threat model is complete | Every trust boundary (browser to server, server to each service, App 5 to the instance, role to role, instance to its storage) lists its threats, its control, who owns the control (Anvil or the app) and its test IDs | D · threat model | [[[default:security-global/requirements/sec-requirements-architecture-review]]](C:/dev/project-library-global/security-global/requirements/sec-requirements-architecture-review.md); [[[default:security-global/cloud/sec-anvil-platform-responsibility-boundary]]](C:/dev/project-library-global/security-global/cloud/sec-anvil-platform-responsibility-boundary.md) |
 | DC-07 | Security decisions are written down | The plan states: sign-in and second-factor rules, session periods, secrets and where each lives with its maximum age, security events to log, limits on expensive functions, outbound hosts, and every server package with its review | D · reviewed plan | ASVS 6.1, 7.1, 11.1, 13.1, 15.1, 16.1; [[[default:security-global/infrastructure/sec-dependency-skill-supply-chain]]](C:/dev/project-library-global/security-global/infrastructure/sec-dependency-skill-supply-chain.md) |
 | DC-08 | The plan obeys the common aspects and the rules | Each of the 14 common aspects is met or has its ADR; the conformance checks that apply are selected; any contradiction between rules is settled at its source | D · reviewed plan | [[[default:test-suite/ts-conformance-checks]]](C:/dev/project-library-global/test-suite/ts-conformance-checks.md) |
-| DC-09 | The vocabulary is sound | Every term has one meaning; every entity has an owner and a place in the data design; shared terms match `spec-nomenclature`; "multi-tenant" is never used for the five-app model | D · `CONTEXT.md` | the Step 16 build plan |
-| DC-10 | The tickets cover the plan, in order | No cycle in their order; every feature has a ticket and every ticket a feature; shared components first; each ticket names its acceptance and security tests by ID | D · `pdlf-tickets\` | the Step 19 build plan |
-| DC-11 | The concept has no contradictions | Every pair of concept documents was checked and the report names each pair | D · Step 21 inputs | the Step 21 build plan |
-| DC-12 | The design system is readable and in bounds | Every text and control colour pair reaches WCAG 2.2 AA contrast (4.5:1 text, 3:1 controls) in light and dark mode; all seven dark tokens are defined; excluded components are named | D · `DESIGN.md` | WCAG 2.2; [[[default:adr-global/adr-dark-mode-v1]]](C:/dev/project-library-global/adr-global/adr-dark-mode-v1.md) |
+| DC-09 | The vocabulary is sound | Every term has one meaning; every entity has an owner and a place in the data design; shared terms match `spec-nomenclature`; "multi-tenant" is never used for the five-app model | D · `CONTEXT.md` | [[[default:specifications-global/spec-nomenclature]]](C:/dev/project-library-global/specifications-global/spec-nomenclature.md) |
+| DC-10 | The tickets cover the plan, in order | No cycle in their order; every feature has a ticket and every ticket a feature; shared components first; each ticket names its acceptance and security tests by ID | D · `pdlf-tickets\` | The application's plan |
+| DC-11 | The concept has no contradictions | Every pair of concept documents was checked and the report names each pair | D · Step 21 inputs | Consistency of the concept documents |
+| DC-12 | The design system is readable and in bounds | Every text and control colour pair reaches WCAG 2.2 AA contrast (4.5:1 text, 3:1 controls) in light and dark mode; all seven dark tokens are defined; excluded components are named | D · `DESIGN.md` | WCAG 2.2; [[[default:adr-global/adr-dark-mode]]](C:/dev/project-library-global/adr-global/adr-dark-mode.md) |
 | DC-13 | Wireframes and screens are faithful and conform | Stage 1: exactly the components needed, nothing extra. Stage 2: no hard-coded colour, only Material 3 components, naming prefixes, dark mode and reduced motion, none of the forbidden documentation patterns; a picture exists for every screen | D/0 · wireframes, screens | [[[default:specifications-global/spec-screen-and-wireframe-production-standards]]](C:/dev/project-library-global/specifications-global/spec-screen-and-wireframe-production-standards.md); [[[default:adr-global/adr-design-rules]]](C:/dev/project-library-global/adr-global/adr-design-rules.md) |
 | DC-14 | The release is documented | Release notes; a migration plan for any schema change, with its rollback; before the first release, the Privacy Policy, Terms of Service and Cookie Policy | D · project library | [[[default:specifications-global/spec-deployment]]](C:/dev/project-library-global/specifications-global/spec-deployment.md); [[[default:specifications-global/spec-regulatory-compliance-baseline]]](C:/dev/project-library-global/specifications-global/spec-regulatory-compliance-baseline.md) |
-| DC-15 | Lessons are written back | Every fault that escaped has its root cause, its new test and the corrected source document | D · lessons | the Step 46 build plan |
+| DC-15 | Lessons are written back | Every fault that escaped has its root cause, its new test and the corrected source document | D · lessons | [[[default:adr-global/adr-common-architecture-across-mybizz-applications]]](C:/dev/project-library-global/adr-global/adr-common-architecture-across-mybizz-applications.md) (lessons written back) |
 
 ## ST — Static checks
 
@@ -155,7 +139,7 @@ Hosted App 1, with GStack `browse` and `/qa-only`.
 | BR-04 | The feature looks as approved | Each form matches its approved screen at both widths, in light and dark mode | [[[default:specifications-global/spec-screen-and-wireframe-production-standards]]](C:/dev/project-library-global/specifications-global/spec-screen-and-wireframe-production-standards.md) |
 | BR-05 | The feature is accessible | Every flow can be done by keyboard, focus is visible, icon buttons have names, errors say what to fix | WCAG 2.2 AA |
 | BR-06 | The feature is fast enough | Each flow step within its budget (3 seconds by default); public pages reach Largest Contentful Paint 2.5 s and layout shift 0.1 | ISO/IEC 25010; Core Web Vitals |
-| BR-07 | Earlier features still work | Every signed-off feature's flows pass again; the console shows no error; only approved hosts are contacted | the Step 38 build plan |
+| BR-07 | Earlier features still work | Every signed-off feature's flows pass again; the console shows no error; only approved hosts are contacted | Regression of every signed-off feature |
 | BR-08 | Payments work end to end in test mode | Successful, declined and authentication-required test payments each end in their designed state, with webhooks and invoices | [[[default:specifications-global/spec-integration]]](C:/dev/project-library-global/specifications-global/spec-integration.md) sections 3, 4 |
 | BR-09 | The developer accepts the feature | The developer signs it off against its ticket and screens | [[[default:test-suite/ts-method]]](C:/dev/project-library-global/test-suite/ts-method.md) |
 
@@ -166,9 +150,9 @@ Hosted App 1, with GStack `browse` and `/qa-only`.
 | RL-01 | The release is ready | Every feature passed `build-verified`; the whole suite passes; no High or Critical finding is open; every ASVS Level 2 requirement and adopted Level 3 control has passing tests; the developer approves | [[[default:security-global/requirements/sec-requirements-release-readiness]]](C:/dev/project-library-global/security-global/requirements/sec-requirements-release-readiness.md) |
 | RL-02 | Every client can be restored | Every client instance is backed up to its own bucket before the release; a backup restores completely in a drill (before the first release, then quarterly) | [[[default:security-global/infrastructure/sec-backup-recovery-integrity]]](C:/dev/project-library-global/security-global/infrastructure/sec-backup-recovery-integrity.md) |
 | RL-03 | Schema changes are safe | The migration plan is applied to the test client first and its smoke test passes; App 3's schema equals App 1's | [[[default:specifications-global/spec-deployment]]](C:/dev/project-library-global/specifications-global/spec-deployment.md) sections 5, 7 |
-| RL-04 | App 2 is exactly the release | App 2's code equals App 1's release tag | the Step 42 build plan |
+| RL-04 | App 2 is exactly the release | App 2's code equals App 1's release tag | [[[default:adr-global/adr-dependency-update-model]]](C:/dev/project-library-global/adr-global/adr-dependency-update-model.md) |
 | RL-05 | Every client instance runs the release correctly | Each reports the release version and the right schema; each passes a smoke test (sign in, read, write, clean up); each answers its own management token only | [[[default:specifications-global/spec-deployment]]](C:/dev/project-library-global/specifications-global/spec-deployment.md) section 8 |
-| RL-06 | The release regression passes | Every feature's flows pass on App 2; public pages and checkout work in Chrome, Firefox and Safari | the Step 42A build plan |
+| RL-06 | The release regression passes | Every feature's flows pass on App 2; public pages and checkout work in Chrome, Firefox and Safari | [[[default:specifications-global/spec-deployment]]](C:/dev/project-library-global/specifications-global/spec-deployment.md) |
 | RL-07 | Rollback works | Re-pointing to the previous release and back succeeds, with smoke tests after each (before the first release) | [[[default:specifications-global/spec-deployment]]](C:/dev/project-library-global/specifications-global/spec-deployment.md) section 4 |
 | RL-08 | A client could leave today | The exit export lands in the test client's bucket complete and usable (first release and each schema change) | [[[default:adr-global/adr-client-r2-storage-and-exit-handover]]](C:/dev/project-library-global/adr-global/adr-client-r2-storage-and-exit-handover.md) |
 | RL-09 | The release stays healthy | Against the baseline: errors below 5%, response times within 20%, every heartbeat arrives; above 10% errors or broken payments or sign-in, rollback at once | [[[default:specifications-global/spec-deployment]]](C:/dev/project-library-global/specifications-global/spec-deployment.md) section 9 |
@@ -180,15 +164,15 @@ Hosted App 1, with GStack `browse` and `/qa-only`.
 
 Run at Level 1 and 2 when the feature touches the domain.
 
-| ID | Test | Passes when | App |
+| ID | Test | Passes when | Domain |
 |---|---|---|---|
-| DM-01 | No double booking | Two customers booking the same provider and slot at once: one succeeds | `mb-3-cs` |
-| DM-02 | Availability and time are right | Slots respect provider rules, exceptions, the client's time zone and daylight-saving changes; reminders are sent once, at the right time | `mb-3-cs` |
-| DM-03 | Cancellations and fees follow the rules | Each cancellation window charges or refunds exactly as set | `mb-3-cs` |
-| DM-04 | Stock is never oversold | Two checkouts of the last item at once: one succeeds; reserved stock returns when a cart is abandoned or a payment fails | `mb-4-ecom` |
-| DM-05 | The server reprices at checkout | Prices, promotions, tax and shipping are recalculated on the server when the order is confirmed; a changed price or expired promotion is applied, not the cart's old figure | `mb-4-ecom` |
-| DM-06 | Promotions follow their rules | Eligibility, stacking, single-use and usage limits hold, including under simultaneous use | `mb-4-ecom` |
-| DM-07 | Tax and currency are right per region | Tax per region and line rounding follow the rules; display currency never changes the stored amount | `mb-4-ecom` |
-| DM-08 | Orders, fulfilment and returns follow their lifecycles | Partial shipments, shipping webhooks, returns, restocking and store credit follow the state machines; refunds never exceed payments | `mb-4-ecom` |
-| DM-09 | B2B accounts are controlled | Company buyers see only their company's orders, prices and catalogue; spending limits and approvals hold; payment terms and purchase-order checkout work | `mb-4-ecom` |
-| DM-10 | Marketplace sync is safe | A repeated or retried sync never duplicates orders or stock changes; failures are logged and retried | `mb-4-ecom` (when used) |
+| DM-01 | No double booking | Two customers booking the same provider and slot at once: one succeeds | Bookings and services |
+| DM-02 | Availability and time are right | Slots respect provider rules, exceptions, the client's time zone and daylight-saving changes; reminders are sent once, at the right time | Bookings and services |
+| DM-03 | Cancellations and fees follow the rules | Each cancellation window charges or refunds exactly as set | Bookings and services |
+| DM-04 | Stock is never oversold | Two checkouts of the last item at once: one succeeds; reserved stock returns when a cart is abandoned or a payment fails | Catalogue, cart and orders |
+| DM-05 | The server reprices at checkout | Prices, promotions, tax and shipping are recalculated on the server when the order is confirmed; a changed price or expired promotion is applied, not the cart's old figure | Catalogue, cart and orders |
+| DM-06 | Promotions follow their rules | Eligibility, stacking, single-use and usage limits hold, including under simultaneous use | Catalogue, cart and orders |
+| DM-07 | Tax and currency are right per region | Tax per region and line rounding follow the rules; display currency never changes the stored amount | Catalogue, cart and orders |
+| DM-08 | Orders, fulfilment and returns follow their lifecycles | Partial shipments, shipping webhooks, returns, restocking and store credit follow the state machines; refunds never exceed payments | Catalogue, cart and orders |
+| DM-09 | B2B accounts are controlled | Company buyers see only their company's orders, prices and catalogue; spending limits and approvals hold; payment terms and purchase-order checkout work | Catalogue, cart and orders |
+| DM-10 | Marketplace sync is safe | A repeated or retried sync never duplicates orders or stock changes; failures are logged and retried | Catalogue, cart and orders (when used) |

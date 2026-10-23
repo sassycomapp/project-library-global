@@ -1,12 +1,10 @@
 ---
 title: "adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed"
 doc-id: "mb-af193eb2"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed
-Date: 2026-05-29
 Status: Accepted
-Source: User request - ADR creation for architectural enforcement
 
 ---
 
@@ -109,6 +107,3 @@ Payment gateway configuration could be placed in onboarding or settings, with un
 - Security architecture documentation
 - RBAC implementation guidelines
 
----
-
-*End of `payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed` ADR*

@@ -1,7 +1,7 @@
 ---
 title: "sec-defense-in-depth"
 doc-id: "mb-5b6c19dd"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # Principle — Defense in Depth
 
@@ -11,7 +11,7 @@ A genuinely important control is enforced at more than one independent layer, so
 
 ## Real Precedent in This Project
 
-- `task` tool denial: enforced at native config, Cupcake policy, and a standing procedural review — three independent layers, per the retired `the retired structural-compliance-enforcement-architecture-v3.md` Section 6.1, deliberately designed so a mistake in one does not silently remove the others.
+- `task` tool denial: enforced at native config, Cupcake policy, and a standing procedural review — three independent layers, deliberately designed so a mistake in one does not silently remove the others.
 - Webhook and destructive-command handling: Cupcake policy and native permission config both independently check the same class of risk.
 
 ## Why This Matters

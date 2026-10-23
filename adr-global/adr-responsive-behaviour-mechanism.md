@@ -1,7 +1,7 @@
 ---
 title: "adr-responsive-behaviour-mechanism"
 doc-id: "mb-c7aafcbe"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # `responsive-behaviour-mechanism` ADR: Responsive Behaviour Mechanism
 
@@ -11,12 +11,7 @@ Accepted
 
 ## Context
 
-`design-direction.md` (mb-3-cs project library) contains two incompatible breakpoint models in the same document:
-
-1. A binary split at 998px.
-2. A three-tier system (640px/1024px) with column-count and typography-scaling rules per tier.
-
-Neither model matches how Anvil actually achieves responsive behaviour.
+Design documents commonly describe responsive behaviour as pixel breakpoints (a binary split, or tiers such as 640px and 1024px) with column-count and typography rules per tier. No such model matches how Anvil achieves responsive behaviour.
 
 ### What Anvil's own documentation and forum say
 
@@ -36,23 +31,18 @@ No breakpoint-pixel table is used. Navigation collapse remains separately automa
 
 ## Consequences
 
-- The breakpoint tables in `design-direction.md` (mb-3-cs project library) are superseded and require correcting.
-- The UI standards document's responsiveness section must be rewritten around `wrap_on`, not breakpoints.
+- No design document of any application states responsive behaviour as a breakpoint table; responsiveness is stated around `wrap_on`.
 - Developers set a single property per container rather than managing CSS media queries or pixel thresholds.
 
 ## Alternatives Considered
 
-- **CSS breakpoint tables (binary or three-tier).** Rejected. Anvil does not expose CSS media query control to the developer in its component model. Breakpoint tables described in `design-direction.md` (mb-3-cs project library) have no corresponding Anvil mechanism and cannot be implemented as specified.
+- **CSS breakpoint tables (binary or three-tier).** Rejected. Anvil does not expose CSS media query control to the developer in its component model. A breakpoint table has no corresponding Anvil mechanism and cannot be implemented as specified.
 - **No responsive instruction (rely entirely on native auto-collapse).** Rejected. NavigationRailLayout and NavigationDrawerLayout auto-collapse natively, but content containers (ColumnPanel, FlowPanel, DataGrid) do not rearrange without explicit `wrap_on` instruction. Both mechanisms are needed.
 
 ## Related Documents
 
 | Document | Relationship |
 |---|---|
-| `design-direction.md` (mb-3-cs project library) | Source of the contradicting breakpoint models this ADR supersedes |
 | [[[default:adr-global/adr-design-rules\|Design Rules]]](C:/dev/project-library-global/adr-global/adr-design-rules.md) | Wireframe design rules; wireframes must annotate `wrap_on` where applicable |
 | [[[default:adr-global/adr-ui-customization-approach\|UI Customization Approach]]](C:/dev/project-library-global/adr-global/adr-ui-customization-approach.md) | Broader UI customization approach; this ADR is a specific responsive instance |
 
----
-
-*End of `responsive-behaviour-mechanism` ADR*

@@ -1,6 +1,6 @@
 ---
 title: "pol-common-aspects-for-mybizz-anvil-applications"
-updated: "2026-10-22"
+updated: "2026-10-23"
 doc-id: "mb-ab18d72d"
 ---
 # Policy — Common Aspects for Mybizz Anvil Applications
@@ -41,7 +41,7 @@ Every credential lives in the client's Vault. The one Anvil Secret is `encryptio
 
 ### 7. Email
 
-Anvil's built-in email for system email, Brevo SMTP for transactional email, Brevo Campaigns for marketing. [[[default:adr-global/adr-brevo-replaces-zoho-email|Brevo Replaces Zoho]]](C:/dev/project-library-global/adr-global/adr-brevo-replaces-zoho-email.md).
+Anvil's built-in email for system email, Brevo SMTP for transactional email, Brevo Campaigns for marketing. [[[default:adr-global/adr-brevo-email-and-crm|Brevo for Email and CRM]]](C:/dev/project-library-global/adr-global/adr-brevo-email-and-crm.md).
 
 ### 8. Client storage and exit
 
@@ -70,7 +70,7 @@ Anvil's Material 3 theme only; components outside the M3 dependency, Anvil Extra
 
 ### 14. Reference platforms
 
-An application may take a reference platform (for `mb-4-ecom`, Medusa) as the model for its business domain and workflows. Only the domain and the workflows are taken. The reference's technology (its language, runtime, cache and queue services, connection poolers, or any shared-database tenancy) is never carried over: everything is rebuilt in Python for Anvil, to this policy.
+An application may take a reference platform (for example Medusa, for e-commerce) as the model for its business domain and workflows. Only the domain and the workflows are taken. The reference's technology (its language, runtime, cache and queue services, connection poolers, or any shared-database tenancy) is never carried over: everything is rebuilt in Python for Anvil, to this policy.
 
 ### Both directions
 

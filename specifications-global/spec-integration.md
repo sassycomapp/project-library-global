@@ -1,12 +1,11 @@
 ---
 title: "spec-integration"
 doc-id: "mb-a1d9a710"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # Mybizz — Integration Specification
 
 **Scope:** Mybizz-wide. Covers all external service integrations — Brevo (email + CRM), Stripe (payments), Paystack (payments).
-**Authority:** [[[default:adr-global/adr-brevo-replaces-zoho-email|Brevo Replaces All Zoho Products]]](C:/dev/project-library-global/adr-global/adr-brevo-replaces-zoho-email.md) ADR, [[[default:adr-global/adr-payment-security-boundary-vault|Payment Security Boundary Vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) ADR, [[[default:adr-global/adr-webhook-architecture|Webhook Architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md) ADR
 
 ---
 
@@ -105,7 +104,7 @@ Brevo's built-in CRM stores contacts. Mybizz syncs contacts from the client inst
 1. Client confirms booking
 2. Server creates Stripe PaymentIntent
 3. Client completes payment (Stripe Elements or redirect)
-4. Stripe sends webhook to `/api/webhooks/stripe`
+4. Stripe sends webhook to `/_/api/webhooks/stripe`
 5. Webhook handler dispatches to background task
 6. Background task updates booking status, generates invoice
 
@@ -118,7 +117,7 @@ Brevo's built-in CRM stores contacts. Mybizz syncs contacts from the client inst
 | `payment_intent.succeeded` | Mark booking CONFIRMED, generate invoice |
 | `payment_intent.payment_failed` | Mark booking failed, notify customer |
 
-**Webhook URL:** `[base_url]/api/webhooks/stripe`
+**Webhook URL:** `[base_url]/_/api/webhooks/stripe`
 **Signature verification:** Required on every webhook. See [[[default:adr-global/adr-webhook-architecture|Webhook Architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md) ADR.
 
 ### 3.4 Error Handling
@@ -155,7 +154,7 @@ Brevo's built-in CRM stores contacts. Mybizz syncs contacts from the client inst
 | `charge.success` | Mark payment successful |
 | `invoice.payment_failed` | Mark payment failed |
 
-**Webhook URL:** `[base_url]/api/webhooks/paystack`
+**Webhook URL:** `[base_url]/_/api/webhooks/paystack`
 
 ---
 
@@ -217,6 +216,3 @@ different delivery mechanism appropriate to its purpose:
 This tier model ensures transactional delivery reliability is never compromised by marketing
 volume or reputation issues.
 
----
-
-*spec-integration.md v1.1 — Added §6 Three-Tier Email Architecture. Extracted from mb-3-cs integration-architecture.md.*

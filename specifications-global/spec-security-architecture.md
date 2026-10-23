@@ -1,7 +1,7 @@
 ---
 title: "spec-security-architecture"
 doc-id: "mb-9112b5a3"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # Mybizz — Security & Secrets Architecture
 
@@ -82,6 +82,3 @@ The regulatory baseline (POPIA, GDPR, PCI DSS, standard retention periods) is My
   base, not fixed at build time).
 - No data categories beyond the Mybizz-wide retention defaults are tracked.
 
----
-
-*Security & Secrets Architecture v3.1 — Elevated from app-specific to Mybizz-wide. Multi-tenant language corrected per [[[default:adr-global/adr-dependency-based-not-multi-tenant|Dependency-Based Architecture, Not Multi-Tenant]]](C:/dev/project-library-global/adr-global/adr-dependency-based-not-multi-tenant.md) ADR. Regulatory content references [[[default:specifications-global/spec-regulatory-compliance-baseline|Regulatory Compliance Baseline]]](C:/dev/project-library-global/specifications-global/spec-regulatory-compliance-baseline.md).*

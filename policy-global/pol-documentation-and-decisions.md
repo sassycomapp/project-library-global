@@ -1,7 +1,7 @@
 ---
 title: "pol-documentation-and-decisions"
 doc-id: "mb-ab7b68ea"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # Policy — Documentation and Decisions
 
@@ -16,8 +16,9 @@ conform. No exceptions without documented justification.
 
 - **Spec** — what must be true. A standing constraint. Doesn't say what to do, says what
   the system is.
-- **ADR** — why a decision was made, once, permanently. Doesn't change once accepted;
-  gets superseded by a new ADR, not silently edited.
+- **ADR** — a decision and why it was made. When the decision changes, the ADR is
+  rewritten to state the new decision; the replaced decision is not kept. Alternatives
+  that were rejected stay only as part of the reasoning.
 - **Policy** — a rule about how decisions get made and how the team operates. Not a
   technical constraint (that's a spec), not a one-time decision (that's an ADR).
 - **SOP** — a repeatable, trigger-based procedure for a recurring operational task.
@@ -40,6 +41,12 @@ produces noise that buries the ones that matter.
 A document that no longer reflects reality is not a low-priority cleanup item — it's a
 failure condition, the same severity class as a bug in code. A stale spec or policy
 actively misleads whoever reads it next.
+
+### Documents State Only What Is
+
+A document describes the current state and the current reasoning. It holds no record of
+what came before, what changed or why it changed, and nothing kept for posterity. A
+document whose only content is history is deleted.
 
 ### No Duplicate Sources of Truth
 
@@ -64,5 +71,3 @@ the decisions worth a future developer reading in full, not document routine cho
 Every project this operation builds, and this operation's own shared documentation
 (`specifications-global`, `adr-global`, `policy-global`, `standard-operating-procedures-global`,
 `docs-standard-global`, `templates-global`) alike.
-
-**Source:** consolidated from this operation's own document-classification practice.

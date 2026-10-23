@@ -1,7 +1,7 @@
 ---
 title: "pol-security-and-data-governance"
 doc-id: "mb-e779e1b8"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # Policy — Security and Data Governance
 
@@ -64,5 +64,3 @@ accidentally left unprotected; a grep does not.
 Every project this operation builds on Anvil.works. Applies to every server function,
 every credential, every offboarding event, without exception.
 
-**Source:** consolidated from prior project practice and this operation's Vault
-architecture.

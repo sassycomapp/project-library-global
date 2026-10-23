@@ -1,9 +1,9 @@
 ---
 title: "spec-anvil-spec-table"
 doc-id: "mb-867fb5cd"
-updated: "2026-10-04"
+updated: "2026-10-23"
 ---
-# Mybizz CS — Anvil Specification Table
+# Anvil Specification Table
 
 **Purpose:** Consolidated specification and methods reference for Mybizz Anvil development
 **Dependencies:** M3 Theme (4UK6WHQ6UX7AKELK), Routing (3PIDO5P3H4VPEMPL)
@@ -34,9 +34,9 @@ updated: "2026-10-04"
 
 | Topic | Specification |
 |---|---|
-| ADR | [[[default:adr-global/adr-navigation-lambda-link-open-form\|[[[default:adr-global/adr-navigation-lambda-link-open-form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md)]]]([[[default:adr-global/adr-navigation-lambda-link-open-form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md)) (navigation pattern), [[[default:adr-global/adr-htmltemplate-use\|[[[default:adr-global/adr-htmltemplate-use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md)]]]([[[default:adr-global/adr-htmltemplate-use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md)) (layout shell) |
+| ADR | [[[default:adr-global/adr-navigation-lambda-link-open-form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md) (navigation pattern), [[[default:adr-global/adr-htmltemplate-use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) (layout shell) |
 | Layout type | Native M3 Layouts (`NavigationRailLayout` for admin, `NavigationDrawerLayout` for customer portal) |
-| Sidebar nav component | Plain `Link` components |
+| Sidebar nav component | The layout's own `NavigationLink` components |
 | Sidebar nav creation | Built programmatically in `build_navigation()` |
 | Navigation action | `open_form(string)` via lambda click handler |
 | Variable capture | **MANDATORY**: `lambda e, fn=form_name, a=attr_name: self._nav_click(fn, a)` |
@@ -47,7 +47,7 @@ updated: "2026-10-04"
 class AdminLayout(AdminLayoutTemplate):
     def build_navigation(self):
         for attr_name, label, icon, form_name in _NAV_STRUCTURE:
-            nav_link = Link(text=label, icon=icon)
+            nav_link = NavigationLink(text=label, icon=icon)
             nav_link.set_event_handler(
                 'click',
                 lambda e, fn=form_name, a=attr_name: self._nav_click(fn, a),
@@ -606,9 +606,9 @@ def create_order(customer_email: str, price: float):
 
 | Phase | Mandatory Steps |
 |---|---|
-| Before | Pure logic tests pass, backup created, Uplink verified, dev log updated |
-| During | Read before write, mark test data with `source='Test'`, verify writes, log operations |
-| After | Clean test data, verify cleanup, document results, backup on success |
+| Before | Pure logic tests pass; for a run against hosted App 1, App 1 backed up; Uplink connections verified |
+| During | Read before write; every test value starts with `TEST_`; verify writes |
+| After | Remove `TEST_` data and verify it is gone; save the evidence; for a hosted run that passed, back App 1 up again |
 
 ### 9.6 Test Structure Standards
 

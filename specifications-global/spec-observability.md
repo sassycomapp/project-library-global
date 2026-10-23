@@ -1,16 +1,13 @@
 ---
 title: "spec-observability"
 doc-id: "mb-3d23160a"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
-# PDLF Standards Library — Observability Requirements
+# Observability Requirements
 
-**Location:** `C:\dev\project-library-global\specifications-global\spec-observability.md`
 **Scope:** Project-agnostic. Applies to any Anvil.works project requiring structured observability
 using strictly Anvil-native facilities — no external monitoring infrastructure (Prometheus,
 Grafana, Datadog).
-**Source:** Extracted from mb-3-cs `[[observability-requirements]]`. Patterns validated against
-Anvil.works platform constraints.
 
 ---
 
@@ -71,7 +68,3 @@ background tasks and stored in summary Data Tables.
 every dashboard load. A daily task computes `daily_revenue` and writes one row to
 `daily_metrics`. The dashboard reads a single pre-computed row.
 
----
-
-*Observability specification version 1.0. Extracted from mb-3-cs observability-requirements.md.
-Anvil-native only — no external monitoring tools required.*

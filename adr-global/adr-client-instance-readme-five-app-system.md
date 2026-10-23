@@ -1,7 +1,7 @@
 ---
 title: "adr-client-instance-readme-five-app-system"
 doc-id: "mb-ed135450"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # Mandatory README in Every Client Instance Documenting the Five-App System
 
@@ -13,11 +13,11 @@ Accepted
 
 Mybizz runs on a five-app architecture; Apps 1, 2, 3 and 5 are on Mybizz's Anvil account, and each client instance is on its client's own account:
 
-1. **`{slug}`** — the development workspace. All feature work happens here. Never a dependency for any client instance.
-2. **`master_template`** — the sole source of all server-side logic and UI forms for every client instance. Receives App 1's tagged releases (Step 42). Never given to clients directly; client instances depend on it.
+1. **`{slug}-app1`** — the development workspace. All feature work happens here. Never a dependency for any client instance.
+2. **`master_template`** — the sole source of all server-side logic and UI forms for every client instance. Receives App 1's tagged releases, pushed in by the developer. Never given to clients directly; client instances depend on it.
 3. **`blank_client_template`** — the provisioning clone source. Contains the schema (see the project's authoritative-schema document), one startup module, and `master_template` as a dependency. Zero server modules, zero forms.
-4. **`[client-name]-cs`** — one per paying client. Contains the schema, the startup module, and an active dependency on `master_template`. Nothing else.
-5. **`Mybizz_management`** — internal platform-operator tooling (deferred, post-launch).
+4. **`[client-name]-{vertical}`** — one per paying client, on the client's own Anvil account. Contains the schema, the startup module, and an active dependency on `master_template`. Nothing else.
+5. **`{Product}_management`** — internal platform-operator tooling: provisioning, health monitoring, billing automation and update distribution.
 
 Each client instance therefore appears, on inspection, almost entirely empty: no forms, no server modules — only a startup module and a dependency reference. All server-side logic and UI a client instance displays is inherited live from `master_template`. There is no copy to fall out of date and no "deploy" step; the instance simply reflects whatever `master_template` currently contains.
 
@@ -29,7 +29,7 @@ A human developer with architectural context, on opening a client instance and f
 - A new team member, contractor, or maintainer who has not yet internalized the five-app model.
 - Anyone working under time pressure who skips the investigation step.
 
-No client instance currently contains any documentation that makes this constraint explicit at the point where a developer or agent would actually encounter it.
+Without a README, nothing in a client instance makes this constraint explicit at the point where a developer or agent would actually encounter it.
 
 ## Decision
 
@@ -37,7 +37,7 @@ Every client instance app (App 4) must contain a standardized README, present fr
 
 1. **Leads with the constraint, not the explanation.** The first visible line must state plainly that the directory is intentionally empty except for the startup module, and that no forms or server modules are to be added here.
 2. **Explains the mechanism.** A brief explanation that this app depends on `master_template` for all server logic and UI, and that adding a form or module here does not extend that behavior — it silently and permanently overrides the dependency for this instance only.
-3. **Redirects to the correct location.** A pointer to where the requested change actually belongs: the `{slug}` development workspace, tested against its own private client instance, then released into `master_template` (Step 42), after which every client instance — including this one — reflects the change automatically.
+3. **Redirects to the correct location.** A pointer to where the requested change actually belongs: the `{slug}-app1` development workspace, tested against its own private client instance, then released into `master_template` (Step 42), after which every client instance — including this one — reflects the change automatically.
 
 This README is added to `blank_client_template` (App 3), so that every newly provisioned client instance inherits it automatically at clone time with no manual step required.
 
@@ -57,6 +57,6 @@ This README is added to `blank_client_template` (App 3), so that every newly pro
 
 ## Alternatives Considered
 
-- **Rely on developer training and tacit convention alone.** Rejected — does not transfer to AI agents, new hires, or anyone acting under time pressure, and was the status quo that prompted this ADR.
+- **Rely on developer training and tacit convention alone.** Rejected — does not transfer to AI agents, new hires, or anyone acting under time pressure.
 - **Document the rule only in a central/external architecture document.** Rejected — context not present at the point of action is context that can be skipped; the constraint needs to live where the risk is, not only where the explanation is.
-- **Build a platform-level technical guard** (e.g., a CI or audit step that flags any client instance containing local forms or server modules). Not adopted at this time due to current tooling constraints, but noted as a stronger, detective-control alternative worth revisiting in a future ADR if provisioning scale or team size increases the practical risk.
+- **Build a platform-level technical guard** (e.g., a CI or audit step that flags any client instance containing local forms or server modules). Not adopted: the README covers the risk at the present scale, and Mybizz's own release checks (test RL-10) confirm that an activated instance holds no code.

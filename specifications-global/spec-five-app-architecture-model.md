@@ -1,13 +1,11 @@
 ---
 title: "spec-five-app-architecture-model"
 doc-id: "mb-1b7a1fda"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # Mybizz — Five-App Architecture Model (Specification)
 
-**Scope:** Mybizz-wide. Applies to every Mybizz product, not just this app. The specific app
-names/slugs below are placeholders — a given app's actual instance names live in that app's own
-`[[[mb-3-cs-project-library:docs-local/platform-architecture]]](C:/dev/dev-mb-3-cs/mb-3-cs-project-library/docs-local/platform-architecture.md)`.
+**Scope:** Mybizz-wide. Applies to every Mybizz application. The app names below are patterns; an application's actual instance names are recorded in its own project library.
 
 ---
 
@@ -15,7 +13,7 @@ names/slugs below are placeholders — a given app's actual instance names live 
 
 | App | Role | Contains | Updated via |
 |---|---|---|---|
-| App 1 — `{dev-workspace}` | Development workspace. All feature work happens here. Never a dependency for any client instance. | All Data Tables (dev/testing), all UI forms, all server modules, all application code | Daily development; each release is tagged here |
+| App 1 — `{slug}-app1` | Development workspace. All feature work happens here. Never a dependency for any client instance. | All Data Tables (dev/testing), all UI forms, all server modules, all application code | Daily development; each release is tagged here |
 | App 2 — `master_template` | Published dependency. Sole source of all server-side logic and UI forms for every client instance. | All server modules + all forms + all UI | The developer pushes App 1's tagged release into App 2's repository (Step 42) |
 | App 3 — `blank_client_template` | Provisioning clone source. The sole clone source for creating new client instances. | Full Data Table schema (correct, no data), one startup module, `master_template` as dependency. Zero server modules, zero forms. | Only when schema changes occur |
 | App 4 — `[client-name]-{vertical}` | One per paying client — a dedicated, isolated app instance. | Data Tables + one startup module + active `master_template` dependency. Nothing else. | Automatic — server logic, UI, and forms all propagate via the dependency. Schema changes are manual only. |
@@ -52,7 +50,7 @@ something for client X," a new team member, or anyone working under time pressur
 ## Update Deployment Model
 
 ```
-{dev-workspace} (tagged release)
+{slug}-app1 (tagged release)
     ↓ pushed into App 2's repository when tested and approved (Step 42)
 master_template
     ↓ automatically, through the dependency
@@ -63,8 +61,3 @@ No manual per-client update action exists. Releasing into `master_template` is a
 discipline (the whole test suite passing before release) is the quality gate. For high-risk
 releases, version tags allow staged rollout: a subset of clients updated first, remainder
 following once stability is confirmed.
-
----
-
-*Five-App Architecture Model v1.0. Extracted from platform-architecture.md as Mybizz-wide
-content, confirmed applicable to every Mybizz product.*

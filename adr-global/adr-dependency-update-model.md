@@ -1,21 +1,17 @@
 ---
 title: "adr-dependency-update-model"
 doc-id: "mb-bf8aa7d8"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # `dependency-update-model` ADR — Dependency Update Model
 
-**Status:** Confirmed  
-**Date:** 2026-06-13  
-**Authority:** Derived from the retired platform-overview.md, [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) ADR, Anvil documentation
+**Status:** Accepted
 
 ---
 
 ## Context
 
-The platform requires a mechanism to release updates from the development workspace (mb-3-cs) to all client instances without manual per-client intervention. The original assumption — that master_template was a separately maintained app requiring manual overwrite or re-cloning — was incorrect and unworkable at scale.
-
-The question was how to transfer a tested, stable version of mb-3-cs into master_template, and how client instances receive that update.
+Every Mybizz application needs to release updates from its development workspace (App 1) to all client instances without manual per-client intervention.
 
 Anvil's dependency system lets a client instance depend on master_template's published version or on a specific version tag. Pushing App 1's tagged release into master_template's repository updates every client instance at once; no re-cloning is required.
 
@@ -30,7 +26,7 @@ Anvil's dependency system lets a client instance depend on master_template's pub
 | App 1 — `{slug}-app1` | Development workspace | Daily development; each release is tagged `vMAJOR.MINOR.PATCH` |
 | App 2 — `master_template` | Published dependency | The developer pushes App 1's tagged release into App 2's repository (Step 42) |
 | App 3 — `blank_client_template` | Provisioning clone source | Carries the released schema |
-| App 5 — `Mybizz_management` | Platform operator tooling | Its own repository |
+| App 5 — `{Product}_management` | Platform operator tooling | Its own repository |
 
 ### Update Flow
 
@@ -90,16 +86,9 @@ Because every client instance updates as soon as a release reaches App 2, the qu
 
 ---
 
-## Test Required
+## Proof
 
-Update propagation is verified by live test before the first client is onboarded:
-
-1. Create `test-dependency-app` as a published dependency
-2. Create `test-client-app`, on a separate Anvil account, depending on `test-dependency-app`
-3. Push a tagged change into `test-dependency-app` and publish it
-4. Verify `test-client-app` reflects the change without any action on the client app
-
-**ADR status moves to Fully Confirmed upon successful test completion.**
+Update propagation to a client instance on a separate Anvil account, and rollback to the previous release, are proven before the first client is onboarded (tests RL-05 and RL-07).
 
 ---
 
@@ -110,7 +99,7 @@ Update propagation is verified by live test before the first client is onboarded
 - ✅ Staged rollout available via version tags without infrastructure changes
 - ✅ Each client owns its own Anvil account and leaves with it
 - ⚠️ Pushing a release into App 2 is a production action — release discipline is mandatory
-- ✅ UI and form updates propagate automatically via master_template dependency (confirmed by Test B — see [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) ADR)
+- ✅ UI and form updates propagate automatically via master_template dependency (see [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) ADR)
 - ⚠️ Schema changes require separate migration process for existing client instances
 
 ---
@@ -120,10 +109,5 @@ Update propagation is verified by live test before the first client is onboarded
 | Document | Relationship |
 |---|---|
 | [[[default:adr-global/adr-client-instance-architecture\|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) | Defines what lives in client instance vs master_template |
-| `blank-client-template.md` (mb-3-cs project library) | Provisioning clone source |
-| [[[default:adr-global/adr-free-trial-abandoned\|[[[default:adr-global/adr-free-trial-abandoned]]](C:/dev/project-library-global/adr-global/adr-free-trial-abandoned.md)]]]([[[default:adr-global/adr-free-trial-abandoned]]](C:/dev/project-library-global/adr-global/adr-free-trial-abandoned.md)) | Trial model replaced; all clients on stable from day one |
 | [[[default:specifications-global/spec-client-activation-runbook\|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) | Includes dependency configuration step at provisioning |
 
----
-
-*End of `dependency-update-model` ADR*

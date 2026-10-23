@@ -1,9 +1,9 @@
 ---
 title: "spec-onboarding-implementation-plan"
 doc-id: "mb-edfcb7ed"
-updated: "2026-10-04"
+updated: "2026-10-23"
 ---
-# Mybizz CS Onboarding System - Engineering Plan
+# Onboarding System — Engineering Plan
 
 > **Document status:** Rewritten 2026-06-01 per plan-tune adjustments. Key design decisions:
 > - **Onboarding is a separate form** that links to Settings for specific tasks
@@ -11,13 +11,13 @@ updated: "2026-10-04"
 > - **Bidirectional navigation** between Onboarding and Settings
 > - **Mybizz_management amendment log** — append-only credential change history
 > - **Client data rights** — Owner may remove details from Client Details Table, but not from Retained Records Table
-> - All ADR references use full file names (e.g., [[[default:adr-global/adr-brevo-replaces-zoho-email|Brevo Replaces All Zoho Products]]](C:/dev/project-library-global/adr-global/adr-brevo-replaces-zoho-email.md))
+> - All ADR references use full file names (e.g., [[[default:adr-global/adr-brevo-email-and-crm|Brevo for Email and CRM]]](C:/dev/project-library-global/adr-global/adr-brevo-email-and-crm.md))
 
 ---
 
 ## Executive Summary
 
-This plan defines the onboarding system for new Client instances in Mybizz CS. The system distinguishes between **Mybizz_management provisioning** (Mybizz internal setup) and **Owner onboarding** (in-app guided setup).
+This plan defines the onboarding system for new client instances of every Mybizz application. The system distinguishes between **Mybizz_management provisioning** (Mybizz internal setup) and **Owner onboarding** (in-app guided setup).
 
 **The core architecture:**
 - **Onboarding form** — a guided first-run experience with required elements (currency selection, legal acknowledgement)
@@ -56,7 +56,7 @@ Onboarding is **resumable and revisitable**. The Owner may return to the onboard
 7. **System Currency is immutable after first transaction** — selected in onboarding, locked after first transaction **[[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md)**
 8. **Payment gateway is configured in Settings** — RBAC-governed, not part of onboarding **[[[default:adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed|Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed.md)**
 9. **Palette selection is in Settings** — Onboarding has a button to jump to Settings → Palette tab **[[[default:adr-global/adr-onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]]](C:/dev/project-library-global/adr-global/adr-onboarding-vs-settings-boundary.md)**
-10. **Table and field names match `authoritative-schema.md` (mb-3-cs project library)** — `business_profile` (with underscore) **[[[default:adr-global/adr-onboarding-data-schema-alignment|Onboarding Data Schema Alignment]]](C:/dev/project-library-global/adr-global/adr-onboarding-data-schema-alignment.md)**
+10. **Table and field names match the application's authoritative schema (in its own project library)** — `business_profile` (with underscore) **[[[default:adr-global/adr-onboarding-data-schema-alignment|Onboarding Data Schema Alignment]]](C:/dev/project-library-global/adr-global/adr-onboarding-data-schema-alignment.md)**
 
 ---
 
@@ -97,7 +97,7 @@ Mybizz_management maintains three data tables for client records:
    - Never overwritten — always holds the latest values plus the full history
    - Outside the client instance scope but a system-level behaviour
 
-> **Note:** Mybizz_management is outside the scope of this project. The data architecture intention is recorded in `docs/the retired platform-overview.md`.
+> **Note:** Mybizz_management is App 5; its client records follow [[[default:adr-global/adr-onboarding-finality|Onboarding Finality]]](C:/dev/project-library-global/adr-global/adr-onboarding-finality.md).
 
 ---
 
@@ -315,7 +315,7 @@ business_profile:
 
 ## 7. Data Table Changes Required
 
-> **Note:** All table and field names match `authoritative-schema.md` (mb-3-cs project library). `business_profile` (with underscore) is used throughout. **[[[default:adr-global/adr-onboarding-data-schema-alignment|Onboarding Data Schema Alignment]]](C:/dev/project-library-global/adr-global/adr-onboarding-data-schema-alignment.md)**
+> **Note:** All table and field names match the application's authoritative schema (in its own project library). `business_profile` (with underscore) is used throughout. **[[[default:adr-global/adr-onboarding-data-schema-alignment|Onboarding Data Schema Alignment]]](C:/dev/project-library-global/adr-global/adr-onboarding-data-schema-alignment.md)**
 
 ### 7.1 business_profile Table Additions
 
@@ -463,7 +463,7 @@ Post-Onboarding (accessible at any time)
 
 ## 13. Final Conclusion
 
-This plan defines an updated, implementation-ready onboarding system for Mybizz CS that:
+This plan defines an updated, implementation-ready onboarding system for every Mybizz application that:
 
 1. **Uses Onboarding as a separate form** — guided first-run with required elements, links to Settings for specific tasks
 2. **Uses Settings as a single tabbed form** — RBAC-governed, M3 button tabs, all configuration in one place
@@ -485,10 +485,3 @@ This plan defines an updated, implementation-ready onboarding system for Mybizz 
 
 **This plan is ready for implementation.**
 
----
-
-## Old-material pointers (added 2026-09-20, developer instruction)
-
-Material referenced by this document but not present in the current corpus, with developer-provided locations:
-- platform-overview.md (the retired platform-overview) — old-iteration backup: /mnt/c/mybizz/backup-before/project-library/rules-library-refactored/platform_overview.md
-*End of file — onboarding-implementation-plan.md*

@@ -1,7 +1,7 @@
 ---
 title: "docstd-product-requirements-document"
 doc-id: "mb-ff79bc42"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # {Project Name} — Product Requirements Document (PRD)
 
@@ -51,8 +51,8 @@ primary need.
 
 **Anvil-specific prompt:** if this project has more than one user type, does it need
 role-based access control? If yes, that's a Non-Functional Requirement (Section 6) and an
-RBAC access matrix belongs in this project's own test plan, per
-the retired `the retired chk-anvil-app-testing.md` §5.
+RBAC access matrix belongs in this project's own test plan, as the project's
+`access-matrix.yaml` (test suite, test IN-02).
 
 ---
 
@@ -92,7 +92,7 @@ doesn't apply — don't leave a row blank without saying why.
 | Category | Requirement | Certainty |
 |---|---|---|
 | Performance | **[PROJECT]** | |
-| Security | **[PROJECT]** — at minimum: does this project use Vault for credentials? TOTP step-up? | |
+| Security | **[PROJECT]** — at minimum: does this project use Vault for credentials? second-factor step-up? | |
 | Accessibility | **[PROJECT]** | |
 | Availability | **[PROJECT]** — single Anvil account is a single point of failure; state if this is an accepted risk (see deployment-procedures SOP) | |
 | Timezone handling | **[PROJECT]** — default assumption: UTC storage, display-time conversion, per-instance IANA timezone. State if this project deviates. | |

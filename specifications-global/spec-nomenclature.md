@@ -1,23 +1,20 @@
 ---
 title: "spec-nomenclature"
 doc-id: "mb-a3648afc"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # Nomenclature and Naming Conventions
 
-**Authority:** Mandatory. Every document, step file, policy, specification, form, module and table follows this specification.
-
 ## How this document works
 
-This is the only nomenclature document. Every name and term used anywhere in Mybizz's systems is defined here, once.
+This is the nomenclature document for everything common to Mybizz's systems. Every common name and term is defined here, once.
 
 - **Part 1** applies to everything: PDLF and every application.
 - **Part 2** holds names used only by PDLF.
-- **Part 3** onwards holds names used only by one application, one part per application.
 
-A term is defined in exactly one part. A part for PDLF or an application holds only what is unique to it; anything shared moves to Part 1. A part for an application is added only when that application has a term of its own. When a name is agreed in discussion, it is written here before anything relies on it.
+The terms of one application are defined in that application's own `docs-local\CONTEXT.md`, never here. A term is defined in exactly one place. Part 2 holds only what is unique to PDLF; anything shared moves to Part 1. When a name is agreed in discussion, it is written here before anything relies on it.
 
-Why one document: separate nomenclature documents overlap, and the same term ends up meaning different things in different places.
+Why one document for common names: separate nomenclature documents overlap, and the same term ends up meaning different things in different places. An application's own terms are kept with that application, because nothing else uses them.
 
 ---
 
@@ -28,9 +25,7 @@ Why one document: separate nomenclature documents overlap, and the same term end
 | Element | Convention | Example |
 |---|---|---|
 | Document file | lowercase kebab-case `.md` | `platform-architecture.md` |
-| ADR file | `adr-{kebab-case-name}.md` | `adr-brevo-replaces-zoho-email.md` |
-| Superseded ADR | same name, `[Superseded]` on the line after the title | |
-| Cancelled ADR | `adr-cancelled-{kebab-case-name}.md` | |
+| ADR file | `adr-{kebab-case-name}.md` | `adr-brevo-email-and-crm.md` |
 | Front matter | `title` (the filename without `.md`), `doc-id`, `updated` | |
 
 `doc-id` is a permanent code (`mb-xxxxxxxx`) added by the commit hook, never written by hand. Links between documents are written by agents as `[[name]]` and converted by the commit hook into the standard form; their rules belong to mybizz-os, not to this document.
@@ -39,10 +34,10 @@ Why one document: separate nomenclature documents overlap, and the same term end
 
 | Element | Convention | Example |
 |---|---|---|
-| Project slug | the business's short name, lowercase, hyphens kept, supplied once at Step 11 | `mb-5-pdlf` |
-| Project folder | `C:\dev\dev-{slug}\` | `C:\dev\dev-mb-5-pdlf\` |
-| Code repositories | one per app: `{slug}-app1`, `{slug}-app2`, `{slug}-app3`, `{slug}-app5`; full path `C:\dev\dev-{slug}\{slug}-app{n}\`. App 4 lives on the client's own Anvil account and has no folder | `mb-5-pdlf-app1` |
-| Documentation repository | `dev-{slug}\{slug}-project-library\`, one per business | `dev-mb-5-pdlf\mb-5-pdlf-project-library\` |
+| Project slug | the business's short name, lowercase, hyphens kept, supplied once at Step 11 | `mb-3-cs` |
+| Project folder | `C:\dev\dev-{slug}\` | `C:\dev\dev-mb-3-cs\` |
+| Code repositories | one per app: `{slug}-app1`, `{slug}-app2`, `{slug}-app3`, `{slug}-app5`; full path `C:\dev\dev-{slug}\{slug}-app{n}\`. App 4 lives on the client's own Anvil account and has no folder | `mb-3-cs-app1` |
+| Documentation repository | `dev-{slug}\{slug}-project-library\`, one per business | `dev-mb-3-cs\mb-3-cs-project-library\` |
 | GitHub organisation | `sassycomapp` | |
 
 Every repository carries the slug as a prefix so that a business's repositories sort together on GitHub.
@@ -65,13 +60,13 @@ Every folder in `project-library-global` has a matching local folder in each pro
 
 ### 1.4 The five apps
 
-| App | Name | Example (`mb-3-cs`) |
-|---|---|---|
-| App 1 — development workspace | `{slug}` | `mb-3-cs` |
-| App 2 — published dependency | `master_template` | `master_template` |
-| App 3 — provisioning clone source | `blank_client_template` | `blank_client_template` |
-| App 4 — client instance | `[client-name]-{vertical}` | `[client-name]-cs` |
-| App 5 — management tooling | `{Product}_management` | `Mybizz_management` |
+| App | Role name | Anvil app and repository | Example (`mb-3-cs`) |
+|---|---|---|---|
+| App 1 — development workspace | development workspace | `{slug}-app1` | `mb-3-cs-app1` |
+| App 2 — published dependency | `master_template` | `{slug}-app2` | `mb-3-cs-app2` |
+| App 3 — provisioning clone source | `blank_client_template` | `{slug}-app3` | `mb-3-cs-app3` |
+| App 4 — client instance | `[client-name]-{vertical}` | on the client's own Anvil account; no repository | `[client-name]-cs` |
+| App 5 — management tooling | `{Product}_management` | `{slug}-app5` | `mb-3-cs-app5` |
 
 ### 1.5 Mybizz business terms
 
@@ -82,6 +77,10 @@ Every folder in `project-library-global` has a matching local folder in each pro
 | Customer | A client's own customer, who uses the client's instance. |
 | Visitor | Someone viewing a client's public website without logging in. |
 | Master template | `master_template`, the published dependency holding all server logic and forms for every client instance. |
+| System currency | The primary currency, set at onboarding and fixed after the first transaction. |
+| Display currency | An optional second currency for prices shown to customers. |
+| The Vault | The encrypted store for a client's API keys and secrets. |
+| Roles | Owner, Manager, Admin, Staff and Customer, the same in every application, as [[[default:specifications-global/spec-security-architecture\|Security Architecture]]](C:/dev/project-library-global/specifications-global/spec-security-architecture.md) defines them. |
 | Client instance | One client's own Anvil app, with its own database, running on `master_template`. |
 | Data isolation | Every client instance is a separate app with a separate database. No database is ever shared between clients. |
 | Updates | A client instance receives every release pushed into `master_template` automatically. |
@@ -246,30 +245,6 @@ GStack does not use the project slug. Each GStack skill derives a project name f
 | The documentation repository | `sassycomapp-{slug}-project-library` | `~/.gstack/projects/sassycomapp-{slug}-project-library/` |
 | A code repository | `sassycomapp-{slug}-app{n}` | `~/.gstack/projects/sassycomapp-{slug}-app{n}/` |
 
-PDLF starts its Phase B GStack skills from the documentation repository, so their GStack name is always `sassycomapp-{slug}-project-library`. Any document that gives a GStack save path names the repository it means. `mb-3-cs` is an exception: its documentation repository's GStack name is `sassycomapp-project-library`.
+PDLF starts its Phase B GStack skills from the documentation repository, so their GStack name is always `sassycomapp-{slug}-project-library`. Any document that gives a GStack save path names the repository it means.
 
 **Cache rule.** GStack's cache is never reconciled with the Git remote, so a renamed or re-cloned repository can keep an old name. The cache is never edited casually. When the cached name differs from the name the remote gives, the remote's name is written into the cache, with David's permission.
-
----
-
-## Part 3 — mb-3-cs (Mybizz CS)
-
-### 3.1 Roles
-
-| Role | Meaning |
-|---|---|
-| Owner | Full control of the client instance. |
-| Manager | Operational management; no credentials or financial configuration. |
-| Admin | Bookings and customers; no financial reporting, settings or credentials. |
-| Staff | Their own calendar and bookings only. |
-| Customer | Their own bookings, invoices and account only. |
-
-### 3.2 Terms
-
-| Term | Meaning |
-|---|---|
-| `appointment` | Transaction type: a timed service booking. |
-| `consulting` | Transaction type: a fixed-price service. |
-| System currency | The primary currency, set at onboarding and fixed after the first transaction. |
-| Display currency | An optional second currency for prices shown to customers. |
-| The Vault | The encrypted store for a client's API keys and secrets. |

@@ -1,18 +1,16 @@
 ---
 title: "adr-client-data-management-rights-and-mybizz-retention-boundary"
 doc-id: "mb-bb55153c"
-updated: "2026-10-01"
+updated: "2026-10-23"
 ---
 # Client Data Management Rights and Mybizz Retention Boundary
-Date: 2026-05-29
 Status: Accepted
-Source: User request - ADR creation for architectural enforcement
 
 ---
 
 ## Context
 
-The Mybizz CS platform handles client data with clear separation between business owner data and platform management data. The boundary between these data domains needs explicit definition.
+Every Mybizz application handles client data with clear separation between business owner data and platform management data. The boundary between these data domains needs explicit definition.
 
 ### Problem Statement
 
@@ -27,9 +25,6 @@ Without clear architecture:
 - Potential legal compliance issues
 - Unclear data management responsibilities
 
-### Current State
-
-The platform needs to clearly distinguish between owner-held client-instance data and Mybizz-held management-side records.
 
 ---
 
@@ -108,6 +103,3 @@ The platform needs to clearly distinguish between owner-held client-instance dat
 - Mybizz management application architecture
 - Legal compliance requirements
 
----
-
-*End of `client-data-management-rights-and-mybizz-retention-boundary` ADR*

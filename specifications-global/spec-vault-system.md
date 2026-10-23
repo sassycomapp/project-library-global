@@ -1,13 +1,11 @@
 ---
 title: "spec-vault-system"
 doc-id: "mb-4960a0bb"
-updated: "2026-10-22"
+updated: "2026-10-23"
 ---
 # Mybizz — The Vault System
 
 **Scope:** Mybizz-wide. This is the single authoritative document on the Vault system — its architecture, pattern, enforcement rules, and implementation. All other documents reference this one; none duplicate or restate its content.
-
-**Authority:** [[[default:adr-global/adr-payment-security-boundary-vault|Payment Security Boundary Vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) ADR ([[[default:adr-global/adr-payment-security-boundary-vault|Payment Security Boundary: Secret Keys Deferred to the Vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md))
 
 ---
 
@@ -37,7 +35,7 @@ assert not (_PAYMENT_SECRET_COLUMNS & set(data.keys())), (
 
 ## 3. What's Stored in the Vault (per application)
 
-Each application lists its own Vault contents, its Vault form and its build sequence in its own project library; `mb-3-cs` holds them in `docs-local\mb-3-cs-vault-implementation.md`. Publishable keys (for example a Stripe publishable key) are safe for client-side use and are stored in the payment configuration table, not the Vault.
+Each application lists its own Vault contents, its Vault form and its build sequence in its own project library. Publishable keys (for example a Stripe publishable key) are safe for client-side use and are stored in the payment configuration table, not the Vault.
 
 ## 4. Second-Factor Recovery
 
@@ -53,15 +51,13 @@ If the Owner loses their second-factor device, the following recovery path appli
 - Only Mybizz_management can reset the Owner's second factor — no self-service recovery
 - The reset event is permanently logged for audit
 
-**Source:** [[[default:adr-global/adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) ADR, CEO review 2026-06-15 Section 3
-
 ## Related Documents
 
 | Document | Relationship |
 |---|---|
 | [[[default:adr-global/adr-payment-security-boundary-vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) | Architectural decision |
 | [[[default:adr-global/adr-anvil-platform-constraints]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) | Anvil secrets limits, Owner second-factor recovery |
-| [[[default:adr-global/adr-brevo-replaces-zoho-email]]](C:/dev/project-library-global/adr-global/adr-brevo-replaces-zoho-email.md) | Vault credentials for Brevo |
+| [[[default:adr-global/adr-brevo-email-and-crm]]](C:/dev/project-library-global/adr-global/adr-brevo-email-and-crm.md) | Vault credentials for Brevo |
 | [[[default:adr-global/adr-observability-architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md) | Vault access audit logging |
 | [[[default:adr-global/adr-mybizz-management-visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md) | Vault access event forwarding |
 | [[[default:specifications-global/spec-security-architecture]]](C:/dev/project-library-global/specifications-global/spec-security-architecture.md) | RBAC role limits, sign-in, token security |

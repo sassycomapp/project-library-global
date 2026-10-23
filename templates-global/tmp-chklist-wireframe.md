@@ -1,103 +1,94 @@
-# Checklist — DashboardAnalyticsForm
+# Checklist — {FormName} Wireframe
 
-**Wireframe:** `wireframes/analytics/DashboardAnalyticsForm/wireframe-analytics-DashboardAnalyticsForm.html`
-**Date:** 2026-06-28
-**Auditor:** Build agent
+**Wireframe:** `{path to the wireframe file}`
+**Date:** {date}
+**Auditor:** {who checked it}
+
+Mark each item `[x]` when it passes, or `N/A` with the reason. Give the line number of the evidence.
 
 ---
 
-## A. ADR-43 — Role assignment (reversed)
+## A. Role assignment ([[[default:adr-global/adr-role-property-assignment-mechanism|Role Property Assignment]]](C:/dev/project-library-global/adr-global/adr-role-property-assignment-mechanism.md))
 
-- [x] Properties table does NOT list `role` as a Designer property — PASS (line 366: "No Designer-only properties. All properties are set programmatically.")
-- [x] Component annotations do not say "set role in Designer" — PASS (no role annotations found)
-- [x] If role is mentioned in annotations, it is noted as set in code — PASS (no role annotations found)
+- [ ] The properties table does not list `role` as a Designer property
+- [ ] No annotation says "set role in Designer"
+- [ ] Any role mentioned is noted as set in code
 
-## B. ADR-44 — Responsive behaviour (wrap_on)
+## B. Responsive behaviour ([[[default:adr-global/adr-responsive-behaviour-mechanism|Responsive Behaviour Mechanism]]](C:/dev/project-library-global/adr-global/adr-responsive-behaviour-mechanism.md))
 
-- [x] No breakpoint tables or pixel-based responsive rules — PASS
-- [x] No references to 998px, 640px, or 1024px breakpoints — PASS
-- [x] No references to "mobile-first" with pixel thresholds — PASS
+- [ ] No breakpoint tables or pixel-based responsive rules
+- [ ] Containers that wrap or stack carry `wrap_on` annotations
 
-## C. ADR-45 — HTMLTemplate banned
+## C. HTMLTemplate ([[[default:adr-global/adr-htmltemplate-use|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md))
 
-- [x] No `HtmlTemplate` component anywhere in the wireframe — PASS
-- [x] No references to `anvil_slot_repeat` property — PASS
+- [ ] No `HtmlTemplate` component anywhere in the wireframe
+- [ ] No reference to the `anvil_slot_repeat` property
 
-## D. ADR-37 superseded
+## D. Layout shells
 
-- [x] No references to "custom layout approach" — PASS
-- [x] No references to "HtmlTemplate shell" — PASS
-- [x] Layout wireframes use `NavigationRailLayout` or `NavigationDrawerLayout` — N/A (not a layout wireframe)
+- [ ] A layout wireframe uses `NavigationRailLayout` or `NavigationDrawerLayout`
+- [ ] No custom layout shell
 
 ## E. DataRowPanel
 
-- [x] DataRowPanel uses `drp_` prefix — N/A (no DataRowPanel in this wireframe)
-- [x] DataRowPanel is used for DataGrid row templates — N/A
-- [x] DataRowPanel is listed in the component annotations — N/A
+- [ ] DataRowPanel uses the `drp_` prefix
+- [ ] DataRowPanel is used for DataGrid row templates
+- [ ] DataRowPanel is listed in the component annotations
 
 ## F. M3 component standard
 
-- [x] Every component is in the approved M3 list or approved custom list — PASS (ColumnPanel, FlowPanel, Card, Heading, Text, Link, Plot, DataGrid, IconButton, Button — all approved)
-- [x] InteractiveCard uses only `elevated`, `filled`, or `outlined` — N/A (no InteractiveCard)
-- [x] No `SidesheetContent` component — PASS
-- [x] No `Label` component — PASS
-- [x] Card uses `Card` component (not `ColumnPanel` with role class) — PASS
-- [x] No `HtmlPanel` component — PASS
+- [ ] Every component is in the approved M3 list or the approved custom list
+- [ ] InteractiveCard uses only `elevated`, `filled` or `outlined`
+- [ ] No `SidesheetContent`, `Label` or `HtmlPanel` component
+- [ ] Cards use the `Card` component, not a `ColumnPanel` with a role class
 
 ## G. Icon component
 
-- [x] Icon components use `ico_` prefix — PASS (ico_empty_state on line 330)
-- [x] Icon is understood as `IconButton` used decoratively — PASS (type is `IconButton` on line 331)
-- [x] If wireframe shows an icon-only button with click handler, it should be `IconButton` with `btn_` prefix — N/A
+- [ ] Icon components use the `ico_` prefix
+- [ ] A decorative icon is an `IconButton`
+- [ ] An icon-only button with a click handler is an `IconButton` with the `btn_` prefix
 
-## H. mi: prefix for icons
+## H. Icon names
 
-- [x] All icon annotations use `mi:` prefix — PASS (mi:bar_chart on line 332)
-- [x] No plain icon names without `mi:` prefix — PASS
+- [ ] Every icon annotation uses the `mi:` prefix
 
 ## I. Writeback properties
 
-- [x] Properties table includes writeback (W) for all 8 components — N/A (no writeback components in this form)
-- [x] No writeback listed for non-writeback components — PASS
+- [ ] The properties table marks writeback (W) for every writeback component
+- [ ] No writeback is listed for a non-writeback component
 
 ## J. Max-width values
 
-- [x] Max-width annotations match final values — N/A (no max-width annotation in wireframe; form type is Dashboard, max-width 1200px per Standard)
+- [ ] Max-width annotations match the form type's value in the standard
 
 ## K. Card radius
 
-- [x] Card annotations reference 8px radius — N/A (no radius annotation in wireframe)
+- [ ] Card annotations reference the 8px radius
 
-## L. Tag/badge composition
+## L. Tags and badges
 
-- [x] Tag/badge components use `m3.Button` or `m3.Card` composition — N/A (no tags/badges)
-- [x] No `Label` component used for tags or badges — PASS
+- [ ] Tags and badges are composed from `m3.Button` or `m3.Card`
+- [ ] No `Label` component is used for a tag or badge
 
-## M. Dark mode
+## M. Colour
 
-- [x] No references to dark mode — PASS
+- [ ] The wireframe holds no colour, theme or dark mode content
 
 ## N. Carousel viewport
 
-- [x] Carousel viewport uses ColumnPanel with role-driven CSS — N/A (no carousel)
+- [ ] A carousel viewport is a ColumnPanel with role-driven CSS
 
-## O. Section structure (ADR-27)
+## O. Section structure ([[[default:adr-global/adr-design-rules|Design Rules]]](C:/dev/project-library-global/adr-global/adr-design-rules.md))
 
-- [x] Section 1 — Introduction present — PASS (line 127)
-- [x] Section 2 — Wireframe Diagram present — PASS (line 142)
-- [x] Section 3 — Properties Table present — PASS (line 356)
-- [x] No sample data in wireframe — PASS
-- [x] No behaviour text in wireframe diagram — PASS
-- [x] Containers drawn as containers with names inset in border — PASS
+- [ ] Section 1 — Introduction present
+- [ ] Section 2 — Wireframe Diagram present
+- [ ] Section 3 — Properties Table present
+- [ ] No sample data in the wireframe
+- [ ] No behaviour text in the wireframe diagram
+- [ ] Containers are drawn as containers, with their names inset in the border
 
 ---
 
 ## Result
 
-**Status: PASS — no fixes needed**
-
-All 15 checklist sections pass. This wireframe is compliant with all design decisions and ADRs.
-
----
-
-*End of checklist*
+**Status:** {PASS, or FAIL with the items to fix}
