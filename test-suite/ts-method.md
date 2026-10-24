@@ -20,7 +20,7 @@ The suite is held once, in `project-library-global\test-suite\`, and serves ever
 | `tools\ts_scan.py` | The scanner: automatic checks of Mybizz's rules over an Anvil app folder |
 | `tools\ts_report.py` | Produces a receipt's test counts from saved evidence, and checks a receipt against it |
 | `tools\ts_local.sh` | Writes an app's `.env`, starts and stops its local runtime, and runs test commands with `.env` loaded |
-| `templates\` | `conftest.py`, `pytest.ini`, `ts-config.yaml` and `test_pr09_environment.py`, copied into each app that holds code at Step 11; `access-matrix.yaml`, copied into the project library at Step 15 |
+| `templates\` | `conftest.py`, `pytest.ini`, `ts-config.yaml` and `test_pr09_environment.py`, copied into each app that holds code at Step 11; `access-matrix.yaml`, copied into the project library at Step 15 as `docs-local\design\app{n}\access-matrix.yaml` |
 
 ## 1. The security target
 

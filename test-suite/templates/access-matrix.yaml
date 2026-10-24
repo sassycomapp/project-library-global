@@ -1,5 +1,6 @@
 # Mybizz test suite: the access matrix of one application (DC-05).
-# Copy to the project library at Step 15 as docs-local/access-matrix.yaml.
+# Copy to the project library at Step 15 as docs-local/design/app{n}/access-matrix.yaml;
+# a feature extends its app's matrix.
 # Every server function, form and settings tab, against every role.
 # Scopes: all (every row), own (only the caller's own rows), none (refused).
 # Roles: Owner, Manager, Admin, Staff, Customer, SignedOut.
