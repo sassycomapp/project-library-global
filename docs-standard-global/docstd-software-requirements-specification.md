@@ -1,7 +1,7 @@
 ---
 title: "docstd-software-requirements-specification"
 doc-id: "mb-dd0fe55c"
-updated: "2026-10-01"
+updated: "2026-10-24"
 ---
 # {Project Name} — Software Requirements Specification (SRS)
 
@@ -27,10 +27,10 @@ technical audience, distinct from the PRD's product audience).
 section rather than restating it.
 
 ### 1.3 Definitions and Acronyms
-**[PROJECT]** Project-specific terminology. If `CONTEXT.md` already exists for this
+**[PROJECT]** Project-specific terminology. If `GLOSSARY.md` already exists for this
 project (produced at PDLF Step 16), reference it directly rather than duplicating — this
 section should only hold terms specific to this SRS that aren't already in the domain
-glossary. Do not let this section and `CONTEXT.md` silently diverge on the same term.
+glossary. Do not let this section and `GLOSSARY.md` silently diverge on the same term.
 
 ### 1.4 References
 **[PROJECT]** — this project's BRD, PRD, ADRs, and any external standards this SRS

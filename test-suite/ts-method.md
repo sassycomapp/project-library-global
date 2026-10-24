@@ -90,6 +90,8 @@ The app's Users service must be switched on before the runtime can sign in a `TE
 ## 5. Evidence and findings
 
 - Evidence goes to `{slug}-project-library\pdlf-outputs\{step}\`: JUnit XML from pytest and the scanner, tool reports, review files and browser reports.
+- A test whose tool writes no JUnit XML (the document tests at Level D, the process tests, `anvil --json validate`, gitleaks) has its result recorded by the agent in the step's checks file, `{slug}-{step}-{run}-checks.xml`: JUnit XML with one test case per test ID, named by the ID, the evidence file named in the case's output, and a `failure` element when it fails. The tool's own output is saved beside it. Every result therefore reaches `ts_report.py`.
+- Every Step Receipt carries the table `ts_report.py {output folder} --prefix {slug}-{step}-{run}-` prints, unchanged; test PR-05 checks it with `--check`.
 - A failure from Step 35A on is recorded in the ledger's `triage_findings` with the test ID and its evidence.
 - Severity follows [[[default:specifications-global/spec-anvil-platform-standards]]](C:/dev/project-library-global/specifications-global/spec-anvil-platform-standards.md) section 21: anything touching security, money or client data is Critical or High.
 - Every fixed finding gets a permanent test that fails without the fix.

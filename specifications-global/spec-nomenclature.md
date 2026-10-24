@@ -12,7 +12,7 @@ This is the nomenclature document for everything common to Mybizz's systems. Eve
 - **Part 1** applies to everything: PDLF and every application.
 - **Part 2** holds names used only by PDLF.
 
-The terms of one application are defined in that application's own `docs-local\CONTEXT.md`, never here. A term is defined in exactly one place. Part 2 holds only what is unique to PDLF; anything shared moves to Part 1. When a name is agreed in discussion, it is written here before anything relies on it.
+The terms of one application are defined in that application's own `docs-local\GLOSSARY.md`, never here. A term is defined in exactly one place. Part 2 holds only what is unique to PDLF; anything shared moves to Part 1. When a name is agreed in discussion, it is written here before anything relies on it.
 
 Why one document for common names: separate nomenclature documents overlap, and the same term ends up meaning different things in different places. An application's own terms are kept with that application, because nothing else uses them.
 

@@ -9,8 +9,12 @@ counts is written by hand; it is pasted from this output, or checked against
 it with --check.
 
 Usage (WSL):
-    python3 ts_report.py OUTPUT_FOLDER [--markdown OUT.md]
-    python3 ts_report.py OUTPUT_FOLDER --check RECEIPT.md
+    python3 ts_report.py OUTPUT_FOLDER --prefix {slug}-{step}-{run}- [--markdown OUT.md]
+    python3 ts_report.py OUTPUT_FOLDER --prefix {slug}-{step}-{run}- --check RECEIPT.md
+
+--prefix counts only the evidence of one run of the step, because a step's
+output folder holds the files of every run (the whole application, and each
+feature).
 """
 from __future__ import annotations
 
@@ -70,9 +74,10 @@ def main(argv=None) -> int:
     ap.add_argument("folder")
     ap.add_argument("--markdown")
     ap.add_argument("--check", help="a receipt whose Total row must equal the evidence")
+    ap.add_argument("--prefix", default="", help="count only files whose name starts with this, e.g. mb-3-cs-b12-app1-")
     a = ap.parse_args(argv)
     folder = Path(a.folder)
-    files = sorted(folder.rglob("*.xml"))
+    files = sorted(p for p in folder.rglob("*.xml") if p.name.startswith(a.prefix))
     rows = []
     for p in files:
         try:
