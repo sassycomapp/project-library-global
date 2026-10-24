@@ -1,7 +1,7 @@
 ---
 title: "spec-security-architecture"
 doc-id: "mb-9112b5a3"
-updated: "2026-10-23"
+updated: "2026-10-24"
 ---
 # Mybizz — Security & Secrets Architecture
 
@@ -82,3 +82,16 @@ The regulatory baseline (POPIA, GDPR, PCI DSS, standard retention periods) is My
   base, not fixed at build time).
 - No data categories beyond the Mybizz-wide retention defaults are tracked.
 
+
+## 4. Data Protection Levels
+
+Every kind of data an application holds is given one protection level. The level decides who may see it, where it is kept and how it is handled. An application's data inventory names, for every kind of data, its owner, its readers, its writers, its protection level and its retention.
+
+| Level | What it covers | Who may read it | How it is kept and handled |
+|---|---|---|---|
+| Public | Data meant for anyone: the catalogue, public prices, published pages | Anyone, signed in or not | No restriction beyond server authority over every change |
+| Internal | The client's business data that is not about a person: stock, services, schedules, settings | Signed-in roles the access matrix names | Served only by server functions; tables give client code no access |
+| Personal | Personal information under POPIA: names, contact details, addresses, order and booking history of customers and staff | The person it is about, and the roles the access matrix names, limited to their own rows where the role is row-scoped | As Internal, plus: exported and deleted on the person's request; every export is recorded in the audit log; never written to logs in clear |
+| Restricted | Special personal information under POPIA, credentials and keys, payment tokens, management tokens, and anything whose leak causes direct financial loss | The Owner, or the server alone | As Personal, plus: credentials and keys only in the Vault; payment card details never held (only the gateway's token); every read recorded in the audit log; a fresh second factor for any person who reads it |
+
+A kind of data that fits two levels takes the higher. Retention follows the defaults of [[[default:specifications-global/spec-regulatory-compliance-baseline|Regulatory Compliance Baseline]]](C:/dev/project-library-global/specifications-global/spec-regulatory-compliance-baseline.md); a kind of data it does not list gets its own retention, with the reason, in the application's data inventory.
