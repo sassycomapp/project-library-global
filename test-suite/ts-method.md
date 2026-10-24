@@ -1,6 +1,6 @@
 ---
 title: "ts-method"
-updated: "2026-10-23"
+updated: "2026-10-24"
 doc-id: "mb-2fad9223"
 ---
 # Test Suite — Method
@@ -19,7 +19,8 @@ The suite is held once, in `project-library-global\test-suite\`, and serves ever
 | [[[default:test-suite/ts-rule-soundness-register]]](C:/dev/project-library-global/test-suite/ts-rule-soundness-register.md) | Rules found contradictory or out of date, and the fix the tests apply |
 | `tools\ts_scan.py` | The scanner: automatic checks of Mybizz's rules over an Anvil app folder |
 | `tools\ts_report.py` | Produces a receipt's test counts from saved evidence, and checks a receipt against it |
-| `templates\` | `conftest.py`, `ts-config.yaml`, `access-matrix.yaml` and `pytest.ini`, copied into each app at Step 11 |
+| `tools\ts_local.sh` | Writes an app's `.env`, starts and stops its local runtime, and runs test commands with `.env` loaded |
+| `templates\` | `conftest.py`, `pytest.ini`, `ts-config.yaml` and `test_pr09_environment.py`, copied into each app that holds code at Step 11; `access-matrix.yaml`, copied into the project library at Step 15 |
 
 ## 1. The security target
 
@@ -61,6 +62,15 @@ Shoppers buy as guests, without an account. Anvil can require a second factor on
 | 4 — Release | The release works for every client and can be undone | App 2, App 3, the test client and every client instance |
 
 **The local runtime.** The Hobby plan gives App 1 one database and no test environment. Integration tests therefore run first on the Anvil App Server in WSL, started on an empty database each run. Nothing live is touched, and attacks can be tried freely.
+
+`tools\ts_local.sh` is the one way the local runtime is handled:
+
+- `bash ts_local.sh APP_FOLDER init` writes the app's `.env` with new random local keys and a test password. The developer runs it, because no agent reads or writes `.env`. It never overwrites an existing `.env`.
+- `bash ts_local.sh APP_FOLDER start` starts the mail catcher on port 8025 and the App Server for the app on `http://localhost:3030`, on a new empty database, with the keys from `.env`.
+- `bash ts_local.sh APP_FOLDER run COMMAND` runs a test command in the app folder with `.env` loaded, so a test reads its keys without anyone seeing them.
+- `bash ts_local.sh APP_FOLDER stop` stops both.
+
+The app's Users service must be switched on before the runtime can sign in a `TEST_` user. The local keys open only the local runtime; the keys for hosted App 1 are separate.
 
 **Hosted App 1.** Only what needs Anvil's hosted service is tested there: sign-up and reset emails, real webhooks from gateways in test mode, scheduled tasks, headers and certificates. Every test value starts with `TEST_` and is removed afterwards. Attacks and load tests are never aimed at Anvil's hosted service.
 
@@ -126,6 +136,7 @@ Evidence is saved in the step's output folder, named `{slug}-{step}-{run}-{kind}
 | Anvil Uplink | Server and client connections |
 | pyotp | Second-factor codes for `TEST_` users |
 | aiosmtpd | The local mail catcher |
+| `ts_local.sh` | Starts and stops the local runtime |
 | PyYAML | The scanner |
 | pip-audit | Known vulnerabilities in packages |
 | gitleaks | Secrets in code and git history |

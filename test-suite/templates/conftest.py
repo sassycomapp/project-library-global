@@ -5,6 +5,8 @@ Copy to the app repository as tests/conftest.py at Step 11. Fixtures:
 - load_module(path): loads a module by file path, so tests test the real code;
 - corpus: the hostile inputs every input test uses;
 - server: a privileged Uplink connection, to set up and inspect data only;
+- test_user(role): a TEST_ user of that role with its second factor, removed
+  afterwards;
 - client_as(role): a client Uplink connection signed in as a TEST_ user of
   that role, with its second factor; the only way access rules are proven;
 - signed_out: a client connection with nobody signed in;
@@ -20,6 +22,7 @@ Settings come from .env, never from code:
   TS_TEST_PASSWORD     password for TEST_ users
   TS_ROLE_COLUMN       Users-table column holding the role (default: role)
   TS_SINGLE_ROW_TABLES comma-separated settings tables holding one row
+  TS_MAIL_DIR          the local mail catcher's folder, set by tools/ts_local.sh
 
 The Uplink parts are proven by test PR-09 before other tests rely on them.
 """
@@ -106,6 +109,13 @@ def remove_test_users():
     for row in app_tables.users.search():
         if (row["email"] or "").startswith("test_"):
             row.delete()
+
+
+@pytest.fixture
+def test_user():
+    """Creates TEST_ users of a role on request; removes every TEST_ user afterwards."""
+    yield make_test_user
+    remove_test_users()
 
 
 @pytest.fixture
