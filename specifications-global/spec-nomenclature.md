@@ -1,7 +1,7 @@
 ---
 title: "spec-nomenclature"
 doc-id: "mb-a3648afc"
-updated: "2026-10-23"
+updated: "2026-10-24"
 ---
 # Nomenclature and Naming Conventions
 
@@ -234,7 +234,7 @@ The skill or function name appears only in the step file's own name, never in it
 | Working design doc | `{docs-repo}\docs-local\design-doc.md` |
 | Output copy | `{docs-repo}\pdlf-outputs\{step}\{slug}-{step}-{run}-{name}.md` |
 
-`{step}` is the step's folder name in the app factory (for example `b14`). `{run}` is `app` for the whole application, or the feature's short name for a feature or an update, so a feature never overwrites the application's files. The prefix is always the project slug, never a GStack-derived name. Nothing an application produces is kept in `C:\pdlf`.
+`{step}` is the step's folder name in the app factory (for example `b14`). `{run}` is `app{n}` for a whole application (`app1`, `app2`, `app3` or `app5`), or the feature's short name for a feature or an update, so no run overwrites another run's files. The prefix is always the project slug, never a GStack-derived name. Nothing an application produces is kept in `C:\pdlf`.
 
 ### 2.5 GStack project names
 
