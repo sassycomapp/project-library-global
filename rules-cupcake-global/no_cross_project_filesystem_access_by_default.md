@@ -1,7 +1,7 @@
 ---
 title: "no_cross_project_filesystem_access_by_default"
 doc-id: "mb-9a9b54d6"
-updated: "2026-10-23"
+updated: "2026-10-30"
 ---
 # Rule: No Cross-Project Filesystem Access by Default
 
@@ -10,10 +10,18 @@ opencode
 
 ## What to block
 Any WRITE-type tool call (Edit, Write, MultiEdit, NotebookEdit) whose
-target file path resolves outside the current working directory's project
-root, UNLESS the target is `/tmp` (the only always-open exemption, listed
+target file path resolves outside the current project, UNLESS the target is `/tmp` (the only always-open exemption, listed
 below), or the developer has issued an active permission slip (grant) for
 that specific folder.
+
+The current project is the current working directory's folder, with one
+case of its own:
+- An agent opened in a repository of a business — `{slug}-app{n}`,
+  `{slug}-project-library` or `{slug}-project-context`, opened through its
+  link `/home/dev-p/projects/{repo}` — is in that business's project. Its
+  project is the whole business folder, `/mnt/c/dev/dev-{slug}/`, reached by
+  its real path or by any of the business's links under
+  `/home/dev-p/projects/`.
 
 Reads are never blocked by this rule: Read and Grep remain free
 everywhere, in every folder.
@@ -23,7 +31,7 @@ of the current working directory) — exactly one entry:
 - /tmp (scratch space)
 
 Restricted project folders — writes blocked unless the agent's current
-working directory IS that folder, or a permission slip is active for it:
+project IS that folder, or a permission slip is active for it:
 - /mnt/c/data-mybizz-mgt
 - /mnt/c/pdlf
 - every business folder, /mnt/c/dev/dev-{slug}/, and every repository in it
@@ -48,5 +56,7 @@ Cross-project work is legitimate but deliberate: each occasion is granted
 through a slip. `/tmp` stays open as scratch space because nothing there
 is authoritative. Restricted project folders protect each project's own
 files: working in another project is a deliberate, developer-approved
-occasion, granted through the slip mechanism. Reads never damaged a
-project; they stay free.
+occasion, granted through the slip mechanism. A business's
+repositories form one project, because a PDLF run writes across the
+project library and the app repositories of the same business; another
+business stays outside it. Reads never damaged a project; they stay free.
