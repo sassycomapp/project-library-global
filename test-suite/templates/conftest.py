@@ -97,9 +97,15 @@ def make_test_user(role: str) -> dict:
     connect("ANVIL_UPLINK_KEY")
     email = f"test_{role.lower()}_{uuid.uuid4().hex[:8]}@test.mybizz.invalid"
     password = _key("TS_TEST_PASSWORD")
-    user = anvil.users.signup_with_email(email, password) or app_tables.users.get(email=email)
+    # Anvil's own anvil.users.mfa module cannot load outside a browser, and its
+    # anvil.users.signup_with_email passes no second factor on; these two calls
+    # are what those wrappers call. Sign-up from the server connection is
+    # allowed even when visitors may not sign up.
     enrol = anvil.server.call("anvil.private.users.totp.generate_secret", email)
-    user.update(enabled=True, confirmed_email=True, mfa=[enrol["mfa_method"]], **{ROLE_COLUMN: role})
+    anvil.server.call("anvil.private.users.signup_with_email", email, password,
+                      mfa_method=enrol["mfa_method"])
+    user = app_tables.users.get(email=email)
+    user.update(enabled=True, confirmed_email=True, **{ROLE_COLUMN: role})
     return {"email": email, "password": password, "totp_secret": enrol["secret"]}
 
 

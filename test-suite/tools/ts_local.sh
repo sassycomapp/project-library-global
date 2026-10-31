@@ -79,9 +79,15 @@ case "$ACTION" in
     [ -f "$APP_DIR/anvil.yaml" ] || { echo "$APP_DIR holds no anvil.yaml" >&2; exit 1; }
     load_env
     stop_runtime
+    for port in "$PORT" "$MAIL_PORT" 2525; do
+      if fuser "${port}/tcp" >/dev/null 2>&1; then
+        echo "Port $port is still in use after stop; nothing started." >&2
+        exit 1
+      fi
+    done
     rm -rf "$RUN"
-    mkdir -p "$RUN/mail" "$RUN/data"
-    mkdir -p "$RUN/mail/tmp" "$RUN/mail/new" "$RUN/mail/cur"
+    # The mail catcher builds no Maildir folders inside a folder that exists.
+    mkdir -p "$RUN/data" "$RUN/mail/tmp" "$RUN/mail/new" "$RUN/mail/cur"
     chmod 700 "$RUN"
 
     # The App Server reads its keys from a config file only this user can read.
