@@ -1,7 +1,7 @@
 ---
 title: "anvil-docs-config"
 doc-id: "mb-01e370c7"
-updated: "2026-10-01"
+updated: "2026-11-01"
 ---
 # anvil-docs — Configuration
 
@@ -40,12 +40,12 @@ see [[[default:anvil-docs/anvil-docs-reference|Reference: Navigation, Verificati
 
 ## Structure (verified 2026-09-06)
 
-23 top-level directories = **19 scraped site areas + 4 non-site folders**, reconciled exactly against [[[default:anvil-docs/site-map|Confirmed Site Map (Step 1a)]]](C:/dev/project-library-global/anvil-docs/site-map.md)'s 19 `##` area headings.
+24 top-level directories = **19 scraped site areas + 5 non-site folders**, reconciled exactly against [[[default:anvil-docs/site-map|Confirmed Site Map (Step 1a)]]](C:/dev/project-library-global/anvil-docs/site-map.md)'s 19 `##` area headings.
 
 | Group | Members |
 |---|---|
 | Site areas (19) | `overview`, `plans-and-accounts`, `editor`, `ai`, `client`, `server`, `data-tables`, `deployment`, `users`, `external-resources`, `integrations`, `other-concepts`, `workflows`, `enterprise`, `using-another-ide`, `get-started`, `components`, `api`, `how-to` |
-| Non-site top-level folders (4) | `app-structure/` — the real `anvil.yaml` schema and app directory layout (from the clone's `doc/app-structure.md`); `debugging-guide/`; `tests/` — a real, preserved example application plus its original CI scaffolding; `uplink-kickstart/` — real Uplink example code (`uplink.py`, `test_uplink.py`, run-report YAMLs; the oldest corpus content, Jul 22) |
+| Non-site top-level folders (5) | `ai-agent/` — MyBizz's verified guide to the Anvil AI agent (`anvil-ai-agent.md`): what it can and cannot change, how a schema change reaches the tables, and how MyBizz uses it; `app-structure/` — the real `anvil.yaml` schema and app directory layout (from the clone's `doc/app-structure.md`); `debugging-guide/`; `tests/` — a real, preserved example application plus its original CI scaffolding; `uplink-kickstart/` — real Uplink example code (`uplink.py`, `test_uplink.py`, run-report YAMLs; the oldest corpus content, Jul 22) |
 | Runtime-source subfolders inside site areas | `integrations/segment/`, `integrations/airtable/`, `integrations/oauth/` (shared `oauth.clj` protocol engine used underneath Google/Facebook/Microsoft), `client/forms/html-form-parser/` (real `.cljc`/`.cljs` form-template parser) |
 
 ## Conventions (verified)

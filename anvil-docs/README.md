@@ -1,7 +1,7 @@
 ---
 title: "README"
 doc-id: "mb-21fe921d"
-updated: "2026-10-01"
+updated: "2026-11-01"
 ---
 # Anvil Docs
 
@@ -22,6 +22,9 @@ by subject.
   created to hold runtime source with no natural documentation-page
   home: `app-structure/`, `integrations/segment/`, `integrations/airtable/`,
   `integrations/oauth/`, `client/forms/html-form-parser/`.
+- **`ai-agent/`** — MyBizz's verified guide to the AI agent in the Anvil
+  editor: what it can and cannot change, how a schema change reaches the
+  tables, and how MyBizz uses it.
 - **`tests/`** — a real, complete example Anvil application
   (`apps/SmokeTest/`), preserved as working reference material, plus its
   original test/CI scaffolding.
