@@ -48,9 +48,17 @@ load_env() {
 stop_runtime() {
   for name in app-server mail; do
     if [ -f "$RUN/$name.pid" ]; then
-      kill "$(cat "$RUN/$name.pid")" 2>/dev/null || true
+      pid=$(cat "$RUN/$name.pid")
+      # The App Server launcher's Java child outlives it unless killed too.
+      pkill -P "$pid" 2>/dev/null || true
+      kill "$pid" 2>/dev/null || true
       rm -f "$RUN/$name.pid"
     fi
+  done
+  # The runtime owns these ports alone; make sure a start begins ports-free
+  # even when an orphaned child from an older run still holds one.
+  for port in "$PORT" "$MAIL_PORT" 2525; do
+    fuser -k "${port}/tcp" 2>/dev/null || true
   done
 }
 
@@ -72,7 +80,8 @@ case "$ACTION" in
     load_env
     stop_runtime
     rm -rf "$RUN"
-    mkdir -p "$RUN/mail"
+    mkdir -p "$RUN/mail" "$RUN/data"
+    mkdir -p "$RUN/mail/tmp" "$RUN/mail/new" "$RUN/mail/cur"
     chmod 700 "$RUN"
 
     # The App Server reads its keys from a config file only this user can read.
@@ -84,9 +93,57 @@ case "$ACTION" in
       -c aiosmtpd.handlers.Mailbox "$RUN/mail" > "$RUN/mail.log" 2>&1 &
     echo $! > "$RUN/mail.pid"
 
+    # The server takes the app's package name from the directory it is given,
+    # so serve the app through a package-named link in the runtime folder.
+    # Dependencies are cloned at the tag the app declares into directories
+    # adjacent to that link (the App Server's documented layout) and mapped
+    # with --dep-id keyed by dep_id; GitHub addresses come from the app's
+    # tests/ts-config.yaml (dependency_sources).
+    PLAN=$(TS_APP_DIR="$APP_DIR" TS_RUN="$RUN" "$VENV/bin/python" <<'PYEOF'
+import os, re, subprocess, sys
+import yaml
+
+app_dir = os.environ["TS_APP_DIR"]
+run = os.environ["TS_RUN"]
+with open(os.path.join(app_dir, "anvil.yaml")) as f:
+    doc = yaml.safe_load(f)
+pkg = doc.get("package_name") or re.sub(r"[^A-Za-z0-9_]", "_", os.path.basename(app_dir))
+
+sources = {}
+cfg = os.path.join(app_dir, "tests", "ts-config.yaml")
+if os.path.exists(cfg):
+    with open(cfg) as f:
+        sources = (yaml.safe_load(f) or {}).get("dependency_sources") or {}
+
+flags = []
+for dep in doc.get("dependencies") or []:
+    dep_id = dep.get("dep_id")
+    hints = dep.get("resolution_hints") or {}
+    app_id = hints.get("app_id")
+    name = hints.get("package_name")
+    tag = (dep.get("version") or {}).get("version_tag")
+    url = sources.get(app_id)
+    if not all([dep_id, name, tag, url]):
+        print(f"ts_local: cannot wire dependency {dep_id}: "
+              f"missing package name, tag or GitHub source", file=sys.stderr)
+        continue
+    dest = os.path.join(run, name)
+    if subprocess.run(["git", "clone", "--quiet", "--depth", "1",
+                       "--branch", tag, url, dest]).returncode != 0:
+        sys.exit(f"ts_local: cloning {name} at {tag} failed")
+    flags += ["--dep-id", f"{dep_id}={name}"]
+
+print(pkg)
+print(" ".join(flags))
+PYEOF
+    )
+    PKG=$(printf '%s\n' "$PLAN" | head -1)
+    read -r -a DEP_FLAGS <<< "$(printf '%s\n' "$PLAN" | tail -1)"
+    ln -sfn "$APP_DIR" "$RUN/$PKG"
+
     nohup "$VENV/bin/anvil-app-server" \
       --config-file "$RUN/anvil.conf.yaml" \
-      --app "$APP_DIR" \
+      --app "$RUN/$PKG" \
       --data-dir "$RUN/data" \
       --auto-migrate \
       --ip 127.0.0.1 \
@@ -95,6 +152,7 @@ case "$ACTION" in
       --smtp-host 127.0.0.1 \
       --smtp-port "$MAIL_PORT" \
       --smtp-server-port 2525 \
+      "${DEP_FLAGS[@]}" \
       > "$RUN/app-server.log" 2>&1 &
     echo $! > "$RUN/app-server.pid"
 
