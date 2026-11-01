@@ -1,7 +1,7 @@
 ---
 title: "pol-documentation-and-decisions"
 doc-id: "mb-ab7b68ea"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # Policy — Documentation and Decisions
 
@@ -69,5 +69,4 @@ the decisions worth a future developer reading in full, not document routine cho
 ## Where
 
 Every project this operation builds, and this operation's own shared documentation
-(`specifications-global`, `adr-global`, `policy-global`, `standard-operating-procedures-global`,
-`docs-standard-global`, `templates-global`) alike.
+(`specifications-global`, `adr-global`, `policy-global`, `docs-standard-global`) alike.

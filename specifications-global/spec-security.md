@@ -1,7 +1,7 @@
 ---
 title: "spec-security"
 doc-id: "mb-d16f800e"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # Security Specification
 
@@ -36,10 +36,10 @@ across a multi-server environment.
 | Password composition rules | None: no required mix of upper case, lower case, numbers or symbols |
 | Breached passwords | Refused (Anvil's "Require secure passwords" setting) |
 | Context words in passwords | Refused: the app's name, the business's name and the user's email; sign-up and password change run through a server function that checks them first |
-| Second factor | Required for every account holder (Anvil's "Require 2-factor authentication", which applies to the whole app) |
-| Owner's second factor | FIDO2 only (a hardware key or the device's passkey) |
-| Shoppers | Buy as guests, without an account, so they never need a second factor |
-| Remember-me and remembered second factor | At most 7 days |
+| Sign-in | Email and password; Anvil's two-factor authentication is off |
+| Vault second factor | A code from the Owner's authenticator app (TOTP) on every open, no remembered session ([[[default:specifications-global/spec-vault-system\|The Vault System]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md)) |
+| Shoppers | Buy as guests, without an account |
+| Remember-me | At most 7 days |
 | Rate limit — unauthenticated | 10 requests/minute/IP |
 | Rate limit — authenticated | 100 requests/minute/user |
 | Session inactivity timeout | 30 minutes |

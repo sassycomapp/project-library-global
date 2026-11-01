@@ -1,7 +1,7 @@
 ---
 title: "spec-anvil-platform-standards"
 doc-id: "mb-57f2e70b"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # Anvil Platform Mechanics
 
@@ -53,10 +53,10 @@ Every server function should:
   (i.e. ~22 seconds against a 30-second limit) must use a background task instead of a normal
   server call.
 
-**Plan:** every client starts on the Hobby plan, which includes background tasks with no timeout and scheduled tasks. The Hobby plan has no persistent server and no staging environment, and allows 1,000 emails a month, 150,000 rows and 10 GB of storage.
+**Plan:** every client instance runs on its own Mybizz-owned Anvil Business account. The Business plan includes background tasks with no timeout, scheduled tasks, a persistent server and staging environments, and allows 1,000,000 data table rows and 100 GB of data table storage. Email is sent through Amazon SES, not Anvil's email quota.
 
 **[EXAMPLE]** For a multi-instance deployment (e.g. 100 client instances, each running
-several scheduled tasks — health heartbeat, reminders, webhook processing), each instance runs on its own client's account, so each account's task load is checked against that client's plan.
+several scheduled tasks — health heartbeat, reminders, webhook processing), each instance runs on its own Business account, so each account's task load is checked against that account alone.
 The specific instance count and task list are project data — track them in that project's
 own deployment/authoritative-schema documents, not here.
 
@@ -84,7 +84,7 @@ finally:
 
 ## 7. Releases and Environments
 
-- The Hobby plan gives each app one environment and one database. There is no staging environment.
+- Each client instance has one environment and one database. Mybizz uses no staging environment.
 - App 1 is where development happens. A release is App 1's tagged release, pushed into App 2's repository by the developer; every client instance depends on App 2.
 - Testing before release happens on the Anvil App Server on the developer's computer and on a test client instance, not in a staging environment.
 - Rollback is re-pointing App 2 to the previous release tag — not a code revert, which does not un-publish an app.
@@ -186,7 +186,7 @@ anvil.set_default_error_handling(global_error_handler)
 | Folders | PascalCase | `ServerAuth`, `ContactListForm` |
 | Files | lowercase_with_underscores | `contact_service.py` |
 | Server modules | `{purpose}_service.py` | `booking_service.py` |
-| Integration modules | `{purpose}_integration.py` | `brevo_integration.py` |
+| Integration modules | `{purpose}_integration.py` | `paystack_integration.py` |
 | Client modules | `{purpose}_utils.py` | `validation_utils.py` |
 | Database tables | lowercase_snake | `contacts`, `bookings` |
 | Link columns | `{table}_id` or singular name | `contact_id`, `service_id` |
@@ -314,7 +314,7 @@ storage for large media.
 
 ## 25. Persistent Server Requirement
 
-The Hobby plan, on which every client starts, has no persistent server. Every feature is designed to work without one: no state is kept in module-level variables between calls, and slow start-up work is avoided or cached in Data Tables.
+The Business plan offers a persistent server. Every feature is still designed to work without one, so a server restart loses nothing: no state is kept in module-level variables between calls, and slow start-up work is avoided or cached in Data Tables.
 
 ## 26. `app_tables` Resolution Failure
 

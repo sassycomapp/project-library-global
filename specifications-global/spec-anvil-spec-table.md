@@ -1,7 +1,7 @@
 ---
 title: "spec-anvil-spec-table"
 doc-id: "mb-867fb5cd"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # Anvil Specification Table
 
@@ -707,7 +707,7 @@ finally:
 ```python
 @anvil.server.background_task
 def process_email_campaigns():
-    """Hourly — sends via Brevo Campaigns API. No timeout limit."""
+    """Hourly — sends through Amazon SES. No timeout limit."""
     campaigns = app_tables.email_campaigns.search(status='active')
     for campaign in campaigns:
         process_enrollments(campaign)

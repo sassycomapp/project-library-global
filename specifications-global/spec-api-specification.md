@@ -1,7 +1,7 @@
 ---
 title: "spec-api-specification"
 doc-id: "mb-639a7203"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # Mybizz — API Specification (HTTP Endpoints)
 
@@ -15,7 +15,7 @@ Client instances expose two categories of HTTP endpoints:
 
 | Category | Purpose | Authentication | Built In |
 |---|---|---|---|
-| Webhook handlers | Receive events from external services (Stripe, Paystack, Brevo) | Gateway signature verification | Phase 2 |
+| Webhook handlers | Receive events from external services (Stripe, Paystack, PayPal, Amazon SES through SNS) | The sender's signature verification | Phase 2 |
 | Management endpoints | Mybizz_management communication with client instances | Bearer token | Phase 1 |
 
 Both ship with master_template — all client instances have them from provisioning.
@@ -56,20 +56,38 @@ Both ship with master_template — all client instances have them from provision
 
 **Pattern:** Same as Stripe — validate, log, dispatch, return 200.
 
-### 2.3 Brevo Webhooks
+### 2.3 PayPal Webhooks
 
-**URL:** `[base_url]/_/api/webhooks/brevo`
+**URL:** `[base_url]/_/api/webhooks/paypal`
 **Method:** POST
-**Authentication:** Brevo webhook signature
+**Authentication:** PayPal's verify-webhook-signature call, with the client's PayPal webhook ID
 
 **Events handled:**
-- Email open tracking → Update `email_log` status
-- Email click tracking → Log click event
-- Unsubscribe events → Update contact subscription status
+- `PAYMENT.CAPTURE.COMPLETED` → Update payment status
+- `PAYMENT.CAPTURE.DENIED` → Mark payment failed
+- `PAYMENT.CAPTURE.REFUNDED` → Record the refund
+
+**Pattern:** Same as Stripe — validate, log, dispatch, return 200.
+
+### 2.4 Amazon SES Notifications (through Amazon SNS)
+
+**URLs:**
+- `[base_url]/_/api/email/inbound` — a received email, stored by SES in the client's S3 prefix
+- `[base_url]/_/api/email/events` — delivery, bounce, complaint, open and click events
+- `[base_url]/_/api/email/unsubscribe` — the unsubscribe link in marketing email (signed link, no SNS)
+
+**Method:** POST (unsubscribe: GET and POST)
+**Authentication:** SNS message signature, checked with Amazon's signing certificate; the SNS subscription confirmation is accepted only for the client's own topic
+
+**Events handled:**
+- Received email → Read from S3, store in the shared inbox
+- Bounce or complaint → Add the address to the suppression list
+- Delivery, open, click → Update `email_log`
+- Unsubscribe → Add the address to the suppression list for marketing email
 
 **Pattern:** Same as payment webhooks — validate, log, dispatch, return 200.
 
-### 2.4 Webhook Handler Requirements
+### 2.5 Webhook Handler Requirements
 
 | Requirement | Rule |
 |---|---|

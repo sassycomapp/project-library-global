@@ -1,19 +1,19 @@
 ---
 title: "spec-mybizz-management-app-notification-system"
 doc-id: "mb-631f063d"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # `mybizz-management-app-notification-system` Spec — Platform-to-Client Notification Console
 
-**Status:** Draft — for review
-**Lives in:** `Mybizz_management` (App 5 — deferred, post-launch per the five-app architecture)
+**Status:** Accepted
+**Lives in:** `Mybizz_management` (App 5, built before launch)
 **Depends on:** [[[default:specifications-global/spec-mastertemplate-notification-system|Notification Engine for Client Instances]]](C:/dev/project-library-global/specifications-global/spec-mastertemplate-notification-system.md) (the receiving engine this console calls into)
 
 ---
 
 ## 1. Status
 
-Draft. Not buildable until App 5 exists. This spec should be treated as a forward-looking design, written now so that the provisioning dependency it creates (§5) can be accounted for whenever `blank_client_template` provisioning is next revised — not necessarily built alongside App 5's launch.
+Built with Mybizz_management (App 5), before launch. Its provisioning step (§5) is part of the Client Instance Activation Runbook.
 
 ---
 
@@ -85,11 +85,11 @@ All tables below are Anvil Data Tables local to `Mybizz_management` — they are
 | `client_id` | Text, unique | Matches the client instance's slug/identifier |
 | `client_name` | Text | Display name for the compose UI |
 | `endpoint_url` | Text | The client instance's `receive_platform_notification` HTTP endpoint URL |
-| `auth_token` | Text (store via Anvil App Secrets, not plain column, if column-level encryption is unavailable in your plan) | Shared secret validated by the client instance on receipt |
+| `auth_token` | Text, encrypted | The client instance's management Bearer token, validated by the client instance on receipt |
 | `status` | Text | `active` \| `inactive` \| `provisioning` |
 | `created_at` | Date/Time | |
 
-**Provisioning dependency:** every row here must be created at the same time a client instance is provisioned via `blank_client_template`, and the same `auth_token` value must be written into that client instance's own stored secret so the two sides agree. This is a two-app write and is not yet covered by any existing provisioning document — see §9.2.
+**Provisioning dependency:** every row here must be created at the same time a client instance is provisioned via `blank_client_template`, and the same `auth_token` value must be written into that client instance's own stored secret so the two sides agree. This is the management token step of the [[[default:specifications-global/spec-client-activation-runbook|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) (Step 6).
 
 ### 5.2 `platform_delivery_logs`
 
@@ -136,11 +136,10 @@ def push_to_client(client_id, notification_payload):
     """Looks up endpoint_url + auth_token from client_registry, POSTs the signed
     payload to receive_platform_notification, writes one platform_delivery_logs
     row with the result. Retries on 5xx/timeout with backoff (1s → 2s → 4s),
-    same pattern as the source design's dispatcher retry logic — capped by the
-    same 30-second Background Task runtime limit noted in the companion spec's
-    §9.1."""
+    same pattern as the source design's dispatcher retry logic. Background
+    tasks have no runtime cap on the Business plan."""
 
-@anvil.server.background_task  # Scheduled Tasks — paid plan
+@anvil.server.background_task  # run by a Scheduled Task
 def process_scheduled_platform_notifications():
     """Polls sent_notifications for rows whose scheduled_for has arrived and have
     not yet been pushed, and launches push_to_client for each resolved target."""
@@ -177,12 +176,12 @@ Consistent with [[[default:specifications-global/spec-mastertemplate-notificatio
 
 ---
 
-## 9. Open Questions / Dependencies
+## 9. Dependencies
 
-1. **App 5 sequencing.** This entire spec is inert until `Mybizz_management` is built. No action required now beyond keeping this document current.
-2. **Provisioning addendum.** `client_registry` rows and each client instance's matching stored secret must be created together at provisioning time. This should be added to [[[default:specifications-global/spec-client-activation-runbook|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) when App 5's build begins — not before, to avoid maintaining a provisioning step for infrastructure that does not yet exist.
-3. **Auth token storage.** Confirm whether Anvil's App Secrets service (encryption at rest) is available at the relevant plan tier for both `Mybizz_management` and each client instance, or whether a plain encrypted-column approach is required instead.
-4. **Broadcast volume.** At what client count does a `broadcast` send meaningfully strain the Background Task model (one task per client, each under the 30-second cap)? Not a concern at current or near-term client counts; worth revisiting only if client count grows by an order of magnitude.
+1. **Build order.** This console is built with Mybizz_management, before launch.
+2. **Provisioning.** The `client_registry` row and the instance's matching token are created together at provisioning (Activation Runbook, Step 6).
+3. **Auth token storage.** The token is the client instance's management Bearer token, generated at provisioning ([[[default:specifications-global/spec-client-activation-runbook|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md), Step 6), held encrypted in the Mybizz_management client registry and in the instance's Vault.
+4. **Broadcast volume.** A broadcast launches one background task per client; Business plan background tasks have no runtime cap, so volume grows with client count without a per-task limit.
 
 ---
 
@@ -192,6 +191,6 @@ Consistent with [[[default:specifications-global/spec-mastertemplate-notificatio
 |---|---|
 | [[[default:specifications-global/spec-mastertemplate-notification-system\|Notification Engine for Client Instances]]](C:/dev/project-library-global/specifications-global/spec-mastertemplate-notification-system.md) | The receiving engine and shared UI this console pushes into |
 | [[[default:adr-global/adr-client-instance-architecture\|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) | Basis for why this app cannot use `app_tables` to reach client data directly |
-| [[[default:adr-global/adr-client-instance-readme-five-app-system\|Client Instance Readme Five App System]]](C:/dev/project-library-global/adr-global/adr-client-instance-readme-five-app-system.md) | Confirms App 5's deferred status and the five-app boundary this spec respects |
+| [[[default:adr-global/adr-client-instance-readme-five-app-system\|Client Instance Readme Five App System]]](C:/dev/project-library-global/adr-global/adr-client-instance-readme-five-app-system.md) | The five-app boundary this spec respects |
 | `Notification-System-Design.md` | Source design; §8 of this document records what was deliberately not carried over |
 

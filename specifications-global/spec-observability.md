@@ -1,7 +1,7 @@
 ---
 title: "spec-observability"
 doc-id: "mb-3d23160a"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # Observability Requirements
 
@@ -21,7 +21,7 @@ Tables as the observability store. Each instance pushes a heartbeat summary of t
 | Table | Purpose | Retention |
 |---|---|---|
 | `health_log` | Heartbeat pings, uptime indicators | Rolling window |
-| `audit_log` | Business-level operation events (who did what, when) | Permanent |
+| `activity_log` | Business-level operation events (who did what, when) | Permanent |
 | `error_log` | Uncaught exceptions, stack traces, error context | Rolling window |
 
 All three are written by server functions only. No client-side code writes to log tables.

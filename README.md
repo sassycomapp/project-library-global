@@ -1,13 +1,13 @@
 ---
 title: "README"
 doc-id: "mb-a89ef3b2"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # project-library-global
 
 Shared standards library, referenced by every Mybizz project — global ADRs, policies,
-specifications, standard operating procedures, and document templates that apply across the
-whole division, not to any single project.
+specifications, document standards and the test suite that apply across the whole division,
+not to any single project.
 
 It is a reference library that every project reads from. It depends on nothing else.
 
@@ -21,6 +21,4 @@ It is a reference library that every project reads from. It depends on nothing e
 | `rules-cupcake-global/` | Source rules for Cupcake |
 | `security-global/` | Security documents |
 | `specifications-global/` | Specifications |
-| `standard-operating-procedures-global/` | Standard operating procedures |
-| `templates-global/` | Templates |
 | `test-suite/` | Test method, catalogue and conformance checks |

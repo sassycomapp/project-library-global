@@ -1,7 +1,7 @@
 ---
 title: "spec-onboarding-implementation-plan"
 doc-id: "mb-edfcb7ed"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # Onboarding System — Engineering Plan
 
@@ -11,7 +11,7 @@ updated: "2026-10-23"
 > - **Bidirectional navigation** between Onboarding and Settings
 > - **Mybizz_management amendment log** — append-only credential change history
 > - **Client data rights** — Owner may remove details from Client Details Table, but not from Retained Records Table
-> - All ADR references use full file names (e.g., [[[default:adr-global/adr-brevo-email-and-crm|Brevo for Email and CRM]]](C:/dev/project-library-global/adr-global/adr-brevo-email-and-crm.md))
+> - All ADR references use full file names (e.g., [[[default:adr-global/adr-brevo-email-and-crm|Amazon SES for Email; CRM Built In]]](C:/dev/project-library-global/adr-global/adr-brevo-email-and-crm.md))
 
 ---
 
@@ -69,12 +69,12 @@ Create a new Client instance shell with minimal configuration, then notify the O
 
 | Step | Action | Data Created | Output |
 |------|--------|--------------|--------|
-| 1 | Create new Anvil instance (copy from master_template) | New app ID, new database | Instance ready |
+| 1 | Clone `blank_client_template` into the client's new Mybizz-owned Anvil Business account ([[[default:specifications-global/spec-client-activation-runbook\|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md)) | New app ID, new database | Instance ready |
 | 2 | Create Owner user account | `users` row with Owner role | Owner credentials |
 | 3 | Create empty `business_profile` row | `business_profile` row | Profile exists |
 | 4 | Set onboarding status | `business_profile.onboarding_status = "in_progress"` | State initialised |
 | 5 | Create client record in Mybizz_management | Client Details Table entry | Record exists |
-| 6 | Send welcome email with login credentials | Email via Brevo | Owner notified |
+| 6 | Send welcome email with the link to set a password (no password is ever emailed) | Email through Amazon SES | Owner notified |
 
 > **Note:** Currency and payment gateway are NOT set by Mybizz during provisioning. The Owner configures these in Onboarding and Settings respectively. **[[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md), [[[default:adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed|Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed.md)**
 
@@ -236,10 +236,10 @@ The Settings form uses M3 buttons for tab navigation:
 | **System Currency** | Currency display (locked after first transaction) | Owner only |
 | **Legal Acknowledgement** | Read-only view of acknowledgements | Owner only |
 | **Display Currency** | Optional per-service currency override | Owner, Manager |
-| **Payment Gateway** | Stripe/Paystack configuration (API keys stored in The Vault) | Owner only |
+| **Payment Gateway** | Stripe/Paystack and PayPal configuration (API keys stored in The Vault) | Owner only |
 | **Services** | Service catalogue management | Owner, Manager, Admin |
 | **Users & Permissions** | User management and RBAC | Owner only |
-| **Email Configuration** | Brevo SMTP and API settings | Owner only |
+| **Email Configuration** | Sender name and addresses on the client's domain; SES credentials are set by Mybizz_management in The Vault | Owner only |
 | **Theme** | M3 theme customisation | Owner, Manager |
 | **Feature Flags** | Feature activation toggles | Owner only |
 
@@ -423,20 +423,20 @@ Post-Onboarding (accessible at any time)
 | [[[default:adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed\|Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed.md) | Payment Gateway Configuration Is Settings | Gateway configured in Settings, not onboarding |
 | [[[default:adr-global/adr-onboarding-data-schema-alignment\|Onboarding Data Schema Alignment]]](C:/dev/project-library-global/adr-global/adr-onboarding-data-schema-alignment.md) | Onboarding Data Schema Alignment | All field names match authoritative-schema.md |
 | [[[default:adr-global/adr-client-data-management-rights-and-mybizz-retention-boundary\|Client Data Management Rights and Mybizz Retention Boundary]]](C:/dev/project-library-global/adr-global/adr-client-data-management-rights-and-mybizz-retention-boundary.md) | Client Data Management Rights | Owner may remove details from Client Details Table, not Retained Records Table |
-| [[[default:adr-global/adr-tiers-model\|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md) | Tiers Model | Tiers (Free Trial, Launch, Pioneer, Business) are pricing constructs |
+| [[[default:adr-global/adr-tiers-model\|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md) | Tiers Model | One price, $150 a month; setup services separate |
 | [[[default:adr-global/adr-onboarding-resumability\|Onboarding Resumability]]](C:/dev/project-library-global/adr-global/adr-onboarding-resumability.md) | Onboarding Resumability | Progress preserved, can leave and return |
 | [[[default:adr-global/adr-payment-gateway-mutability\|Payment Gateway Mutability]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-mutability.md) | Payment Gateway Mutability | Gateway can change under approved rules |
 | [[[default:adr-global/adr-onboarding-finality\|Onboarding Finality]]](C:/dev/project-library-global/adr-global/adr-onboarding-finality.md) | Onboarding Finality | Onboarding is resumable; credential changes are append-only |
 
 ---
 
-## 11. Tier and Setup Support Model
+## 11. Price and Setup Support Model
 
-- **Tiers** (Free Trial, Launch, Pioneer, Business) differ by price and feature access; they do not alter the onboarding flow. **[[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md)**
+- **Price:** one price, $150 a month per client, with every feature; there are no tiers. **[[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md)**
 - **Setup support** is a separate operational offering:
-  - All tiers include a 30-minute interactive setup session with Mybizz
-  - A $100 DFY (Done For You) setup option is available; this is an operational service, not a different software onboarding flow
-- The onboarding implementation plan does not vary by tier or support option
+  - Self-setup with the onboarding wizard and its help videos is included
+  - Assisted setup is $200 once; Mybizz does the onboarding wizard with the client on a call. It is an operational service, not a different software onboarding flow
+- The onboarding implementation plan does not vary by support option
 
 ---
 
@@ -448,12 +448,12 @@ Post-Onboarding (accessible at any time)
 2. **Implement tabbed SettingsForm** — M3 button tabs, RBAC-governed, "Return to Onboarding" button
 3. **Implement system currency selection** — dropdown + confirmation button, immutability after first transaction
 4. **Implement legal acknowledgement** — text with critical excerpts, "Read more" link, checkbox, confirmation button
-5. **Implement client-instance audit log** — append-only credential change logging (sync to Mybizz_management amendment log when Mybizz_management is built — out of scope for current project)
+5. **Implement client-instance audit log** — append-only credential change logging, synced to the Mybizz_management amendment log
 6. **Add new columns to `business_profile` table** (9 columns listed in Section 7.1)
 
 ### 12.2 Dependencies
 
-- **Mybizz_management app** is out of scope for current project. Client-instance audit log captures events locally; sync to Mybizz_management deferred.
+- **Mybizz_management app** is built before launch and receives the client-instance audit log through its event endpoint.
 - **`business_profile` table schema** must be updated with new columns
 - **`PaletteSettingsForm` custom component** must be available for palette selection in Settings
 - **The Vault** must be available for post-onboarding API key storage

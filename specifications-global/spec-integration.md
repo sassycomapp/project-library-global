@@ -1,11 +1,11 @@
 ---
 title: "spec-integration"
 doc-id: "mb-a1d9a710"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # Mybizz — Integration Specification
 
-**Scope:** Mybizz-wide. Covers all external service integrations — Brevo (email + CRM), Stripe (payments), Paystack (payments).
+**Scope:** Mybizz-wide. Covers all external service integrations — Amazon SES (all email), Stripe and Paystack (card payments), PayPal (optional second payment method).
 
 ---
 
@@ -21,70 +21,72 @@ All external service integrations follow the same pattern:
 
 ---
 
-## 2. Brevo Integration
+## 2. Amazon SES Integration
 
-Brevo is the single platform for transactional email, marketing campaigns, and CRM.
+Amazon SES is the single email service: every email received and sent. The CRM is built into the application; no outside CRM is integrated ([[[default:adr-global/adr-brevo-email-and-crm|Amazon SES for Email; CRM Built In]]](C:/dev/project-library-global/adr-global/adr-brevo-email-and-crm.md)).
 
 ### 2.1 Credentials
 
 | Vault Key | Purpose | Used By |
 |---|---|---|
-| `brevo_smtp_key` | SMTP authentication | Transactional email |
-| `brevo_api_key` | REST API | CRM sync, campaigns, automation, webhooks |
+| `aws_access_key_id`, `aws_secret_access_key` | SES API and the client's received-email prefix in S3, scoped to this client | Sending, receiving |
+| `ses_smtp_password` | Anvil's Custom Mail Server | System email |
 
-### 2.2 SMTP (Transactional Email)
+All three are written by Mybizz_management at provisioning. Each client has its own SES tenant and domain identity in Mybizz's AWS account, region `eu-west-1`.
 
-**Constants (hardcoded, identical for all clients):**
-- Host: `smtp-relay.brevo.com`
+### 2.2 Sending
+
+**SMTP constants (identical for all clients, not stored):**
+- Host: `email-smtp.eu-west-1.amazonaws.com`
 - Port: `587` (STARTTLS)
 
 **Client-specific configuration (in `email_config` table):**
-- `from_email` — verified sender address
+- `from_email` — an address on the client's domain
 - `from_name` — sender display name
 
-**Emails sent via Brevo SMTP:**
+**Emails sent through the SES API:**
 - Booking confirmations
 - Appointment reminders (24h and 1h)
 - Invoice delivery
 - Payment receipts
 - Welcome emails (post-onboarding)
+- Marketing sequences and broadcasts
 
 **Error handling:**
-- SMTP connection failures → retry 3 times with exponential backoff
+- Connection failures → retry 3 times with exponential backoff
 - Authentication failures → log to `error_log`, alert owner
-- Rate limiting (429) → skip and retry on next scheduled run
+- Throttling → queue and retry on next scheduled run
 
-### 2.3 Campaigns API (Marketing Email)
+### 2.3 Receiving
 
-**Endpoint:** `https://api.brevo.com/v3/emailCampaigns`
+MX record on the client's domain → SES → the client's S3 prefix → SNS → `[base_url]/_/api/email/inbound` → a background task reads the email from S3, stores it in the instance and deletes it from S3.
+
+### 2.4 Events and Unsubscribe
+
+- SES reports deliveries, bounces, complaints, opens and clicks through SNS to `[base_url]/_/api/email/events`.
+- A hard bounce or a complaint adds the address to the suppression list; no email is sent to a suppressed address.
+- Every marketing email carries an unsubscribe link to `[base_url]/_/api/email/unsubscribe` and the `List-Unsubscribe` and `List-Unsubscribe-Post` headers.
+
+### 2.5 Marketing Email
 
 **Campaign types:**
 - **Sequences** — automated email sequences triggered by events (new client welcome, appointment follow-up, re-engagement, referral request)
 - **Broadcasts** — one-time email announcements sent to selected segments
 
 **Integration pattern:**
-1. Create campaign via Brevo API
-2. Enroll contacts based on triggers
-3. Track opens/clicks via Brevo webhooks
-4. Handle unsubscribes automatically
+1. The application's campaign tables hold the campaign and its enrolled contacts
+2. An hourly background task sends the next email of each enrolment through SES
+3. Opens and clicks arrive as SES events (2.4)
+4. Unsubscribes are handled automatically (2.4)
 
 **Error handling:**
-- API rate limits (429) → skip contact, retry on next hourly run
+- Throttling → skip contact, retry on next hourly run
 - API errors → log to `error_log`, continue with next contact
 - Maximum 3 retries per contact per campaign run
 
-### 2.4 CRM API
+### 2.6 DNS Records
 
-Brevo's built-in CRM stores contacts. Mybizz syncs contacts from the client instance to Brevo.
-
-**Sync pattern:**
-- On contact creation → push to Brevo
-- On contact update → push to Brevo
-- On contact deletion → remove from Brevo (if applicable)
-
-**Fields synced:**
-- Email, first name, last name, phone
-- Tags, status, lifecycle stage
+Written on the client's domain at onboarding: MX `inbound-smtp.eu-west-1.amazonaws.com`; the three DKIM CNAME records; MAIL FROM `mail.{domain}` with MX `feedback-smtp.eu-west-1.amazonses.com`; SPF `v=spf1 include:amazonses.com ~all`; DMARC `v=DMARC1; p=quarantine; adkim=r; aspf=r`.
 
 ---
 
@@ -95,6 +97,7 @@ Brevo's built-in CRM stores contacts. Mybizz syncs contacts from the client inst
 | Vault Key | Purpose |
 |---|---|
 | `stripe_secret_key` | Server-side payment processing |
+| `stripe_webhook_secret` | Webhook signature verification |
 
 **Public key** (safe for client-side): stored in `payment_config.stripe_publishable_key`
 
@@ -158,9 +161,35 @@ Brevo's built-in CRM stores contacts. Mybizz syncs contacts from the client inst
 
 ---
 
-## 5. Gateway-Agnostic Service Layer
+## 5. PayPal Integration
 
-Both Stripe and Paystack use the same underlying service interface. The active gateway is selected in Settings (`payment_config.active_gateway`).
+PayPal is an optional second payment method beside the card gateway.
+
+### 5.1 Credentials
+
+| Vault Key | Purpose |
+|---|---|
+| `paypal_client_secret` | Server-side order and capture calls |
+| `paypal_webhook_id` | Webhook signature verification |
+
+**Client ID** (safe for client-side): stored in `payment_config` table.
+
+### 5.2 Webhook Events
+
+| Event | Action |
+|---|---|
+| `PAYMENT.CAPTURE.COMPLETED` | Mark payment successful |
+| `PAYMENT.CAPTURE.DENIED` | Mark payment failed |
+| `PAYMENT.CAPTURE.REFUNDED` | Record the refund |
+
+**Webhook URL:** `[base_url]/_/api/webhooks/paypal`
+**Signature verification:** PayPal's verify-webhook-signature call with `paypal_webhook_id`.
+
+---
+
+## 6. Gateway-Agnostic Service Layer
+
+Stripe, Paystack and PayPal use the same underlying service interface. The active card gateway is selected in Settings (`payment_config.active_gateway`); PayPal is switched on or off beside it.
 
 **Service interface:**
 ```python
@@ -173,11 +202,11 @@ Switching gateways later does not require reconfiguring services or bookings. Th
 
 ---
 
-## 6. Secret Management
+## 7. Secret Management
 
 All integration secrets follow the two-level model defined in [[[default:specifications-global/spec-vault-system|Vault System Specification]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md):
 1. **Anvil Secrets** holds exactly one item: `encryption_key`
-2. **Vault** holds all integration credentials (Brevo, Stripe, Paystack)
+2. **Vault** holds all integration credentials (Amazon SES, Stripe, Paystack, PayPal, R2)
 3. **`payment_config`** holds only publishable keys (safe for client-side)
 4. **`email_config`** holds only sender name and email (not credentials)
 
@@ -185,7 +214,7 @@ All integration secrets follow the two-level model defined in [[[default:specifi
 
 ---
 
-## 7. Integration Error Logging
+## 8. Integration Error Logging
 
 All integration failures are logged to the `error_log` table with:
 
@@ -196,16 +225,16 @@ All integration failures are logged to the `error_log` table with:
 
 ---
 
-## 6. Three-Tier Email Architecture
+## 9. Three-Tier Email Architecture
 
 Email communications are deliberately classified into three distinct tiers, each using a
-different delivery mechanism appropriate to its purpose:
+separate stream appropriate to its purpose:
 
 | Tier | Purpose | Mechanism | Examples | Sender identity |
 |---|---|---|---|---|
-| 1 — System | Platform-originated, no business identity | Anvil built-in email | Login confirmations, password resets, email verification | Anvil platform (noreply) |
-| 2 — Transactional | Business-operational, client's identity | Brevo SMTP | Booking confirmations, reminders, invoices, payment receipts | Client's business domain |
-| 3 — Marketing | Campaign sequences, newsletters | Brevo Campaigns API | Broadcast emails, automated sequences, newsletters | Client's business domain |
+| 1 — System | Sign-in and account email | Anvil's Users service through SES (Custom Mail Server) | Login confirmations, password resets, email verification | Client's business domain (noreply) |
+| 2 — Transactional | Business-operational, client's identity | SES API, transactional stream | Booking confirmations, reminders, invoices, payment receipts | Client's business domain |
+| 3 — Marketing | Campaign sequences, newsletters | SES API, marketing stream | Broadcast emails, automated sequences, newsletters | Client's business domain |
 
 **Tier 3 additional requirements:**
 - Unsubscribe management per contact

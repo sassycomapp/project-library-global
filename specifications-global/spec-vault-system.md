@@ -1,7 +1,7 @@
 ---
 title: "spec-vault-system"
 doc-id: "mb-4960a0bb"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # Mybizz — The Vault System
 
@@ -13,7 +13,7 @@ updated: "2026-10-23"
 
 - **Anvil Secrets** holds exactly one item: a master encryption key, set at provisioning, never changed, used exclusively inside a dedicated vault-service module to encrypt/decrypt application-level secrets. No other code calls `anvil.secrets.get_secret()` directly.
 - **The Vault** (an application-level encrypted Data Table) holds every other credential — client API keys, integration tokens. Retrieved only via a `get_vault_secret(name)` function, never accessed directly by integration modules.
-- **Access control:** restrict Vault access to the Owner role, require a fresh second factor on every open with no grace period (the Owner's is FIDO2, per [[[default:specifications-global/spec-security]]](C:/dev/project-library-global/specifications-global/spec-security.md)), and send a notification on every access.
+- **Access control:** restrict Vault access to the Owner role, require a code from the Owner's authenticator app (TOTP, the Vault's own secret `vault_totp_secret`) on every open with no remembered session, lock the Vault for 15 minutes after 5 wrong codes, and email the Owner on every access.
 
 ## 2. Secret Enforcement and Masking
 
@@ -37,27 +37,28 @@ assert not (_PAYMENT_SECRET_COLUMNS & set(data.keys())), (
 
 Each application lists its own Vault contents, its Vault form and its build sequence in its own project library. Publishable keys (for example a Stripe publishable key) are safe for client-side use and are stored in the payment configuration table, not the Vault.
 
-## 4. Second-Factor Recovery
+## 4. Authenticator Enrolment and Recovery
 
-If the Owner loses their second-factor device, the following recovery path applies:
-
-1. Owner contacts Mybizz support (Mybizz_management)
-2. Mybizz_management verifies the Owner's identity through out-of-band process
-3. Mybizz_management resets the Owner's second-factor configuration
-4. Owner enrols a new FIDO2 key or passkey
-5. The reset event is logged in the Mybizz_management amendment log (append-only)
+- On the first open of the Vault, the Owner enrols an authenticator app: the instance shows a QR code and the Owner confirms with one code.
+- If the Owner loses the authenticator:
+  1. The Owner opens a support ticket while signed in to the instance
+  2. Mybizz confirms the Owner's identity by a separate channel: a phone call to the number on the client's Mybizz_management record, where the Owner gives the client reference number
+  3. Mybizz_management clears `vault_totp_secret` through the instance's management endpoint; no stored secret is read or changed
+  4. On the next open of the Vault, the Owner enrols a new authenticator
+  5. The reset is logged in the instance's audit log and in the Mybizz_management amendment log (append-only), and the Owner is emailed
 
 **Constraints:**
-- Only Mybizz_management can reset the Owner's second factor — no self-service recovery
-- The reset event is permanently logged for audit
+- Only Mybizz_management can reset the Vault code — no self-service recovery and no backup codes
+- Mybizz never sees, sets or sends a Vault code
+- Each application's project library holds its recovery procedure
 
 ## Related Documents
 
 | Document | Relationship |
 |---|---|
 | [[[default:adr-global/adr-payment-security-boundary-vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) | Architectural decision |
-| [[[default:adr-global/adr-anvil-platform-constraints]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) | Anvil secrets limits, Owner second-factor recovery |
-| [[[default:adr-global/adr-brevo-email-and-crm]]](C:/dev/project-library-global/adr-global/adr-brevo-email-and-crm.md) | Vault credentials for Brevo |
+| [[[default:adr-global/adr-anvil-platform-constraints]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) | Anvil secrets limits |
+| [[[default:adr-global/adr-brevo-email-and-crm]]](C:/dev/project-library-global/adr-global/adr-brevo-email-and-crm.md) | Vault credentials for Amazon SES |
 | [[[default:adr-global/adr-observability-architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md) | Vault access audit logging |
 | [[[default:adr-global/adr-mybizz-management-visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md) | Vault access event forwarding |
 | [[[default:specifications-global/spec-security-architecture]]](C:/dev/project-library-global/specifications-global/spec-security-architecture.md) | RBAC role limits, sign-in, token security |

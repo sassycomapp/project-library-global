@@ -1,7 +1,7 @@
 ---
 title: "spec-deployment"
 doc-id: "mb-4a8a251d"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # Mybizz — Deployment Specification
 
@@ -11,14 +11,14 @@ updated: "2026-10-23"
 
 ## 1. Deployment Model
 
-Every Mybizz business has five apps (see [[[default:specifications-global/spec-five-app-architecture-model]]](C:/dev/project-library-global/specifications-global/spec-five-app-architecture-model.md)). Each app has one environment and one database; the Hobby plan, on which every client starts, has no staging environment.
+Every Mybizz business has five apps (see [[[default:specifications-global/spec-five-app-architecture-model]]](C:/dev/project-library-global/specifications-global/spec-five-app-architecture-model.md)). Each app has one environment and one database; Mybizz uses no staging environment. Each client instance runs on its own Mybizz-owned Anvil Business account.
 
 | App | Role in deployment |
 |---|---|
 | App 1 — `{slug}-app1` | Development. Features are built and tested here, and each release is tagged here (`vMAJOR.MINOR.PATCH`). |
 | App 2 — `master_template` | The release. It holds exactly App 1's latest released tag. Every client instance depends on it. |
 | App 3 — `blank_client_template` | The released schema, with no data. New client instances are cloned from it. |
-| App 4 — each client instance | On the client's own Anvil account; its code comes from App 2 through the dependency. |
+| App 4 — each client instance | On its own Mybizz-owned Anvil Business account; its code comes from App 2 through the dependency. |
 | App 5 — Mybizz management | Receives heartbeats and events; sends control calls. |
 
 Testing before release happens on the Anvil App Server on the developer's computer and on a test client instance, not in a staging environment.
@@ -140,7 +140,7 @@ Test runs on the local Anvil App Server need no backup: they start from an empty
 
 ## 7. Client Instances
 
-Each client instance is a separate Anvil app on the client's own account. Deployment to client instances is automatic through the dependency model:
+Each client instance is a separate Anvil app on its own Mybizz-owned Anvil Business account. Deployment to client instances is automatic through the dependency model:
 
 - **Code updates:** Automatic — once a release is in App 2, every client instance receives it
 - **Schema updates:** Manual — applied per client instance
@@ -176,12 +176,15 @@ Schema migrations are classified into three types, each with its own ordered pro
 
 ## 8. Account-Level Failure Scenarios
 
-Any Anvil project operating multiple client instances under a single Anvil account has a
-single point of failure at the account level. Documented responses for each scenario:
+Mybizz's development account holds Apps 1, 2, 3 and 5, and every client instance depends on
+App 2, so that account is the single point of failure for every client. Each client instance
+is on its own Business account, so a failure of one client account affects only that client.
+Documented responses for each scenario:
 
 | Scenario | Detection | Recovery | Prevention |
 |---|---|---|---|
-| Account suspension | Email from Anvil + app unavailable | Contact Anvil support immediately; no self-service recovery | Monitor billing status |
+| Development account suspension | Email from Anvil; App 2 and App 5 unavailable; heartbeats stop | Contact Anvil support immediately; no self-service recovery | Monitor billing status |
+| Client account suspension | That client's heartbeats stop | Contact Anvil support; if not restored, clone the instance from App 3 into a new Business account and restore its data from R2 | Monitor billing status and usage in App 5 |
 | Account compromise | Unauthorized changes, unknown collaborators | Contact Anvil support; rotate all credentials; audit all instances | Strong passwords, 2FA, restrict collaborators |
 | Platform outage | App unreachable, `anvil.works` status page | No recovery action possible — wait for Anvil resolution | Document recovery expectations in client SLA |
 

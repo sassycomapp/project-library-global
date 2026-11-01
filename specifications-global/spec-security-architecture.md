@@ -1,7 +1,7 @@
 ---
 title: "spec-security-architecture"
 doc-id: "mb-9112b5a3"
-updated: "2026-10-24"
+updated: "2026-11-01"
 ---
 # Mybizz — Security & Secrets Architecture
 
@@ -28,13 +28,13 @@ Five roles, per the standard RBAC pattern (see [[[default:specifications-global/
 
 ### Sign-in
 
-- Every account holder signs in with a password and a second factor. Anvil can require a second factor only for the whole app, so every account holder has one, a Customer with a portal account included. Shoppers who only buy check out as guests, without an account.
-- The Owner uses only FIDO2 (a hardware key or the device's passkey), which resists phishing. The Owner's high-value functions are refused while any other kind of second factor is enrolled.
-- Vault access, refunds above the set limit, role changes, exports, gateway changes and price changes need a second factor given in the last five minutes. The user re-confirms by signing in again with password and second factor (for FIDO2, Anvil's `anvil.users.mfa.get_fido_mfa_login` and `anvil.users.login_with_email`); the server accepts these calls only within five minutes of the user's `last_login`. Vault access needs this on every open.
+- Every account holder signs in with email and password. Anvil's two-factor authentication is off. Shoppers who only buy check out as guests, without an account.
+- The Vault has its own second factor: a code from the Owner's authenticator app (TOTP) on every open, with no remembered session ([[[default:specifications-global/spec-vault-system|The Vault System]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md)).
+- Vault access, refunds above the set limit, role changes, exports, gateway changes and price changes need a sign-in in the last five minutes. The user re-confirms by signing in again with password (`anvil.users.login_with_email`); the server accepts these calls only within five minutes of the user's `last_login`. Vault access also needs the Vault code on every open.
 
 ### Ending a user's sessions
 
-The Owner can end any user's sessions. A server function clears that user's remembered logins and remembered second factor, and records the time; every server function refuses a session that began before that time.
+The Owner can end any user's sessions. A server function clears that user's remembered logins, and records the time; every server function refuses a session that began before that time.
 
 ## 2. Mybizz_management Token Security (per [[[default:adr-global/adr-mybizz-management-visibility|Mybizz_management Visibility and Control]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md) ADR)
 

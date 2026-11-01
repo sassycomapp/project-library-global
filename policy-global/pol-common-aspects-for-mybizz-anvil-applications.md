@@ -1,6 +1,6 @@
 ---
 title: "pol-common-aspects-for-mybizz-anvil-applications"
-updated: "2026-10-23"
+updated: "2026-11-01"
 doc-id: "mb-ab18d72d"
 ---
 # Policy — Common Aspects for Mybizz Anvil Applications
@@ -15,9 +15,9 @@ doc-id: "mb-ab18d72d"
 
 Every application has App 1 (development workspace), App 2 (`master_template`, the published dependency), App 3 (`blank_client_template`), App 4 (one client instance per client) and App 5 (Mybizz management). Every client has its own app and its own database. No application ever shares a database between clients or separates clients by filtering. [[[default:specifications-global/spec-five-app-architecture-model|Five-App Architecture Model]]](C:/dev/project-library-global/specifications-global/spec-five-app-architecture-model.md), [[[default:adr-global/adr-dependency-based-not-multi-tenant|Dependency-Based, Not Multi-Tenant]]](C:/dev/project-library-global/adr-global/adr-dependency-based-not-multi-tenant.md).
 
-### 2. Client Anvil accounts and plan tiers
+### 2. Client Anvil accounts
 
-Each client instance runs on an Anvil account of its own, held by Mybizz and named after the client's business. Every client starts on Anvil's Hobby tier. A client's tier is raised, or server resources are added, on that client's account alone, with no change to App 2 and no effect on any other client. A client's transactions run in its own instance; App 2 carries no client load.
+Each client instance runs on its own Mybizz-owned Anvil Business account, named after the client's business. Server resources are added on that client's account alone, with no change to App 2 and no effect on any other client. A client's transactions run in its own instance; App 2 carries no client load. Every client pays the same price, $150 a month. [[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md).
 
 ### 3. Configuration, never code, in a client instance
 
@@ -35,26 +35,26 @@ Every credential lives in the client's Vault. The one Anvil Secret is `encryptio
 
 ### 6. Payments, webhooks and outbound calls
 
-- One active payment gateway per client instance (Stripe or Paystack). [[[default:specifications-global/spec-integration|Integration]]](C:/dev/project-library-global/specifications-global/spec-integration.md).
+- One active card gateway per client instance (Stripe or Paystack), with PayPal as an optional second method. [[[default:specifications-global/spec-integration|Integration]]](C:/dev/project-library-global/specifications-global/spec-integration.md).
 - Every webhook handler returns 200 at once, processes in a background task, and is idempotent by the event's transaction id, so a repeated delivery never charges or fulfils twice. [[[default:adr-global/adr-webhook-architecture|Webhook Architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md).
 - Every outbound call to a third party retries with backoff when rate-limited. Rate limits apply per client instance, so one client's volume never affects another's.
 
 ### 7. Email
 
-Anvil's built-in email for system email, Brevo SMTP for transactional email, Brevo Campaigns for marketing. [[[default:adr-global/adr-brevo-email-and-crm|Brevo for Email and CRM]]](C:/dev/project-library-global/adr-global/adr-brevo-email-and-crm.md).
+Amazon SES for every email received and sent, one SES tenant per client; Anvil's system email goes through SES as its custom mail server. The CRM is built into the application. [[[default:adr-global/adr-brevo-email-and-crm|Amazon SES for Email; CRM Built In]]](C:/dev/project-library-global/adr-global/adr-brevo-email-and-crm.md).
 
 ### 8. Client storage and exit
 
-Each client has one or two Cloudflare R2 buckets of its own, set up at onboarding. Raw webhook payloads, logs and backups go to the buckets; Data Tables keep an index row. When the client exits, all its data is written to its bucket and the client leaves in possession of it. [[[default:adr-global/adr-client-r2-storage-and-exit-handover|Client R2 Storage and Exit Handover]]](C:/dev/project-library-global/adr-global/adr-client-r2-storage-and-exit-handover.md).
+Each client has one Cloudflare R2 bucket, in a free Cloudflare account in the client's own name; Mybizz is an invited member. Raw webhook payloads, archived logs, email bodies and backups go to the bucket; Data Tables keep an index row. When the client leaves, all its data is written to its bucket and Mybizz leaves the account. [[[default:adr-global/adr-client-r2-storage-and-exit-handover|Client R2 Storage and Exit Handover]]](C:/dev/project-library-global/adr-global/adr-client-r2-storage-and-exit-handover.md).
 
 ### 9. Management and health
 
 - Every client instance exposes the management endpoints from its first release, secured with a per-client token. [[[default:adr-global/adr-mybizz-management-visibility|Mybizz Management Visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md).
-- Every client instance pushes a heartbeat of its health and resource use to App 5 on a schedule. App 5 never polls client instances. App 5 flags any client that needs a higher plan tier. [[[default:adr-global/adr-observability-architecture|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md).
+- Every client instance pushes a heartbeat of its health and resource use to App 5 on a schedule. App 5 never polls client instances. App 5 flags any client nearing its account's limits. [[[default:adr-global/adr-observability-architecture|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md).
 
 ### 10. Background work and real-time updates
 
-Background tasks stay within the background-task limits of the client's plan tier. Near-real-time updates use client-side polling. [[[default:adr-global/adr-real-time-and-background-tasks|Real-Time and Background Tasks]]](C:/dev/project-library-global/adr-global/adr-real-time-and-background-tasks.md).
+Background tasks stay within the background-task limits of the Anvil Business plan. Near-real-time updates use client-side polling. [[[default:adr-global/adr-real-time-and-background-tasks|Real-Time and Background Tasks]]](C:/dev/project-library-global/adr-global/adr-real-time-and-background-tasks.md).
 
 ### 11. Access, currency and time
 

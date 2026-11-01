@@ -1,11 +1,11 @@
 ---
 title: "spec-mastertemplate-notification-system"
 doc-id: "mb-387d1b6b"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # `mastertemplate-notification-system` Spec — Notification Engine for Client Instances
 
-**Status:** Draft — for review
+**Status:** Accepted
 **Lives in:** `master_template`, inherited by every `[client-name]-cs` instance via the standing dependency
 **Depends on:** [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) ADR (Data Tables resolve per-instance; server modules and forms live only in `master_template`)
 **Companion document:** [[[default:specifications-global/spec-mybizz-management-app-notification-system|Platform-to-Client Notification Console]]](C:/dev/project-library-global/specifications-global/spec-mybizz-management-app-notification-system.md) (the platform-tier producer that calls into this engine — see §7)
@@ -14,7 +14,7 @@ updated: "2026-10-23"
 
 ## 1. Status
 
-Draft. Not yet built. This spec is independently buildable now — it does not require `Mybizz_management` (App 5) to exist, since the platform-inbound endpoint (§6) can be built and left dormant until App 5 ships.
+Built with master_template. Mybizz_management (App 5) is built before launch, so the platform-inbound endpoint (§6) is in use from the first client.
 
 ---
 
@@ -189,14 +189,14 @@ def dispatch_notification(notification_id):
     frequency cap) before each channel send — server-side enforcement only,
     matching the source design's failure-pattern lesson on quiet hours never
     being trusted client-side. Writes one delivery_logs row per channel
-    attempted. On the Free Plan this task has a 30-second runtime cap — see
-    §9.1."""
+    attempted. Client instances run on the Anvil Business plan, where
+    background tasks have no runtime cap (§9.1)."""
 
-@anvil.server.background_task  # Scheduled Tasks require a paid plan
+@anvil.server.background_task  # run by a Scheduled Task
 def process_scheduled_notifications():
     """For future-dated sends: polls for notifications whose send_at has
-    arrived and dispatches them. Requires the Scheduled Tasks feature —
-    flagged as a paid-plan dependency, see §9.1."""
+    arrived and dispatches them. Run by Anvil's Scheduled Tasks, included
+    in the Business plan (§9.1)."""
 ```
 
 ---
@@ -234,11 +234,11 @@ Anvil components map onto the source design's five frontend components closely e
 
 ---
 
-## 9. Open Questions / Dependencies
+## 9. Dependencies
 
-1. **Free Plan runtime caps.** `dispatch_notification` and `process_scheduled_notifications` both depend on Background/Scheduled Tasks running longer than the Free Plan's 30-second cap for anything beyond trivial volume. This spec assumes at least the Hobby Plan for Background Tasks and a Business-tier-or-above plan for Scheduled Tasks. Needs confirmation against current plan before build.
-2. **Provisioning of the platform auth token.** `receive_platform_notification` requires a per-client shared secret to validate inbound calls. This must be generated and stored at provisioning time — an addition to `blank_client_template`'s provisioning process, and to the existing README ADR's scope. Not yet specced — should be a short addendum to [[[default:specifications-global/spec-client-activation-runbook|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md), not a new document.
-3. **Email provider.** Not yet decided — Anvil's built-in Email Service is the default assumption; confirm whether a third-party provider (SendGrid etc.) is required for deliverability/volume reasons before build.
+1. **Plan.** Every client instance runs on its own Anvil Business account, which includes background tasks with no runtime cap and Scheduled Tasks.
+2. **Platform auth token.** `receive_platform_notification` validates every inbound call with a per-client token. The token is the client instance's management Bearer token, generated at provisioning ([[[default:specifications-global/spec-client-activation-runbook|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md), Step 6), held encrypted in the Mybizz_management client registry and in the instance's Vault.
+3. **Email.** Email notifications are sent through Amazon SES ([[[default:adr-global/adr-brevo-email-and-crm|Amazon SES for Email; CRM Built In]]](C:/dev/project-library-global/adr-global/adr-brevo-email-and-crm.md)).
 
 ---
 
