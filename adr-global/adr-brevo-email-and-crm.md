@@ -1,83 +1,75 @@
 ---
 title: "adr-brevo-email-and-crm"
 doc-id: "mb-9399478f"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
-# Brevo for Email and CRM
-Status: Accepted
+# Amazon SES for Email; CRM Built In
+Status: Accepted (replaces the earlier Brevo decision; the file name is kept so existing links hold)
 
 ---
 
 ## Context
 
-Every Mybizz application sends transactional email (booking confirmations, reminders, invoices), runs marketing email (sequences, broadcasts, lead capture) and keeps a contact database with interaction history and a deal pipeline. Every client starts on free tiers, so each of these must work on a free plan from the first day.
+Every Mybizz application receives and sends email on the client's own domain: a shared inbox, transactional email (booking confirmations, reminders, invoices), marketing email and system email (sign-in, password reset). It also keeps a contact database with interaction history and a deal pipeline.
+
+An outside email-and-CRM product per client means a second account the client must open, a second set of credentials, plan limits that change, and contacts held outside the application.
 
 ---
 
 ## Decision
 
-**Brevo is the single platform for transactional email, marketing email and CRM in every Mybizz application.** No other email or CRM product is integrated.
-
-System emails (sign-in links, password reset) use Anvil's built-in email service. They are platform-level emails, not controlled by the client, and are outside Brevo's scope.
-
----
-
-## Why Brevo
-
-The criteria are: a free tier that works from the first day, the client owning their own account, a start-free-upgrade-when-ready model, the simplest integration to maintain, and the best combined coverage of transactional email, marketing and CRM. Brevo meets all of them.
-
-**Its free tier works from the first day:**
-- 300 emails a day (9,000 a month), SMTP included, no credit card required
-- 100,000 contacts stored
-- Marketing automation workflows, full API access, open and click tracking, unsubscribe management
-- A built-in CRM: contacts, interaction history, deals and pipeline
-
-**One integration covers three concerns.** One platform, one set of credentials, one settings screen, one onboarding step. The client creates one Brevo account and connects it to Mybizz once.
-
-**The client owns it.** Each client creates and manages their own Brevo account. Mybizz neither provisions nor administers it. When a client leaves Mybizz, the Brevo account and its contacts are entirely theirs.
-
-**Upgrades need no code change.** SMTP credentials, the API key structure and the integration code are the same on every Brevo tier. Upgrading is between the client and Brevo.
-
-**Rejected alternatives.** Google Workspace, Microsoft Outlook, SendGrid, Mailgun, Postmark and Zoho were assessed against the same criteria. Zoho is the cautionary case: its free mail plan has no SMTP access, so transactional email would not work for a new client, and splitting email, marketing and CRM across separate products multiplies credentials, settings and failure points.
+1. **Amazon SES is the single email service in every Mybizz application,** for every email received and sent. Mybizz holds one AWS account and gives each client its own SES tenant, domain identity and scoped keys, created by Mybizz_management at provisioning. SES runs in `eu-west-1`.
+2. **Anvil's Users service sends its system email through SES** too, with Anvil's Custom Mail Server set to the SES SMTP endpoint.
+3. **The CRM is built into the application:** contacts, interaction history, deals and campaigns are the application's own tables ([[[default:adr-global/adr-single-contacts-table|Single Contacts Table]]](C:/dev/project-library-global/adr-global/adr-single-contacts-table.md)). No outside CRM is integrated.
+4. **Brevo and Zoho are not used.** Any reference to them in a document, rule or code is an error and is corrected.
 
 ---
 
-## What Brevo Provides
+## How it works
 
-| Concern | Brevo |
+| Concern | Means |
 |---|---|
-| Transactional email (SMTP) | Brevo SMTP relay |
-| Marketing campaigns and automation | Brevo Campaigns and Automation |
-| Contact database, interaction history, deal pipeline | Brevo CRM (built-in) |
-| Contact sync from the application | Brevo API |
-| System email (sign-in, password reset) | Anvil's built-in email |
+| Received email | MX record on the client's domain → SES → the client's S3 prefix → SNS → the instance's `/_/api/email/inbound` |
+| Transactional and marketing email | SES API from the instance's email service module |
+| System email (sign-in, password reset) | Anvil's Users service, Custom Mail Server: `email-smtp.eu-west-1.amazonaws.com`, port `587` (STARTTLS) |
+| Deliveries, bounces, complaints, opens, clicks | SES → SNS → the instance's `/_/api/email/events` ([[[default:adr-global/adr-webhook-architecture\|Webhook Architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md)) |
+| Unsubscribe | The instance's `/_/api/email/unsubscribe` |
 
----
+### DNS records on the client's domain
 
-## Vault Credentials
+Written by Mybizz_management through the client's Cloudflare DNS, or copied by the Owner into another DNS provider:
 
-Two secrets per client instance:
+| Record | Value |
+|---|---|
+| MX | `inbound-smtp.eu-west-1.amazonaws.com` |
+| DKIM | The three CNAME records SES gives for the identity |
+| MAIL FROM | `mail.{domain}`, MX `feedback-smtp.eu-west-1.amazonses.com` |
+| SPF | `v=spf1 include:amazonses.com ~all` |
+| DMARC | `v=DMARC1; p=quarantine; adkim=r; aspf=r` |
+
+### Vault credentials
 
 | Vault key | Purpose |
 |---|---|
-| `brevo_smtp_key` | SMTP authentication for transactional email |
-| `brevo_api_key` | REST API for CRM sync, campaigns, automation and webhooks |
+| `aws_access_key_id`, `aws_secret_access_key` | SES sending and the client's received-email prefix in S3 |
+| `ses_smtp_password` | Anvil's Custom Mail Server |
 
-**SMTP constants** (the same for every client, held in the transactional email service module, not in the Vault or the database):
-- Host: `smtp-relay.brevo.com`
-- Port: `587` (STARTTLS)
+All three are written by Mybizz_management. The SMTP host and port are the same for every client and are not stored in the Vault.
 
 ---
 
-## Business Email Addresses
+## Why
 
-Mybizz does not provision business mailboxes (admin@clientdomain.com and the like). Clients use any mail provider they choose.
-
-Brevo sends on behalf of the client's domain by SMTP relay or API. The from-address and display name are set in Brevo's sender settings. With DKIM and SPF records on the client's domain, email is sent authenticated from that domain; without them, Brevo sends from a @brevosend.com relay address. Domain authentication is the recommended setup, and Mybizz can guide clients through it during premium onboarding.
+- **One service for every email,** on the client's own domain, with no account for the client to open.
+- **Contacts stay in the application,** in the client's own database, and leave with the client at exit.
+- **Cost per email is low and predictable;** there is no per-client plan to outgrow.
+- **Isolation:** one SES tenant per client, so one client's sending reputation does not affect another's.
 
 ---
 
 ## Consequences
 
-- Any reference to a Zoho product in a document, rule or code is an error and is corrected.
-- Every application's email and CRM code calls Brevo only, through one service module, so it can be replaced in tests.
+- Mybizz requests SES production access once, for its AWS account.
+- Each client's bounce and complaint rates are watched in Mybizz_management; a client above the thresholds has its marketing email paused.
+- The library used for SES on Anvil's server Python is confirmed before the first step that uses it.
+- Every application's email code calls SES only through one service module, so it can be replaced in tests.

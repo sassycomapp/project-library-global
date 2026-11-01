@@ -1,7 +1,7 @@
 ---
 title: "adr-single-contacts-table"
 doc-id: "mb-c307af98"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # Single Contacts Table
 **Consolidated Contact Model for CRM**
@@ -36,5 +36,5 @@ Every table that refers to a person does so with `contact_id`, a link to `contac
 
 - One source of truth for every person record
 - Simpler queries: no join between two person tables
-- Brevo's CRM sync targets one table ([[[default:adr-global/adr-brevo-email-and-crm|Brevo for Email and CRM]]](C:/dev/project-library-global/adr-global/adr-brevo-email-and-crm.md))
+- The built-in CRM and email marketing read one table ([[[default:adr-global/adr-brevo-email-and-crm|Amazon SES for Email; CRM Built In]]](C:/dev/project-library-global/adr-global/adr-brevo-email-and-crm.md))
 - A column named `customer_id`, or a `customers` table, is a defect

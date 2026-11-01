@@ -1,7 +1,7 @@
 ---
 title: "adr-pdf-invoice-generation"
 doc-id: "mb-39f00e1d"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # `pdf-invoice-generation` ADR — PDF Invoice Generation
 
@@ -15,7 +15,7 @@ The platform generates invoices automatically on booking completion and supports
 
 - Generated as PDF files
 - Stored in the client instance
-- Emailed to customers via Brevo SMTP
+- Emailed to customers through Amazon SES
 - Downloadable from the admin panel
 
 Anvil has no native PDF library. PDF generation must happen server-side (CPython), as Skulpt does not support the required libraries.
@@ -85,7 +85,7 @@ def generate_invoice_pdf(invoice_id):
 |------|-----------|
 | Generation | Server function returns `Media` object |
 | Storage | Stored in `invoices` table as `BlobMedia` column |
-| Email delivery | Sent via Brevo SMTP as email attachment |
+| Email delivery | Sent through Amazon SES as an email attachment |
 | Admin download | Downloaded from admin panel via server call |
 
 **Note:** `BlobMedia` has row size limits ([[[default:adr-global/adr-anvil-platform-constraints|Anvil Platform Constraints and Design Boundaries]]](C:/dev/project-library-global/adr-global/adr-anvil-platform-constraints.md) ADR). For invoices with many line items, consider storing the PDF externally (S3 or similar) and keeping only the URL in the Data Table. This is a V2 consideration if invoice complexity grows.

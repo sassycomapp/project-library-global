@@ -1,7 +1,7 @@
 ---
 title: "adr-no-free-trial"
 doc-id: "mb-4d9be554"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # No Free Trial
 
@@ -11,31 +11,34 @@ updated: "2026-10-23"
 
 ## Context
 
-A Mybizz application does nothing useful until it is fully configured: Vault, payment gateway credentials, Brevo, business profile and services must all be set up first. A free trial on Anvil's free tier would also lack background and scheduled tasks, so reminders, campaign enrollment and other core features would not work. A trial would show prospective clients a crippled, misleading product.
+A Mybizz application does nothing useful until it is configured: Vault, payment gateway, email domain, business profile and services. A trial instance would cost Mybizz a Business account for a prospect who may never pay, and would show a half-configured product.
 
 ---
 
 ## Decision
 
-**No Mybizz application offers a free trial.**
+**No Mybizz application offers a free trial or a money-back guarantee.** Prospects use two demo apps instead.
 
-| Need | How it is met |
-|---|---|
-| A prospective client wants to see the product | A live guided demo on Mybizz's own fully configured instance |
-| A new client needs help getting started | A 30-minute guided onboarding session after signup |
-| A new client wants confidence before committing | A 30-day money-back guarantee on the first paid subscription |
+| Demo app | What it holds | Use |
+|---|---|---|
+| `demo.{domain}` | A complete sample business with sample data | The prospect sees the product working, in every role |
+| `try.{domain}` | An empty instance | The prospect sets up a business of their own with the onboarding wizard |
 
-Every paying client receives a properly provisioned instance on their own Anvil account, on the Hobby plan, from the first day. No client instance ever runs on Anvil's free tier.
+- Both run the current release, in demo mode: email goes only to the visitor's own address, payments use the gateways' test mode, and the Vault and account settings are read-only.
+- Both are reset every night.
+- Both run on Mybizz's own account; no client data is ever in them.
+
+Every paying client receives its own instance on its own Mybizz-owned Anvil Business account from the first day.
 
 ---
 
 ## Consequences
 
-- ✅ Every client instance has full feature access from the first day, including background and scheduled tasks
-- ✅ The demo shows the real product
+- ✅ The prospect sees the real product, fully working, before paying
 - ✅ One provisioning process for every client; no trial-to-paid transition
-- ⚠️ Mybizz maintains a well-configured demo instance
-- ⚠️ The money-back guarantee terms are defined and shown clearly at signup
+- ✅ No account is paid for a prospect who does not buy
+- ⚠️ Every application builds demo mode and the nightly reset
+- ⚠️ Mybizz keeps the sample business of `demo.{domain}` current with each release
 
 ---
 
@@ -43,5 +46,5 @@ Every paying client receives a properly provisioned instance on their own Anvil 
 
 | Document | Relationship |
 |---|---|
+| [[[default:adr-global/adr-tiers-model\|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md) | The price and the setup services |
 | [[[default:specifications-global/spec-client-activation-runbook\|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) | Provisioning process applies to all clients from day one |
-

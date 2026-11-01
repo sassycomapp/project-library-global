@@ -1,18 +1,18 @@
 ---
 title: "adr-common-architecture-across-mybizz-applications"
-updated: "2026-10-23"
+updated: "2026-11-01"
 doc-id: "mb-035ff93b"
 ---
 # `common-architecture-across-mybizz-applications` ADR — Mybizz Applications Share Everything They Can
 
 **Status:** Accepted
-**Applies to:** Every Mybizz application: `mb-3-cs`, `mb-4-ecom` and every later one
+**Applies to:** Every Mybizz application: `mb-1-edu`, `mb-2-subs`, `mb-3-cs`, `mb-4-ecom`, `mb-5-hosp` and every later one
 
 ---
 
 ## Context
 
-Mybizz builds several applications, each its own Mybizz business: `mb-3-cs` for consulting and services businesses, `mb-4-ecom` for e-commerce businesses, and others to follow. They differ in their business domain: `mb-3-cs` centres on scheduling and bookings, `mb-4-ecom` on catalogue, cart and orders. Underneath, they need the same things: the five-app structure, client isolation, secrets, payments, webhooks, email, storage, management and compliance.
+Mybizz builds five businesses, each its own application: `mb-1-edu`, `mb-2-subs`, `mb-3-cs` for consulting and services businesses, `mb-4-ecom` for e-commerce businesses, and `mb-5-hosp`. They differ in their business domain: `mb-3-cs` centres on scheduling and bookings, `mb-4-ecom` on catalogue, cart and orders. Underneath, they need the same things: the five-app structure, client isolation, secrets, payments, webhooks, email, storage, management and compliance.
 
 Built separately, the same need would be solved differently in each application. Each difference doubles maintenance, stops lessons from carrying over, and makes PDLF's steps branch by application.
 

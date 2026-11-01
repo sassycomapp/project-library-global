@@ -1,7 +1,7 @@
 ---
 title: "adr-dependency-update-model"
 doc-id: "mb-bf8aa7d8"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # `dependency-update-model` ADR — Dependency Update Model
 
@@ -97,7 +97,7 @@ Update propagation to a client instance on a separate Anvil account, and rollbac
 - ✅ Updates require no manual per-client action once the release is in App 2
 - ✅ All client instances always run the same version (unless deliberately pinned)
 - ✅ Staged rollout available via version tags without infrastructure changes
-- ✅ Each client owns its own Anvil account and leaves with it
+- ✅ Each client instance is on its own Mybizz-owned Anvil Business account; a failure of one account affects only that client
 - ⚠️ Pushing a release into App 2 is a production action — release discipline is mandatory
 - ✅ UI and form updates propagate automatically via master_template dependency (see [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) ADR)
 - ⚠️ Schema changes require separate migration process for existing client instances

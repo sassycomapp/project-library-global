@@ -1,7 +1,7 @@
 ---
 title: "adr-tiers-model"
 doc-id: "mb-beb7c182"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # Tiers Model
 Status: Accepted
@@ -10,83 +10,57 @@ Status: Accepted
 
 ## Context
 
-Every Mybizz application sells subscriptions in commercial tiers. Clients can also buy help with setup. The two must not be confused: one sets price and feature access, the other sets onboarding assistance.
+Every Mybizz application sells a subscription to its clients. Clients can also buy help with setup. The two must not be confused: one is the price of the product, the other is a one-off service.
+
+Competitors sell in tiers, charge for extra staff and add-ons, and lock clients into contracts. Mybizz sells one offer that holds everything.
 
 ---
 
 ## Decision
 
-**Commercial tiers are Launch, Pioneer, and Business.**
+**Every Mybizz application has one price: $150 a month per client.**
 
-These are pricing/business-model constructs. They are separate from setup-service options such as guided self-setup and $100 DFY setup.
+| Item | Rule |
+|---|---|
+| Price | $150 a month per client |
+| Term | Month to month; no contract; the client can leave at any time |
+| Features | Every feature of the application; no tiers |
+| Staff | Unlimited staff logins |
+| Add-ons | None; nothing is sold on top of the subscription |
+| Hosting | Each client instance on its own Mybizz-owned Anvil Business account, included in the price |
+| Trial | None; prospects use the demo apps ([[[default:adr-global/adr-no-free-trial\|No Free Trial]]](C:/dev/project-library-global/adr-global/adr-no-free-trial.md)) |
 
-### Tier Definitions
+### Setup services
 
-| Tier | Clients | Monthly Price | Lifetime Price | Features |
-|---|---|---|---|---|
-| **Launch** | First 10 clients | $25/month | Yes — locked at $25/month for life | Full service, full feature access |
-| **Pioneer** | 11th to 50th clients | $35/month | Yes — locked at $35/month for life | Full service, full feature access |
-| **Business** | 51st client onwards | $50/month | No — price may change | Full service, full feature access |
+- **Self-setup** with the onboarding wizard and help videos: included.
+- **Assisted setup:** $200 once. Mybizz sets up the instance with the client.
+- Setup services are separate from the subscription and never change its price or features.
 
-### Architectural Rules
+### Architectural rules
 
-1. **Commercial Tiers:**
-   - Launch, Pioneer, and Business
-   - Pricing and business-model constructs
-   - Define pricing and feature access
-   - Launch and Pioneer tiers are grandfathered at their signup price for life
-
-2. **Setup Services:**
-   - Guided self-setup (included with all tiers)
-   - $100 DFY (Done For You) setup
-   - Separate from commercial tiers
-   - Service options for onboarding assistance
-
-3. **Clear Separation:**
-   - Commercial tiers define pricing and features
-   - Setup services define onboarding assistance options
-   - No confusion between the two concepts
-
----
-
-## Implementation Guidelines
-
-### Tier Implementation
-1. Clear tier definitions in business logic
-2. Feature limits and pricing per tier
-3. Upgrade/downgrade paths between tiers
-4. Grandfathered pricing for Launch and Pioneer tiers
-5. Clear documentation of tier differences
-
-### Setup Service Implementation
-1. Separate selection for setup service options
-2. Clear pricing and description for each option
-3. Integration with onboarding flow
-4. No confusion with commercial tier selection
+1. The application holds no tier logic, feature limits or staff limits.
+2. The client registry in Mybizz_management records the subscription status and whether assisted setup was bought.
+3. A price change is a business decision recorded here; it needs no code change.
 
 ---
 
 ## Consequences
 
 ### Positive
-- Clear commercial tier definitions with explicit pricing
-- Consistent pricing and feature messaging
-- Grandfathered pricing creates loyalty and early-adopter incentive
-- No confusion between tiers and setup services
+- One offer to explain, sell and support
+- No tier, feature-limit or upgrade code to build or test
+- No lock-in: the client stays because the product is worth it
 
 ### Negative
-- Requires tracking which tier each client is on for grandfathered pricing
-- Launch and Pioneer pricing creates revenue ceiling for first 50 clients
-- Business tier pricing is not fixed, requiring periodic review
+- One account per client puts the hosting cost on Mybizz from the first day
+- The price must cover that hosting cost for every client
 
 ### Neutral
-- Primarily affects business model and documentation
-- No impact on technical architecture
-- Aligns with common SaaS tier patterns
+- No effect on the technical architecture beyond the client registry
 
 ---
 
 ## Related Documents
 
 - [[[default:specifications-global/spec-onboarding-implementation-plan|Onboarding System — Engineering Plan]]](C:/dev/project-library-global/specifications-global/spec-onboarding-implementation-plan.md) — Onboarding flow
-
+- [[[default:adr-global/adr-no-free-trial|No Free Trial]]](C:/dev/project-library-global/adr-global/adr-no-free-trial.md) — The demo apps

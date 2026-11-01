@@ -1,7 +1,7 @@
 ---
 title: "adr-payment-security-boundary-vault"
 doc-id: "mb-dbb54a8c"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # Payment Security Boundary: Secret Keys Deferred to the Vault
 Status: Accepted
@@ -10,7 +10,7 @@ Status: Accepted
 
 ## Context
 
-During Stage 1.4 (Settings & Configuration), the SettingsForm collects payment gateway
+The SettingsForm (Settings and Configuration) collects payment gateway
 configuration. The question arose of where to store gateway secret keys (Stripe secret
 key, Paystack secret key, PayPal secret). Storing them in the `payment_config` Data
 Table alongside public keys would expose secrets in a standard table with no encryption.
@@ -19,16 +19,16 @@ Table alongside public keys would expose secrets in a standard table with no enc
 
 ## Decision
 
-**Stage 1.4 SettingsForm does not persist secret keys to the `payment_config` table.**
-Secret keys are deferred entirely to Stage 1.5 — The Vault.
+**The SettingsForm does not persist secret keys to the `payment_config` table.**
+Secret keys are entered only in the Vault.
 
-The SettingsForm shows the user a note explaining this deferral for each gateway.
+For each gateway, the SettingsForm shows a note that its secret key is entered in the Vault.
 This is a documented architectural boundary — not an oversight or incomplete work.
 
 The Vault (`vault` Data Table) stores all API keys and credentials as encrypted values.
 Only the `encryption_key` in Anvil Secrets is used for encryption/decryption — nothing
 else goes in Anvil Secrets. The Vault is accessible to the Owner role only and requires
-2FA verification before access.
+a code from the Owner's authenticator app (TOTP) on every access.
 
 ### Enforcement pattern
 

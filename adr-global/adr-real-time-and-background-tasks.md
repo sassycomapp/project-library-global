@@ -1,7 +1,7 @@
 ---
 title: "adr-real-time-and-background-tasks"
 doc-id: "mb-1684942d"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # `real-time-and-background-tasks` ADR — Real-Time Updates and Background Task Architecture
 
@@ -76,7 +76,7 @@ class DashboardForm:
 
 ### Background Task Architecture
 
-All asynchronous operations use Anvil's `@anvil.server.background_task` decorator. Background tasks have no timeout limit on the Hobby plan, on which every client starts.
+All asynchronous operations use Anvil's `@anvil.server.background_task` decorator. Every client instance runs on its own Mybizz-owned Anvil Business account, on which background tasks have no timeout limit.
 
 **Task inventory per client instance:**
 
@@ -92,7 +92,7 @@ All asynchronous operations use Anvil's `@anvil.server.background_task` decorato
 
 **Total per client instance:** ~6 scheduled tasks + event-driven webhook processing
 
-**Load:** each client instance runs on its client's own Anvil account, so the scheduled-task load is counted per client account, not added up across clients.
+**Load:** each client instance runs on its own Mybizz-owned Anvil Business account, so the scheduled-task load is counted per client account, not added up across clients.
 
 ### Per-Task Failure and Retry Policy
 
@@ -106,7 +106,7 @@ Each background task must define its failure behavior. The following table speci
 | Appointment reminders (1h) | Retry, then skip | 2 | 5 minutes | Log to `error_log` — shorter window means fewer retries |
 | Lifecycle stage updates | Retry full batch | 2 | 30 minutes | Log to `error_log`, run on next daily cycle |
 | Automated task generation | Retry full batch | 2 | 30 minutes | Log to `error_log`, run on next daily cycle |
-| Webhook processing | Retry individual event | 5 | Exponential backoff (1m, 2m, 4m, 8m, 16m) | Mark webhook `"failed"` in `webhook_log`, alert Mybizz_management |
+| Webhook processing | Not retried automatically | — | — | Error kept on the `webhook_log` row and pushed to Mybizz_management; a failed dispatch is picked up by the hourly reconciliation task ([[[default:adr-global/adr-webhook-architecture\|Webhook Architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md)) |
 
 **General rules:**
 - All retries use exponential backoff unless specified otherwise
@@ -139,7 +139,7 @@ def daily_maintenance():
 
 ### Webhook Processing Pattern
 
-Webhook handlers (Stripe, Paystack, Brevo) return HTTP 200 immediately, or the gateway times out and retries. Processing is deferred to a background task, as [[[default:adr-global/adr-webhook-architecture|Webhook Architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md) sets out in full.
+Webhook handlers (Stripe, Paystack, PayPal, Amazon SES through SNS) return HTTP 200 immediately, or the gateway times out and retries. Processing is deferred to a background task, as [[[default:adr-global/adr-webhook-architecture|Webhook Architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md) sets out in full.
 
 ---
 
@@ -149,7 +149,7 @@ Webhook handlers (Stripe, Paystack, Brevo) return HTTP 200 immediately, or the g
 - ✅ All async operations use Anvil's native background task system
 - ✅ Webhook handlers return 200 immediately — no gateway timeouts
 - ⚠️ Polling adds server load — must be balanced against freshness needs
-- ⚠️ Background task limits per Anvil plan are a hard ceiling — must be verified
+- ⚠️ Background task limits of the Business plan are a hard ceiling — must be verified
 - ⚠️ Client-side timers stop when the form is hidden — updates pause in background tabs
 - ⚠️ The browser learns of critical events only by polling; Anvil has no server push to the browser
 

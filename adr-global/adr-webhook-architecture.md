@@ -1,7 +1,7 @@
 ---
 title: "adr-webhook-architecture"
 doc-id: "mb-d4254987"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # `webhook-architecture` ADR — Webhook Architecture
 
@@ -11,18 +11,21 @@ updated: "2026-10-23"
 
 ## Context
 
-Three external services POST webhooks to client instances:
+Four external services POST webhooks to client instances:
 
 | Service | Events | Criticality |
 |---------|--------|-------------|
 | Stripe | `payment_intent.succeeded`, `payment_intent.payment_failed`, subscription updates | High — payment status must be accurate |
 | Paystack | `charge.success`, `subscription.disable`, `invoice.payment_failed` | High — payment status must be accurate |
-| Brevo | Open tracking, click tracking, unsubscribe events | Medium — campaign analytics |
+| PayPal | `PAYMENT.CAPTURE.COMPLETED`, `PAYMENT.CAPTURE.DENIED`, `PAYMENT.CAPTURE.REFUNDED` | High — payment status must be accurate |
+| Amazon SES, through Amazon SNS | Received email; delivery, bounce, complaint, open and click events | High for received email and bounces; Medium for opens and clicks |
 
 Each client instance is a separate Anvil app with a separate URL. Webhook URLs are:
 - Stripe: `[base_url]/_/api/webhooks/stripe`
 - Paystack: `[base_url]/_/api/webhooks/paystack`
-- Brevo: `[base_url]/_/api/webhooks/brevo`
+- PayPal: `[base_url]/_/api/webhooks/paypal`
+- Amazon SES received email: `[base_url]/_/api/email/inbound`
+- Amazon SES events: `[base_url]/_/api/email/events`
 
 **Critical constraint:** Gateway webhook handlers must return HTTP 200 within a few seconds or the gateway times out and retries. Processing must be deferred.
 
@@ -76,12 +79,13 @@ def handle_stripe_webhook():
     return anvil.server.HttpResponse(200, "Received")
 ```
 
-The endpoint is served at `[base_url]/_/api/webhooks/stripe`; Paystack and Brevo follow the same pattern at `/_/api/webhooks/paystack` and `/_/api/webhooks/brevo`.
+The endpoint is served at `[base_url]/_/api/webhooks/stripe`; Paystack and PayPal follow the same pattern at `/_/api/webhooks/paystack` and `/_/api/webhooks/paypal`, and Amazon SES at `/_/api/email/inbound` and `/_/api/email/events`. PayPal's signature is checked with PayPal's verify-webhook-signature call and the client's webhook ID; an SNS message's signature with Amazon's signing certificate.
 
 The gateway event ID used for idempotency:
 - **Stripe:** `event['id']`
 - **Paystack:** `event['data']['id']`, or `event['data']['reference']` where the event has no ID
-- **Brevo:** the webhook event's ID
+- **PayPal:** `event['id']`
+- **Amazon SES (SNS):** the SNS `MessageId`
 
 ### Processing
 
@@ -118,7 +122,7 @@ def reconcile_webhooks():
 
 | Column | Type | Purpose |
 |---|---|---|
-| `gateway` | string | `stripe`, `paystack` or `brevo` |
+| `gateway` | string | `stripe`, `paystack`, `paypal` or `ses` |
 | `event_id` | string | The gateway's own event ID; with `gateway`, the idempotency key |
 | `event_type` | string | For example `payment_intent.succeeded` |
 | `payload` | string | The raw body, kept only until processed |

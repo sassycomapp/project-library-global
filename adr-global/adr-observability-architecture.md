@@ -1,7 +1,7 @@
 ---
 title: "adr-observability-architecture"
 doc-id: "mb-d5da852f"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # `observability-architecture` ADR — Observability Architecture
 
@@ -32,7 +32,7 @@ These tools are valuable for diagnosing individual app issues. They are not suit
 
 ## Decision
 
-Client instance observability is achieved through **application-level metrics** written to each client's own Data Tables and queried by Mybizz_management via HTTP endpoints.
+Client instance observability is achieved through **application-level metrics** written to each client's own Data Tables and pushed to Mybizz_management in its heartbeats.
 
 Mybizz_management is the consolidated observability layer — the platform's equivalent of a monitoring dashboard.
 
@@ -43,11 +43,11 @@ Master_template includes server-side logic that writes key events and metrics to
 | Event type | Trigger | Written to |
 |---|---|---|
 | Health heartbeat | Scheduled background task | `health_log` table |
-| Background task completion/failure | On task end | `audit_log` table |
-| Payment event | On payment success/failure | `audit_log` table |
-| Vault access | On every Vault open | `audit_log` table (existing, [[[default:adr-global/adr-payment-security-boundary-vault\|Payment Security Boundary Vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) ADR) |
+| Background task completion/failure | On task end | `activity_log` table |
+| Payment event | On payment success/failure | `activity_log` table |
+| Vault access | On every Vault open | `activity_log` table (existing, [[[default:adr-global/adr-payment-security-boundary-vault\|Payment Security Boundary Vault]]](C:/dev/project-library-global/adr-global/adr-payment-security-boundary-vault.md) ADR) |
 | Error threshold exceeded | On unhandled exception | `error_log` table |
-| Session activity | On user login/logout | `audit_log` table |
+| Session activity | On user login/logout | `activity_log` table |
 
 ### What Mybizz_management Displays
 
@@ -78,9 +78,8 @@ Each client instance pushes a heartbeat to Mybizz_management on a schedule, with
 - ✅ No external infrastructure or third-party monitoring subscriptions required
 - ✅ Monitoring logic ships with master_template — all client instances monitored automatically
 - ✅ Anvil's built-in tools remain available for deep per-app diagnostics when needed
-- ⚠️ Mybizz_management must be built before consolidated monitoring is available — manual IDE monitoring applies until then
-- ⚠️ `health_log` and `error_log` tables must be added to the 36-table schema and to `blank_client_template`
-- ⚠️ Heartbeat background task adds to per-client scheduled task load — must be accounted for in Anvil plan limits
+- ⚠️ `health_log`, `error_log` and `activity_log` are part of every application's schema and of `blank_client_template`
+- ⚠️ Heartbeat background task adds to per-client scheduled task load — must be accounted for in the Business plan's limits
 
 ---
 

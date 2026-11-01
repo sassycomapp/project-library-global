@@ -1,7 +1,7 @@
 ---
 title: "adr-client-instance-readme-five-app-system"
 doc-id: "mb-ed135450"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # Mandatory README in Every Client Instance Documenting the Five-App System
 
@@ -11,12 +11,12 @@ Accepted
 
 ## Context
 
-Mybizz runs on a five-app architecture; Apps 1, 2, 3 and 5 are on Mybizz's Anvil account, and each client instance is on its client's own account:
+Mybizz runs on a five-app architecture; Apps 1, 2, 3 and 5 are on Mybizz's development account, and each client instance is on its own Mybizz-owned Anvil Business account:
 
 1. **`{slug}-app1`** — the development workspace. All feature work happens here. Never a dependency for any client instance.
 2. **`master_template`** — the sole source of all server-side logic and UI forms for every client instance. Receives App 1's tagged releases, pushed in by the developer. Never given to clients directly; client instances depend on it.
 3. **`blank_client_template`** — the provisioning clone source. Contains the schema (see the project's authoritative-schema document), one startup module, and `master_template` as a dependency. Zero server modules, zero forms.
-4. **`[client-name]-{vertical}`** — one per paying client, on the client's own Anvil account. Contains the schema, the startup module, and an active dependency on `master_template`. Nothing else.
+4. **`[client-name]-{vertical}`** — one per paying client, on its own Mybizz-owned Anvil Business account. Contains the schema, the startup module, and an active dependency on `master_template`. Nothing else.
 5. **`{Product}_management`** — internal platform-operator tooling: provisioning, health monitoring, billing automation and update distribution.
 
 Each client instance therefore appears, on inspection, almost entirely empty: no forms, no server modules — only a startup module and a dependency reference. All server-side logic and UI a client instance displays is inherited live from `master_template`. There is no copy to fall out of date and no "deploy" step; the instance simply reflects whatever `master_template` currently contains.

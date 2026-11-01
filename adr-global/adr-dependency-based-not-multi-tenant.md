@@ -1,7 +1,7 @@
 ---
 title: "adr-dependency-based-not-multi-tenant"
 doc-id: "mb-e66b2305"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # `dependency-based-not-multi-tenant` ADR — Dependency-Based, Not Multi-Tenant
 
@@ -57,7 +57,7 @@ A Mybizz application is a **dependency-based SaaS platform**. It has the followi
 
 - Client A's data is in Client A's app
 - Client B's data is in Client B's app
-- Each client instance is a separate Anvil app on the client's own Anvil account
+- Each client instance is a separate Anvil app, on its own Mybizz-owned Anvil Business account
 - They share no database, no tables, no rows
 - Neither can access the other's data
 

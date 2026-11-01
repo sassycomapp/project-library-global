@@ -1,7 +1,7 @@
 ---
 title: "adr-mybizz-management-visibility"
 doc-id: "mb-1962f48d"
-updated: "2026-10-23"
+updated: "2026-11-01"
 ---
 # `mybizz-management-visibility` ADR — Mybizz_management Visibility and Control
 
@@ -17,7 +17,7 @@ Mybizz_management requires three capabilities with respect to client instances:
 2. **Write and Control** — push notifications, suspend accounts, trigger configuration changes, push update alerts
 3. **Receive events** — payment failures, background task errors, Vault access alerts, error thresholds
 
-All client instances are separate Anvil apps on the same mybizz account. Anvil provides no native cross-app data access outside of the dependency model. Mybizz_management cannot depend on each client instance (inverse of the intended dependency direction), and client instances cannot depend on Mybizz_management (circular, and architecturally wrong).
+Every client instance is a separate Anvil app on its own Mybizz-owned Anvil Business account. Anvil provides no native cross-app data access outside of the dependency model. Mybizz_management cannot depend on each client instance (inverse of the intended dependency direction), and client instances cannot depend on Mybizz_management (circular, and architecturally wrong).
 
 ---
 
@@ -101,7 +101,7 @@ Mybizz_management maintains a client registry table containing:
 | `base_url` | Client instance HTTP endpoint base URL |
 | `management_token` | Encrypted Bearer token for management calls |
 | `subscription_status` | Active / suspended / churned |
-| `plan` | Pricing tier |
+| `plan` | The subscription: $150 a month, month to month |
 | `onboarded_date` | Activation date |
 | `last_health_check` | Timestamp of the last heartbeat received |
 | `last_active` | Last user session timestamp (from health endpoint) |
@@ -121,9 +121,7 @@ Mybizz_management maintains a client registry table containing:
 
 ## Implementation Timing
 
-Mybizz_management is deferred — it will be built after master_template reaches launch readiness and the first client has been manually onboarded. However, **the management endpoint module in master_template must be built as part of the initial template**, so that all client instances provisioned from day one already have the endpoints in place.
-
-Until Mybizz_management is built, the operator uses Anvil's IDE-level tools for per-app monitoring and management.
+Mybizz_management (App 5) is built before launch, with master_template: it provisions every client instance, so no client is onboarded without it. The management endpoint module ships in master_template from the first release, so every client instance has the endpoints from day one.
 
 ---
 
