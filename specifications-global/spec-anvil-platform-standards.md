@@ -1,7 +1,7 @@
 ---
 title: "spec-anvil-platform-standards"
 doc-id: "mb-57f2e70b"
-updated: "2026-11-01"
+updated: "2026-11-02"
 ---
 # Anvil Platform Mechanics
 
@@ -134,8 +134,7 @@ canonical security document and its development policy, so they exist in exactly
 
 | Standard | Value |
 |---|---|
-| Password minimum length | 8 characters |
-| Password complexity | At least one uppercase, one lowercase, one number |
+| Passwords | As [[[default:specifications-global/spec-security\|Spec: Security]]](C:/dev/project-library-global/specifications-global/spec-security.md), section 3 |
 | Rate limit — unauthenticated | 10 requests/minute/IP |
 | Rate limit — authenticated | 100 requests/minute/user |
 | Session inactivity timeout | 30 minutes |

@@ -1,7 +1,7 @@
 ---
 title: "spec-anvil-spec-table"
 doc-id: "mb-867fb5cd"
-updated: "2026-11-01"
+updated: "2026-11-02"
 ---
 # Anvil Specification Table
 
@@ -212,7 +212,7 @@ def btn_next_click(self, **event_args):
 | Component / Pattern | Rule |
 |---|---|
 | Anvil Extras | Excluded — see [[[default:adr-global/adr-anvil-extras-exclusion\|Anvil Extras Exclusion]]](C:/dev/project-library-global/adr-global/adr-anvil-extras-exclusion.md) |
-| `NavigationLink` for sidebar | Not used in current architecture — see [[[default:adr-global/adr-navigation-lambda-link-open-form\|Navigation Standard: Lambda/Link/open_form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md) |
+| `NavigationLink` for sidebar | Used in the navigation slot of the Material 3 layouts, with a lambda click handler; `navigate_to` is never used — see [[[default:adr-global/adr-navigation-lambda-link-open-form\|Navigation Standard: Lambda/Link/open_form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md) |
 | `NavigationDrawerLayoutTemplate` | Not used in current architecture — see [[[default:adr-global/adr-navigation-lambda-link-open-form\|Navigation Standard: Lambda/Link/open_form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md) |
 | `navigate_to` for internal nav | Not used — see [[[default:adr-global/adr-navigation-lambda-link-open-form\|Navigation Standard: Lambda/Link/open_form]]](C:/dev/project-library-global/adr-global/adr-navigation-lambda-link-open-form.md) |
 | RichText | Use sparingly; not core M3 |

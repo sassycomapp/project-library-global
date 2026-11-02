@@ -1,7 +1,7 @@
 ---
 title: "spec-onboarding-implementation-plan"
 doc-id: "mb-edfcb7ed"
-updated: "2026-11-01"
+updated: "2026-11-02"
 ---
 # Onboarding System — Engineering Plan
 
@@ -364,7 +364,7 @@ Mybizz_management Provisioning
 ├── Set onboarding_status = "in_progress"
 ├── Create client record in Mybizz_management
 ├── Append-only amendment log entry
-└── Send welcome email with login credentials
+└── Send welcome email with the link to set a password
 
 Owner Onboarding (Onboarding Form)
 ├── Step 1: Welcome and orientation

@@ -1,7 +1,7 @@
 ---
 title: "spec-five-app-architecture-model"
 doc-id: "mb-1b7a1fda"
-updated: "2026-10-23"
+updated: "2026-11-02"
 ---
 # Mybizz — Five-App Architecture Model (Specification)
 
@@ -17,7 +17,7 @@ updated: "2026-10-23"
 | App 2 — `master_template` | Published dependency. Sole source of all server-side logic and UI forms for every client instance. | All server modules + all forms + all UI | The developer pushes App 1's tagged release into App 2's repository (Step 42) |
 | App 3 — `blank_client_template` | Provisioning clone source. The sole clone source for creating new client instances. | Full Data Table schema (correct, no data), one startup module, `master_template` as dependency. Zero server modules, zero forms. | Only when schema changes occur |
 | App 4 — `[client-name]-{vertical}` | One per paying client — a dedicated, isolated app instance. | Data Tables + one startup module + active `master_template` dependency. Nothing else. | Automatic — server logic, UI, and forms all propagate via the dependency. Schema changes are manual only. |
-| App 5 — `{Product}_management` | Platform operator's internal tooling — provisioning, health monitoring, billing automation, update distribution. | Client registry, monitoring dashboard, billing status, update distribution controls | Deferred — built post-launch |
+| App 5 — `{Product}_management` | Platform operator's internal tooling — provisioning, health monitoring, billing automation, update distribution. | Client registry, monitoring dashboard, billing status, update distribution controls | Built before the first paying client, with `master_template`; updated by its own releases |
 
 ## Why This Shape
 
