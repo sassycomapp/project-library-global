@@ -1,7 +1,7 @@
 ---
 title: "README"
 doc-id: "mb-a89ef3b2"
-updated: "2026-11-01"
+updated: "2026-11-02"
 ---
 # project-library-global
 
@@ -16,7 +16,6 @@ It is a reference library that every project reads from. It depends on nothing e
 | `adr-global/` | Architectural decision records |
 | `anvil-docs/` | Anvil documentation compiled for agents |
 | `docs-standard-global/` | Document standards |
-| `guides-global/` | How-to guides |
 | `policy-global/` | Policies |
 | `rules-cupcake-global/` | Source rules for Cupcake |
 | `security-global/` | Security documents |
