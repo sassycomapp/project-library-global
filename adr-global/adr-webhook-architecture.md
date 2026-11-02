@@ -1,7 +1,7 @@
 ---
 title: "adr-webhook-architecture"
 doc-id: "mb-d4254987"
-updated: "2026-11-01"
+updated: "2026-11-02"
 ---
 # `webhook-architecture` ADR — Webhook Architecture
 
@@ -17,7 +17,7 @@ Four external services POST webhooks to client instances:
 |---------|--------|-------------|
 | Stripe | `payment_intent.succeeded`, `payment_intent.payment_failed`, subscription updates | High — payment status must be accurate |
 | Paystack | `charge.success`, `subscription.disable`, `invoice.payment_failed` | High — payment status must be accurate |
-| PayPal | `PAYMENT.CAPTURE.COMPLETED`, `PAYMENT.CAPTURE.DENIED`, `PAYMENT.CAPTURE.REFUNDED` | High — payment status must be accurate |
+| PayPal | `CHECKOUT.ORDER.APPROVED`, `PAYMENT.CAPTURE.COMPLETED`, `PAYMENT.CAPTURE.PENDING`, `PAYMENT.CAPTURE.DENIED`, `PAYMENT.CAPTURE.REFUNDED`, `CUSTOMER.DISPUTE.CREATED` | High — payment status must be accurate |
 | Amazon SES, through Amazon SNS | Received email; delivery, bounce, complaint, open and click events | High for received email and bounces; Medium for opens and clicks |
 
 Each client instance is a separate Anvil app with a separate URL. Webhook URLs are:

@@ -1,7 +1,7 @@
 ---
 title: "spec-client-activation-runbook"
 doc-id: "mb-b575e9fd"
-updated: "2026-11-01"
+updated: "2026-11-02"
 ---
 # Client Instance Activation Runbook
 
@@ -119,6 +119,7 @@ In the client instance:
 2. Assign the `Owner` role
 3. Confirm only one Owner account exists in the instance
 4. The Owner sets their own password from the emailed link; no password is ever sent by email
+5. At first sign-in the Owner enrols a FIDO2 second factor: a security key or the device's passkey
 
 > The Owner role is the only role with access to the Vault. On the first open of the Vault, the Owner enrols an authenticator app. See [[[default:specifications-global/spec-vault-system|The Vault System]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md).
 
@@ -139,13 +140,12 @@ The Owner completes the onboarding wizard in the instance, helped by its help vi
 The Owner enters the gateway keys in the Vault; Mybizz never handles them:
 
 - [ ] `stripe_secret_key` and `stripe_webhook_secret`, or `paystack_secret_key`
-- [ ] `paypal_client_secret` and `paypal_webhook_id`, if PayPal is used
+- [ ] `paypal_client_secret`, if PayPal is used; the application registers its PayPal webhook itself and stores `paypal_webhook_id` ([[[default:specifications-global/spec-integration|Integration Specification]]](C:/dev/project-library-global/specifications-global/spec-integration.md), section 5.3)
 
-The Owner registers the webhook URLs in each gateway's dashboard:
+The Owner registers the Stripe or Paystack webhook URL in that gateway's dashboard:
 
 - **Stripe:** `[base_url]/_/api/webhooks/stripe` — `payment_intent.succeeded`, `payment_intent.payment_failed`, `customer.subscription.updated`, `customer.subscription.deleted`
 - **Paystack:** `[base_url]/_/api/webhooks/paystack` — `charge.success`, `subscription.disable`, `invoice.payment_failed`
-- **PayPal:** `[base_url]/_/api/webhooks/paypal` — `PAYMENT.CAPTURE.COMPLETED`, `PAYMENT.CAPTURE.DENIED`, `PAYMENT.CAPTURE.REFUNDED`
 
 ### Step 12 — Business Profile and Branding
 

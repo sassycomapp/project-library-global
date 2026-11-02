@@ -1,7 +1,7 @@
 ---
 title: "spec-integration"
 doc-id: "mb-a1d9a710"
-updated: "2026-11-01"
+updated: "2026-11-02"
 ---
 # Mybizz — Integration Specification
 
@@ -163,27 +163,52 @@ Written on the client's domain at onboarding: MX `inbound-smtp.eu-west-1.amazona
 
 ## 5. PayPal Integration
 
-PayPal is an optional second payment method beside the card gateway.
+PayPal is an optional second payment method beside the card gateway. The integration is PayPal's standard checkout: PayPal's JavaScript buttons for the buyer's approval, and PayPal's Orders API v2 called from server code for every money operation. PayPal's invoicing and subscription products are not used; invoices are the application's own.
 
-### 5.1 Credentials
+### 5.1 Availability
 
-| Vault Key | Purpose |
-|---|---|
-| `paypal_client_secret` | Server-side order and capture calls |
-| `paypal_webhook_id` | Webhook signature verification |
+PayPal is offered only when the system currency is one of PayPal's supported currencies (AUD, BRL, CAD, CNY, CZK, DKK, EUR, HKD, HUF, ILS, JPY, MYR, MXN, TWD, NZD, NOK, PHP, PLN, GBP, RUB, SGD, SEK, CHF, THB, USD). For any other currency (for example ZAR), Settings shows PayPal as unavailable, with the reason.
 
-**Client ID** (safe for client-side): stored in `payment_config` table.
+### 5.2 Credentials
 
-### 5.2 Webhook Events
+| Where | Value | Purpose |
+|---|---|---|
+| `payment_config` | `paypal_client_id` | Loads PayPal's buttons in the browser (public) |
+| Vault | `paypal_client_secret` | Server calls to PayPal's API |
+| Vault | `paypal_webhook_id` | Webhook signature verification |
+
+### 5.3 Setup
+
+1. The Owner opens a PayPal Business account and creates a REST app in PayPal's developer dashboard.
+2. The Owner enters the client ID in Settings and the secret in the Vault.
+3. The application registers its own webhook with PayPal's Webhooks API, at `[base_url]/_/api/webhooks/paypal`, for the events in 5.5, and stores the returned webhook ID in the Vault. The Owner has no webhook step.
+4. `paypal_test_mode` selects PayPal's sandbox or live API. Demo apps always use the sandbox.
+
+### 5.4 Checkout
+
+1. One custom component, `PayPalButtonComponent`, loads PayPal's JavaScript SDK with the client ID, the system currency, `intent=capture` and the app language as `locale`, and renders PayPal's buttons.
+2. **createOrder:** the button calls a server function with the record to be paid (booking, order, invoice or package). The server reads the amount from the database, never from the browser, and creates the order with `POST /v2/checkout/orders`, setting `reference_id` and `invoice_id` to the record's identity so PayPal refuses a duplicate.
+3. **onApprove:** the button calls a server function with the order ID. The server captures with `POST /v2/checkout/orders/{id}/capture`, sending a `PayPal-Request-Id` header so a repeated call never captures twice. A `COMPLETED` capture is recorded by the payment service, with PayPal's fee from `seller_receivable_breakdown.paypal_fee` (section 6).
+4. **onCancel or onError:** the customer sees a message in the app language; the record stays unpaid (a pending booking keeps its hold).
+5. Pay links in emails (invoices, pending bookings) open the application's own pay page, which shows the same component beside the card option.
+
+### 5.5 Webhook Events
 
 | Event | Action |
 |---|---|
-| `PAYMENT.CAPTURE.COMPLETED` | Mark payment successful |
-| `PAYMENT.CAPTURE.DENIED` | Mark payment failed |
-| `PAYMENT.CAPTURE.REFUNDED` | Record the refund |
+| `CHECKOUT.ORDER.APPROVED` | Capture the order when the browser closed before capture |
+| `PAYMENT.CAPTURE.COMPLETED` | Confirm the payment (recorded once) |
+| `PAYMENT.CAPTURE.PENDING` | Record the payment as pending |
+| `PAYMENT.CAPTURE.DENIED` | Mark the payment failed |
+| `PAYMENT.CAPTURE.REFUNDED` | Confirm the refund |
+| `CUSTOMER.DISPUTE.CREATED` | Notify the Owner |
 
 **Webhook URL:** `[base_url]/_/api/webhooks/paypal`
-**Signature verification:** PayPal's verify-webhook-signature call with `paypal_webhook_id`.
+**Signature verification:** PayPal's verify-webhook-signature call with `paypal_webhook_id`, as [[[default:adr-global/adr-webhook-architecture|Webhook Architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md) sets out.
+
+### 5.6 Refunds
+
+A full or partial refund is made from the application through the payment service with `POST /v2/payments/captures/{capture_id}/refund` and a `PayPal-Request-Id` header. The `PAYMENT.CAPTURE.REFUNDED` webhook confirms it.
 
 ---
 
@@ -199,6 +224,10 @@ def refund_payment(payment_id, amount=None) -> dict
 ```
 
 Switching gateways later does not require reconfiguring services or bookings. The service layer routes to the correct gateway based on `payment_config.active_gateway`.
+
+**Accounting:** every payment and refund, by any gateway or recorded by hand, is one row in the payments table, which the application's accounts read. The gateway's fee for each payment is recorded on the payment's row (`gateway_fee`), taken from the gateway's own response: Stripe's balance transaction, Paystack's `fees`, PayPal's `paypal_fee`. Accounts show the gross payment as income and the fee as an expense.
+
+**Language:** Stripe Elements and PayPal's buttons are given the app language as `locale`.
 
 ---
 

@@ -1,13 +1,13 @@
 ---
 title: "ts-method"
-updated: "2026-10-24"
+updated: "2026-11-02"
 doc-id: "mb-2fad9223"
 ---
 # Test Suite — Method
 
 ## What the test suite is
 
-The test suite is how Mybizz proves that every application it builds on Anvil is secure, works fully, keeps its data intact and obeys Mybizz's own rules. It is sized for one developer building on Anvil's Hobby plan, and it produces the evidence a business customer's security questionnaire asks for: SOC 2 Type II readiness, an annual independent penetration test, PCI DSS SAQ A and POPIA and GDPR documentation.
+The test suite is how Mybizz proves that every application it builds on Anvil is secure, works fully, keeps its data intact and obeys Mybizz's own rules. It is sized for one developer building on Anvil, with each client instance on its own Business account, and it produces the evidence a business customer's security questionnaire asks for: SOC 2 Type II readiness, an annual independent penetration test, PCI DSS SAQ A and POPIA and GDPR documentation.
 
 The suite is held once, in `project-library-global\test-suite\`, and serves every Mybizz application (`mb-3-cs`, `mb-4-ecom` and every later one). Every PDLF step names the tests it runs in its own test specification, `{step}-test-spec.md`, the seventh file of the step.
 
@@ -61,7 +61,7 @@ Shoppers buy as guests, without an account. Anvil can require a second factor on
 | 3 — Browser | Features work for real users | Hosted App 1 |
 | 4 — Release | The release works for every client and can be undone | App 2, App 3, the test client and every client instance |
 
-**The local runtime.** The Hobby plan gives App 1 one database and no test environment. Integration tests therefore run first on the Anvil App Server in WSL, started on an empty database each run. Nothing live is touched, and attacks can be tried freely.
+**The local runtime.** App 1 has one database, and Mybizz uses no test environment. Integration tests therefore run first on the Anvil App Server in WSL, started on an empty database each run. Nothing live is touched, and attacks can be tried freely.
 
 `tools\ts_local.sh` is the one way the local runtime is handled:
 
@@ -76,7 +76,7 @@ The app's Users service must be switched on before the runtime can sign in a `TE
 
 **Two connections.** A server connection sets up and inspects data. A client connection, signed in as a test user of a role, acts exactly like a browser and is the only way access rules are proven. Each connection reads its key from `.env`, disconnects when its operation ends, and is reopened after the runtime is restarted whenever the app was changed in the Anvil editor.
 
-**Hobby limits.** At most five hosted emails per run (the plan allows 1,000 a month). Volume tests run locally. Hosted concurrency tests use at most 20 parallel calls.
+**Hosted limits.** At most five hosted emails per run. Volume tests run locally. Hosted concurrency tests use at most 20 parallel calls.
 
 ## 4. How tests are written
 
@@ -136,7 +136,7 @@ Evidence is saved in the step's output folder, named `{slug}-{step}-{run}-{kind}
 | pytest | Levels 1 and 2 |
 | Anvil App Server, with Java | The local runtime |
 | Anvil Uplink | Server and client connections |
-| pyotp | Second-factor codes for `TEST_` users |
+| pyotp | Second-factor and Vault codes for `TEST_` users |
 | aiosmtpd | The local mail catcher |
 | `ts_local.sh` | Starts and stops the local runtime |
 | PyYAML | The scanner |
@@ -166,7 +166,7 @@ About 0.8 GB in WSL. The Python tools live in one virtual environment, `~/mybizz
 ## Why it works this way
 
 - **Level 2 with selected Level 3,** because the costliest failures are a stolen owner account, a forged payment and an unrecorded change to money, and those get the extra controls; everything else gets the standard level.
-- **The local runtime first,** because the Hobby plan has no test database, and attacks must never hit a hosted service.
+- **The local runtime first,** because App 1 has no test database, and attacks must never hit a hosted service.
 - **A client connection for access tests,** because a server connection passes every access check and proves nothing.
 - **Saved evidence,** because an agent can report a pass that never happened, and because that evidence, kept over time, is what a SOC 2 Type II audit and a customer's questionnaire ask for.
 - **One catalogue,** because a test used at many steps must be the same test everywhere.

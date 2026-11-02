@@ -1,7 +1,7 @@
 ---
 title: "spec-vault-system"
 doc-id: "mb-4960a0bb"
-updated: "2026-11-01"
+updated: "2026-11-02"
 ---
 # Mybizz — The Vault System
 
@@ -13,7 +13,7 @@ updated: "2026-11-01"
 
 - **Anvil Secrets** holds exactly one item: a master encryption key, set at provisioning, never changed, used exclusively inside a dedicated vault-service module to encrypt/decrypt application-level secrets. No other code calls `anvil.secrets.get_secret()` directly.
 - **The Vault** (an application-level encrypted Data Table) holds every other credential — client API keys, integration tokens. Retrieved only via a `get_vault_secret(name)` function, never accessed directly by integration modules.
-- **Access control:** restrict Vault access to the Owner role, require a code from the Owner's authenticator app (TOTP, the Vault's own secret `vault_totp_secret`) on every open with no remembered session, lock the Vault for 15 minutes after 5 wrong codes, and email the Owner on every access.
+- **Access control:** restrict Vault access to the Owner role, require on every open both a sign-in with the Owner's second factor within the last five minutes ([[[default:specifications-global/spec-security-architecture|Security & Secrets Architecture]]](C:/dev/project-library-global/specifications-global/spec-security-architecture.md)) and a code from the Owner's authenticator app (TOTP, the Vault's own secret `vault_totp_secret`), with no remembered session, lock the Vault for 15 minutes after 5 wrong codes, and email the Owner on every access.
 
 ## 2. Secret Enforcement and Masking
 
@@ -37,20 +37,17 @@ assert not (_PAYMENT_SECRET_COLUMNS & set(data.keys())), (
 
 Each application lists its own Vault contents, its Vault form and its build sequence in its own project library. Publishable keys (for example a Stripe publishable key) are safe for client-side use and are stored in the payment configuration table, not the Vault.
 
-## 4. Authenticator Enrolment and Recovery
+## 4. Vault Code Enrolment and Reset
 
 - On the first open of the Vault, the Owner enrols an authenticator app: the instance shows a QR code and the Owner confirms with one code.
-- If the Owner loses the authenticator:
-  1. The Owner opens a support ticket while signed in to the instance
-  2. Mybizz confirms the Owner's identity by a separate channel: a phone call to the number on the client's Mybizz_management record, where the Owner gives the client reference number
-  3. Mybizz_management clears `vault_totp_secret` through the instance's management endpoint; no stored secret is read or changed
-  4. On the next open of the Vault, the Owner enrols a new authenticator
-  5. The reset is logged in the instance's audit log and in the Mybizz_management amendment log (append-only), and the Owner is emailed
-
-**Constraints:**
-- Only Mybizz_management can reset the Vault code — no self-service recovery and no backup codes
-- Mybizz never sees, sets or sends a Vault code
-- Each application's project library holds its recovery procedure
+- If the Owner loses the authenticator, the Owner resets the Vault code alone:
+  1. The Owner signs in with password and second factor.
+  2. The Owner chooses Reset Vault code; the instance emails the Owner a single-use link, valid for 10 minutes.
+  3. The link clears `vault_totp_secret`; no stored secret is read or changed.
+  4. On the next open of the Vault, the Owner enrols a new authenticator.
+  5. The reset is written to the audit log, and the Owner is emailed that the Vault code was reset.
+- A lost sign-in second factor is reset first, through Anvil's reset by email ([[[default:specifications-global/spec-security|Security Specification]]](C:/dev/project-library-global/specifications-global/spec-security.md)).
+- Mybizz never sees, sets, sends or resets a Vault code.
 
 ## Related Documents
 

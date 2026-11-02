@@ -1,7 +1,7 @@
 ---
 title: "spec-api-specification"
 doc-id: "mb-639a7203"
-updated: "2026-11-01"
+updated: "2026-11-02"
 ---
 # Mybizz — API Specification (HTTP Endpoints)
 
@@ -63,9 +63,12 @@ Both ship with master_template — all client instances have them from provision
 **Authentication:** PayPal's verify-webhook-signature call, with the client's PayPal webhook ID
 
 **Events handled:**
-- `PAYMENT.CAPTURE.COMPLETED` → Update payment status
+- `CHECKOUT.ORDER.APPROVED` → Capture the order when the browser closed before capture
+- `PAYMENT.CAPTURE.COMPLETED` → Confirm the payment
+- `PAYMENT.CAPTURE.PENDING` → Record the payment as pending
 - `PAYMENT.CAPTURE.DENIED` → Mark payment failed
-- `PAYMENT.CAPTURE.REFUNDED` → Record the refund
+- `PAYMENT.CAPTURE.REFUNDED` → Confirm the refund
+- `CUSTOMER.DISPUTE.CREATED` → Notify the Owner
 
 **Pattern:** Same as Stripe — validate, log, dispatch, return 200.
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Mybizz test suite: static and conformance scanner for an Anvil app folder.
 
-Runs the automatic checks of the test catalogue's ST tests (ST-02 to ST-12)
+Runs the automatic checks of the test catalogue's ST tests (ST-02 to ST-14)
 over one Anvil app folder and writes a JUnit XML report: one test case per
 check, named with the catalogue test it belongs to. A check fails when it finds a violation. A check that only flags
 lines for review is reported as a failure of type "review"; it passes once the
@@ -195,6 +195,32 @@ def load_yaml(path: Path):
         return yaml.safe_load(path.read_text(encoding="utf-8")) or {}
     except Exception:
         return None
+
+
+VISIBLE_TEXT_PROPS = ("text", "placeholder", "tooltip", "title", "label", "content")
+PHRASE_KEY_RE = re.compile(r"[a-z][a-z0-9_]*(?:\.[a-z0-9_]+)+")
+T_CALL_RE = re.compile(r"\bt(?:_plural)?\(\s*[\"']([a-z][a-z0-9_]*(?:\.[a-z0-9_]+)+)[\"']")
+PLACEHOLDER_RE = re.compile(r"\{([a-zA-Z_][a-zA-Z0-9_]*)\}")
+
+
+def phrase_dict(path: Path):
+    """The literal PHRASES dict of a phrase file, or None."""
+    try:
+        tree = ast.parse(path.read_text(encoding="utf-8"))
+    except SyntaxError:
+        return None
+    for node in tree.body:
+        if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == "PHRASES" for t in node.targets):
+            try:
+                return ast.literal_eval(node.value)
+            except ValueError:
+                return None
+    return None
+
+
+def placeholders(text) -> set:
+    parts = text.values() if isinstance(text, dict) else [text]
+    return {m for part in parts for m in PLACEHOLDER_RE.findall(str(part))}
 
 
 def walk_components(node, found):
@@ -804,11 +830,72 @@ class Scanner:
         for r in (r10, r11, r12, r16, r26, r27, r29):
             self.add(r)
 
+    # -- translation (ST-14, spec-translation section 11)
+    def st_translation(self):
+        r = Result("ST-14", "Every visible text is a phrase key that exists in every language")
+        tdir = self.app / "client_code" / "shared" / "translations"
+        if not tdir.exists():
+            r.skipped = "no client_code/shared/translations module"
+            self.add(r)
+            return
+        langs = {}
+        for f in sorted(tdir.glob("*.py")):
+            if f.stem in ("__init__", "formats", "glossary"):
+                continue
+            phrases = phrase_dict(f)
+            if phrases is None:
+                r.findings.append(Finding(rel(self.app, f), 0, "no literal PHRASES dict"))
+                continue
+            langs[f.stem] = phrases
+        if "en" not in langs:
+            r.findings.append(Finding(rel(self.app, tdir), 0, "en.py is missing"))
+            self.add(r)
+            return
+        en = langs["en"]
+        used = {}
+        for f in self.forms:
+            comps = []
+            walk_components(load_yaml(f) or {}, comps)
+            for c in comps:
+                props = c.get("properties") or {}
+                for prop in VISIBLE_TEXT_PROPS:
+                    v = props.get(prop)
+                    if isinstance(v, str) and v.strip():
+                        if PHRASE_KEY_RE.fullmatch(v.strip()):
+                            used.setdefault(v.strip(), rel(self.app, f))
+                        else:
+                            r.findings.append(Finding(rel(self.app, f), 0,
+                                f"{c.get('name', 'component')}.{prop} holds words, not a phrase key: {v.strip()[:40]!r}"))
+        for p in self.client + self.server:
+            text = p.read_text(encoding="utf-8", errors="replace")
+            for i, line in enumerate(text.splitlines(), 1):
+                for m in T_CALL_RE.finditer(line):
+                    used.setdefault(m.group(1), f"{rel(self.app, p)}:{i}")
+        for key, where in sorted(used.items()):
+            if key not in en:
+                r.findings.append(Finding(where, 0, f"phrase key {key!r} is not in en.py"))
+        for lang, phrases in langs.items():
+            if lang == "en":
+                continue
+            for key, text in en.items():
+                if key not in phrases:
+                    r.findings.append(Finding(f"{lang}.py", 0, f"missing key {key!r}"))
+                    continue
+                other = phrases[key]
+                if isinstance(text, dict) != isinstance(other, dict) or \
+                        (isinstance(text, dict) and set(text) != set(other)):
+                    r.findings.append(Finding(f"{lang}.py", 0, f"{key!r}: plural forms differ from en.py"))
+                    continue
+                if placeholders(text) != placeholders(other):
+                    r.findings.append(Finding(f"{lang}.py", 0, f"{key!r}: placeholders differ from en.py"))
+        self.add(r)
+
     def run(self) -> list[Result]:
         for check in (self.st02, self.st05, self.st06_07, self.st08, self.st09, self.st10, self.st12,
                       self.st13, self.st14, self.st15, self.st16, self.st18, self.st23, self.st24,
                       self.st25, self.st26, self.st28, self.st09_webhooks, self.st29, self.st30, self.st31, self.st34,
-                      self.st35, self.st37, self.st39, self.st41, self.dd_scans, self.ui_scans):
+                      self.st35, self.st37, self.st39, self.st41, self.dd_scans, self.ui_scans,
+                      self.st_translation):
             try:
                 check()
             except Exception as e:  # a broken check is a failure, never a pass
