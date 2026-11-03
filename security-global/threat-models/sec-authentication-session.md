@@ -1,7 +1,7 @@
 ---
 title: "sec-authentication-session"
 doc-id: "mb-e628fe60"
-updated: "2026-10-01"
+updated: "2026-11-03"
 ---
 # Threat Model — Authentication and Session Threats
 
@@ -11,7 +11,7 @@ Weak password policy, session tokens that never expire, or a login/session mecha
 
 ## Security Requirement
 
-Real, existing numeric standards already apply and are binding, per `[[spec-security]]` §3: password minimum length 8 characters, at least one uppercase/lowercase/number, session inactivity timeout 30 minutes. Every server function requiring a logged-in user must verify this server-side, never trust a client-side "is logged in" flag alone.
+Real, existing numeric standards already apply and are binding, per `[[spec-security]]` §3: password minimum length 8 characters, no composition rules, breached passwords and context words refused, session inactivity timeout 30 minutes. Every server function requiring a logged-in user must verify this server-side, never trust a client-side "is logged in" flag alone.
 
 ## Approved Pattern
 
