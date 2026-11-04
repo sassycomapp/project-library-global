@@ -1,7 +1,7 @@
 ---
 title: "spec-client-activation-runbook"
 doc-id: "mb-b575e9fd"
-updated: "2026-11-02"
+updated: "2026-11-04"
 ---
 # Client Instance Activation Runbook
 
@@ -162,7 +162,16 @@ The Owner registers the Stripe or Paystack webhook URL in that gateway's dashboa
 - [ ] At least one service created
 - [ ] Team members invited (if applicable)
 
-### Step 14 — Email Test
+### Step 14 — Legal Documents
+
+The Owner is responsible for the content of all three documents ([[[default:adr-global/adr-legal-policy-responsibility-acknowledgement-and-clause-builder-architecture|Legal Policy Responsibility]]](C:/dev/project-library-global/adr-global/adr-legal-policy-responsibility-acknowledgement-and-clause-builder-architecture.md)).
+
+- [ ] The Owner has reviewed the seeded clauses of the Privacy Policy, the Terms and Conditions and the Cookie Policy in the Clause Builder, and accepted or changed each one
+- [ ] All three documents are published to their public pages
+- [ ] The Owner's acknowledgement of responsibility is recorded
+- [ ] The cookie banner shows on a first visit to the public site, and Refuse all loads no embedded content ([[[default:specifications-global/spec-cookie-consent-system|Cookie Consent System]]](C:/dev/project-library-global/specifications-global/spec-cookie-consent-system.md), section 9)
+
+### Step 15 — Email Test
 
 - [ ] A test email sent from the instance arrives
 - [ ] A test email sent to an address on the client's domain arrives in the instance's inbox
@@ -171,7 +180,7 @@ The Owner registers the Stripe or Paystack webhook URL in that gateway's dashboa
 
 ## Phase 5 — Completion
 
-### Step 15 — Send Welcome Communication
+### Step 16 — Send Welcome Communication
 
 Send the client, through the instance's email:
 
@@ -180,7 +189,7 @@ Send the client, through the instance's email:
 - [ ] Link to the help videos
 - [ ] The subscription terms: $150 a month, month to month, cancel at any time
 
-### Step 16 — Internal Records
+### Step 17 — Internal Records
 
 - [ ] Client activation date recorded in the client registry
 - [ ] Subscription billing confirmed active

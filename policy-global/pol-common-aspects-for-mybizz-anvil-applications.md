@@ -1,6 +1,6 @@
 ---
 title: "pol-common-aspects-for-mybizz-anvil-applications"
-updated: "2026-11-01"
+updated: "2026-11-04"
 doc-id: "mb-ab18d72d"
 ---
 # Policy — Common Aspects for Mybizz Anvil Applications
@@ -62,7 +62,7 @@ Role-based access with the same roles in every application. [[[default:specifica
 
 ### 12. Compliance
 
-POPIA in every application; GDPR and PCI DSS where they apply; the required legal documents before go-live; the standard offboarding. [[[default:specifications-global/spec-regulatory-compliance-baseline|Regulatory Compliance Baseline]]](C:/dev/project-library-global/specifications-global/spec-regulatory-compliance-baseline.md).
+POPIA in every application; GDPR and PCI DSS where they apply; the required legal documents before go-live; cookie consent before any optional cookie; the standard offboarding. [[[default:specifications-global/spec-regulatory-compliance-baseline|Regulatory Compliance Baseline]]](C:/dev/project-library-global/specifications-global/spec-regulatory-compliance-baseline.md), [[[default:policy-global/pol-cookies-and-consent|Cookies and Consent]]](C:/dev/project-library-global/policy-global/pol-cookies-and-consent.md).
 
 ### 13. User interface
 

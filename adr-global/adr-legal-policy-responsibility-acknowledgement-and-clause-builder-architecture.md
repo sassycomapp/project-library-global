@@ -1,7 +1,7 @@
 ---
 title: "adr-legal-policy-responsibility-acknowledgement-and-clause-builder-architecture"
 doc-id: "mb-62159214"
-updated: "2026-10-23"
+updated: "2026-11-04"
 ---
 # Legal Policy Responsibility Acknowledgement and Clause-Builder Architecture
 Status: Accepted
@@ -10,7 +10,7 @@ Status: Accepted
 
 ## Context
 
-Every Mybizz application requires businesses to have legal policies (Privacy Policy and Terms & Conditions) for their operations. The platform needs to clarify responsibility for policy content while providing tools to assist with policy creation.
+Every Mybizz application requires businesses to have legal policies (Privacy Policy, Terms & Conditions and Cookie Policy) for their operations. The platform needs to clarify responsibility for policy content while providing tools to assist with policy creation.
 
 ### Problem Statement
 
@@ -32,7 +32,7 @@ The platform needs to support policy creation and publication while maintaining 
 
 ## Decision
 
-**The Owner is solely responsible for the content of their Privacy Policy and Terms & Conditions.**
+**The Owner is solely responsible for the content of their Privacy Policy, Terms & Conditions and Cookie Policy.**
 
 **Onboarding records explicit acknowledgement of that responsibility.**
 
@@ -68,7 +68,7 @@ The platform needs to support policy creation and publication while maintaining 
 
 ### Clause-Builder Architecture
 1. Reusable component accessible from onboarding and settings
-2. Common clause library for privacy policies and terms
+2. Common clause library for privacy policies, terms and cookie policies; the cookie policy's clauses are seeded as [[[default:specifications-global/spec-cookie-consent-system|Cookie Consent System]]](C:/dev/project-library-global/specifications-global/spec-cookie-consent-system.md), Appendix A, sets out
 3. Custom editing and customization capabilities
 4. Preview and publication workflow
 
