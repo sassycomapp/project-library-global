@@ -1,7 +1,7 @@
 ---
 title: "spec-api-specification"
 doc-id: "mb-639a7203"
-updated: "2026-11-02"
+updated: "2026-11-04"
 ---
 # Mybizz — API Specification (HTTP Endpoints)
 
@@ -100,7 +100,7 @@ Both ship with master_template — all client instances have them from provision
 | Logging | Every webhook with a valid signature is logged to the `webhook_log` table. A webhook with an invalid signature gets HTTP 400, no `webhook_log` row and an `error_log` entry |
 | Processing | Deferred to background task — never process in HTTP handler |
 | Error handling | Log failures to `webhook_log.error_message` |
-| Reconciliation | Hourly task retries orphaned (unprocessed) webhook rows |
+| Reconciliation | A background task every 5 minutes retries orphaned (unprocessed) webhook rows |
 
 ---
 

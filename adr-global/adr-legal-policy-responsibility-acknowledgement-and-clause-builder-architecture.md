@@ -68,7 +68,7 @@ The platform needs to support policy creation and publication while maintaining 
 
 ### Clause-Builder Architecture
 1. Reusable component accessible from onboarding and settings
-2. Common clause library for privacy policies, terms and cookie policies; the cookie policy's clauses are seeded as [[[default:specifications-global/spec-cookie-consent-system|Cookie Consent System]]](C:/dev/project-library-global/specifications-global/spec-cookie-consent-system.md), Appendix A, sets out
+2. Common clause library for privacy policies, terms and cookie policies; the cookie policy's clauses are seeded as [[[default:specifications-global/spec-legal-documents-and-consent|Legal Documents and Consent]]](C:/dev/project-library-global/specifications-global/spec-legal-documents-and-consent.md), Appendix A, sets out
 3. Custom editing and customization capabilities
 4. Preview and publication workflow
 

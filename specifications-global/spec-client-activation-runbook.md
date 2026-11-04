@@ -169,7 +169,7 @@ The Owner is responsible for the content of all three documents ([[[default:adr-
 - [ ] The Owner has reviewed the seeded clauses of the Privacy Policy, the Terms and Conditions and the Cookie Policy in the Clause Builder, and accepted or changed each one
 - [ ] All three documents are published to their public pages
 - [ ] The Owner's acknowledgement of responsibility is recorded
-- [ ] The cookie banner shows on a first visit to the public site, and Refuse all loads no embedded content ([[[default:specifications-global/spec-cookie-consent-system|Cookie Consent System]]](C:/dev/project-library-global/specifications-global/spec-cookie-consent-system.md), section 9)
+- [ ] The cookie banner shows on a first visit to the public site, and Refuse all loads no embedded content ([[[default:specifications-global/spec-legal-documents-and-consent|Legal Documents and Consent]]](C:/dev/project-library-global/specifications-global/spec-legal-documents-and-consent.md), section 12)
 
 ### Step 15 — Email Test
 

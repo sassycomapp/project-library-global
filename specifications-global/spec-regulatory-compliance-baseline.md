@@ -41,6 +41,7 @@ SAQ A also requires that the payment page cannot be tampered with by scripts: ca
 | Transactions and invoices | 7 years (tax compliance) |
 | Audit logs | 2 years |
 | Cookie consent records | 2 years |
+| Acceptance records of the Terms and Conditions and the Privacy Policy | 7 years |
 | Email logs | 90 days |
 | Completed tasks | Auto-deleted after 90 days |
 
@@ -52,8 +53,8 @@ security document) but should not override these defaults without a stated reaso
 Privacy Policy, Terms of Service, Cookie Policy — per app, since these are customer-facing and
 must reflect that app's actual data practices, even though the underlying regulatory posture
 above is shared. All three are built in the Clause Builder and published by the Owner before
-the client instance goes live. The Cookie Policy, the cookie banner and the consent record
-follow [[[default:policy-global/pol-cookies-and-consent|Cookies and Consent]]](C:/dev/project-library-global/policy-global/pol-cookies-and-consent.md) and [[[default:specifications-global/spec-cookie-consent-system|Cookie Consent System]]](C:/dev/project-library-global/specifications-global/spec-cookie-consent-system.md).
+the client instance goes live. Their versions, the acceptance of the Terms and Conditions and the Privacy
+Policy, the cookie banner and every consent record follow [[[default:policy-global/pol-legal-documents-and-consent|Legal Documents and Consent]]](C:/dev/project-library-global/policy-global/pol-legal-documents-and-consent.md) and [[[default:specifications-global/spec-legal-documents-and-consent|Legal Documents and Consent]]](C:/dev/project-library-global/specifications-global/spec-legal-documents-and-consent.md).
 
 ## Standard Offboarding Data Handover Procedure
 
