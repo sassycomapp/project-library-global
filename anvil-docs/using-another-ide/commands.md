@@ -1,7 +1,7 @@
 ---
 title: "commands"
 doc-id: "mb-a9b85f78"
-updated: "2026-10-01"
+updated: "2026-11-06"
 ---
 # [Anvil CLI commands](#anvil-cli-commands)
 
@@ -86,13 +86,13 @@ Use this when:
 
 ## [`validate`](#validate)
 
-Check that the specified `.yaml` file is formatted correctly and thus valid.
+Check that the specified Anvil app file, or every Anvil app file in the specified folder, is valid.
 
 ```bash
-anvil validate <file>
+anvil validate <path>
 ```
 
-You’ll need to specify the path to the file or run the command from the relevant directory and provide the file name.
+You’ll need to specify the path to a file or folder, or run the command from the relevant directory and provide the file or folder name.
 
 If the file is valid, the command prints a success message and exits successfully. If the file is invalid, it prints the fields that need attention and exits with an error.
 
@@ -100,6 +100,14 @@ Supported files:
 
 -   `anvil.yaml`
 -   `.yaml` files under `client_code/`, including `client_code/**/form_template.yaml`
+-   `.html` files under `client_code/`, including `client_code/**/form_template.html`
+-   `.py` files under `client_code/` and `server_code/`
+
+Limits (tested with Anvil CLI 0.7.7):
+
+-   Python files are checked for syntax errors.
+-   HTML form templates are not checked for unclosed tags.
+-   Component types and component properties are not checked against any component library.
 
 Key options:
 
@@ -111,6 +119,9 @@ Examples:
 anvil validate anvil.yaml
 anvil validate client_code/Form1/form_template.yaml
 anvil validate client_code/Form1.yaml
+anvil validate client_code/Form1/form_template.html
+anvil validate client_code/Form1/__init__.py
+anvil validate client_code
 ```
 
 ## [Other useful commands](#other-useful-commands)
