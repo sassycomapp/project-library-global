@@ -134,18 +134,7 @@ Only the components [[[default:specifications-global/spec-ui-standards|UI Standa
 
 ### 1.7 UI form folders
 
-Each form folder, `{slug}-project-library\ui\{package}\{FormName}\`, holds exactly six files:
-
-| File | Pattern | Front matter |
-|---|---|---|
-| Wireframe definition | `{FormName}-wireframe-definition.md` | Yes |
-| Wireframe checklist | `{FormName}-wireframe-chklist.md` | Yes |
-| Screen checklist | `{FormName}-screen-chklist.md` | Yes |
-| Wireframe rendering | `{FormName}-wireframe.html` | No |
-| Screen rendering | `{FormName}-screen.html` | No |
-| Screen capture | `{FormName}-screen.png` | No |
-
-A sub-form or row template sits one folder deeper and uses the full stem: `{FormName}{SubForm}-{kind}`. A custom component's wireframe is `wireframe-custom-component-{ComponentName}.html`.
+Each form folder, `{slug}-project-library\ui\<package path>\<FormName>\`, mirrors the form's module path in `client_code` and holds exactly one file, the form's screen requirement, `<FormName>-requirement.md`, with front matter. The form's spec sheet is `{slug}-app1\theme\assets\docs\app1\<package path>\<FormName>.md`, without front matter, because it lives in the app.
 
 ### 1.8 Planning units
 

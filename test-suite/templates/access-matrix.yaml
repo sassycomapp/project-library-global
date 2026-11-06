@@ -2,6 +2,7 @@
 # Copy to the project library at Step 15 as docs-local/design/app{n}/access-matrix.yaml;
 # a feature extends its app's matrix.
 # Every server function, form and settings tab, against every role.
+# Forms are keyed by module path (package path, then form name, joined by dots).
 # Scopes: all (every row), own (only the caller's own rows), none (refused).
 # Roles: Owner, Manager, Admin, Staff, Customer, SignedOut.
 # IN-02 and ST-02 are generated from this file; BR-03 reads it.
@@ -21,7 +22,7 @@ server_functions:
     step_up: true
 
 forms:
-  BookingCalendarForm: {Owner: all, Manager: all, Admin: all, Staff: own, Customer: none, SignedOut: none}
+  bookings.BookingCalendarForm: {Owner: all, Manager: all, Admin: all, Staff: own, Customer: none, SignedOut: none}
 
 settings_tabs:
   PaymentGateway: {Owner: all, Manager: none, Admin: none, Staff: none, Customer: none, SignedOut: none}
