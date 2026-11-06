@@ -36,7 +36,7 @@ Why the Anvil agent does not judge the UI: Anvil's own agent references cover on
 Each feature is built, checked and signed off by David before the next feature starts.
 
 1. **Claude:** Check the feature's parts of the scaffold specification, the user flows, the authoritative schema and the SRS, and correct them where they disagree.
-2. **Claude:** Write a screen requirement for every form of the feature, to section 12.1 of [[[default:specifications-global/spec-ui-standards]]](C:/dev/project-library-global/specifications-global/spec-ui-standards.md), with `status: draft`.
+2. **Claude:** Write a screen requirement for every form of the feature, to section 14.1 of [[[default:specifications-global/spec-ui-standards]]](C:/dev/project-library-global/specifications-global/spec-ui-standards.md), with `status: draft`.
 3. **David:** Approve each screen requirement. Claude sets its status to `approved`.
 4. **OpenCode, build mode:** Write the feature's data table schema.
 5. **David, Anvil Data Tables view:** Apply the schema.

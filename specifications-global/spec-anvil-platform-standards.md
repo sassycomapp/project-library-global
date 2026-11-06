@@ -1,7 +1,7 @@
 ---
 title: "spec-anvil-platform-standards"
 doc-id: "mb-57f2e70b"
-updated: "2026-11-02"
+updated: "2026-11-06"
 ---
 # Anvil Platform Mechanics
 
@@ -12,10 +12,10 @@ values, keys, or data.
 
 ## 1. Form File Structure
 
-- Forms are folders: `FormName/`
+- Forms are folders: `<package path>/FormName/`
 - Code lives in `FormName/__init__.py`
-- Designer config lives in `FormName/form_template.yaml`
-- `form_template.yaml` and `anvil.yaml` are changed only through Anvil's own agent skills (`client-forms`, `anvil-yaml`) or the Designer, and every change is validated (`anvil --json validate`); never by hand-written code that edits the YAML.
+- The layout lives in `FormName/form_template.html`, an HTML form template; every form follows [[[default:specifications-global/spec-ui-standards|UI Standards]]](C:/dev/project-library-global/specifications-global/spec-ui-standards.md)
+- Form templates are written to the rules of Anvil's `client-forms` skill; `anvil.yaml` is changed only through Anvil's `anvil-yaml` skill or the Designer; every change is validated (`anvil --json validate`).
 
 ## 2. Server Function Pattern
 
@@ -38,9 +38,8 @@ Every server function should:
 
 ## 4. Data Binding Pattern
 
-- Set `self.item` before calling `self.init_components()`.
-- **Write Back toggle (W) must be enabled in the Designer's Data Bindings panel** — it cannot be
-  set in code.
+- Set `self.item` before the form's components are initialised.
+- Writeback is set in the form template, as a writeback binding (`writeback:<property>="..."`) on the property the theme's documentation marks as writeback.
 - Call `refresh_data_bindings()` after modifying `self.item` in place.
 - Do not use data bindings on forms that manage their own server calls directly (e.g. settings
   forms) — the two patterns conflict.
@@ -99,14 +98,9 @@ finally:
   repairs code by itself" capability built into Anvil.works — don't assume one exists without
   direct confirmation.
 
-## 9. Anvil AI — UI Construction Inputs
+## 9. Anvil AI — Wiring
 
-Anvil AI can build a competent Designer UI, but needs three specific inputs, not one:
-1. Wireframe HTML
-2. Screen HTML (see [[[default:specifications-global/spec-screen-and-wireframe-production-standards|Screen and Wireframe Production Standards]]](C:/dev/project-library-global/specifications-global/spec-screen-and-wireframe-production-standards.md))
-3. A screen PNG (rendered from the screen HTML via an external tool)
-
-Given all three, it also wires components to their code-behind functions as part of the build.
+The Anvil agent wires forms to server functions that already exist: it fills the empty event handlers a form's spec sheet names, and changes nothing else, as [[[default:specifications-global/mo-ui-production]]](C:/dev/project-library-global/specifications-global/mo-ui-production.md) sets out.
 
 **Vault System:** For the two-level secrets model, enforcement/masking pattern, implementation, and second-factor recovery — see [[[default:specifications-global/spec-vault-system|Vault System Specification]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md). This document does not duplicate that content.
 

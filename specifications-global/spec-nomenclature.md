@@ -1,7 +1,7 @@
 ---
 title: "spec-nomenclature"
 doc-id: "mb-a3648afc"
-updated: "2026-11-01"
+updated: "2026-11-06"
 ---
 # Nomenclature and Naming Conventions
 
@@ -128,7 +128,7 @@ Every folder in `project-library-global` has a matching local folder in each pro
 | RepeatingPanel | `rp_` | `rp_items` |
 | Plot | `plot_` | `plot_revenue` |
 
-Only components listed in [[[default:specifications-global/spec-m3_component_mapping|M3 Component Mapping]]](C:/dev/project-library-global/specifications-global/spec-m3_component_mapping.md) may be used. The legacy `Label` component is banned. Any component not on that list is restricted until an ADR adds it, together with its prefix.
+Only the components [[[default:specifications-global/spec-ui-standards|UI Standards]]](C:/dev/project-library-global/specifications-global/spec-ui-standards.md) allows may be used. An event handler is named `<component_name>_<event>`, for example `btn_save_click`. The legacy `Label` component is banned. Any component not on that list is restricted until an ADR adds it, together with its prefix.
 
 **Data tables:** table names lowercase with underscores, no prefix; link columns `{table}_id` or the singular name of the target table; `created_at` and `updated_at` on most tables.
 

@@ -1,7 +1,7 @@
 ---
 title: "adr-dark-mode"
 doc-id: "mb-c66b42b5"
-updated: "2026-10-23"
+updated: "2026-11-06"
 ---
 # Dark Mode
 
@@ -11,27 +11,15 @@ updated: "2026-10-23"
 
 ## Context
 
-Every screen already carries a `@media (prefers-color-scheme: dark)` block with token overrides, and each palette's token set includes the surface and neutral tokens that dark mode swaps. Dark mode is therefore another set of token overrides, not a separate design system.
+`m3-custom-theme` holds every palette in a light and a dark version, each defining all of the theme's colour tokens. A form that takes every colour from the theme's colour roles is therefore shown correctly in both modes without colours of its own.
 
 ## Decision
 
-**Every Mybizz application supports dark mode from its first release.**
-
-Every screen includes a `@media (prefers-color-scheme: dark)` block with alternate values for these CSS custom properties:
-
-- `--surface`
-- `--on-surface`
-- `--surface-variant`
-- `--on-surface-variant`
-- `--outline`
-- `--outline-variant`
-- `--surface-container-low`
-
-Dark mode token values are palette-specific: each of an application's palettes defines its own dark surface and neutral tokens.
+**Every Mybizz application supports dark mode from its first release.** Dark mode comes from the palettes of `m3-custom-theme`. A form holds no colour scheme, colour value or media query of its own.
 
 ## Consequences
 
-- Every screen file includes a `@media (prefers-color-scheme: dark)` block.
-- The application's theme stylesheet holds the dark token overrides for every palette.
-- The application's palette definition (in its own `DESIGN.md`) states dark tokens beside light tokens.
-- Dark mode is a required item of every screen compliance checklist.
+- Every colour in a form comes from the theme's colour roles, as [[[default:specifications-global/spec-ui-standards]]](C:/dev/project-library-global/specifications-global/spec-ui-standards.md) sets out.
+- The test suite's form scan rejects a colour value written in a form template.
+- An application's choice of palette is recorded in its own design documentation; the light and dark values belong to the theme.
+- Every form is checked in light and dark mode before its feature is signed off.

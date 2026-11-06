@@ -1,6 +1,6 @@
 ---
 title: "ts-catalogue"
-updated: "2026-11-02"
+updated: "2026-11-06"
 doc-id: "mb-2b95aede"
 ---
 # Test Suite — Catalogue
@@ -39,7 +39,7 @@ Every test a Mybizz application is proven by, with its ID. Steps name these IDs 
 | DC-10 | The tickets cover the plan, in order | No cycle in their order; every feature has a ticket and every ticket a feature; shared components first; each ticket names its acceptance and security tests by ID | D · `pdlf-tickets\` | The application's plan |
 | DC-11 | The concept has no contradictions | Every pair of concept documents was checked and the report names each pair | D · Step 21 inputs | Consistency of the concept documents |
 | DC-12 | The design system is readable and in bounds | Every text and control colour pair reaches WCAG 2.2 AA contrast (4.5:1 text, 3:1 controls) in light and dark mode; all seven dark tokens are defined; excluded components are named | D · `DESIGN.md` | WCAG 2.2; [[[default:adr-global/adr-dark-mode]]](C:/dev/project-library-global/adr-global/adr-dark-mode.md) |
-| DC-13 | Wireframes and screens are faithful and conform | Stage 1: exactly the components needed, nothing extra. Stage 2: no hard-coded colour, only Material 3 components, naming prefixes, dark mode and reduced motion, none of the forbidden documentation patterns; a picture exists for every screen | D/0 · wireframes, screens | [[[default:specifications-global/spec-screen-and-wireframe-production-standards]]](C:/dev/project-library-global/specifications-global/spec-screen-and-wireframe-production-standards.md); [[[default:adr-global/adr-design-rules]]](C:/dev/project-library-global/adr-global/adr-design-rules.md) |
+| DC-13 | Forms are faithful and conform | Every form holds exactly the components its approved screen requirement names, nothing extra; its spec sheet matches the form; no hard-coded colour, only `m3-custom-theme` components and allowed standard components, naming prefixes, phrase keys | D/0 · forms, screen requirements, spec sheets | [[[default:specifications-global/spec-ui-standards]]](C:/dev/project-library-global/specifications-global/spec-ui-standards.md); [[[default:specifications-global/mo-ui-production]]](C:/dev/project-library-global/specifications-global/mo-ui-production.md) |
 | DC-14 | The release is documented | Release notes; a migration plan for any schema change, with its rollback; before the first release, the Privacy Policy, Terms of Service and Cookie Policy | D · project library | [[[default:specifications-global/spec-deployment]]](C:/dev/project-library-global/specifications-global/spec-deployment.md); [[[default:specifications-global/spec-regulatory-compliance-baseline]]](C:/dev/project-library-global/specifications-global/spec-regulatory-compliance-baseline.md) |
 | DC-15 | Lessons are written back | Every fault that escaped has its root cause, its new test and the corrected source document | D · lessons | [[[default:adr-global/adr-common-architecture-across-mybizz-applications]]](C:/dev/project-library-global/adr-global/adr-common-architecture-across-mybizz-applications.md) (lessons written back) |
 
@@ -137,7 +137,7 @@ Hosted App 1, with GStack `browse` and `/qa-only`.
 | BR-01 | Every flow works end to end | Each critical flow's steps and data checks match, at desktop (1440 px) and mobile (390 px) width | DC-04 |
 | BR-02 | Edge cases and errors behave as designed | Declined card, gateway failure, expired session, lost connection: each shows its message and leaves no half record | The application's test plan (Step 15), error paths |
 | BR-03 | Each role sees only its own forms | Refused forms are hidden from navigation and, opened directly, refused | [[[default:specifications-global/spec-testing-methodology-standards]]](C:/dev/project-library-global/specifications-global/spec-testing-methodology-standards.md) section 7 |
-| BR-04 | The feature looks as approved | Each form matches its approved screen at both widths, in light and dark mode | [[[default:specifications-global/spec-screen-and-wireframe-production-standards]]](C:/dev/project-library-global/specifications-global/spec-screen-and-wireframe-production-standards.md) |
+| BR-04 | The feature looks as approved | Each form matches its approved screen requirement and the form David approved in Anvil, at phone and desktop width, in light and dark mode | [[[default:specifications-global/spec-ui-standards]]](C:/dev/project-library-global/specifications-global/spec-ui-standards.md) |
 | BR-05 | The feature is accessible | Every flow can be done by keyboard, focus is visible, icon buttons have names, errors say what to fix | WCAG 2.2 AA |
 | BR-06 | The feature is fast enough | Each flow step within its budget (3 seconds by default); public pages reach Largest Contentful Paint 2.5 s and layout shift 0.1 | ISO/IEC 25010; Core Web Vitals |
 | BR-07 | Earlier features still work | Every signed-off feature's flows pass again; the console shows no error; only approved hosts are contacted | Regression of every signed-off feature |

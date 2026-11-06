@@ -1,6 +1,6 @@
 ---
 title: "pol-common-aspects-for-mybizz-anvil-applications"
-updated: "2026-11-04"
+updated: "2026-11-06"
 doc-id: "mb-ab18d72d"
 ---
 # Policy — Common Aspects for Mybizz Anvil Applications
@@ -66,7 +66,7 @@ POPIA in every application; GDPR and PCI DSS where they apply; the required lega
 
 ### 13. User interface
 
-Anvil's Material 3 theme only; components outside the M3 dependency, Anvil Extras and `HTMLTemplate` are not used; dark mode from the first release. [[[default:specifications-global/spec-m3-design-standards|M3 Design Standards]]](C:/dev/project-library-global/specifications-global/spec-m3-design-standards.md), [[[default:adr-global/adr-material-3-theme-component-scope|Material 3 Component Scope]]](C:/dev/project-library-global/adr-global/adr-material-3-theme-component-scope.md).
+`m3-custom-theme` only; Anvil standard components only where the theme has none; Anvil Extras and `HTMLTemplate` are not used; dark mode from the first release. [[[default:specifications-global/spec-ui-standards|UI Standards]]](C:/dev/project-library-global/specifications-global/spec-ui-standards.md).
 
 ### 14. Reference platforms
 

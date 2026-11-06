@@ -30,6 +30,9 @@ Why: one theme and one source of component facts stop two component sets, or two
 4. **Banned components:** `Label` (use the theme's `Text`), `HtmlTemplate`, `HtmlPanel`, and every Anvil Extras component.
 5. **Custom components** exist only where the application's custom component register names them. A custom component is built from theme components.
 6. **Repeated data** is shown with a `RepeatingPanel` and an item template form, never with HTML loops or strings built in code.
+7. **Custom components and widgets.** A reusable element is a custom component: an Anvil form written in Python, with its own properties and events. A widget, which wraps third-party JavaScript, HTML or CSS, is used only for a third-party library, a browser feature or custom drawing, and sits hidden behind a custom component's interface.
+8. **Reuse threshold.** A custom component is shared only when it is used in two or more places. An element used in one place stays inside its form.
+9. **RichText** is used only for text whose formatting comes from the user or from content, never for layout.
 
 ## 4. Form Files
 
@@ -43,6 +46,7 @@ Why: one theme and one source of component facts stop two component sets, or two
 6. Every reference to a form uses its module path: the access matrix, the screen requirement, the spec sheet, routes and `anvil.yaml`.
 7. Code opens a form through its imported class or its route, never through a bare name string.
 8. Package folders are permanent. Removing a form removes only that form's own folder.
+9. Form files are written to the rules of Anvil's own `client-forms` skill, and every change is validated with `anvil --json validate`.
 
 Why: HTML templates are the format Anvil's own agent rules prefer, they are readable in review and in version control, and a module path is the only form name Anvil guarantees to be unique.
 
@@ -62,11 +66,52 @@ Why: HTML templates are the format Anvil's own agent rules prefer, they are read
 
 1. Every colour comes from the theme's colour roles. A form template holds no hex, `rgb()`, `rgba()` or `hsl()` value.
 2. Light and dark mode come from the theme's palettes. A form holds no colour scheme of its own.
-3. A component's role is set in the form template as `prop:role="<role>"`, using a role the theme defines.
-4. Every page form sits on a layout form from the application's `layouts` package. Every layout form is built on a theme layout.
-5. Responsive behaviour is set per container with `wrap_on`, as [[[default:adr-global/adr-responsive-behaviour-mechanism]]](C:/dev/project-library-global/adr-global/adr-responsive-behaviour-mechanism.md) sets out. No form uses pixel breakpoints.
+3. Three status colours are fixed for every Mybizz application, the same in every palette, and used by role name only:
 
-## 8. Data and Behaviour
+   | Role | Meaning | Value |
+   |---|---|---|
+   | `status-success` | Success, completed | `#2DB52D` |
+   | `status-pending` | Pending, unresolved | `#FF6600` |
+   | `status-error` | Failure | the theme's `error` role |
+
+4. A component's role is set in the form template as `prop:role="<role>"`, using a role the theme defines. Code sets a role only where the role changes while the form is open.
+5. Every page form sits on a layout form from the application's `layouts` package. Every layout form is built on a theme layout: `NavigationDrawerLayout` or `NavigationRailLayout`.
+6. Responsive behaviour is set per container with `wrap_on`, as [[[default:adr-global/adr-responsive-behaviour-mechanism]]](C:/dev/project-library-global/adr-global/adr-responsive-behaviour-mechanism.md) sets out. No form uses pixel breakpoints.
+7. `ColumnPanel` is the default container and `FlowPanel` holds horizontal rows; `XYPanel` is not used for layout. A card's content sits in the card's own content container.
+8. Each type of screen has one width and one pattern:
+
+   | Screen type | Maximum width | Pattern |
+   |---|---|---|
+   | Sign-in and sign-up | 400px | Centred card |
+   | List | 1200px | Full width: header, filters, data grid |
+   | Dashboard | 1200px | Full width: metric cards |
+   | Editor, viewer, form | 900px | Full width: sectioned panels |
+   | Public page | 900px | Full width: content sections |
+   | Settings | 1000px | Full width: tabs and panels |
+   | Onboarding | 600px | Centred card with a step indicator |
+   | Card in a grid | 320px | Embedded |
+   | Modal form | 480px | Dialog |
+   | Modal detail | 640px | Dialog |
+
+## 8. Controls and Text Styles
+
+1. A screen has at most one filled button, for its primary action. Secondary actions use outlined buttons; low-emphasis actions use text buttons.
+2. Text styles follow the theme's type roles: page title `headline-large`; section title `headline-small`; card or panel title `title-medium`; body text `body-medium`; caption `body-small`. Field labels are the input components' own labels.
+3. Text inputs, dropdowns and date pickers use the outlined appearance.
+4. Dropdown items are set in code.
+5. A password field hides its text.
+6. A failed input shows the component's own error state, with the message in its supporting text.
+7. A guided multi-step task uses the layout's sidesheet: the data of each step is carried in `self.item`, and the server is called once, at the last step.
+
+## 9. Navigation
+
+1. The sidebar of a layout uses the layout's own `NavigationLink` components.
+2. A click handler made in a loop captures its loop values as default arguments, for example `lambda e, f=form_class: self._nav_click(f)`, because a lambda without them takes the loop's last value.
+3. A form opened with parameters is opened through its imported class, for example `open_form(BookingViewerForm(booking_id=row['booking_id']))`.
+4. A public, shareable page is a route of Anvil's Routing dependency (`@router.route(...)`). A routed form's constructor is `def __init__(self, routing_context, **properties)`, and the form reads its parameters from `routing_context.params`.
+5. `navigate_to` is never used.
+
+## 10. Data and Behaviour
 
 1. A form is presentation only. Each event handler calls a server function or a client module function; logic lives in modules, as [[[default:specifications-global/spec-anvil-platform-standards]]](C:/dev/project-library-global/specifications-global/spec-anvil-platform-standards.md) sets out.
 2. Every server function a form calls exists before the form is built.
@@ -74,12 +119,12 @@ Why: HTML templates are the format Anvil's own agent rules prefer, they are read
 4. Every form that shows data has an empty state of exactly four components: an icon, a heading, a body text and a primary action button.
 5. A form template holds no sample data.
 
-## 9. Access
+## 11. Access
 
 1. Every form is listed in the application's `access-matrix.yaml`, under `forms`, keyed by its module path, with a scope for every role.
 2. A form a role may not use is hidden from that role's navigation and refused when opened directly.
 
-## 10. Always-Available Controls
+## 12. Always-Available Controls
 
 1. Every page shows three controls at all times:
    - **Tooltips on/off:** switches tooltips on or off for the signed-in user. The choice is saved in the user's preferences and applies on every page.
@@ -92,19 +137,23 @@ Why: HTML templates are the format Anvil's own agent rules prefer, they are read
 
 Why: help, tooltips and the dashboard must always be one click away, so that no user is ever stuck on a page without guidance or a way back.
 
-## 11. Accessibility
+## 13. Accessibility
 
 1. Every form meets WCAG 2.2 AA.
-2. Every flow can be completed by keyboard, and keyboard focus is always visible.
-3. Every icon-only button has a name.
-4. Every error message says what to fix.
-5. Every text and control colour pair reaches 4.5:1 contrast for text and 3:1 for controls, in light and dark mode.
+2. Every flow can be completed by keyboard, in a logical order, and keyboard focus is always visible.
+3. A dialog or sidesheet holds keyboard focus until it closes, and Escape closes it.
+4. Every icon-only button has a name.
+5. Every error message says what to fix.
+6. No state is shown by colour alone: error, success and required states also carry an icon and a text.
+7. Every text and control colour pair reaches 4.5:1 contrast for normal text and 3:1 for large text and controls, in light and dark mode.
+8. Every touch target is at least 44 by 44 pixels, with at least 8 pixels between neighbouring targets.
+9. Motion follows the user's reduced-motion setting.
 
-## 12. Documents per Form
+## 14. Documents per Form
 
 Each form has two documents, both named after the form.
 
-### 12.1 Screen Requirement
+### 14.1 Screen Requirement
 
 - **Location:** `{slug}-project-library/ui/<package path>/<FormName>/<FormName>-requirement.md`.
 - **Read by:** OpenCode and Claude.
@@ -120,7 +169,7 @@ Each form has two documents, both named after the form.
   8. every process on the page, with the help video that explains it;
   9. the user flows the form takes part in.
 
-### 12.2 Spec Sheet
+### 14.2 Spec Sheet
 
 - **Location:** `{slug}-app1/theme/assets/docs/app1/<package path>/<FormName>.md`.
 - **Read by:** the Anvil agent.
@@ -136,7 +185,7 @@ Each form has two documents, both named after the form.
 
 Why: the screen requirement is the design David approves; the spec sheet is the same design restated for the Anvil agent, in the only place in the app the agent reads documents from.
 
-## 13. Checks
+## 15. Checks
 
 Every new or changed form passes both checks before it is committed:
 
