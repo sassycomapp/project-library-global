@@ -1,7 +1,7 @@
 ---
 title: "spec-security-architecture"
 doc-id: "mb-9112b5a3"
-updated: "2026-11-02"
+updated: "2026-11-07"
 ---
 # Mybizz — Security & Secrets Architecture
 
@@ -78,7 +78,7 @@ service-to-service auth" idea, which isn't specific enough to be worth extractin
 The regulatory baseline (POPIA, GDPR, PCI DSS, standard retention periods) is Mybizz-wide — see
 [[[default:specifications-global/spec-regulatory-compliance-baseline|Regulatory Compliance Baseline]]](C:/dev/project-library-global/specifications-global/spec-regulatory-compliance-baseline.md). The standard applicability:
 
-- **PCI DSS applies** — Mybizz processes payments via Stripe and Paystack, placing
+- **PCI DSS applies** — Mybizz processes payments via Stripe, Paystack and PayPal, placing
   it in SAQ A scope per the Mybizz-wide standard.
 - **GDPR applies conditionally** — if an app serves EU customers (determined by actual client
   base, not fixed at build time).

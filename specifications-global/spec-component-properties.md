@@ -1,7 +1,7 @@
 ---
 title: "spec-component-properties"
 doc-id: "mb-5162b6c9"
-updated: "2026-10-23"
+updated: "2026-11-07"
 ---
 # Component Properties Specification
 
@@ -328,18 +328,14 @@ updated: "2026-10-23"
 
 ## SidesheetContent Components
 
-### SidesheetContent — NOT APPROVED
+### SidesheetContent — APPROVED
 
-**SidesheetContent is not approved for use in this project.** It is not a standard Anvil M3 component and has not been evaluated for compliance.
+**SidesheetContent is approved** as the side sheet of `NavigationDrawerLayout` and `NavigationRailLayout`, and is used nowhere else. It is the theme's container component `m3._Components.SidesheetContent`, checked against the M3 side sheet specification in the theme's `docs/components/SideSheet.md`.
 
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| visible | Code | True | Whether sidesheet is visible |
-| position | Code | "right" | "left" or "right" |
-| modal | Code | False | Whether sidesheet is modal (blocks background) |
-
-**Designer-Only Properties:**
-- None — All SidesheetContent properties can be set in code
+- **Properties:** none. **Events:** none.
+- **Placed in:** the layout's `anvil-m3-sidesheet` slot.
+- **Its own slots:** `anvil-m3-sidesheet-title`, `anvil-m3-sidesheet-close-button`, `anvil-m3-sidesheet` (the content) and `anvil-m3-sidesheet-footer`.
+- **Shown and hidden by the layout's** `show_sidesheet` property (boolean; default `False` on `NavigationDrawerLayout`, `True` on `NavigationRailLayout`).
 
 ---
 

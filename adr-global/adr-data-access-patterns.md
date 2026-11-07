@@ -1,7 +1,7 @@
 ---
 title: "adr-data-access-patterns"
 doc-id: "mb-c468c49c"
-updated: "2026-10-23"
+updated: "2026-11-07"
 ---
 # `data-access-patterns` ADR — Data Access Patterns and Query Limitations
 
@@ -74,26 +74,38 @@ def get_booking_list():
 ```
 
 **Pattern 4: Pre-computed aggregation**
+
+A summary write is keyed by its period and runs inside `@tables.in_transaction`: if the period's row exists it is updated with the recalculated figures, otherwise it is added. A retried or repeated task therefore never leaves two rows for one period.
+
 ```python
 # Background task — runs daily
 @anvil.server.background_task
 def compute_daily_revenue():
-    today = date.today()
-    bookings = app_tables.bookings.search(booking_date=today.isoformat())
-    
-    total = sum(b.total_amount for b in bookings if b.status == 'confirmed')
-    by_service = {}
-    for b in bookings:
-        if b.status == 'confirmed':
-            svc = b.service_name
-            by_service[svc] = by_service.get(svc, 0) + b.total_amount
-    
-    app_tables.daily_summary.add_row(
-        date=today.isoformat(),
-        total_revenue=total,
-        revenue_by_service=json.dumps(by_service),
-        booking_count=len([b for b in bookings if b.status == 'confirmed'])
+    write_daily_summary(date.today())
+
+@tables.in_transaction
+def write_daily_summary(day):
+    start = datetime.combine(day, time.min, tzinfo=timezone.utc)
+    end = start + timedelta(days=1)
+    confirmed = app_tables.bookings.search(
+        status='confirmed',
+        start_datetime=q.between(start, end, max_inclusive=False)
     )
+
+    total, count, by_service = 0, 0, {}
+    for b in confirmed:
+        total += b['total_price']
+        count += 1
+        svc = b['service_id']['name']
+        by_service[svc] = by_service.get(svc, 0) + b['total_price']
+
+    figures = dict(total_revenue=total, revenue_by_service=by_service, booking_count=count)
+    row = app_tables.daily_summary.get(date=day)
+    if row:
+        row.update(updated_at=datetime.now(timezone.utc), **figures)
+    else:
+        now = datetime.now(timezone.utc)
+        app_tables.daily_summary.add_row(date=day, created_at=now, updated_at=now, **figures)
 ```
 
 **Pattern 5: Bounded pagination**

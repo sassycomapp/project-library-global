@@ -1,38 +1,52 @@
 ---
 title: "sec-regulatory-compliance-cloud-processors"
 doc-id: "mb-c1321a2c"
-updated: "2026-10-01"
+updated: "2026-11-07"
 ---
 # Regulatory Compliance Scope of Third-Party Cloud Processors
 
 ## Applicable Threat
 
-Each third-party cloud service this project depends on (Stripe, Paystack, Brevo, Anvil itself) carries its own regulatory implication, per `[[spec-security-architecture]]` §3. Treating this as a single, generic "compliance" concern rather than naming each processor's specific obligation risks missing one.
+Each third-party cloud service a Mybizz application depends on carries its own regulatory implication, per `[[spec-security-architecture]]` §3. Treating this as a single, generic "compliance" concern rather than naming each processor's specific obligation risks missing one.
+
+## The Processors
+
+| Processor | What it handles | Regulatory implication |
+|---|---|---|
+| Anvil | Hosts the application and its Data Tables: every record the instance holds | Holds all personal information of the client's customers and staff (POPIA; GDPR where it applies) |
+| Stripe, Paystack, PayPal | Card and PayPal payments, on the gateway's own hosted page or embedded fields | PCI DSS, SAQ A scope (`[[spec-regulatory-compliance-baseline]]`) |
+| Amazon Web Services: SES, SNS, S3 | Every email sent and received; received email stored in the client's own S3 prefix; SES runs in `eu-west-1` (`[[adr-brevo-email-and-crm]]`) | Personal information in email content and addresses, processed outside South Africa (POPIA cross-border transfer; GDPR where it applies) |
+| Cloudflare: R2 and DNS | The client's files in an R2 bucket in the client's own Cloudflare account (`[[adr-client-r2-storage-and-exit-handover]]`); the client's DNS records | Personal information in stored files (POPIA; GDPR where it applies) |
 
 ## Security Requirement
 
-Per `[[spec-security-architecture]]` §3: PCI DSS applies (SAQ A scope) via Stripe/Paystack. GDPR applies conditionally, determined by actual client base, not fixed at build time — meaning this must be re-checked as real clients are onboarded, not assumed settled once.
+1. Per `[[spec-security-architecture]]` §3: PCI DSS applies (SAQ A scope) through the payment gateways. GDPR applies conditionally, determined by the actual client base, not fixed at build time — so it is re-checked as real clients are onboarded, not assumed settled once.
+2. Every processor in the table above is named in the regulatory scope of every client instance. A new processor is added to this table before it handles any client data, per `[[sec-requirements-third-party-integration]]`.
 
 ## Approved Pattern
 
-Regulatory scope treated as a live, re-checked fact tied to the real client base at any given time, per the existing spec's own framing — not a one-time determination made at build time and never revisited.
+Regulatory scope treated as a live, re-checked fact tied to the real client base and the real processor list at any given time — not a one-time determination made at build time and never revisited.
 
 ## Prohibited Pattern
 
-Assuming GDPR doesn't apply because it didn't apply at initial build time, without re-checking as new clients with EU customers are onboarded.
+- Assuming GDPR does not apply because it did not apply at initial build time, without re-checking as new clients with EU customers are onboarded.
+- A processor handling client data while missing from the table above.
 
 ## Implementation Guidance
 
-When onboarding a new client, confirm whether their own customer base introduces new regulatory scope (e.g. EU customers triggering GDPR) as part of that onboarding, not as a separate, easily-forgotten task.
+When onboarding a new client, confirm whether the client's own customer base introduces new regulatory scope (for example EU customers triggering GDPR) as part of that onboarding, not as a separate, easily-forgotten task.
 
 ## Verification Requirements
 
-For each active client instance, confirm its regulatory scope (GDPR applicability specifically) has been checked against its actual, current customer base, not assumed from build time.
+1. For each active client instance, confirm its regulatory scope (GDPR applicability specifically) has been checked against its actual, current customer base, not assumed from build time.
+2. Confirm every outside service the application calls appears in the table above.
 
 ## Authoritative Sources
 
 - `[[spec-security-architecture]]` §3 — regulatory compliance
-- `[[spec-regulatory-compliance-baseline]]` (referenced, not yet reviewed directly)
+- `[[spec-regulatory-compliance-baseline]]` — POPIA, GDPR, PCI DSS and retention
+- `[[adr-brevo-email-and-crm]]` — Amazon SES
+- `[[adr-client-r2-storage-and-exit-handover]]` — Cloudflare R2
 
 ## Known Exceptions
 

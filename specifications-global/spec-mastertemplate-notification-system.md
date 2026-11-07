@@ -1,7 +1,7 @@
 ---
 title: "spec-mastertemplate-notification-system"
 doc-id: "mb-387d1b6b"
-updated: "2026-11-01"
+updated: "2026-11-07"
 ---
 # `mastertemplate-notification-system` Spec — Notification Engine for Client Instances
 
@@ -136,7 +136,7 @@ Composite uniqueness on (`user_id`, `channel`, `type`) enforced in application c
 
 ### 5.5 Idempotency
 
-Before writing a notification, compute `idempotency_key = sha256(user_id + type + data.get('event_id', ''))`. Check for an existing `notifications` row with that key before inserting. This replaces the source design's Redis-backed 24h-TTL key store with a direct Data Table check — correct behavior, no external dependency, acceptable at this platform's write volume.
+Before writing a notification, compute `idempotency_key = sha256(user_id + type + data.get('event_id', ''))`. The check for an existing `notifications` row with that key and the insert run together inside one `@tables.in_transaction` function, so two identical sends at the same moment leave exactly one row; Anvil retries a conflicting transaction. This replaces the source design's Redis-backed 24h-TTL key store with a direct Data Table check — correct behavior, no external dependency, acceptable at this platform's write volume.
 
 ---
 
@@ -146,15 +146,16 @@ Before writing a notification, compute `idempotency_key = sha256(user_id + type 
 @anvil.server.callable
 def send_notification(user_id, type, priority, title, body, data=None, channels=('inapp',)):
     """Called by a client's own server-side logic (source='client').
-    Writes the notification, checks idempotency, launches dispatch_notification
-    as a Background Task."""
+    Checks idempotency and writes the notification in one transaction (§5.5),
+    then launches dispatch_notification as a Background Task."""
 
-@anvil.server.http_endpoint("/platform-notification", methods=["POST"])
+@anvil.server.http_endpoint("/management/push-notification", methods=["POST"])
 def receive_platform_notification():
-    """Inbound endpoint for Mybizz_management. Validates the shared auth token
-    (see spec-mybizz-management-app-notification-system.md §5) against this
-    instance's stored secret before writing a notification with source='platform'.
-    Rejects with 401 on auth failure. Idempotency check applies identically to
+    """Inbound endpoint for Mybizz_management, POST /management/push-notification
+    (spec-api-specification §3). Validates the instance's Bearer token
+    (sec-management-service-authentication) before writing a notification with
+    source='platform'. Rejects an invalid or missing token with HTTP 403 and no
+    state change. The idempotency transaction (§5.5) applies identically to
     client-origin sends."""
 
 @anvil.server.callable

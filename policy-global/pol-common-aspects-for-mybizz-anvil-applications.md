@@ -1,6 +1,6 @@
 ---
 title: "pol-common-aspects-for-mybizz-anvil-applications"
-updated: "2026-11-06"
+updated: "2026-11-07"
 doc-id: "mb-ab18d72d"
 ---
 # Policy — Common Aspects for Mybizz Anvil Applications
@@ -26,7 +26,8 @@ App 4 holds the schema, one startup module and its dependency on App 2, nothing 
 ### 4. Schema designed up front, extended without breaking
 
 - The schema is designed in App 1, published through App 2 and carried by App 3. No code creates or alters tables.
-- Every core table carries a metadata column (a Simple Object column) for client-level attributes, and client-defined attributes use attribute tables, so that most new needs are met without a schema change.
+- Every core table carries a metadata column (a Simple Object column) for client-level attributes, and client-defined attributes use attribute tables, so that most new needs are met without a schema change. A core table is one that holds a business record a client works with, such as a contact, a booking, an invoice or a service. Log, control, link, lookup and attribute tables are not core tables.
+- Every table carries `created_at`. Every table whose rows are edited after creation also carries `updated_at`.
 - A later schema change adds only new tables or nullable columns. It is applied by hand to App 3 and to every client instance, from a migration plan written before release. [[[default:specifications-global/spec-deployment|Deployment]]](C:/dev/project-library-global/specifications-global/spec-deployment.md).
 
 ### 5. Secrets in the Vault

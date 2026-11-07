@@ -1,7 +1,7 @@
 ---
 title: "spec-nomenclature"
 doc-id: "mb-a3648afc"
-updated: "2026-11-06"
+updated: "2026-11-07"
 ---
 # Nomenclature and Naming Conventions
 
@@ -130,7 +130,7 @@ Every folder in `project-library-global` has a matching local folder in each pro
 
 Only the components [[[default:specifications-global/spec-ui-standards|UI Standards]]](C:/dev/project-library-global/specifications-global/spec-ui-standards.md) allows may be used. An event handler is named `<component_name>_<event>`, for example `btn_save_click`. The legacy `Label` component is banned. Any component not on that list is restricted until an ADR adds it, together with its prefix.
 
-**Data tables:** table names lowercase with underscores, no prefix; link columns `{table}_id` or the singular name of the target table; `created_at` and `updated_at` on most tables.
+**Data tables:** table names lowercase with underscores, no prefix; link columns `{table}_id` or the singular name of the target table; `created_at` on every table; `updated_at` on every table whose rows are edited after creation; `metadata` (Simple Object) on every core table, as [[[default:policy-global/pol-common-aspects-for-mybizz-anvil-applications]]](C:/dev/project-library-global/policy-global/pol-common-aspects-for-mybizz-anvil-applications.md) common aspect 4 sets out.
 
 ### 1.7 UI form folders
 

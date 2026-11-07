@@ -1,7 +1,7 @@
 ---
 title: "adr-webhook-architecture"
 doc-id: "mb-d4254987"
-updated: "2026-11-02"
+updated: "2026-11-07"
 ---
 # `webhook-architecture` ADR — Webhook Architecture
 
@@ -107,7 +107,7 @@ Business logic is itself idempotent where a duplicate would do harm (for example
 
 ### Reconciliation
 
-A low-priority background task runs hourly and dispatches every row that is unprocessed five minutes after it was received, so no webhook is lost to a failed dispatch.
+A low-priority background task runs every five minutes and dispatches every row still unprocessed five minutes after it was received, so no webhook is lost to a failed dispatch.
 
 ```python
 @anvil.server.background_task
