@@ -1,7 +1,7 @@
 ---
 title: "adr-observability-architecture"
 doc-id: "mb-d5da852f"
-updated: "2026-11-01"
+updated: "2026-11-08"
 ---
 # `observability-architecture` ADR — Observability Architecture
 
@@ -11,22 +11,18 @@ updated: "2026-11-01"
 
 ## Context
 
-The platform requires visibility into the health, activity, and status of up to 100 client instances from a single operator view. Anvil provides built-in monitoring tools, but these are per-app and IDE-bound. External monitoring tools (Prometheus, Grafana) were considered.
+The platform requires visibility into the health, activity, and status of up to 100 client instances from a single operator view. External monitoring tools (Prometheus, Grafana) were considered.
 
-### Anvil's Built-In Monitoring (as of 2026)
+### The Platforms' Own Monitoring
 
-Anvil has recently introduced the following observability features:
-
-- **App Logs** — session logs, background task logs, print() output, searchable with regex
-- **CPU Usage and Memory Usage tabs** — introduced February 2026; show compute and memory consumption over time per app
-- **Profiling and Tracing tools** — introduced January 2026; detailed visibility into performance bottlenecks
+- **DigitalOcean**, for each client instance: the container's logs and its CPU and memory use, and the cluster's metrics ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)).
+- **Anvil**, for Apps 1, 2, 3 and 5: App Logs, CPU and Memory Usage tabs, and Profiling and Tracing tools.
 
 These tools are valuable for diagnosing individual app issues. They are not suitable as the primary monitoring solution for this platform because:
 
-- They are **per-app** — viewing 100 client instances requires 100 separate IDE logins
-- They provide **no cross-client consolidated view**
-- They have **no alerting system** — no notification when a client app errors or goes silent
-- They are **IDE-bound** — not accessible from a management application
+- They are **per-app** — viewing 100 client instances means opening 100 separate containers
+- They provide **no view of the application's own health** — bookings, payments, background task results
+- They have **no application-level alerting** — no notification when a client's payments fail or its heartbeat goes silent
 
 ---
 
@@ -77,22 +73,22 @@ Each client instance pushes a heartbeat to Mybizz_management on a schedule, with
 - ✅ Consolidated monitoring across all 100 client instances in one dashboard
 - ✅ No external infrastructure or third-party monitoring subscriptions required
 - ✅ Monitoring logic ships with master_template — all client instances monitored automatically
-- ✅ Anvil's built-in tools remain available for deep per-app diagnostics when needed
-- ⚠️ `health_log`, `error_log` and `activity_log` are part of every application's schema and of `blank_client_template`
-- ⚠️ Heartbeat background task adds to per-client scheduled task load — must be accounted for in the Business plan's limits
+- ✅ DigitalOcean's per-container logs and metrics, and Anvil's tools on App 1, remain available for deep diagnostics when needed
+- ⚠️ `health_log`, `error_log` and `activity_log` are part of every application's schema and of App 3's table definitions
+- ⚠️ Heartbeat background task adds to per-client scheduled task load — must be accounted for in each client container's memory
 
 ---
 
-## Relationship to Anvil Built-In Tools
+## Relationship to Platform Tools
 
-Anvil's built-in observability tools are not replaced — they are complementary:
+The platforms' own observability tools are not replaced — they are complementary:
 
 | Tool | Use case |
 |---|---|
 | Mybizz_management dashboard | Day-to-day operational monitoring across all clients |
-| Anvil App Logs | Deep diagnostic investigation of a specific client issue |
-| Anvil CPU/Memory tabs | Performance investigation of a specific client instance |
-| Anvil Profiling and Tracing | Code-level bottleneck analysis during development |
+| DigitalOcean container logs | Deep diagnostic investigation of a specific client issue |
+| DigitalOcean container and cluster metrics | Performance investigation of a specific client instance |
+| Anvil App Logs, Profiling and Tracing on App 1 | Code-level bottleneck analysis during development |
 
 ---
 

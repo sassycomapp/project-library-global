@@ -1,7 +1,7 @@
 ---
 title: "adr-real-time-and-background-tasks"
 doc-id: "mb-1684942d"
-updated: "2026-11-01"
+updated: "2026-11-08"
 ---
 # `real-time-and-background-tasks` ADR — Real-Time Updates and Background Task Architecture
 
@@ -76,7 +76,7 @@ class DashboardForm:
 
 ### Background Task Architecture
 
-All asynchronous operations use Anvil's `@anvil.server.background_task` decorator. Every client instance runs on its own Mybizz-owned Anvil Business account, on which background tasks have no timeout limit.
+All asynchronous operations use Anvil's `@anvil.server.background_task` decorator. Every client instance runs on its own Anvil App Server, in its own container, where background tasks have no timeout limit ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)).
 
 **Task inventory per client instance:**
 
@@ -92,7 +92,7 @@ All asynchronous operations use Anvil's `@anvil.server.background_task` decorato
 
 **Total per client instance:** ~6 scheduled tasks + event-driven webhook processing
 
-**Load:** each client instance runs on its own Mybizz-owned Anvil Business account, so the scheduled-task load is counted per client account, not added up across clients.
+**Load:** each client instance runs in its own container, so the scheduled-task load is counted per client container, not added up across clients.
 
 ### Per-Task Failure and Retry Policy
 
@@ -149,7 +149,7 @@ Webhook handlers (Stripe, Paystack, PayPal, Amazon SES through SNS) return HTTP 
 - ✅ All async operations use Anvil's native background task system
 - ✅ Webhook handlers return 200 immediately — no gateway timeouts
 - ⚠️ Polling adds server load — must be balanced against freshness needs
-- ⚠️ Background task limits of the Business plan are a hard ceiling — must be verified
+- ⚠️ Each client container's memory (1 GiB) is the ceiling for concurrent background tasks — measured on the test client instance under realistic load
 - ⚠️ Client-side timers stop when the form is hidden — updates pause in background tabs
 - ⚠️ The browser learns of critical events only by polling; Anvil has no server push to the browser
 

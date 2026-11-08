@@ -1,7 +1,7 @@
 ---
 title: "adr-dependency-update-model"
 doc-id: "mb-bf8aa7d8"
-updated: "2026-11-01"
+updated: "2026-11-08"
 ---
 # `dependency-update-model` ADR — Dependency Update Model
 
@@ -13,7 +13,7 @@ updated: "2026-11-01"
 
 Every Mybizz application needs to release updates from its development workspace (App 1) to all client instances without manual per-client intervention.
 
-Anvil's dependency system lets a client instance depend on master_template's published version or on a specific version tag. Pushing App 1's tagged release into master_template's repository updates every client instance at once; no re-cloning is required.
+Every client instance runs the release image: the Anvil App Server with App 3, App 2 (`master_template`) and the `m3` theme ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)). A release reaches clients when their containers are moved to the new release image.
 
 ---
 
@@ -25,7 +25,8 @@ Anvil's dependency system lets a client instance depend on master_template's pub
 |---|---|---|
 | App 1 — `{slug}-app1` | Development workspace | Daily development; each release is tagged `vMAJOR.MINOR.PATCH` |
 | App 2 — `master_template` | Published dependency | The developer pushes App 1's tagged release into App 2's repository (Step 42) |
-| App 3 — `blank_client_template` | Provisioning clone source | Carries the released schema |
+| App 3 — `blank_client_template` | The client app | Its table definitions carry the released schema |
+| App 4 — each client instance | Runs the release image | App 5's Release action |
 | App 5 — `{Product}_management` | Platform operator tooling | Its own repository |
 
 ### Update Flow
@@ -33,35 +34,40 @@ Anvil's dependency system lets a client instance depend on master_template's pub
 ```
 App 1 (tagged release)
     ↓ pushed into App 2's repository when tested and approved (Step 42)
-master_template
-    ↓ automatically, through the dependency
+master_template + blank_client_template
+    ↓ built into the release image, stored under the release tag
+Test client instance
+    ↓ App 5's Release action
 Every client instance
 ```
 
 1. All feature development happens in App 1
-2. When a release is tested and approved, the developer pushes its tag into App 2's repository
-3. master_template reflects the release when it is published
-4. Every client instance depending on master_template receives the update automatically — no client action required
-5. A release notification email is sent to clients via Anvil built-in email
+2. When a release is tested and approved, the developer pushes its tag into App 2's repository, and the release's table changes into App 3's table definitions
+3. The release image is built and stored under the release tag
+4. The table-change check passes, and the full test suite passes on the release image
+5. The test client instance moves to the release image and passes its smoke test
+6. App 5's Release action moves every client instance to the release image; each client's App Server adds the release's new tables and columns as it starts
+7. App 5 sends each client a release notification email
 
 ### Client Notification
 
-Clients receive a release notification via Anvil built-in email containing:
+Clients receive a release notification email from App 5 containing:
 - What changed (release notes)
 - Any action required on their part (rarely, if ever)
 
 The email does not trigger a technical update action. The update has already happened at the point of sending. The email is informational only.
 
-### Staged Rollout Option
+### Staged Rollout
 
-Anvil supports version tags using the format `vMAJOR.MINOR.PATCH` (e.g. `v1.1.0`). For high-risk releases:
+For high-risk releases:
 
-1. The release is tagged in App 1 and pushed into App 2 with its tag
-2. A subset of client instances is set to depend on the new tag, the rest stay on the previous tag
-3. Monitor heartbeats and error logs
-4. Once the release is confirmed, the remaining client instances are set to the new tag
+1. App 5's Release action moves a chosen group of client instances to the new release image; the rest stay on the previous image
+2. Monitor heartbeats and error logs
+3. Once the release is confirmed, App 5 moves the remaining client instances to the new release image
 
-Each client instance is changed in its own client's Anvil account.
+### Rollback
+
+App 5 moves the client instances back to the previous release image, with the App Server's `auto-migrate` off and `ignore-invalid-schema` on. Because a release only adds tables and nullable columns, the previous release runs on the newer schema, and no table or column is removed. The next release switches `auto-migrate` back on.
 
 ---
 
@@ -69,18 +75,19 @@ Each client instance is changed in its own client's Anvil account.
 
 | Alternative | Reason rejected |
 |---|---|
-| Re-clone master_template per release | Changes app ID — breaks all existing client dependencies |
-| Manual per-client update trigger | Unworkable at 100 clients; no Anvil provisioning API |
-| Client-initiated pull via in-app button | No Anvil API to change dependency version from within the app |
+| Manual per-client update | Unworkable at 100 clients |
+| Client-initiated pull via in-app button | Releases are a production action taken only by Mybizz |
+| Building a separate image per client | Clients would no longer run identical, tested code |
 
 ---
 
 ## Release Discipline
 
-Because every client instance updates as soon as a release reaches App 2, the quality gate is the release decision itself. The following must be true before a release is pushed into App 2:
+Because a release reaches every client instance in one action, the quality gate is the release decision itself. The following must be true before App 5's Release action runs:
 
-- Every feature of the release has passed `build-verified` and the whole test suite passes
-- No breaking changes to existing Data Table schemas without a migration plan
+- Every feature of the release has passed `build-verified` and the whole test suite passes on the release image
+- The table-change check passes: no table or column is removed, renamed or retyped
+- The test client instance runs the release and passes its smoke test
 - Release notes are written and ready to send
 - Vault and integration dependencies are documented if changed
 
@@ -88,19 +95,18 @@ Because every client instance updates as soon as a release reaches App 2, the qu
 
 ## Proof
 
-Update propagation to a client instance on a separate Anvil account, and rollback to the previous release, are proven before the first client is onboarded (tests RL-05 and RL-07).
+Releasing to the test client instance, a staged rollout, and rollback to the previous release image are proven before the first client is onboarded (tests RL-05 and RL-07).
 
 ---
 
 ## Consequences
 
-- ✅ Updates require no manual per-client action once the release is in App 2
-- ✅ All client instances always run the same version (unless deliberately pinned)
-- ✅ Staged rollout available via version tags without infrastructure changes
-- ✅ Each client instance is on its own Mybizz-owned Anvil Business account; a failure of one account affects only that client
-- ⚠️ Pushing a release into App 2 is a production action — release discipline is mandatory
-- ✅ UI and form updates propagate automatically via master_template dependency (see [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) ADR)
-- ⚠️ Schema changes require separate migration process for existing client instances
+- ✅ Updates require no manual per-client action
+- ✅ All client instances always run the same release image (unless deliberately held back in a staged rollout)
+- ✅ Staged rollout and rollback by release image
+- ✅ New tables and nullable columns reach every client's database with the release
+- ⚠️ Running App 5's Release action is a production action — release discipline is mandatory
+- ⚠️ After a business's first release, a release never removes, renames or retypes a table or column
 
 ---
 
@@ -109,5 +115,5 @@ Update propagation to a client instance on a separate Anvil account, and rollbac
 | Document | Relationship |
 |---|---|
 | [[[default:adr-global/adr-client-instance-architecture\|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) | Defines what lives in client instance vs master_template |
-| [[[default:specifications-global/spec-client-activation-runbook\|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) | Includes dependency configuration step at provisioning |
-
+| [[[default:specifications-global/spec-client-instance-hosting\|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) | The release image and App 5's actions |
+| [[[default:specifications-global/spec-deployment\|Deployment Specification]]](C:/dev/project-library-global/specifications-global/spec-deployment.md) | Release, rollback and backup procedures |

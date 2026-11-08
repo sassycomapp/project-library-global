@@ -1,7 +1,7 @@
 ---
 title: "spec-nomenclature"
 doc-id: "mb-a3648afc"
-updated: "2026-11-07"
+updated: "2026-11-08"
 ---
 # Nomenclature and Naming Conventions
 
@@ -36,7 +36,7 @@ Why one document for common names: separate nomenclature documents overlap, and 
 |---|---|---|
 | Project slug | the business's short name, lowercase, hyphens kept, supplied once at Step 11 | `mb-3-cs` |
 | Project folder | `C:\dev\dev-{slug}\` | `C:\dev\dev-mb-3-cs\` |
-| Code repositories | one per app: `{slug}-app1`, `{slug}-app2`, `{slug}-app3`, `{slug}-app5`; full path `C:\dev\dev-{slug}\{slug}-app{n}\`. App 4 lives on its own Mybizz-owned Anvil Business account and has no folder | `mb-3-cs-app1` |
+| Code repositories | one per app: `{slug}-app1`, `{slug}-app2`, `{slug}-app3`, `{slug}-app4`, `{slug}-app5`; full path `C:\dev\dev-{slug}\{slug}-app{n}\`. `{slug}-app4` holds the release image definition; client instances run on DigitalOcean | `mb-3-cs-app1` |
 | Documentation repository | `dev-{slug}\{slug}-project-library\`, one per business | `dev-mb-3-cs\mb-3-cs-project-library\` |
 | GitHub organisation | `sassycomapp` | |
 
@@ -62,8 +62,8 @@ Every folder in `project-library-global` has a matching local folder in each pro
 |---|---|---|---|
 | App 1 — development workspace | development workspace | `{slug}-app1` | `mb-3-cs-app1` |
 | App 2 — published dependency | `master_template` | `{slug}-app2` | `mb-3-cs-app2` |
-| App 3 — provisioning clone source | `blank_client_template` | `{slug}-app3` | `mb-3-cs-app3` |
-| App 4 — client instance | `[client-name]-{vertical}` | on its own Mybizz-owned Anvil Business account; no repository | `[client-name]-cs` |
+| App 3 — client app | `blank_client_template` | `{slug}-app3` | `mb-3-cs-app3` |
+| App 4 — client instance | `[client-name]-{vertical}` | an App Platform app on DigitalOcean; release image defined in `{slug}-app4` | `[client-name]-cs` |
 | App 5 — management tooling | `{Product}_management` | `{slug}-app5` | `mb-3-cs-app5` |
 
 ### 1.5 Mybizz business terms
@@ -79,9 +79,9 @@ Every folder in `project-library-global` has a matching local folder in each pro
 | Display currency | An optional second currency for prices shown to customers. |
 | The Vault | The encrypted store for a client's API keys and secrets. |
 | Roles | Owner, Manager, Admin, Staff and Customer, the same in every application, as [[[default:specifications-global/spec-security-architecture\|Security Architecture]]](C:/dev/project-library-global/specifications-global/spec-security-architecture.md) defines them. |
-| Client instance | One client's own Anvil app, with its own database, on its own Mybizz-owned Anvil Business account, running on `master_template`. |
-| Data isolation | Every client instance is a separate app with a separate database. No database is ever shared between clients. |
-| Updates | A client instance receives every release pushed into `master_template` automatically. |
+| Client instance | One client's own Anvil App Server, in its own container on DigitalOcean, with its own database, running the release image. |
+| Data isolation | Every client instance is a separate App Server with a separate database. No database is ever shared between clients. |
+| Updates | A client instance receives every release through the release image and App 5's Release action. |
 
 ### 1.6 Anvil application code
 

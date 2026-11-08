@@ -1,39 +1,42 @@
 ---
 title: "spec-deployment"
 doc-id: "mb-4a8a251d"
-updated: "2026-11-01"
+updated: "2026-11-08"
 ---
 # Mybizz — Deployment Specification
 
-**Scope:** Mybizz-wide. Covers the five apps' roles in deployment, the release workflow, rollback procedures, and schema migration.
+**Scope:** Mybizz-wide. Covers the five apps' roles in deployment, the release workflow, rollback procedures, schema changes, backup and failure scenarios.
 
 ---
 
 ## 1. Deployment Model
 
-Every Mybizz business has five apps (see [[[default:specifications-global/spec-five-app-architecture-model]]](C:/dev/project-library-global/specifications-global/spec-five-app-architecture-model.md)). Each app has one environment and one database; Mybizz uses no staging environment. Each client instance runs on its own Mybizz-owned Anvil Business account.
+Every Mybizz business has five apps (see [[[default:specifications-global/spec-five-app-architecture-model]]](C:/dev/project-library-global/specifications-global/spec-five-app-architecture-model.md)). Each app has one environment and one database; Mybizz uses no staging environment. Apps 1, 2, 3 and 5 run on Mybizz's Anvil Business account. Each client instance runs on the Anvil App Server on DigitalOcean ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)).
 
 | App | Role in deployment |
 |---|---|
 | App 1 — `{slug}-app1` | Development. Features are built and tested here, and each release is tagged here (`vMAJOR.MINOR.PATCH`). |
-| App 2 — `master_template` | The release. It holds exactly App 1's latest released tag. Every client instance depends on it. |
-| App 3 — `blank_client_template` | The released schema, with no data. New client instances are cloned from it. |
-| App 4 — each client instance | On its own Mybizz-owned Anvil Business account; its code comes from App 2 through the dependency. |
-| App 5 — Mybizz management | Receives heartbeats and events; sends control calls. |
+| App 2 — `master_template` | The release. It holds exactly App 1's latest released tag. |
+| App 3 — `blank_client_template` | The client app: the released table definitions, the startup module and the scheduled tasks. |
+| Release image | App 3, App 2 and `m3` on the pinned App Server, built once per release in the business's `{slug}-app4` repository and stored under the release tag. |
+| App 4 — each client instance | One container running the release image, with its own database. |
+| App 5 — Mybizz management | Receives heartbeats and events; sends control calls; runs the New client, Release and Remove actions through the DigitalOcean API. |
 
-Testing before release happens on the Anvil App Server on the developer's computer and on a test client instance, not in a staging environment.
+Testing before release happens on the Anvil App Server on the developer's computer, on the release image, and on the test client instance, not in a staging environment. The test client instance is a client instance of its own, on DigitalOcean, holding test data only.
 
 ---
 
 ## 2. Release Workflow
 
-### The Five-App Update Flow
+### The Update Flow
 
 ```
 App 1 (tagged release, e.g. v1.4.0)
     ↓ the developer pushes the tag into App 2's repository (Step 42)
-App 2 — master_template
-    ↓ automatically, through the dependency
+App 2 — master_template + App 3 — blank_client_template
+    ↓ built into the release image
+Test client instance
+    ↓ App 5's Release action
 Every client instance
 ```
 
@@ -43,19 +46,25 @@ Every client instance
 2. **Release ready** — every test passes and no High or Critical finding is open (Step 41)
 3. **Tag** the release in App 1
 4. **Back up** every client instance to its own R2 bucket
-5. **Push** the tag into App 2's repository (Step 42) — this is the production action, and only the developer performs it
-6. **Every client instance** receives the update through its dependency on App 2
-7. **Send release notification** to clients via Anvil built-in email
+5. **Push** the tag into App 2's repository, and the release's table changes into App 3's table definitions (Step 42) — only the developer performs this
+6. **Build** the release image and store it under the release tag
+7. **Check** the table definitions: the table-change check passes
+8. **Test** the release image: the whole test suite passes on it
+9. **Release to the test client instance** and pass its smoke test (Step 43)
+10. **Release to every client instance** with App 5's Release action (Step 44)
+11. **Send release notification** to clients from App 5
 
 ### Pre-Release Checklist
 
-Before pushing a release into App 2:
+Before App 5's Release action runs:
 
 - [ ] Every feature of the release has passed `build-verified`
-- [ ] No breaking Data Table schema change without a migration plan in the schema migration log
+- [ ] The table-change check passes: no table or column is removed, renamed or retyped
+- [ ] Every table change is recorded in the schema migration log
 - [ ] Release notes written
 - [ ] Vault and integration dependencies documented if changed
-- [ ] The whole test suite passes for the release, as [[[default:security-global/requirements/sec-requirements-pre-merge-master-template]]](C:/dev/project-library-global/security-global/requirements/sec-requirements-pre-merge-master-template.md) requires
+- [ ] The whole test suite passes on the release image, as [[[default:security-global/requirements/sec-requirements-pre-merge-master-template]]](C:/dev/project-library-global/security-global/requirements/sec-requirements-pre-merge-master-template.md) requires
+- [ ] The test client instance runs the release and passes its smoke test
 
 ---
 
@@ -63,57 +72,43 @@ Before pushing a release into App 2:
 
 For high-risk releases:
 
-1. Set a subset of client instances to depend on the previous version tag of App 2, and the rest on the new release, or the reverse for a canary
+1. App 5's Release action moves a chosen group of client instances to the new release image; the rest stay on the previous image
 2. Monitor heartbeats and error logs
-3. Once the release is confirmed, set the remaining client instances to the new release
-
-Each client instance is changed in its own client's Anvil account.
+3. Once the release is confirmed, App 5 moves the remaining client instances to the new release image
 
 ---
 
 ## 4. Rollback
 
-### Code Rollback
-
-Rollback is re-pointing App 2 to the last good release tag and republishing — not a code revert, which does not un-publish an app.
+Rollback moves client instances back to the previous release image. It is not a code revert.
 
 **Steps:**
 1. Identify the last good release tag
-2. Push that tag into App 2's repository again
-3. Republish App 2
-4. Verify the rollback succeeded on the test client instance and in the heartbeats
+2. App 5 moves the affected client instances to that release image, with `auto-migrate` off and `ignore-invalid-schema` on
+3. Verify the rollback on the test client instance and in the heartbeats
+4. The next release switches `auto-migrate` back on
 
-### Schema Rollback
-
-Schema changes (adding/modifying Data Tables) cannot be automatically rolled back in Anvil. Schema rollback requires:
-
-1. Manual removal of added columns/tables in the Anvil IDE
-2. Data migration if columns were modified
-3. Application to every affected client instance individually
-
-**Rule:** Never release a schema change without a documented migration plan for existing client instances.
+A release only adds tables and nullable columns, so the previous release runs on the newer schema and no data is lost.
 
 ---
 
-## 5. Schema Migration
+## 5. Schema Changes
 
-### Responsibility
+### The Rule
 
-| Target | Purpose | Frequency |
-|---|---|---|
-| App 3 — `blank_client_template` | Ensures future client instances get the correct schema | On every schema change |
-| Every existing client instance | Ensures running clients are not broken | On every schema change |
+- A business's first release sets its full schema.
+- Every later release only adds tables and nullable columns. It never removes, renames or retypes a table or column.
+- The table-change check in the business's `{slug}-app4` repository compares App 3's table definitions with the previous release and stops any release that breaks the rule.
 
-### Migration Process
+### Process
 
 1. Apply the schema change in App 1, and record it in the project library's schema migration log (Step 17)
-2. Test it on the local runtime and on the test client instance
-3. Apply the same schema change to App 3
-4. Document migration steps for existing client instances
-5. Release the code to App 2 (Step 42)
-6. Apply the schema migration to each existing client instance
+2. Test it on the local App Server and on the test client instance
+3. Write the same change into App 3's table definitions (Step 42)
+4. The table-change check passes
+5. The release image carries the change to every client instance; each client's App Server adds the new tables and columns when its container starts on the release
 
-**Constraint:** There is no automated migration tool in Anvil. Schema migrations to existing client instances are manual operations in each client's account.
+A column that is no longer used stays in place, unused. It is never removed from a client's database.
 
 ---
 
@@ -123,10 +118,11 @@ Schema changes (adding/modifying Data Tables) cannot be automatically rolled bac
 
 | Event | Action |
 |---|---|
+| Every day | DigitalOcean backs up the cluster, kept for 7 days, with point-in-time recovery |
+| Every night | Every client instance copies its data to its own R2 bucket |
 | Before a test run on hosted App 1 | Back up App 1 |
 | After a passing test run on hosted App 1 | Back up App 1 (known good state) |
-| Before a release (Step 42) | Back up every client instance to its own R2 bucket |
-| Before a schema migration | Back up the client instance |
+| Before a release (Step 42) | Every client instance copies its data to its own R2 bucket |
 | Never | Back up a failing state |
 
 Test runs on the local Anvil App Server need no backup: they start from an empty database each time.
@@ -134,59 +130,42 @@ Test runs on the local Anvil App Server need no backup: they start from an empty
 ### Backup Method
 
 - Git commit and release tag (code)
-- Data export of each client instance to its own R2 bucket (data)
+- The release image in the Container Registry, under its release tag (running code)
+- DigitalOcean's cluster backups (data, inside DigitalOcean)
+- Each client instance's copy in its own R2 bucket (data, outside DigitalOcean)
 
 ---
 
 ## 7. Client Instances
 
-Each client instance is a separate Anvil app on its own Mybizz-owned Anvil Business account. Deployment to client instances is automatic through the dependency model:
+Each client instance is one container running the release image, with its own database. Deployment to client instances is through the release image:
 
-- **Code updates:** Automatic — once a release is in App 2, every client instance receives it
-- **Schema updates:** Manual — applied per client instance
-- **Configuration updates:** Manual — per client instance settings
+- **Code updates:** App 5's Release action
+- **Schema updates:** carried by the release image; applied by each client's App Server as its container starts
+- **Configuration updates:** per client instance, in its encrypted App Platform environment values, through App 5
 
 ### Post-Release Verification
 
-After every release to App 2:
+After every release:
 
-1. Verify App 2 loads without errors
-2. Verify the test client instance reflects the update and passes its smoke test
-3. Check each instance's heartbeat for its release version and schema fingerprint
-4. Check `error_log` for new errors
-5. Verify background tasks are running (heartbeat)
+1. Verify the test client instance runs the release and passes its smoke test
+2. Check each instance's heartbeat for its release version and schema fingerprint
+3. Check `error_log` for new errors
+4. Verify background tasks are running (heartbeat)
 
-### Schema Migration Strategy Classifications
+---
 
-Schema migrations are classified into three types, each with its own ordered procedure:
+## 8. Failure Scenarios
 
-| Type | Definition | Procedure |
-|---|---|---|
-| **Additive** | New columns added, no existing data affected | Add column via Data Tables UI, update App 3, document |
-| **Breaking** | Columns removed or renamed | 1. Mark column deprecated, 2. Migrate data to replacement, 3. Remove column only after all instances confirmed migrated |
-| **Modified** | Column type or constraint changed | 1. Add new column with correct type, 2. Migrate data, 3. Remove old column |
-
-**Migration checklist (every migration, regardless of type):**
-1. Update release notes with migration description
-2. Record it in the schema migration log
-3. Document procedure for existing clients
-4. Add backward-compatibility code where applicable
-5. Define rollback procedure
-6. Test on the test client instance before broad rollout
-
-## 8. Account-Level Failure Scenarios
-
-Mybizz's development account holds Apps 1, 2, 3 and 5, and every client instance depends on
-App 2, so that account is the single point of failure for every client. Each client instance
-is on its own Business account, so a failure of one client account affects only that client.
-Documented responses for each scenario:
+Mybizz's Anvil account holds Apps 1, 2, 3 and 5. Each business's DigitalOcean project holds its cluster, its test client instance and its client instances. Documented responses for each scenario:
 
 | Scenario | Detection | Recovery | Prevention |
 |---|---|---|---|
-| Development account suspension | Email from Anvil; App 2 and App 5 unavailable; heartbeats stop | Contact Anvil support immediately; no self-service recovery | Monitor billing status |
-| Client account suspension | That client's heartbeats stop | Contact Anvil support; if not restored, clone the instance from App 3 into a new Business account and restore its data from R2 | Monitor billing status and usage in App 5 |
-| Account compromise | Unauthorized changes, unknown collaborators | Contact Anvil support; rotate all credentials; audit all instances | Strong passwords, 2FA, restrict collaborators |
-| Platform outage | App unreachable, `anvil.works` status page | No recovery action possible — wait for Anvil resolution | Document recovery expectations in client SLA |
+| Anvil account suspension | Email from Anvil; App 1, App 2 and App 5 unavailable | Client instances keep running; contact Anvil support; releases and provisioning wait until App 5 is back | Monitor billing status |
+| One client container fails | That client's heartbeats stop | App Platform restarts the container; if it does not recover, App 5 recreates the container from the current release image | Container size checked against the client's use in App 5 |
+| Cluster main node fails | Database errors in heartbeats | The standby node takes over automatically | Standby node from the first paying client |
+| DigitalOcean region outage or account suspension | Every client's heartbeats stop | The rebuild procedure: a new cluster and containers in another region, from the release image, each client's database loaded from its R2 copy | Nightly R2 copies; the rebuild procedure tested before the first paying client |
+| Account compromise | Unauthorized changes, unknown collaborators | Contact the provider's support; rotate all credentials; audit all instances | Strong passwords, 2FA, restrict collaborators, scoped API tokens |
 
 ## 9. Rollback Trigger Thresholds
 
@@ -204,4 +183,4 @@ instances:
 - Performance degradation > 50% (response time, throughput)
 - Increasing pattern of customer complaints
 
-Rollback mechanism: re-point App 2 to the last good release tag (section 4) — not `git revert` (which does not un-publish an app).
+Rollback mechanism: App 5 moves the client instances back to the previous release image (section 4).

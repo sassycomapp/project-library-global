@@ -1,7 +1,7 @@
 ---
 title: "adr-no-free-trial"
 doc-id: "mb-4d9be554"
-updated: "2026-11-01"
+updated: "2026-11-08"
 ---
 # No Free Trial
 
@@ -11,7 +11,7 @@ updated: "2026-11-01"
 
 ## Context
 
-A Mybizz application does nothing useful until it is configured: Vault, payment gateway, email domain, business profile and services. A trial instance would cost Mybizz a Business account for a prospect who may never pay, and would show a half-configured product.
+A Mybizz application does nothing useful until it is configured: Vault, payment gateway, email domain, business profile and services. A trial instance would cost Mybizz a container and a database for a prospect who may never pay, and would show a half-configured product.
 
 ---
 
@@ -28,7 +28,7 @@ A Mybizz application does nothing useful until it is configured: Vault, payment 
 - Both are reset every night.
 - Both run on Mybizz's own account; no client data is ever in them.
 
-Every paying client receives its own instance on its own Mybizz-owned Anvil Business account from the first day.
+Every paying client receives its own client instance, with its own container and its own database, from the first day.
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "spec-mybizz-management-app-notification-system"
 doc-id: "mb-631f063d"
-updated: "2026-11-01"
+updated: "2026-11-08"
 ---
 # `mybizz-management-app-notification-system` Spec — Platform-to-Client Notification Console
 
@@ -89,7 +89,7 @@ All tables below are Anvil Data Tables local to `Mybizz_management` — they are
 | `status` | Text | `active` \| `inactive` \| `provisioning` |
 | `created_at` | Date/Time | |
 
-**Provisioning dependency:** every row here must be created at the same time a client instance is provisioned via `blank_client_template`, and the same `auth_token` value must be written into that client instance's own stored secret so the two sides agree. This is the management token step of the [[[default:specifications-global/spec-client-activation-runbook|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) (Step 6).
+**Provisioning dependency:** every row here must be created at the same time a client instance is provisioned by Mybizz_management's New client action, and the same `auth_token` value must be written into that client instance's own stored secret so the two sides agree. This is the management token step of the [[[default:specifications-global/spec-client-activation-runbook|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) (Step 6).
 
 ### 5.2 `platform_delivery_logs`
 

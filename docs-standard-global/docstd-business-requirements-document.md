@@ -1,7 +1,7 @@
 ---
 title: "docstd-business-requirements-document"
 doc-id: "mb-db640d1e"
-updated: "2026-10-01"
+updated: "2026-11-08"
 ---
 # {Project Name} — Business Requirements Document (BRD)
 
@@ -136,10 +136,10 @@ certainty.
 |---|---|---|---|---|
 | | | | | |
 
-**Anvil-specific prompt:** if this project will host multiple client instances on a single
-Anvil account, consider account-level failure scenarios explicitly (suspension,
-compromise, platform outage) — see this operation's deployment-procedures SOP for the
-standard treatment, don't reinvent it here.
+**Hosting prompt:** every client instance of this project runs in one DigitalOcean
+cluster in one region; consider account-level and region-level failure scenarios
+explicitly (suspension, compromise, platform outage) — see spec-deployment section 8
+for the standard treatment, don't reinvent it here.
 
 ---
 

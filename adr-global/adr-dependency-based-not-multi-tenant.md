@@ -1,7 +1,7 @@
 ---
 title: "adr-dependency-based-not-multi-tenant"
 doc-id: "mb-e66b2305"
-updated: "2026-11-01"
+updated: "2026-11-08"
 ---
 # `dependency-based-not-multi-tenant` ADR — Dependency-Based, Not Multi-Tenant
 
@@ -47,8 +47,8 @@ A Mybizz application is a **dependency-based SaaS platform**. It has the followi
 |---|---|---|
 | App 1, `{slug}-app1` | Development workspace | All code, all forms, all server modules, the development tables |
 | `master_template` | Published dependency | All server modules + all UI forms |
-| `blank_client_template` | Provisioning clone source | The released Data Tables + one startup module |
-| `[client-name]-{vertical}` | Client instances (one per client) | The released Data Tables (live data) + one startup module + master_template as dependency |
+| `blank_client_template` | The client app | The released table definitions + one startup module + master_template as dependency |
+| `[client-name]-{vertical}` | Client instances (one per client) | One container running the release image + one database of its own (live data) |
 | `{Product}_management` | Platform operator tooling | Provisioning, health monitoring, billing automation and update distribution |
 
 ### The Fundamental Principle
@@ -57,7 +57,7 @@ A Mybizz application is a **dependency-based SaaS platform**. It has the followi
 
 - Client A's data is in Client A's app
 - Client B's data is in Client B's app
-- Each client instance is a separate Anvil app, on its own Mybizz-owned Anvil Business account
+- Each client instance is a separate Anvil App Server with its own database ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md))
 - They share no database, no tables, no rows
 - Neither can access the other's data
 
@@ -75,7 +75,7 @@ This is structural Anvil behaviour, proven by test (Section 6).
 |---|---|---|
 | Number of app instances | One | One per client |
 | Number of databases | One (shared) | One per client (isolated) |
-| Data separation mechanism | `tenant_id` column on every table | Separate Anvil apps — structural isolation |
+| Data separation mechanism | `tenant_id` column on every table | Separate App Servers and separate databases — structural isolation |
 | Query filter required | Yes — `WHERE tenant_id = X` on every query | No — `app_tables` always resolves to the current client's tables |
 | Risk of cross-client data access | Yes — if filter is omitted | No — architecturally impossible |
 | Client context in session | Required | Not required — there is no "other client" to distinguish from |
@@ -210,9 +210,9 @@ Two facts were proven by test on Anvil, and are stated in [[[default:adr-global/
 | Data isolation | Enforced in application code — can fail | Structural — cannot fail |
 | Security breach blast radius | All clients exposed if breach occurs | One client affected |
 | Regulatory compliance | Complex — all clients' data co-mingled | Simple — each client's data is physically separate |
-| Update mechanism | Immediate for all tenants (single instance) | Immediate for all clients (through the `master_template` dependency) |
-| Client onboarding | Add a row to a tenants table | Clone blank_client_template |
-| Schema migration | Single migration | Applied per client instance by the developer — more effort, but isolated |
+| Update mechanism | Immediate for all tenants (single instance) | One action for all clients (the release image) |
+| Client onboarding | Add a row to a tenants table | App 5 creates a container and a database from the release image |
+| Schema migration | Single migration | Carried by the release image; each client's App Server adds the new tables and columns — isolated per client |
 | Suitability for business clients | Poor — clients expect data sovereignty | Strong — data sovereignty is structural |
 
 Mybizz's business clients have strong expectations around data privacy and sovereignty. A client whose financial data, client records, and booking history live in a physically separate database — not co-mingled with other businesses' data — is a significantly easier conversation than explaining row-level security in a shared database.

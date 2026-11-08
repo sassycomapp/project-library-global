@@ -1,7 +1,7 @@
 ---
 title: "pol-security-and-data-governance"
 doc-id: "mb-e779e1b8"
-updated: "2026-11-01"
+updated: "2026-11-08"
 ---
 # Policy — Security and Data Governance
 
@@ -52,7 +52,8 @@ are Critical without exception.
 The operation's whole model depends on client trust — each client instance holds one
 business's real operational and customer data. A security or data-governance failure in
 one instance is a trust failure for the whole platform, not a contained incident. The
-Vault-only rule exists because Anvil Secrets requires IDE access clients cannot be given.
+Vault-only rule exists because Anvil Secrets are set by Mybizz outside the application,
+where clients have no access.
 The RBAC mechanical check exists because a manual review misses what a function
 accidentally left unprotected; a grep does not.
 

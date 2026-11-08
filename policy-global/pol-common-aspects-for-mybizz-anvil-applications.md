@@ -1,6 +1,6 @@
 ---
 title: "pol-common-aspects-for-mybizz-anvil-applications"
-updated: "2026-11-07"
+updated: "2026-11-08"
 doc-id: "mb-ab18d72d"
 ---
 # Policy — Common Aspects for Mybizz Anvil Applications
@@ -13,22 +13,22 @@ doc-id: "mb-ab18d72d"
 
 ### 1. The five-app structure, never multi-tenant
 
-Every application has App 1 (development workspace), App 2 (`master_template`, the published dependency), App 3 (`blank_client_template`), App 4 (one client instance per client) and App 5 (Mybizz management). Every client has its own app and its own database. No application ever shares a database between clients or separates clients by filtering. [[[default:specifications-global/spec-five-app-architecture-model|Five-App Architecture Model]]](C:/dev/project-library-global/specifications-global/spec-five-app-architecture-model.md), [[[default:adr-global/adr-dependency-based-not-multi-tenant|Dependency-Based, Not Multi-Tenant]]](C:/dev/project-library-global/adr-global/adr-dependency-based-not-multi-tenant.md).
+Every application has App 1 (development workspace), App 2 (`master_template`, the published dependency), App 3 (`blank_client_template`, the client app), App 4 (one client instance per client) and App 5 (Mybizz management). Every client has its own App Server and its own database. No application ever shares a database between clients or separates clients by filtering. [[[default:specifications-global/spec-five-app-architecture-model|Five-App Architecture Model]]](C:/dev/project-library-global/specifications-global/spec-five-app-architecture-model.md), [[[default:adr-global/adr-dependency-based-not-multi-tenant|Dependency-Based, Not Multi-Tenant]]](C:/dev/project-library-global/adr-global/adr-dependency-based-not-multi-tenant.md).
 
-### 2. Client Anvil accounts
+### 2. Client instance hosting
 
-Each client instance runs on its own Mybizz-owned Anvil Business account, named after the client's business. Server resources are added on that client's account alone, with no change to App 2 and no effect on any other client. A client's transactions run in its own instance; App 2 carries no client load. Every client pays the same price, $150 a month. [[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md).
+Each client instance runs on the Anvil App Server, in its own container on DigitalOcean named after the client's business, with its own database ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)). Server resources are raised for that client's container alone, with no change to App 2 and no effect on any other client. A client's transactions run in its own instance; App 2 carries no client load. Every client pays the same price, $99 a month. [[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md).
 
 ### 3. Configuration, never code, in a client instance
 
-App 4 holds the schema, one startup module and its dependency on App 2, nothing else. Anything that differs between clients is data in the client's own tables, set through the application's settings, never code in the client instance. [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md).
+App 4 runs the release image: App 3's table definitions and startup module, and App 2, nothing else. Anything that differs between clients is data in the client's own tables, set through the application's settings, never code in the client instance. [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md).
 
 ### 4. Schema designed up front, extended without breaking
 
-- The schema is designed in App 1, published through App 2 and carried by App 3. No code creates or alters tables.
+- The schema is designed in App 1, published through App 2 and carried by App 3's table definitions, from which each client's App Server builds its tables. No application code creates or alters tables.
 - Every core table carries a metadata column (a Simple Object column) for client-level attributes, and client-defined attributes use attribute tables, so that most new needs are met without a schema change. A core table is one that holds a business record a client works with, such as a contact, a booking, an invoice or a service. Log, control, link, lookup and attribute tables are not core tables.
 - Every table carries `created_at`. Every table whose rows are edited after creation also carries `updated_at`.
-- A later schema change adds only new tables or nullable columns. It is applied by hand to App 3 and to every client instance, from a migration plan written before release. [[[default:specifications-global/spec-deployment|Deployment]]](C:/dev/project-library-global/specifications-global/spec-deployment.md).
+- A later schema change adds only new tables or nullable columns. It is written into App 3's table definitions and recorded in the schema migration log; the release image carries it to every client instance, and the table-change check stops any release that removes, renames or retypes a table or column. [[[default:specifications-global/spec-deployment|Deployment]]](C:/dev/project-library-global/specifications-global/spec-deployment.md).
 
 ### 5. Secrets in the Vault
 
@@ -51,11 +51,11 @@ Each client has one Cloudflare R2 bucket, in a free Cloudflare account in the cl
 ### 9. Management and health
 
 - Every client instance exposes the management endpoints from its first release, secured with a per-client token. [[[default:adr-global/adr-mybizz-management-visibility|Mybizz Management Visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md).
-- Every client instance pushes a heartbeat of its health and resource use to App 5 on a schedule. App 5 never polls client instances. App 5 flags any client nearing its account's limits. [[[default:adr-global/adr-observability-architecture|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md).
+- Every client instance pushes a heartbeat of its health and resource use to App 5 on a schedule. App 5 never polls client instances. App 5 flags any client nearing its container's memory and the business nearing its cluster's client limit. [[[default:adr-global/adr-observability-architecture|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md).
 
 ### 10. Background work and real-time updates
 
-Background tasks stay within the background-task limits of the Anvil Business plan. Near-real-time updates use client-side polling. [[[default:adr-global/adr-real-time-and-background-tasks|Real-Time and Background Tasks]]](C:/dev/project-library-global/adr-global/adr-real-time-and-background-tasks.md).
+Background tasks stay within each client container's memory. Near-real-time updates use client-side polling. [[[default:adr-global/adr-real-time-and-background-tasks|Real-Time and Background Tasks]]](C:/dev/project-library-global/adr-global/adr-real-time-and-background-tasks.md).
 
 ### 11. Access, currency and time
 

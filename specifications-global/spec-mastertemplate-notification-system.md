@@ -1,7 +1,7 @@
 ---
 title: "spec-mastertemplate-notification-system"
 doc-id: "mb-387d1b6b"
-updated: "2026-11-07"
+updated: "2026-11-08"
 ---
 # `mastertemplate-notification-system` Spec — Notification Engine for Client Instances
 
@@ -81,7 +81,7 @@ Both producers — a client's own server code, and an inbound platform push — 
 
 ## 5. Data Schema
 
-All tables are Anvil Data Tables, created once in `blank_client_template` (App 3) so every newly provisioned client instance has them from day one. Per the [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) ADR, **schema changes do not propagate automatically** — any future column change must be applied manually to `blank_client_template` and to every existing client instance.
+All tables are Anvil Data Tables, defined in `blank_client_template` (App 3), so every client instance's App Server builds them from day one. Per the [[[default:adr-global/adr-client-instance-architecture|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) ADR, a later change only adds tables or nullable columns, and the release image carries it to every client instance.
 
 ### 5.1 `notifications`
 
@@ -190,14 +190,14 @@ def dispatch_notification(notification_id):
     frequency cap) before each channel send — server-side enforcement only,
     matching the source design's failure-pattern lesson on quiet hours never
     being trusted client-side. Writes one delivery_logs row per channel
-    attempted. Client instances run on the Anvil Business plan, where
+    attempted. Client instances run on the Anvil App Server, where
     background tasks have no runtime cap (§9.1)."""
 
 @anvil.server.background_task  # run by a Scheduled Task
 def process_scheduled_notifications():
     """For future-dated sends: polls for notifications whose send_at has
-    arrived and dispatches them. Run by Anvil's Scheduled Tasks, included
-    in the Business plan (§9.1)."""
+    arrived and dispatches them. Run by Anvil's Scheduled Tasks, defined
+    in App 3 (§9.1)."""
 ```
 
 ---
@@ -237,7 +237,7 @@ Anvil components map onto the source design's five frontend components closely e
 
 ## 9. Dependencies
 
-1. **Plan.** Every client instance runs on its own Anvil Business account, which includes background tasks with no runtime cap and Scheduled Tasks.
+1. **Platform.** Every client instance runs on its own Anvil App Server, which runs background tasks with no runtime cap and Scheduled Tasks ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)).
 2. **Platform auth token.** `receive_platform_notification` validates every inbound call with a per-client token. The token is the client instance's management Bearer token, generated at provisioning ([[[default:specifications-global/spec-client-activation-runbook|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md), Step 6), held encrypted in the Mybizz_management client registry and in the instance's Vault.
 3. **Email.** Email notifications are sent through Amazon SES ([[[default:adr-global/adr-brevo-email-and-crm|Amazon SES for Email; CRM Built In]]](C:/dev/project-library-global/adr-global/adr-brevo-email-and-crm.md)).
 

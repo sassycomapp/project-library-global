@@ -1,7 +1,7 @@
 ---
 title: "spec-anvil-platform-standards"
 doc-id: "mb-57f2e70b"
-updated: "2026-11-06"
+updated: "2026-11-08"
 ---
 # Anvil Platform Mechanics
 
@@ -52,10 +52,10 @@ Every server function should:
   (i.e. ~22 seconds against a 30-second limit) must use a background task instead of a normal
   server call.
 
-**Plan:** every client instance runs on its own Mybizz-owned Anvil Business account. The Business plan includes background tasks with no timeout, scheduled tasks, a persistent server and staging environments, and allows 1,000,000 data table rows and 100 GB of data table storage. Email is sent through Amazon SES, not Anvil's email quota.
+**Plan:** Apps 1, 2, 3 and 5 run on Mybizz's Anvil Business account. Every client instance runs on the Anvil App Server, in its own container with its own database ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)). The App Server runs background tasks with no timeout and scheduled tasks; each client's limits are its container's memory and its database's share of the business's cluster. Email is sent through Amazon SES.
 
 **[EXAMPLE]** For a multi-instance deployment (e.g. 100 client instances, each running
-several scheduled tasks — health heartbeat, reminders, webhook processing), each instance runs on its own Business account, so each account's task load is checked against that account alone.
+several scheduled tasks — health heartbeat, reminders, webhook processing), each instance runs in its own container, so each container's task load is checked against that container alone.
 The specific instance count and task list are project data — track them in that project's
 own deployment/authoritative-schema documents, not here.
 
@@ -84,9 +84,9 @@ finally:
 ## 7. Releases and Environments
 
 - Each client instance has one environment and one database. Mybizz uses no staging environment.
-- App 1 is where development happens. A release is App 1's tagged release, pushed into App 2's repository by the developer; every client instance depends on App 2.
-- Testing before release happens on the Anvil App Server on the developer's computer and on a test client instance, not in a staging environment.
-- Rollback is re-pointing App 2 to the previous release tag — not a code revert, which does not un-publish an app.
+- App 1 is where development happens. A release is App 1's tagged release, pushed into App 2's repository by the developer, and built into the release image that every client instance runs.
+- Testing before release happens on the Anvil App Server on the developer's computer, on the release image and on the test client instance, not in a staging environment.
+- Rollback moves the client instances back to the previous release image — not a code revert ([[[default:specifications-global/spec-deployment|Deployment Specification]]](C:/dev/project-library-global/specifications-global/spec-deployment.md) section 4).
 
 ## 8. Debugging Tools (Interactive, Not Autonomous)
 
@@ -307,7 +307,7 @@ storage for large media.
 
 ## 25. Persistent Server Requirement
 
-The Business plan offers a persistent server. Every feature is still designed to work without one, so a server restart loses nothing: no state is kept in module-level variables between calls, and slow start-up work is avoided or cached in Data Tables.
+A client container restarts at every release and whenever DigitalOcean moves it. Every feature is designed so that a server restart loses nothing: no state is kept in module-level variables between calls, and slow start-up work is avoided or cached in Data Tables.
 
 ## 26. `app_tables` Resolution Failure
 
@@ -325,6 +325,6 @@ resolution may fail or return incomplete results.
 - Never expose internal error detail to the client user
 
 **Prevention:**
-- The provisioning clone source (`blank_client_template`) always carries the complete, current table set
+- App 3 (`blank_client_template`) always carries the complete, current table definitions, from which each client's App Server builds its tables
 - Schema migrations follow the project's own deployment SOP without exception
 - A periodic health-check task should verify critical table accessibility

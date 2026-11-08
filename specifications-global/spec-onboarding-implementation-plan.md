@@ -1,7 +1,7 @@
 ---
 title: "spec-onboarding-implementation-plan"
 doc-id: "mb-edfcb7ed"
-updated: "2026-11-02"
+updated: "2026-11-08"
 ---
 # Onboarding System — Engineering Plan
 
@@ -69,7 +69,7 @@ Create a new Client instance shell with minimal configuration, then notify the O
 
 | Step | Action | Data Created | Output |
 |------|--------|--------------|--------|
-| 1 | Clone `blank_client_template` into the client's new Mybizz-owned Anvil Business account ([[[default:specifications-global/spec-client-activation-runbook\|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md)) | New app ID, new database | Instance ready |
+| 1 | Mybizz_management's New client action creates the client's container and database from the release image ([[[default:specifications-global/spec-client-activation-runbook\|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md)) | New container, new database | Instance ready |
 | 2 | Create Owner user account | `users` row with Owner role | Owner credentials |
 | 3 | Create empty `business_profile` row | `business_profile` row | Profile exists |
 | 4 | Set onboarding status | `business_profile.onboarding_status = "in_progress"` | State initialised |
@@ -423,7 +423,7 @@ Post-Onboarding (accessible at any time)
 | [[[default:adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed\|Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed.md) | Payment Gateway Configuration Is Settings | Gateway configured in Settings, not onboarding |
 | [[[default:adr-global/adr-onboarding-data-schema-alignment\|Onboarding Data Schema Alignment]]](C:/dev/project-library-global/adr-global/adr-onboarding-data-schema-alignment.md) | Onboarding Data Schema Alignment | All field names match authoritative-schema.md |
 | [[[default:adr-global/adr-client-data-management-rights-and-mybizz-retention-boundary\|Client Data Management Rights and Mybizz Retention Boundary]]](C:/dev/project-library-global/adr-global/adr-client-data-management-rights-and-mybizz-retention-boundary.md) | Client Data Management Rights | Owner may remove details from Client Details Table, not Retained Records Table |
-| [[[default:adr-global/adr-tiers-model\|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md) | Tiers Model | One price, $150 a month; setup services separate |
+| [[[default:adr-global/adr-tiers-model\|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md) | Tiers Model | One price, $99 a month; setup services separate |
 | [[[default:adr-global/adr-onboarding-resumability\|Onboarding Resumability]]](C:/dev/project-library-global/adr-global/adr-onboarding-resumability.md) | Onboarding Resumability | Progress preserved, can leave and return |
 | [[[default:adr-global/adr-payment-gateway-mutability\|Payment Gateway Mutability]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-mutability.md) | Payment Gateway Mutability | Gateway can change under approved rules |
 | [[[default:adr-global/adr-onboarding-finality\|Onboarding Finality]]](C:/dev/project-library-global/adr-global/adr-onboarding-finality.md) | Onboarding Finality | Onboarding is resumable; credential changes are append-only |
@@ -432,7 +432,7 @@ Post-Onboarding (accessible at any time)
 
 ## 11. Price and Setup Support Model
 
-- **Price:** one price, $150 a month per client, with every feature; there are no tiers. **[[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md)**
+- **Price:** one price, $99 a month per client, with every feature; there are no tiers. **[[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md)**
 - **Setup support** is a separate operational offering:
   - Self-setup with the onboarding wizard and its help videos is included
   - Assisted setup is $200 once; Mybizz does the onboarding wizard with the client on a call. It is an operational service, not a different software onboarding flow

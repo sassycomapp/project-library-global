@@ -1,6 +1,6 @@
 ---
 title: "adr-client-r2-storage-and-exit-handover"
-updated: "2026-11-01"
+updated: "2026-11-08"
 doc-id: "mb-f9c1cc3d"
 ---
 # `client-r2-storage-and-exit-handover` ADR — Each Client Has Its Own R2 Storage, and Leaves With It
@@ -16,7 +16,7 @@ A client instance accumulates data that does not belong in its operational Data 
 
 A client's data belongs to the client. When a client leaves Mybizz, the client must leave with all of its data, in a form it can use without Mybizz.
 
-Every client instance already has its own Anvil account and its own database. Shared storage for any client data would break that isolation.
+Every client instance already has its own container and its own database. Shared storage for any client data would break that isolation.
 
 ---
 

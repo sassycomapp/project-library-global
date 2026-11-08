@@ -1,7 +1,7 @@
 ---
 title: "adr-tiers-model"
 doc-id: "mb-beb7c182"
-updated: "2026-11-01"
+updated: "2026-11-08"
 ---
 # Tiers Model
 Status: Accepted
@@ -12,22 +12,24 @@ Status: Accepted
 
 Every Mybizz application sells a subscription to its clients. Clients can also buy help with setup. The two must not be confused: one is the price of the product, the other is a one-off service.
 
-Competitors sell in tiers, charge for extra staff and add-ons, and lock clients into contracts. Mybizz sells one offer that holds everything.
+Competitors sell in tiers, charge for extra staff and add-ons, and lock clients into contracts. Mybizz sells one offer that holds everything. The subscription terms match the terms of Mybizz's hosting supplier, DigitalOcean: monthly billing, no contract and no lock-in.
 
 ---
 
 ## Decision
 
-**Every Mybizz application has one price: $150 a month per client.**
+**Every Mybizz application has one price: $99 a month per client.**
 
 | Item | Rule |
 |---|---|
-| Price | $150 a month per client |
-| Term | Month to month; no contract; the client can leave at any time |
+| Price | $99 a month per client |
+| Term | Month to month; no contract and no minimum period |
+| Billing | Monthly, in advance |
+| Cancellation | At any time, effective at the end of the paid month; no refund for part of a month |
 | Features | Every feature of the application; no tiers |
 | Staff | Unlimited staff logins |
 | Add-ons | None; nothing is sold on top of the subscription |
-| Hosting | Each client instance on its own Mybizz-owned Anvil Business account, included in the price |
+| Hosting | Each client instance on its own container and its own database, included in the price ([[[default:specifications-global/spec-client-instance-hosting\|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)) |
 | Trial | None; prospects use the demo apps ([[[default:adr-global/adr-no-free-trial\|No Free Trial]]](C:/dev/project-library-global/adr-global/adr-no-free-trial.md)) |
 
 ### Setup services
@@ -52,8 +54,8 @@ Competitors sell in tiers, charge for extra staff and add-ons, and lock clients 
 - No lock-in: the client stays because the product is worth it
 
 ### Negative
-- One account per client puts the hosting cost on Mybizz from the first day
-- The price must cover that hosting cost for every client
+- Each client's container and database put a hosting cost on Mybizz from the first day
+- The price must cover that hosting cost for every client; break-even is two clients ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) section 11)
 
 ### Neutral
 - No effect on the technical architecture beyond the client registry

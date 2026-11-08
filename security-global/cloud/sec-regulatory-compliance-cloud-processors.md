@@ -1,7 +1,7 @@
 ---
 title: "sec-regulatory-compliance-cloud-processors"
 doc-id: "mb-c1321a2c"
-updated: "2026-11-07"
+updated: "2026-11-08"
 ---
 # Regulatory Compliance Scope of Third-Party Cloud Processors
 
@@ -13,7 +13,8 @@ Each third-party cloud service a Mybizz application depends on carries its own r
 
 | Processor | What it handles | Regulatory implication |
 |---|---|---|
-| Anvil | Hosts the application and its Data Tables: every record the instance holds | Holds all personal information of the client's customers and staff (POPIA; GDPR where it applies) |
+| DigitalOcean, `LON1` | Runs every client instance and holds its database: every record the instance holds (`[[spec-client-instance-hosting]]`) | Holds all personal information of the client's customers and staff, processed outside South Africa (POPIA cross-border transfer; GDPR where it applies) |
+| Anvil | Hosts App 5, which holds each client business's registry record, contacts and billing status | Personal information of the client business's contacts (POPIA; GDPR where it applies) |
 | Stripe, Paystack, PayPal | Card and PayPal payments, on the gateway's own hosted page or embedded fields | PCI DSS, SAQ A scope (`[[spec-regulatory-compliance-baseline]]`) |
 | Amazon Web Services: SES, SNS, S3 | Every email sent and received; received email stored in the client's own S3 prefix; SES runs in `eu-west-1` (`[[adr-brevo-email-and-crm]]`) | Personal information in email content and addresses, processed outside South Africa (POPIA cross-border transfer; GDPR where it applies) |
 | Cloudflare: R2 and DNS | The client's files in an R2 bucket in the client's own Cloudflare account (`[[adr-client-r2-storage-and-exit-handover]]`); the client's DNS records | Personal information in stored files (POPIA; GDPR where it applies) |
@@ -47,6 +48,7 @@ When onboarding a new client, confirm whether the client's own customer base int
 - `[[spec-regulatory-compliance-baseline]]` — POPIA, GDPR, PCI DSS and retention
 - `[[adr-brevo-email-and-crm]]` — Amazon SES
 - `[[adr-client-r2-storage-and-exit-handover]]` — Cloudflare R2
+- `[[spec-client-instance-hosting]]` — DigitalOcean
 
 ## Known Exceptions
 

@@ -1,7 +1,7 @@
 ---
 title: "docstd-product-requirements-document"
 doc-id: "mb-ff79bc42"
-updated: "2026-10-23"
+updated: "2026-11-08"
 ---
 # {Project Name} — Product Requirements Document (PRD)
 
@@ -94,7 +94,7 @@ doesn't apply — don't leave a row blank without saying why.
 | Performance | **[PROJECT]** | |
 | Security | **[PROJECT]** — at minimum: does this project use Vault for credentials? second-factor step-up? | |
 | Accessibility | **[PROJECT]** | |
-| Availability | **[PROJECT]** — single Anvil account is a single point of failure; state if this is an accepted risk (see deployment-procedures SOP) | |
+| Availability | **[PROJECT]** — one DigitalOcean cluster in one region serves every client of the business; state the recovery target the rebuild procedure meets (see spec-deployment section 8) | |
 | Timezone handling | **[PROJECT]** — default assumption: UTC storage, display-time conversion, per-instance IANA timezone. State if this project deviates. | |
 | Currency handling | **[PROJECT]** — default assumption: single system currency, immutable after first transaction. State if this project deviates. | |
 | Color/theming compliance | **[PROJECT]** — M3 theme + approved overlay, no hardcoded colors (AGENTS.md Hard Rule 2) — confirm no project-specific exception needed |

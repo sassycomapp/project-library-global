@@ -1,7 +1,7 @@
 ---
 title: "adr-mybizz-management-visibility"
 doc-id: "mb-1962f48d"
-updated: "2026-11-01"
+updated: "2026-11-08"
 ---
 # `mybizz-management-visibility` ADR — Mybizz_management Visibility and Control
 
@@ -17,13 +17,15 @@ Mybizz_management requires three capabilities with respect to client instances:
 2. **Write and Control** — push notifications, suspend accounts, trigger configuration changes, push update alerts
 3. **Receive events** — payment failures, background task errors, Vault access alerts, error thresholds
 
-Every client instance is a separate Anvil app on its own Mybizz-owned Anvil Business account. Anvil provides no native cross-app data access outside of the dependency model. Mybizz_management cannot depend on each client instance (inverse of the intended dependency direction), and client instances cannot depend on Mybizz_management (circular, and architecturally wrong).
+Every client instance is a separate Anvil App Server with its own database ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)). Anvil provides no native cross-app data access outside of the dependency model. Mybizz_management cannot depend on each client instance (inverse of the intended dependency direction), and client instances cannot depend on Mybizz_management (circular, and architecturally wrong).
 
 ---
 
 ## Decision
 
 Communication between Mybizz_management and client instances is via **bidirectional HTTP endpoints**, secured with per-client Bearer tokens. Three communication patterns are implemented.
+
+The client instances' containers and databases are created, released to and removed by Mybizz_management through the DigitalOcean API, with a token scoped to the business's DigitalOcean project ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) sections 6 to 8). The application itself is reached only through the endpoints below.
 
 ---
 
@@ -101,7 +103,7 @@ Mybizz_management maintains a client registry table containing:
 | `base_url` | Client instance HTTP endpoint base URL |
 | `management_token` | Encrypted Bearer token for management calls |
 | `subscription_status` | Active / suspended / churned |
-| `plan` | The subscription: $150 a month, month to month |
+| `plan` | The subscription: $99 a month, month to month |
 | `onboarded_date` | Activation date |
 | `last_health_check` | Timestamp of the last heartbeat received |
 | `last_active` | Last user session timestamp (from health endpoint) |
