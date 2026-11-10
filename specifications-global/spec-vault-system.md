@@ -1,7 +1,7 @@
 ---
 title: "spec-vault-system"
 doc-id: "mb-4960a0bb"
-updated: "2026-11-02"
+updated: "2026-11-10"
 ---
 # Mybizz — The Vault System
 
@@ -21,7 +21,7 @@ Enforce at the point of persistence, not just at the point of retrieval — use 
 
 ```python
 _PAYMENT_SECRET_COLUMNS = frozenset({
-    'stripe_secret_key', 'paystack_secret_key', 'paypal_secret'
+    'stripe_secret_key', 'paypal_secret'
 })
 assert not (_PAYMENT_SECRET_COLUMNS & set(data.keys())), (
     f"Secret key columns must not be saved here: "

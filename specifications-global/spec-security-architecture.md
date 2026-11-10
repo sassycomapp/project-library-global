@@ -1,7 +1,7 @@
 ---
 title: "spec-security-architecture"
 doc-id: "mb-9112b5a3"
-updated: "2026-11-07"
+updated: "2026-11-10"
 ---
 # Mybizz — Security & Secrets Architecture
 
@@ -9,7 +9,7 @@ updated: "2026-11-07"
 
 **Note:** Reusable security patterns (the two-level secrets model, secret enforcement/masking,
 RBAC/data access pattern, rate limiting) live in [[[default:specifications-global/spec-security|Security Specification]]](C:/dev/project-library-global/specifications-global/spec-security.md). The
-regulatory baseline (POPIA, GDPR, PCI DSS, standard retention periods) is Mybizz-wide — see
+regulatory baseline (UK GDPR, the client's own privacy law, PCI DSS, standard retention periods) is Mybizz-wide — see
 [[[default:specifications-global/spec-regulatory-compliance-baseline|Regulatory Compliance Baseline]]](C:/dev/project-library-global/specifications-global/spec-regulatory-compliance-baseline.md). This document contains the Mybizz-wide security architecture and token model that applies to every application.
 
 ---
@@ -75,10 +75,10 @@ service-to-service auth" idea, which isn't specific enough to be worth extractin
 
 ## 3. Regulatory Compliance
 
-The regulatory baseline (POPIA, GDPR, PCI DSS, standard retention periods) is Mybizz-wide — see
+The regulatory baseline (UK GDPR, the client's own privacy law, PCI DSS, standard retention periods) is Mybizz-wide — see
 [[[default:specifications-global/spec-regulatory-compliance-baseline|Regulatory Compliance Baseline]]](C:/dev/project-library-global/specifications-global/spec-regulatory-compliance-baseline.md). The standard applicability:
 
-- **PCI DSS applies** — Mybizz processes payments via Stripe, Paystack and PayPal, placing
+- **PCI DSS applies** — Mybizz processes payments via Stripe and PayPal, placing
   it in SAQ A scope per the Mybizz-wide standard.
 - **GDPR applies conditionally** — if an app serves EU customers (determined by actual client
   base, not fixed at build time).
@@ -93,7 +93,7 @@ Every kind of data an application holds is given one protection level. The level
 |---|---|---|---|
 | Public | Data meant for anyone: the catalogue, public prices, published pages | Anyone, signed in or not | No restriction beyond server authority over every change |
 | Internal | The client's business data that is not about a person: stock, services, schedules, settings | Signed-in roles the access matrix names | Served only by server functions; tables give client code no access |
-| Personal | Personal information under POPIA: names, contact details, addresses, order and booking history of customers and staff | The person it is about, and the roles the access matrix names, limited to their own rows where the role is row-scoped | As Internal, plus: exported and deleted on the person's request; every export is recorded in the audit log; never written to logs in clear |
-| Restricted | Special personal information under POPIA, credentials and keys, payment tokens, management tokens, and anything whose leak causes direct financial loss | The Owner, or the server alone | As Personal, plus: credentials and keys only in the Vault; payment card details never held (only the gateway's token); every read recorded in the audit log; a fresh second factor for any person who reads it |
+| Personal | Personal data under the UK GDPR: names, contact details, addresses, order and booking history of customers and staff | The person it is about, and the roles the access matrix names, limited to their own rows where the role is row-scoped | As Internal, plus: exported and deleted on the person's request; every export is recorded in the audit log; never written to logs in clear |
+| Restricted | Special category data under the UK GDPR, credentials and keys, payment tokens, management tokens, and anything whose leak causes direct financial loss | The Owner, or the server alone | As Personal, plus: credentials and keys only in the Vault; payment card details never held (only the gateway's token); every read recorded in the audit log; a fresh second factor for any person who reads it |
 
 A kind of data that fits two levels takes the higher. Retention follows the defaults of [[[default:specifications-global/spec-regulatory-compliance-baseline|Regulatory Compliance Baseline]]](C:/dev/project-library-global/specifications-global/spec-regulatory-compliance-baseline.md); a kind of data it does not list gets its own retention, with the reason, in the application's data inventory.

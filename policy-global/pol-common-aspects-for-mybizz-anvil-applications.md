@@ -1,6 +1,6 @@
 ---
 title: "pol-common-aspects-for-mybizz-anvil-applications"
-updated: "2026-11-08"
+updated: "2026-11-10"
 doc-id: "mb-ab18d72d"
 ---
 # Policy — Common Aspects for Mybizz Anvil Applications
@@ -17,7 +17,7 @@ Every application has App 1 (development workspace), App 2 (`master_template`, t
 
 ### 2. Client instance hosting
 
-Each client instance runs on the Anvil App Server, in its own container on DigitalOcean named after the client's business, with its own database ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)). Server resources are raised for that client's container alone, with no change to App 2 and no effect on any other client. A client's transactions run in its own instance; App 2 carries no client load. Every client pays the same price, $99 a month. [[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md).
+Each client instance runs on the Anvil App Server, in its own container on DigitalOcean named after the client's business, with its own database ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)). Server resources are raised for that client's container alone, with no change to App 2 and no effect on any other client. A client's transactions run in its own instance; App 2 carries no client load. Every client pays the same price, £79 a month or the fixed price in its currency. [[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md).
 
 ### 3. Configuration, never code, in a client instance
 
@@ -36,7 +36,7 @@ Every credential lives in the client's Vault. The one Anvil Secret is `encryptio
 
 ### 6. Payments, webhooks and outbound calls
 
-- One active card gateway per client instance (Stripe or Paystack), with PayPal as an optional second method. [[[default:specifications-global/spec-integration|Integration]]](C:/dev/project-library-global/specifications-global/spec-integration.md).
+- Stripe as the card gateway of every client instance, with PayPal as an optional second method. [[[default:specifications-global/spec-integration|Integration]]](C:/dev/project-library-global/specifications-global/spec-integration.md).
 - Every webhook handler returns 200 at once, processes in a background task, and is idempotent by the event's transaction id, so a repeated delivery never charges or fulfils twice. [[[default:adr-global/adr-webhook-architecture|Webhook Architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md).
 - Every outbound call to a third party retries with backoff when rate-limited. Rate limits apply per client instance, so one client's volume never affects another's.
 
@@ -63,7 +63,7 @@ Role-based access with the same roles in every application. [[[default:specifica
 
 ### 12. Compliance
 
-POPIA in every application; GDPR and PCI DSS where they apply; the required legal documents before go-live, with acceptance and cookie consent recorded; the standard offboarding. [[[default:specifications-global/spec-regulatory-compliance-baseline|Regulatory Compliance Baseline]]](C:/dev/project-library-global/specifications-global/spec-regulatory-compliance-baseline.md), [[[default:policy-global/pol-legal-documents-and-consent|Legal Documents and Consent]]](C:/dev/project-library-global/policy-global/pol-legal-documents-and-consent.md).
+UK GDPR in every application, with each client's own privacy law for the data it controls; PCI DSS where it applies; the required legal documents before go-live, with acceptance and cookie consent recorded; the standard offboarding. [[[default:specifications-global/spec-regulatory-compliance-baseline|Regulatory Compliance Baseline]]](C:/dev/project-library-global/specifications-global/spec-regulatory-compliance-baseline.md), [[[default:policy-global/pol-legal-documents-and-consent|Legal Documents and Consent]]](C:/dev/project-library-global/policy-global/pol-legal-documents-and-consent.md).
 
 ### 13. User interface
 

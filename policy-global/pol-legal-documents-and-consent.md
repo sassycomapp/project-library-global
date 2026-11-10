@@ -1,7 +1,7 @@
 ---
 title: "pol-legal-documents-and-consent"
 doc-id: "mb-48f56d2b"
-updated: "2026-11-04"
+updated: "2026-11-10"
 ---
 # Policy — Legal Documents and Consent
 
@@ -57,7 +57,7 @@ Help and explainer videos are stored once per language in a Mybizz-owned Cloudfl
 
 ## Why
 
-- The EU ePrivacy rules, as applied by the UK and French regulators, require consent before any non-essential cookie is set, a refusal as easy as acceptance, and proof of each consent (GDPR Article 7(1)). POPIA has no cookie rule of its own, and consent first is the accepted practice in South Africa.
+- The EU ePrivacy rules, as applied by the UK and French regulators, require consent before any non-essential cookie is set, a refusal as easy as acceptance, and proof of each consent (GDPR Article 7(1)).
 - A record of acceptance proves an agreement only when the exact text accepted can be shown, so each published version is kept beside the records that point to it.
 - Acceptance records prove the terms behind bookings, orders and invoices, so they are kept as long as those transactions: 7 years.
 - One system for all three documents means one mechanism to build, test and maintain.

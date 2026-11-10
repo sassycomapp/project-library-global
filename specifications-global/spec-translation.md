@@ -1,7 +1,7 @@
 ---
 title: "spec-translation"
 doc-id: "mb-9bdef25d"
-updated: "2026-11-02"
+updated: "2026-11-10"
 ---
 # Translation
 
@@ -15,7 +15,6 @@ updated: "2026-11-02"
 |---|---|---|---|
 | `en` | English | United Kingdom | `en-GB` / `en_GB` |
 | `fr` | French | France | `fr` / `fr_FR` |
-| `pt` | Portuguese | Portugal | `pt` / `pt_PT` |
 | `es` | Spanish | Spain | `es` / `es_ES` |
 | `de` | German | Germany | `de` / `de_DE` |
 | `it` | Italian | Italy | `it` / `it_IT` |

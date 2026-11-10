@@ -1,11 +1,11 @@
 ---
 title: "spec-integration"
 doc-id: "mb-a1d9a710"
-updated: "2026-11-02"
+updated: "2026-11-10"
 ---
 # Mybizz — Integration Specification
 
-**Scope:** Mybizz-wide. Covers all external service integrations — Amazon SES (all email), Stripe and Paystack (card payments), PayPal (optional second payment method).
+**Scope:** Mybizz-wide. Covers all external service integrations — Amazon SES (all email), Stripe (card payments), PayPal (optional second payment method).
 
 ---
 
@@ -134,42 +134,15 @@ Written on the client's domain at onboarding: MX `inbound-smtp.eu-west-1.amazona
 
 ---
 
-## 4. Paystack Integration
-
-### 4.1 Credentials
-
-| Vault Key | Purpose |
-|---|---|
-| `paystack_secret_key` | Server-side payment processing |
-
-**Public key** (safe for client-side): stored in `payment_config` table.
-
-### 4.2 Payment Processing
-
-**Flow:** Same as Stripe — create transaction, customer pays, webhook confirms.
-
-**Currency:** Paystack processes in NGN, GHS, ZAR, KES, and other African currencies.
-
-### 4.3 Webhook Events
-
-| Event | Action |
-|---|---|
-| `charge.success` | Mark payment successful |
-| `invoice.payment_failed` | Mark payment failed |
-
-**Webhook URL:** `[base_url]/_/api/webhooks/paystack`
-
----
-
-## 5. PayPal Integration
+## 4. PayPal Integration
 
 PayPal is an optional second payment method beside the card gateway. The integration is PayPal's standard checkout: PayPal's JavaScript buttons for the buyer's approval, and PayPal's Orders API v2 called from server code for every money operation. PayPal's invoicing and subscription products are not used; invoices are the application's own.
 
-### 5.1 Availability
+### 4.1 Availability
 
-PayPal is offered only when the system currency is one of PayPal's supported currencies (AUD, BRL, CAD, CNY, CZK, DKK, EUR, HKD, HUF, ILS, JPY, MYR, MXN, TWD, NZD, NOK, PHP, PLN, GBP, RUB, SGD, SEK, CHF, THB, USD). For any other currency (for example ZAR), Settings shows PayPal as unavailable, with the reason.
+PayPal is offered only when the system currency is one of PayPal's supported currencies (AUD, BRL, CAD, CNY, CZK, DKK, EUR, HKD, HUF, ILS, JPY, MYR, MXN, TWD, NZD, NOK, PHP, PLN, GBP, RUB, SGD, SEK, CHF, THB, USD). For any other currency (for example ISK), Settings shows PayPal as unavailable, with the reason.
 
-### 5.2 Credentials
+### 4.2 Credentials
 
 | Where | Value | Purpose |
 |---|---|---|
@@ -177,14 +150,14 @@ PayPal is offered only when the system currency is one of PayPal's supported cur
 | Vault | `paypal_client_secret` | Server calls to PayPal's API |
 | Vault | `paypal_webhook_id` | Webhook signature verification |
 
-### 5.3 Setup
+### 4.3 Setup
 
 1. The Owner opens a PayPal Business account and creates a REST app in PayPal's developer dashboard.
 2. The Owner enters the client ID in Settings and the secret in the Vault.
 3. The application registers its own webhook with PayPal's Webhooks API, at `[base_url]/_/api/webhooks/paypal`, for the events in 5.5, and stores the returned webhook ID in the Vault. The Owner has no webhook step.
 4. `paypal_test_mode` selects PayPal's sandbox or live API. Demo apps always use the sandbox.
 
-### 5.4 Checkout
+### 4.4 Checkout
 
 1. One custom component, `PayPalButtonComponent`, loads PayPal's JavaScript SDK with the client ID, the system currency, `intent=capture` and the app language as `locale`, and renders PayPal's buttons.
 2. **createOrder:** the button calls a server function with the record to be paid (booking, order, invoice or package). The server reads the amount from the database, never from the browser, and creates the order with `POST /v2/checkout/orders`, setting `reference_id` and `invoice_id` to the record's identity so PayPal refuses a duplicate.
@@ -192,7 +165,7 @@ PayPal is offered only when the system currency is one of PayPal's supported cur
 4. **onCancel or onError:** the customer sees a message in the app language; the record stays unpaid (a pending booking keeps its hold).
 5. Pay links in emails (invoices, pending bookings) open the application's own pay page, which shows the same component beside the card option.
 
-### 5.5 Webhook Events
+### 4.5 Webhook Events
 
 | Event | Action |
 |---|---|
@@ -206,15 +179,15 @@ PayPal is offered only when the system currency is one of PayPal's supported cur
 **Webhook URL:** `[base_url]/_/api/webhooks/paypal`
 **Signature verification:** PayPal's verify-webhook-signature call with `paypal_webhook_id`, as [[[default:adr-global/adr-webhook-architecture|Webhook Architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md) sets out.
 
-### 5.6 Refunds
+### 4.6 Refunds
 
 A full or partial refund is made from the application through the payment service with `POST /v2/payments/captures/{capture_id}/refund` and a `PayPal-Request-Id` header. The `PAYMENT.CAPTURE.REFUNDED` webhook confirms it.
 
 ---
 
-## 6. Gateway-Agnostic Service Layer
+## 5. Gateway-Agnostic Service Layer
 
-Stripe, Paystack and PayPal use the same underlying service interface. The active card gateway is selected in Settings (`payment_config.active_gateway`); PayPal is switched on or off beside it.
+Stripe and PayPal use the same underlying service interface. Stripe is the card gateway; PayPal is switched on or off beside it in Settings.
 
 **Service interface:**
 ```python
@@ -223,19 +196,19 @@ def verify_payment(payment_id) -> dict
 def refund_payment(payment_id, amount=None) -> dict
 ```
 
-Switching gateways later does not require reconfiguring services or bookings. The service layer routes to the correct gateway based on `payment_config.active_gateway`.
+Switching PayPal on or off does not require reconfiguring services or bookings. The service layer routes each payment to the gateway the customer chose: a card payment to Stripe, a PayPal payment to PayPal.
 
-**Accounting:** every payment and refund, by any gateway or recorded by hand, is one row in the payments table, which the application's accounts read. The gateway's fee for each payment is recorded on the payment's row (`gateway_fee`), taken from the gateway's own response: Stripe's balance transaction, Paystack's `fees`, PayPal's `paypal_fee`. Accounts show the gross payment as income and the fee as an expense.
+**Accounting:** every payment and refund, by any gateway or recorded by hand, is one row in the payments table, which the application's accounts read. The gateway's fee for each payment is recorded on the payment's row (`gateway_fee`), taken from the gateway's own response: Stripe's balance transaction, PayPal's `paypal_fee`. Accounts show the gross payment as income and the fee as an expense.
 
 **Language:** Stripe Elements and PayPal's buttons are given the app language as `locale`.
 
 ---
 
-## 7. Secret Management
+## 6. Secret Management
 
 All integration secrets follow the two-level model defined in [[[default:specifications-global/spec-vault-system|Vault System Specification]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md):
 1. **Anvil Secrets** holds exactly one item: `encryption_key`
-2. **Vault** holds all integration credentials (Amazon SES, Stripe, Paystack, PayPal, R2)
+2. **Vault** holds all integration credentials (Amazon SES, Stripe, PayPal, R2)
 3. **`payment_config`** holds only publishable keys (safe for client-side)
 4. **`email_config`** holds only sender name and email (not credentials)
 
@@ -243,7 +216,7 @@ All integration secrets follow the two-level model defined in [[[default:specifi
 
 ---
 
-## 8. Integration Error Logging
+## 7. Integration Error Logging
 
 All integration failures are logged to the `error_log` table with:
 
@@ -254,7 +227,7 @@ All integration failures are logged to the `error_log` table with:
 
 ---
 
-## 9. Three-Tier Email Architecture
+## 8. Three-Tier Email Architecture
 
 Email communications are deliberately classified into three distinct tiers, each using a
 separate stream appropriate to its purpose:

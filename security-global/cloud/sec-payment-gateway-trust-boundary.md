@@ -1,13 +1,13 @@
 ---
 title: "sec-payment-gateway-trust-boundary"
 doc-id: "mb-2f89aff9"
-updated: "2026-10-01"
+updated: "2026-11-10"
 ---
 # Payment Gateway Trust Boundary
 
 ## Applicable Threat
 
-Stripe and Paystack are external, third-party cloud services this project depends on for real financial transactions. Per `[[spec-security-architecture]]` §3, processing payments through them places this project in PCI DSS SAQ A scope — a real regulatory obligation, not an internal design choice.
+Stripe and PayPal are external, third-party cloud services this project depends on for real financial transactions. Per `[[spec-security-architecture]]` §3, processing payments through them places this project in PCI DSS SAQ A scope — a real regulatory obligation, not an internal design choice.
 
 ## Security Requirement
 

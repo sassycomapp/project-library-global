@@ -1,7 +1,7 @@
 ---
 title: "spec-nomenclature"
 doc-id: "mb-a3648afc"
-updated: "2026-11-08"
+updated: "2026-11-10"
 ---
 # Nomenclature and Naming Conventions
 
@@ -70,6 +70,11 @@ Every folder in `project-library-global` has a matching local folder in each pro
 
 | Term | Meaning |
 |---|---|
+| Mybizz | The brand, used in every product, document and message. |
+| Mybizz-Live Ltd | The United Kingdom company behind Mybizz; named wherever a legal party is named: agreements, Paddle, policies and invoices. |
+| mybizz.live | Mybizz's web domain. |
+| `mybizz` | The generic name of every folder and repository that serves no single business, such as `data-mybizz-mgt`, `C:\mybizz`, `mybizz-os-docs` and `mybizz-scripts`. |
+| Markets | The United States, Canada, the United Kingdom, the European Union, the European Economic Area and Switzerland. |
 | Client | The business or individual that subscribes to a Mybizz application and is given its own client instance. |
 | Owner | The person responsible for a client instance: the client who signed up, once onboarded. |
 | Customer | A client's own customer, who uses the client's instance. |
@@ -102,7 +107,7 @@ Every folder in `project-library-global` has a matching local folder in each pro
 | Module | Pattern | Example |
 |---|---|---|
 | Server service | `{purpose}_service.py` | `booking_service.py` |
-| Server integration | `{purpose}_integration.py` | `paystack_integration.py` |
+| Server integration | `{purpose}_integration.py` | `paypal_integration.py` |
 | Client utility | `{purpose}_utils.py` | `validation_utils.py` |
 | Client helper | `{purpose}_helpers.py` | `navigation_helpers.py` |
 
@@ -153,13 +158,13 @@ Each form folder, `{slug}-project-library\ui\<package path>\<FormName>\`, mirror
 | CRM | Customer Relationship Management |
 | DX | Developer Experience |
 | FS | Functional Specification |
-| GDPR | General Data Protection Regulation |
+| GDPR | General Data Protection Regulation (EU); UK GDPR is the United Kingdom's version |
+| ICO | Information Commissioner's Office, the United Kingdom's data protection regulator |
 | M3 / MD3 | Material Design 3 |
 | MCP | Model Context Protocol |
 | MVP | Minimum Viable Product |
 | NFR | Non-Functional Requirement |
 | PCI DSS | Payment Card Industry Data Security Standard |
-| POPIA | Protection of Personal Information Act |
 | PRD | Product Requirements Document |
 | RBAC | Role-Based Access Control |
 | SEO | Search Engine Optimisation |

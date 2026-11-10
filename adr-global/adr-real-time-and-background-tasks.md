@@ -1,7 +1,7 @@
 ---
 title: "adr-real-time-and-background-tasks"
 doc-id: "mb-1684942d"
-updated: "2026-11-08"
+updated: "2026-11-10"
 ---
 # `real-time-and-background-tasks` ADR — Real-Time Updates and Background Task Architecture
 
@@ -139,7 +139,7 @@ def daily_maintenance():
 
 ### Webhook Processing Pattern
 
-Webhook handlers (Stripe, Paystack, PayPal, Amazon SES through SNS) return HTTP 200 immediately, or the gateway times out and retries. Processing is deferred to a background task, as [[[default:adr-global/adr-webhook-architecture|Webhook Architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md) sets out in full.
+Webhook handlers (Stripe, PayPal, Amazon SES through SNS) return HTTP 200 immediately, or the gateway times out and retries. Processing is deferred to a background task, as [[[default:adr-global/adr-webhook-architecture|Webhook Architecture]]](C:/dev/project-library-global/adr-global/adr-webhook-architecture.md) sets out in full.
 
 ---
 

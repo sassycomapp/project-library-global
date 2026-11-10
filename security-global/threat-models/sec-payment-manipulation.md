@@ -1,13 +1,13 @@
 ---
 title: "sec-payment-manipulation"
 doc-id: "mb-14e0973e"
-updated: "2026-10-01"
+updated: "2026-11-10"
 ---
 # Threat Model — Payment Manipulation
 
 ## Applicable Threat
 
-A user or an external actor alters a price, quantity, currency, or payment amount client-side before it reaches the payment gateway, or replays/forges a webhook event to falsely mark a payment as successful. Real attack surface: `[[spec-api-specification]]` confirms webhook handlers (Stripe, Paystack) update booking status and generate invoices directly from incoming webhook data.
+A user or an external actor alters a price, quantity, currency, or payment amount client-side before it reaches the payment gateway, or replays/forges a webhook event to falsely mark a payment as successful. Real attack surface: `[[spec-api-specification]]` confirms webhook handlers (Stripe, PayPal) update booking status and generate invoices directly from incoming webhook data.
 
 ## Security Requirement
 

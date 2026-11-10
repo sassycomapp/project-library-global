@@ -1,7 +1,7 @@
 ---
 title: "adr-timezone-utc-storage-display-conversion"
 doc-id: "mb-5ba3ccea"
-updated: "2026-10-23"
+updated: "2026-11-10"
 ---
 # Client Timezone: IANA String, UTC Storage, Display-Time Conversion
 Status: Accepted
@@ -19,7 +19,7 @@ how datetimes are stored and displayed across client instances in different time
 ## Decision
 
 **Each client instance configures its own timezone at onboarding**, stored as an IANA
-timezone string (e.g. `'Africa/Johannesburg'`, `'Europe/London'`) in the
+timezone string (e.g. `'Europe/London'`, `'America/New_York'`) in the
 `business_profile` table (`timezone` field).
 
 **All datetimes are stored in the database as UTC.**

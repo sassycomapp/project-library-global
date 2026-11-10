@@ -1,13 +1,13 @@
 ---
 title: "ts-method"
-updated: "2026-11-02"
+updated: "2026-11-10"
 doc-id: "mb-2fad9223"
 ---
 # Test Suite — Method
 
 ## What the test suite is
 
-The test suite is how Mybizz proves that every application it builds on Anvil is secure, works fully, keeps its data intact and obeys Mybizz's own rules. It is sized for one developer building on Anvil, with each client instance on its own Business account, and it produces the evidence a business customer's security questionnaire asks for: SOC 2 Type II readiness, an annual independent penetration test, PCI DSS SAQ A and POPIA and GDPR documentation.
+The test suite is how Mybizz proves that every application it builds on Anvil is secure, works fully, keeps its data intact and obeys Mybizz's own rules. It is sized for one developer building on Anvil, with each client instance in its own container with its own database, and it produces the evidence a business customer's security questionnaire asks for: SOC 2 Type II readiness, an annual independent penetration test, PCI DSS SAQ A and UK GDPR documentation.
 
 The suite is held once, in `project-library-global\test-suite\`, and serves every Mybizz application (`mb-3-cs`, `mb-4-ecom` and every later one). Every PDLF step names the tests it runs in its own test specification, `{step}-test-spec.md`, the seventh file of the step.
 
@@ -116,7 +116,7 @@ The suite's saved evidence answers the questions a business customer asks. Nothi
 | SOC 2 Type II readiness (security, availability, confidentiality) | Change control: every release approved at its gate, with code review and test evidence (RL-01, SC-15). Access control: role tests and second factors (IN-02, SC-02). Monitoring: heartbeats and watch after release (RL-09). Backup and recovery: restore drills (RL-02). Vendor review: package and service inventory (ST-13, DC-07). Periodic reviews: the operations cadence (RL-11). Kept over time in the ledger and the evidence folders, which is what a Type II audit samples. |
 | Annual penetration test | SC-16 |
 | PCI DSS SAQ A | Card details are taken only by the gateway; payment-page scripts are approved; amounts are set by the server; webhooks are verified (SC-10, IN-06, IN-07) |
-| POPIA and GDPR | Data inventory and lawful basis (DC-03), data-subject rights and retention (IN-14), exit handover (RL-08), legal documents (DC-14) |
+| UK GDPR and the client's own privacy law | Data inventory and lawful basis (DC-03), data-subject rights and retention (IN-14), exit handover (RL-08), legal documents (DC-14) |
 
 ## 8. Each step's test specification
 

@@ -1,29 +1,46 @@
 ---
 title: "spec-regulatory-compliance-baseline"
 doc-id: "mb-6f1553b6"
-updated: "2026-11-04"
+updated: "2026-11-10"
 ---
 # Mybizz — Regulatory Compliance Baseline (Specification)
 
-**Scope:** Mybizz-wide. This posture applies because Mybizz-the-company is based in South Africa
-and runs one app and one database per client, never a multi-tenant model — it does not depend on what any individual app does.
+**Scope:** Mybizz-wide. This posture applies because Mybizz-Live Ltd is a United Kingdom company, operated from the United Kingdom, that serves businesses in the United States, Canada, the United Kingdom, the European Union, the European Economic Area and Switzerland, and runs one app and one database per client, never a multi-tenant model. It does not depend on what any individual app does.
 App-specific facts (e.g., whether a given app actually processes payments, and therefore whether
 PCI DSS applies to it) are recorded in [[[default:specifications-global/spec-security-architecture|Security Architecture Specification]]](C:/dev/project-library-global/specifications-global/spec-security-architecture.md), which
 should reference this baseline rather than restate it.
 
 ---
 
-## POPIA (South Africa) — Mandatory, Every App
+## Roles
 
-Mybizz is based in South Africa. Registration with the Information Regulator as a Responsible
-Party is required after launch, for every Mybizz product. Data subject rights — access,
-correction, deletion, objection — must be implemented in every app.
+- **Each client is the controller** of the personal data of its own customers and staff. Mybizz-Live Ltd processes that data on the client's behalf, as **processor**, under the data processing agreement each client accepts.
+- **Mybizz-Live Ltd is the controller** of its own records of client businesses: their contacts, registry record and billing status in App 5.
+- All work with access to client personal data is carried out from the United Kingdom or from within the markets Mybizz serves, so that no other country's data protection law reaches Mybizz's processing.
 
-## GDPR (European Union) — Conditional, Per App
+## UK GDPR — Mandatory, Every App
 
-Applies to a given app if it serves EU customers. The same data-subject-rights implementation
-required for POPIA (export and anonymisation functions) satisfies both regimes — no separate
-implementation is needed per regulation, only a determination of whether EU customers are served.
+Mybizz-Live Ltd is subject to the UK GDPR and the Data Protection Act 2018. Mybizz-Live Ltd registers with the Information Commissioner's Office (ICO) and pays its data protection fee before launch. The data subject rights — access, rectification, erasure, restriction, objection and portability — are implemented in every app.
+
+## The Client's Own Law — Per Client
+
+Each client's own law governs the data the client controls:
+
+| Client's market | Law |
+|---|---|
+| United Kingdom | UK GDPR and the Data Protection Act 2018 |
+| European Union and European Economic Area | EU GDPR |
+| Switzerland | The Federal Act on Data Protection (FADP) |
+| Canada | PIPEDA; in Quebec, Law 25 |
+| United States | The privacy law of the client's state, such as the California Consumer Privacy Act (CCPA) |
+
+The data-subject-rights implementation required by the UK GDPR (export and anonymisation functions) satisfies every law in the table: no separate implementation is needed per law. Each client's legal pages are written for the client's own law in the Clause Builder.
+
+Client data is hosted in London. The United Kingdom holds an adequacy decision from the European Union and is recognised as adequate by Switzerland, so data from clients in Europe and Switzerland may be held there without further transfer safeguards.
+
+## Personal Data Breaches
+
+Mybizz, as processor, tells the affected client of a personal data breach without undue delay. The controller notifies its supervisory authority within 72 hours where its law requires it, and the people affected where the breach puts them at high risk. Mybizz's own procedure is in each app's incident response plan.
 
 ## PCI DSS — Conditional, Per App
 
@@ -66,14 +83,13 @@ On client offboarding, all the client's data is written to the client's own R2 b
 3. All Vault contents in decrypted form
 4. Everything the bucket already holds (webhook payloads, logs, backups)
 
-**Handover:** ownership of the Cloudflare account holding the bucket is transferred to the client.
+**Handover:** the bucket sits in the client's own Cloudflare account; Mybizz's Cloudflare user leaves that account.
 
 **Post-handover:**
 - All client data is removed from the platform
 - No backup copies are retained beyond standard backup rotation window
 - Offboarding is logged with timestamp, operator identity, and confirmation of data removal
 
-**Legal basis:** POPIA Article 24 (data subject access and portability), GDPR Article 20
-(right to data portability). The procedure ensures clients can take their data to another
+**Legal basis:** Article 20 of the UK GDPR and of the EU GDPR (right to data portability). The procedure ensures clients can take their data to another
 provider without platform lock-in.
 

@@ -85,7 +85,6 @@ DEFAULT_CONFIG = {
 SECRET_PATTERNS = [
     (re.compile(r"\bsk_(live|test)_[0-9A-Za-z]{10,}"), "Stripe secret key"),
     (re.compile(r"\brk_(live|test)_[0-9A-Za-z]{10,}"), "Stripe restricted key"),
-    (re.compile(r"\bsk_(live|test)_[0-9a-f]{20,}"), "Paystack secret key"),
     (re.compile(r"\bxkeysib-[0-9a-f]{20,}"), "Brevo API key"),
     (re.compile(r"\bxsmtpsib-[0-9a-f]{20,}"), "Brevo SMTP key"),
     (re.compile(r"\bsk-[A-Za-z0-9_-]{20,}"), "AI provider key"),

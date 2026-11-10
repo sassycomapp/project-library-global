@@ -1,7 +1,7 @@
 ---
 title: "adr-onboarding-finality"
 doc-id: "mb-e9266696"
-updated: "2026-10-23"
+updated: "2026-11-10"
 ---
 # Onboarding Finality
 Status: Accepted
@@ -43,7 +43,7 @@ Owners have the right to change any credential they choose, at any time. This de
 3. **Owner data rights:**
    - The Owner may remove their details from the Client Details Table in Mybizz_management
    - The Owner may NOT remove entries from the Retained Records Table (legal/financial retention)
-   - The Owner may export their data at any time (per GDPR/POPIA compliance)
+   - The Owner may export their data at any time (per UK GDPR and the client's own privacy law)
 
 4. **Mybizz_management is outside client instance scope:**
    - Mybizz_management is a separate Anvil application for platform operations
@@ -62,7 +62,7 @@ Owners have the right to change any credential they choose, at any time. This de
 
 ### Positive
 - Owners retain full control over their credentials at all times
-- Clear data ownership and rights alignment with GDPR/POPIA
+- Clear data ownership and rights alignment with UK GDPR and the client's own privacy law
 - Append-only logging provides complete audit trail
 - Separation of Owner-removable data and legally-retained data is explicit
 - Onboarding remains accessible for credential review and updates

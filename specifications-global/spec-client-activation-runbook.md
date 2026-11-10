@@ -26,7 +26,7 @@ Done once, before the business's first client, as [[[default:specifications-glob
 
 Before beginning activation:
 
-- [ ] The client has registered, accepted the subscription terms ($99 a month before tax, month to month) and paid the first month in Paddle's checkout ([[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md); [[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) section 2)
+- [ ] The client has registered, accepted the subscription terms (£79 a month before tax, or the fixed price in the client's currency; month to month) and paid the first month in Paddle's checkout ([[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md); [[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) section 3)
 - [ ] Mybizz_management has created the client record and the client reference number
 - [ ] The client's primary contact email and phone number are recorded in Mybizz_management
 - [ ] The client owns its domain
@@ -105,7 +105,7 @@ In Mybizz_management, complete the client registry entry:
 | `base_url` | Client instance URL |
 | `management_token` | Token generated in Step 6 (encrypted) |
 | `subscription_status` | `active` |
-| `plan` | $99 a month; whether assisted setup was bought |
+| `plan` | The monthly price and currency; whether assisted setup was bought |
 | `onboarded_date` | Today's date |
 
 ### Step 8 — Verify Management Endpoints
@@ -141,7 +141,7 @@ In the client instance:
 
 ## Phase 4 — Owner Setup
 
-The Owner completes the onboarding wizard in the instance, helped by its help videos. A client that bought assisted setup ($200) does the wizard with Mybizz on a call.
+The Owner completes the onboarding wizard in the instance, helped by its help videos. A client that bought assisted setup (one month's subscription) does the wizard with Mybizz on a call.
 
 ### Step 10 — Domain
 
@@ -153,13 +153,12 @@ The Owner completes the onboarding wizard in the instance, helped by its help vi
 
 The Owner enters the gateway keys in the Vault; Mybizz never handles them:
 
-- [ ] `stripe_secret_key` and `stripe_webhook_secret`, or `paystack_secret_key`
-- [ ] `paypal_client_secret`, if PayPal is used; the application registers its PayPal webhook itself and stores `paypal_webhook_id` ([[[default:specifications-global/spec-integration|Integration Specification]]](C:/dev/project-library-global/specifications-global/spec-integration.md), section 5.3)
+- [ ] `stripe_secret_key` and `stripe_webhook_secret`
+- [ ] `paypal_client_secret`, if PayPal is used; the application registers its PayPal webhook itself and stores `paypal_webhook_id` ([[[default:specifications-global/spec-integration|Integration Specification]]](C:/dev/project-library-global/specifications-global/spec-integration.md), section 4.3)
 
-The Owner registers the Stripe or Paystack webhook URL in that gateway's dashboard:
+The Owner registers the Stripe webhook URL in Stripe's dashboard:
 
 - **Stripe:** `[base_url]/_/api/webhooks/stripe` — `payment_intent.succeeded`, `payment_intent.payment_failed`, `customer.subscription.updated`, `customer.subscription.deleted`
-- **Paystack:** `[base_url]/_/api/webhooks/paystack` — `charge.success`, `subscription.disable`, `invoice.payment_failed`
 
 ### Step 12 — Business Profile and Branding
 
@@ -201,7 +200,7 @@ Send the client, through the instance's email:
 - [ ] Welcome email
 - [ ] Platform URL
 - [ ] Link to the help videos
-- [ ] The subscription terms: $99 a month before tax, billed by Paddle, month to month, cancel at any time, effective at the end of the paid month
+- [ ] The subscription terms: the monthly price in the client's currency, before tax, billed by Paddle, month to month, cancel at any time, effective at the end of the paid month
 
 ### Step 17 — Internal Records
 

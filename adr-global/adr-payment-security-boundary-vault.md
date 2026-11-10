@@ -1,7 +1,7 @@
 ---
 title: "adr-payment-security-boundary-vault"
 doc-id: "mb-dbb54a8c"
-updated: "2026-11-01"
+updated: "2026-11-10"
 ---
 # Payment Security Boundary: Secret Keys Deferred to the Vault
 Status: Accepted
@@ -12,7 +12,7 @@ Status: Accepted
 
 The SettingsForm (Settings and Configuration) collects payment gateway
 configuration. The question arose of where to store gateway secret keys (Stripe secret
-key, Paystack secret key, PayPal secret). Storing them in the `payment_config` Data
+key, PayPal secret). Storing them in the `payment_config` Data
 Table alongside public keys would expose secrets in a standard table with no encryption.
 
 ---
@@ -37,7 +37,7 @@ before any broader exception handler:
 
 ```python
 _PAYMENT_SECRET_COLUMNS = frozenset({
-    'stripe_secret_key', 'paystack_secret_key', 'paypal_secret'
+    'stripe_secret_key', 'paypal_secret'
 })
 assert not (_PAYMENT_SECRET_COLUMNS & set(data.keys())), (
     f"Secret key columns must not be saved here: "

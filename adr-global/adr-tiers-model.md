@@ -18,11 +18,11 @@ Competitors sell in tiers, charge for extra staff and add-ons, and lock clients 
 
 ## Decision
 
-**Every Mybizz application has one price: $99 a month per client.**
+**Every Mybizz application has one price: £79 a month per client, charged in the client's own currency.**
 
 | Item | Rule |
 |---|---|
-| Price | $99 a month per client, before tax |
+| Price | £79 a month per client, before tax; charged at the fixed price for the client's currency (below) |
 | Term | Month to month; no contract and no minimum period |
 | Billing | Monthly, in advance, through Paddle as Merchant of Record ([[[default:specifications-global/spec-client-billing\|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md)) |
 | Cancellation | At any time, effective at the end of the paid month; no refund for part of a month |
@@ -32,10 +32,22 @@ Competitors sell in tiers, charge for extra staff and add-ons, and lock clients 
 | Hosting | Each client instance on its own container and its own database, included in the price ([[[default:specifications-global/spec-client-instance-hosting\|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)) |
 | Trial | None; prospects use the demo apps ([[[default:adr-global/adr-no-free-trial\|No Free Trial]]](C:/dev/project-library-global/adr-global/adr-no-free-trial.md)) |
 
+### Price in each currency
+
+Mybizz's reference currency is the pound sterling (GBP). Each market pays a fixed, round price in its own currency, close to £79:
+
+| Currency | Markets | Monthly price, before tax |
+|---|---|---|
+| GBP | United Kingdom | £79 |
+| USD | United States | $99 |
+| CAD | Canada | C$135 |
+| EUR | European Union, Norway, Iceland | €89 |
+| CHF | Switzerland, Liechtenstein | CHF 89 |
+
 ### Setup services
 
 - **Self-setup** with the onboarding wizard and help videos: included.
-- **Assisted setup:** $200 once. Mybizz sets up the instance with the client.
+- **Assisted setup:** one month's subscription, once, in the client's currency. Mybizz sets up the instance with the client.
 - Setup services are separate from the subscription and never change its price or features.
 
 ### Architectural rules

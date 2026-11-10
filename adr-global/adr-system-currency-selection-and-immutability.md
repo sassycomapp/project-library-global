@@ -1,7 +1,7 @@
 ---
 title: "adr-system-currency-selection-and-immutability"
 doc-id: "mb-4b5f697c"
-updated: "2026-10-23"
+updated: "2026-11-10"
 ---
 # System Currency, Display Currency, and Immutability
 Status: Accepted
@@ -85,7 +85,7 @@ INVOICE: transaction currency + system_currency_amount (for reporting)
 ```
 | Field | Type | Notes |
 |-------|------|-------|
-| system_currency | string | ISO 4217 (e.g., "ZAR", "USD") — set at onboarding, immutable after first transaction |
+| system_currency | string | ISO 4217 (e.g., "GBP", "USD") — set at onboarding, immutable after first transaction |
 ```
 
 **services table:**

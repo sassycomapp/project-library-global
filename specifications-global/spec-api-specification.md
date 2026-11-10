@@ -1,7 +1,7 @@
 ---
 title: "spec-api-specification"
 doc-id: "mb-639a7203"
-updated: "2026-11-04"
+updated: "2026-11-10"
 ---
 # Mybizz — API Specification (HTTP Endpoints)
 
@@ -15,7 +15,7 @@ Client instances expose two categories of HTTP endpoints:
 
 | Category | Purpose | Authentication | Built In |
 |---|---|---|---|
-| Webhook handlers | Receive events from external services (Stripe, Paystack, PayPal, Amazon SES through SNS) | The sender's signature verification | Phase 2 |
+| Webhook handlers | Receive events from external services (Stripe, PayPal, Amazon SES through SNS) | The sender's signature verification | Phase 2 |
 | Management endpoints | Mybizz_management communication with client instances | Bearer token | Phase 1 |
 
 Both ship with master_template — all client instances have them from provisioning.
@@ -43,20 +43,7 @@ Both ship with master_template — all client instances have them from provision
 4. Dispatch to background task
 5. Return HTTP 200 immediately
 
-### 2.2 Paystack Webhooks
-
-**URL:** `[base_url]/_/api/webhooks/paystack`
-**Method:** POST
-**Authentication:** Paystack signature header
-
-**Events handled:**
-- `charge.success` → Update payment status
-- `subscription.disable` → Cancel subscription
-- `invoice.payment_failed` → Mark payment failed
-
-**Pattern:** Same as Stripe — validate, log, dispatch, return 200.
-
-### 2.3 PayPal Webhooks
+### 2.2 PayPal Webhooks
 
 **URL:** `[base_url]/_/api/webhooks/paypal`
 **Method:** POST
@@ -72,7 +59,7 @@ Both ship with master_template — all client instances have them from provision
 
 **Pattern:** Same as Stripe — validate, log, dispatch, return 200.
 
-### 2.4 Amazon SES Notifications (through Amazon SNS)
+### 2.3 Amazon SES Notifications (through Amazon SNS)
 
 **URLs:**
 - `[base_url]/_/api/email/inbound` — a received email, stored by SES in the client's S3 prefix
@@ -90,7 +77,7 @@ Both ship with master_template — all client instances have them from provision
 
 **Pattern:** Same as payment webhooks — validate, log, dispatch, return 200.
 
-### 2.5 Webhook Handler Requirements
+### 2.4 Webhook Handler Requirements
 
 | Requirement | Rule |
 |---|---|

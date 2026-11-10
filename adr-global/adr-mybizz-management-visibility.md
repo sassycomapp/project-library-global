@@ -82,7 +82,7 @@ Each client instance runs a scheduled background task, every 15 minutes, that se
 
 ## Subscription Billing
 
-Mybizz_management learns of every subscription payment from Paddle, not from the client instance. Paddle's notifications reach Mybizz_management's endpoint `/_/api/paddle`; Mybizz_management stores each one in Mybizz's R2 bucket, updates the client registry, suspends a client 7 days after a failed payment, unsuspends it when it pays, and runs the client exit 37 days after the failed payment ([[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) sections 3 and 4).
+Mybizz_management learns of every subscription payment from Paddle, not from the client instance. Paddle's notifications reach Mybizz_management's endpoint `/_/api/paddle`; Mybizz_management stores each one in Mybizz's R2 bucket, updates the client registry, suspends a client 7 days after a failed payment, unsuspends it when it pays, and runs the client exit 37 days after the failed payment ([[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) sections 4 and 5).
 
 ---
 
@@ -108,7 +108,7 @@ Mybizz_management maintains a client registry table containing:
 | `base_url` | Client instance HTTP endpoint base URL |
 | `management_token` | Encrypted Bearer token for management calls |
 | `subscription_status` | Active / suspended / churned |
-| `plan` | The subscription: $99 a month, month to month |
+| `plan` | The subscription: £79 a month, or the fixed price in the client's currency ([[[default:adr-global/adr-tiers-model\|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md)), month to month |
 | `paddle_customer_id`, `paddle_subscription_id` | The client's customer and subscription in Paddle |
 | `paid_until` | The end of the period the client has paid for |
 | `payment_failed_at` | The date of the first failed renewal payment; empty when the client is paid up |

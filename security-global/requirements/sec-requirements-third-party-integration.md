@@ -1,13 +1,13 @@
 ---
 title: "sec-requirements-third-party-integration"
 doc-id: "mb-f6f30b31"
-updated: "2026-11-07"
+updated: "2026-11-10"
 ---
 # Requirement — New Third-Party Integration
 
 ## Applicable Threat
 
-A new external service integration (a new payment gateway, a new email provider, any new webhook source) is added without the same baseline checks already applied to Stripe, Paystack, PayPal and Amazon SES, leaving a gap the existing patterns already know how to close.
+A new external service integration (a new payment gateway, a new email provider, any new webhook source) is added without the same baseline checks already applied to Stripe, PayPal and Amazon SES, leaving a gap the existing patterns already know how to close.
 
 ## Security Requirement
 
@@ -21,7 +21,7 @@ Before a new third-party integration is considered complete, all of the followin
 
 ## Approved Pattern
 
-The existing Stripe, Paystack, PayPal and Amazon SES integrations as the working reference — each follows this pattern, per `[[spec-api-specification]]` §2 and `[[adr-webhook-architecture]]`.
+The existing Stripe, PayPal and Amazon SES integrations as the working reference — each follows this pattern, per `[[spec-api-specification]]` §2 and `[[adr-webhook-architecture]]`.
 
 ## Prohibited Pattern
 

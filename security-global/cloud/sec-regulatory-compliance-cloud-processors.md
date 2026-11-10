@@ -13,12 +13,12 @@ Each third-party cloud service a Mybizz application depends on carries its own r
 
 | Processor | What it handles | Regulatory implication |
 |---|---|---|
-| DigitalOcean, `LON1` | Runs every client instance and holds its database: every record the instance holds (`[[spec-client-instance-hosting]]`) | Holds all personal information of the client's customers and staff, processed outside South Africa (POPIA cross-border transfer; GDPR where it applies) |
-| Anvil | Hosts App 5, which holds each client business's registry record, contacts and billing status | Personal information of the client business's contacts (POPIA; GDPR where it applies) |
-| Paddle | Mybizz's subscription billing, as Merchant of Record: each client business's billing name, address, email, business tax number and payment card (`[[spec-client-billing]]`) | Personal information of the client business's contacts, processed outside South Africa (POPIA cross-border transfer; GDPR where it applies). Card data stays with Paddle, which carries PCI DSS for Mybizz's subscription payments |
-| Stripe, Paystack, PayPal | Card and PayPal payments, on the gateway's own hosted page or embedded fields | PCI DSS, SAQ A scope (`[[spec-regulatory-compliance-baseline]]`) |
-| Amazon Web Services: SES, SNS, S3 | Every email sent and received; received email stored in the client's own S3 prefix; SES runs in `eu-west-1` (`[[adr-brevo-email-and-crm]]`) | Personal information in email content and addresses, processed outside South Africa (POPIA cross-border transfer; GDPR where it applies) |
-| Cloudflare: R2 and DNS | The client's files in an R2 bucket in the client's own Cloudflare account (`[[adr-client-r2-storage-and-exit-handover]]`); the client's DNS records; Mybizz's own R2 bucket, holding Paddle's billing notifications (`[[spec-client-billing]]`) | Personal information in stored files (POPIA; GDPR where it applies) |
+| DigitalOcean, `LON1` | Runs every client instance and holds its database: every record the instance holds (`[[spec-client-instance-hosting]]`) | Holds all personal information of the client's customers and staff, in London (UK GDPR; the client's own privacy law) |
+| Anvil | Hosts App 5, which holds each client business's registry record, contacts and billing status | Personal information of the client business's contacts (UK GDPR) |
+| Paddle | Mybizz's subscription billing, as Merchant of Record: each client business's billing name, address, email, business tax number and payment card (`[[spec-client-billing]]`) | Personal information of the client business's contacts (UK GDPR). Card data stays with Paddle, which carries PCI DSS for Mybizz's subscription payments |
+| Stripe, PayPal | Card and PayPal payments, on the gateway's own hosted page or embedded fields | PCI DSS, SAQ A scope (`[[spec-regulatory-compliance-baseline]]`) |
+| Amazon Web Services: SES, SNS, S3 | Every email sent and received; received email stored in the client's own S3 prefix; SES runs in `eu-west-1` (`[[adr-brevo-email-and-crm]]`) | Personal information in email content and addresses, processed in Ireland (UK GDPR; the client's own privacy law) |
+| Cloudflare: R2 and DNS | The client's files in an R2 bucket in the client's own Cloudflare account (`[[adr-client-r2-storage-and-exit-handover]]`); the client's DNS records; Mybizz's own R2 bucket, holding Paddle's billing notifications (`[[spec-client-billing]]`) | Personal information in stored files (UK GDPR; the client's own privacy law) |
 
 ## Security Requirement
 
@@ -46,7 +46,7 @@ When onboarding a new client, confirm whether the client's own customer base int
 ## Authoritative Sources
 
 - `[[spec-security-architecture]]` §3 — regulatory compliance
-- `[[spec-regulatory-compliance-baseline]]` — POPIA, GDPR, PCI DSS and retention
+- `[[spec-regulatory-compliance-baseline]]` — UK GDPR, the client's own privacy law, PCI DSS and retention
 - `[[adr-brevo-email-and-crm]]` — Amazon SES
 - `[[adr-client-r2-storage-and-exit-handover]]` — Cloudflare R2
 - `[[spec-client-instance-hosting]]` — DigitalOcean

@@ -1,7 +1,7 @@
 ---
 title: "spec-anvil-platform-standards"
 doc-id: "mb-57f2e70b"
-updated: "2026-11-08"
+updated: "2026-11-10"
 ---
 # Anvil Platform Mechanics
 
@@ -179,7 +179,7 @@ anvil.set_default_error_handling(global_error_handler)
 | Folders | PascalCase | `ServerAuth`, `ContactListForm` |
 | Files | lowercase_with_underscores | `contact_service.py` |
 | Server modules | `{purpose}_service.py` | `booking_service.py` |
-| Integration modules | `{purpose}_integration.py` | `paystack_integration.py` |
+| Integration modules | `{purpose}_integration.py` | `paypal_integration.py` |
 | Client modules | `{purpose}_utils.py` | `validation_utils.py` |
 | Database tables | lowercase_snake | `contacts`, `bookings` |
 | Link columns | `{table}_id` or singular name | `contact_id`, `service_id` |

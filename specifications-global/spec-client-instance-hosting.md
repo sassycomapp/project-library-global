@@ -46,7 +46,7 @@ Each built image is stored in DigitalOcean Container Registry under its release 
 
 - One DigitalOcean App Platform app per client, named `[client-name]-{vertical}`, with one container of size `apps-s-1vcpu-1gb`: 1 shared vCPU and 1 GiB memory.
 - The start script caps the App Server's Java memory at 400 MB (`JAVA_TOOL_OPTIONS=-Xmx400m`). The rest of the container's memory is left for the Python processes that run the server code, the background tasks and the PDF building, so the container's memory use stays predictable.
-- Each client's app has an App Platform alert that fires when the container's memory use passes 80%. The alert goes to Mybizz, and that client's container is raised to `apps-s-1vcpu-2gb` (1 shared vCPU, 2 GiB memory, $25 a month).
+- Each client's app has an App Platform alert that fires when the container's memory use passes 80%. The alert goes to Mybizz, and that client's container is raised to `apps-s-1vcpu-2gb` (1 shared vCPU, 2 GiB memory, $25 a month, £18.75).
 - The size is raised for one client by a setting change; the client keeps its address and its data.
 - App Platform provides the client's HTTPS certificate on the client's own domain.
 
@@ -92,13 +92,13 @@ Each container's output is kept in DigitalOcean's log view. The instance's own `
 
 Each client's App Server holds at most 3 database connections. A cluster gives 25 connections per GiB of memory, less 3 kept for maintenance. Each client stores about 100 MB of data a year; files go to the client's R2 bucket.
 
-| Cluster memory | Connections | Clients | Monthly price, with standby |
-|---|---|---|---|
-| 1 GiB | 22 | 7 | $30 |
-| 2 GiB | 47 | 15 | $60 |
-| 4 GiB | 97 | 32 | $120 |
-| 8 GiB | 197 | 65 | $240 |
-| 16 GiB | 397 | 132 | $480 |
+| Cluster memory | Connections | Clients | Monthly price, with standby | GBP |
+|---|---|---|---|---|
+| 1 GiB | 22 | 7 | $30 | £22.50 |
+| 2 GiB | 47 | 15 | $60 | £45 |
+| 4 GiB | 97 | 32 | $120 | £90 |
+| 8 GiB | 197 | 65 | $240 | £180 |
+| 16 GiB | 397 | 132 | $480 | £360 |
 
 App 5 shows the business's client count against its cluster's limit. The cluster is moved to the next size in DigitalOcean's control panel before the limit is reached.
 
@@ -152,7 +152,7 @@ App 5's **New client** action, after registration and the client's Cloudflare se
 
 ## 8. Client Exit
 
-1. The client gives notice, and the service runs to the end of the paid month; or the client has not paid 37 days after a failed renewal payment ([[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) section 4).
+1. The client gives notice, and the service runs to the end of the paid month; or the client has not paid 37 days after a failed renewal payment ([[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) section 5).
 2. App 5 exports all the client's data into the client's own R2 bucket ([[[default:adr-global/adr-client-r2-storage-and-exit-handover|Client R2 Storage and Exit]]](C:/dev/project-library-global/adr-global/adr-client-r2-storage-and-exit-handover.md)).
 3. App 5's **Remove** action deletes the client's App Platform app and the client's database and database user. DigitalOcean's charges for them stop at deletion.
 
@@ -185,22 +185,26 @@ App 5's **New client** action, after registration and the client's Cloudflare se
 
 ## 11. Monthly Cost
 
-| Item | Monthly cost | Basis |
-|---|---|---|
-| Anvil Business account (Apps 1, 2, 3, 5 and the demo instances) | $99 | Per Mybizz account |
-| Container Registry, Basic plan | $5 | Per Mybizz account |
-| Test client instance container | $12 | Per business |
-| Client container | $12 | Per client |
-| Managed PostgreSQL cluster with standby | $30 to $480 | By client count (section 4) |
+Suppliers bill in US dollars. Each cost is shown as billed, with its GBP figure at Mybizz's planning rate of $1 = £0.75 ([[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) section 2).
 
-| Clients | Containers | Database | Fixed | Total | Revenue at $99 | Gross margin |
+| Item | Monthly cost, billed | GBP | Basis |
+|---|---|---|---|
+| Anvil Business account (Apps 1, 2, 3, 5 and the demo instances) | $99 | £74.25 | Per Mybizz account |
+| Container Registry, Basic plan | $5 | £3.75 | Per Mybizz account |
+| Test client instance container | $12 | £9.00 | Per business |
+| Client container | $12 | £9.00 | Per client |
+| Managed PostgreSQL cluster with standby | $30 to $480 | £22.50 to £360 | By client count (section 4) |
+
+Revenue is shown at £79 per client; the fixed prices in the other currencies sit close to £79.
+
+| Clients | Containers | Database | Fixed | Total cost | Revenue at £79 | Gross margin |
 |---|---|---|---|---|---|---|
-| 1 | $12 | $30 | $116 | $158 | $99 | −$59 |
-| 2 | $24 | $30 | $116 | $170 | $198 | $28 |
-| 10 | $120 | $60 | $116 | $296 | $990 | $694 |
-| 25 | $300 | $120 | $116 | $536 | $2,475 | $1,939 |
-| 50 | $600 | $240 | $116 | $956 | $4,950 | $3,994 |
-| 100 | $1,200 | $480 | $116 | $1,796 | $9,900 | $8,104 |
+| 1 | £9 | £22.50 | £87 | £118.50 | £79 | −£39.50 |
+| 2 | £18 | £22.50 | £87 | £127.50 | £158 | £30.50 |
+| 10 | £90 | £45 | £87 | £222 | £790 | £568 |
+| 25 | £225 | £90 | £87 | £402 | £1,975 | £1,573 |
+| 50 | £450 | £180 | £87 | £717 | £3,950 | £3,233 |
+| 100 | £900 | £360 | £87 | £1,347 | £7,900 | £6,553 |
 
 Not in these figures: Amazon SES at $0.10 per 1,000 emails, Groq usage, Paddle's fee of 5% + $0.50 per payment ([[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md)), taxes, and bandwidth beyond each container's 150 GiB allowance at $0.02 per GiB.
 
