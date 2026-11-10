@@ -1,7 +1,7 @@
 ---
 title: "adr-mybizz-management-visibility"
 doc-id: "mb-1962f48d"
-updated: "2026-11-08"
+updated: "2026-11-10"
 ---
 # `mybizz-management-visibility` ADR — Mybizz_management Visibility and Control
 
@@ -65,11 +65,10 @@ Master_template's server modules call this endpoint when key events occur. The c
 **Authentication:** Each client instance includes a shared event push token (stored in its Vault or management configuration). Mybizz_management validates this token on receipt.
 
 **Events pushed:**
-- Payment success / failure
+- Payment success / failure in the client's own payment gateway
 - Background task failure
 - Unhandled exception (error threshold)
 - Vault access (every occurrence)
-- Client suspension trigger (e.g. subscription lapsed)
 
 ---
 
@@ -78,6 +77,12 @@ Master_template's server modules call this endpoint when key events occur. The c
 **Used for:** Proactive health monitoring across all client instances
 
 Each client instance runs a scheduled background task, every 15 minutes, that sends its health summary (the same content as `/management/health`) to Mybizz_management's event receiver, without blocking its own work. Mybizz_management never polls instances. It stores each heartbeat in its client registry table, and a client whose heartbeat is more than 45 minutes old triggers an operator alert.
+
+---
+
+## Subscription Billing
+
+Mybizz_management learns of every subscription payment from Paddle, not from the client instance. Paddle's notifications reach Mybizz_management's endpoint `/_/api/paddle`; Mybizz_management stores each one in Mybizz's R2 bucket, updates the client registry, suspends a client 7 days after a failed payment, unsuspends it when it pays, and runs the client exit 37 days after the failed payment ([[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) sections 3 and 4).
 
 ---
 
@@ -104,6 +109,9 @@ Mybizz_management maintains a client registry table containing:
 | `management_token` | Encrypted Bearer token for management calls |
 | `subscription_status` | Active / suspended / churned |
 | `plan` | The subscription: $99 a month, month to month |
+| `paddle_customer_id`, `paddle_subscription_id` | The client's customer and subscription in Paddle |
+| `paid_until` | The end of the period the client has paid for |
+| `payment_failed_at` | The date of the first failed renewal payment; empty when the client is paid up |
 | `onboarded_date` | Activation date |
 | `last_health_check` | Timestamp of the last heartbeat received |
 | `last_active` | Last user session timestamp (from health endpoint) |
@@ -159,4 +167,5 @@ The following steps are added to the provisioning process:
 | [[[default:adr-global/adr-observability-architecture\|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md) | Defines what metrics are written and queried |
 | [[[default:adr-global/adr-client-instance-architecture\|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) | Confirms server modules (including management endpoints) live in master_template |
 | [[[default:specifications-global/spec-client-activation-runbook\|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) | Token generation and registry steps |
+| [[[default:specifications-global/spec-client-billing\|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) | Paddle's notifications, suspension and exit for non-payment |
 

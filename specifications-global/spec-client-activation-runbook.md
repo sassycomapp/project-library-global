@@ -1,7 +1,7 @@
 ---
 title: "spec-client-activation-runbook"
 doc-id: "mb-b575e9fd"
-updated: "2026-11-08"
+updated: "2026-11-10"
 ---
 # Client Instance Activation Runbook
 
@@ -26,7 +26,7 @@ Done once, before the business's first client, as [[[default:specifications-glob
 
 Before beginning activation:
 
-- [ ] The client has registered, accepted the subscription terms ($99 a month, month to month) and paid the first month ([[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md))
+- [ ] The client has registered, accepted the subscription terms ($99 a month before tax, month to month) and paid the first month in Paddle's checkout ([[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md); [[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) section 2)
 - [ ] Mybizz_management has created the client record and the client reference number
 - [ ] The client's primary contact email and phone number are recorded in Mybizz_management
 - [ ] The client owns its domain
@@ -201,12 +201,12 @@ Send the client, through the instance's email:
 - [ ] Welcome email
 - [ ] Platform URL
 - [ ] Link to the help videos
-- [ ] The subscription terms: $99 a month, month to month, cancel at any time, effective at the end of the paid month
+- [ ] The subscription terms: $99 a month before tax, billed by Paddle, month to month, cancel at any time, effective at the end of the paid month
 
 ### Step 17 — Internal Records
 
 - [ ] Client activation date recorded in the client registry
-- [ ] Subscription billing confirmed active
+- [ ] The client's Paddle customer and subscription IDs recorded in the client registry, with `subscription_status` active
 - [ ] Activation checklist filed in Mybizz_management
 
 ---

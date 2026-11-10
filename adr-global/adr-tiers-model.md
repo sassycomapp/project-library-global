@@ -1,7 +1,7 @@
 ---
 title: "adr-tiers-model"
 doc-id: "mb-beb7c182"
-updated: "2026-11-08"
+updated: "2026-11-10"
 ---
 # Tiers Model
 Status: Accepted
@@ -22,9 +22,9 @@ Competitors sell in tiers, charge for extra staff and add-ons, and lock clients 
 
 | Item | Rule |
 |---|---|
-| Price | $99 a month per client |
+| Price | $99 a month per client, before tax |
 | Term | Month to month; no contract and no minimum period |
-| Billing | Monthly, in advance |
+| Billing | Monthly, in advance, through Paddle as Merchant of Record ([[[default:specifications-global/spec-client-billing\|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md)) |
 | Cancellation | At any time, effective at the end of the paid month; no refund for part of a month |
 | Features | Every feature of the application; no tiers |
 | Staff | Unlimited staff logins |
@@ -66,3 +66,4 @@ Competitors sell in tiers, charge for extra staff and add-ons, and lock clients 
 
 - [[[default:specifications-global/spec-onboarding-implementation-plan|Onboarding System — Engineering Plan]]](C:/dev/project-library-global/specifications-global/spec-onboarding-implementation-plan.md) — Onboarding flow
 - [[[default:adr-global/adr-no-free-trial|No Free Trial]]](C:/dev/project-library-global/adr-global/adr-no-free-trial.md) — The demo apps
+- [[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) — How the subscription is billed and collected

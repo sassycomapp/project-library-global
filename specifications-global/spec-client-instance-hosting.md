@@ -1,7 +1,7 @@
 ---
 title: "spec-client-instance-hosting"
 doc-id: "mb-0a52a7a2"
-updated: "2026-11-08"
+updated: "2026-11-10"
 ---
 # Mybizz — Client Instance Hosting (Specification)
 
@@ -45,6 +45,8 @@ Each built image is stored in DigitalOcean Container Registry under its release 
 ## 3. The Container
 
 - One DigitalOcean App Platform app per client, named `[client-name]-{vertical}`, with one container of size `apps-s-1vcpu-1gb`: 1 shared vCPU and 1 GiB memory.
+- The start script caps the App Server's Java memory at 400 MB (`JAVA_TOOL_OPTIONS=-Xmx400m`). The rest of the container's memory is left for the Python processes that run the server code, the background tasks and the PDF building, so the container's memory use stays predictable.
+- Each client's app has an App Platform alert that fires when the container's memory use passes 80%. The alert goes to Mybizz, and that client's container is raised to `apps-s-1vcpu-2gb` (1 shared vCPU, 2 GiB memory, $25 a month).
 - The size is raised for one client by a setting change; the client keeps its address and its data.
 - App Platform provides the client's HTTPS certificate on the client's own domain.
 
@@ -150,7 +152,7 @@ App 5's **New client** action, after registration and the client's Cloudflare se
 
 ## 8. Client Exit
 
-1. The client gives notice; the service runs to the end of the paid month.
+1. The client gives notice, and the service runs to the end of the paid month; or the client has not paid 37 days after a failed renewal payment ([[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) section 4).
 2. App 5 exports all the client's data into the client's own R2 bucket ([[[default:adr-global/adr-client-r2-storage-and-exit-handover|Client R2 Storage and Exit]]](C:/dev/project-library-global/adr-global/adr-client-r2-storage-and-exit-handover.md)).
 3. App 5's **Remove** action deletes the client's App Platform app and the client's database and database user. DigitalOcean's charges for them stop at deletion.
 
@@ -200,7 +202,7 @@ App 5's **New client** action, after registration and the client's Cloudflare se
 | 50 | $600 | $240 | $116 | $956 | $4,950 | $3,994 |
 | 100 | $1,200 | $480 | $116 | $1,796 | $9,900 | $8,104 |
 
-Not in these figures: Amazon SES at $0.10 per 1,000 emails, Groq usage, payment processing fees, taxes, and bandwidth beyond each container's 150 GiB allowance at $0.02 per GiB.
+Not in these figures: Amazon SES at $0.10 per 1,000 emails, Groq usage, Paddle's fee of 5% + $0.50 per payment ([[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md)), taxes, and bandwidth beyond each container's 150 GiB allowance at $0.02 per GiB.
 
 ---
 
@@ -212,3 +214,4 @@ Not in these figures: Amazon SES at $0.10 per 1,000 emails, Groq usage, payment 
 | [[[default:adr-global/adr-client-instance-architecture\|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) | The decision this specification carries out |
 | [[[default:specifications-global/spec-deployment\|Deployment Specification]]](C:/dev/project-library-global/specifications-global/spec-deployment.md) | Release, rollback, backup and failure procedures |
 | [[[default:adr-global/adr-tiers-model\|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md) | Price and subscription terms |
+| [[[default:specifications-global/spec-client-billing\|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) | How clients pay, and the exit of a client that does not pay |
