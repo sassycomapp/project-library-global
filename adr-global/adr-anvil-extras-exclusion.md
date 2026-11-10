@@ -1,7 +1,7 @@
 ---
 title: "adr-anvil-extras-exclusion"
 doc-id: "mb-d08beff2"
-updated: "2026-10-23"
+updated: "2026-11-10"
 ---
 # Anvil Extras Exclusion
 Status: Accepted
@@ -10,7 +10,7 @@ Status: Accepted
 
 ## Context
 
-Anvil Extras is a third-party package that provides additional components and utilities for Anvil applications. Every Mybizz application uses the official Anvil Material 3 Theme dependency (`4UK6WHQ6UX7AKELK`) as the sole UI framework.
+Anvil Extras is a third-party package that provides additional components and utilities for Anvil applications. Every Mybizz application uses `m3-custom-theme` (`7USO6DVZSIIWA5QX`), the full Material 3 theme built on Anvil's Material 3 Theme, as the sole UI framework.
 
 ---
 
@@ -20,11 +20,11 @@ Anvil Extras is a third-party package that provides additional components and ut
 
 This exclusion applies to:
 - All Anvil Extras components (Tabs, MultiSelectDropDown, Autocomplete, Quill, Switch, Slider, RadioGroup, CheckBoxGroup, Popover, etc.). The ban covers Anvil Extras' versions only: the Material 3 Theme's own `Switch`, `Slider` and `RadioButton` are permitted.
-- Any third-party packages not included in the official Anvil Material 3 Theme dependency
+- Any third-party packages not included in `m3-custom-theme`
 - Any custom JavaScript frameworks or non-standard widget dependencies
 
-**Native M3 components** provided by the Anvil Material 3 Theme dependency are the only permitted UI components. If a required component is not available in the M3 theme, it must be:
-1. Composed from available M3 primitives (e.g., Chips from Buttons/Cards)
+**Native M3 components** provided by `m3-custom-theme` are the only permitted UI components. If a required component is not available in the theme, it must be:
+1. Composed from available M3 primitives (for example, a footer from Cards and Links)
 2. Built as a Custom Component using native M3 components
 3. Rejected as out of scope if composition is not feasible
 
@@ -43,7 +43,7 @@ This exclusion applies to:
 
 ### Blocked components (always excluded)
 - Anvil Extras' Tabs, MultiSelectDropDown, Autocomplete, Quill, Switch, Slider, RadioGroup, CheckBoxGroup, Popover
-- Any component not in the official Anvil Material 3 Theme dependency
+- Any component not in `m3-custom-theme`
 
 ### Allowed patterns
 - Native M3 components from the theme dependency

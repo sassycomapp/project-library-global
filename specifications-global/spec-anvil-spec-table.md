@@ -1,12 +1,12 @@
 ---
 title: "spec-anvil-spec-table"
 doc-id: "mb-867fb5cd"
-updated: "2026-11-02"
+updated: "2026-11-10"
 ---
 # Anvil Specification Table
 
 **Purpose:** Consolidated specification and methods reference for Mybizz Anvil development
-**Dependencies:** M3 Theme (4UK6WHQ6UX7AKELK), Routing (3PIDO5P3H4VPEMPL)
+**Dependencies:** `m3-custom-theme` (7USO6DVZSIIWA5QX, version v2.0.0), Routing (3PIDO5P3H4VPEMPL)
 **Blocked:** Anvil Extras — never used
 
 ## Table of Contents
@@ -721,7 +721,7 @@ def process_email_campaigns():
 
 | Topic | Specification |
 |---|---|
-| Dependency ID | `4UK6WHQ6UX7AKELK` |
+| Dependency ID | `7USO6DVZSIIWA5QX` (`m3-custom-theme`, version `v2.0.0`); never alongside Anvil's Material 3 Theme (`4UK6WHQ6UX7AKELK`) |
 | Import | `import m3.components as m3` |
 | Theme mixing | Do not mix M3 with legacy themes |
 | Versioning | Track theme version and test after updates |

@@ -72,7 +72,7 @@ DEFAULT_CONFIG = {
     "constants_module": "",
     "outbound_module": "",
     "pure_modules": [],
-    "approved_dependencies": ["4UK6WHQ6UX7AKELK", "3PIDO5P3H4VPEMPL"],
+    "approved_dependencies": ["7USO6DVZSIIWA5QX", "3PIDO5P3H4VPEMPL"],
     "core_tables": [],
     "approved_client_views": [],
     "approved_components": [],

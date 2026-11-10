@@ -28,9 +28,9 @@ outbound_module: ""     # the only caller of third-party services (ST-09)
 # Pure modules: no Anvil, no data, no side effects (ST-10, LG-06).
 pure_modules: []
 
-# Anvil dependency apps by app id (ST-10): the Material 3 theme and routing;
+# Anvil dependency apps by app id (ST-10): m3-custom-theme and routing;
 # for App 3 and client instances, App 2 as well.
-approved_dependencies: ["4UK6WHQ6UX7AKELK", "3PIDO5P3H4VPEMPL"]
+approved_dependencies: ["7USO6DVZSIIWA5QX", "3PIDO5P3H4VPEMPL"]
 
 # Core tables that carry the metadata column (ST-07).
 core_tables: []
