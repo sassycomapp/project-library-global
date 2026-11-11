@@ -135,7 +135,7 @@ Test runs on the local Anvil App Server need no backup: they start from an empty
 
 - **Daily:** App 5 checks that each client's nightly copy arrived, with the right date and a plausible size.
 - **Monthly:** the restore drill. The test client instance restores one client's nightly copy into a scratch database in the cluster, compares its row counts with the source, deletes the scratch database and reports the result to App 5. The drill runs inside DigitalOcean because the cluster accepts connections from DigitalOcean only.
-- Each client's nightly copies sit under the `backups/` prefix of its R2 bucket, with a 30-day lock: no key, Mybizz's included, can delete or overwrite a copy during those 30 days.
+- Each client's backup copies sit under `backups/` in its R2 bucket, and each copy is locked for its whole retention period: a daily copy (`backups/daily/`, the last 7 kept) for 7 days, and a weekly copy (`backups/weekly/`, the last 4 kept) for 28 days. No key, Mybizz's included, can delete or overwrite a copy while it is locked.
 
 ### Backup Method
 
@@ -174,7 +174,7 @@ Mybizz's Anvil account holds Apps 1, 2, 3 and 5. Each business's DigitalOcean pr
 | Anvil account suspension | Email from Anvil; App 1, App 2 and App 5 unavailable | Client instances keep running; contact Anvil support; releases and provisioning wait until App 5 is back | Monitor billing status |
 | One client container fails | That client's heartbeats stop | App Platform restarts the container; if it does not recover, App 5 recreates the container from the current release image | Container size checked against the client's use in App 5 |
 | Cluster main node fails | Database errors in heartbeats | The standby node takes over automatically | Standby node from the first paying client |
-| DigitalOcean region outage or account suspension | Every client's heartbeats stop; DigitalOcean Uptime reports App 5's status endpoint fault | App 5's **Rebuild** action (section 10) | Nightly R2 copies with a 30-day lock; the rebuild tested before the first paying client |
+| DigitalOcean region outage or account suspension | Every client's heartbeats stop; DigitalOcean Uptime reports App 5's status endpoint fault | App 5's **Rebuild** action (section 10) | Locked R2 backup copies; the rebuild tested before the first paying client |
 | Account compromise | Unauthorized changes, unknown collaborators | Contact the provider's support; rotate all credentials; audit all instances; follow the business's incident response plan | Hardware security keys on every supplier account; two scoped DigitalOcean keys; the cluster's trusted sources; locked nightly copies |
 
 ## 9. Rollback Trigger Thresholds

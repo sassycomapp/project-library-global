@@ -19,7 +19,7 @@ Done once, before the business's first client, as [[[default:specifications-glob
 - [ ] The cluster's maintenance window is Sunday 06:00 UK time
 - [ ] The provisioning job runs inside DigitalOcean and can create a database user with its three limits
 - [ ] The business's repository exists in the Container Registry, holding the current release image
-- [ ] The test client instance runs the current release image and passes its smoke test, its domain is proxied through Cloudflare (Step 10) and its R2 bucket's `backups/` lock rule is set (Step 4), exactly as every client is set up
+- [ ] The test client instance runs the current release image and passes its smoke test, its domain is proxied through Cloudflare (Step 10) and its R2 bucket's backup lock rules are set (Step 4), exactly as every client is set up
 - [ ] The two DigitalOcean access keys with their custom scopes are in App 5's Vault ([[[default:security-global/cloud/sec-client-provisioning-security|Client Provisioning Security]]](C:/dev/project-library-global/security-global/cloud/sec-client-provisioning-security.md))
 - [ ] The six conditions of section 10 of Client Instance Hosting are met
 
@@ -79,7 +79,7 @@ Mybizz_management:
 1. Accepts the client's Cloudflare invitation
 2. Creates the client's R2 bucket
 3. Creates a token limited to that bucket and writes it into the instance's Vault (`r2_access_key_id`, `r2_secret_access_key`)
-4. Sets the bucket's lock rule on the `backups/` prefix: every nightly copy is kept for 30 days and cannot be deleted or overwritten during them by any key, Mybizz's included
+4. Sets the bucket's lock rules: `backups/daily/` locked for 7 days and `backups/weekly/` for 28 days, so no key, Mybizz's included, can delete or overwrite a backup copy during its retention period
 
 - [ ] A test object written under `backups/` cannot be deleted
 
