@@ -96,7 +96,7 @@ The usage figure budgets each client at medium-to-heavy use: a team of about six
 
 ### Database cluster
 
-The cluster is Advanced Edition with a standby: £195 ($260) a month at 8 GiB, and about £390 ($520) from client 60, when App 5 raises it to 16 GiB ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) section 4).
+The cluster grows in stages with the client count: Standard Edition at 2 GiB, £22.50 ($30) a month, to client 11; Standard at 4 GiB, £45 ($60), from client 12; Advanced Edition with a standby at 8 GiB, £195 ($260), from client 25; and Advanced at 16 GiB, about £390 ($520), from client 60 ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) section 4).
 
 ### Mybizz's fixed costs
 
@@ -108,24 +108,27 @@ The cluster is Advanced Edition with a standby: £195 ($260) a month at 8 GiB, a
 | `mybizz.live` domain | £1.58 |
 | Email reputation alarms (two AWS CloudWatch alarms) | £0.15 |
 | Cyber Essentials certification, renewed yearly | £26.67 |
-| Business insurance ([[[default:adr-global/adr-business-insurance]]](C:/dev/project-library-global/adr-global/adr-business-insurance.md)) | £141.67 |
+| Business insurance, starting covers, paid monthly ([[[default:adr-global/adr-business-insurance]]](C:/dev/project-library-global/adr-global/adr-business-insurance.md)); £141.67 from client 25 | £75.00 |
 | ICO data protection fee | £3.92 |
 | Companies House confirmation statement | £4.17 |
 | FreeAgent accounting software | £33.00 |
 | UK address package: registered office and director's service address | £5.00 |
-| **Total** | **£303.16** |
+| Marketing: paid search and social advertising | £100.00 |
+| **Total, to client 24** | **£336.49** |
+| **Total, from client 25** | **£403.16** |
 
 ### Totals by client count
 
 | Clients | Revenue | Client-related costs | Fixed costs | Net profit |
 |---|---|---|---|---|
-| 1 | £79.00 | £215.93 | £303.16 | −£440.09 |
-| 9 | £711.00 | £383.37 | £303.16 | £24.47 |
-| 50 | £3,950.00 | £1,241.50 | £303.16 | £2,405.34 |
-| 60 | £4,740.00 | £1,645.80 | £303.16 | £2,791.04 |
-| 100 | £7,900.00 | £2,483.00 | £303.16 | £5,113.84 |
+| 1 | £79.00 | £43.43 | £336.49 | −£300.92 |
+| 7 | £553.00 | £169.01 | £336.49 | £47.50 |
+| 25 | £1,975.00 | £718.25 | £403.16 | £853.59 |
+| 50 | £3,950.00 | £1,241.50 | £403.16 | £2,305.34 |
+| 60 | £4,740.00 | £1,645.80 | £403.16 | £2,691.04 |
+| 100 | £7,900.00 | £2,483.00 | £403.16 | £5,013.84 |
 
-Client-related costs are the containers, the usage, Paddle's fees and the database cluster. **Break-even is 9 clients.**
+Client-related costs are the containers, the usage, Paddle's fees and the database cluster. **Break-even is 7 clients.**
 
 ---
 

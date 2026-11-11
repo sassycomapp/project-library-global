@@ -17,19 +17,19 @@ Mybizz-Live Ltd hosts every client's business on its own platform. A fault, an o
 
 ## Decision
 
-1. **One combined policy from one insurer, renewed yearly,** holding three covers:
+1. **One combined policy from one insurer, paid monthly and renewed yearly,** holding three covers. The covers start at a level fit for a few clients and are raised when the business reaches 25 clients:
 
-| Cover | Limit | What it pays |
-|---|---|---|
-| Technology professional indemnity | £1m | A client's claim for loss caused by a fault, an outage or lost data in the Mybizz service, and the legal costs of defending it |
-| Cyber liability | £500,000 | Incident response through the insurer's 24-hour line, data restoration, lost income, client notification, regulatory investigation, and claims from affected people |
-| Public liability | £1m | Injury to a person or damage to property in connection with Mybizz's business |
+| Cover | Limit to client 24 | Limit from client 25 | What it pays |
+|---|---|---|---|
+| Technology professional indemnity | £500,000 | £1m | A client's claim for loss caused by a fault, an outage or lost data in the Mybizz service, and the legal costs of defending it |
+| Cyber liability | £250,000 | £500,000 | Incident response through the insurer's 24-hour line, data restoration, lost income, client notification, regulatory investigation, and claims from affected people |
+| Public liability | £1m | £1m | Injury to a person or damage to property in connection with Mybizz's business |
 
 2. **The Cyber Essentials cover is kept as well.** Whole-organisation Cyber Essentials certification includes £25,000 of cyber liability insurance with incident response, which Mybizz-Live Ltd opts into ([[[default:security-global/compliance/sec-cyber-essentials-compliance]]](C:/dev/project-library-global/security-global/compliance/sec-cyber-essentials-compliance.md)).
 
 3. **Employers' liability.** The law does not require it while David is the sole director, owns more than half the shares and no one else works for Mybizz. Employers' liability of at least £5m is bought before anyone other than David works for Mybizz, paid or unpaid.
 
-4. **Liability cap.** The client service agreement caps Mybizz-Live Ltd's total liability to a client at the fees that client paid in the 12 months before the claim. The cap sits inside the £1m professional indemnity.
+4. **Liability cap.** The client service agreement caps Mybizz-Live Ltd's total liability to a client at the fees that client paid in the 12 months before the claim. The cap sits inside the professional indemnity at every stage: twelve months' fees of any one client are far below £500,000.
 
 5. **Policy conditions.** Each condition the insurer sets is met by a safeguard and checked by a test:
 
@@ -41,9 +41,9 @@ Mybizz-Live Ltd hosts every client's business on its own platform. A fault, an o
 | Supported software only | End-of-life software fails the image build | Release readiness check on end-of-life software |
 | Incidents reported to the insurer first | The incident response plan calls the insurer's incident line before engaging any outside supplier | Incident drill on the test client instance |
 
-6. **Renewal.** App 5 records the policy dates and sends David a reminder 30 days before expiry. The renewal proposal form is answered from the Cyber Essentials asset and software register.
+6. **Renewal and raise.** App 5 records the policy dates and sends David a reminder 30 days before expiry, and a reminder to raise the covers when the business reaches 25 clients. The renewal proposal form is answered from the Cyber Essentials asset and software register.
 
-7. **Cost.** The budget figure is £1,700 a year including Insurance Premium Tax, replaced by the quoted premium when the policy is bought.
+7. **Cost.** The budget figures are £75 a month for the starting covers and £141.67 a month from client 25, including Insurance Premium Tax, replaced by the quoted premium when the policy is bought. Paying monthly keeps money out of the business's set-up costs.
 
 ---
 
@@ -51,7 +51,7 @@ Mybizz-Live Ltd hosts every client's business on its own platform. A fault, an o
 
 1. Professional indemnity is the cover a software service most needs: the largest risk is a client's own loss caused by the service.
 2. One insurer for professional indemnity and cyber liability means a claim that is both an error and a breach cannot fall between two policies.
-3. £500,000 of cyber cover is the common level for a micro business and keeps break-even at 9 clients; the Cyber Essentials cover adds incident response on top.
+3. Starting covers matched to a few clients keep break-even at 7 clients; the covers grow when the exposure grows. The Cyber Essentials cover adds incident response on top.
 4. A liability cap inside the insurance limit means no single claim can exceed the cover.
 5. Tying each policy condition to a tested safeguard means a claim cannot be refused for a condition that was not met.
 

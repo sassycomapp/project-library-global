@@ -173,7 +173,7 @@ Mybizz's Anvil account holds Apps 1, 2, 3 and 5. Each business's DigitalOcean pr
 |---|---|---|---|
 | Anvil account suspension | Email from Anvil; App 1, App 2 and App 5 unavailable | Client instances keep running; contact Anvil support; releases and provisioning wait until App 5 is back | Monitor billing status |
 | One client container fails | That client's heartbeats stop | App Platform restarts the container; if it does not recover, App 5 recreates the container from the current release image | Container size checked against the client's use in App 5 |
-| Cluster main node fails | Database errors in heartbeats | The standby node takes over automatically | Standby node from the first paying client |
+| Cluster main node fails | Database errors in heartbeats | From client 25, the standby node takes over automatically. Before client 25, DigitalOcean restores the Standard cluster from its backups; clients may be offline for up to a few hours | Standby node from client 25 |
 | DigitalOcean region outage or account suspension | Every client's heartbeats stop; DigitalOcean Uptime reports App 5's status endpoint fault | App 5's **Rebuild** action (section 10) | Locked R2 backup copies; the rebuild tested before the first paying client |
 | Account compromise | Unauthorized changes, unknown collaborators | Contact the provider's support; rotate all credentials; audit all instances; follow the business's incident response plan | Hardware security keys on every supplier account; two scoped DigitalOcean keys; the cluster's trusted sources; locked nightly copies |
 
@@ -202,11 +202,20 @@ Rollback mechanism: App 5 moves the client instances back to the previous releas
 App 5's **Rebuild** action restores every client of a business in another DigitalOcean region when `LON1` or the business's cluster is lost. It uses the provisioning key ([[[default:security-global/cloud/sec-client-provisioning-security|Client Provisioning Security]]](C:/dev/project-library-global/security-global/cloud/sec-client-provisioning-security.md)).
 
 1. The developer chooses the region and starts **Rebuild** in App 5.
-2. App 5 creates a new Managed PostgreSQL cluster in that region: Advanced Edition, PostgreSQL 18, at the current plan size, with its standby, storage autoscaling and trusted sources.
+2. App 5 creates a new Managed PostgreSQL cluster in that region: PostgreSQL 18, at the business's current stage of [[[default:adr-global/adr-automatic-resizing|Automatic Resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md) (with its standby from stage 3), storage autoscaling and trusted sources.
 3. App 5 creates the provisioning job in the new region; the job creates each client's database and database user with its three limits.
 4. Each client's data is restored from DigitalOcean's backups when they are reachable, otherwise from the client's latest nightly copy in its R2 bucket. At most 24 hours of data is lost when the nightly copy is used.
 5. App 5 creates each client's container from the current release image, by its digest, with the client's settings, keys and domain, and points the client's DNS record at the new container through the Cloudflare API.
 6. Each client is checked by its heartbeat; App 5 reports every client restored and any that failed.
 7. App 5 messages every client about the interruption.
+
+### Moving into the Advanced cluster at client 25
+
+The same action moves the business from its Standard cluster into an Advanced cluster with a standby, in the same region, when the business reaches 25 clients ([[[default:adr-global/adr-automatic-resizing|Automatic Resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md) stage 3). App 5 messages the developer at client 25, and the move runs in the next Sunday maintenance window once he approves:
+
+1. App 5 creates the Advanced cluster, 8 GiB, with its standby, storage autoscaling and trusted sources, and its provisioning job.
+2. For each client in turn: App 5 suspends the client's instance, copies its database from the Standard cluster into the Advanced cluster, points the client's container at the new database, and unsuspends it. No data is lost, because each copy is taken while the client is paused.
+3. Each client is checked by its heartbeat; App 5 reports every client moved and any that failed.
+4. After a week without fault, App 5 deletes the Standard cluster.
 
 The rebuild restores the test client instance into another region before the first paying client ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) section 10).

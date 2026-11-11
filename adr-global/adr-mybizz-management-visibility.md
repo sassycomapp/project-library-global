@@ -105,7 +105,7 @@ Mybizz_management holds two DigitalOcean access keys with custom scopes, in its 
 |---|---|---|
 | Heartbeat age | Continuous | An active client whose heartbeat is more than 30 minutes old makes the status endpoint report a fault. Suspended and exited clients are excluded |
 | Container memory | On each DigitalOcean memory alert | The container resize of [[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md) |
-| Client count | Daily | The cluster resize of [[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md) at client 60 |
+| Client count | Daily | The cluster stages of [[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md): 4 GiB at client 12; the move into the Advanced cluster at client 25, after the developer approves; 16 GiB at client 60. At client 25 Mybizz_management also reminds the developer to raise the insurance covers ([[[default:adr-global/adr-business-insurance]]](C:/dev/project-library-global/adr-global/adr-business-insurance.md)) |
 | Fair-use limits | Continuous, and daily for sizes and monthly totals | Each limit of [[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md) measured and enforced |
 | Backup check | Daily | Each client's nightly copy checked for arrival, date and size |
 | Restore drill | Monthly | Scheduled on the test client instance; the result is reported back |
@@ -121,7 +121,7 @@ Mybizz_management holds two DigitalOcean access keys with custom scopes, in its 
 
 - **New client**, **Release** and **Remove**, as [[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) sections 6 to 8 set out. **Release** stages every release: test client instance, 10% of clients, all clients, with a health check and automatic rollback at each stage, and releases only an image whose signature verifies.
 - **Suspend**: stops one client's container and records the reason, for an abuse report or a breach of the acceptable-use terms ([[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md)). Distinct from the payment suspension through `/management/suspend`, which keeps the container running.
-- **Rebuild**: restores every client of the business into a new Advanced cluster and new containers in another DigitalOcean region ([[[default:specifications-global/spec-deployment|Deployment Specification]]](C:/dev/project-library-global/specifications-global/spec-deployment.md)).
+- **Rebuild**: restores every client of the business into a new cluster and new containers in another DigitalOcean region, and moves every client into the Advanced cluster at client 25 ([[[default:specifications-global/spec-deployment|Deployment Specification]]](C:/dev/project-library-global/specifications-global/spec-deployment.md)).
 
 ### Status endpoint
 

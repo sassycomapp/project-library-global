@@ -14,7 +14,7 @@ updated: "2026-11-11"
 Done once, before the business's first client, as [[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) section 7 sets out:
 
 - [ ] The business's DigitalOcean project exists, in Mybizz's DigitalOcean account
-- [ ] The business's Managed PostgreSQL cluster runs in `LON1`: Advanced Edition, PostgreSQL 18, 8 GiB, with its standby and storage autoscaling on
+- [ ] The business's Managed PostgreSQL cluster runs in `LON1`: Standard Edition, PostgreSQL 18, 2 GiB, with storage autoscaling on ([[[default:adr-global/adr-automatic-resizing|Automatic Resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md) stage 1)
 - [ ] The cluster's trusted sources admit only the business's client containers and its test client instance; a connection from outside DigitalOcean is refused
 - [ ] The cluster's maintenance window is Sunday 06:00 UK time
 - [ ] The provisioning job runs inside DigitalOcean and can create a database user with its three limits
