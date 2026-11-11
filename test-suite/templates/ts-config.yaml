@@ -30,7 +30,7 @@ pure_modules: []
 
 # Anvil dependency apps by app id (ST-10): m3-custom-theme and routing;
 # for App 3 and client instances, App 2 as well.
-approved_dependencies: ["7USO6DVZSIIWA5QX", "3PIDO5P3H4VPEMPL"]
+approved_dependencies: ["UGGJBAZUZ74XZ7VU", "3PIDO5P3H4VPEMPL"]
 
 # Core tables that carry the metadata column (ST-07).
 core_tables: []

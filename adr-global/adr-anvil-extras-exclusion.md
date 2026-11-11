@@ -1,7 +1,7 @@
 ---
 title: "adr-anvil-extras-exclusion"
 doc-id: "mb-d08beff2"
-updated: "2026-11-10"
+updated: "2026-11-11"
 ---
 # Anvil Extras Exclusion
 Status: Accepted
@@ -10,7 +10,7 @@ Status: Accepted
 
 ## Context
 
-Anvil Extras is a third-party package that provides additional components and utilities for Anvil applications. Every Mybizz application uses `m3-custom-theme` (`7USO6DVZSIIWA5QX`), the full Material 3 theme built on Anvil's Material 3 Theme, as the sole UI framework.
+Anvil Extras is a third-party package that provides additional components and utilities for Anvil applications. Every Mybizz application uses `m3-custom-theme` (`UGGJBAZUZ74XZ7VU`), the full Material 3 theme built on Anvil's Material 3 Theme, as the sole UI framework.
 
 ---
 
