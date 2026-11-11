@@ -1,13 +1,13 @@
 ---
 title: "sec-email-service-trust-boundary"
 doc-id: "mb-c25dc5f1"
-updated: "2026-11-07"
+updated: "2026-11-11"
 ---
 # Email Service Trust Boundary
 
 ## Applicable Threat
 
-Amazon SES is the single email service of every Mybizz application, for every email sent and received, per `[[adr-brevo-email-and-crm]]`. SES reports received email, deliveries, bounces, complaints, opens and clicks to the instance through Amazon SNS, and marketing email carries an unsubscribe link, per `[[spec-api-specification]]` §2.4. A forged notification or a forged unsubscribe could falsely suppress a real contact, falsify engagement data, or plant a false email in the shared inbox.
+Amazon SES is the single email service of every Mybizz application, for every email sent and received, per `[[adr-brevo-email-and-crm]]`. SES reports received email, deliveries, bounces, complaints, opens and clicks to the instance through Amazon SNS, and marketing email carries an unsubscribe link, per `[[spec-api-specification]]` §2.4. A forged notification or a forged unsubscribe could falsely suppress a real contact, falsify engagement data, or plant a false email in the shared inbox. Every client sends through Mybizz's one SES account, so one client's bad mailing list could also lead Amazon to review or pause the whole account, stopping every client's email.
 
 ## Security Requirement
 
@@ -15,6 +15,7 @@ Amazon SES is the single email service of every Mybizz application, for every em
 2. The SNS subscription confirmation is accepted only for the client's own topic.
 3. The unsubscribe link is a signed link; a link whose signature fails changes nothing.
 4. Every SES notification follows the shared webhook handler requirements of `[[spec-api-specification]]` §2.5: validate, check idempotency through `webhook_log`, log, dispatch, return HTTP 200. An invalid signature gets HTTP 400, no `webhook_log` row and an `error_log` entry.
+5. Each client's SES tenant carries SES's standard reputation policy, so a client whose bounce or complaint rate reaches the pause level has its own sending paused, never the account's. Monthly sending is capped per client, and two CloudWatch alarms warn the developer below Amazon's review levels, per `[[spec-integration]]` §2.6 and `[[adr-fair-use-limits]]`.
 
 ## Approved Pattern
 
@@ -38,6 +39,7 @@ Treat SES notifications with the same seriousness as payment webhooks. A bounce,
 2. Send a subscription confirmation for another topic; confirm it is refused.
 3. Open an unsubscribe link with an altered signature; confirm the contact is not suppressed.
 4. Confirm the AWS keys and the SES SMTP password never appear in logs.
+5. Confirm each client's SES tenant carries the reputation policy, and that a simulated breach of one tenant's pause level pauses that tenant alone.
 
 ## Authoritative Sources
 

@@ -1,7 +1,7 @@
 ---
 title: "adr-dependency-update-model"
 doc-id: "mb-bf8aa7d8"
-updated: "2026-11-08"
+updated: "2026-11-11"
 ---
 # `dependency-update-model` ADR — Dependency Update Model
 
@@ -59,11 +59,30 @@ The email does not trigger a technical update action. The update has already hap
 
 ### Staged Rollout
 
-For high-risk releases:
+Every release is staged:
 
-1. App 5's Release action moves a chosen group of client instances to the new release image; the rest stay on the previous image
-2. Monitor heartbeats and error logs
-3. Once the release is confirmed, App 5 moves the remaining client instances to the new release image
+1. App 5's Release action moves the test client instance to the new release image
+2. Then 10% of client instances; the rest stay on the previous image
+3. Then every client instance
+
+Each stage passes its health check before the next starts: every container in the stage runs the new image by its digest, sends a heartbeat within 30 minutes and shows no rise in errors. A failed health check rolls that stage back to the previous release image automatically, stops the release, and sends the developer an immediate message.
+
+### Signed Images
+
+- Each release image is signed when it is built, by the image build workflow in `{slug}-app4`.
+- Each client container runs the image by its digest, never by a tag, so the image a container runs cannot be swapped under the same name.
+- App 5's Release action verifies the image's signature before it moves any container, and refuses an image whose signature does not verify.
+
+### Image Security
+
+- The image build workflow scans the release image for known vulnerabilities at every build, and again every week. Each finding is reported to App 5.
+- A high or critical finding (vendor-rated high or critical, CVSS 7 or above, or with no rating given) is fixed and released to every client within 14 days of the vendor's fix. App 5 counts the days and messages the developer on days 7 and 10. The patched image is released once the developer approves it.
+- The base image and the Java runtime are kept on versions their vendors support. A build containing end-of-life software fails.
+- These rules meet the Cyber Essentials security update control ([[[default:security-global/compliance/sec-cyber-essentials-compliance]]](C:/dev/project-library-global/security-global/compliance/sec-cyber-essentials-compliance.md)).
+
+### Registry Clean-Up
+
+At every release, the image build workflow deletes images older than the last three releases and runs the registry's storage clean-up, so the registry stays inside its plan.
 
 ### Rollback
 
@@ -88,6 +107,8 @@ Because a release reaches every client instance in one action, the quality gate 
 - Every feature of the release has passed `build-verified` and the whole test suite passes on the release image
 - The table-change check passes: no table or column is removed, renamed or retyped
 - The test client instance runs the release and passes its smoke test
+- The image's signature verifies
+- The image scan shows no high or critical finding older than 14 days, and no end-of-life software
 - Release notes are written and ready to send
 - Vault and integration dependencies are documented if changed
 
@@ -102,8 +123,10 @@ Releasing to the test client instance, a staged rollout, and rollback to the pre
 ## Consequences
 
 - ✅ Updates require no manual per-client action
-- ✅ All client instances always run the same release image (unless deliberately held back in a staged rollout)
-- ✅ Staged rollout and rollback by release image
+- ✅ All client instances always run the same release image (except during the stages of a release)
+- ✅ Every release staged, with automatic rollback on a failed health check
+- ✅ Only signed images run, each by its digest
+- ✅ Known vulnerabilities closed within 14 days
 - ✅ New tables and nullable columns reach every client's database with the release
 - ⚠️ Running App 5's Release action is a production action — release discipline is mandatory
 - ⚠️ After a business's first release, a release never removes, renames or retypes a table or column

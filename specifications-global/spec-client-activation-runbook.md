@@ -1,7 +1,7 @@
 ---
 title: "spec-client-activation-runbook"
 doc-id: "mb-b575e9fd"
-updated: "2026-11-10"
+updated: "2026-11-11"
 ---
 # Client Instance Activation Runbook
 
@@ -14,11 +14,14 @@ updated: "2026-11-10"
 Done once, before the business's first client, as [[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) section 7 sets out:
 
 - [ ] The business's DigitalOcean project exists, in Mybizz's DigitalOcean account
-- [ ] The business's Managed PostgreSQL cluster runs in `LON1`
+- [ ] The business's Managed PostgreSQL cluster runs in `LON1`: Advanced Edition, PostgreSQL 18, 8 GiB, with its standby and storage autoscaling on
+- [ ] The cluster's trusted sources admit only the business's client containers and its test client instance; a connection from outside DigitalOcean is refused
+- [ ] The cluster's maintenance window is Sunday 06:00 UK time
+- [ ] The provisioning job runs inside DigitalOcean and can create a database user with its three limits
 - [ ] The business's repository exists in the Container Registry, holding the current release image
-- [ ] The test client instance runs the current release image and passes its smoke test
-- [ ] A DigitalOcean API token, scoped to the business's project, is in App 5's Vault
-- [ ] The four conditions of section 10 of Client Instance Hosting are met
+- [ ] The test client instance runs the current release image and passes its smoke test, its domain is proxied through Cloudflare (Step 10) and its R2 bucket's `backups/` lock rule is set (Step 4), exactly as every client is set up
+- [ ] The two DigitalOcean access keys with their custom scopes are in App 5's Vault ([[[default:security-global/cloud/sec-client-provisioning-security|Client Provisioning Security]]](C:/dev/project-library-global/security-global/cloud/sec-client-provisioning-security.md))
+- [ ] The six conditions of section 10 of Client Instance Hosting are met
 
 ---
 
@@ -41,14 +44,16 @@ Before beginning activation:
 
 Mybizz_management's **New client** action:
 
-1. Creates the client's database and database user in the business's cluster
+1. Creates the client's database and database user in the business's cluster, through the provisioning job, with a connection limit of 3, a statement timeout of 60 seconds and an idle-in-transaction timeout of 120 seconds ([[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md))
 2. Generates the client's `encryption_key` (a new Fernet symmetric key; never reused from any other instance) and the two container keys (`secret.key`, `anvil-live-object-key.txt`)
 3. Creates the client's App Platform app, named in the client identifier format `[client-name]-{vertical}` (e.g. `acme-cs`), from the current release image, with every App Server setting of Client Instance Hosting section 3
 4. Starts the container
 
 Verify:
 
-- [ ] The container runs the current release image
+- [ ] The container runs the current release image, by its digest
+- [ ] The client's database user carries its three limits
+- [ ] The container's `database` setting uses full certificate verification and `prepareThreshold=0`
 - [ ] Every table of the released schema exists in the client's database, empty
 - [ ] The instance opens its first form from master_template
 
@@ -74,6 +79,9 @@ Mybizz_management:
 1. Accepts the client's Cloudflare invitation
 2. Creates the client's R2 bucket
 3. Creates a token limited to that bucket and writes it into the instance's Vault (`r2_access_key_id`, `r2_secret_access_key`)
+4. Sets the bucket's lock rule on the `backups/` prefix: every nightly copy is kept for 30 days and cannot be deleted or overwritten during them by any key, Mybizz's included
+
+- [ ] A test object written under `backups/` cannot be deleted
 
 See [[[default:adr-global/adr-client-r2-storage-and-exit-handover|Client R2 Storage and Exit]]](C:/dev/project-library-global/adr-global/adr-client-r2-storage-and-exit-handover.md).
 
@@ -147,6 +155,7 @@ The Owner completes the onboarding wizard in the instance, helped by its help vi
 
 - [ ] The wizard's domain step has Mybizz_management write the client's DNS records through the Cloudflare API: the website record, MX `inbound-smtp.eu-west-1.amazonaws.com`, the three DKIM CNAME records, MAIL FROM `mail.{domain}` with MX `feedback-smtp.eu-west-1.amazonses.com`, SPF `v=spf1 include:amazonses.com ~all` and DMARC `v=DMARC1; p=quarantine; adkim=r; aspf=r`
 - [ ] Mybizz_management adds the client's domain to the instance's App Platform app and sets the App Server's `origin` to it
+- [ ] The website record is proxied through Cloudflare, with Cloudflare's free web application firewall managed rules, DDoS protection and bot blocking switched on in the client's Cloudflare account; the email records stay unproxied
 - [ ] SES shows the domain identity as verified
 
 ### Step 11 — Payment Gateway

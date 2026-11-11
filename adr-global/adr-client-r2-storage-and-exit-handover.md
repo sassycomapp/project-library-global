@@ -1,6 +1,6 @@
 ---
 title: "adr-client-r2-storage-and-exit-handover"
-updated: "2026-11-08"
+updated: "2026-11-11"
 doc-id: "mb-f9c1cc3d"
 ---
 # `client-r2-storage-and-exit-handover` ADR — Each Client Has Its Own R2 Storage, and Leaves With It
@@ -26,9 +26,10 @@ Every client instance already has its own container and its own database. Shared
 2. **The bucket sits in a free Cloudflare account in the client's own name, on the client's own email address.** The client creates the account and invites Mybizz's Cloudflare user as a member with the roles R2 Admin and DNS. Mybizz_management creates the bucket and a token for that bucket only.
 3. **The bucket token is kept in the client's Vault.** They never appear in code, in Anvil Secrets or in any document.
 4. **The bucket holds the client's cold data:** raw webhook payloads, the archived audit log, archived rows, email bodies and attachments, and backups. The client's Data Tables keep only an index row for each item (what it is, its status and its R2 key). Index rows older than the retention period are pruned; the item itself stays in R2.
-5. **When the client leaves Mybizz, all the client's data is written to its R2 bucket:** a full export of every Data Table, the client's `encryption_key`, and the Vault contents in decrypted form, beside everything the bucket already holds.
-6. **The client confirms the export is in the bucket; Mybizz's Cloudflare user then leaves the client's account.** Nothing is transferred: the account and the bucket were always the client's.
-7. After Mybizz leaves the account, Mybizz retains nothing of the client's data, except the records Mybizz is legally required to keep in Mybizz_management.
+5. **The nightly copies are locked.** Each night the client instance's data is copied into the bucket under the `backups/` prefix. A bucket lock rule on that prefix keeps every copy for 30 days: no key, Mybizz's included, can delete or overwrite a copy during those 30 days.
+6. **When the client leaves Mybizz, all the client's data is written to its R2 bucket:** a full export of every Data Table, the client's `encryption_key`, and the Vault contents in decrypted form, beside everything the bucket already holds.
+7. **The client confirms the export is in the bucket; Mybizz's Cloudflare user then leaves the client's account.** Nothing is transferred: the account and the bucket were always the client's.
+8. After Mybizz leaves the account, Mybizz retains nothing of the client's data, except the records Mybizz is legally required to keep in Mybizz_management.
 
 ---
 
@@ -38,6 +39,7 @@ Every client instance already has its own container and its own database. Shared
 - **The client owns its data.** The bucket is in the client's own account from the first day, so the client leaves with its data in a working store, not a file it must find a home for.
 - **No lock-in.** A client can leave at any time with everything.
 - **Lean databases.** Cold data in R2 keeps each instance's Data Tables small and fast.
+- **Backups an intruder cannot destroy.** A stolen key, or a compromised Mybizz account, cannot delete or encrypt the copies Mybizz would restore from.
 - **Free retrieval.** R2 charges nothing for reading data out, so the client and the instance can retrieve old data at no cost.
 
 ---

@@ -1,7 +1,7 @@
 ---
 title: "adr-observability-architecture"
 doc-id: "mb-d5da852f"
-updated: "2026-11-08"
+updated: "2026-11-11"
 ---
 # `observability-architecture` ADR — Observability Architecture
 
@@ -53,7 +53,15 @@ Each client instance pushes a heartbeat to Mybizz_management on a schedule, with
 - Background task health (last run, success/failure)
 - Error count and last error per client
 - Subscription and billing status
-- CPU and memory trend (from Anvil's per-app data, accessed via IDE or future API)
+- Container memory use, from DigitalOcean's metrics through the DigitalOcean API, with the 80% alert that triggers the container resize ([[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md))
+- Database size, and AI and voice spend for the month, from each heartbeat
+- Data transfer per container, from DigitalOcean's bandwidth figures: a notice to the client and the developer at 500 GB a month
+- Each client's own Cloudflare storage: a notice to the client at 8 GB, before Cloudflare starts billing the client above 10 GB
+- Each client domain's resolution, certificate validity and registration expiry, checked daily; the client is warned 30 days before expiry
+
+### Watching the Watcher
+
+Mybizz_management is itself the monitoring layer, so its own failure would go unnoticed. Mybizz_management publishes a status endpoint that reports a fault when Mybizz_management fails or when any active client's heartbeat is more than 30 minutes old; suspended and exited clients are excluded. One DigitalOcean Uptime check calls the endpoint every minute and emails the developer on a fault. Client instances keep running while Mybizz_management is down.
 
 ---
 
@@ -88,6 +96,7 @@ The platforms' own observability tools are not replaced — they are complementa
 | Mybizz_management dashboard | Day-to-day operational monitoring across all clients |
 | DigitalOcean container logs | Deep diagnostic investigation of a specific client issue |
 | DigitalOcean container and cluster metrics | Performance investigation of a specific client instance |
+| DigitalOcean Uptime | The one external check: Mybizz_management's status endpoint, every minute |
 | Anvil App Logs, Profiling and Tracing on App 1 | Code-level bottleneck analysis during development |
 
 ---

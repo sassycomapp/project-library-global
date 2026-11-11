@@ -1,7 +1,7 @@
 ---
 title: "spec-security-architecture"
 doc-id: "mb-9112b5a3"
-updated: "2026-11-10"
+updated: "2026-11-11"
 ---
 # Mybizz — Security & Secrets Architecture
 
@@ -83,6 +83,13 @@ The regulatory baseline (UK GDPR, the client's own privacy law, PCI DSS, standar
 - **GDPR applies conditionally** — if an app serves EU customers (determined by actual client
   base, not fixed at build time).
 - No data categories beyond the Mybizz-wide retention defaults are tracked.
+
+### Mybizz-Live Ltd's own security and cover
+
+- **Cyber Essentials:** Mybizz-Live Ltd holds whole-organisation Cyber Essentials certification, renewed yearly. Every cloud service Mybizz uses requires a hardware security key (FIDO2) for sign-in, and AWS's root user is kept unused ([[[default:security-global/compliance/sec-cyber-essentials-compliance]]](C:/dev/project-library-global/security-global/compliance/sec-cyber-essentials-compliance.md)).
+- **Insurance:** technology professional indemnity, cyber liability and public liability under one policy; each policy condition is met by a safeguard and checked by a test ([[[default:adr-global/adr-business-insurance]]](C:/dev/project-library-global/adr-global/adr-business-insurance.md)).
+- **Incidents:** every business's incident response plan records each incident in App 5, calls the insurer's incident line before engaging any outside supplier, reports a personal data breach to the Information Commissioner's Office within 72 hours, and notifies affected clients without undue delay.
+- **Company obligations:** [[[default:adr-global/adr-company-compliance]]](C:/dev/project-library-global/adr-global/adr-company-compliance.md).
 
 
 ## 4. Data Protection Levels

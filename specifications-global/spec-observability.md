@@ -1,7 +1,7 @@
 ---
 title: "spec-observability"
 doc-id: "mb-3d23160a"
-updated: "2026-11-01"
+updated: "2026-11-11"
 ---
 # Observability Requirements
 
@@ -68,3 +68,23 @@ background tasks and stored in summary Data Tables.
 every dashboard load. A daily task computes `daily_revenue` and writes one row to
 `daily_metrics`. The dashboard reads a single pre-computed row.
 
+
+---
+
+## 4. Platform Checks Run by the Management Application
+
+The management application (App 5) runs these checks for every client instance and tells the developer the result ([[[default:adr-global/adr-observability-architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md)):
+
+| Check | Source | Frequency | Threshold | Message |
+|---|---|---|---|---|
+| Heartbeat age | Each instance's heartbeat | Continuous | More than 30 minutes old, for an active client | Status endpoint reports a fault |
+| Container memory | DigitalOcean metrics | On each alert | 80% of the container's memory | Container resize, or a message at 2 GiB ([[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md)) |
+| Database size | Heartbeat | Daily | Warning at 1 GiB; hard limit at 2 GiB | Client and developer ([[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md)) |
+| AI and voice spend | Heartbeat | Daily | Warning at £5.60; stop at £16.80 a month | Client and developer |
+| Data transfer | DigitalOcean bandwidth | Daily | Notice at 500 GB a month | Client and developer |
+| Client's Cloudflare storage | Cloudflare API, in the client's account | Daily | Notice at 8 GB | Client |
+| Domain and certificate | DNS and the client's website | Daily | Not resolving, certificate invalid, or registration expiring within 30 days | Client and developer |
+| Nightly copy | The client's R2 bucket | Daily | Missing, out of date or implausibly small | Developer |
+| Restore drill | The test client instance | Monthly | Row counts differ from the source | Developer |
+
+**The status endpoint.** The management application publishes a status endpoint that reports a fault when the application fails or when any heartbeat check fails. One DigitalOcean Uptime check calls it every minute and emails the developer on a fault.

@@ -1,7 +1,7 @@
 ---
 title: "spec-deployment"
 doc-id: "mb-4a8a251d"
-updated: "2026-11-08"
+updated: "2026-11-11"
 ---
 # Mybizz — Deployment Specification
 
@@ -65,16 +65,20 @@ Before App 5's Release action runs:
 - [ ] Vault and integration dependencies documented if changed
 - [ ] The whole test suite passes on the release image, as [[[default:security-global/requirements/sec-requirements-pre-merge-master-template]]](C:/dev/project-library-global/security-global/requirements/sec-requirements-pre-merge-master-template.md) requires
 - [ ] The test client instance runs the release and passes its smoke test
+- [ ] The release image's signature verifies
+- [ ] The image scan shows no high or critical finding older than 14 days, and no end-of-life software
 
 ---
 
 ## 3. Staged Rollout
 
-For high-risk releases:
+Every release is staged ([[[default:adr-global/adr-dependency-update-model|Dependency Update Model]]](C:/dev/project-library-global/adr-global/adr-dependency-update-model.md)):
 
-1. App 5's Release action moves a chosen group of client instances to the new release image; the rest stay on the previous image
-2. Monitor heartbeats and error logs
-3. Once the release is confirmed, App 5 moves the remaining client instances to the new release image
+1. App 5's Release action moves the test client instance to the new release image, by its digest
+2. Then 10% of client instances
+3. Then every client instance
+
+Each stage passes its health check before the next starts: every container in the stage runs the new image by its digest, sends a heartbeat within 30 minutes and shows no rise in errors. A failed health check rolls that stage back automatically (section 4), stops the release and messages the developer. At every release, the image build workflow deletes images older than the last three releases and cleans the registry's storage.
 
 ---
 
@@ -127,6 +131,12 @@ A column that is no longer used stays in place, unused. It is never removed from
 
 Test runs on the local Anvil App Server need no backup: they start from an empty database each time.
 
+### Backup Checks
+
+- **Daily:** App 5 checks that each client's nightly copy arrived, with the right date and a plausible size.
+- **Monthly:** the restore drill. The test client instance restores one client's nightly copy into a scratch database in the cluster, compares its row counts with the source, deletes the scratch database and reports the result to App 5. The drill runs inside DigitalOcean because the cluster accepts connections from DigitalOcean only.
+- Each client's nightly copies sit under the `backups/` prefix of its R2 bucket, with a 30-day lock: no key, Mybizz's included, can delete or overwrite a copy during those 30 days.
+
 ### Backup Method
 
 - Git commit and release tag (code)
@@ -164,8 +174,8 @@ Mybizz's Anvil account holds Apps 1, 2, 3 and 5. Each business's DigitalOcean pr
 | Anvil account suspension | Email from Anvil; App 1, App 2 and App 5 unavailable | Client instances keep running; contact Anvil support; releases and provisioning wait until App 5 is back | Monitor billing status |
 | One client container fails | That client's heartbeats stop | App Platform restarts the container; if it does not recover, App 5 recreates the container from the current release image | Container size checked against the client's use in App 5 |
 | Cluster main node fails | Database errors in heartbeats | The standby node takes over automatically | Standby node from the first paying client |
-| DigitalOcean region outage or account suspension | Every client's heartbeats stop | The rebuild procedure: a new cluster and containers in another region, from the release image, each client's database loaded from its R2 copy | Nightly R2 copies; the rebuild procedure tested before the first paying client |
-| Account compromise | Unauthorized changes, unknown collaborators | Contact the provider's support; rotate all credentials; audit all instances | Strong passwords, 2FA, restrict collaborators, scoped API tokens |
+| DigitalOcean region outage or account suspension | Every client's heartbeats stop; DigitalOcean Uptime reports App 5's status endpoint fault | App 5's **Rebuild** action (section 10) | Nightly R2 copies with a 30-day lock; the rebuild tested before the first paying client |
+| Account compromise | Unauthorized changes, unknown collaborators | Contact the provider's support; rotate all credentials; audit all instances; follow the business's incident response plan | Hardware security keys on every supplier account; two scoped DigitalOcean keys; the cluster's trusted sources; locked nightly copies |
 
 ## 9. Rollback Trigger Thresholds
 
@@ -184,3 +194,19 @@ instances:
 - Increasing pattern of customer complaints
 
 Rollback mechanism: App 5 moves the client instances back to the previous release image (section 4).
+
+---
+
+## 10. Rebuild
+
+App 5's **Rebuild** action restores every client of a business in another DigitalOcean region when `LON1` or the business's cluster is lost. It uses the provisioning key ([[[default:security-global/cloud/sec-client-provisioning-security|Client Provisioning Security]]](C:/dev/project-library-global/security-global/cloud/sec-client-provisioning-security.md)).
+
+1. The developer chooses the region and starts **Rebuild** in App 5.
+2. App 5 creates a new Managed PostgreSQL cluster in that region: Advanced Edition, PostgreSQL 18, at the current plan size, with its standby, storage autoscaling and trusted sources.
+3. App 5 creates the provisioning job in the new region; the job creates each client's database and database user with its three limits.
+4. Each client's data is restored from DigitalOcean's backups when they are reachable, otherwise from the client's latest nightly copy in its R2 bucket. At most 24 hours of data is lost when the nightly copy is used.
+5. App 5 creates each client's container from the current release image, by its digest, with the client's settings, keys and domain, and points the client's DNS record at the new container through the Cloudflare API.
+6. Each client is checked by its heartbeat; App 5 reports every client restored and any that failed.
+7. App 5 messages every client about the interruption.
+
+The rebuild restores the test client instance into another region before the first paying client ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) section 10).

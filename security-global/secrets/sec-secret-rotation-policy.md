@@ -1,7 +1,7 @@
 ---
 title: "sec-secret-rotation-policy"
 doc-id: "mb-a7d05c2d"
-updated: "2026-10-23"
+updated: "2026-11-11"
 ---
 # Secret Rotation Policy
 
@@ -26,6 +26,8 @@ Treating "no known compromise" as equivalent to "no need to rotate" — the two 
 ## Implementation Guidance
 
 For each secret type in the Vault (`[[spec-vault-system]]` §3), assign a real maximum age. Management tokens are rotated by hand, so their age is tracked explicitly.
+
+**DigitalOcean access keys.** App 5's two DigitalOcean keys, the automatic-tasks key and the provisioning key (`[[sec-client-provisioning-security]]`), are created with a one-year expiry. App 5 sends the developer the rotation instructions 14 days before each key expires. The developer creates the replacement key with the same custom scope, enters it in App 5's Vault, confirms App 5's next check succeeds, and deletes the old key. The task takes about 10 minutes.
 
 ## Verification Requirements
 

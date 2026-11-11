@@ -1,7 +1,7 @@
 ---
 title: "spec-client-instance-hosting"
 doc-id: "mb-0a52a7a2"
-updated: "2026-11-10"
+updated: "2026-11-11"
 ---
 # Mybizz — Client Instance Hosting (Specification)
 
@@ -46,7 +46,7 @@ Each built image is stored in DigitalOcean Container Registry under its release 
 
 - One DigitalOcean App Platform app per client, named `[client-name]-{vertical}`, with one container of size `apps-s-1vcpu-1gb`: 1 shared vCPU and 1 GiB memory.
 - The start script caps the App Server's Java memory at 400 MB (`JAVA_TOOL_OPTIONS=-Xmx400m`). The rest of the container's memory is left for the Python processes that run the server code, the background tasks and the PDF building, so the container's memory use stays predictable.
-- Each client's app has an App Platform alert that fires when the container's memory use passes 80%. The alert goes to Mybizz, and that client's container is raised to `apps-s-1vcpu-2gb` (1 shared vCPU, 2 GiB memory, $25 a month, £18.75).
+- Each client's app has an App Platform alert that fires when the container's memory use passes 80%. The alert goes to App 5, which raises that client's container to `apps-s-1vcpu-2gb` (1 shared vCPU, 2 GiB memory, $25 a month, £18.75) and messages the developer. 2 GiB is the largest size App 5 chooses ([[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md)).
 - The size is raised for one client by a setting change; the client keeps its address and its data.
 - App Platform provides the client's HTTPS certificate on the client's own domain.
 
@@ -56,7 +56,7 @@ Each container starts the App Server with these settings, held as encrypted App 
 
 | Setting | Value |
 |---|---|
-| `database` | The client's own database in the business's cluster, over SSL |
+| `database` | The client's own database in the business's cluster, over TLS with full certificate verification (`sslmode=verify-full`), with `prepareThreshold=0` so the App Server works through DigitalOcean's connection pooler in any pooling mode |
 | `db-connection-pool-size` | 3 |
 | `auto-migrate` | On. Off after a rollback, until the next release |
 | `ignore-invalid-schema` | Off. On after a rollback, until the next release |
@@ -75,7 +75,8 @@ The App Server keeps two keys in its data folder: `secret.key` and `anvil-live-o
 - Every server function, form and background task, from App 2.
 - Every scheduled task, from App 3, with no timeout.
 - The management endpoints, the webhook endpoints and the inbound email endpoint `/_/api/email/inbound`.
-- The heartbeat to App 5 every 15 minutes ([[[default:adr-global/adr-mybizz-management-visibility|Mybizz Management Visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md)).
+- The heartbeat to App 5 every 15 minutes, carrying the client's database size and its AI and voice spend for the month ([[[default:adr-global/adr-mybizz-management-visibility|Mybizz Management Visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md)).
+- AI and voice metering and the AI request rate limit of [[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md).
 
 Each container's output is kept in DigitalOcean's log view. The instance's own `error_log`, `health_log` and `activity_log` tables carry the application's records ([[[default:adr-global/adr-observability-architecture|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md)).
 
@@ -83,9 +84,15 @@ Each container's output is kept in DigitalOcean's log view. The instance's own `
 
 ## 4. The Database
 
-- One DigitalOcean Managed PostgreSQL cluster per business, in `LON1`. It holds one database per client, each with its own database user that can reach only that client's database.
-- DigitalOcean runs the cluster's patching, daily backups kept for 7 days, point-in-time recovery and SSL.
+- One DigitalOcean Managed PostgreSQL cluster per business, in `LON1`: PostgreSQL version 18, Advanced Edition. The edition is fixed when the cluster is created; the plan size can be raised at any time.
+- The cluster holds one database per client, each with its own database user that can reach only that client's database.
+- Each client database user is created with a connection limit of 3, a statement timeout of 60 seconds and an idle-in-transaction timeout of 120 seconds ([[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md)). PostgreSQL enforces these limits itself.
+- Client database users and their limits are created by the provisioning job, which runs inside DigitalOcean, because the cluster accepts connections from inside DigitalOcean only.
+- **Trusted sources:** the cluster accepts connections only from the business's client containers and its test client instance.
+- DigitalOcean runs the cluster's patching, daily backups kept for 7 days, point-in-time recovery and TLS.
 - The cluster has a standby node from the first paying client. The standby takes over automatically when the main node fails.
+- **Storage autoscaling** is on: DigitalOcean adds storage before the disk fills, at $0.12 (£0.09) per GiB per month.
+- **Maintenance window:** Sunday 06:00 UK time (07:00 Europe, 01:00 New York, Saturday 22:00 Los Angeles).
 - On first start, the App Server builds every table in the client's empty database from App 3's table definitions.
 
 ### Capacity
@@ -94,13 +101,10 @@ Each client's App Server holds at most 3 database connections. A cluster gives 2
 
 | Cluster memory | Connections | Clients | Monthly price, with standby | GBP |
 |---|---|---|---|---|
-| 1 GiB | 22 | 7 | $30 | £22.50 |
-| 2 GiB | 47 | 15 | $60 | £45 |
-| 4 GiB | 97 | 32 | $120 | £90 |
-| 8 GiB | 197 | 65 | $240 | £180 |
-| 16 GiB | 397 | 132 | $480 | £360 |
+| 8 GiB | 197 | 65 | $260 | £195 |
+| 16 GiB | 397 | 132 | about $520 | about £390 |
 
-App 5 shows the business's client count against its cluster's limit. The cluster is moved to the next size in DigitalOcean's control panel before the limit is reached.
+The cluster starts at 8 GiB. When the business's client count reaches 60, App 5 raises the cluster and its standby to 16 GiB in the next maintenance window and messages the developer ([[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md)). The 16 GiB price is an estimate until DigitalOcean's control panel shows it.
 
 ---
 
@@ -123,8 +127,10 @@ App 5 shows the business's client count against its cluster's limit. The cluster
 4. The full test suite passes on the release image.
 5. The test client instance moves to the release image and passes its smoke test.
 6. App 5's **Release** action, through the DigitalOcean API, points every client container to the release image. Each container restarts on it; its App Server adds the release's new tables and columns to the client's database as it starts.
-7. **Staged rollout:** a high-risk release goes first to a chosen group of clients, then to the rest.
-8. **Rollback:** App 5 points the containers back to the previous release image, with `auto-migrate` off and `ignore-invalid-schema` on. The previous release then runs on the newer schema, and the App Server never removes the newer tables and columns. The next release switches `auto-migrate` back on.
+7. **Staged rollout:** every release goes to the test client instance, then to 10% of clients, then to all clients. Each stage passes its health check before the next starts. A failed health check rolls that stage back automatically ([[[default:adr-global/adr-dependency-update-model|Dependency Update Model]]](C:/dev/project-library-global/adr-global/adr-dependency-update-model.md)).
+8. **Signed images:** each release image is signed when it is built. Each client container runs the image by its digest, never by a tag, and App 5 releases only an image whose signature verifies.
+9. **Registry clean-up:** at every release, images older than the last three releases are deleted and the registry's storage is cleaned.
+10. **Rollback:** App 5 points the containers back to the previous release image, with `auto-migrate` off and `ignore-invalid-schema` on. The previous release then runs on the newer schema, and the App Server never removes the newer tables and columns. The next release switches `auto-migrate` back on.
 
 ---
 
@@ -133,19 +139,20 @@ App 5 shows the business's client count against its cluster's limit. The cluster
 ### Once per business
 
 1. A DigitalOcean project for the business, in Mybizz's DigitalOcean account.
-2. The Managed PostgreSQL cluster, in `LON1`.
-3. The business's repository in the Container Registry.
-4. The test client instance: a container and a database of its own, run as a client.
-5. A DigitalOcean API token, scoped to the business's project, in App 5's Vault.
+2. The Managed PostgreSQL cluster, in `LON1`: Advanced Edition, PostgreSQL 18, 8 GiB, with its standby, storage autoscaling on and trusted sources set (section 4).
+3. The provisioning job inside DigitalOcean (section 4).
+4. The business's repository in the Container Registry.
+5. The test client instance: a container and a database of its own, run as a client.
+6. Two DigitalOcean access keys with custom scopes, in App 5's Vault ([[[default:security-global/cloud/sec-client-provisioning-security|Client Provisioning Security]]](C:/dev/project-library-global/security-global/cloud/sec-client-provisioning-security.md)).
 
 ### Once per client
 
 App 5's **New client** action, after registration and the client's Cloudflare set-up ([[[default:specifications-global/spec-client-activation-runbook|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md)):
 
-1. Creates the client's database and database user in the cluster.
+1. Creates the client's database and database user in the cluster, through the provisioning job, with the user's three limits (section 4).
 2. Creates the client's `encryption_key`, management Bearer token and two container keys.
 3. Creates the client's App Platform app from the current release image, with every setting in section 3.
-4. Adds the client's domain to the app; App 5 writes the domain's DNS record through the Cloudflare API.
+4. Adds the client's domain to the app; App 5 writes the domain's DNS record through the Cloudflare API, proxied through Cloudflare with the web application firewall, DDoS protection and bot blocking switched on.
 5. Starts the container; the App Server builds the client's tables.
 
 ---
@@ -169,8 +176,11 @@ App 5's **New client** action, after registration and the client's Cloudflare se
 99.95% allows about 22 minutes of downtime a month.
 
 - One cluster in one region serves every client of a business. A DigitalOcean failure in `LON1`, or a suspension of Mybizz's DigitalOcean account, stops every client of the business.
-- Every client's data is copied to the client's own R2 bucket every night, outside DigitalOcean.
-- The rebuild procedure restores every client of a business in another DigitalOcean region from the release image and the R2 copies: a new cluster, a database per client loaded from its copy, and a container per client.
+- Every client's data is copied to the client's own R2 bucket every night, outside DigitalOcean. Each nightly-copy bucket carries a 30-day retention lock ([[[default:adr-global/adr-client-r2-storage-and-exit-handover|Client R2 Storage and Exit]]](C:/dev/project-library-global/adr-global/adr-client-r2-storage-and-exit-handover.md)).
+- **Backup check:** App 5 checks every day that each client's nightly copy arrived, with the right date and a plausible size.
+- **Restore drill:** once a month, the test client instance restores one client's nightly copy into a scratch database in the cluster, compares its row counts with the source, deletes the scratch database and reports the result to App 5.
+- App 5's **Rebuild** action restores every client of a business in another DigitalOcean region: a new Advanced cluster, a database per client loaded from DigitalOcean's backups or, when those are unreachable, from its nightly copy, and a container per client from the release image ([[[default:specifications-global/spec-deployment|Deployment Specification]]](C:/dev/project-library-global/specifications-global/spec-deployment.md)). At most 24 hours of data is lost when the nightly copy is used.
+- DigitalOcean Uptime checks App 5's status endpoint every minute ([[[default:adr-global/adr-observability-architecture|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md)).
 
 ---
 
@@ -180,6 +190,8 @@ App 5's **New client** action, after registration and the client's Cloudflare se
 2. The test client instance has run under realistic load, and its memory use and database connections are recorded against section 3 and section 4.
 3. The rebuild procedure has restored the test client instance in another region.
 4. The release path has run end to end: test client instance, staged rollout, rollback.
+5. The App Server reconnects by itself after its database connection is cut, tested on the test client instance.
+6. The cluster is Advanced Edition with a standby, its trusted sources refuse a connection from outside DigitalOcean, and each client database user carries its three limits.
 
 ---
 
@@ -193,20 +205,19 @@ Suppliers bill in US dollars. Each cost is shown as billed, with its GBP figure 
 | Container Registry, Basic plan | $5 | £3.75 | Per Mybizz account |
 | Test client instance container | $12 | £9.00 | Per business |
 | Client container | $12 | £9.00 | Per client |
-| Managed PostgreSQL cluster with standby | $30 to $480 | £22.50 to £360 | By client count (section 4) |
+| Managed PostgreSQL cluster, Advanced Edition, with standby | $260, or about $520 from client 60 | £195, or about £390 | By client count (section 4) |
 
 Revenue is shown at £79 per client; the fixed prices in the other currencies sit close to £79.
 
 | Clients | Containers | Database | Fixed | Total cost | Revenue at £79 | Gross margin |
 |---|---|---|---|---|---|---|
-| 1 | £9 | £22.50 | £87 | £118.50 | £79 | −£39.50 |
-| 2 | £18 | £22.50 | £87 | £127.50 | £158 | £30.50 |
-| 10 | £90 | £45 | £87 | £222 | £790 | £568 |
-| 25 | £225 | £90 | £87 | £402 | £1,975 | £1,573 |
-| 50 | £450 | £180 | £87 | £717 | £3,950 | £3,233 |
-| 100 | £900 | £360 | £87 | £1,347 | £7,900 | £6,553 |
+| 1 | £9 | £195 | £87 | £291 | £79 | −£212 |
+| 9 | £81 | £195 | £87 | £363 | £711 | £348 |
+| 50 | £450 | £195 | £87 | £732 | £3,950 | £3,218 |
+| 60 | £540 | £390 | £87 | £1,017 | £4,740 | £3,723 |
+| 100 | £900 | £390 | £87 | £1,377 | £7,900 | £6,523 |
 
-Not in these figures: Amazon SES at $0.10 per 1,000 emails, Groq usage, Paddle's fee of 5% + $0.50 per payment ([[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md)), taxes, and bandwidth beyond each container's 150 GiB allowance at $0.02 per GiB.
+Not in these figures: the usage costs per client (email, AI, voice and data transfer, budgeted at £7.60), Paddle's fee of £4.33 per £79 payment, and Mybizz-Live Ltd's company costs. Mybizz's full cost and profit figures, with break-even at 9 clients, are in [[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md).
 
 ---
 

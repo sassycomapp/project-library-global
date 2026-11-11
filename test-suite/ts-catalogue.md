@@ -1,6 +1,6 @@
 ---
 title: "ts-catalogue"
-updated: "2026-11-10"
+updated: "2026-11-11"
 doc-id: "mb-2b95aede"
 ---
 # Test Suite — Catalogue
@@ -17,9 +17,9 @@ Every test a Mybizz application is proven by, with its ID. Steps name these IDs 
 | `IN` | 18 | Server code, data, access, services and endpoints work together |
 | `SC` | 18 | Attacks fail; the security target is met |
 | `BR` | 9 | Features work for real users |
-| `RL` | 12 | Releases are safe and reversible; instances stay healthy |
+| `RL` | 22 | Releases are safe and reversible; instances stay healthy; operations and business safeguards work |
 | `DM` | 10 | The business domains (bookings and services; catalogue, cart and orders) behave correctly |
-| **Total** | **102** | |
+| **Total** | **112** | |
 
 ---
 
@@ -148,8 +148,8 @@ Hosted App 1, with GStack `browse` and `/qa-only`.
 
 | ID | Test | Passes when | Basis |
 |---|---|---|---|
-| RL-01 | The release is ready | Every feature passed `build-verified`; the whole suite passes; no High or Critical finding is open; every ASVS Level 2 requirement and adopted Level 3 control has passing tests; the developer approves | [[[default:security-global/requirements/sec-requirements-release-readiness]]](C:/dev/project-library-global/security-global/requirements/sec-requirements-release-readiness.md) |
-| RL-02 | Every client can be restored | Every client instance is backed up to its own bucket before the release; a backup restores completely in a drill (before the first release, then quarterly) | [[[default:security-global/infrastructure/sec-backup-recovery-integrity]]](C:/dev/project-library-global/security-global/infrastructure/sec-backup-recovery-integrity.md) |
+| RL-01 | The release is ready | Every feature passed `build-verified`; the whole suite passes; no High or Critical finding is open; no High or Critical image finding is older than 14 days; the image contains no end-of-life software and its signature verifies; every ASVS Level 2 requirement and adopted Level 3 control has passing tests; the developer approves | [[[default:security-global/requirements/sec-requirements-release-readiness]]](C:/dev/project-library-global/security-global/requirements/sec-requirements-release-readiness.md) |
+| RL-02 | Every client can be restored | Every client instance is backed up to its own bucket before the release; a backup restores completely in a drill (before the first release, then monthly); the daily backup check reports every active client | [[[default:security-global/infrastructure/sec-backup-recovery-integrity]]](C:/dev/project-library-global/security-global/infrastructure/sec-backup-recovery-integrity.md) |
 | RL-03 | Schema changes are safe | The table-change check passes (no table or column removed, renamed or retyped); App 3's table definitions equal App 1's schema; the test client instance runs the release image and its smoke test passes | [[[default:specifications-global/spec-deployment]]](C:/dev/project-library-global/specifications-global/spec-deployment.md) sections 5, 7 |
 | RL-04 | App 2 is exactly the release | App 2's code equals App 1's release tag; the release image under that tag holds App 2, App 3 and `m3` at that release, and App 3 holds no form or server module | [[[default:adr-global/adr-dependency-update-model]]](C:/dev/project-library-global/adr-global/adr-dependency-update-model.md) |
 | RL-05 | Every client instance runs the release correctly | Each runs the release image and reports the release version and the right schema; each passes a smoke test (sign in, read, write, clean up); each answers its own management token only | [[[default:specifications-global/spec-deployment]]](C:/dev/project-library-global/specifications-global/spec-deployment.md) section 7 |
@@ -158,8 +158,18 @@ Hosted App 1, with GStack `browse` and `/qa-only`.
 | RL-08 | A client could leave today | The exit export lands in the test client's bucket complete and usable (first release and each schema change) | [[[default:adr-global/adr-client-r2-storage-and-exit-handover]]](C:/dev/project-library-global/adr-global/adr-client-r2-storage-and-exit-handover.md) |
 | RL-09 | The release stays healthy | Against the baseline: errors below 5%, response times within 20%, every heartbeat arrives; above 10% errors or broken payments or sign-in, rollback at once | [[[default:specifications-global/spec-deployment]]](C:/dev/project-library-global/specifications-global/spec-deployment.md) section 9 |
 | RL-10 | A new client starts secure | At activation: the container runs the current release image, a new key and token, a database user that reaches only the client's own database, storage scoped to its own bucket, one Owner with FIDO2, no leftover accounts, webhooks registered, health endpoint answering | [[[default:specifications-global/spec-client-activation-runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) |
-| RL-11 | Periodic checks are done | Monthly: dependency audit, Vault access review, retention check. Quarterly: restore drill, secret ages, review of who has access. Yearly: penetration test, each client's GDPR scope, policy review | SOC 2 readiness; [[[default:security-global/secrets/sec-secret-access-audit]]](C:/dev/project-library-global/security-global/secrets/sec-secret-access-audit.md) |
-| RL-12 | Clients stay within their resources | App 5 flags any client above 80% of its container's memory, and the business above 80% of its cluster's client limit | [[[default:policy-global/pol-common-aspects-for-mybizz-anvil-applications]]](C:/dev/project-library-global/policy-global/pol-common-aspects-for-mybizz-anvil-applications.md) aspect 9 |
+| RL-11 | Periodic checks are done | Monthly: dependency audit, Vault access review, retention check, restore drill. Quarterly: secret ages, review of who has access. Yearly: penetration test, each client's GDPR scope, policy review | SOC 2 readiness; [[[default:security-global/secrets/sec-secret-access-audit]]](C:/dev/project-library-global/security-global/secrets/sec-secret-access-audit.md) |
+| RL-12 | Clients stay within their resources | App 5 acts on any client above 80% of its container's memory, and raises the cluster at client 60 ([[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md)) | [[[default:policy-global/pol-common-aspects-for-mybizz-anvil-applications]]](C:/dev/project-library-global/policy-global/pol-common-aspects-for-mybizz-anvil-applications.md) aspect 9 |
+| RL-13 | Resizes are right | Against a simulated DigitalOcean API: a container above 80% memory is raised to 2 GiB once; a 2 GiB container above 80% is not raised and the developer is messaged; client 60 raises the cluster to 16 GiB in the next maintenance window; no size is ever reduced; each resize is in the audit record | [[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md) |
+| RL-14 | Every fair-use limit holds | Against simulated suppliers (SES, Groq, DigitalOcean metrics, heartbeats): each limit's warning and hard-limit action happens at its threshold, with its notices to the client and the developer, and normal budgeted use triggers none | [[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md) |
+| RL-15 | The App Server reconnects by itself | The test client instance's database connection is cut; the App Server reconnects without a restart and the smoke test passes with no data lost | [[[default:specifications-global/spec-client-instance-hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) section 10 |
+| RL-16 | The cluster is set up right | The cluster is Advanced Edition, PostgreSQL 18, with a standby, storage autoscaling on and the Sunday 06:00 UK maintenance window; every client database user carries its connection limit of 3, 60-second statement timeout and 120-second idle-transaction timeout | [[[default:security-global/infrastructure/sec-database-access-control]]](C:/dev/project-library-global/security-global/infrastructure/sec-database-access-control.md) |
+| RL-17 | The cluster refuses outsiders | A connection with valid credentials from outside DigitalOcean is refused | [[[default:security-global/infrastructure/sec-database-access-control]]](C:/dev/project-library-global/security-global/infrastructure/sec-database-access-control.md) |
+| RL-18 | Locked backups cannot be deleted | Deleting or overwriting an object under the test client's `backups/` prefix fails with every key Mybizz holds | [[[default:security-global/infrastructure/sec-backup-recovery-integrity]]](C:/dev/project-library-global/security-global/infrastructure/sec-backup-recovery-integrity.md) |
+| RL-19 | Only signed images run | App 5's Release action refuses an unsigned or altered image; every container references its image by digest | [[[default:adr-global/adr-dependency-update-model]]](C:/dev/project-library-global/adr-global/adr-dependency-update-model.md) |
+| RL-20 | Reminders reach the developer | With a simulated clock: each insurance, Cyber Essentials, access-key and statutory deadline reminder is sent at its lead time; 7 days without a Wise transaction in FreeAgent sends a message | [[[default:adr-global/adr-company-compliance]]](C:/dev/project-library-global/adr-global/adr-company-compliance.md) |
+| RL-21 | The FreeAgent connection only reads | Against a FreeAgent sandbox company: the tax timeline, Corporation Tax returns, bank transactions and monthly figures are read correctly; App 5's request log shows no request that creates, changes or deletes | [[[default:adr-global/adr-freeagent-integration]]](C:/dev/project-library-global/adr-global/adr-freeagent-integration.md) |
+| RL-22 | The incident drill runs | On the test client instance, a simulated incident is taken through the incident response plan; each step (detected, contained, insurer called, ICO report drafted, clients notified) is recorded in App 5's incident record with its time | [[[default:adr-global/adr-business-insurance]]](C:/dev/project-library-global/adr-global/adr-business-insurance.md) |
 
 ## DM — Business domains
 

@@ -1,7 +1,7 @@
 ---
 title: "spec-integration"
 doc-id: "mb-a1d9a710"
-updated: "2026-11-10"
+updated: "2026-11-11"
 ---
 # Mybizz — Integration Specification
 
@@ -59,7 +59,7 @@ All three are written by Mybizz_management at provisioning. Each client has its 
 
 ### 2.3 Receiving
 
-MX record on the client's domain → SES → the client's S3 prefix → SNS → `[base_url]/_/api/email/inbound` → a background task reads the email from S3, stores it in the instance and deletes it from S3.
+MX record on the client's domain → SES → the client's S3 prefix → SNS → `[base_url]/_/api/email/inbound` → a background task reads the email from S3, stores it in the instance and deletes it from S3. An S3 lifecycle rule deletes any received email file 7 days after it arrives, so no file stays in S3 if its processing fails.
 
 ### 2.4 Events and Unsubscribe
 
@@ -84,7 +84,19 @@ MX record on the client's domain → SES → the client's S3 prefix → SNS → 
 - API errors → log to `error_log`, continue with next contact
 - Maximum 3 retries per contact per campaign run
 
-### 2.6 DNS Records
+### 2.6 Volume and Reputation Limits
+
+Each client's sending is limited so that one client cannot harm the shared SES account ([[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md)):
+
+| Limit | Warning | Hard limit | At the hard limit |
+|---|---|---|---|
+| Marketing email | 20,000 a month | 25,000 a month | Marketing sends pause until the next month; booking, invoice and sign-in emails continue |
+| All email | 40,000 a month | 50,000 a month | All sending except sign-in email pauses until the next month; the developer is notified |
+
+- **Tenant reputation policy:** each client's SES tenant carries SES's standard reputation policy. When that client's bounce or complaint rate reaches the policy's pause level, SES pauses that client's sending alone. App 5 notifies the client and the developer.
+- **Account alarms:** two AWS CloudWatch alarms on Mybizz's SES account warn the developer at a 4% bounce rate and a 0.08% complaint rate, below Amazon's review levels of 5% and 0.1%.
+
+### 2.7 DNS Records
 
 Written on the client's domain at onboarding: MX `inbound-smtp.eu-west-1.amazonaws.com`; the three DKIM CNAME records; MAIL FROM `mail.{domain}` with MX `feedback-smtp.eu-west-1.amazonses.com`; SPF `v=spf1 include:amazonses.com ~all`; DMARC `v=DMARC1; p=quarantine; adkim=r; aspf=r`.
 
@@ -246,4 +258,23 @@ separate stream appropriate to its purpose:
 
 This tier model ensures transactional delivery reliability is never compromised by marketing
 volume or reputation issues.
+
+---
+
+## 9. Client Domain Protection
+
+Each client's website record is proxied through Cloudflare, in the client's own Cloudflare account, with Cloudflare's free web application firewall managed rules, DDoS protection and bot blocking switched on. App 5 writes the record through the Cloudflare API at onboarding ([[[default:specifications-global/spec-client-activation-runbook|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) Step 10). The email records (2.7) stay unproxied, because mail cannot pass through Cloudflare's proxy. Cached public pages also lower the container's data transfer.
+
+---
+
+## 10. Mybizz's Own Integrations
+
+These serve Mybizz-Live Ltd, not client instances, and are used by App 5 only:
+
+| Service | Use | Decision |
+|---|---|---|
+| Paddle | Client subscriptions and billing | [[[default:specifications-global/spec-client-billing\|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) |
+| FreeAgent | Read-only: tax and accounts deadlines, Corporation Tax returns, the Wise bank feed check, monthly income and costs | [[[default:adr-global/adr-freeagent-integration]]](C:/dev/project-library-global/adr-global/adr-freeagent-integration.md) |
+| DigitalOcean | Provisioning, releases, resizing and checks | [[[default:specifications-global/spec-client-instance-hosting\|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) |
+| Groq | AI and voice for every client, with an organisation spend limit of £1,700 a month and alerts at 50%, 75% and 90% | [[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md) |
 

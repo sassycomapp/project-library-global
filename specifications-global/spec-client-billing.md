@@ -1,7 +1,7 @@
 ---
 title: "spec-client-billing"
 doc-id: "mb-bc4cc414"
-updated: "2026-11-10"
+updated: "2026-11-11"
 ---
 # Mybizz — Client Billing (Specification)
 
@@ -69,7 +69,7 @@ App 5 counts the days from `payment_failed_at`. Paddle's payment recovery retrie
 
 - **Data is never withheld.** The client owns its data. Every night, the client's data is copied into the client's own R2 bucket, in the client's own Cloudflare account, and the exit export writes the full data there too. A missed payment stops the service, never the client's access to its data.
 - **An unpaid balance is never carried forward.** Billing is in advance, so every day of service up to the failed payment is paid for. A client that leaves owes nothing further to Mybizz.
-- **The most Mybizz can lose on one client** is the hosting cost of the 37 days between the failed payment and the exit: about £11 ($15) for the container and up to £3 ($4) for the client's share of the database cluster.
+- **The most Mybizz can lose on one client** is the hosting cost of the 37 days between the failed payment and the exit: about £11 ($15) for the container. The database cluster's cost does not change with one client.
 
 ---
 
@@ -79,23 +79,61 @@ App 5 counts the days from `payment_failed_at`. Paddle's payment recovery retrie
 - DigitalOcean, Amazon SES and Groq charge Mybizz after use, by the second or by the item, on one bill at the end of each month. Mybizz pays only for the days a client's container and database exist.
 - Each client's payment therefore reaches Mybizz before that client's costs fall due. Every client adds to Mybizz's cash from its first month.
 
+### Per client
+
 | Per client, per month, at £79 | GBP | Billed as |
 |---|---|---|
 | Subscription, before tax | £79.00 | |
 | Paddle's fee (5% + $0.50) | −£4.33 | |
 | Paid out to Mybizz | £74.67 | |
 | Container (`apps-s-1vcpu-1gb`) | −£9.00 | $12.00 |
-| Share of the database cluster | −£0.75 to −£3.00 | $1 to $4 |
-| Left before Mybizz's fixed costs | £62.67 to £64.92 | |
+| Usage: email £1.00, AI writing and insight £0.50, speech to text £0.10, text to speech £5.00, data transfer over the allowance £1.00 | −£7.60 | |
+| Left toward the database cluster and Mybizz's fixed costs | £58.07 | |
 
-Mybizz's fixed costs and the totals by client count are in [[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) section 11.
+The usage figure budgets each client at medium-to-heavy use: a team of about six using email, AI and voice every working day.
+
+**Highest cost of one client.** With every fair-use limit reached ([[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md)), one client costs at most £52.98 a month: container £18.75, email £3.75, AI and voice £16.80, data transfer £5.25, Paddle's fee £4.33 and a database share of £3.90. Each client's £79 covers this.
+
+### Database cluster
+
+The cluster is Advanced Edition with a standby: £195 ($260) a month at 8 GiB, and about £390 ($520) from client 60, when App 5 raises it to 16 GiB ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) section 4).
+
+### Mybizz's fixed costs
+
+| Cost | Per month |
+|---|---|
+| Anvil Business account (Apps 1, 2, 3, 5 and the demo apps) | £74.25 |
+| Container Registry, Basic plan | £3.75 |
+| Test client instance | £9.00 |
+| `mybizz.live` domain | £1.58 |
+| Email reputation alarms (two AWS CloudWatch alarms) | £0.15 |
+| Cyber Essentials certification, renewed yearly | £26.67 |
+| Business insurance ([[[default:adr-global/adr-business-insurance]]](C:/dev/project-library-global/adr-global/adr-business-insurance.md)) | £141.67 |
+| ICO data protection fee | £3.92 |
+| Companies House confirmation statement | £4.17 |
+| FreeAgent accounting software | £33.00 |
+| UK address package: registered office and director's service address | £5.00 |
+| **Total** | **£303.16** |
+
+### Totals by client count
+
+| Clients | Revenue | Client-related costs | Fixed costs | Net profit |
+|---|---|---|---|---|
+| 1 | £79.00 | £215.93 | £303.16 | −£440.09 |
+| 9 | £711.00 | £383.37 | £303.16 | £24.47 |
+| 50 | £3,950.00 | £1,241.50 | £303.16 | £2,405.34 |
+| 60 | £4,740.00 | £1,645.80 | £303.16 | £2,791.04 |
+| 100 | £7,900.00 | £2,483.00 | £303.16 | £5,113.84 |
+
+Client-related costs are the containers, the usage, Paddle's fees and the database cluster. **Break-even is 9 clients.**
 
 ---
 
 ## 7. Mybizz's Own Books
 
 - App 5 has no accounting module. Paddle is Mybizz's only customer for subscriptions, and Paddle carries all client tax.
-- Mybizz-Live Ltd's books are kept in GBP by its accountant, from Paddle's monthly payout statements and the supplier bills (Anvil, DigitalOcean, Amazon Web Services, Groq and Paddle).
+- Mybizz-Live Ltd is registered for VAT from incorporation. Paddle's payouts carry no VAT, because Paddle accounts for the VAT itself. Overseas suppliers charge no VAT to a VAT-registered business, and VAT charged by UK suppliers is reclaimed on the quarterly VAT return. Every supplier price in Mybizz's documents excludes VAT.
+- Mybizz-Live Ltd's books are kept in GBP in FreeAgent, which receives every Wise transaction through its bank feed and files the VAT returns, the annual accounts and the company tax return ([[[default:adr-global/adr-company-compliance]]](C:/dev/project-library-global/adr-global/adr-company-compliance.md)). App 5 reads FreeAgent's deadlines and figures, and never writes to it ([[[default:adr-global/adr-freeagent-integration]]](C:/dev/project-library-global/adr-global/adr-freeagent-integration.md)).
 
 ---
 
