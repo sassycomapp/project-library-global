@@ -1,6 +1,6 @@
 # Mybizz test suite: configuration of tools/ts_scan.py for one app.
 # Copy to the app repository as tests/ts-config.yaml at Step 11.
-# Step 31 fills it from scaffold-plan.md; Step 34 checks it against the plan.
+# Step 32 fills it from the scanner settings Step 31 plans; Step 34 checks it.
 
 # app1 | app2 | app3 | client_instance
 role: app1
