@@ -42,6 +42,7 @@ POST /management/suspend          → writes suspended flag to client tables
 POST /management/unsuspend        → clears suspended flag
 POST /management/push-notification → writes notification row to client notifications table
 POST /management/push-update-alert → writes update available notice to client tables
+POST /management/plan-summary     → writes the plan, the next renewal preview and the referrals to the client's plan_summary table
 ```
 
 **Authentication:** Each request must include a Bearer token in the `Authorization` header. The token is validated against a value stored in the client instance's management configuration. Requests without a valid token are rejected with HTTP 403.
@@ -162,9 +163,8 @@ Mybizz_management maintains a client registry table containing:
 | `subscription_status` | Active / suspended / churned |
 | `plan` | Monthly (£119 a month) or annual (£1,190 a year), or the fixed price in the client's currency ([[[default:adr-global/adr-tiers-model\|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md)) |
 | `assisted_setup` | Whether the client bought assisted setup |
-| `referral_code` | The client's own referral code, issued when it is on the annual plan |
+| `referral_code` | The client's own referral code, issued when the client starts the annual plan; its link is `https://mybizz.live/r/{code}` |
 | `referred_by` | The `client_id` of the annual client whose code the client entered at registration |
-| `referral_credits` | Credits earned for the next annual renewal, at most 5 applied ([[[default:specifications-global/spec-client-billing\|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) section 4.1) |
 | `paddle_customer_id`, `paddle_subscription_id` | The client's customer and subscription in Paddle |
 | `paid_until` | The end of the period the client has paid for |
 | `payment_failed_at` | The date of the first failed renewal payment; empty when the client is paid up |
@@ -174,6 +174,8 @@ Mybizz_management maintains a client registry table containing:
 | `container_size` | 1 GiB or 2 GiB |
 | `database_size` | The client database's size, from the last heartbeat |
 | `ai_spend_month` | The client's AI and voice spend this month, from the last heartbeat |
+
+Mybizz_management also keeps a `referrals` table, one row per referral: `referrer_id` and `referred_id` (each a `client_id`), `state` (`pending`, `confirmed`, `used` or `void`), `registered_at`, `confirmed_at` and `used_at`. The states and the rules for credits are in [[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) section 4.1.
 
 ---
 

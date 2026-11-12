@@ -31,7 +31,7 @@ updated: "2026-11-12"
 
 - Registration accepts only businesses based in Mybizz's markets: the United States, Canada, the United Kingdom, the European Union, the European Economic Area and Switzerland. Paddle's checkout is limited to the same countries.
 
-1. At registration, the client chooses the monthly or the annual plan, and assisted setup if wanted, and pays the first month or the first year in Paddle's checkout. A client referred by an annual client enters that client's referral code at registration. Paddle's checkout collects the client's billing country and postal code, and optionally its business name and VAT or tax number, which Paddle validates.
+1. At registration, the client chooses the monthly or the annual plan, and assisted setup if wanted, and pays the first month or the first year in Paddle's checkout. A client referred by an annual client registers through that client's referral link or enters its referral code (section 4.1). Paddle's checkout collects the client's billing country and postal code, and optionally its business name and VAT or tax number, which Paddle validates.
 2. Paddle adds the tax due in the client's country. A client with a valid business tax number pays no VAT where the reverse charge applies.
 3. Paddle renews the subscription in advance, every month on the monthly plan or every year on the annual plan, on the same day, and emails the client its tax invoice for each payment.
 4. The client changes its card, downloads its invoices and cancels through Paddle's customer portal, reached from a link in every Paddle email.
@@ -50,19 +50,46 @@ Paddle sends a notification to App 5 for every billing event. App 5 receives the
 | Paddle notification | What App 5 does |
 |---|---|
 | `subscription.activated` | Records the client's Paddle customer and subscription IDs in the client registry and sets `subscription_status` to active. Provisioning starts ([[[default:specifications-global/spec-client-activation-runbook\|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md)) |
-| `transaction.completed` | Records the payment and the new `paid_until` date. If the client is suspended, unsuspends it (section 5). When the payment is a referred client's first annual payment, adds one referral credit to the referring client (section 4.1) |
-| `adjustment.created` (a refund) | When the refund is of a referred client's first annual payment, removes the referral credit it earned (section 4.1) |
+| `transaction.completed` | Records the payment and the new `paid_until` date. If the client is suspended, unsuspends it (section 5). When the payment is a referred client's first annual payment, confirms the referral; when it is a renewal carrying referral credits, marks those credits used (section 4.1) |
+| `adjustment.created` (a refund) | When the refund is of a referred client's first annual payment, returns the referral to pending (section 4.1) |
 | `transaction.payment_failed` | Records `payment_failed_at`, the date of the first failed payment, if not already set |
 | `subscription.past_due` | No action beyond recording; the timing of section 5 runs from `payment_failed_at` |
 | `subscription.canceled` | When the client cancelled: runs the client exit at the end of the paid month or year. When the cancellation follows unpaid renewals: the timing of section 5 continues |
 
 ### 4.1 Referral Credits
 
-- App 5 gives every client on the annual plan a referral code, shown on the client's subscription page.
-- A new client that enters the code at registration and buys the annual plan earns the referring client one credit when its first annual payment completes.
-- App 5 holds the credits in the client registry, at most 5 for the next renewal. A credit earned beyond 5 is recorded and not applied.
-- After each change to a client's credits, App 5 sets a discount on the referring client's Paddle subscription for its next billing period only: one month's price for each credit. Paddle applies the discount at the renewal, and App 5 sets the credits back to zero when the renewal payment completes.
-- A credit is never paid out in cash, and a client that leaves loses its credits.
+The referral credit rewards an annual client that brings Mybizz new annual clients ([[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md)). Both the referring client and the referred client are on the annual plan.
+
+**Codes and links.** App 5 gives every client on the annual plan a referral code and a referral link, `https://mybizz.live/r/{code}`. The link opens Mybizz's registration with the code filled in. A new client may also type the code at registration. The registration form tells the new client that the referring client will see its business name and whether it has subscribed.
+
+**Referral states.** App 5 records every referral as one row of its `referrals` table, with one of four states:
+
+| State | When |
+|---|---|
+| `pending` | The referred client has registered with the code and has not paid an annual plan: it has not yet paid, or it is on the monthly plan |
+| `confirmed` | The referred client's first annual payment has completed. A confirmed referral is one credit |
+| `used` | The credit has been taken off a renewal of the referring client |
+| `void` | The referred client left Mybizz while pending |
+
+A refund of the referred client's first annual payment returns the referral from `confirmed` to `pending`. A referred client that moves from the monthly plan to the annual plan confirms the referral at its first annual payment.
+
+**Credits at renewal.**
+- A renewal takes at most 5 credits, so the referring client always pays more than its yearly cost to Mybizz.
+- Confirmed credits beyond 5 stand in reserve. A reserve credit replaces a confirmed credit that a refund returns to pending, and reserve credits carry forward to the next renewal.
+- A credit is never paid out in cash. A client that leaves, or moves to the monthly plan, loses its credits.
+
+**The discount in Paddle.** After every change to a client's confirmed credits, App 5 sets on the referring client's Paddle subscription one flat discount, in the subscription's currency, for the next billing period only: the number of credits to be used (at most 5) times the monthly price. Paddle applies it at the renewal and removes it afterwards. When the renewal payment completes, App 5 marks the credits taken as `used`.
+
+**The mock-up invoice.** The referring client's Owner sees the next renewal on the "Plan and billing" page of the client's app. App 5 reads the next renewal from Paddle (the subscription's `next_transaction` preview) and sends the page its figures through `/management/plan-summary`, daily and after every change:
+
+| Line | Amount, at the GBP price |
+|---|---|
+| 12 months | £1,428 |
+| Annual plan saving: 2 months | −£238 |
+| Each confirmed referral, at most 5: 1 month | −£119 each |
+| **Next renewal total** | Paddle's figure, before tax |
+
+Below the total the page lists each pending referral by the referred business's name, the confirmed referrals in reserve, and the client's referral link.
 
 Mybizz's R2 bucket is in Mybizz's own Cloudflare account and is used only by App 5. It is separate from every client's R2 bucket, which sits in the client's own Cloudflare account.
 

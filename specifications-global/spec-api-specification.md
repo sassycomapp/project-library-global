@@ -1,7 +1,7 @@
 ---
 title: "spec-api-specification"
 doc-id: "mb-639a7203"
-updated: "2026-11-10"
+updated: "2026-11-12"
 ---
 # Mybizz — API Specification (HTTP Endpoints)
 
@@ -161,6 +161,13 @@ Removes suspension from the client instance.
 Pushes a notification to the client instance.
 
 **Request body:** `{"title": "...", "message": "...", "type": "info|warning|error"}`
+**Response:** HTTP 200 on success
+
+#### POST /management/plan-summary
+
+Writes the client's plan, its next renewal preview and its referrals to the instance's `plan_summary` table, for the Owner's "Plan and billing" page ([[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) section 4.1). App 5 sends it daily and after every change.
+
+**Request body:** `{"plan": "annual", "renews_on": "2028-04-01", "currency": "GBP", "lines": [{"label": "12 months", "amount": "£1,428.00"}, {"label": "Annual plan saving: 2 months", "amount": "-£238.00"}, {"label": "Referral: Brightside Physio", "amount": "-£119.00"}], "total": "£1,071.00", "pending": ["Northgate Coaching"], "reserve": 0, "referral_link": "https://mybizz.live/r/K7Q2M9"}`
 **Response:** HTTP 200 on success
 
 #### POST /management/push-update-alert

@@ -53,16 +53,19 @@ Mybizz's reference currency is the pound sterling (GBP). Each market pays a fixe
 
 ### Referral credit
 
-- A client on the annual plan that refers a new client, which then buys the annual plan, earns one credit.
-- Each credit takes one month's price off the referring client's next annual renewal.
-- A renewal carries at most 5 credits. The referring client then still pays more than its yearly cost to Mybizz: the container, usage and a share of the database, about £293 a year.
-- Credits not used at a renewal are not carried forward. A credit is never paid out in cash.
-- A referral by or to a client on the monthly plan earns no credit.
+- Only the annual plan takes part: the referring client and the referred client are both on the annual plan.
+- An annual client that refers a new client earns one credit when the new client's first annual payment completes. Until then the referral is pending.
+- Each credit takes one month's price off the referring client's next annual renewal, at most 5 credits per renewal. The referring client then still pays more than its yearly cost to Mybizz: the container, usage and a share of the database, about £293 a year.
+- Credits beyond 5 stand in reserve, replace any credit lost to a refund, and carry forward to the next renewal.
+- A credit is never paid out in cash. A client that leaves, or moves to the monthly plan, loses its credits.
+- A referred client gets the same offer: on the annual plan it has its own referral code and earns its own credits.
+- Mybizz gives each annual client a referral kit to share: its referral link, ready-made social posts, an email banner, and an optional badge and pop-up for its own website. Every kit item says that the client gains a discount when someone joins.
+- How credits are recorded, applied and shown is in [[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) section 4.1.
 
 ### Architectural rules
 
 1. The application holds no tier logic, feature limits or staff limits.
-2. The client registry in Mybizz_management records the subscription status, the plan (monthly or annual), whether assisted setup was bought, which client referred the client, and the credits earned for the next renewal.
+2. The client registry in Mybizz_management records the subscription status, the plan (monthly or annual), whether assisted setup was bought, and which client referred the client; Mybizz_management's `referrals` table records every referral and its state.
 3. A price change is a business decision recorded here; it needs no code change.
 
 ---

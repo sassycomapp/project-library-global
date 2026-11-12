@@ -16,10 +16,10 @@ Every test a Mybizz application is proven by, with its ID. Steps name these IDs 
 | `LG` | 7 | Business rules are right |
 | `IN` | 18 | Server code, data, access, services and endpoints work together |
 | `SC` | 18 | Attacks fail; the security target is met |
-| `BR` | 9 | Features work for real users |
+| `BR` | 10 | Features work for real users |
 | `RL` | 23 | Releases are safe and reversible; instances stay healthy; operations and business safeguards work |
 | `DM` | 10 | The business domains (bookings and services; catalogue, cart and orders) behave correctly |
-| **Total** | **113** | |
+| **Total** | **114** | |
 
 ---
 
@@ -143,6 +143,7 @@ Hosted App 1, with GStack `browse` and `/qa-only`.
 | BR-07 | Earlier features still work | Every signed-off feature's flows pass again; the console shows no error; only approved hosts are contacted | Regression of every signed-off feature |
 | BR-08 | Payments work end to end in test mode | Successful, declined and authentication-required test payments each end in their designed state, with webhooks and invoices | [[[default:specifications-global/spec-integration]]](C:/dev/project-library-global/specifications-global/spec-integration.md) sections 3, 4 |
 | BR-09 | The developer accepts the feature | The developer signs it off against its ticket and screens | [[[default:test-suite/ts-method]]](C:/dev/project-library-global/test-suite/ts-method.md) |
+| BR-10 | The referral kit works | On the test client instance: every kit item (social post, email banner, website badge, pop-up) carries the client's own referral link and the line that the client gains a discount; the badge and pop-up appear on the public website only when switched on; the link opens registration with the code filled in | [[[default:adr-global/adr-tiers-model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md) |
 
 ## RL — Release and operations
 
@@ -170,7 +171,7 @@ Hosted App 1, with GStack `browse` and `/qa-only`.
 | RL-20 | Reminders reach the developer | With a simulated clock: each insurance, Cyber Essentials, access-key and statutory deadline reminder is sent at its lead time; 7 days without a Wise transaction in FreeAgent sends a message | [[[default:adr-global/adr-company-compliance]]](C:/dev/project-library-global/adr-global/adr-company-compliance.md) |
 | RL-21 | The FreeAgent connection only reads | Against a FreeAgent sandbox company: the tax timeline, Corporation Tax returns, bank transactions and monthly figures are read correctly; App 5's request log shows no request that creates, changes or deletes | [[[default:adr-global/adr-freeagent-integration]]](C:/dev/project-library-global/adr-global/adr-freeagent-integration.md) |
 | RL-22 | The incident drill runs | On the test client instance, a simulated incident is taken through the incident response plan; each step (detected, contained, insurer called, ICO report drafted, clients notified) is recorded in App 5's incident record with its time | [[[default:adr-global/adr-business-insurance]]](C:/dev/project-library-global/adr-global/adr-business-insurance.md) |
-| RL-23 | Referral credits are right | Against Paddle's test environment: a referred client's first annual payment adds one credit to the referring annual client; a refund of that payment removes it; a referral by or to a monthly client adds none; the referring client's next renewal carries a discount of one month's price per credit, never more than 5 credits; the credits return to zero once the renewal is paid | [[[default:specifications-global/spec-client-billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) |
+| RL-23 | Referral credits are right | Against Paddle's test environment: a registration through a referral link records a pending referral; the referred client's first annual payment confirms it and a refund returns it to pending; a referred client on the monthly plan stays pending until its first annual payment; the referring client's next renewal carries one flat discount of one month's price per confirmed credit, never more than 5; confirmed credits beyond 5 stay in reserve, replace a refunded credit and carry forward; the credits taken are marked used once the renewal is paid; the plan summary sent to the instance matches Paddle's next-transaction preview | [[[default:specifications-global/spec-client-billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) |
 
 ## DM — Business domains
 
