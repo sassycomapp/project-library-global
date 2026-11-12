@@ -1,7 +1,7 @@
 ---
 title: "adr-fair-use-limits"
 doc-id: "mb-f903b927"
-updated: "2026-11-11"
+updated: "2026-11-12"
 ---
 # Fair-Use Limits
 
@@ -72,7 +72,7 @@ Mybizz is run by one person who does not watch supplier consoles. Every limit mu
 
 ## Consequences
 
-- The highest cost of one client, with every limit reached, is £52.98 a month, which each client's £79 covers (the Mybizz budget, `Budget.md` in `data-mybizz-mgt`).
+- The highest cost of one client, with every limit reached, is £54.78 a month, which each client's £119 covers (the Mybizz budget, `Budget.md` in `data-mybizz-mgt`).
 - Client provisioning creates each database user with the limits of point 3 ([[[default:specifications-global/spec-client-activation-runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md)).
 - App 5 carries the measurements, notifications and the **Suspend** action ([[[default:adr-global/adr-mybizz-management-visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md)).
 - The client instance meters AI and voice spend and enforces the request rate.

@@ -1,7 +1,7 @@
 ---
 title: "adr-client-billing-merchant-of-record"
 doc-id: "mb-9b20b385"
-updated: "2026-11-10"
+updated: "2026-11-12"
 ---
 # Client Billing Through a Merchant of Record
 Status: Accepted
@@ -10,7 +10,7 @@ Status: Accepted
 
 ## Context
 
-Every Mybizz business sells its £79 monthly subscription to client businesses in many countries ([[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md)). Selling software across borders carries a tax duty in each buyer's country: VAT in the United Kingdom and the European Union, GST in Canada and Australia, and sales tax in many US states. A seller that collects the payments itself must register for tax in each place where it passes a threshold, file returns there, pay the tax over, and carry the liability in any audit.
+Every Mybizz business sells its £119 monthly subscription, and its annual plan, to client businesses in many countries ([[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md)). Selling software across borders carries a tax duty in each buyer's country: VAT in the United Kingdom and the European Union, GST in Canada and Australia, and sales tax in many US states. A seller that collects the payments itself must register for tax in each place where it passes a threshold, file returns there, pay the tax over, and carry the liability in any audit.
 
 Mybizz is a small company that sells one product at one price. The work and the liability of worldwide tax registration and filing would take time away from the product, and an error in any one country would fall on Mybizz.
 
@@ -45,7 +45,7 @@ How billing runs, including failed payments, is set out in [[[default:specificat
 
 ### Negative
 - Paddle's name, not Mybizz's, appears on the client's bank statement and tax invoice.
-- Paddle's fee, 5% + $0.50, is about £4.33 on each £79 payment, higher than a gateway's fee.
+- Paddle's fee, 5% + $0.50, is about £6.33 on each £119 payment, higher than a gateway's fee.
 - Mybizz depends on Paddle's approval of its account and on Paddle's terms.
 
 ### Neutral

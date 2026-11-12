@@ -1,6 +1,6 @@
 ---
 title: "ts-conformance-checks"
-updated: "2026-11-11"
+updated: "2026-11-12"
 doc-id: "mb-dd7a358e"
 ---
 # Test Suite — Conformance Checks
@@ -68,7 +68,7 @@ Every binding rule in Mybizz's global ADRs, specifications, policies and securit
 | Release | Only signed images run, each by its digest; high and critical image findings fixed within 14 days; no end-of-life software | [[[default:adr-global/adr-dependency-update-model]]](C:/dev/project-library-global/adr-global/adr-dependency-update-model.md) | RL-01, RL-19 |
 | Operations | Containers and the cluster resized by App 5 at their thresholds, never reduced automatically | [[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md) | RL-12, RL-13 |
 | Operations | Every shared resource carries a per-client limit, measured and enforced, with notices at the warning and the hard limit | [[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md) | RL-14 |
-| Operations | The cluster is at its stage (Standard without a standby to client 24, Advanced with a standby from 25); client users carry their three limits; the cluster accepts connections from DigitalOcean only; TLS with full verification | [[[default:security-global/infrastructure/sec-database-access-control]]](C:/dev/project-library-global/security-global/infrastructure/sec-database-access-control.md) | RL-15, RL-16, RL-17 |
+| Operations | The cluster is Advanced Edition with a standby, at its stage; client users carry their three limits; the cluster accepts connections from DigitalOcean only; TLS with full verification | [[[default:security-global/infrastructure/sec-database-access-control]]](C:/dev/project-library-global/security-global/infrastructure/sec-database-access-control.md) | RL-15, RL-16, RL-17 |
 | Operations | Two scoped DigitalOcean keys, rotated yearly; client users created by the provisioning job inside DigitalOcean | [[[default:security-global/cloud/sec-client-provisioning-security]]](C:/dev/project-library-global/security-global/cloud/sec-client-provisioning-security.md) | RL-10 |
 | Operations | Backup copies locked for their whole retention period; daily backup check; monthly restore drill; rebuild proven in another region | [[[default:security-global/infrastructure/sec-backup-recovery-integrity]]](C:/dev/project-library-global/security-global/infrastructure/sec-backup-recovery-integrity.md) | RL-02, RL-18 |
 | Business | Insurance, Cyber Essentials, access-key and statutory reminders sent at their lead times; the Wise bank feed watched | [[[default:adr-global/adr-company-compliance]]](C:/dev/project-library-global/adr-global/adr-company-compliance.md) | RL-20 |

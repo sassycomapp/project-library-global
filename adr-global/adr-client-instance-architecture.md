@@ -1,7 +1,7 @@
 ---
 title: "adr-client-instance-architecture"
 doc-id: "mb-c7c61252"
-updated: "2026-11-10"
+updated: "2026-11-12"
 ---
 # `client-instance-architecture` ADR — Client Instance Architecture
 
@@ -11,7 +11,7 @@ updated: "2026-11-10"
 
 ## Context
 
-Every client needs complete data isolation from every other client, every release delivered to every client with no per-client work, a clear separation between application code and client data, and a hosting cost that fits a price of £79 a month per client ([[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md)). This decision sets what a client instance contains and where it runs.
+Every client needs complete data isolation from every other client, every release delivered to every client with no per-client work, a clear separation between application code and client data, and a hosting cost that fits a price of £119 a month per client ([[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md)). This decision sets what a client instance contains and where it runs.
 
 ---
 

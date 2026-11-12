@@ -1,7 +1,7 @@
 ---
 title: "spec-client-activation-runbook"
 doc-id: "mb-b575e9fd"
-updated: "2026-11-11"
+updated: "2026-11-12"
 ---
 # Client Instance Activation Runbook
 
@@ -14,7 +14,7 @@ updated: "2026-11-11"
 Done once, before the business's first client, as [[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) section 7 sets out:
 
 - [ ] The business's DigitalOcean project exists, in Mybizz's DigitalOcean account
-- [ ] The business's Managed PostgreSQL cluster runs in `LON1`: Standard Edition, PostgreSQL 18, 2 GiB, with storage autoscaling on ([[[default:adr-global/adr-automatic-resizing|Automatic Resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md) stage 1)
+- [ ] The business's Managed PostgreSQL cluster runs in `LON1`: Advanced Edition, PostgreSQL 18, 8 GiB, with a standby node and storage autoscaling on ([[[default:adr-global/adr-automatic-resizing|Automatic Resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md) stage 1)
 - [ ] The cluster's trusted sources admit only the business's client containers and its test client instance; a connection from outside DigitalOcean is refused
 - [ ] The cluster's maintenance window is Sunday 06:00 UK time
 - [ ] The provisioning job runs inside DigitalOcean and can create a database user with its three limits
@@ -29,7 +29,7 @@ Done once, before the business's first client, as [[[default:specifications-glob
 
 Before beginning activation:
 
-- [ ] The client has registered, accepted the subscription terms (£79 a month before tax, or the fixed price in the client's currency; month to month) and paid the first month in Paddle's checkout ([[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md); [[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) section 3)
+- [ ] The client has registered, accepted the subscription terms (£119 a month or £1,190 a year before tax, or the fixed price in the client's currency) and paid the first month or the first year in Paddle's checkout ([[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md); [[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) section 3)
 - [ ] Mybizz_management has created the client record and the client reference number
 - [ ] The client's primary contact email and phone number are recorded in Mybizz_management
 - [ ] The client owns its domain

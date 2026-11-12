@@ -1,6 +1,6 @@
 ---
 title: "ts-catalogue"
-updated: "2026-11-11"
+updated: "2026-11-12"
 doc-id: "mb-2b95aede"
 ---
 # Test Suite — Catalogue
@@ -17,9 +17,9 @@ Every test a Mybizz application is proven by, with its ID. Steps name these IDs 
 | `IN` | 18 | Server code, data, access, services and endpoints work together |
 | `SC` | 18 | Attacks fail; the security target is met |
 | `BR` | 9 | Features work for real users |
-| `RL` | 22 | Releases are safe and reversible; instances stay healthy; operations and business safeguards work |
+| `RL` | 23 | Releases are safe and reversible; instances stay healthy; operations and business safeguards work |
 | `DM` | 10 | The business domains (bookings and services; catalogue, cart and orders) behave correctly |
-| **Total** | **112** | |
+| **Total** | **113** | |
 
 ---
 
@@ -160,16 +160,17 @@ Hosted App 1, with GStack `browse` and `/qa-only`.
 | RL-10 | A new client starts secure | At activation: the container runs the current release image, a new key and token, a database user that reaches only the client's own database, storage scoped to its own bucket, one Owner with FIDO2, no leftover accounts, webhooks registered, health endpoint answering | [[[default:specifications-global/spec-client-activation-runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) |
 | RL-11 | Periodic checks are done | Monthly: dependency audit, Vault access review, retention check, restore drill. Quarterly: secret ages, review of who has access. Yearly: penetration test, each client's GDPR scope, policy review | SOC 2 readiness; [[[default:security-global/secrets/sec-secret-access-audit]]](C:/dev/project-library-global/security-global/secrets/sec-secret-access-audit.md) |
 | RL-12 | Clients stay within their resources | App 5 acts on any client above 80% of its container's memory, and raises the cluster at client 60 ([[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md)) | [[[default:policy-global/pol-common-aspects-for-mybizz-anvil-applications]]](C:/dev/project-library-global/policy-global/pol-common-aspects-for-mybizz-anvil-applications.md) aspect 9 |
-| RL-13 | Resizes are right | Against a simulated DigitalOcean API: a container above 80% memory is raised to 2 GiB once; a 2 GiB container above 80% is not raised and the developer is messaged; client 12 raises the cluster to 4 GiB, client 25 asks the developer to approve the move into the Advanced cluster and, once approved, moves every client with no data lost, and client 60 raises it to 16 GiB, each in the next maintenance window; no size is ever reduced; each resize is in the audit record | [[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md) |
+| RL-13 | Resizes are right | Against a simulated DigitalOcean API: a container above 80% memory is raised to 2 GiB once; a 2 GiB container above 80% is not raised and the developer is messaged; client 60 raises the cluster to 16 GiB and client 130 to 32 GiB, each in the next maintenance window, with no client moved; no size is ever reduced; each resize is in the audit record | [[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md) |
 | RL-14 | Every fair-use limit holds | Against simulated suppliers (SES, Groq, DigitalOcean metrics, heartbeats): each limit's warning and hard-limit action happens at its threshold, with its notices to the client and the developer, and normal budgeted use triggers none | [[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md) |
 | RL-15 | The App Server reconnects by itself | The test client instance's database connection is cut; the App Server reconnects without a restart and the smoke test passes with no data lost | [[[default:specifications-global/spec-client-instance-hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) section 10 |
-| RL-16 | The cluster is set up right | The cluster is PostgreSQL 18 at the business's stage (Standard 2 GiB to client 11, Standard 4 GiB from 12, Advanced with a standby from 25, 16 GiB from 60), with storage autoscaling on and the Sunday 06:00 UK maintenance window; every client database user carries its connection limit of 3, 60-second statement timeout and 120-second idle-transaction timeout | [[[default:security-global/infrastructure/sec-database-access-control]]](C:/dev/project-library-global/security-global/infrastructure/sec-database-access-control.md) |
+| RL-16 | The cluster is set up right | The cluster is PostgreSQL 18, Advanced Edition with a standby node from the business's platform set-up, at the business's stage (8 GiB to client 59, 16 GiB from 60, 32 GiB from 130), with storage autoscaling on and the Sunday 06:00 UK maintenance window; every client database user carries its connection limit of 3, 60-second statement timeout and 120-second idle-transaction timeout | [[[default:security-global/infrastructure/sec-database-access-control]]](C:/dev/project-library-global/security-global/infrastructure/sec-database-access-control.md) |
 | RL-17 | The cluster refuses outsiders | A connection with valid credentials from outside DigitalOcean is refused | [[[default:security-global/infrastructure/sec-database-access-control]]](C:/dev/project-library-global/security-global/infrastructure/sec-database-access-control.md) |
 | RL-18 | Locked backups cannot be deleted | Deleting or overwriting an object under the test client's `backups/` prefix fails with every key Mybizz holds | [[[default:security-global/infrastructure/sec-backup-recovery-integrity]]](C:/dev/project-library-global/security-global/infrastructure/sec-backup-recovery-integrity.md) |
 | RL-19 | Only signed images run | App 5's Release action refuses an unsigned or altered image; every container references its image by digest | [[[default:adr-global/adr-dependency-update-model]]](C:/dev/project-library-global/adr-global/adr-dependency-update-model.md) |
 | RL-20 | Reminders reach the developer | With a simulated clock: each insurance, Cyber Essentials, access-key and statutory deadline reminder is sent at its lead time; 7 days without a Wise transaction in FreeAgent sends a message | [[[default:adr-global/adr-company-compliance]]](C:/dev/project-library-global/adr-global/adr-company-compliance.md) |
 | RL-21 | The FreeAgent connection only reads | Against a FreeAgent sandbox company: the tax timeline, Corporation Tax returns, bank transactions and monthly figures are read correctly; App 5's request log shows no request that creates, changes or deletes | [[[default:adr-global/adr-freeagent-integration]]](C:/dev/project-library-global/adr-global/adr-freeagent-integration.md) |
 | RL-22 | The incident drill runs | On the test client instance, a simulated incident is taken through the incident response plan; each step (detected, contained, insurer called, ICO report drafted, clients notified) is recorded in App 5's incident record with its time | [[[default:adr-global/adr-business-insurance]]](C:/dev/project-library-global/adr-global/adr-business-insurance.md) |
+| RL-23 | Referral credits are right | Against Paddle's test environment: a referred client's first annual payment adds one credit to the referring annual client; a refund of that payment removes it; a referral by or to a monthly client adds none; the referring client's next renewal carries a discount of one month's price per credit, never more than 5 credits; the credits return to zero once the renewal is paid | [[[default:specifications-global/spec-client-billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) |
 
 ## DM — Business domains
 

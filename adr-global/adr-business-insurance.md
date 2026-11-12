@@ -1,7 +1,7 @@
 ---
 title: "adr-business-insurance"
 doc-id: "mb-e72ca98e"
-updated: "2026-11-11"
+updated: "2026-11-12"
 ---
 # Business Insurance
 
@@ -51,7 +51,7 @@ Mybizz-Live Ltd hosts every client's business on its own platform. A fault, an o
 
 1. Professional indemnity is the cover a software service most needs: the largest risk is a client's own loss caused by the service.
 2. One insurer for professional indemnity and cyber liability means a claim that is both an error and a breach cannot fall between two policies.
-3. Starting covers matched to a few clients keep break-even at 7 clients; the covers grow when the exposure grows. The Cyber Essentials cover adds incident response on top.
+3. Starting covers matched to a few clients keep break-even at 9 clients; the covers grow when the exposure grows. The Cyber Essentials cover adds incident response on top.
 4. A liability cap inside the insurance limit means no single claim can exceed the cover.
 5. Tying each policy condition to a tested safeguard means a claim cannot be refused for a condition that was not met.
 

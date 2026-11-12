@@ -1,6 +1,6 @@
 ---
 title: "pol-common-aspects-for-mybizz-anvil-applications"
-updated: "2026-11-10"
+updated: "2026-11-12"
 doc-id: "mb-ab18d72d"
 ---
 # Policy — Common Aspects for Mybizz Anvil Applications
@@ -17,7 +17,7 @@ Every application has App 1 (development workspace), App 2 (`master_template`, t
 
 ### 2. Client instance hosting
 
-Each client instance runs on the Anvil App Server, in its own container on DigitalOcean named after the client's business, with its own database ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)). Server resources are raised for that client's container alone, with no change to App 2 and no effect on any other client. A client's transactions run in its own instance; App 2 carries no client load. Every client pays the same price, £79 a month or the fixed price in its currency. [[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md).
+Each client instance runs on the Anvil App Server, in its own container on DigitalOcean named after the client's business, with its own database ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)). Server resources are raised for that client's container alone, with no change to App 2 and no effect on any other client. A client's transactions run in its own instance; App 2 carries no client load. Every client pays the same price, £119 a month or £1,190 a year, or the fixed price in its currency. [[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md).
 
 ### 3. Configuration, never code, in a client instance
 

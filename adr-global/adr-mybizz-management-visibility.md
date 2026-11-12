@@ -1,7 +1,7 @@
 ---
 title: "adr-mybizz-management-visibility"
 doc-id: "mb-1962f48d"
-updated: "2026-11-11"
+updated: "2026-11-12"
 ---
 # `mybizz-management-visibility` ADR — Mybizz_management Visibility and Control
 
@@ -105,7 +105,7 @@ Mybizz_management holds two DigitalOcean access keys with custom scopes, in its 
 |---|---|---|
 | Heartbeat age | Continuous | An active client whose heartbeat is more than 30 minutes old makes the status endpoint report a fault. Suspended and exited clients are excluded |
 | Container memory | On each DigitalOcean memory alert | The container resize of [[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md) |
-| Client count | Daily | The cluster stages of [[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md): 4 GiB at client 12; the move into the Advanced cluster at client 25, after the developer approves; 16 GiB at client 60. At client 25 Mybizz_management also reminds the developer to raise the insurance covers ([[[default:adr-global/adr-business-insurance]]](C:/dev/project-library-global/adr-global/adr-business-insurance.md)) |
+| Client count | Daily | The cluster stages of [[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md): 16 GiB at client 60 and 32 GiB at client 130. At client 20 Mybizz_management messages the developer to engage part-time support, after buying employers' liability insurance. At client 25 Mybizz_management reminds the developer to raise the insurance covers ([[[default:adr-global/adr-business-insurance]]](C:/dev/project-library-global/adr-global/adr-business-insurance.md)) |
 | Fair-use limits | Continuous, and daily for sizes and monthly totals | Each limit of [[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md) measured and enforced |
 | Backup check | Daily | Each client's nightly copy checked for arrival, date and size |
 | Restore drill | Monthly | Scheduled on the test client instance; the result is reported back |
@@ -121,7 +121,7 @@ Mybizz_management holds two DigitalOcean access keys with custom scopes, in its 
 
 - **New client**, **Release** and **Remove**, as [[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) sections 6 to 8 set out. **Release** stages every release: test client instance, 10% of clients, all clients, with a health check and automatic rollback at each stage, and releases only an image whose signature verifies.
 - **Suspend**: stops one client's container and records the reason, for an abuse report or a breach of the acceptable-use terms ([[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md)). Distinct from the payment suspension through `/management/suspend`, which keeps the container running.
-- **Rebuild**: restores every client of the business into a new cluster and new containers in another DigitalOcean region, and moves every client into the Advanced cluster at client 25 ([[[default:specifications-global/spec-deployment|Deployment Specification]]](C:/dev/project-library-global/specifications-global/spec-deployment.md)).
+- **Rebuild**: restores every client of the business into a new cluster and new containers in another DigitalOcean region ([[[default:specifications-global/spec-deployment|Deployment Specification]]](C:/dev/project-library-global/specifications-global/spec-deployment.md)).
 
 ### Status endpoint
 
@@ -160,7 +160,11 @@ Mybizz_management maintains a client registry table containing:
 | `base_url` | Client instance HTTP endpoint base URL |
 | `management_token` | Encrypted Bearer token for management calls |
 | `subscription_status` | Active / suspended / churned |
-| `plan` | The subscription: £79 a month, or the fixed price in the client's currency ([[[default:adr-global/adr-tiers-model\|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md)), month to month |
+| `plan` | Monthly (£119 a month) or annual (£1,190 a year), or the fixed price in the client's currency ([[[default:adr-global/adr-tiers-model\|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md)) |
+| `assisted_setup` | Whether the client bought assisted setup |
+| `referral_code` | The client's own referral code, issued when it is on the annual plan |
+| `referred_by` | The `client_id` of the annual client whose code the client entered at registration |
+| `referral_credits` | Credits earned for the next annual renewal, at most 5 applied ([[[default:specifications-global/spec-client-billing\|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) section 4.1) |
 | `paddle_customer_id`, `paddle_subscription_id` | The client's customer and subscription in Paddle |
 | `paid_until` | The end of the period the client has paid for |
 | `payment_failed_at` | The date of the first failed renewal payment; empty when the client is paid up |

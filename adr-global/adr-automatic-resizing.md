@@ -1,7 +1,7 @@
 ---
 title: "adr-automatic-resizing"
 doc-id: "mb-9773fcc7"
-updated: "2026-11-11"
+updated: "2026-11-12"
 ---
 # Automatic Resizing
 
@@ -11,7 +11,7 @@ Status: Accepted
 
 ## Context
 
-Each client instance runs in its own 1 GiB container on DigitalOcean App Platform, and every client's database sits in one DigitalOcean Managed PostgreSQL cluster. A busy client can outgrow its container, and the business can outgrow the cluster's connection capacity. The cluster starts small, so that Mybizz breaks even at 7 clients, and grows with the client count. Mybizz is run by one person who does not watch the DigitalOcean console, so the resizes must happen without David watching, and David must always know when one has happened.
+Each client instance runs in its own 1 GiB container on DigitalOcean App Platform, and every client's database sits in one DigitalOcean Managed PostgreSQL cluster. A busy client can outgrow its container, and the business can outgrow the cluster's connection capacity. The cluster runs with a standby from the business's first client and grows in size with the client count. Mybizz is run by one person who does not watch the DigitalOcean console, so the resizes must happen without David watching, and David must always know when one has happened.
 
 ---
 
@@ -19,16 +19,15 @@ Each client instance runs in its own 1 GiB container on DigitalOcean App Platfor
 
 1. **Container resize.** When a client's container passes 80% memory use, App 5 raises that container from 1 GiB to 2 GiB through the DigitalOcean API. 2 GiB is the largest container size App 5 may choose. A 2 GiB container that passes 80% memory use is not raised further: App 5 sends David an immediate message.
 
-2. **Cluster stages.** The cluster grows in four stages with the number of active clients:
+2. **Cluster stages.** The cluster is Advanced Edition with a standby throughout, and grows in three stages with the number of active clients:
 
 | Stage | From client | Cluster | Connections | Clients at 3 connections each | Action by App 5 |
 |---|---|---|---|---|---|
-| 1 | 1 | Standard Edition, 2 GiB, one node | 47 | 15 | Created at the business's platform set-up |
-| 2 | 12 | Standard Edition, 4 GiB, one node | 97 | 32 | Raises the size of the same cluster |
-| 3 | 25 | Advanced Edition, 8 GiB, with a standby | 197 | 65 | Messages David; once he approves, **Rebuild** creates the Advanced cluster and moves every client into it |
-| 4 | 60 | Advanced Edition, 16 GiB, with a standby | 397 | 132 | Raises the size of the same cluster |
+| 1 | 1 | Advanced Edition, 8 GiB, with a standby | 197 | 65 | Created at the business's platform set-up |
+| 2 | 60 | Advanced Edition, 16 GiB, with a standby | 397 | 132 | Raises the size of the same cluster |
+| 3 | 130 | Advanced Edition, 32 GiB, with a standby | 797 | 265 | Raises the size of the same cluster |
 
-   16 GiB is the largest plan App 5 may choose.
+   32 GiB is the largest plan App 5 may choose. Beyond 260 clients, David decides the next step.
 
 3. **Timing.** A container resize runs as soon as the memory alert arrives; the container restarts on the new size. Each cluster stage runs in the cluster's weekly maintenance window, Sunday 06:00 UK time, after the client count reaches the stage. Each stage starts at least three clients before the current cluster is full, which leaves time for the maintenance window and for new clients signing up meanwhile.
 
@@ -43,9 +42,9 @@ Each client instance runs in its own 1 GiB container on DigitalOcean App Platfor
 ## Rationale
 
 1. A resize triggered by a measured threshold happens before clients notice slowness, and without David watching any console.
-2. A largest size for each resize caps the cost App 5 can commit without David: a 2 GiB container costs £18.75 a month, and the 16 GiB cluster about £390.
-3. Starting on a 2 GiB Standard cluster at £22.50 a month, rather than an Advanced cluster at £195, brings break-even down to 7 clients. The cost of the cluster then grows only as revenue grows.
-4. A Standard cluster cannot have a standby, and its edition cannot be changed in place. The move to the Advanced cluster at client 25 therefore uses the **Rebuild** action, which is already built and tested for a region failure, and David approves it because it briefly interrupts every client. Until client 25 a node failure means an outage while DigitalOcean restores the cluster; few clients are exposed during that time.
+2. A largest size for each resize caps the cost App 5 can commit without David: a 2 GiB container costs £18.75 a month, and the 32 GiB cluster about £780.
+3. A standby from the first client means a node failure stops clients for minutes, not the hours a restore from backup takes. At £195 a month the standby keeps break-even at 9 clients.
+4. Every stage raises the size of the same cluster, so no client moves between clusters as the business grows.
 5. Running every cluster stage in the maintenance window keeps any brief interruption at the quietest time of the week for every market Mybizz serves.
 6. Never reducing automatically avoids a resize loop when use rises and falls around a threshold.
 

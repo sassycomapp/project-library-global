@@ -1,7 +1,7 @@
 ---
 title: "spec-client-instance-hosting"
 doc-id: "mb-0a52a7a2"
-updated: "2026-11-11"
+updated: "2026-11-12"
 ---
 # Mybizz — Client Instance Hosting (Specification)
 
@@ -84,13 +84,13 @@ Each container's output is kept in DigitalOcean's log view. The instance's own `
 
 ## 4. The Database
 
-- One DigitalOcean Managed PostgreSQL cluster per business, in `LON1`, PostgreSQL version 18. The cluster grows in four stages with the business's client count (Capacity, below). A cluster's edition is fixed when it is created; its size can be raised at any time.
+- One DigitalOcean Managed PostgreSQL cluster per business, in `LON1`, PostgreSQL version 18. The cluster is Advanced Edition with a standby node from the business's platform set-up, and grows in size in three stages with the business's client count (Capacity, below).
 - The cluster holds one database per client, each with its own database user that can reach only that client's database.
 - Each client database user is created with a connection limit of 3, a statement timeout of 60 seconds and an idle-in-transaction timeout of 120 seconds ([[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md)). PostgreSQL enforces these limits itself.
 - Client database users and their limits are created by the provisioning job, which runs inside DigitalOcean, because the cluster accepts connections from inside DigitalOcean only.
 - **Trusted sources:** the cluster accepts connections only from the business's client containers and its test client instance.
 - DigitalOcean runs the cluster's patching, daily backups kept for 7 days, point-in-time recovery and TLS.
-- From client 25 the cluster is Advanced Edition with a standby node, which takes over automatically when the main node fails. Before client 25 the cluster is Standard Edition, which cannot have a standby: if its node fails, DigitalOcean restores the cluster from its backups, and clients may be offline for up to a few hours.
+- The standby node is kept up to date with the main node and takes over automatically when the main node fails, so clients are back within minutes.
 - **Storage autoscaling** is on: DigitalOcean adds storage before the disk fills, at $0.12 (£0.09) per GiB per month.
 - **Maintenance window:** Sunday 06:00 UK time (07:00 Europe, 01:00 New York, Saturday 22:00 Los Angeles).
 - On first start, the App Server builds every table in the client's empty database from App 3's table definitions.
@@ -101,12 +101,11 @@ Each client's App Server holds at most 3 database connections. A cluster gives 2
 
 | Stage | Business's clients | Cluster | Connections | Holds | Monthly price | GBP |
 |---|---|---|---|---|---|---|
-| 1 | 1 to 11 | Standard Edition, 2 GiB, one node | 47 | 15 clients | $30 | £22.50 |
-| 2 | 12 to 24 | Standard Edition, 4 GiB, one node | 97 | 32 clients | $60 | £45 |
-| 3 | 25 to 59 | Advanced Edition, 8 GiB, with a standby | 197 | 65 clients | $260 | £195 |
-| 4 | 60 and more | Advanced Edition, 16 GiB, with a standby | 397 | 132 clients | about $520 | about £390 |
+| 1 | 1 to 59 | Advanced Edition, 8 GiB, with a standby | 197 | 65 clients | $260 | £195 |
+| 2 | 60 to 129 | Advanced Edition, 16 GiB, with a standby | 397 | 132 clients | about $520 | about £390 |
+| 3 | 130 and more | Advanced Edition, 32 GiB, with a standby | 797 | 265 clients | about $1,040 | about £780 |
 
-App 5 moves the cluster to each stage in the next maintenance window and messages the developer ([[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md)). Stages 2 and 4 raise the size of the same cluster. Stage 3 changes the edition, so App 5's **Rebuild** action creates the new Advanced cluster and moves every client into it, once the developer approves ([[[default:specifications-global/spec-deployment|Deployment Specification]]](C:/dev/project-library-global/specifications-global/spec-deployment.md) section 10). The 16 GiB price is an estimate until DigitalOcean's control panel shows it.
+App 5 raises the size of the same cluster to each stage in the next maintenance window and messages the developer ([[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md)). No client moves. The 16 GiB and 32 GiB prices are estimates until DigitalOcean's control panel shows them.
 
 ---
 
@@ -141,7 +140,7 @@ App 5 moves the cluster to each stage in the next maintenance window and message
 ### Once per business
 
 1. A DigitalOcean project for the business, in Mybizz's DigitalOcean account.
-2. The Managed PostgreSQL cluster, in `LON1`: Standard Edition, PostgreSQL 18, 2 GiB, storage autoscaling on and trusted sources set (section 4).
+2. The Managed PostgreSQL cluster, in `LON1`: Advanced Edition, PostgreSQL 18, 8 GiB, with a standby node, storage autoscaling on and trusted sources set (section 4).
 3. The provisioning job inside DigitalOcean (section 4).
 4. The business's repository in the Container Registry.
 5. The test client instance: a container and a database of its own, run as a client.
@@ -172,7 +171,7 @@ App 5's **New client** action, after registration and the client's Cloudflare se
 | Service | DigitalOcean's monthly commitment |
 |---|---|
 | App Platform container | 99.95% |
-| Managed PostgreSQL, Advanced Edition with a standby node (from client 25) | 99.95% |
+| Managed PostgreSQL, Advanced Edition with a standby node | 99.95% |
 | Container Registry | 99.95% |
 
 99.95% allows about 22 minutes of downtime a month.
@@ -207,20 +206,20 @@ Suppliers bill in US dollars. Each cost is shown as billed, with its GBP figure 
 | Container Registry, Basic plan | $5 | £3.75 | Per Mybizz account |
 | Test client instance container | $12 | £9.00 | Per business |
 | Client container | $12 | £9.00 | Per client |
-| Managed PostgreSQL cluster | $30 to about $520 | £22.50 to about £390 | By stage (section 4) |
+| Managed PostgreSQL cluster | $260 to about $1,040 | £195 to about £780 | By stage (section 4) |
 
-Revenue is shown at £79 per client; the fixed prices in the other currencies sit close to £79.
+Revenue is shown at £119 per client on the monthly plan; the fixed prices in the other currencies sit close to £119.
 
-| Clients | Containers | Database | Fixed | Total cost | Revenue at £79 | Gross margin |
+| Clients | Containers | Database | Fixed | Total cost | Revenue at £119 | Gross margin |
 |---|---|---|---|---|---|---|
-| 1 | £9 | £22.50 | £87 | £118.50 | £79 | −£39.50 |
-| 7 | £63 | £22.50 | £87 | £172.50 | £553 | £380.50 |
-| 25 | £225 | £195 | £87 | £507 | £1,975 | £1,468 |
-| 50 | £450 | £195 | £87 | £732 | £3,950 | £3,218 |
-| 60 | £540 | £390 | £87 | £1,017 | £4,740 | £3,723 |
-| 100 | £900 | £390 | £87 | £1,377 | £7,900 | £6,523 |
+| 1 | £9 | £195 | £87 | £291 | £119 | −£172 |
+| 9 | £81 | £195 | £87 | £363 | £1,071 | £708 |
+| 25 | £225 | £195 | £87 | £507 | £2,975 | £2,468 |
+| 50 | £450 | £195 | £87 | £732 | £5,950 | £5,218 |
+| 60 | £540 | £390 | £87 | £1,017 | £7,140 | £6,123 |
+| 100 | £900 | £390 | £87 | £1,377 | £11,900 | £10,523 |
 
-Not in these figures: the usage costs per client (email, AI, voice and data transfer, budgeted at £7.60), Paddle's fee of £4.33 per £79 payment, and Mybizz-Live Ltd's company costs. Mybizz's full cost and profit figures, with break-even at 7 clients, are in [[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md).
+Not in these figures: the usage costs per client (email, AI, voice and data transfer, budgeted at £7.60), Paddle's fee of £6.33 per £119 payment, and Mybizz-Live Ltd's company costs. Mybizz's full cost and profit figures, with break-even at 9 clients, are in [[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md).
 
 ---
 
