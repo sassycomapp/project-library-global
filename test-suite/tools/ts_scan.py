@@ -24,6 +24,7 @@ import sys
 import time
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field
+from html.parser import HTMLParser
 from pathlib import Path
 
 try:
@@ -76,6 +77,9 @@ DEFAULT_CONFIG = {
     "core_tables": [],
     "approved_client_views": [],
     "approved_components": [],
+    "theme_app_id": "UGGJBAZUZ74XZ7VU",
+    "theme_package": "m3",
+    "component_inventory": "",
     "max_remember_me_days": 7,
     "max_mfa_timeout_days": 7,
     "allow_embedding": False,
@@ -99,7 +103,7 @@ COLOUR_RE = re.compile(r"#[0-9A-Fa-f]{3,8}\b|\b(rgba?|hsla?)\s*\(")
 TENANT_RE = re.compile(r"\b(tenant|tenant_id|org_id|organisation_id|organization_id|instance_id)\b", re.I)
 URL_RE = re.compile(r"^https?://")
 MONEY_RE = re.compile(r"(price|amount|total|tax|discount|fee|balance)", re.I)
-BANNED_COMPONENTS = ("HtmlTemplate", "HTMLTemplate", "HtmlPanel", "Label", "SidesheetContent")
+BANNED_COMPONENTS = ("HtmlTemplate", "HTMLTemplate", "HtmlPanel", "Label")
 EXTRAS_HINT = re.compile(r"anvil_extras|anvil-extras", re.I)
 SECRET_COLUMN_RE = re.compile(r"(secret|password|api_key|private_key|token|smtp_key|access_key)", re.I)
 TIME_NAME_RE = re.compile(r"(_at|_on|_date|_time|^date|^time)$", re.I)
@@ -222,16 +226,96 @@ def placeholders(text) -> set:
     return {m for part in parts for m in PLACEHOLDER_RE.findall(str(part))}
 
 
-def walk_components(node, found):
-    """Collect component dicts from a form_template structure."""
-    if isinstance(node, dict):
-        if "type" in node and isinstance(node.get("type"), str):
-            found.append(node)
-        for v in node.values():
-            walk_components(v, found)
-    elif isinstance(node, list):
-        for v in node:
-            walk_components(v, found)
+VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
+
+
+@dataclass
+class HtmlComponent:
+    type: str
+    name: str
+    line: int
+    props: dict
+    binds: dict
+    writebacks: dict
+    events: dict
+
+
+class FormHtml(HTMLParser):
+    """One form_template.html: its root, its components and its unclosed or stray tags."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.root = None
+        self.components: list[HtmlComponent] = []
+        self.stack: list[tuple[str, int]] = []
+        self.tag_errors: list[tuple[int, str]] = []
+        self.legacy: list[tuple[int, str]] = []
+        self.slots: list[tuple[int, str]] = []
+
+    def _component(self, attrs):
+        a = dict(attrs)
+        if (a.get("type") or "").startswith("form:"):
+            self.legacy.append((self.getpos()[0], a.get("type")))
+        pick = lambda prefix: {k[len(prefix):]: (v or "") for k, v in a.items() if k.startswith(prefix)}
+        self.components.append(HtmlComponent(a.get("type") or "", a.get("name") or "", self.getpos()[0],
+                                             pick("prop:"), pick("bind:"), pick("writeback:"), pick("on:")))
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "anvil-form" and self.root is None:
+            self.root = dict(attrs)
+            spec = self.root.get("layout") or self.root.get("container") or ""
+            if spec.startswith("form:"):
+                self.legacy.append((self.getpos()[0], spec))
+        if tag == "anvil-component":
+            self._component(attrs)
+        if tag == "anvil-block" and dict(attrs).get("slot"):
+            self.slots.append((self.getpos()[0], dict(attrs)["slot"]))
+        if tag not in VOID_TAGS:
+            self.stack.append((tag, self.getpos()[0]))
+
+    def handle_startendtag(self, tag, attrs):
+        if tag.startswith("anvil-"):
+            self.tag_errors.append((self.getpos()[0], f"<{tag} ... /> is self-closed; close it with </{tag}>"))
+        if tag == "anvil-component":
+            self._component(attrs)
+
+    def handle_endtag(self, tag):
+        if tag in VOID_TAGS:
+            return
+        for i in range(len(self.stack) - 1, -1, -1):
+            if self.stack[i][0] == tag:
+                for t, line in self.stack[i + 1:]:
+                    self.tag_errors.append((line, f"<{t}> is not closed"))
+                del self.stack[i:]
+                return
+        self.tag_errors.append((self.getpos()[0], f"</{tag}> closes nothing"))
+
+    def finish(self):
+        self.close()
+        for t, line in self.stack:
+            self.tag_errors.append((line, f"<{t}> is not closed"))
+        self.stack = []
+        return self
+
+
+def read_form_html(path: Path):
+    """The parsed form, or None when the file cannot be read."""
+    try:
+        f = FormHtml()
+        f.feed(path.read_text(encoding="utf-8"))
+        return f.finish()
+    except Exception:
+        return None
+
+
+def load_inventory(app: Path, cfg: dict):
+    """The theme's component inventory (component-inventory.yaml), or None."""
+    name = cfg.get("component_inventory") or ""
+    if not name:
+        return None
+    p = Path(name) if Path(name).is_absolute() else app / name
+    data = load_yaml(p) if p.exists() else None
+    return (data or {}).get("components") if data else None
 
 
 # --------------------------------------------------------------------------- scanner
@@ -243,7 +327,14 @@ class Scanner:
         self.anvil = load_yaml(app / "anvil.yaml") or {}
         self.server = py_files(app, "server_code")
         self.client = py_files(app, "client_code")
-        self.forms = sorted((app / "client_code").rglob("form_template.yaml")) if (app / "client_code").exists() else []
+        code = app / "client_code"
+        self.forms = sorted(code.rglob("form_template.html")) if code.exists() else []
+        self.yaml_forms = sorted(code.rglob("form_template.yaml")) if code.exists() else []
+        self.html = {f: read_form_html(f) for f in self.forms}
+        self.inventory = load_inventory(app, cfg)
+        self.theme_deps = {d.get("dep_id") for d in (self.anvil.get("dependencies") or [])
+                           if (d.get("resolution_hints") or {}).get("app_id") == cfg.get("theme_app_id")
+                           and d.get("dep_id")}
         self.theme = sorted(p for p in (app / "theme").rglob("*") if p.suffix in (".css", ".html")) \
             if (app / "theme").exists() else []
         self.trees = {p: parse(p) for p in self.server + self.client}
@@ -454,8 +545,8 @@ class Scanner:
             r.skipped = "applies to App 3 and client instances"
             self.add(r)
             return
-        if self.forms:
-            for f in self.forms:
+        if self.forms or self.yaml_forms:
+            for f in self.forms + self.yaml_forms:
                 r.findings.append(Finding(rel(self.app, f), 0, "form in a client instance"))
         if self.server:
             for f in self.server:
@@ -746,34 +837,129 @@ class Scanner:
             if TIME_NAME_RE.search(cname) and ctype not in ("datetime", "date"):
                 r["DD-15"].findings.append(Finding("anvil.yaml", 0, f"column '{name}.{cname}' is {ctype}"))
 
-    # -- UI scans
-    def ui_forms(self, r10, r11, r12):
+    # -- UI scans (forms are HTML templates: spec-ui-standards, mo-ui-production)
+    def theme_component(self, ty: str):
+        """The inventory key of a theme component or layout type, or None if ty is not one.
+
+        HTML templates name a theme component by its package-qualified spec, for example
+        m3._Components.Card; the legacy form:dep_<id>:... spec is resolved too, so that it
+        can be checked as well as reported."""
+        pkg = self.cfg.get("theme_package") or "m3"
+        if ty.startswith("form:"):
+            path = ty[5:]
+            m = re.match(r"(dep_[A-Za-z0-9]+)[:.](.+)$", path)
+            if m:
+                return f"{pkg}.{m.group(2)}" if m.group(1) in self.theme_deps else None
+            ty = path
+        return ty if ty.startswith(pkg + ".") else None
+
+    def own_form(self, ty: str) -> bool:
+        """True when ty is a package-qualified form of this application."""
+        own = self.anvil.get("package_name") or ""
+        return bool(own) and ty.split(":")[-1].startswith(own + ".")
+
+    def ui_forms(self, r10, r11, r12, r13, r14, r15):
         approved = set(self.cfg["approved_components"])
+        inv = self.inventory
+        for f in self.yaml_forms:
+            r15.findings.append(Finding(rel(self.app, f), 0, "form template is YAML; forms are built as HTML"))
         for f in self.forms:
-            data = load_yaml(f)
-            if data is None:
-                r11.findings.append(Finding(rel(self.app, f), 0, "unreadable form template"))
+            form = self.html.get(f)
+            where = rel(self.app, f)
+            if form is None:
+                r15.findings.append(Finding(where, 0, "unreadable form template"))
                 continue
-            comps = []
-            walk_components(data, comps)
-            for c in comps:
-                self.ui_component(f, c, approved, r10, r11)
+            for line, msg in form.tag_errors:
+                r15.findings.append(Finding(where, line, msg))
+            for line, spec in form.legacy:
+                r15.findings.append(Finding(where, line, f"legacy spec {spec}; write the package-qualified spec"))
+            self.ui_handlers(f, where, form, inv, r13)
+            self.ui_layout(where, form, inv, r10, r13)
+            for c in form.components:
+                self.ui_component(where, c, approved, inv, r10, r11, r13, r14)
             text = f.read_text(encoding="utf-8", errors="replace")
             for i, line in enumerate(text.splitlines(), 1):
                 if COLOUR_RE.search(line) and "theme:" not in line:
-                    r12.findings.append(Finding(rel(self.app, f), i, line.strip()[:70]))
-        if not approved:
-            r10.skipped = "no approved component list in ts-config.yaml"
+                    r12.findings.append(Finding(where, i, line.strip()[:70]))
+        if not approved and inv is None:
+            r10.skipped = "no approved component list or theme inventory in ts-config.yaml"
+        if inv is None:
+            r13.skipped = r14.skipped = "no theme inventory (component_inventory) in ts-config.yaml"
 
-    def ui_component(self, f, c, approved, r10, r11):
-        ty = c.get("type", "")
-        short = ty.split(":")[-1].split(".")[-1] if ty.startswith("form:") else ty
-        if short in BANNED_COMPONENTS or ty in BANNED_COMPONENTS:
-            r11.findings.append(Finding(rel(self.app, f), 0, f"component type {ty} ({c.get('name', 'container')})"))
+    def ui_layout(self, where, form, inv, r10, r13):
+        layout = (form.root or {}).get("layout") or ""
+        key = self.theme_component(layout)
+        if key is None or inv is None:
+            return
+        spec = inv.get(key)
+        if spec is None or not spec.get("layout"):
+            r10.findings.append(Finding(where, 1, f"layout {layout} is not a layout of the theme"))
+            return
+        for line, slot in form.slots:
+            if slot not in (spec.get("slots") or []):
+                r13.findings.append(Finding(where, line, f"layout {key.split('.')[-1]} has no slot {slot!r}"))
+
+    def ui_handlers(self, f, where, form, inv, r13):
+        """Each @handle("<component>", "<event>") in the form's class names a component of the
+        template and an event that component raises."""
+        py = f.parent / "__init__.py"
+        tree = self.trees.get(py)
+        if tree is None:
+            return
+        comps = {c.name: c for c in form.components if c.name}
+        for node in ast.walk(tree):
+            if not (isinstance(node, ast.Call) and dotted(node).endswith("handle") and len(node.args) == 2):
+                continue
+            if not all(isinstance(x, ast.Constant) and isinstance(x.value, str) for x in node.args):
+                continue
+            name, event = node.args[0].value, node.args[1].value
+            if name == "":
+                continue  # an event of the form itself
+            c = comps.get(name)
+            if c is None:
+                r13.findings.append(Finding(rel(self.app, py), node.lineno, f"@handle names {name!r}, which is not in the template"))
+                continue
+            key = self.theme_component(c.type)
+            spec = inv.get(key) if (inv is not None and key) else None
+            if spec is not None and event not in (spec.get("events") or []):
+                r13.findings.append(Finding(rel(self.app, py), node.lineno,
+                                            f"@handle: {c.type.split('.')[-1]} {name!r} has no event {event!r}"))
+
+    def ui_component(self, where, c, approved, inv, r10, r11, r13, r14):
+        ty, label = c.type, c.name or "unnamed"
+        short = ty.split(":")[-1].split(".")[-1]
+        if not ty:
+            r10.findings.append(Finding(where, c.line, f"component {label} has no type"))
+            return
+        if ty in BANNED_COMPONENTS:
+            r11.findings.append(Finding(where, c.line, f"component type {ty} ({label})"))
         if EXTRAS_HINT.search(ty):
-            r11.findings.append(Finding(rel(self.app, f), 0, f"Anvil Extras component {ty}"))
-        if approved and ty not in approved and short not in approved and not ty.startswith("form:"):
-            r10.findings.append(Finding(rel(self.app, f), 0, f"component type {ty} is not on the approved list"))
+            r11.findings.append(Finding(where, c.line, f"Anvil Extras component {ty} ({label})"))
+        key = self.theme_component(ty)
+        if key is not None:
+            if inv is None:
+                return
+            spec = inv.get(key)
+            if spec is None:
+                r10.findings.append(Finding(where, c.line, f"{ty} ({label}) is not a component of the theme"))
+                return
+            props = {p["name"]: p for p in spec.get("properties") or []}
+            for name in list(c.props) + list(c.binds) + list(c.writebacks):
+                if name not in props:
+                    r13.findings.append(Finding(where, c.line, f"{label}: {short} has no property {name!r}"))
+            for name in c.writebacks:
+                if name in props and not props[name].get("writeback"):
+                    r14.findings.append(Finding(where, c.line, f"{label}: {short}.{name} does not support writeback"))
+            events = set(spec.get("events") or [])
+            for name in c.events:
+                if name not in events:
+                    r13.findings.append(Finding(where, c.line, f"{label}: {short} has no event {name!r}"))
+            return
+        if self.own_form(ty):
+            return  # a form of this application, used as a component
+        if approved and ty not in approved:
+            r10.findings.append(Finding(where, c.line, f"component type {ty} ({label}) is neither a theme component "
+                                                        f"nor on the approved list"))
 
     def ui_theme(self, r12, r16):
         for p in self.theme:
@@ -816,17 +1002,20 @@ class Scanner:
                     r27.findings.append(Finding(rel(self.app, p), node.lineno, "navigate_to"))
 
     def ui_scans(self):
-        r10 = Result("ST-11", "Forms use only approved components")
+        r10 = Result("ST-11", "Forms use only theme components or approved Anvil components")
         r11 = Result("ST-11", "No banned component appears")
         r12 = Result("ST-11", "No colour is hard-coded")
+        r13 = Result("ST-11", "Every property and event exists on its theme component")
+        r14 = Result("ST-11", "Writeback is used only on properties that support it")
+        r15 = Result("ST-11", "Forms are well-formed HTML templates")
         r16 = Result("ST-11", "Responsiveness uses wrap_on (no pixel media queries)")
         r26 = Result("ST-11", "Loop handlers capture their variables")
         r27 = Result("ST-11", "navigate_to is not used")
         r29 = Result("ST-11", "No server call inside a loop")
-        self.ui_forms(r10, r11, r12)
+        self.ui_forms(r10, r11, r12, r13, r14, r15)
         self.ui_theme(r12, r16)
         self.ui_client(r26, r27, r29)
-        for r in (r10, r11, r12, r16, r26, r27, r29):
+        for r in (r10, r11, r12, r13, r14, r15, r16, r26, r27, r29):
             self.add(r)
 
     # -- translation (ST-14, spec-translation section 11)
@@ -853,18 +1042,16 @@ class Scanner:
         en = langs["en"]
         used = {}
         for f in self.forms:
-            comps = []
-            walk_components(load_yaml(f) or {}, comps)
-            for c in comps:
-                props = c.get("properties") or {}
+            form = self.html.get(f)
+            for c in (form.components if form else []):
                 for prop in VISIBLE_TEXT_PROPS:
-                    v = props.get(prop)
+                    v = c.props.get(prop)
                     if isinstance(v, str) and v.strip():
                         if PHRASE_KEY_RE.fullmatch(v.strip()):
-                            used.setdefault(v.strip(), rel(self.app, f))
+                            used.setdefault(v.strip(), f"{rel(self.app, f)}:{c.line}")
                         else:
-                            r.findings.append(Finding(rel(self.app, f), 0,
-                                f"{c.get('name', 'component')}.{prop} holds words, not a phrase key: {v.strip()[:40]!r}"))
+                            r.findings.append(Finding(rel(self.app, f), c.line,
+                                f"{c.name or 'component'}.{prop} holds words, not a phrase key: {v.strip()[:40]!r}"))
         for p in self.client + self.server:
             text = p.read_text(encoding="utf-8", errors="replace")
             for i, line in enumerate(text.splitlines(), 1):

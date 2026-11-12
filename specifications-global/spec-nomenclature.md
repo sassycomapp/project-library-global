@@ -1,7 +1,7 @@
 ---
 title: "spec-nomenclature"
 doc-id: "mb-a3648afc"
-updated: "2026-11-10"
+updated: "2026-11-12"
 ---
 # Nomenclature and Naming Conventions
 
@@ -111,29 +111,83 @@ Every folder in `project-library-global` has a matching local folder in each pro
 | Client utility | `{purpose}_utils.py` | `validation_utils.py` |
 | Client helper | `{purpose}_helpers.py` | `navigation_helpers.py` |
 
-**Components:**
+**Components:** every component's Python name starts with its type's prefix, followed by its purpose in lowercase with underscores, for example `btn_save` or `txt_email`.
 
-| Component | Prefix | Example |
-|---|---|---|
-| Button | `btn_` | `btn_save` |
-| TextBox / TextArea | `txt_` | `txt_name` |
-| Heading | `hdg_` | `hdg_title` |
-| DropdownMenu | `dd_` | `dd_status` |
-| DatePicker | `dp_` | `dp_date` |
-| FileLoader | `fu_` | `fu_upload` |
-| Link / navigation | `nav_` | `nav_dashboard` |
-| Checkbox | `cb_` | `cb_agree` |
-| RadioButton | `rb_` | `rb_option` |
-| ColumnPanel | `col_` | `col_main` |
-| FlowPanel | `flow_` | `flow_header` |
-| Card | `card_` | `card_details` |
-| DataGrid | `dg_` | `dg_customers` |
-| DataRowPanel | `drp_` | `drp_comment_row` |
-| Icon (decorative IconButton, no click event) | `ico_` | `ico_empty_vault` |
-| RepeatingPanel | `rp_` | `rp_items` |
-| Plot | `plot_` | `plot_revenue` |
+Theme components (`m3-custom-theme`):
 
-Only the components [[[default:specifications-global/spec-ui-standards|UI Standards]]](C:/dev/project-library-global/specifications-global/spec-ui-standards.md) allows may be used. An event handler is named `<component_name>_<event>`, for example `btn_save_click`. The legacy `Label` component is banned. Any component not on that list is restricted until an ADR adds it, together with its prefix.
+| Component | Prefix |
+|---|---|
+| Avatar | `av_` |
+| AvatarMenu | `avm_` |
+| Badge | `bdg_` |
+| BottomSheet | `bsh_` |
+| Button | `btn_` |
+| ButtonGroup | `bgrp_` |
+| ButtonMenu | `bmenu_` |
+| Card | `card_` |
+| CardContentContainer | `cc_` |
+| Carousel | `car_` |
+| Checkbox | `cb_` |
+| Chip | `chip_` |
+| CircularProgressIndicator | `cpi_` |
+| DatePicker | `dp_` |
+| Dialog | `dlg_` |
+| Divider | `div_` |
+| DropdownMenu | `dd_` |
+| FabMenu | `fabm_` |
+| FileLoader | `fu_` |
+| FloatingActionButton | `fab_` |
+| Heading | `hdg_` |
+| IconButton | `ibtn_` |
+| IconButtonMenu | `ibm_` |
+| InteractiveCard | `icard_` |
+| LinearProgressIndicator | `lpi_` |
+| Link | `lnk_` |
+| ListItem | `li_` |
+| LoadingIndicator | `load_` |
+| MenuItem | `mnu_` |
+| NavigationBar | `navbar_` |
+| NavigationLink | `nav_` |
+| PaneLayout | `pane_` |
+| RadioButton | `rb_` |
+| RadioGroupPanel | `rg_` |
+| SearchBar | `srch_` |
+| SidesheetContent | `side_` |
+| Slider | `sld_` |
+| SplitButton | `split_` |
+| Switch | `sw_` |
+| Tabs | `tabs_` |
+| Text | `text_` |
+| TextArea | `txt_` |
+| TextBox | `txt_` |
+| TimePicker | `tp_` |
+| ToggleIconButton | `tib_` |
+| Toolbar | `tbar_` |
+| TopAppBar | `appbar_` |
+
+A decorative IconButton, with no click event, takes `ico_` instead of `ibtn_`, for example `ico_empty_vault`.
+
+Anvil standard components, used only where `approved_components` in `ts-config.yaml` lists them:
+
+| Component | Prefix |
+|---|---|
+| ColumnPanel | `col_` |
+| FlowPanel | `flow_` |
+| LinearPanel | `lin_` |
+| GridPanel | `grid_` |
+| DataGrid | `dg_` |
+| DataRowPanel | `drp_` |
+| RepeatingPanel | `rp_` |
+| Image | `img_` |
+| Spacer | `sp_` |
+| Timer | `tmr_` |
+| Plot | `plot_` |
+
+Rules:
+
+1. Only the components [[[default:specifications-global/spec-ui-standards|UI Standards]]](C:/dev/project-library-global/specifications-global/spec-ui-standards.md) allows are used. `Label` is banned; the theme's `Text` replaces it.
+2. An event handler is named `<component name>_<event>`, with the event exactly as the theme's inventory names it, for example `btn_save_click`, `txt_email_pressed_enter` or `dd_status_change`. The handler is a method of the form, wired with `@handle("<component name>", "<event>")`.
+3. A component added to the theme takes its prefix in this table in the same change that adds it.
 
 **Data tables:** table names lowercase with underscores, no prefix; link columns `{table}_id` or the singular name of the target table; `created_at` on every table; `updated_at` on every table whose rows are edited after creation; `metadata` (Simple Object) on every core table, as [[[default:policy-global/pol-common-aspects-for-mybizz-anvil-applications]]](C:/dev/project-library-global/policy-global/pol-common-aspects-for-mybizz-anvil-applications.md) common aspect 4 sets out.
 

@@ -1,405 +1,117 @@
 ---
 title: "spec-component-properties"
 doc-id: "mb-5162b6c9"
-updated: "2026-11-07"
+updated: "2026-11-12"
 ---
 # Component Properties Specification
 
-**Vertical:** Consulting & Services  
-**Platform:** Anvil.works with Material Design 3 (M3)  
-**Purpose:** Definitive list of all component properties with Designer vs Code classification
+## 1. Purpose and Source
 
----
+- This specification states how a form sets component properties, bindings and events, and which theme components support writeback.
+- The facts for each component come from the theme's documentation in `m3-custom-theme-project-library`, as [[[default:specifications-global/spec-ui-standards|UI Standards]]](C:/dev/project-library-global/specifications-global/spec-ui-standards.md) section 2 sets out. `docs/base-inventory.md` lists every property of every component, with its type, options, default and description; `docs/component-inventory.yaml` holds the same facts for tools.
+- This specification does not repeat each component's properties. Where it and the theme's documentation differ, the theme's documentation is right and this specification is corrected.
 
-## Classification Rules
+Why: one source of component facts. The previous version of this file listed properties by hand and had drifted from the theme.
 
-- **Designer**: Property can ONLY be set in Anvil Designer. Cannot be set programmatically in Python.
-- **Code**: Property can be set in Python code (`self.component.property = value`) or via CSS.
+## 2. Setting Properties in a Form Template
 
----
+A form is an HTML template, `form_template.html`. Each component is an `<anvil-component>` element.
 
-## Button Components
-
-### Button, IconButton, Outlined Button
-
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| text | Code | "" | Button label text |
-| enabled | Code | True | Whether button is clickable |
-| visible | Code | True | Whether button is visible |
-| role | Code | "filled" | M3 role: filled, outlined, text, tonal |
-| icon | Code | None | Icon name using `mi:` prefix (e.g., `mi:save`, `mi:delete`) |
-| icon_alignment | Code | "leading" | "leading" or "trailing" |
-| on_click | Code | None | Event handler function |
-
-**Designer-Only Properties:**
-- None — All Button properties can be set in code
-
----
-
-## TextBox Components
-
-### TextBox
-
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| value | Code | "" | Text content |
-| enabled | Code | True | Whether input is editable |
-| visible | Code | True | Whether component is visible |
-| placeholder | Code | "" | Placeholder text |
-| readonly | Code | False | Whether input is read-only |
-| password | Code | False | Whether text is masked |
-| hide_text | Designer | False | **Designer-only**: Password masking toggle (W) |
-| outlined | Code | True | M3 appearance: outlined or filled |
-| on_change | Code | None | Event handler on value change |
-| on_enter | Code | None | Event handler on Enter key |
-
-**Designer-Only Properties:**
-- **hide_text** — Password masking must be enabled in Designer Data Bindings panel. Cannot be set in code.
-
----
-
-## TextArea Components
-
-### TextArea
-
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| value | Code | "" | Text content |
-| enabled | Code | True | Whether input is editable |
-| visible | Code | True | Whether component is visible |
-| placeholder | Code | "" | Placeholder text |
-| readonly | Code | False | Whether input is read-only |
-| rows | Code | 4 | Number of visible rows |
-| outlined | Code | True | M3 appearance: outlined or filled |
-| on_change | Code | None | Event handler on value change |
-
-**Designer-Only Properties:**
-- None — All TextArea properties can be set in code
-
----
-
-## Heading Components
-
-### Heading
-
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| text | Code | "" | Heading text |
-| enabled | Code | True | Whether component is enabled |
-| visible | Code | True | Whether component is visible |
-| role | Code | "headline-small" | M3 semantic role: headline-large, headline-medium, headline-small, title-large, title-medium, title-small, body-large, body-medium, body-small, label-large, label-medium, label-small |
-| on_click | Code | None | Event handler on click |
-
-**Designer-Only Properties:**
-- None — All Heading properties can be set in code
-
----
-
-## DropdownMenu Components
-
-### DropdownMenu
-
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| value | Code | None | Selected item value |
-| items | Code | [] | List of available items |
-| enabled | Code | True | Whether dropdown is enabled |
-| visible | Code | True | Whether component is visible |
-| outlined | Code | True | M3 appearance: outlined or filled |
-| placeholder | Code | "" | Placeholder text when no selection |
-| on_change | Code | None | Event handler on selection change |
-| hide_text | Designer | False | **Designer-only**: Write Back toggle (W) |
-
-**Designer-Only Properties:**
-- **hide_text** — Write Back toggle must be enabled in Designer for data binding. Cannot be set in code.
-
----
-
-## DatePicker Components
-
-### DatePicker
-
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| value | Code | None | Selected date (datetime object) |
-| enabled | Code | True | Whether picker is enabled |
-| visible | Code | True | Whether component is visible |
-| outlined | Code | True | M3 appearance: outlined or filled |
-| min_date | Code | None | Minimum selectable date |
-| max_date | Code | None | Maximum selectable date |
-| on_change | Code | None | Event handler on date change |
-| hide_text | Designer | False | **Designer-only**: Write Back toggle (W) |
-
-**Designer-Only Properties:**
-- **hide_text** — Write Back toggle must be enabled in Designer for data binding. Cannot be set in code.
-
----
-
-## Panel Components
-
-### ColumnPanel
-
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| visible | Code | True | Whether panel is visible |
-| horizontal | Code | False | Layout orientation: False = vertical, True = horizontal |
-
-**Designer-Only Properties:**
-- None — All ColumnPanel properties can be set in code
-
-### FlowPanel
-
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| visible | Code | True | Whether panel is visible |
-| horizontal | Code | False | Layout orientation: False = vertical, True = horizontal |
-
-**Designer-Only Properties:**
-- None — All FlowPanel properties can be set in code
-
-### LinearPanel (Deprecated)
-
-**Note:** LinearPanel is deprecated. Use FlowPanel instead.
-
----
-
-## Card Components
-
-### Card
-
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| visible | Code | True | Whether card is visible |
-| role | Code | "outlined" | M3 role: outlined, filled, tonal, elevated |
-| on_click | Code | None | Event handler on click |
-
-**Designer-Only Properties:**
-- None — All Card properties can be set in code
-
-### CardContentContainer
-
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| visible | Code | True | Whether container is visible |
-
-**Designer-Only Properties:**
-- None — Auto-created inside Card, cannot be modified
-
----
-
-## DataGrid Components
-
-### DataGrid
-
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| items | Code | [] | List of row data |
-| columns | Code | [] | Column definitions |
-| visible | Code | True | Whether grid is visible |
-| role | Code | "tonal-data-grid" | M3 appearance role |
-| row_actions | Code | [] | List of action buttons per row |
-| on_row_click | Code | None | Event handler on row click |
-| on_row_action | Code | None | Event handler on row action click |
-
-**Designer-Only Properties:**
-- None — All DataGrid properties can be set in code
-
----
-
-## RepeatingPanel Components
-
-### RepeatingPanel
-
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| items | Code | [] | List of data items |
-| visible | Code | True | Whether panel is visible |
-| template | Designer | None | **Designer-only**: Template form for repeated items |
-| on_item_click | Code | None | Event handler on item click |
-
-**Designer-Only Properties:**
-- **template** — Template form must be set in Designer. Cannot be set in code.
-
----
-
-## InteractiveCard Components
-
-### InteractiveCard
-
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| visible | Code | True | Whether card is visible |
-| role | Code | "outlined-card" | M3 role: outlined-card, filled-card, elevated-card. Note: `tonal-card` is NOT a valid InteractiveCard appearance. |
-| on_click | Code | None | Event handler on click |
-
-**Designer-Only Properties:**
-- None — All InteractiveCard properties can be set in code
-
----
-
-## FileLoader Components
-
-### FileLoader
-
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| media | Code | None | Uploaded media object |
-| enabled | Code | True | Whether loader is enabled |
-| visible | Code | True | Whether component is visible |
-| outlined | Code | True | M3 appearance: outlined or filled |
-| accept | Code | "*" | File type filter (e.g., "image/*", ".pdf") |
-| max_size | Code | None | Maximum file size in bytes |
-| on_upload | Code | None | Event handler on upload complete |
-
-**Designer-Only Properties:**
-- None — All FileLoader properties can be set in code
-
----
-
-## Link Components
-
-### Link
-
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| text | Code | "" | Link text |
-| url | Code | "" | Target URL |
-| enabled | Code | True | Whether link is clickable |
-| visible | Code | True | Whether link is visible |
-| on_click | Code | None | Event handler on click |
-
-**Designer-Only Properties:**
-- None — All Link properties can be set in code
-
----
-
-## Checkbox Components
-
-### Checkbox
-
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| value | Code | False | Whether checkbox is checked |
-| enabled | Code | True | Whether checkbox is enabled |
-| visible | Code | True | Whether component is visible |
-| label | Code | "" | Checkbox label text |
-| on_change | Code | None | Event handler on change |
-
-**Designer-Only Properties:**
-- None — All Checkbox properties can be set in code
-
----
-
-## RadioButton Components
-
-### RadioButton
-
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| value | Code | False | Whether radio button is selected |
-| enabled | Code | True | Whether radio button is enabled |
-| visible | Code | True | Whether component is visible |
-| label | Code | "" | Radio button label text |
-| group_name | Code | "" | Radio group name (for mutual exclusion) |
-| on_change | Code | None | Event handler on change |
-
-**Designer-Only Properties:**
-- None — All RadioButton properties can be set in code
-
----
-
-## HTMLTemplate Components
-
-### HTMLTemplate — BANNED ([[[default:adr-global/adr-htmltemplate-use|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) ADR)
-
-**HTMLTemplate is banned.** Use stock Anvil M3 components and the two native M3 Layouts (NavigationRailLayout, NavigationDrawerLayout) in all cases. See [[[default:adr-global/adr-htmltemplate-use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) for the full decision.
-
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| html | Code | "" | HTML string content |
-| visible | Code | True | Whether template is visible |
-| anvil_slot_repeat | Designer | None | **Designer-only**: Slot name for repeating content |
-
-**Designer-Only Properties:**
-- **anvil_slot_repeat** — Slot name for dynamic content injection. Must be set in Designer.
-
----
-
-## SidesheetContent Components
-
-### SidesheetContent — APPROVED
-
-**SidesheetContent is approved** as the side sheet of `NavigationDrawerLayout` and `NavigationRailLayout`, and is used nowhere else. It is the theme's container component `m3._Components.SidesheetContent`, checked against the M3 side sheet specification in the theme's `docs/components/SideSheet.md`.
-
-- **Properties:** none. **Events:** none.
-- **Placed in:** the layout's `anvil-m3-sidesheet` slot.
-- **Its own slots:** `anvil-m3-sidesheet-title`, `anvil-m3-sidesheet-close-button`, `anvil-m3-sidesheet` (the content) and `anvil-m3-sidesheet-footer`.
-- **Shown and hidden by the layout's** `show_sidesheet` property (boolean; default `False` on `NavigationDrawerLayout`, `True` on `NavigationRailLayout`).
-
----
-
-## Plot Components
-
-### Plot
-
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| data | Code | None | Plot data configuration |
-| visible | Code | True | Whether plot is visible |
-| width | Code | 600 | Plot width in pixels |
-| height | Code | 400 | Plot height in pixels |
-| on_click | Code | None | Event handler on plot click |
-
-**Designer-Only Properties:**
-- None — All Plot properties can be set in code
-
----
-
-## ProgressIndicator Components
-
-### LinearProgressIndicator, CircularProgressIndicator
-
-| Property | Classification | Default | Description |
-|----------|---------------|---------|-------------|
-| visible | Code | True | Whether indicator is visible |
-| indeterminate | Code | True | Whether indicator is indeterminate (spinning) |
-| progress | Code | 0.0 | Progress value (0.0 to 1.0) for determinate mode |
-
-**Designer-Only Properties:**
-- None — All ProgressIndicator properties can be set in code
-
----
-
-## Summary: Designer-Only Properties
-
-The following properties can ONLY be set in Anvil Designer and cannot be set programmatically:
-
-| Component | Property | Purpose |
-|-----------|----------|---------|
-| TextBox | hide_text | Password masking toggle (W) |
-| DropdownMenu | hide_text | Write Back toggle (W) |
-| DatePicker | hide_text | Write Back toggle (W) |
-| RepeatingPanel | template | Template form assignment |
-
-**Critical Note:** The Write Back toggle (hide_text) must be enabled in the Designer Data Bindings panel for all text input components (TextBox, TextArea, DropdownMenu, DatePicker) to support the `self.item` data binding pattern. This toggle cannot be set in Python code.
-
----
-
-## Summary: Writeback-Capable Components
-
-The following components support two-way data bindings (Write Back) in the Designer Data Bindings panel. When Write Back is enabled, the component's value is automatically written back to the bound data source when relevant input events fire (e.g., `pressed_enter`, `lost_focus`).
-
-| Component | Writeback Property | Source |
+| Attribute | Sets | Example |
 |---|---|---|
-| TextBox | `text` | Anvil Data Bindings docs |
-| TextArea | `text` | Anvil Data Bindings docs |
-| DropdownMenu | `selected_value` | Anvil M3 docs |
-| DatePicker | `selected_date` | Anvil Data Bindings docs |
-| Checkbox | `checked` | Anvil M3 docs |
-| Switch | `selected` | Anvil M3 docs |
-| RadioGroupPanel | `selected_value` | Anvil M3 docs |
-| Slider | `value` | Anvil M3 docs |
+| `type` | The component type: a theme component's inventory key, a form of the application by its package-qualified name, or an approved Anvil component. The legacy `form:dep_<id>:...` spec is never written | `type="m3._Components.Button"` |
+| `name` | The Python name, with the prefix [[[default:specifications-global/spec-nomenclature\|Nomenclature]]](C:/dev/project-library-global/specifications-global/spec-nomenclature.md) section 1.6 gives | `name="btn_save"` |
+| `prop:<property>` | A fixed property value, read as JSON: `true`, `false`, `null`, numbers, arrays and objects; anything else is a string | `prop:text="booking.save"`, `prop:enabled="false"` |
+| `bind:<property>` | A one-way data binding | `bind:text="self.item['name']"` |
+| `writeback:<property>` | A two-way data binding; only on a property in section 4 | `writeback:text="self.item['name']"` |
 
-**Not writeback-capable:** RadioButton, FileLoader. Display-only: Text, Link, RichText, Heading, LinearProgressIndicator, CircularProgressIndicator.
+Event handlers are wired in the form's Python class, not in the template: `@handle("btn_save", "click")` above `def btn_save_click(self, **event_args):`, with `from anvil import *` at the top of the module.
 
+Rules:
+
+1. Every property, binding and handled event names something the component has in the theme's inventory. `ts_scan.py` (ST-11) fails a form that names anything else.
+2. A visible text property (`text`, `placeholder`, `tooltip`, `title`, `label`, `content`) holds a phrase key, never words ([[[default:specifications-global/spec-translation|Translation]]](C:/dev/project-library-global/specifications-global/spec-translation.md)).
+3. Colours, fonts and spacing come from the theme's roles and tokens, never from a value written in the template.
+4. A layout form's components sit in `<anvil-block slot="...">` elements, and each slot is one the layout offers in the inventory.
+5. Every Anvil element is closed with its own closing tag, even when empty; none is self-closed with `/>`.
+6. Every property can also be set in code. There are no designer-only properties.
+
+## 3. Theme Components
+
+Every component the theme offers, with the events it raises. Layouts (`m3.Layouts.NavigationDrawerLayout` and `m3.Layouts.NavigationRailLayout`) are listed in the inventory with their slots.
+
+| Component | Inventory key | Events |
+|---|---|---|
+| Avatar | `m3._Components.Avatar` | none |
+| AvatarMenu | `m3._Components.AvatarMenu` | `click` |
+| Badge | `m3._Components.Badge` | `show`, `hide` |
+| BottomSheet | `m3._Components.BottomSheet` | `opened`, `closed`, `show`, `hide` |
+| Button | `m3._Components.Button` | `click`, `show`, `hide` |
+| ButtonGroup | `m3._Components.ButtonGroup` | `change`, `click`, `show`, `hide` |
+| ButtonMenu | `m3._Components.ButtonMenu` | `click`, `show`, `hide` |
+| Card | `m3._Components.Card` | `show`, `hide` |
+| CardContentContainer | `m3._Components.Card.CardContentContainer` | `show`, `hide` |
+| Carousel | `m3._Components.Carousel` | `item_click`, `change`, `show`, `hide` |
+| Checkbox | `m3._Components.Checkbox` | `change`, `show`, `hide` |
+| Chip | `m3._Components.Chip` | `click`, `change`, `remove`, `show`, `hide` |
+| CircularProgressIndicator | `m3._Components.CircularProgressIndicator` | `show`, `hide` |
+| DatePicker | `m3._Components.DatePicker` | `change`, `show`, `hide` |
+| Dialog | `m3._Components.Dialog` | `show`, `hide` |
+| Divider | `m3._Components.Divider` | `show`, `hide` |
+| DropdownMenu | `m3._Components.DropdownMenu` | `change`, `show`, `hide` |
+| FabMenu | `m3._Components.FabMenu` | `item_click`, `opened`, `closed`, `show`, `hide` |
+| FileLoader | `m3._Components.FileLoader` | `change`, `focus`, `lost_focus`, `show`, `hide` |
+| FloatingActionButton | `m3._Components.FloatingActionButton` | `click`, `show`, `hide` |
+| Heading | `m3._Components.Heading` | `show`, `hide` |
+| IconButton | `m3._Components.IconButton` | `click`, `show`, `hide` |
+| IconButtonMenu | `m3._Components.IconButtonMenu` | `click` |
+| InteractiveCard | `m3._Components.InteractiveCard` | `click`, `show`, `hide` |
+| LinearProgressIndicator | `m3._Components.LinearProgressIndicator` | `show`, `hide` |
+| Link | `m3._Components.Link` | `click`, `show`, `hide` |
+| ListItem | `m3._Components.ListItem` | `click`, `show`, `hide` |
+| LoadingIndicator | `m3._Components.LoadingIndicator` | `show`, `hide` |
+| MenuItem | `m3._Components.MenuItem` | `click` |
+| NavigationBar | `m3._Components.NavigationBar` | `change`, `show`, `hide` |
+| NavigationLink | `m3._Components.NavigationLink` | `click`, `show`, `hide` |
+| PaneLayout | `m3._Components.PaneLayout` | `width_class_change`, `show`, `hide` |
+| RadioButton | `m3._Components.RadioButton` | `select`, `show`, `hide` |
+| RadioGroupPanel | `m3._Components.RadioGroupPanel` | `change`, `hide`, `show` |
+| SearchBar | `m3._Components.SearchBar` | `search`, `change`, `show`, `hide` |
+| SidesheetContent | `m3._Components.SidesheetContent` | none |
+| Slider | `m3._Components.Slider` | `change`, `change_end`, `show`, `hide` |
+| SplitButton | `m3._Components.SplitButton` | `click`, `item_click`, `show`, `hide` |
+| Switch | `m3._Components.Switch` | `change`, `show`, `hide` |
+| Tabs | `m3._Components.Tabs` | `change`, `show`, `hide` |
+| Text | `m3._Components.Text` | `show`, `hide` |
+| TextArea | `m3._Components.TextInput.TextArea` | `change`, `show`, `hide`, `focus`, `lost_focus` |
+| TextBox | `m3._Components.TextInput.TextBox` | `trailing_icon_click`, `pressed_enter`, `change`, `show`, `hide`, `focus`, `lost_focus` |
+| TimePicker | `m3._Components.TimePicker` | `change`, `show`, `hide` |
+| ToggleIconButton | `m3._Components.ToggleIconButton` | `click`, `show`, `hide` |
+| Toolbar | `m3._Components.Toolbar` | `show`, `hide` |
+| TopAppBar | `m3._Components.TopAppBar` | `navigation_click`, `show`, `hide` |
+
+## 4. Writeback Properties
+
+Only these properties take `writeback:`. The writeback happens on the events shown.
+
+| Component | Property | Written back on |
+|---|---|---|
+| ButtonGroup | `selected_index` | `change` |
+| Checkbox | `checked` | `change` |
+| Chip | `selected` | `change` |
+| DatePicker | `date` | `change` |
+| DropdownMenu | `selected_value` | `change` |
+| RadioGroupPanel | `selected_value` | raised by the component itself |
+| SearchBar | `text` | `change` |
+| Slider | `value` | `change_end` |
+| Switch | `selected` | `change` |
+| Tabs | `selected_index` | `change` |
+| TextArea | `text` | raised by the component itself |
+| TextBox | `text` | raised by the component itself |
+| TimePicker | `time` | `change` |
+
+Not writeback-capable: every other property, including RadioButton, FileLoader and every display component.
+
+## 5. Anvil Standard Components
+
+A form uses an Anvil standard component only where the theme has none for the purpose, and only if it is in `approved_components` in the application's `ts-config.yaml` (UI Standards section 3). Their properties are in Anvil's own documentation, in `project-library-global/anvil-docs/components/`. `HTMLTemplate`, `HtmlPanel` and `Label` are banned; [[[default:adr-global/adr-htmltemplate-use|HTMLTemplate Use]]](C:/dev/project-library-global/adr-global/adr-htmltemplate-use.md) governs `HTMLTemplate`.

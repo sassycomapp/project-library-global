@@ -1,7 +1,7 @@
 ---
 title: "spec-ui-standards"
 doc-id: "mb-8d841a9d"
-updated: "2026-11-06"
+updated: "2026-11-12"
 ---
 # Mybizz — UI Standards
 
@@ -17,7 +17,8 @@ updated: "2026-11-06"
 2. The theme's package name is `m3`. In code and in form templates, `m3.` always means `m3-custom-theme`.
 3. The theme's documentation, in the `m3-custom-theme-project-library` repository, is the single source for every component's type, properties, events and writeback property:
    - `docs/base-inventory.md` for the components the theme inherits;
-   - `docs/components/<Component>.md` for each component the theme adds.
+   - `docs/components/<Component>.md` for each component the theme adds;
+   - `docs/component-inventory.yaml`, the same facts for tools, generated from the theme's component definitions by `tools/build_inventory.py` and never edited by hand. Each application keeps a copy in `tests/` for `ts_scan.py`.
 4. A component property that is not in that documentation does not exist. No agent guesses a component, a property or a value.
 
 Why: one theme and one source of component facts stop two component sets, or two descriptions of one component, from entering an application.
@@ -40,7 +41,7 @@ Why: one theme and one source of component facts stop two component sets, or two
    - `form_template.html`, the form's layout;
    - `__init__.py`, the form's Python class.
 2. Every form template is HTML. No form template is written in YAML.
-3. A form template names each theme component by the type path its documentation gives, for example `m3._Components.Card`, and sets each property as `prop:<name>="<value>"`.
+3. A form template names each theme component by the package-qualified type its documentation gives, for example `type="m3._Components.Card"`, and sets each property as `prop:<name>="<value>"`. The legacy `form:dep_<id>:...` spec is never written.
 4. Theme layouts, slots and blocks follow Anvil's HTML template syntax: `<anvil-form layout="...">`, `<anvil-block slot="...">`, `<anvil-slot name="...">`.
 5. A form's identity is its module path: the folders below `client_code`, then the form name, joined by dots (for example `auth.LoginForm`). The module path is unique, even where two forms share a name.
 6. Every reference to a form uses its module path: the access matrix, the screen requirement, the spec sheet, routes and `anvil.yaml`.
@@ -190,4 +191,4 @@ Why: the screen requirement is the design David approves; the spec sheet is the 
 Every new or changed form passes both checks before it is committed:
 
 1. `anvil --json validate client_code` passes. This checks the Python files and `anvil.yaml`.
-2. The test suite scanner, `ts_scan.py`, passes for forms: every component type and property exists in the theme's documentation or in `approved_components`, every tag is closed, no banned component is used, and no colour value is written in the template.
+2. The test suite scanner, `ts_scan.py`, passes for forms: every form is an HTML template; every component type, layout, slot, property and event exists in the theme's component inventory, or the component is in `approved_components`; writeback is used only on properties that support it; every tag is closed; no banned component is used; and no colour value is written in the template.

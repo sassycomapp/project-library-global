@@ -38,9 +38,17 @@ core_tables: []
 # Tables the access matrix approves as client-readable views (ST-07).
 approved_client_views: []
 
-# Component types forms may use (ST-11); Material 3 components (form:dep_...)
-# are always allowed.
-approved_components: [ColumnPanel, FlowPanel, LinearPanel, RepeatingPanel, DataGrid, DataRowPanel, GridPanel, Image, Spacer, Timer, Plot, FileLoader, DatePicker, Link]
+# The theme's component inventory (ST-11): a copy of
+# m3-custom-theme-project-library/docs/component-inventory.yaml, kept in tests/
+# and replaced whenever the theme version changes. Every theme component, layout,
+# slot, property, event and writeback in a form is checked against it.
+component_inventory: tests/component-inventory.yaml
+theme_app_id: UGGJBAZUZ74XZ7VU
+theme_package: m3
+
+# Anvil standard components forms may use (ST-11): only those the theme has no
+# component for (spec-ui-standards section 3).
+approved_components: [ColumnPanel, FlowPanel, LinearPanel, RepeatingPanel, DataGrid, DataRowPanel, GridPanel, Image, Spacer, Timer, Plot]
 
 # Users service and app settings (ST-12); RS-16 sets the two periods.
 max_remember_me_days: 7

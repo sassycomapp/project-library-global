@@ -1,7 +1,7 @@
 ---
 title: "mo-ui-production"
 doc-id: "mb-a19c4d89"
-updated: "2026-11-06"
+updated: "2026-11-12"
 ---
 # Mybizz — Method of Operation: UI Production
 
@@ -28,7 +28,7 @@ Why the Anvil agent does not judge the UI: Anvil's own agent references cover on
 1. The application's only theme dependency is `m3-custom-theme`, with the package name `m3`.
 2. David's Claude account is connected to the Anvil agent in the Anvil editor.
 3. The Anvil CLI is installed on David's computer.
-4. The application's `ts-config.yaml` lists the allowed Anvil standard components in `approved_components`.
+4. The application's `ts-config.yaml` lists the allowed Anvil standard components in `approved_components`, and its `tests/` folder holds a current copy of the theme's `docs/component-inventory.yaml`.
 5. Features are built in this order: `layouts` and `shared` first, `auth` second, then every other feature. Why: every page form sits on a layout, and the application starts on its sign-in form.
 
 ## 4. Per Feature
@@ -62,7 +62,7 @@ Each feature is built, checked and signed off by David before the next feature s
 
 - the feature's approved screen requirements;
 - the scaffold specification, the user flows, the authoritative schema and the SRS, from the project library;
-- the theme's component documentation;
+- the theme's component documentation and `docs/component-inventory.yaml`;
 - `approved_components` in `ts-config.yaml`;
 - the feature's server module in `server_code/`;
 - [[[default:specifications-global/spec-ui-standards]]](C:/dev/project-library-global/specifications-global/spec-ui-standards.md), [[[default:specifications-global/spec-nomenclature]]](C:/dev/project-library-global/specifications-global/spec-nomenclature.md) and [[[default:specifications-global/spec-translation]]](C:/dev/project-library-global/specifications-global/spec-translation.md).
