@@ -172,7 +172,7 @@ Each form has two documents, both named after the form.
 
 ### 14.2 Spec Sheet
 
-- **Location:** `{slug}-app1/theme/assets/docs/app1/<package path>/<FormName>.md`.
+- **Location:** `{slug}-app{n}/theme/assets/docs/app{n}/<package path>/<FormName>.md`.
 - **Read by:** the Anvil agent.
 - **Written by:** `mb-form-builder`, from the approved screen requirement.
 - **Contents:**
