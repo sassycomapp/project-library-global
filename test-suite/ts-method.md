@@ -101,7 +101,7 @@ The app's Users service must be switched on before the runtime can sign in a `TE
 
 | Gate | The tests must show |
 |---|---|
-| `domain-locked` (16), `concept-locked` (21), `wireframes-approved` (26) | Every test of the steps before the gate passed |
+| `domain-locked` (16), `concept-locked` (21), `screens-approved` (26) | Every test of the steps before the gate passed |
 | `architecture-verified` (34) | The skeleton passes every scan and implements the threat model's controls |
 | `build-verified` (39) | Levels 0 to 3 pass for the feature, the whole suite still passes, every finding is decided, the developer signed off |
 | `production-released` (44) | Level 4 passes on App 2, App 3 and every client instance |

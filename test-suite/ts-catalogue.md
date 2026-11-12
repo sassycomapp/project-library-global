@@ -11,7 +11,7 @@ Every test a Mybizz application is proven by, with its ID. Steps name these IDs 
 
 | Family | Tests | What it proves |
 |---|---|---|
-| `DC` | 15 | Plans, designs and documents are complete, consistent and testable |
+| `DC` | 16 | Plans, designs and documents are complete, consistent and testable |
 | `ST` | 13 | The code and schema obey Mybizz's rules (scanner and static tools) |
 | `LG` | 7 | Business rules are right |
 | `IN` | 18 | Server code, data, access, services and endpoints work together |
@@ -19,7 +19,7 @@ Every test a Mybizz application is proven by, with its ID. Steps name these IDs 
 | `BR` | 10 | Features work for real users |
 | `RL` | 23 | Releases are safe and reversible; instances stay healthy; operations and business safeguards work |
 | `DM` | 10 | The business domains (bookings and services; catalogue, cart and orders) behave correctly |
-| **Total** | **114** | |
+| **Total** | **115** | |
 
 ---
 
@@ -42,6 +42,7 @@ Every test a Mybizz application is proven by, with its ID. Steps name these IDs 
 | DC-13 | Forms are faithful and conform | Every form holds exactly the components its approved screen requirement names, nothing extra; its spec sheet matches the form; no hard-coded colour, only `m3-custom-theme` components and allowed standard components, naming prefixes, phrase keys | D/0 · forms, screen requirements, spec sheets | [[[default:specifications-global/spec-ui-standards]]](C:/dev/project-library-global/specifications-global/spec-ui-standards.md); [[[default:specifications-global/mo-ui-production]]](C:/dev/project-library-global/specifications-global/mo-ui-production.md) |
 | DC-14 | The release is documented | Release notes; a migration plan for any schema change, with its rollback; before the first release, the Privacy Policy, Terms of Service and Cookie Policy | D · project library | [[[default:specifications-global/spec-deployment]]](C:/dev/project-library-global/specifications-global/spec-deployment.md); [[[default:specifications-global/spec-regulatory-compliance-baseline]]](C:/dev/project-library-global/specifications-global/spec-regulatory-compliance-baseline.md) |
 | DC-15 | Lessons are written back | Every fault that escaped has its root cause, its new test and the corrected source document | D · lessons | [[[default:adr-global/adr-common-architecture-across-mybizz-applications]]](C:/dev/project-library-global/adr-global/adr-common-architecture-across-mybizz-applications.md) (lessons written back) |
+| DC-16 | Screen requirements are complete and use the theme fully | Every form a ticket names has its screen requirement, with all nine sections filled; every element names an `m3-custom-theme` component, or a component in `approved_components`, with the reason it serves best; no element uses a plainer component where the theme's inventory has a better-fitting one; every property is in the theme's documentation; every data column is in the authoritative schema; every text is a phrase key; every role of the access matrix has a scope | D · `ui\` | [[[default:specifications-global/spec-ui-standards]]](C:/dev/project-library-global/specifications-global/spec-ui-standards.md) sections 3 and 14.1 |
 
 ## ST — Static checks
 
