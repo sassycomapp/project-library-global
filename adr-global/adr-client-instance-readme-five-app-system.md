@@ -1,7 +1,7 @@
 ---
 title: "adr-client-instance-readme-five-app-system"
 doc-id: "mb-ed135450"
-updated: "2026-11-08"
+updated: "2026-11-17"
 ---
 # Mandatory README in Every Client Instance Documenting the Five-App System
 
@@ -11,7 +11,7 @@ Accepted
 
 ## Context
 
-Mybizz runs on a five-app architecture. Apps 1, 2, 3 and 5 are on Mybizz's Anvil Business account; each client instance runs the release image on DigitalOcean ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)):
+Mybizz runs on a five-app architecture. Apps 1, 2, 3 and 5 are on Mybizz's Anvil Business account; each client instance runs the release image on a Mybizz Hetzner application server ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)):
 
 1. **`{slug}-app1`** — the development workspace. All feature work happens here. Never a dependency for any client instance.
 2. **`master_template`** — the sole source of all server-side logic and UI forms for every client instance. Receives App 1's tagged releases, pushed in by the developer.

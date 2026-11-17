@@ -1,13 +1,13 @@
 ---
 title: "sec-client-provisioning-security"
 doc-id: "mb-70793251"
-updated: "2026-11-11"
+updated: "2026-11-17"
 ---
 # Client Instance Provisioning Security
 
 ## Applicable Threat
 
-Provisioning a new client instance involves creating its container and database from the release image, and generating a real, unique management bearer token, `encryption_key` and two container keys, per `[[spec-security-architecture]]` §2 and `[[spec-client-instance-hosting]]` §7. A flaw in this process — a reused token or key, a database user able to reach another client's database, a secret stored insecurely at generation time — compromises that client instance from its very first moment. App 5 reaches DigitalOcean with access keys that can create and delete every client's container and database; a leaked key with full scope could delete every client.
+Provisioning a new client instance involves creating its container and database from the release image, and generating a real, unique management bearer token, `encryption_key` and two container keys, per `[[spec-security-architecture]]` §2 and `[[spec-client-instance-hosting]]` §7. A flaw in this process — a reused token or key, a database user able to reach another client's database, a secret stored insecurely at generation time — compromises that client instance from its very first moment. App 5 reaches the platform through each server's provisioning runner and through Hetzner and Ubicloud API keys; a runner able to run any command, or a key with wider scope than its use, could harm every client.
 
 ## Security Requirement
 
@@ -17,22 +17,24 @@ Each client instance's management token is uniquely generated at provisioning an
 
 Token generation and storage exactly as specified — unique per instance, encrypted at rest in both locations, never reused from a prior provisioning.
 
-**Two DigitalOcean access keys with custom scopes,** both in App 5's Vault:
+**The provisioning runner.** A small Python service on each application server connects out to App 5 through Anvil Uplink, so no inbound port is opened for it. It exposes only fixed functions (create, release, resize, suspend, resume and remove an instance, approve a domain, report server health), each running fixed commands with checked arguments, and never a free-form command. Each server's Uplink key is held in App 5's Vault and on that server, readable only by the system administrator account.
+
+**Platform keys,** in App 5's Vault:
 
 | Key | Scope | Used by |
 |---|---|---|
-| Automatic-tasks key | Read and update apps and databases; no create, no delete | Scheduled checks, both resize actions, **Release**, **Suspend** |
-| Provisioning key | Create and delete apps and databases | **New client**, **Remove** and **Rebuild** only |
+| Hetzner API key, one per business | Read and write in that business's Hetzner project only | **Add server**, **Rebuild server** |
+| Ubicloud API key | Mybizz's database service | The database stages, **Rebuild** |
 
-A leak of the automatic-tasks key, which is used every day, cannot create or delete a client. Both keys expire after a year and are rotated per `[[sec-secret-rotation-policy]]`.
+A leak of one business's Hetzner key cannot reach another business's servers or any database. Every key expires after a year, or is rotated yearly where the supplier sets no expiry, per `[[sec-secret-rotation-policy]]`.
 
-**The provisioning job.** The cluster accepts connections from inside DigitalOcean only (trusted sources), so client database users are created by a provisioning job that runs inside DigitalOcean. The job creates each client's database and its user with a connection limit of 3, a statement timeout of 60 seconds and an idle-in-transaction timeout of 120 seconds, per `[[sec-database-access-control]]`.
+**The provisioning database role.** The database service accepts connections only from Mybizz's Hetzner servers, so client databases are created by the runner with the provisioning database role, which may create databases and roles and nothing else. The runner creates each client's database and its user with a connection limit of 3, a statement timeout of 60 seconds and an idle-in-transaction timeout of 120 seconds, per `[[sec-database-access-control]]`.
 
 ## Prohibited Pattern
 
 Manually copying a token from a previous client instance's provisioning as a shortcut, or storing the freshly generated token in plaintext even temporarily during the provisioning process.
 
-A single DigitalOcean key with full access; the provisioning key used for any action other than **New client**, **Remove** and **Rebuild**; creating a database user from outside DigitalOcean by opening the cluster's trusted sources.
+A Hetzner key with access to more than one business's project; a runner function that runs a free-form command; creating a database user from outside Mybizz's servers by opening the database firewall.
 
 ## Implementation Guidance
 

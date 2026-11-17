@@ -1,7 +1,7 @@
 ---
 title: "spec-integration"
 doc-id: "mb-a1d9a710"
-updated: "2026-11-11"
+updated: "2026-11-17"
 ---
 # Mybizz — Integration Specification
 
@@ -275,6 +275,7 @@ These serve Mybizz-Live Ltd, not client instances, and are used by App 5 only:
 |---|---|---|
 | Paddle | Client subscriptions and billing | [[[default:specifications-global/spec-client-billing\|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) |
 | FreeAgent | Read-only: tax and accounts deadlines, Corporation Tax returns, the Wise bank feed check, monthly income and costs | [[[default:adr-global/adr-freeagent-integration]]](C:/dev/project-library-global/adr-global/adr-freeagent-integration.md) |
-| DigitalOcean | Provisioning, releases, resizing and checks | [[[default:specifications-global/spec-client-instance-hosting\|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) |
+| Hetzner Cloud | Application servers: provisioning, releases, resizing and checks, through the provisioning runner | [[[default:specifications-global/spec-client-instance-hosting\ |
+| Ubicloud | Managed PostgreSQL: client databases and the size stage | [[[default:specifications-global/spec-client-instance-hosting\ |
 | Groq | AI and voice for every client, with an organisation spend limit of £1,700 a month and alerts at 50%, 75% and 90% | [[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md) |
 

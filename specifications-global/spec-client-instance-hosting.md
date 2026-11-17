@@ -1,7 +1,7 @@
 ---
 title: "spec-client-instance-hosting"
 doc-id: "mb-0a52a7a2"
-updated: "2026-11-12"
+updated: "2026-11-17"
 ---
 # Mybizz — Client Instance Hosting (Specification)
 
@@ -16,20 +16,21 @@ updated: "2026-11-12"
 | App 1 — `{slug}-app1` | Mybizz's Anvil Business account |
 | App 2 — `master_template` | Mybizz's Anvil Business account |
 | App 3 — `blank_client_template` | Mybizz's Anvil Business account |
-| App 4 — each client instance | DigitalOcean App Platform (one container per client) and DigitalOcean Managed PostgreSQL (one database per client) |
+| App 4 — each client instance | A Docker container on a Mybizz Hetzner Cloud application server (one container per client), with its own database in Mybizz's Ubicloud managed PostgreSQL service (one database per client) |
 | App 5 — `{Product}_management` | Mybizz's Anvil Business account |
 
-- Every client instance runs on the Anvil App Server, the open-source Anvil runtime (`anvil-works/anvil-runtime`). Its licence is the GNU Affero General Public License with Anvil's exception: applications run by it keep their own licence. Mybizz runs the App Server unmodified.
-- DigitalOcean runs the servers, operating-system security updates, container restarts, failover and database backups. Mybizz runs no server of its own.
-- Each Mybizz business has its own DigitalOcean project, holding its own database cluster, its own registry repository, its own test client instance and its client containers.
-- Region: London (`LON1`) for every container and every cluster, next to Amazon SES in `eu-west-1`.
-- The demo instances (`demo.mybizz.live`, `try.mybizz.live`) run on Mybizz's Anvil Business account.
+- Every client instance runs on the Anvil App Server, the open-source Anvil runtime (`anvil-works/anvil-runtime`). Its licence is the GNU Affero General Public License with Anvil's exception: applications run by it keep their own licence. Mybizz runs the App Server unmodified, from Anvil's official `anvilworks/anvil-app-server` image.
+- **Application servers:** Hetzner Cloud `CPX42` servers (x86, 8 vCPU, 16 GB memory), Ubuntu LTS, in Nuremberg (`nbg1`). Each Mybizz business has its own servers in its own Hetzner project. Mybizz runs Docker, Caddy and the provisioning runner on each server (section 7). Operating-system security updates install automatically, and a reboot an update needs happens in the Sunday 06:00 UK maintenance window. Hetzner's automatic server backups are on for every server.
+- **Database:** one Ubicloud managed PostgreSQL service in Germany, on Hetzner hardware, shared by every Mybizz business, with a standby from the first client. Ubicloud runs the database's patching, backups, point-in-time recovery and failover (section 4).
+- **Firewalls:** each server's Hetzner firewall allows ports 80 and 443 from anywhere and port 22 (SSH, key only) from the developer's addresses. The database's Ubicloud firewall accepts connections only from Mybizz's Hetzner servers.
+- **Web addresses and certificates:** Caddy, the web server on each application server, routes each client's domain to the client's container and obtains the domain's HTTPS certificate on demand, only for domains App 5 has approved (section 3).
+- The demo instances (`demo.mybizz.live`, `try.mybizz.live`) run on Mybizz's Anvil Business account. The test client instance runs on Hetzner, as a client.
 
 ---
 
 ## 2. The Release Image
 
-Every client container runs the same image, built once per release. The image holds:
+Every client container runs the same image, built once per release. The image is built on Anvil's official App Server image and holds:
 
 - the Anvil App Server, at the one version Mybizz pins; every App Server upgrade is the developer's decision and passes the full test suite first;
 - App 3, the client app: the startup module, the full table definitions, the scheduled tasks and the Users service settings;
@@ -38,74 +39,74 @@ Every client container runs the same image, built once per release. The image ho
 
 The image is defined in the business's code repository `{slug}-app4`, which holds the image definition (`Dockerfile`), the container start script, the release checks (section 6) and the image build workflow. It holds no application code.
 
-Each built image is stored in DigitalOcean Container Registry under its release tag (`vMAJOR.MINOR.PATCH`). The registry keeps the last three release images of each business.
+Each built image is stored privately in GitHub's container registry (`ghcr.io`) under its release tag (`vMAJOR.MINOR.PATCH`). The registry keeps the last three release images of each business.
 
 ---
 
 ## 3. The Container
 
-- One DigitalOcean App Platform app per client, named `[client-name]-{vertical}`, with one container of size `apps-s-1vcpu-1gb`: 1 shared vCPU and 1 GiB memory.
+- One Docker container per client, named `[client-name]-{vertical}`, started from the release image with a memory limit of 1 GiB and restarted by Docker whenever it stops.
 - The start script caps the App Server's Java memory at 400 MB (`JAVA_TOOL_OPTIONS=-Xmx400m`). The rest of the container's memory is left for the Python processes that run the server code, the background tasks and the PDF building, so the container's memory use stays predictable.
-- Each client's app has an App Platform alert that fires when the container's memory use passes 80%. The alert goes to App 5, which raises that client's container to `apps-s-1vcpu-2gb` (1 shared vCPU, 2 GiB memory, $25 a month, £18.75) and messages the developer. 2 GiB is the largest size App 5 chooses ([[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md)).
-- The size is raised for one client by a setting change; the client keeps its address and its data.
-- App Platform provides the client's HTTPS certificate on the client's own domain.
+- The provisioning runner reports each container's memory use to App 5. Above 80%, App 5 raises that container's limit to 2 GiB through the runner and messages the developer. 2 GiB is the largest size App 5 chooses ([[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md)). The client keeps its address and its data.
+- **Places:** an application server holds 12 places. A 1 GiB container takes one place and a 2 GiB container takes two. The remaining memory serves the operating system, Docker, Caddy and the runner.
+- **Certificates:** Caddy asks the runner before it obtains a certificate for a domain, and the runner answers yes only for a domain App 5 has approved for one of that server's clients. A client domain proxied through Cloudflare passes the certificate check through Cloudflare.
+- Each container's output is kept by Docker, rotated at 10 MB with three files kept.
 
 ### App Server settings
 
-Each container starts the App Server with these settings, held as encrypted App Platform environment values:
+Each container starts the App Server with these settings, held in the client's settings file on the server, readable only by the system administrator account:
 
 | Setting | Value |
 |---|---|
-| `database` | The client's own database in the business's cluster, over TLS with full certificate verification (`sslmode=verify-full`), with `prepareThreshold=0` so the App Server works through DigitalOcean's connection pooler in any pooling mode |
+| `database` | The client's own database in Mybizz's Ubicloud service, over TLS with full certificate verification (`sslmode=verify-full`), with `prepareThreshold=0` so the App Server works through Ubicloud's connection pooler |
 | `db-connection-pool-size` | 3 |
 | `auto-migrate` | On. Off after a rollback, until the next release |
 | `ignore-invalid-schema` | Off. On after a rollback, until the next release |
-| `origin` | `https://` and the client's own domain |
-| `disable-tls` | On |
-| `secret` | `encryption_key`, the Vault's master key ([[[default:specifications-global/spec-vault-system\|The Vault System]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md)) |
+| `origin` | `https://` and the client's domain |
+| `disable-tls` | On (Caddy ends TLS) |
+| `secret` | `encryption_key`, the Vault's master key ([[[default:specifications-global/spec-vault-system]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md)) |
 | `smtp-host`, `smtp-port`, `smtp-encryption`, `smtp-username`, `smtp-password` | `email-smtp.eu-west-1.amazonaws.com`, port `587`, STARTTLS, and the client's scoped SES SMTP credentials |
 | `google-*`, `microsoft-*`, `facebook-*` | Mybizz's own sign-in keys, for each sign-in method the application uses |
 
 ### Container keys
 
-The App Server keeps two keys in its data folder: `secret.key` and `anvil-live-object-key.txt`. A container keeps no files across restarts. Each client's two keys are created once, at provisioning, held as encrypted environment values, and written into the data folder by the start script before the App Server starts. The keys stay the same through every restart and release.
+The App Server keeps two keys in its data folder: `secret.key` and `anvil-live-object-key.txt`. A container keeps no files across restarts. Each client's two keys are created once, at provisioning, held in the client's settings file, and written into the data folder by the start script before the App Server starts. The keys stay the same through every restart and release.
 
 ### What runs in the container
 
 - Every server function, form and background task, from App 2.
 - Every scheduled task, from App 3, with no timeout.
 - The management endpoints, the webhook endpoints and the inbound email endpoint `/_/api/email/inbound`.
-- The heartbeat to App 5 every 15 minutes, carrying the client's database size and its AI and voice spend for the month ([[[default:adr-global/adr-mybizz-management-visibility|Mybizz Management Visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md)).
+- The heartbeat to App 5 every 15 minutes, carrying the client's database size and its AI and voice spend for the month ([[[default:adr-global/adr-mybizz-management-visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md)).
 - AI and voice metering and the AI request rate limit of [[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md).
 
-Each container's output is kept in DigitalOcean's log view. The instance's own `error_log`, `health_log` and `activity_log` tables carry the application's records ([[[default:adr-global/adr-observability-architecture|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md)).
+The instance's own `error_log`, `health_log` and `activity_log` tables carry the application's records ([[[default:adr-global/adr-observability-architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md)).
 
 ---
 
 ## 4. The Database
 
-- One DigitalOcean Managed PostgreSQL cluster per business, in `LON1`, PostgreSQL version 18. The cluster is Advanced Edition with a standby node from the business's platform set-up, and grows in size in three stages with the business's client count (Capacity, below).
-- The cluster holds one database per client, each with its own database user that can reach only that client's database.
+- One Ubicloud managed PostgreSQL service, in Germany, shared by every Mybizz business. It runs the latest PostgreSQL version Ubicloud offers at set-up, and every version upgrade is the developer's decision.
+- **Standby:** one standby of the same size from the first client. Ubicloud keeps it up to date and promotes it automatically when the primary fails, so clients are back within minutes.
+- The service holds one database per client, each with its own database user that can reach only that client's database.
 - Each client database user is created with a connection limit of 3, a statement timeout of 60 seconds and an idle-in-transaction timeout of 120 seconds ([[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md)). PostgreSQL enforces these limits itself.
-- Client database users and their limits are created by the provisioning job, which runs inside DigitalOcean, because the cluster accepts connections from inside DigitalOcean only.
-- **Trusted sources:** the cluster accepts connections only from the business's client containers and its test client instance.
-- DigitalOcean runs the cluster's patching, daily backups kept for 7 days, point-in-time recovery and TLS.
-- The standby node is kept up to date with the main node and takes over automatically when the main node fails, so clients are back within minutes.
-- **Storage autoscaling** is on: DigitalOcean adds storage before the disk fills, at $0.12 (£0.09) per GiB per month.
-- **Maintenance window:** Sunday 06:00 UK time (07:00 Europe, 01:00 New York, Saturday 22:00 Los Angeles).
+- Client databases and users are created by the provisioning runner with Mybizz's provisioning database role, which may create databases and roles and nothing else (section 7).
+- **Firewall:** the service accepts connections only from Mybizz's Hetzner application servers, over TLS.
+- **Backups:** Ubicloud backs up the service continuously and keeps 7 days, with restore to any minute.
+- **Maintenance window:** Sunday 06:00 UK time.
 - On first start, the App Server builds every table in the client's empty database from App 3's table definitions.
 
 ### Capacity
 
-Each client's App Server holds at most 3 database connections. A cluster gives 25 connections per GiB of memory, less 3 kept for maintenance. Each client stores about 100 MB of data a year; files go to the client's R2 bucket.
+Each client's App Server holds at most 3 database connections, through Ubicloud's connection pooler. Each client stores about 100 MB of data a year; files go to the client's R2 bucket. The stage follows the number of clients of every Mybizz business together.
 
-| Stage | Business's clients | Cluster | Connections | Holds | Monthly price | GBP |
-|---|---|---|---|---|---|---|
-| 1 | 1 to 59 | Advanced Edition, 8 GiB, with a standby | 197 | 65 clients | $260 | £195 |
-| 2 | 60 to 129 | Advanced Edition, 16 GiB, with a standby | 397 | 132 clients | about $520 | about £390 |
-| 3 | 130 and more | Advanced Edition, 32 GiB, with a standby | 797 | 265 clients | about $1,040 | about £780 |
+| Stage | Clients, all businesses | Service | Monthly price | GBP |
+|---|---|---|---|---|
+| 1 | 1 to 59 | `standard-2` (2 vCPU, 8 GB, 64 GB storage), with a standby | $156 | £116.22 |
+| 2 | 60 to 129 | `standard-4` (4 vCPU, 16 GB, 128 GB storage), with a standby | $312 | £232.44 |
+| 3 | 130 and more | `standard-8` (8 vCPU, 32 GB, 256 GB storage), with a standby | $626 | £466.37 |
 
-App 5 raises the size of the same cluster to each stage in the next maintenance window and messages the developer ([[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md)). No client moves. The 16 GiB and 32 GiB prices are estimates until DigitalOcean's control panel shows them.
+App 5 raises the service to each stage through Ubicloud's API in the next maintenance window and messages the developer ([[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md)). No client moves. App 5 also messages the developer when the service's storage passes 80%.
 
 ---
 
@@ -116,7 +117,7 @@ App 5 raises the size of the same cluster to each stage in the next maintenance 
 | Email sent and received | Amazon SES, `eu-west-1` | Mybizz |
 | Files, backups and history | The client's own Cloudflare R2 bucket, kept below 10 GB | Free tier, in the client's account |
 | Speech-to-text | Groq Whisper, through App 5 | Mybizz |
-| Invoices and quotes | PDF built on the server with `reportlab` ([[[default:adr-global/adr-pdf-invoice-generation\|PDF Invoice Generation]]](C:/dev/project-library-global/adr-global/adr-pdf-invoice-generation.md)) | — |
+| Invoices and quotes | PDF built on the server with `reportlab` ([[[default:adr-global/adr-pdf-invoice-generation]]](C:/dev/project-library-global/adr-global/adr-pdf-invoice-generation.md)) | — |
 
 ---
 
@@ -124,64 +125,75 @@ App 5 raises the size of the same cluster to each stage in the next maintenance 
 
 1. The developer pushes App 1's tagged release into App 2's repository (Step 42). Table changes of the release are written into App 3's table definitions.
 2. The release image is built from App 2, App 3 and `m3`, and stored in the registry under the release tag.
-3. The image build stops if App 3 holds any form or server module ([[[default:adr-global/adr-client-instance-readme-five-app-system|Client Instance README]]](C:/dev/project-library-global/adr-global/adr-client-instance-readme-five-app-system.md)). The table-change check compares App 3's table definitions with the previous release. The release stops if any table or column is removed, renamed or changed in type. After a business's first release, releases only add tables and nullable columns.
+3. The image build stops if App 3 holds any form or server module ([[[default:adr-global/adr-client-instance-readme-five-app-system]]](C:/dev/project-library-global/adr-global/adr-client-instance-readme-five-app-system.md)). The table-change check compares App 3's table definitions with the previous release. The release stops if any table or column is removed, renamed or changed in type. After a business's first release, releases only add tables and nullable columns.
 4. The full test suite passes on the release image.
 5. The test client instance moves to the release image and passes its smoke test.
-6. App 5's **Release** action, through the DigitalOcean API, points every client container to the release image. Each container restarts on it; its App Server adds the release's new tables and columns to the client's database as it starts.
-7. **Staged rollout:** every release goes to the test client instance, then to 10% of clients, then to all clients. Each stage passes its health check before the next starts. A failed health check rolls that stage back automatically ([[[default:adr-global/adr-dependency-update-model|Dependency Update Model]]](C:/dev/project-library-global/adr-global/adr-dependency-update-model.md)).
-8. **Signed images:** each release image is signed when it is built. Each client container runs the image by its digest, never by a tag, and App 5 releases only an image whose signature verifies.
-9. **Registry clean-up:** at every release, images older than the last three releases are deleted and the registry's storage is cleaned.
-10. **Rollback:** App 5 points the containers back to the previous release image, with `auto-migrate` off and `ignore-invalid-schema` on. The previous release then runs on the newer schema, and the App Server never removes the newer tables and columns. The next release switches `auto-migrate` back on.
+6. App 5's **Release** action, through each server's provisioning runner, moves every client container to the release image. Each container restarts on it; its App Server adds the release's new tables and columns to the client's database as it starts.
+7. **Staged rollout:** every release goes to the test client instance, then to 10% of clients, then to all clients. Each stage passes its health check before the next starts. A failed health check rolls that stage back automatically ([[[default:adr-global/adr-dependency-update-model]]](C:/dev/project-library-global/adr-global/adr-dependency-update-model.md)).
+8. **Signed images:** each release image is signed when it is built. Each client container runs the image by its digest, never by a tag, and the runner starts only an image whose signature verifies.
+9. **Registry clean-up:** at every release, images older than the last three releases are deleted.
+10. **Rollback:** App 5 moves the containers back to the previous release image, with `auto-migrate` off and `ignore-invalid-schema` on. The previous release then runs on the newer schema, and the App Server never removes the newer tables and columns. The next release switches `auto-migrate` back on.
 
 ---
 
 ## 7. Provisioning
 
+### The provisioning runner
+
+- A small Python service, the provisioning runner, runs on every application server and connects out to App 5 through Anvil Uplink. No inbound port is opened for it.
+- The runner exposes only these functions to App 5: create instance, release instance, resize container, suspend instance, resume instance, remove instance, approve domain, and report server health (each container's memory and data transfer, and the server's disk).
+- Each function uses fixed commands with checked arguments; the runner never runs free-form commands.
+- Each server's Uplink key and the provisioning database role's password are held on the server, readable only by the system administrator account, and in App 5's Vault ([[[default:security-global/cloud/sec-client-provisioning-security]]](C:/dev/project-library-global/security-global/cloud/sec-client-provisioning-security.md)).
+
+### Once for Mybizz
+
+1. The Ubicloud managed PostgreSQL service in Germany, `standard-2` with one standby, its firewall and the provisioning database role (section 4).
+2. A Ubicloud API key in App 5's Vault, used only to change the service's size.
+
 ### Once per business
 
-1. A DigitalOcean project for the business, in Mybizz's DigitalOcean account.
-2. The Managed PostgreSQL cluster, in `LON1`: Advanced Edition, PostgreSQL 18, 8 GiB, with a standby node, storage autoscaling on and trusted sources set (section 4).
-3. The provisioning job inside DigitalOcean (section 4).
-4. The business's repository in the Container Registry.
+1. A Hetzner project for the business, with its firewall (section 1).
+2. A Hetzner API key with read and write access to that project only, in App 5's Vault.
+3. The first application server, created by App 5's **Add server** action: the action orders a `CPX42` through the Hetzner API with backups on, and the server's start-up script installs Docker, Caddy and the runner and joins the server to App 5.
+4. The server's address added to the Ubicloud firewall.
 5. The test client instance: a container and a database of its own, run as a client.
-6. Two DigitalOcean access keys with custom scopes, in App 5's Vault ([[[default:security-global/cloud/sec-client-provisioning-security|Client Provisioning Security]]](C:/dev/project-library-global/security-global/cloud/sec-client-provisioning-security.md)).
 
 ### Once per client
 
-App 5's **New client** action, after registration and the client's Cloudflare set-up ([[[default:specifications-global/spec-client-activation-runbook|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md)):
+App 5's **New client** action, after registration and the client's Cloudflare set-up ([[[default:specifications-global/spec-client-activation-runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md)):
 
-1. Creates the client's database and database user in the cluster, through the provisioning job, with the user's three limits (section 4).
-2. Creates the client's `encryption_key`, management Bearer token and two container keys.
-3. Creates the client's App Platform app from the current release image, with every setting in section 3.
-4. Adds the client's domain to the app; App 5 writes the domain's DNS record through the Cloudflare API, proxied through Cloudflare with the web application firewall, DDoS protection and bot blocking switched on.
-5. Starts the container; the App Server builds the client's tables.
+1. Chooses the server with a free place; when the business's last server has 2 places left, App 5 runs **Add server** first.
+2. Creates the client's database and database user through the runner, with the user's three limits (section 4).
+3. Creates the client's `encryption_key`, management Bearer token and two container keys.
+4. Creates the client's container from the current release image, with every setting in section 3.
+5. Approves the client's domain on the runner; App 5 writes the domain's DNS record through the Cloudflare API, proxied through Cloudflare with the web application firewall, DDoS protection and bot blocking switched on.
+6. Starts the container; the App Server builds the client's tables.
 
 ---
 
 ## 8. Client Exit
 
-1. The client gives notice, and the service runs to the end of the paid month; or the client has not paid 37 days after a failed renewal payment ([[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) section 5).
-2. App 5 exports all the client's data into the client's own R2 bucket ([[[default:adr-global/adr-client-r2-storage-and-exit-handover|Client R2 Storage and Exit]]](C:/dev/project-library-global/adr-global/adr-client-r2-storage-and-exit-handover.md)).
-3. App 5's **Remove** action deletes the client's App Platform app and the client's database and database user. DigitalOcean's charges for them stop at deletion.
+1. The client gives notice, and the service runs to the end of the paid month; or the client has not paid 37 days after a failed renewal payment ([[[default:specifications-global/spec-client-billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) section 5).
+2. App 5 exports all the client's data into the client's own R2 bucket ([[[default:adr-global/adr-client-r2-storage-and-exit-handover]]](C:/dev/project-library-global/adr-global/adr-client-r2-storage-and-exit-handover.md)).
+3. App 5's **Remove** action, through the runner, deletes the client's container, settings file and domain approval, and the client's database and database user. The client's place on the server is free at once.
 
 ---
 
 ## 9. Uptime and Resilience
 
-| Service | DigitalOcean's monthly commitment |
-|---|---|
-| App Platform container | 99.95% |
-| Managed PostgreSQL, Advanced Edition with a standby node | 99.95% |
-| Container Registry | 99.95% |
+| Failure | Effect | Response |
+|---|---|---|
+| One container fails | One client | Docker restarts it; if it does not recover, App 5 recreates it from the current release image |
+| One application server fails | The up to 12 clients on that server | App 5's **Rebuild server** action orders a new server through the Hetzner API and recreates each client's container from the release image. Client data is in the database, so none is lost |
+| Database primary fails | Every client, for minutes | Ubicloud promotes the standby automatically |
+| Hetzner location outage | Every client of the business | **Rebuild server** for each server, in Falkenstein (`fsn1`) |
+| Ubicloud service lost or suspended | Every client | App 5's **Rebuild** action restores every client into a new managed PostgreSQL service from each client's nightly copy, at most 24 hours of data lost ([[[default:specifications-global/spec-deployment]]](C:/dev/project-library-global/specifications-global/spec-deployment.md)) |
 
-99.95% allows about 22 minutes of downtime a month.
-
-- One cluster in one region serves every client of a business. A DigitalOcean failure in `LON1`, or a suspension of Mybizz's DigitalOcean account, stops every client of the business.
-- Every client's data is copied to the client's own R2 bucket every night, outside DigitalOcean. Each copy is locked for its whole retention period, so no key can delete or overwrite it ([[[default:adr-global/adr-client-r2-storage-and-exit-handover|Client R2 Storage and Exit]]](C:/dev/project-library-global/adr-global/adr-client-r2-storage-and-exit-handover.md)).
+- Every client's data is copied to the client's own R2 bucket every night, outside Hetzner and Ubicloud. Each copy is locked for its whole retention period, so no key can delete or overwrite it ([[[default:adr-global/adr-client-r2-storage-and-exit-handover]]](C:/dev/project-library-global/adr-global/adr-client-r2-storage-and-exit-handover.md)).
 - **Backup check:** App 5 checks every day that each client's nightly copy arrived, with the right date and a plausible size.
-- **Restore drill:** once a month, the test client instance restores one client's nightly copy into a scratch database in the cluster, compares its row counts with the source, deletes the scratch database and reports the result to App 5.
-- App 5's **Rebuild** action restores every client of a business in another DigitalOcean region: a new cluster of the current stage, a database per client loaded from DigitalOcean's backups or, when those are unreachable, from its nightly copy, and a container per client from the release image ([[[default:specifications-global/spec-deployment|Deployment Specification]]](C:/dev/project-library-global/specifications-global/spec-deployment.md)). At most 24 hours of data is lost when the nightly copy is used.
-- DigitalOcean Uptime checks App 5's status endpoint every minute ([[[default:adr-global/adr-observability-architecture|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md)).
+- **Restore drill:** once a month, the test client instance restores one client's nightly copy into a scratch database, compares its row counts with the source, deletes the scratch database and reports the result to App 5.
+- **Spare place:** every business keeps at least 2 free places on its servers, so a container can always be recreated at once.
+- **Uptime check:** UptimeRobot checks App 5's status endpoint every 5 minutes and emails the developer on a fault ([[[default:adr-global/adr-observability-architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md)).
 
 ---
 
@@ -189,37 +201,34 @@ App 5's **New client** action, after registration and the client's Cloudflare se
 
 1. The full test suite passes on the release image.
 2. The test client instance has run under realistic load, and its memory use and database connections are recorded against section 3 and section 4.
-3. The rebuild procedure has restored the test client instance in another region.
+3. **Rebuild server** has replaced the test client instance's server, and **Rebuild** has restored the test client instance into a new database service from its nightly copy.
 4. The release path has run end to end: test client instance, staged rollout, rollback.
-5. The App Server reconnects by itself after its database connection is cut, tested on the test client instance.
-6. The cluster is at its stage of section 4, its trusted sources refuse a connection from outside DigitalOcean, and each client database user carries its three limits.
+5. The App Server reconnects by itself after its database connection is cut, and after a Ubicloud failover, both tested on the test client instance.
+6. The database service is at its stage of section 4, its firewall refuses a connection from outside Mybizz's servers, and each client database user carries its three limits.
 
 ---
 
 ## 11. Monthly Cost
 
-Suppliers bill in US dollars. Each cost is shown as billed, with its GBP figure at Mybizz's planning rate of $1 = £0.75 ([[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) section 2).
+Each cost is shown with its GBP figure at Mybizz's planning rates of $1 = £0.745 and €1 = £0.834.
 
 | Item | Monthly cost, billed | GBP | Basis |
 |---|---|---|---|
-| Anvil Business account (Apps 1, 2, 3, 5 and the demo instances) | $99 | £74.25 | Per Mybizz account |
-| Container Registry, Basic plan | $5 | £3.75 | Per Mybizz account |
-| Test client instance container | $12 | £9.00 | Per business |
-| Client container | $12 | £9.00 | Per client |
-| Managed PostgreSQL cluster | $260 to about $1,040 | £195 to about £780 | By stage (section 4) |
+| Anvil Business account (Apps 1, 2, 3, 5 and the demo instances) | — | £87.00 | Per Mybizz account |
+| Application server `CPX42`, with backups and its IPv4 address | €83.89 | £69.96 | Per 12 places, per business |
+| Ubicloud managed PostgreSQL, with a standby | $156 to $626 | £116.22 to £466.37 | By stage (section 4), shared by every business |
+| Release image registry | — | £0 | GitHub container registry |
+| Uptime check | — | £0 | UptimeRobot free plan |
 
-Revenue is shown at £119 per client on the monthly plan; the fixed prices in the other currencies sit close to £119.
+For one business, with the test client instance taking one place:
 
-| Clients | Containers | Database | Fixed | Total cost | Revenue at £119 | Gross margin |
-|---|---|---|---|---|---|---|
-| 1 | £9 | £195 | £87 | £291 | £119 | −£172 |
-| 9 | £81 | £195 | £87 | £363 | £1,071 | £708 |
-| 25 | £225 | £195 | £87 | £507 | £2,975 | £2,468 |
-| 50 | £450 | £195 | £87 | £732 | £5,950 | £5,218 |
-| 60 | £540 | £390 | £87 | £1,017 | £7,140 | £6,123 |
-| 100 | £900 | £390 | £87 | £1,377 | £11,900 | £10,523 |
+| Clients | Servers | Application servers | Database (stage) | Total |
+|---|---|---|---|---|
+| 10 | 1 | £69.96 | £116.22 | £186.18 |
+| 50 | 5 | £349.80 | £116.22 | £466.02 |
+| 100 | 9 | £629.64 | £232.44 | £862.08 |
 
-Not in these figures: the usage costs per client (email, AI, voice and data transfer, budgeted at £7.60), Paddle's fee of £6.33 per £119 payment, and Mybizz-Live Ltd's company costs. Mybizz's full cost and profit figures, with break-even at 9 clients, are in [[[default:specifications-global/spec-client-billing|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md).
+The database is shared, so a second business adds only its own application servers until the stage changes. Not in these figures: the usage costs per client (email, AI and voice), Paddle's fee, the Anvil account and Mybizz-Live Ltd's company costs. The company's figures are in `mybizz-live-budget.xlsx`.
 
 ---
 
@@ -227,8 +236,8 @@ Not in these figures: the usage costs per client (email, AI, voice and data tran
 
 | Document | Relationship |
 |---|---|
-| [[[default:specifications-global/spec-five-app-architecture-model\|Five-App Architecture Model]]](C:/dev/project-library-global/specifications-global/spec-five-app-architecture-model.md) | The five apps and their roles |
-| [[[default:adr-global/adr-client-instance-architecture\|Client Instance Architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) | The decision this specification carries out |
-| [[[default:specifications-global/spec-deployment\|Deployment Specification]]](C:/dev/project-library-global/specifications-global/spec-deployment.md) | Release, rollback, backup and failure procedures |
-| [[[default:adr-global/adr-tiers-model\|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md) | Price and subscription terms |
-| [[[default:specifications-global/spec-client-billing\|Client Billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) | How clients pay, and the exit of a client that does not pay |
+| [[[default:specifications-global/spec-five-app-architecture-model]]](C:/dev/project-library-global/specifications-global/spec-five-app-architecture-model.md) | The five apps and their roles |
+| [[[default:adr-global/adr-client-instance-architecture]]](C:/dev/project-library-global/adr-global/adr-client-instance-architecture.md) | The decision this specification carries out |
+| [[[default:specifications-global/spec-deployment]]](C:/dev/project-library-global/specifications-global/spec-deployment.md) | Release, rollback, backup and failure procedures |
+| [[[default:adr-global/adr-tiers-model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md) | Price and subscription terms |
+| [[[default:specifications-global/spec-client-billing]]](C:/dev/project-library-global/specifications-global/spec-client-billing.md) | How clients pay, and the exit of a client that does not pay |

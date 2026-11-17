@@ -1,7 +1,7 @@
 ---
 title: "sec-cyber-essentials-compliance"
 doc-id: "mb-98a2bbec"
-updated: "2026-11-11"
+updated: "2026-11-17"
 ---
 # Cyber Essentials Compliance
 
@@ -21,8 +21,8 @@ The whole organisation, with nothing excluded:
 |---|---|
 | Organisation | Mybizz-Live Ltd, with David as its only director and user |
 | Devices | David's laptop and David's phone |
-| Cloud services | Every cloud service Mybizz uses: DigitalOcean, Anvil, AWS, Cloudflare, Paddle, GitHub, Groq, FreeAgent, Wise, the business email account and the IASME portal |
-| Applications | Apps 1 to 5 of every Mybizz business, and the client hosting platform: the release image, the client containers and the database cluster |
+| Cloud services | Every cloud service Mybizz uses: Hetzner, Ubicloud, Anvil, AWS, Cloudflare, Paddle, GitHub, Groq, FreeAgent, Wise, the business email account and the IASME portal |
+| Applications | Apps 1 to 5 of every Mybizz business, and the client hosting platform: the release image, the application servers, the client containers and the database service |
 
 Cloud services cannot be excluded from scope. The asset and software register lists every item in scope.
 
@@ -30,7 +30,7 @@ Cloud services cannot be excluded from scope. The asset and software register li
 
 | Control | How Mybizz meets it |
 |---|---|
-| Firewalls | Microsoft Defender Firewall on the laptop, always on; the home router supplied by the internet provider is out of scope, so the laptop's own firewall is the boundary. The database cluster accepts connections from DigitalOcean only (trusted sources). Client domains sit behind Cloudflare's web application firewall. |
+| Firewalls | Microsoft Defender Firewall on the laptop, always on; the home router supplied by the internet provider is out of scope, so the laptop's own firewall is the boundary. Each application server has a Hetzner firewall allowing ports 80 and 443 and SSH from the developer's addresses only; the database service accepts connections from Mybizz's servers only. Client domains sit behind Cloudflare's web application firewall. |
 | Secure configuration | Unused software and accounts removed; screen lock on the laptop and phone; default passwords changed; automatic running of downloaded files switched off. |
 | Security update management | Automatic updates on the laptop and phone. Every high or critical fix (vendor-rated high or critical, or CVSS 7 or above, or with no rating given) is installed within 14 days of the vendor's release. The release image is scanned weekly and at every build; a high or critical finding is released to every client within 14 days. Software the vendor no longer supports is removed, and a release image containing it fails its build. |
 | User access control | A standard Windows account for daily work and a separate administrator account used for administration only. Multi-factor authentication on every cloud service, through two hardware security keys (FIDO2): one carried, one stored safely. AWS's root user is used for nothing except the tasks only it can do. Access no longer needed is removed. |

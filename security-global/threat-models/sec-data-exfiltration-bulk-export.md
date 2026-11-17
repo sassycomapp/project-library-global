@@ -1,7 +1,7 @@
 ---
 title: "sec-data-exfiltration-bulk-export"
 doc-id: "mb-3f1e54d4"
-updated: "2026-10-01"
+updated: "2026-11-17"
 ---
 # Threat Model — Data Exfiltration via Bulk Export Abuse
 
@@ -31,7 +31,7 @@ Perform a real bulk export; confirm a distinct log entry exists recording it, se
 
 ## Authoritative Sources
 
-- `[[spec-security-architecture]]` §1 — RBAC role limits (Manager/Owner have broader access, which is exactly what makes this risk real for those roles specifically)
+- `[[spec-security-architecture]]` §1 — RBAC roles (Manager/Owner have broader access, which is exactly what makes this risk real for those roles specifically)
 
 ## Known Exceptions
 

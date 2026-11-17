@@ -1,7 +1,7 @@
 ---
 title: "adr-tiers-model"
 doc-id: "mb-beb7c182"
-updated: "2026-11-12"
+updated: "2026-11-17"
 ---
 # Tiers Model
 Status: Accepted
@@ -12,7 +12,7 @@ Status: Accepted
 
 Every Mybizz application sells a subscription to its clients. Clients can also buy help with setup. The two must not be confused: one is the price of the product, the other is a one-off service.
 
-Competitors sell in tiers, charge for extra staff and add-ons, and lock clients into contracts. Mybizz sells one offer that holds everything. The monthly plan matches the terms of Mybizz's hosting supplier, DigitalOcean: monthly billing, no contract and no lock-in. The annual plan rewards a client who commits for a year with two months free, and gives Mybizz a year's revenue up front.
+Competitors sell in tiers, charge for extra staff and add-ons, and lock clients into contracts. Mybizz sells one offer that holds everything. The monthly plan matches the terms of Mybizz's hosting suppliers, Hetzner and Ubicloud: billing by use, no contract and no lock-in. The annual plan rewards a client who commits for a year with two months free, and gives Mybizz a year's revenue up front.
 
 ---
 

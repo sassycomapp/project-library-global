@@ -1,7 +1,7 @@
 ---
 title: "spec-client-activation-runbook"
 doc-id: "mb-b575e9fd"
-updated: "2026-11-12"
+updated: "2026-11-17"
 ---
 # Client Instance Activation Runbook
 
@@ -13,14 +13,14 @@ updated: "2026-11-12"
 
 Done once, before the business's first client, as [[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) section 7 sets out:
 
-- [ ] The business's DigitalOcean project exists, in Mybizz's DigitalOcean account
-- [ ] The business's Managed PostgreSQL cluster runs in `LON1`: Advanced Edition, PostgreSQL 18, 8 GiB, with a standby node and storage autoscaling on ([[[default:adr-global/adr-automatic-resizing|Automatic Resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md) stage 1)
-- [ ] The cluster's trusted sources admit only the business's client containers and its test client instance; a connection from outside DigitalOcean is refused
-- [ ] The cluster's maintenance window is Sunday 06:00 UK time
-- [ ] The provisioning job runs inside DigitalOcean and can create a database user with its three limits
-- [ ] The business's repository exists in the Container Registry, holding the current release image
+- [ ] Mybizz's Ubicloud managed PostgreSQL service runs in Germany, `standard-2` with one standby, at its stage of [[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md)
+- [ ] The service's firewall admits only Mybizz's Hetzner application servers; a connection from anywhere else is refused
+- [ ] The service's maintenance window is Sunday 06:00 UK time
+- [ ] The provisioning database role exists and can create a database and a database user with its three limits, and nothing else
+- [ ] The business's Hetzner project exists, with its firewall, and its first `CPX42` application server runs Docker, Caddy and the provisioning runner, joined to App 5
+- [ ] The business's release image is in GitHub's container registry
 - [ ] The test client instance runs the current release image and passes its smoke test, its domain is proxied through Cloudflare (Step 10) and its R2 bucket's backup lock rules are set (Step 4), exactly as every client is set up
-- [ ] The two DigitalOcean access keys with their custom scopes are in App 5's Vault ([[[default:security-global/cloud/sec-client-provisioning-security|Client Provisioning Security]]](C:/dev/project-library-global/security-global/cloud/sec-client-provisioning-security.md))
+- [ ] The Hetzner API key for the business's project and the Ubicloud API key are in App 5's Vault ([[[default:security-global/cloud/sec-client-provisioning-security|Client Provisioning Security]]](C:/dev/project-library-global/security-global/cloud/sec-client-provisioning-security.md))
 - [ ] The six conditions of section 10 of Client Instance Hosting are met
 
 ---
@@ -34,7 +34,7 @@ Before beginning activation:
 - [ ] The client's primary contact email and phone number are recorded in Mybizz_management
 - [ ] The client owns its domain
 - [ ] The client has opened a free Cloudflare account in its own name, on its own email address, added a payment method, switched R2 on, added its domain to Cloudflare DNS, and invited Mybizz's Cloudflare user as a member with the roles R2 Admin and DNS
-- [ ] The cluster has room for one more client (App 5's capacity view)
+- [ ] The business's servers have a free place for one more client (App 5's capacity view)
 
 ---
 
@@ -44,9 +44,9 @@ Before beginning activation:
 
 Mybizz_management's **New client** action:
 
-1. Creates the client's database and database user in the business's cluster, through the provisioning job, with a connection limit of 3, a statement timeout of 60 seconds and an idle-in-transaction timeout of 120 seconds ([[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md))
+1. Creates the client's database and database user in Mybizz's Ubicloud service, through the provisioning runner, with a connection limit of 3, a statement timeout of 60 seconds and an idle-in-transaction timeout of 120 seconds ([[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md))
 2. Generates the client's `encryption_key` (a new Fernet symmetric key; never reused from any other instance) and the two container keys (`secret.key`, `anvil-live-object-key.txt`)
-3. Creates the client's App Platform app, named in the client identifier format `[client-name]-{vertical}` (e.g. `acme-cs`), from the current release image, with every App Server setting of Client Instance Hosting section 3
+3. Creates the client's container on a server with a free place, named in the client identifier format `[client-name]-{vertical}` (e.g. `acme-cs`), from the current release image, with every App Server setting of Client Instance Hosting section 3
 4. Starts the container
 
 Verify:
@@ -109,7 +109,7 @@ In Mybizz_management, complete the client registry entry:
 | Field | Value |
 |---|---|
 | `client_id` | Unique identifier (e.g. UUID) |
-| `app_name` | App Platform app name (e.g. `acme-cs`) |
+| `app_name` | Container name (e.g. `acme-cs`) |
 | `base_url` | Client instance URL |
 | `management_token` | Token generated in Step 6 (encrypted) |
 | `subscription_status` | `active` |
@@ -154,7 +154,7 @@ The Owner completes the onboarding wizard in the instance, helped by its help vi
 ### Step 10 — Domain
 
 - [ ] The wizard's domain step has Mybizz_management write the client's DNS records through the Cloudflare API: the website record, MX `inbound-smtp.eu-west-1.amazonaws.com`, the three DKIM CNAME records, MAIL FROM `mail.{domain}` with MX `feedback-smtp.eu-west-1.amazonses.com`, SPF `v=spf1 include:amazonses.com ~all` and DMARC `v=DMARC1; p=quarantine; adkim=r; aspf=r`
-- [ ] Mybizz_management adds the client's domain to the instance's App Platform app and sets the App Server's `origin` to it
+- [ ] Mybizz_management approves the client's domain on the server's runner, so Caddy obtains its certificate, and sets the App Server's `origin` to it
 - [ ] The website record is proxied through Cloudflare, with Cloudflare's free web application firewall managed rules, DDoS protection and bot blocking switched on in the client's Cloudflare account; the email records stay unproxied
 - [ ] SES shows the domain identity as verified
 
@@ -231,7 +231,7 @@ Send the client, through the instance's email:
 
 If activation cannot be completed (client withdraws, payment fails, technical blocker):
 
-1. Mybizz_management's **Remove** action deletes the client's App Platform app, database and database user
+1. Mybizz_management's **Remove** action deletes the client's container, database and database user
 2. Delete the client's R2 bucket; Mybizz's Cloudflare user leaves the client's Cloudflare account
 3. Delete the client's SES tenant, identity, receipt rule, SNS topics and AWS keys, and empty the client's S3 prefix
 4. Revoke the management token

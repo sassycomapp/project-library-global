@@ -1,7 +1,7 @@
 ---
 title: "spec-anvil-platform-standards"
 doc-id: "mb-57f2e70b"
-updated: "2026-11-10"
+updated: "2026-11-17"
 ---
 # Anvil Platform Mechanics
 
@@ -52,7 +52,7 @@ Every server function should:
   (i.e. ~22 seconds against a 30-second limit) must use a background task instead of a normal
   server call.
 
-**Plan:** Apps 1, 2, 3 and 5 run on Mybizz's Anvil Business account. Every client instance runs on the Anvil App Server, in its own container with its own database ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)). The App Server runs background tasks with no timeout and scheduled tasks; each client's limits are its container's memory and its database's share of the business's cluster. Email is sent through Amazon SES.
+**Plan:** Apps 1, 2, 3 and 5 run on Mybizz's Anvil Business account. Every client instance runs on the Anvil App Server, in its own container with its own database ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)). The App Server runs background tasks with no timeout and scheduled tasks; each client's limits are its container's memory and its database's share of Mybizz's database service. Email is sent through Amazon SES.
 
 **[EXAMPLE]** For a multi-instance deployment (e.g. 100 client instances, each running
 several scheduled tasks — health heartbeat, reminders, webhook processing), each instance runs in its own container, so each container's task load is checked against that container alone.
@@ -307,7 +307,7 @@ storage for large media.
 
 ## 25. Persistent Server Requirement
 
-A client container restarts at every release and whenever DigitalOcean moves it. Every feature is designed so that a server restart loses nothing: no state is kept in module-level variables between calls, and slow start-up work is avoided or cached in Data Tables.
+A client container restarts at every release and whenever its server restarts or is rebuilt. Every feature is designed so that a server restart loses nothing: no state is kept in module-level variables between calls, and slow start-up work is avoided or cached in Data Tables.
 
 ## 26. `app_tables` Resolution Failure
 

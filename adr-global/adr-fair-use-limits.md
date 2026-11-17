@@ -11,7 +11,7 @@ Status: Accepted
 
 ## Context
 
-Every Mybizz client instance shares resources with every other client instance of the same business: one DigitalOcean Managed PostgreSQL cluster, one Amazon SES account, one Groq organisation and one DigitalOcean account. One client's heavy or abusive use of a shared resource can slow, stop or cost money for every other client. Each client pays one flat monthly price, so a client's use carries no extra charge that would discourage excess.
+Every Mybizz client instance shares resources with other client instances: one Ubicloud database service, the application server it runs on, one Amazon SES account, one Groq organisation and one Hetzner account. One client's heavy or abusive use of a shared resource can slow, stop or cost money for every other client. Each client pays one flat monthly price, so a client's use carries no extra charge that would discourage excess.
 
 Mybizz is run by one person who does not watch supplier consoles. Every limit must therefore be measured and enforced automatically, and must stop excess before it harms other clients, while staying well above normal and heavy use.
 
@@ -42,10 +42,10 @@ Mybizz is run by one person who does not watch supplier consoles. Every limit mu
 
 4. **App 5 measures every other limit.**
    - Database size arrives with each client container's heartbeat.
-   - Container memory comes from DigitalOcean's metrics through the DigitalOcean API.
+   - Container memory comes from the provisioning runner's server report.
    - Email volumes come from each client's SES tenant; email reputation is enforced by the SES tenant reputation policy itself.
    - AI and voice spend is metered per request in the client instance and reported with the heartbeat; the request rate is enforced in the client instance.
-   - Data transfer comes from DigitalOcean's bandwidth figures for the client's container.
+   - Data transfer comes from the provisioning runner's server report for the client's container.
    - Sizes and monthly totals are checked once a day; the rest continuously.
 
 5. **The Groq organisation carries its own spend limit of £1,700 a month,** with alerts at 50%, 75% and 90%. It covers every client at its AI and voice cap at 100 clients, so no single client can exhaust the shared limit while every client stays within its own.
@@ -66,13 +66,13 @@ Mybizz is run by one person who does not watch supplier consoles. Every limit mu
 4. SES's per-tenant reputation policy pauses one client's sending before Amazon reviews the whole account, so one client's bad list cannot stop every client's email.
 5. The Groq organisation limit is a second line behind the per-client cap: a fault in per-client metering can cost at most a known amount.
 6. Fair-use terms in the agreement make every limit enforceable without dispute.
-7. A published abuse address and a one-client **Suspend** action let Mybizz act before DigitalOcean or Amazon acts against the whole account.
+7. A published abuse address and a one-client **Suspend** action let Mybizz act before Hetzner, Ubicloud or Amazon acts against the whole account.
 
 ---
 
 ## Consequences
 
-- The highest cost of one client, with every limit reached, is £54.78 a month, which each client's £119 covers (the Mybizz budget, `mybizz-live-budget.xlsx` in `data-mybizz-mgt\business\mybizz-live`).
+- The highest cost of one client, with every limit reached, is £42.40 a month, which each client's £119 covers: two places on an application server £11.66, email £3.75, AI and voice £16.80, Paddle's fee £6.32 and a share of the database service at 30 clients £3.87; data transfer stays within each server's included allowance (the Mybizz budget, `mybizz-live-budget.xlsx` in `data-mybizz-mgt\business\mybizz-live`).
 - Client provisioning creates each database user with the limits of point 3 ([[[default:specifications-global/spec-client-activation-runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md)).
 - App 5 carries the measurements, notifications and the **Suspend** action ([[[default:adr-global/adr-mybizz-management-visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md)).
 - The client instance meters AI and voice spend and enforces the request rate.

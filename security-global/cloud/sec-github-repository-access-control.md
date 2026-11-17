@@ -1,17 +1,17 @@
 ---
 title: "sec-github-repository-access-control"
 doc-id: "mb-a2ae334b"
-updated: "2026-11-08"
+updated: "2026-11-17"
 ---
 # GitHub Repository Access Control
 
 ## Applicable Threat
 
-`master_template`, `blank_client_template` and the business's `{slug}-app4` repository together make the release image that every client instance runs — per `[[spec-five-app-architecture-model]]` and `[[spec-client-instance-hosting]]`. Unauthorized or unreviewed write access to any of them, or to the Container Registry, would carry malicious or broken code to every live client instance at the next release, without any per-client review step.
+`master_template`, `blank_client_template` and the business's `{slug}-app4` repository together make the release image that every client instance runs — per `[[spec-five-app-architecture-model]]` and `[[spec-client-instance-hosting]]`. Unauthorized or unreviewed write access to any of them, or to the release image registry, would carry malicious or broken code to every live client instance at the next release, without any per-client review step.
 
 ## Security Requirement
 
-Write access to `master_template`, `blank_client_template` and `{slug}-app4` is restricted to the developer directly. No automated process or AI agent pushes a release into `master_template` or changes `blank_client_template`; only the developer does, after approving the release. The release image is built only by the image build workflow in `{slug}-app4`, from a release tag, and only that workflow writes to the business's Container Registry repository. Every MyBizz repository is GitHub-backed. — a local-only working tree is not an acceptable end state for either repository.
+Write access to `master_template`, `blank_client_template` and `{slug}-app4` is restricted to the developer directly. No automated process or AI agent pushes a release into `master_template` or changes `blank_client_template`; only the developer does, after approving the release. The release image is built only by the image build workflow in `{slug}-app4`, from a release tag, and only that workflow writes to the business's package in GitHub's container registry. Every MyBizz repository is GitHub-backed. — a local-only working tree is not an acceptable end state for either repository.
 
 ## Approved Pattern
 
@@ -19,7 +19,7 @@ Development happens in App 1; pushing App 1's tagged release into `master_templa
 
 ## Prohibited Pattern
 
-An AI agent pushing to `master_template`'s repository, committing directly to `blank_client_template`'s table definitions without the explicit review the schema-change process requires, or pushing an image to the Container Registry.
+An AI agent pushing to `master_template`'s repository, committing directly to `blank_client_template`'s table definitions without the explicit review the schema-change process requires, or pushing an image to the container registry.
 
 ## Implementation Guidance
 

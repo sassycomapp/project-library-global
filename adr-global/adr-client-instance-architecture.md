@@ -1,7 +1,7 @@
 ---
 title: "adr-client-instance-architecture"
 doc-id: "mb-c7c61252"
-updated: "2026-11-12"
+updated: "2026-11-17"
 ---
 # `client-instance-architecture` ADR — Client Instance Architecture
 
@@ -25,7 +25,7 @@ Every client needs complete data isolation from every other client, every releas
 
 ## Decision
 
-**Every client instance runs on the Anvil App Server, as one container on DigitalOcean App Platform, with one database of its own in the business's DigitalOcean Managed PostgreSQL cluster.** The specification is [[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md).
+**Every client instance runs on the Anvil App Server, as one Docker container on a Mybizz Hetzner application server, with one database of its own in Mybizz's Ubicloud managed PostgreSQL service.** The specification is [[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md).
 
 | Component | Lives in | Notes |
 |---|---|---|
@@ -34,7 +34,7 @@ Every client needs complete data isolation from every other client, every releas
 | Startup module | App 3 | One minimal module; imports and opens the first form from master_template |
 | Table definitions | App 3 | The released schema; the App Server builds the client's tables from them |
 | Scheduled tasks | App 3 | Calling the background tasks in master_template |
-| Release image | The business's `{slug}-app4` repository and the Container Registry | The App Server, App 3, master_template and `m3`, built once per release |
+| Release image | The business's `{slug}-app4` repository and GitHub's container registry | The App Server, App 3, master_template and `m3`, built once per release |
 | Data | The client's own database and the client's own R2 bucket | All client data; never leaves the instance |
 
 **Every client instance runs the same release image. A client instance holds no code of its own.** The startup module imports the first form from master_template and opens it. All subsequent navigation, UI, form code, and server logic is served from master_template.
@@ -56,7 +56,7 @@ open_form(MainForm())
 - The App Server builds and extends each client's tables (Anvil behaviour 3), so a release that adds tables or columns needs no per-client work
 - Data isolation between clients is architecturally guaranteed — each client has its own App Server and its own database
 - Security boundary is structural, not enforced in application code
-- DigitalOcean runs the servers, updates, failover and database backups, so Mybizz runs no server
+- Ubicloud runs the database's updates, failover and backups; the application servers hold no client data, so any server is rebuilt from the release image
 
 ---
 
@@ -69,7 +69,7 @@ open_form(MainForm())
 - ✅ Client instances need no per-client maintenance
 - ⚠️ After a business's first release, a release never removes, renames or retypes a table or column; the table-change check stops any release that would
 - ⚠️ The App Server is released by Anvil separately from Anvil's hosted service; Mybizz pins one App Server version, and every release passes the full test suite on the release image
-- ⚠️ One cluster in one region serves every client of a business; the rebuild procedure restores every client in another region from the release image and the clients' R2 copies
+- ⚠️ One database service serves every client of every business; it has a standby, and the rebuild procedure restores every client into a new service from the clients' R2 copies
 
 ---
 

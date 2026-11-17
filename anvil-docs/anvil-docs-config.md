@@ -66,7 +66,7 @@ see [[[default:anvil-docs/anvil-docs-reference|Reference: Navigation, Verificati
 
 Cupcake-based statements in this suite describe standing policy and what
 enforcement blocks when active — enforcement status is not fixed and is not
-restated as current anywhere in this suite; check [[[mybizz-config-docs:cupcake/cupcake-config|Cupcake Configuration]]](C:/mybizz/mybizz-config-docs/cupcake/cupcake-config.md)'s
+restated as current anywhere in this suite; check [[mybizz-config-docs:cupcake/cupcake-config|Cupcake Configuration]]'s
 Current Operational Status for the live state.
 
 | Policy | Detail |

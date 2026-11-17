@@ -1,7 +1,7 @@
 ---
 title: "sec-broken-access-control-within-instance"
 doc-id: "mb-c5a79f1e"
-updated: "2026-10-01"
+updated: "2026-11-17"
 ---
 # Threat Model — Broken Access Control Within a Client Instance
 
@@ -52,7 +52,7 @@ For each RBAC-scoped Data Table: log in as User A (a role scoped to own-data-onl
 ## Authoritative Sources
 
 - `[[spec-security]]` §1 — RBAC and Data Access
-- `[[spec-security-architecture]]` §1 — RBAC Role Limits
+- `[[spec-security-architecture]]` §1 — RBAC roles
 - `[[spec-five-app-architecture-model]]` — confirms cross-client isolation is a separate, already-solved problem; this document does not duplicate that scope
 
 ## Known Exceptions

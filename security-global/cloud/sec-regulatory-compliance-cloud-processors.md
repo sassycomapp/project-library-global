@@ -1,7 +1,7 @@
 ---
 title: "sec-regulatory-compliance-cloud-processors"
 doc-id: "mb-c1321a2c"
-updated: "2026-11-10"
+updated: "2026-11-17"
 ---
 # Regulatory Compliance Scope of Third-Party Cloud Processors
 
@@ -13,7 +13,8 @@ Each third-party cloud service a Mybizz application depends on carries its own r
 
 | Processor | What it handles | Regulatory implication |
 |---|---|---|
-| DigitalOcean, `LON1` | Runs every client instance and holds its database: every record the instance holds (`[[spec-client-instance-hosting]]`) | Holds all personal information of the client's customers and staff, in London (UK GDPR; the client's own privacy law) |
+| Hetzner, Germany | Runs every client instance's container (`[[spec-client-instance-hosting]]`); holds no client data at rest beyond the container's settings | Processes the personal information the instance handles, in the EU (UK GDPR; the client's own privacy law) |
+| Ubicloud, Germany | Holds every client instance's database: every record the instance holds (`[[spec-client-instance-hosting]]`) | Holds all personal information of the client's customers and staff, in the EU (UK GDPR; the client's own privacy law) |
 | Anvil | Hosts App 5, which holds each client business's registry record, contacts and billing status | Personal information of the client business's contacts (UK GDPR) |
 | Paddle | Mybizz's subscription billing, as Merchant of Record: each client business's billing name, address, email, business tax number and payment card (`[[spec-client-billing]]`) | Personal information of the client business's contacts (UK GDPR). Card data stays with Paddle, which carries PCI DSS for Mybizz's subscription payments |
 | Stripe, PayPal | Card and PayPal payments, on the gateway's own hosted page or embedded fields | PCI DSS, SAQ A scope (`[[spec-regulatory-compliance-baseline]]`) |
@@ -49,7 +50,7 @@ When onboarding a new client, confirm whether the client's own customer base int
 - `[[spec-regulatory-compliance-baseline]]` — UK GDPR, the client's own privacy law, PCI DSS and retention
 - `[[adr-brevo-email-and-crm]]` — Amazon SES
 - `[[adr-client-r2-storage-and-exit-handover]]` — Cloudflare R2
-- `[[spec-client-instance-hosting]]` — DigitalOcean
+- `[[spec-client-instance-hosting]]` — Hetzner and Ubicloud
 
 ## Known Exceptions
 

@@ -1,7 +1,7 @@
 ---
 title: "sec-privilege-escalation"
 doc-id: "mb-a824bb8a"
-updated: "2026-10-01"
+updated: "2026-11-17"
 ---
 # Threat Model — Privilege Escalation
 
@@ -47,7 +47,7 @@ Log in as each lower-privileged role in turn; attempt every higher-privileged ac
 
 ## Authoritative Sources
 
-- `[[spec-security-architecture]]` §1 — RBAC role limits
+- `[[spec-security-architecture]]` §1 — RBAC roles
 
 ## Known Exceptions
 

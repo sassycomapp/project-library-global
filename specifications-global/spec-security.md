@@ -1,13 +1,13 @@
 ---
 title: "spec-security"
 doc-id: "mb-d16f800e"
-updated: "2026-11-02"
+updated: "2026-11-17"
 ---
 # Security Specification
 
 **Location:** `C:\dev\project-library-global\specifications-global\spec-security.md`
 **Vault System:** [[[default:specifications-global/spec-vault-system|Vault System Specification]]](C:/dev/project-library-global/specifications-global/spec-vault-system.md) — the single authoritative Vault document.
-**Scope:** Project-agnostic security patterns. A project's specific role limits, regulatory
+**Scope:** Project-agnostic security patterns. A project's specific roles, regulatory
 posture, and implementation details belong in that project's own canonical security document.
 
 ---

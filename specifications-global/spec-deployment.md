@@ -1,7 +1,7 @@
 ---
 title: "spec-deployment"
 doc-id: "mb-4a8a251d"
-updated: "2026-11-12"
+updated: "2026-11-17"
 ---
 # Mybizz — Deployment Specification
 
@@ -20,9 +20,9 @@ Every Mybizz business has five apps (see [[[default:specifications-global/spec-f
 | App 3 — `blank_client_template` | The client app: the released table definitions, the startup module and the scheduled tasks. |
 | Release image | App 3, App 2 and `m3` on the pinned App Server, built once per release in the business's `{slug}-app4` repository and stored under the release tag. |
 | App 4 — each client instance | One container running the release image, with its own database. |
-| App 5 — Mybizz management | Receives heartbeats and events; sends control calls; runs the New client, Release and Remove actions through the DigitalOcean API. |
+| App 5 — Mybizz management | Receives heartbeats and events; sends control calls; runs the New client, Release and Remove actions through each application server's provisioning runner. |
 
-Testing before release happens on the Anvil App Server on the developer's computer, on the release image, and on the test client instance, not in a staging environment. The test client instance is a client instance of its own, on DigitalOcean, holding test data only.
+Testing before release happens on the Anvil App Server on the developer's computer, on the release image, and on the test client instance, not in a staging environment. The test client instance is a client instance of its own, on a Mybizz Hetzner application server, holding test data only.
 
 ---
 
@@ -122,7 +122,7 @@ A column that is no longer used stays in place, unused. It is never removed from
 
 | Event | Action |
 |---|---|
-| Every day | DigitalOcean backs up the cluster, kept for 7 days, with point-in-time recovery |
+| Continuously | Ubicloud backs up the database service, kept for 7 days, with restore to any minute |
 | Every night | Every client instance copies its data to its own R2 bucket |
 | Before a test run on hosted App 1 | Back up App 1 |
 | After a passing test run on hosted App 1 | Back up App 1 (known good state) |
@@ -134,15 +134,15 @@ Test runs on the local Anvil App Server need no backup: they start from an empty
 ### Backup Checks
 
 - **Daily:** App 5 checks that each client's nightly copy arrived, with the right date and a plausible size.
-- **Monthly:** the restore drill. The test client instance restores one client's nightly copy into a scratch database in the cluster, compares its row counts with the source, deletes the scratch database and reports the result to App 5. The drill runs inside DigitalOcean because the cluster accepts connections from DigitalOcean only.
+- **Monthly:** the restore drill. The test client instance restores one client's nightly copy into a scratch database, compares its row counts with the source, deletes the scratch database and reports the result to App 5.
 - Each client's backup copies sit under `backups/` in its R2 bucket, and each copy is locked for its whole retention period: a daily copy (`backups/daily/`, the last 7 kept) for 7 days, and a weekly copy (`backups/weekly/`, the last 4 kept) for 28 days. No key, Mybizz's included, can delete or overwrite a copy while it is locked.
 
 ### Backup Method
 
 - Git commit and release tag (code)
-- The release image in the Container Registry, under its release tag (running code)
-- DigitalOcean's cluster backups (data, inside DigitalOcean)
-- Each client instance's copy in its own R2 bucket (data, outside DigitalOcean)
+- The release image in GitHub's container registry, under its release tag (running code)
+- Ubicloud's backups of the database service (data)
+- Each client instance's copy in its own R2 bucket (data, outside Hetzner and Ubicloud)
 
 ---
 
@@ -152,7 +152,7 @@ Each client instance is one container running the release image, with its own da
 
 - **Code updates:** App 5's Release action
 - **Schema updates:** carried by the release image; applied by each client's App Server as its container starts
-- **Configuration updates:** per client instance, in its encrypted App Platform environment values, through App 5
+- **Configuration updates:** per client instance, in its settings file on the server, through App 5 and the runner
 
 ### Post-Release Verification
 
@@ -167,15 +167,17 @@ After every release:
 
 ## 8. Failure Scenarios
 
-Mybizz's Anvil account holds Apps 1, 2, 3 and 5. Each business's DigitalOcean project holds its cluster, its test client instance and its client instances. Documented responses for each scenario:
+Mybizz's Anvil account holds Apps 1, 2, 3 and 5. Each business's Hetzner project holds its application servers, its test client instance and its client instances. Mybizz's Ubicloud service holds every client database. Documented responses for each scenario:
 
 | Scenario | Detection | Recovery | Prevention |
 |---|---|---|---|
 | Anvil account suspension | Email from Anvil; App 1, App 2 and App 5 unavailable | Client instances keep running; contact Anvil support; releases and provisioning wait until App 5 is back | Monitor billing status |
-| One client container fails | That client's heartbeats stop | App Platform restarts the container; if it does not recover, App 5 recreates the container from the current release image | Container size checked against the client's use in App 5 |
-| Cluster main node fails | Database errors in heartbeats | The standby node takes over automatically; clients are back within minutes | Standby node from the business's platform set-up |
-| DigitalOcean region outage or account suspension | Every client's heartbeats stop; DigitalOcean Uptime reports App 5's status endpoint fault | App 5's **Rebuild** action (section 10) | Locked R2 backup copies; the rebuild tested before the first paying client |
-| Account compromise | Unauthorized changes, unknown collaborators | Contact the provider's support; rotate all credentials; audit all instances; follow the business's incident response plan | Hardware security keys on every supplier account; two scoped DigitalOcean keys; the cluster's trusted sources; locked nightly copies |
+| One client container fails | That client's heartbeats stop | Docker restarts the container; if it does not recover, App 5 recreates the container from the current release image | Container size checked against the client's use in App 5 |
+| One application server fails | The heartbeats of every client on that server stop; the runner stops reporting | App 5's **Rebuild server** action orders a new server and recreates each client's container from the release image; no data is lost | Two free places kept on every business's servers; Hetzner server backups |
+| Database primary fails | Database errors in heartbeats | Ubicloud promotes the standby automatically; clients are back within minutes | Standby from the first client |
+| Hetzner location outage | Every client's heartbeats stop; UptimeRobot reports App 5's status endpoint fault | **Rebuild server** for each server in Falkenstein (`fsn1`) | Release images in GitHub's registry; settings and keys in App 5's Vault |
+| Ubicloud service lost or account suspended | Database errors in every heartbeat | App 5's **Rebuild** action (section 10) | Locked R2 backup copies; the rebuild tested before the first paying client |
+| Account compromise | Unauthorized changes, unknown collaborators | Contact the provider's support; rotate all credentials; audit all instances; follow the business's incident response plan | Hardware security keys on every supplier account; scoped Hetzner and Ubicloud keys; the database firewall; locked nightly copies |
 
 ## 9. Rollback Trigger Thresholds
 
@@ -199,14 +201,14 @@ Rollback mechanism: App 5 moves the client instances back to the previous releas
 
 ## 10. Rebuild
 
-App 5's **Rebuild** action restores every client of a business in another DigitalOcean region when `LON1` or the business's cluster is lost. It uses the provisioning key ([[[default:security-global/cloud/sec-client-provisioning-security|Client Provisioning Security]]](C:/dev/project-library-global/security-global/cloud/sec-client-provisioning-security.md)).
+App 5's **Rebuild** action restores every client into a new managed PostgreSQL service when Mybizz's Ubicloud service is lost. **Rebuild server** replaces one application server ([[[default:specifications-global/spec-client-instance-hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) section 9).
 
-1. The developer chooses the region and starts **Rebuild** in App 5.
-2. App 5 creates a new Managed PostgreSQL cluster in that region: PostgreSQL 18, at the business's current stage of [[[default:adr-global/adr-automatic-resizing|Automatic Resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md), with its standby, storage autoscaling and trusted sources.
-3. App 5 creates the provisioning job in the new region; the job creates each client's database and database user with its three limits.
-4. Each client's data is restored from DigitalOcean's backups when they are reachable, otherwise from the client's latest nightly copy in its R2 bucket. At most 24 hours of data is lost when the nightly copy is used.
-5. App 5 creates each client's container from the current release image, by its digest, with the client's settings, keys and domain, and points the client's DNS record at the new container through the Cloudflare API.
+1. The developer starts **Rebuild** in App 5.
+2. The developer creates a new Ubicloud service at the current stage of [[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md), with its standby and its firewall, and enters its address and provisioning role in App 5's Vault.
+3. Through each server's runner, App 5 creates each client's database and database user with its three limits.
+4. Each client's data is restored from the client's latest nightly copy in its R2 bucket. At most 24 hours of data is lost.
+5. App 5 points each client's container to its new database and restarts it.
 6. Each client is checked by its heartbeat; App 5 reports every client restored and any that failed.
 7. App 5 messages every client about the interruption.
 
-The rebuild restores the test client instance into another region before the first paying client ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) section 10).
+The rebuild restores the test client instance into a new database service before the first paying client ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) section 10).

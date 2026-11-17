@@ -1,7 +1,7 @@
 ---
 title: "adr-observability-architecture"
 doc-id: "mb-d5da852f"
-updated: "2026-11-11"
+updated: "2026-11-17"
 ---
 # `observability-architecture` ADR — Observability Architecture
 
@@ -15,7 +15,7 @@ The platform requires visibility into the health, activity, and status of up to 
 
 ### The Platforms' Own Monitoring
 
-- **DigitalOcean**, for each client instance: the container's logs and its CPU and memory use, and the cluster's metrics ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)).
+- **The provisioning runner**, on each application server: each container's logs, memory use and data transfer, and the server's disk; and **Ubicloud**, for the database service's metrics ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)).
 - **Anvil**, for Apps 1, 2, 3 and 5: App Logs, CPU and Memory Usage tabs, and Profiling and Tracing tools.
 
 These tools are valuable for diagnosing individual app issues. They are not suitable as the primary monitoring solution for this platform because:
@@ -53,15 +53,15 @@ Each client instance pushes a heartbeat to Mybizz_management on a schedule, with
 - Background task health (last run, success/failure)
 - Error count and last error per client
 - Subscription and billing status
-- Container memory use, from DigitalOcean's metrics through the DigitalOcean API, with the 80% alert that triggers the container resize ([[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md))
+- Container memory use, from the provisioning runner's server report, with the 80% alert that triggers the container resize ([[[default:adr-global/adr-automatic-resizing]]](C:/dev/project-library-global/adr-global/adr-automatic-resizing.md))
 - Database size, and AI and voice spend for the month, from each heartbeat
-- Data transfer per container, from DigitalOcean's bandwidth figures: a notice to the client and the developer at 500 GB a month
+- Data transfer per container, from the provisioning runner's server report: a notice to the client and the developer at 500 GB a month
 - Each client's own Cloudflare storage: a notice to the client at 8 GB, before Cloudflare starts billing the client above 10 GB
 - Each client domain's resolution, certificate validity and registration expiry, checked daily; the client is warned 30 days before expiry
 
 ### Watching the Watcher
 
-Mybizz_management is itself the monitoring layer, so its own failure would go unnoticed. Mybizz_management publishes a status endpoint that reports a fault when Mybizz_management fails or when any active client's heartbeat is more than 30 minutes old; suspended and exited clients are excluded. One DigitalOcean Uptime check calls the endpoint every minute and emails the developer on a fault. Client instances keep running while Mybizz_management is down.
+Mybizz_management is itself the monitoring layer, so its own failure would go unnoticed. Mybizz_management publishes a status endpoint that reports a fault when Mybizz_management fails or when any active client's heartbeat is more than 30 minutes old; suspended and exited clients are excluded. One UptimeRobot check calls the endpoint every 5 minutes and emails the developer on a fault. Client instances keep running while Mybizz_management is down.
 
 ---
 
@@ -81,7 +81,7 @@ Mybizz_management is itself the monitoring layer, so its own failure would go un
 - ✅ Consolidated monitoring across all 100 client instances in one dashboard
 - ✅ No external infrastructure or third-party monitoring subscriptions required
 - ✅ Monitoring logic ships with master_template — all client instances monitored automatically
-- ✅ DigitalOcean's per-container logs and metrics, and Anvil's tools on App 1, remain available for deep diagnostics when needed
+- ✅ Each container's Docker logs, Ubicloud's database metrics, and Anvil's tools on App 1, remain available for deep diagnostics when needed
 - ⚠️ `health_log`, `error_log` and `activity_log` are part of every application's schema and of App 3's table definitions
 - ⚠️ Heartbeat background task adds to per-client scheduled task load — must be accounted for in each client container's memory
 
@@ -94,9 +94,9 @@ The platforms' own observability tools are not replaced — they are complementa
 | Tool | Use case |
 |---|---|
 | Mybizz_management dashboard | Day-to-day operational monitoring across all clients |
-| DigitalOcean container logs | Deep diagnostic investigation of a specific client issue |
-| DigitalOcean container and cluster metrics | Performance investigation of a specific client instance |
-| DigitalOcean Uptime | The one external check: Mybizz_management's status endpoint, every minute |
+| Docker container logs, through the runner | Deep diagnostic investigation of a specific client issue |
+| Runner server reports and Ubicloud database metrics | Performance investigation of a specific client instance |
+| UptimeRobot | The one external check: Mybizz_management's status endpoint, every 5 minutes |
 | Anvil App Logs, Profiling and Tracing on App 1 | Code-level bottleneck analysis during development |
 
 ---

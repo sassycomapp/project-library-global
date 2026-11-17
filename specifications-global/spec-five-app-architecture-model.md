@@ -1,7 +1,7 @@
 ---
 title: "spec-five-app-architecture-model"
 doc-id: "mb-1b7a1fda"
-updated: "2026-11-08"
+updated: "2026-11-17"
 ---
 # Mybizz — Five-App Architecture Model (Specification)
 
@@ -19,7 +19,7 @@ updated: "2026-11-08"
 | App 4 — `[client-name]-{vertical}` | One per paying client — a dedicated, isolated client instance. | One container running the release image, and one database of its own. | Through the release image: App 5's Release action moves every client instance to each new release |
 | App 5 — `{Product}_management` | Platform operator's internal tooling — provisioning, health monitoring, billing automation, release distribution. | Client registry, monitoring dashboard, billing status, the New client, Release and Remove actions | Built before the first paying client, with `master_template`; updated by its own releases |
 
-Apps 1, 2, 3 and 5 run on Mybizz's Anvil Business account. Each client instance runs on the Anvil App Server, as one container on DigitalOcean App Platform with its own database in DigitalOcean Managed PostgreSQL ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)).
+Apps 1, 2, 3 and 5 run on Mybizz's Anvil Business account. Each client instance runs on the Anvil App Server, as one container on a Mybizz Hetzner application server, with its own database in Mybizz's Ubicloud managed PostgreSQL service ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)).
 
 ## Why This Shape
 

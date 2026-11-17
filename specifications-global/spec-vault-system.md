@@ -1,7 +1,7 @@
 ---
 title: "spec-vault-system"
 doc-id: "mb-4960a0bb"
-updated: "2026-11-10"
+updated: "2026-11-17"
 ---
 # Mybizz — The Vault System
 
@@ -58,6 +58,6 @@ Each application lists its own Vault contents, its Vault form and its build sequ
 | [[[default:adr-global/adr-brevo-email-and-crm]]](C:/dev/project-library-global/adr-global/adr-brevo-email-and-crm.md) | Vault credentials for Amazon SES |
 | [[[default:adr-global/adr-observability-architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md) | Vault access audit logging |
 | [[[default:adr-global/adr-mybizz-management-visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md) | Vault access event forwarding |
-| [[[default:specifications-global/spec-security-architecture]]](C:/dev/project-library-global/specifications-global/spec-security-architecture.md) | RBAC role limits, sign-in, token security |
+| [[[default:specifications-global/spec-security-architecture]]](C:/dev/project-library-global/specifications-global/spec-security-architecture.md) | RBAC roles, sign-in, token security |
 | [[[default:specifications-global/spec-client-activation-runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md) | Client provisioning — Vault setup steps |
 | Each project library's Vault implementation document | That application's Vault contents, form and build sequence |

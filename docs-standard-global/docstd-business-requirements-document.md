@@ -1,7 +1,7 @@
 ---
 title: "docstd-business-requirements-document"
 doc-id: "mb-db640d1e"
-updated: "2026-11-08"
+updated: "2026-11-17"
 ---
 # {Project Name} — Business Requirements Document (BRD)
 
@@ -136,8 +136,8 @@ certainty.
 |---|---|---|---|---|
 | | | | | |
 
-**Hosting prompt:** every client instance of this project runs in one DigitalOcean
-cluster in one region; consider account-level and region-level failure scenarios
+**Hosting prompt:** every client instance of this project runs on Mybizz's Hetzner application servers,
+with its database in Mybizz's Ubicloud service; consider account-level, server-level and location-level failure scenarios
 explicitly (suspension, compromise, platform outage) — see spec-deployment section 8
 for the standard treatment, don't reinvent it here.
 

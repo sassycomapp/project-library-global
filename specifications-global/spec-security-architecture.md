@@ -1,7 +1,7 @@
 ---
 title: "spec-security-architecture"
 doc-id: "mb-9112b5a3"
-updated: "2026-11-11"
+updated: "2026-11-17"
 ---
 # Mybizz — Security & Secrets Architecture
 
@@ -14,16 +14,16 @@ regulatory baseline (UK GDPR, the client's own privacy law, PCI DSS, standard re
 
 ---
 
-## 1. RBAC — Role Limits
+## 1. RBAC — Roles
 
-Five roles, per the standard RBAC pattern (see [[[default:specifications-global/spec-security|Security Specification]]](C:/dev/project-library-global/specifications-global/spec-security.md)). The standard per-instance limits that apply to all Mybizz applications:
+Five roles, per the standard RBAC pattern (see [[[default:specifications-global/spec-security|Security Specification]]](C:/dev/project-library-global/specifications-global/spec-security.md)). Every instance has one Owner and any number of team members in the other roles:
 
-| Role | Access | Instance Limit |
+| Role | Access | Per instance |
 |---|---|---|
 | Owner | Full access including Vault, financial data, user management | 1 per instance |
-| Manager | Operational management — bookings, customers, marketing, reporting. No Vault or financial config | 0–3 per instance |
-| Admin | Booking and customer management. No financial reporting, settings, or Vault | 0–10 per instance |
-| Staff | Own calendar and bookings only | 0–20 per instance |
+| Manager | Operational management — bookings, customers, marketing, reporting. No Vault or financial config | Any number |
+| Admin | Booking and customer management. No financial reporting, settings, or Vault | Any number |
+| Staff | Own calendar and bookings only | Any number |
 | Customer | Own bookings, invoices, account in the customer portal | Unlimited |
 
 ### Sign-in

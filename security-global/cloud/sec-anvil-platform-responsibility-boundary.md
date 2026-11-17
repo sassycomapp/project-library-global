@@ -1,7 +1,7 @@
 ---
 title: "sec-anvil-platform-responsibility-boundary"
 doc-id: "mb-b889a077"
-updated: "2026-11-08"
+updated: "2026-11-17"
 ---
 # Anvil Platform Responsibility Boundary
 
@@ -11,13 +11,13 @@ A security control is assumed to exist because "the platform handles it," when i
 
 ## Security Requirement
 
-Every security control in this library must be explicitly assigned to the platform (Anvil's runtime, DigitalOcean, or Mybizz's release and provisioning procedures) or to the application code. No control may be left unassigned.
+Every security control in this library must be explicitly assigned to the platform (Anvil's runtime, Hetzner, Ubicloud, or Mybizz's release and provisioning procedures) or to the application code. No control may be left unassigned.
 
 ## Approved Pattern
 
 Anvil's runtime, confirmed structural per `[[spec-five-app-architecture-model]]`: cross-client data isolation (a separate App Server and a separate database per client instance — architecturally impossible to breach from application code); Data Table access control at the "no client access" level (`[[spec-security]]` §1).
 
-DigitalOcean's responsibility, per `[[spec-client-instance-hosting]]`: the servers and their operating-system updates, TLS certificates on each client's domain, container restarts, database patching, backups, standby failover and infrastructure uptime.
+Hetzner's responsibility, per `[[spec-client-instance-hosting]]`: the physical servers, the network and the server backups. Ubicloud's responsibility: database patching, backups, standby failover and the database service's uptime. Mybizz's responsibility on its servers: operating-system updates, Docker, Caddy and the TLS certificates on each client's domain, container restarts, and the provisioning runner.
 
 Mybizz's release and provisioning procedures, per `[[spec-client-instance-hosting]]`: a separate database user per client, unique keys and tokens per client, the pinned App Server version, and the release checks.
 
@@ -38,7 +38,7 @@ For any new feature, confirm its security controls are explicitly listed as eith
 ## Authoritative Sources
 
 - `[[spec-five-app-architecture-model]]` — structural data isolation
-- `[[spec-client-instance-hosting]]` — DigitalOcean and the release and provisioning procedures
+- `[[spec-client-instance-hosting]]` — Hetzner, Ubicloud and the release and provisioning procedures
 - `[[spec-security]]` §1 — RBAC and Data Access
 
 ## Known Exceptions

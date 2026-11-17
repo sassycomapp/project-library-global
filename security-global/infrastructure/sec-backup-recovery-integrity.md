@@ -1,7 +1,7 @@
 ---
 title: "sec-backup-recovery-integrity"
 doc-id: "mb-4189f46c"
-updated: "2026-11-11"
+updated: "2026-11-17"
 ---
 # Backup and Recovery Integrity
 
@@ -29,10 +29,10 @@ Every component holding data that would be genuinely costly to lose (the PDLF le
 
 ### Client instances
 
-- **Two copies of every client's data:** DigitalOcean's daily cluster backups with 7-day point-in-time recovery, inside DigitalOcean; and each client's nightly copy in its own R2 bucket, outside DigitalOcean.
+- **Two copies of every client's data:** Ubicloud's continuous backups of the database service, kept 7 days with restore to any minute; and each client's nightly copy in its own R2 bucket, outside Hetzner and Ubicloud.
 - **Locked copies:** the copies sit under `backups/` in the client's R2 bucket, and each copy is locked for its whole retention period: a daily copy (`backups/daily/`, the last 7 kept) for 7 days, and a weekly copy (`backups/weekly/`, the last 4 kept) for 28 days. No key, Mybizz's included, can delete or overwrite a copy while it is locked ([[[default:adr-global/adr-client-r2-storage-and-exit-handover|Client R2 Storage and Exit]]](C:/dev/project-library-global/adr-global/adr-client-r2-storage-and-exit-handover.md)).
 - **Daily backup check:** App 5 checks that each client's nightly copy arrived, with the right date and a plausible size.
-- **Monthly restore drill:** the test client instance restores one client's nightly copy into a scratch database in the cluster, compares its row counts with the source, deletes the scratch database and reports the result to App 5.
+- **Monthly restore drill:** the test client instance restores one client's nightly copy into a scratch database, compares its row counts with the source, deletes the scratch database and reports the result to App 5.
 - **Rebuild:** App 5's **Rebuild** action is proven by restoring the test client instance in another region before the first paying client ([[[default:specifications-global/spec-deployment|Deployment Specification]]](C:/dev/project-library-global/specifications-global/spec-deployment.md) section 10).
 
 ## Verification Requirements

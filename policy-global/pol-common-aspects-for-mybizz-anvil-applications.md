@@ -1,6 +1,6 @@
 ---
 title: "pol-common-aspects-for-mybizz-anvil-applications"
-updated: "2026-11-12"
+updated: "2026-11-17"
 doc-id: "mb-ab18d72d"
 ---
 # Policy — Common Aspects for Mybizz Anvil Applications
@@ -17,7 +17,7 @@ Every application has App 1 (development workspace), App 2 (`master_template`, t
 
 ### 2. Client instance hosting
 
-Each client instance runs on the Anvil App Server, in its own container on DigitalOcean named after the client's business, with its own database ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)). Server resources are raised for that client's container alone, with no change to App 2 and no effect on any other client. A client's transactions run in its own instance; App 2 carries no client load. Every client pays the same price, £119 a month or £1,190 a year, or the fixed price in its currency. [[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md).
+Each client instance runs on the Anvil App Server, in its own container on a Mybizz Hetzner application server, named after the client's business, with its own database ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md)). Server resources are raised for that client's container alone, with no change to App 2 and no effect on any other client. A client's transactions run in its own instance; App 2 carries no client load. Every client pays the same price, £119 a month or £1,190 a year, or the fixed price in its currency. [[[default:adr-global/adr-tiers-model|Tiers Model]]](C:/dev/project-library-global/adr-global/adr-tiers-model.md).
 
 ### 3. Configuration, never code, in a client instance
 
@@ -51,7 +51,7 @@ Each client has one Cloudflare R2 bucket, in a free Cloudflare account in the cl
 ### 9. Management and health
 
 - Every client instance exposes the management endpoints from its first release, secured with a per-client token. [[[default:adr-global/adr-mybizz-management-visibility|Mybizz Management Visibility]]](C:/dev/project-library-global/adr-global/adr-mybizz-management-visibility.md).
-- Every client instance pushes a heartbeat of its health and resource use to App 5 on a schedule. App 5 never polls client instances. App 5 flags any client nearing its container's memory and the business nearing its cluster's client limit. [[[default:adr-global/adr-observability-architecture|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md).
+- Every client instance pushes a heartbeat of its health and resource use to App 5 on a schedule. App 5 never polls client instances. App 5 flags any client nearing its container's memory the business's servers nearing their last free places, and Mybizz nearing the next database stage. [[[default:adr-global/adr-observability-architecture|Observability Architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md).
 
 ### 10. Background work and real-time updates
 

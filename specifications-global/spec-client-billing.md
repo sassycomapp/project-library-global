@@ -22,7 +22,7 @@ updated: "2026-11-17"
 ## 2. Currency
 
 - Mybizz's reference currency is the pound sterling (GBP). Mybizz's prices, revenue, margins and books are stated in GBP.
-- Every supplier cost is stated in the currency the supplier bills: DigitalOcean, Anvil, Amazon Web Services and Groq bill in US dollars. Beside each dollar cost, the GBP figure is given at Mybizz's planning rate of **$1 = £0.75**. This planning rate is the only exchange rate used in Mybizz's documents.
+- Every supplier cost is stated in the currency the supplier bills: Ubicloud, Amazon Web Services and Groq bill in US dollars, and Hetzner in euros. Beside each cost, the GBP figure is given at Mybizz's planning rates of **$1 = £0.745** and **€1 = £0.834**. These planning rates are the only exchange rates used in Mybizz's documents.
 - Paddle pays Mybizz out in GBP.
 
 ---
@@ -108,7 +108,7 @@ App 5 counts the days from `payment_failed_at`. Paddle's payment recovery retrie
 
 - **Data is never withheld.** The client owns its data. Every night, the client's data is copied into the client's own R2 bucket, in the client's own Cloudflare account, and the exit export writes the full data there too. A missed payment stops the service, never the client's access to its data.
 - **An unpaid balance is never carried forward.** Billing is in advance, so every day of service up to the failed payment is paid for. A client that leaves owes nothing further to Mybizz.
-- **The most Mybizz can lose on one client** is the hosting cost of the 37 days between the failed payment and the exit: about £11 ($15) for the container. The database cluster's cost does not change with one client.
+- **The most Mybizz can lose on one client** is the hosting cost of the 37 days between the failed payment and the exit: one container's place on an application server for 37 days, about £7. The database service's cost does not change with one client.
 
 ---
 
