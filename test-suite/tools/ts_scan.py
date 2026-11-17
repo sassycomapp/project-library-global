@@ -809,7 +809,7 @@ class Scanner:
         r["DD-08"].review = r["DD-15"].review = True
         for name, t in tables.items():
             self.dd_table(name, t, r)
-        for needed in ("health_log", "audit_log", "error_log", "webhook_log", "rate_limits"):
+        for needed in ("health_log", "activity_log", "error_log", "webhook_log", "rate_limits"):
             if needed not in tables:
                 r["DD-13"].findings.append(Finding("anvil.yaml", 0, f"table '{needed}' missing"))
         if not self.cfg["core_tables"]:
