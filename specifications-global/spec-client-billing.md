@@ -114,7 +114,7 @@ App 5 counts the days from `payment_failed_at`. Paddle's payment recovery retrie
 
 ## 6. Cash Flow
 
-The cash flow, the cost per client and the hosting costs of Mybizz CS are in `mybizz-cs-business-plan.md`, in `C:\data-mybizz-mgt\business\mybizz-cs`.
+The cash flow, the cost per client and the hosting costs of Mybizz CS are in [[[data-mybizz-mgt:business/mybizz-cs/mybizz-cs-business-plan]]](C:/data-mybizz-mgt/business/mybizz-cs/mybizz-cs-business-plan.md).
 
 ---
 
