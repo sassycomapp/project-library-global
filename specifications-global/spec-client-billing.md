@@ -1,7 +1,7 @@
 ---
 title: "spec-client-billing"
 doc-id: "mb-bc4cc414"
-updated: "2026-11-12"
+updated: "2026-11-17"
 ---
 # Mybizz — Client Billing (Specification)
 
@@ -114,66 +114,7 @@ App 5 counts the days from `payment_failed_at`. Paddle's payment recovery retrie
 
 ## 6. Cash Flow
 
-- Every client pays in advance, for the month or the year ahead.
-- DigitalOcean, Amazon SES and Groq charge Mybizz after use, by the second or by the item, on one bill at the end of each month. Mybizz pays only for the days a client's container and database exist.
-- Each client's payment therefore reaches Mybizz before that client's costs fall due. Every client adds to Mybizz's cash from its first month.
-
-### Per client
-
-| Per client, per month, at £119 | GBP | Billed as |
-|---|---|---|
-| Subscription, before tax | £119.00 | |
-| Paddle's fee (5% + $0.50) | −£6.33 | |
-| Paid out to Mybizz | £112.67 | |
-| Container (`apps-s-1vcpu-1gb`) | −£9.00 | $12.00 |
-| Usage: email £1.00, AI writing and insight £0.50, speech to text £0.10, text to speech £5.00, data transfer over the allowance £1.00 | −£7.60 | |
-| Left toward the database cluster and Mybizz's fixed costs | £96.07 | |
-
-An annual-plan client pays £1,190 once a year, less Paddle's fee of £59.88, and leaves £77.58 a month toward the database cluster and Mybizz's fixed costs.
-
-The usage figure budgets each client at medium-to-heavy use: a team of about six using email, AI and voice every working day.
-
-**Highest cost of one client.** With every fair-use limit reached ([[[default:adr-global/adr-fair-use-limits]]](C:/dev/project-library-global/adr-global/adr-fair-use-limits.md)), one client costs at most £54.78 a month: container £18.75, email £3.75, AI and voice £16.80, data transfer £5.25, Paddle's fee £6.33 and a database share of £3.90. Each client's £119 covers this.
-
-### Database cluster
-
-The cluster is Advanced Edition with a standby from go-live: 8 GiB, £195 ($260) a month, to client 59; 16 GiB, about £390 ($520), from client 60; and 32 GiB, about £780 ($1,040), from client 130 ([[[default:specifications-global/spec-client-instance-hosting|Client Instance Hosting]]](C:/dev/project-library-global/specifications-global/spec-client-instance-hosting.md) section 4).
-
-### Mybizz's fixed costs
-
-| Cost | Per month |
-|---|---|
-| Anvil Business account (Apps 1, 2, 3, 5 and the demo apps) | £74.25 |
-| Container Registry, Basic plan | £3.75 |
-| Test client instance | £9.00 |
-| `mybizz.live` domain | £1.58 |
-| Email reputation alarms (two AWS CloudWatch alarms) | £0.15 |
-| Cyber Essentials certification, renewed yearly | £26.67 |
-| Business insurance, starting covers, paid monthly ([[[default:adr-global/adr-business-insurance]]](C:/dev/project-library-global/adr-global/adr-business-insurance.md)); £141.67 from client 25 | £75.00 |
-| ICO data protection fee | £3.92 |
-| Companies House confirmation statement | £4.17 |
-| FreeAgent accounting software | £33.00 |
-| UK address package: registered office and director's service address | £5.00 |
-| Marketing: paid search and social advertising, a budget allowance spent as results justify | £350.00 |
-| **Total, to client 19** | **£586.49** |
-| Part-time support, from client 20 | £1,000.00 |
-| **Total, from client 20** | **£1,586.49** |
-| **Total, from client 25** | **£1,653.16** |
-
-### Totals by client count
-
-Revenue is shown on the monthly plan.
-
-| Clients | Revenue | Client-related costs | Fixed costs | Net profit |
-|---|---|---|---|---|
-| 1 | £119.00 | £217.93 | £586.49 | −£685.42 |
-| 9 | £1,071.00 | £401.37 | £586.49 | £83.14 |
-| 25 | £2,975.00 | £768.25 | £1,653.16 | £553.59 |
-| 50 | £5,950.00 | £1,341.50 | £1,653.16 | £2,955.34 |
-| 60 | £7,140.00 | £1,765.80 | £1,653.16 | £3,721.04 |
-| 100 | £11,900.00 | £2,683.00 | £1,653.16 | £7,563.84 |
-
-Client-related costs are the containers, the usage, Paddle's fees and the database cluster. **Break-even is 9 clients.** At 20 clients the gross profit covers the fixed costs and the part-time support, so Mybizz is profitable at every client number from break-even onwards.
+The cash flow, the cost per client and the hosting costs of Mybizz CS are in `mybizz-cs-business-plan.md`, in `C:\data-mybizz-mgt\business\mybizz-cs`.
 
 ---
 

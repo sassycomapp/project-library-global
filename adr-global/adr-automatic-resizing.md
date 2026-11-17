@@ -1,7 +1,7 @@
 ---
 title: "adr-automatic-resizing"
 doc-id: "mb-9773fcc7"
-updated: "2026-11-12"
+updated: "2026-11-17"
 ---
 # Automatic Resizing
 
@@ -55,7 +55,7 @@ Each client instance runs in its own 1 GiB container on DigitalOcean App Platfor
 - App 5 holds a DigitalOcean access key whose scope allows updating apps and databases ([[[default:security-global/cloud/sec-client-provisioning-security]]](C:/dev/project-library-global/security-global/cloud/sec-client-provisioning-security.md)).
 - Container memory reaches App 5 from DigitalOcean's metrics ([[[default:adr-global/adr-observability-architecture]]](C:/dev/project-library-global/adr-global/adr-observability-architecture.md)).
 - The test suite tests each resize decision against a simulated DigitalOcean API ([[[default:test-suite/ts-catalogue]]](C:/dev/project-library-global/test-suite/ts-catalogue.md)).
-- The budget's escalation points follow this record (the Mybizz budget, `Budget.md` in `data-mybizz-mgt`).
+- The budget's escalation points follow this record (the Mybizz budget, `mybizz-live-budget.xlsx` in `data-mybizz-mgt\business\mybizz-live`).
 
 ---
 
