@@ -101,7 +101,7 @@ case "$ACTION" in
 
     # The server takes the app's package name from the directory it is given,
     # so serve the app through a package-named link in the runtime folder.
-    # Dependencies are cloned at the tag the app declares into directories
+    # Dependencies are cloned at the tag or branch the app declares into directories
     # adjacent to that link (the App Server's documented layout) and mapped
     # with --dep-id keyed by dep_id; GitHub addresses come from the app's
     # tests/ts-config.yaml (dependency_sources).
@@ -127,7 +127,8 @@ for dep in doc.get("dependencies") or []:
     hints = dep.get("resolution_hints") or {}
     app_id = hints.get("app_id")
     name = hints.get("package_name")
-    tag = (dep.get("version") or {}).get("version_tag")
+    version = dep.get("version") or {}
+    tag = version.get("version_tag") or version.get("branch")
     url = sources.get(app_id)
     if not all([dep_id, name, tag, url]):
         print(f"ts_local: cannot wire dependency {dep_id}: "
