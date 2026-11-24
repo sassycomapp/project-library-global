@@ -53,7 +53,7 @@ Onboarding is **resumable and revisitable**. The Owner may return to the onboard
 4. **Onboarding is resumable** — Owner may leave and return without losing progress **[[[default:adr-global/adr-onboarding-resumability|Onboarding Resumability]]](C:/dev/project-library-global/adr-global/adr-onboarding-resumability.md)**
 5. **Credential changes are append-only** — Mybizz_management never overwrites, always appends **[[[default:adr-global/adr-onboarding-finality|Onboarding Finality]]](C:/dev/project-library-global/adr-global/adr-onboarding-finality.md)**
 6. **Client data rights** — Owner may remove details from Client Details Table, but not from Retained Records Table **[[[default:adr-global/adr-onboarding-finality|Onboarding Finality]]](C:/dev/project-library-global/adr-global/adr-onboarding-finality.md)**
-7. **System Currency is immutable after first transaction** — selected in onboarding, locked after first transaction **[[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md)**
+7. **System Currency is fixed once confirmed** — selected and confirmed in onboarding; local currencies are switched on market by market in Settings **[[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency and Local Currencies]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md)**
 8. **Payment gateway is configured in Settings** — RBAC-governed, not part of onboarding **[[[default:adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed|Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed.md)**
 9. **Palette selection is in Settings** — Onboarding has a button to jump to Settings → Palette tab **[[[default:adr-global/adr-onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]]](C:/dev/project-library-global/adr-global/adr-onboarding-vs-settings-boundary.md)**
 10. **Table and field names match the application's authoritative schema (in its own project library)** — `business_profile` (with underscore) **[[[default:adr-global/adr-onboarding-data-schema-alignment|Onboarding Data Schema Alignment]]](C:/dev/project-library-global/adr-global/adr-onboarding-data-schema-alignment.md)**
@@ -76,7 +76,7 @@ Create a new Client instance shell with minimal configuration, then notify the O
 | 5 | Create client record in Mybizz_management | Client Details Table entry | Record exists |
 | 6 | Send welcome email with the link to set a password (no password is ever emailed) | Email through Amazon SES | Owner notified |
 
-> **Note:** Currency and payment gateway are NOT set by Mybizz during provisioning. The Owner configures these in Onboarding and Settings respectively. **[[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md), [[[default:adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed|Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed.md)**
+> **Note:** Currency and payment gateway are NOT set by Mybizz during provisioning. The Owner configures these in Onboarding and Settings respectively. **[[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency and Local Currencies]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md), [[[default:adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed|Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed.md)**
 
 ### 2.3 Mybizz_management Behaviour
 
@@ -136,7 +136,7 @@ These are one-time elements that must be completed on the onboarding form. They 
 **UI Components:**
 - `Heading` (headline-small): "System Currency"
 - `Text` (body-medium): "Select the currency your business operates in. This will be used for all internal calculations, reporting, and analytics."
-- `Text` (caption, warning): "This selection becomes permanent once your first transaction has been recorded."
+- `Text` (caption, warning): "This selection is permanent once you confirm it. Your books, reports and tax returns will be in this currency. You can still sell in other currencies, market by market, in Settings."
 - `DropdownMenu` — System Currency (required, list of supported ISO 4217 currencies)
 - `Button` (filled): "Confirm Currency Selection"
 
@@ -148,8 +148,7 @@ These are one-time elements that must be completed on the onboarding form. They 
 - Owner selects a currency from the dropdown
 - Owner clicks "Confirm Currency Selection" button
 - Confirmation is recorded: `business_profile.system_currency = selected_value`
-- **Once confirmed AND the first transaction is recorded, this selection becomes immutable**
-- Before the first transaction, the Owner may change the selection
+- **Once confirmed, this selection never changes** ([[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency and Local Currencies]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md))
 
 **Outputs:**
 - Updates `business_profile.system_currency`
@@ -233,9 +232,9 @@ The Settings form uses M3 buttons for tab navigation:
 |-----|---------|------|
 | **Business Profile** | Name, email, phone, address, timezone, entity type | Owner, Manager |
 | **Palette** | Brand colour selection | Owner, Manager |
-| **System Currency** | Currency display (locked after first transaction) | Owner only |
+| **System Currency** | Currency display (fixed once confirmed in onboarding) | Owner only |
 | **Legal Acknowledgement** | Read-only view of acknowledgements | Owner only |
-| **Display Currency** | Optional per-service currency override | Owner, Manager |
+| **Local Currencies** | Turn on a local currency for a market, with the client's own rate and rounding, and local prices | Owner, Manager |
 | **Payment Gateway** | Stripe and PayPal configuration (API keys stored in The Vault) | Owner only |
 | **Services** | Service catalogue management | Owner, Manager, Admin |
 | **Users & Permissions** | User management and RBAC | Owner only |
@@ -255,7 +254,7 @@ The Settings form includes a "Return to Onboarding" button in the header:
 
 Each tab is RBAC-governed:
 - Owner: Full access to all tabs
-- Manager: Access to Business Profile, Palette, Display Currency, Services, Theme
+- Manager: Access to Business Profile, Palette, Local Currencies, Services, Theme
 - Admin: Access to Services only
 - Staff: No access to Settings
 - Customer: No access to Settings
@@ -307,7 +306,7 @@ business_profile:
 
 - **Before completion:** Owner can re-enter onboarding at any time; form state is preserved
 - **After completion:** Owner can still return to onboarding to review or change credentials
-- **System Currency:** Cannot be changed after the first transaction; any exception requires Mybizz support **[[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md)**
+- **System Currency:** Cannot be changed once confirmed in onboarding **[[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency and Local Currencies]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md)**
 - **Legal Acknowledgement:** Recorded once, cannot be reversed **[[[default:adr-global/adr-onboarding-finality|Onboarding Finality]]](C:/dev/project-library-global/adr-global/adr-onboarding-finality.md)**
 - **Payment Gateway:** Can be changed under approved platform rules **[[[default:adr-global/adr-payment-gateway-mutability|Payment Gateway Mutability]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-mutability.md)**
 
@@ -370,7 +369,7 @@ Owner Onboarding (Onboarding Form)
 ├── Step 1: Welcome and orientation
 ├── Step 2: Business Profile → link to Settings → Business Profile tab
 ├── Step 3: Palette Selection → link to Settings → Palette tab
-├── Step 4: System Currency → dropdown + confirm (required, immutable after first transaction)
+├── Step 4: System Currency → dropdown + confirm (required, fixed once confirmed)
 ├── Step 5: Legal Acknowledgement → text + checkbox + confirm (required, logged in Mybizz_management)
 ├── Step 6: Completion → onboarding complete
 └── → Dashboard
@@ -417,7 +416,7 @@ Post-Onboarding (accessible at any time)
 
 | ADR File | Title | Relevance |
 |----------|-------|-----------|
-| [[[default:adr-global/adr-system-currency-selection-and-immutability\|System Currency Selection and Immutability]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md) | System Currency Selection and Immutability | Currency selected in onboarding, immutable after first transaction |
+| [[[default:adr-global/adr-system-currency-selection-and-immutability\|System Currency and Local Currencies]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md) | System Currency and Local Currencies | System currency fixed once confirmed in onboarding; local currencies switched on market by market in Settings |
 | [[[default:adr-global/adr-onboarding-vs-settings-boundary\|Onboarding vs Settings Boundary]]](C:/dev/project-library-global/adr-global/adr-onboarding-vs-settings-boundary.md) | Onboarding vs Settings Boundary | Onboarding is a separate form; Settings is the single configuration surface |
 | [[[default:adr-global/adr-legal-policy-responsibility-acknowledgement-and-clause-builder-architecture\|Legal Policy Responsibility Acknowledgement and Clause-Builder Architecture]]](C:/dev/project-library-global/adr-global/adr-legal-policy-responsibility-acknowledgement-and-clause-builder-architecture.md) | Legal Policy Responsibility Acknowledgement | Legal acknowledgement logged in Mybizz_management |
 | [[[default:adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed\|Payment Gateway Configuration Is a Settings Function and Is RBAC-Governed]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-configuration-is-a-settings-function-and-is-rbac-governed.md) | Payment Gateway Configuration Is Settings | Gateway configured in Settings, not onboarding |
@@ -446,7 +445,7 @@ Post-Onboarding (accessible at any time)
 
 1. **Implement OnboardingForm** — welcome, required elements (currency + legal), navigation to Settings
 2. **Implement tabbed SettingsForm** — M3 button tabs, RBAC-governed, "Return to Onboarding" button
-3. **Implement system currency selection** — dropdown + confirmation button, immutability after first transaction
+3. **Implement system currency selection** — dropdown + confirmation button, fixed once confirmed
 4. **Implement legal acknowledgement** — text with critical excerpts, "Read more" link, checkbox, confirmation button
 5. **Implement client-instance audit log** — append-only credential change logging, synced to the Mybizz_management amendment log
 6. **Add new columns to `business_profile` table** (9 columns listed in Section 7.1)
@@ -477,7 +476,7 @@ This plan defines an updated, implementation-ready onboarding system for every M
 - Mybizz provisions instance shell and Owner account (no currency or gateway pre-set)
 - Owner logs in → Onboarding form opens with welcome and progress indicator
 - Owner configures Business Profile and Palette via links to Settings tabs
-- Owner selects System Currency (dropdown + confirm, immutable after first transaction)
+- Owner selects System Currency (dropdown + confirm, fixed once confirmed)
 - Owner confirms Legal Acknowledgement (text + checkbox + confirm, logged in Mybizz_management)
 - Onboarding complete → Owner directed to Dashboard
 - Owner may return to Onboarding at any time to change credentials

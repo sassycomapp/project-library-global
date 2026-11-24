@@ -33,7 +33,7 @@ Owners have the right to change any credential they choose, at any time. This de
 1. **Onboarding is revisitable:**
    - The onboarding page remains accessible after completion
    - The Owner may change any credential at any time
-   - No field is permanently locked except where explicitly stated (e.g., system currency after first transaction)
+   - No field is permanently locked except where explicitly stated (e.g., the system currency, fixed once confirmed)
 
 2. **Credential changes are append-only:**
    - When the Owner updates client details, the new values are appended to the client's record in Mybizz_management
@@ -52,8 +52,8 @@ Owners have the right to change any credential they choose, at any time. This de
    - Changes made in the client instance are synced to Mybizz_management via server functions
 
 5. **System Currency exception:**
-   - System Currency is immutable after the first transaction (per [[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md))
-   - This is the only field that cannot be changed after a specific event
+   - The System Currency is fixed once the Owner confirms the System Currency in onboarding (per [[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency and Local Currencies]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md))
+   - This is the only field that cannot be changed after confirmation
    - All other credentials remain changeable at any time
 
 ---
@@ -82,7 +82,7 @@ Owners have the right to change any credential they choose, at any time. This de
 ## Related Documents
 
 - [[[default:adr-global/adr-onboarding-vs-settings-boundary|Onboarding vs Settings Boundary]]](C:/dev/project-library-global/adr-global/adr-onboarding-vs-settings-boundary.md) — Settings as the single configuration surface
-- [[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency Selection and Immutability]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md) — Currency immutability after first transaction
+- [[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency and Local Currencies]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md) — Currency immutability after first transaction
 - [[[default:adr-global/adr-payment-gateway-mutability|Payment Gateway Mutability]]](C:/dev/project-library-global/adr-global/adr-payment-gateway-mutability.md) — Gateway change rules
 - [[[default:adr-global/adr-onboarding-resumability|Onboarding Resumability]]](C:/dev/project-library-global/adr-global/adr-onboarding-resumability.md) — Progress preservation during onboarding
 - [[[default:specifications-global/spec-onboarding-implementation-plan|Onboarding System — Engineering Plan]]](C:/dev/project-library-global/specifications-global/spec-onboarding-implementation-plan.md) — Settings-based onboarding implementation

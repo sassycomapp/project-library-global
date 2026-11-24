@@ -80,8 +80,8 @@ Every folder in `project-library-global` has a matching local folder in each pro
 | Customer | A client's own customer, who uses the client's instance. |
 | Visitor | Someone viewing a client's public website without logging in. |
 | Master template | `master_template`, the published dependency holding all server logic and forms for every client instance. |
-| System currency | The primary currency, set at onboarding and fixed after the first transaction. |
-| Display currency | An optional second currency for prices shown to customers. |
+| System currency | The client's one currency for books, reports and tax returns, set at onboarding and fixed once confirmed. |
+| Local currency | A currency the client turns on for one market; customers in that market see, pay and are refunded in the local currency, at a local price the client sets. |
 | The Vault | The encrypted store for a client's API keys and secrets. |
 | Roles | Owner, Manager, Admin, Staff and Customer, the same in every application, as [[[default:specifications-global/spec-security-architecture\|Security Architecture]]](C:/dev/project-library-global/specifications-global/spec-security-architecture.md) defines them. |
 | Client instance | One client's own Anvil App Server, in its own container on a Mybizz Hetzner application server, with its own database in Mybizz's Ubicloud service, running the release image. |

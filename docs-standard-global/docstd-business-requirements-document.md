@@ -114,9 +114,8 @@ this document.
 **Anvil-specific prompts, address explicitly rather than leaving to be discovered later:**
 - Is this a single-instance app, or does it join the dependency-based multi-instance model
   (client instances tracking a template app)? This changes almost every downstream document.
-- Single currency and immutable after first transaction, or does this project need
-  multi-currency? (Most projects in this operation default to single-currency, immutable —
-  state explicitly if this one differs.)
+- Currency follows [[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency and Local Currencies]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md) in every Mybizz application: one system currency
+  for the books, local currencies market by market.
 - Single timezone per instance, UTC storage with display-time conversion — confirm this is
   the assumption, or state the deviation.
 

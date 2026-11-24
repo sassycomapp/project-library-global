@@ -152,7 +152,7 @@ PayPal is an optional second payment method beside the card gateway. The integra
 
 ### 4.1 Availability
 
-PayPal is offered only when the system currency is one of PayPal's supported currencies (AUD, BRL, CAD, CNY, CZK, DKK, EUR, HKD, HUF, ILS, JPY, MYR, MXN, TWD, NZD, NOK, PHP, PLN, GBP, RUB, SGD, SEK, CHF, THB, USD). For any other currency (for example ISK), Settings shows PayPal as unavailable, with the reason.
+PayPal is offered in a market only when the customer's currency in that market (the system currency, or the market's local currency) is one of PayPal's supported currencies (AUD, BRL, CAD, CNY, CZK, DKK, EUR, HKD, HUF, ILS, JPY, MYR, MXN, TWD, NZD, NOK, PHP, PLN, GBP, RUB, SGD, SEK, CHF, THB, USD). For any other currency (for example ISK), checkout in that market offers card payment only, and Settings shows PayPal as unavailable for that currency, with the reason.
 
 ### 4.2 Credentials
 
@@ -171,7 +171,7 @@ PayPal is offered only when the system currency is one of PayPal's supported cur
 
 ### 4.4 Checkout
 
-1. One custom component, `PayPalButtonComponent`, loads PayPal's JavaScript SDK with the client ID, the system currency, `intent=capture` and the app language as `locale`, and renders PayPal's buttons.
+1. One custom component, `PayPalButtonComponent`, loads PayPal's JavaScript SDK with the client ID, the customer's currency, `intent=capture` and the app language as `locale`, and renders PayPal's buttons.
 2. **createOrder:** the button calls a server function with the record to be paid (booking, order, invoice or package). The server reads the amount from the database, never from the browser, and creates the order with `POST /v2/checkout/orders`, setting `reference_id` and `invoice_id` to the record's identity so PayPal refuses a duplicate.
 3. **onApprove:** the button calls a server function with the order ID. The server captures with `POST /v2/checkout/orders/{id}/capture`, sending a `PayPal-Request-Id` header so a repeated call never captures twice. A `COMPLETED` capture is recorded by the payment service, with PayPal's fee from `seller_receivable_breakdown.paypal_fee` (section 6).
 4. **onCancel or onError:** the customer sees a message in the app language; the record stays unpaid (a pending booking keeps its hold).
@@ -210,7 +210,9 @@ def refund_payment(payment_id, amount=None) -> dict
 
 Switching PayPal on or off does not require reconfiguring services or bookings. The service layer routes each payment to the gateway the customer chose: a card payment to Stripe, a PayPal payment to PayPal.
 
-**Accounting:** every payment and refund, by any gateway or recorded by hand, is one row in the payments table, which the application's accounts read. The gateway's fee for each payment is recorded on the payment's row (`gateway_fee`), taken from the gateway's own response: Stripe's balance transaction, PayPal's `paypal_fee`. Accounts show the gross payment as income and the fee as an expense.
+**Currency:** every payment is charged in the customer's currency: the system currency, or the local currency of the customer's market ([[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency and Local Currencies]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md)). Refunds are paid in the currency of the payment, for the same amount.
+
+**Accounting:** every payment and refund, by any gateway or recorded by hand, is one row in the payments table, which the application's accounts read. Each row holds `amount` and `currency` (what the customer paid) and `system_amount` (what the gateway paid into, or took from, the client's account in the system currency), taken from the gateway's own report: Stripe's balance transaction (`amount` net of `fee`, in the account's currency), PayPal's `seller_receivable_breakdown` (`gross_amount` converted through `receivable_amount` and `exchange_rate`). For a payment recorded by hand, the team member enters `system_amount`. The gateway's fee is recorded on the payment's row (`gateway_fee`, in the system currency). Accounts read `system_amount` only, and show the gross payment as income and the fee as an expense.
 
 **Language:** Stripe Elements and PayPal's buttons are given the app language as `locale`.
 
