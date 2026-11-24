@@ -1,17 +1,17 @@
 ---
 title: "spec-legal-documents-and-consent"
 doc-id: "mb-cb15091a"
-updated: "2026-11-04"
+updated: "2026-11-24"
 ---
 # Mybizz — Legal Documents and Consent
 
-**Scope:** Mybizz-wide. The single authoritative document on how every Mybizz application builds, publishes and versions its three legal documents, and asks for, records and honours consent and acceptance. The rules it implements: [[[default:policy-global/pol-legal-documents-and-consent|Legal Documents and Consent]]](C:/dev/project-library-global/policy-global/pol-legal-documents-and-consent.md).
+**Scope:** Mybizz-wide. The single authoritative document on how every Mybizz application builds, publishes and versions its legal documents, and asks for, records and honours consent and acceptance. The rules it implements: [[[default:policy-global/pol-legal-documents-and-consent|Legal Documents and Consent]]](C:/dev/project-library-global/policy-global/pol-legal-documents-and-consent.md).
 
 ---
 
-## 1. The Three Documents
+## 1. The Documents
 
-The Privacy Policy, the Terms and Conditions and the Cookie Policy are the Clause Builder's three documents, each in its own table: `privacy_policy`, `t_and_c` and `cookie_policy`.
+The Privacy Policy, the Terms and Conditions and the Cookie Policy are the Clause Builder's three standard documents, each in its own table: `privacy_policy`, `t_and_c` and `cookie_policy`.
 
 | Column | Type | Notes |
 |---|---|---|
@@ -28,10 +28,12 @@ The Privacy Policy, the Terms and Conditions and the Cookie Policy are the Claus
 
 The application seeds each document's clauses at provisioning; the Cookie Policy's seeds are in Appendix A. Each published document shows on its own public page, linked from the footer of every public page.
 
+**Added documents.** An application may add further policy documents to the Clause Builder, each in its own table named after the document (for example `returns_policy` and `delivery_policy` in Mybizz Shop). An added document has the same columns as `privacy_policy`, is seeded at provisioning, and follows every rule in this document for versions, kept copies, publishing, the public page, the footer link, consent records and go-live. The application states each added document, its seeded clauses and its acceptance points in its own design documents.
+
 ## 2. Versions and Kept Copies
 
-- Every publish of a document raises that document's version by one. The three versions are held in the application's configuration.
-- At every publish, the application writes the published text, as an HTML page, to the client's R2 bucket at `legal/{document}/v{version}.html`, where `{document}` is `privacy_policy`, `t_and_c` or `cookie_policy`.
+- Every publish of a document raises that document's version by one. Every document's version is held in the application's configuration.
+- At every publish, the application writes the published text, as an HTML page, to the client's R2 bucket at `legal/{document}/v{version}.html`, where `{document}` is the document's table name.
 - Kept copies are never changed or deleted while the client's data exists. They are part of the client's data at exit.
 
 ## 3. Acceptance of the Terms and Conditions and the Privacy Policy
@@ -84,7 +86,7 @@ Every cookie choice, every change of choice, every **Load** click, every accepta
 | Column | Type | Notes |
 |---|---|---|
 | `consent_id` | string | A random record number; for a cookie record, the same as in `mb_consent` |
-| `document` | string | `cookie_policy` / `privacy_policy` / `t_and_c` |
+| `document` | string | The document's table name: `cookie_policy` / `privacy_policy` / `t_and_c` / an added document |
 | `choice` | string | `accepted` / `refused` / `item:{service}` / `shown` |
 | `policy_version` | number | The version of the document shown |
 | `contact_id` | link → contacts | The contact who accepted or was shown the notice; empty for a cookie record |
@@ -92,17 +94,18 @@ Every cookie choice, every change of choice, every **Load** click, every accepta
 
 A cookie record holds no name, email address or IP address. Access: `client: none`, `server: full`.
 
-**Retention.** The last 30 days stay in the table. A nightly background task moves older rows to the client's R2 bucket, in `consents/{document}/{year}/{month}/`, and deletes R2 files older than their retention: 2 years under `consents/cookie_policy/`, 7 years under `consents/privacy_policy/` and `consents/t_and_c/`. The moved files are part of the client's data at exit.
+**Retention.** The last 30 days stay in the table. A nightly background task moves older rows to the client's R2 bucket, in `consents/{document}/{year}/{month}/`, and deletes R2 files older than their retention: 2 years under `consents/cookie_policy/`, 7 years under every other document's folder. The moved files are part of the client's data at exit.
 
 **Proof.** A cookie record is found by the consent number shown in Cookie settings. An acceptance record is found by the contact, and is matched to the kept copy of the version accepted (section 2).
 
 ## 11. Before Go-Live
 
-The Owner reviews the seeded clauses of all three documents, accepts or changes them, and publishes all three under the recorded acknowledgement of responsibility. The client instance does not go live until all three are published. [[[default:specifications-global/spec-client-activation-runbook|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md).
+The Owner reviews the seeded clauses of every document, accepts or changes them, and publishes every document under the recorded acknowledgement of responsibility. The client instance does not go live until every document is published. [[[default:specifications-global/spec-client-activation-runbook|Client Instance Activation Runbook]]](C:/dev/project-library-global/specifications-global/spec-client-activation-runbook.md).
 
 ## 12. What Is Tested
 
 - A publish raises the document's version and writes `legal/{document}/v{version}.html`.
+- An added document follows every test in this list that applies to the Privacy Policy.
 - An agreement does not proceed without the acceptance box ticked, and writes one `consents` row for each of `t_and_c` and `privacy_policy` with the published versions and the contact.
 - A new version of either document is asked for at the customer's next agreement or portal sign-in.
 - A form that collects personal details writes one `shown` row for the Privacy Policy.
