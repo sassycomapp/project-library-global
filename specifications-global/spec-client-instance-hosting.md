@@ -1,7 +1,7 @@
 ---
 title: "spec-client-instance-hosting"
 doc-id: "mb-0a52a7a2"
-updated: "2026-11-17"
+updated: "2026-11-24"
 ---
 # Mybizz — Client Instance Hosting (Specification)
 
@@ -216,6 +216,7 @@ Each cost is shown with its GBP figure at Mybizz's planning rates of $1 = £0.74
 |---|---|---|---|
 | Anvil Business account (Apps 1, 2, 3, 5 and the demo instances) | — | £87.00 | Per Mybizz account |
 | Application server `CPX42`, with backups and its IPv4 address | €83.89 | £69.96 | Per 12 places, per business |
+| Dedicated application server `CCX33`, with backups and its IPv4 address | €166.69 | £139.02 | Per Mybizz Shop Enterprise client |
 | Ubicloud managed PostgreSQL, with a standby | $156 to $626 | £116.22 to £466.37 | By stage (section 4), shared by every business |
 | Release image registry | — | £0 | GitHub container registry |
 | Uptime check | — | £0 | UptimeRobot free plan |
