@@ -97,7 +97,7 @@ doesn't apply — don't leave a row blank without saying why.
 | Availability | **[PROJECT]** — Mybizz's Hetzner application servers and its Ubicloud database service serve every client of the business; state the recovery target the rebuild procedure meets (see spec-deployment section 8) | |
 | Timezone handling | **[PROJECT]** — default assumption: UTC storage, display-time conversion, per-instance IANA timezone. State if this project deviates. | |
 | Currency handling | **[PROJECT]** — every Mybizz application follows [[[default:adr-global/adr-system-currency-selection-and-immutability\|System Currency and Local Currencies]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md): one system currency for the books; local currencies market by market, at local prices the client sets. | |
-| Color/theming compliance | **[PROJECT]** — M3 theme + approved overlay, no hardcoded colors (AGENTS.md Hard Rule 2) — confirm no project-specific exception needed |
+| Color/theming compliance | **[PROJECT]** — Material 3 exactly as `m3-custom-theme` defines it, with no departure; no hard-coded colours, fonts or sizes | |
 
 ---
 
