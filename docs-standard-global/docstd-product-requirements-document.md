@@ -1,7 +1,7 @@
 ---
 title: "docstd-product-requirements-document"
 doc-id: "mb-ff79bc42"
-updated: "2026-11-17"
+updated: "2026-11-25"
 ---
 # {Project Name} — Product Requirements Document (PRD)
 
@@ -96,7 +96,7 @@ doesn't apply — don't leave a row blank without saying why.
 | Accessibility | **[PROJECT]** | |
 | Availability | **[PROJECT]** — Mybizz's Hetzner application servers and its Ubicloud database service serve every client of the business; state the recovery target the rebuild procedure meets (see spec-deployment section 8) | |
 | Timezone handling | **[PROJECT]** — default assumption: UTC storage, display-time conversion, per-instance IANA timezone. State if this project deviates. | |
-| Currency handling | **[PROJECT]** — every Mybizz application follows [[[default:adr-global/adr-system-currency-selection-and-immutability|System Currency and Local Currencies]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md): one system currency for the books; local currencies market by market, at local prices the client sets. | |
+| Currency handling | **[PROJECT]** — every Mybizz application follows [[[default:adr-global/adr-system-currency-selection-and-immutability\|System Currency and Local Currencies]]](C:/dev/project-library-global/adr-global/adr-system-currency-selection-and-immutability.md): one system currency for the books; local currencies market by market, at local prices the client sets. | |
 | Color/theming compliance | **[PROJECT]** — M3 theme + approved overlay, no hardcoded colors (AGENTS.md Hard Rule 2) — confirm no project-specific exception needed |
 
 ---
